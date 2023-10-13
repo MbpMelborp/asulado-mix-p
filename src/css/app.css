@@ -4,7 +4,8 @@
 
 @font-face {
   font-family: "__avenir_d0bd6f";
-  src: url(/assets/fonts/ee0063ed4c3236ca-s.p.woff) format("woff");
+  src: url(https://melborp.s3.us-east-2.amazonaws.com/assets/fonts/ee0063ed4c3236ca-s.p.woff)
+    format("woff");
   font-display: swap;
   font-weight: 400;
   font-style: normal;
@@ -12,7 +13,8 @@
 
 @font-face {
   font-family: "__avenir_d0bd6f";
-  src: url(/assets/fonts/ce9abbd2222b7882-s.p.woff) format("woff");
+  src: url(https://melborp.s3.us-east-2.amazonaws.com/assets/fonts/ce9abbd2222b7882-s.p.woff)
+    format("woff");
   font-display: swap;
   font-weight: 500;
   font-style: normal;
@@ -20,7 +22,8 @@
 
 @font-face {
   font-family: "__avenir_d0bd6f";
-  src: url(/assets/fonts/60964256366d74f2-s.p.woff) format("woff");
+  src: url(https://melborp.s3.us-east-2.amazonaws.com/assets/fonts/60964256366d74f2-s.p.woff)
+    format("woff");
   font-display: swap;
   font-weight: 900;
   font-style: normal;
@@ -28,7 +31,8 @@
 
 @font-face {
   font-family: "__avenir_d0bd6f";
-  src: url(/assets/fonts/7d16627dbfbbee5d-s.p.woff) format("woff");
+  src: url(https://melborp.s3.us-east-2.amazonaws.com/assets/fonts/7d16627dbfbbee5d-s.p.woff)
+    format("woff");
   font-display: swap;
   font-weight: 200;
   font-style: normal;
@@ -36,7 +40,8 @@
 
 @font-face {
   font-family: "__avenir_d0bd6f";
-  src: url(/assets/fonts/33112a1a3babe854-s.p.woff) format("woff");
+  src: url(https://melborp.s3.us-east-2.amazonaws.com/assets/fonts/33112a1a3babe854-s.p.woff)
+    format("woff");
   font-display: swap;
   font-weight: 700;
   font-style: normal;
@@ -55,7 +60,8 @@
 
 @font-face {
   font-family: "__jeko_bd9979";
-  src: url(/assets/fonts/e86cc954d8c82a89-s.p.woff) format("woff");
+  src: url(https://melborp.s3.us-east-2.amazonaws.com/assets/fonts/e86cc954d8c82a89-s.p.woff)
+    format("woff");
   font-display: swap;
   font-weight: bold;
   font-style: normal;
@@ -63,7 +69,8 @@
 
 @font-face {
   font-family: "__jeko_bd9979";
-  src: url(/assets/fonts/0a5eb17cd5d9a87b-s.p.woff) format("woff");
+  src: url(https://melborp.s3.us-east-2.amazonaws.com/assets/fonts/0a5eb17cd5d9a87b-s.p.woff)
+    format("woff");
   font-display: swap;
   font-weight: 300;
   font-style: normal;
@@ -71,7 +78,8 @@
 
 @font-face {
   font-family: "__jeko_bd9979";
-  src: url(/assets/fonts/87cbde00c95e8478-s.p.woff) format("woff");
+  src: url(https://melborp.s3.us-east-2.amazonaws.com/assets/fonts/87cbde00c95e8478-s.p.woff)
+    format("woff");
   font-display: swap;
   font-weight: 400;
   font-style: normal;

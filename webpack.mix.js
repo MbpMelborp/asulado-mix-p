@@ -22,11 +22,13 @@ mix
     rimraf("prod/*");
   })
   .js("src/js/app.js", "dist/assets/js/app.js")
+  //   .minify("dist/assets/js/app.js")
   .postCss("src/css/app.css", "dist/assets/css/app.css", [
     require("postcss-import"),
     require("tailwindcss"),
     require("autoprefixer"),
   ])
+  //   .minify("dist/assets/css/app.css")
   .html({
     htmlRoot: "./src/pages/**/*.html", // Your html root file(s)
     output: "dist", // The html output folder

@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npx mix watch",
+    "prod": "npx mix --production",
     "devp": "cd dist && python3 -m http.server"
   },
   "author": "MELBORP",

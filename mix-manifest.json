@@ -1,7 +1,10 @@
 {
     "/dist/assets/js/app.js": "/dist/assets/js/app.js",
     "/dist/assets/css/app.css": "/dist/assets/css/app.css",
+    "/dist/assets/js/app.min.js": "/dist/assets/js/app.min.js",
+    "/dist/assets/css/app.min.css": "/dist/assets/css/app.min.css",
     "/prod/assets/css/app.css": "/prod/assets/css/app.css",
+    "/prod/assets/css/app.min.css": "/prod/assets/css/app.min.css",
     "/prod/assets/fonts/0a5eb17cd5d9a87b-s.p.woff": "/prod/assets/fonts/0a5eb17cd5d9a87b-s.p.woff",
     "/prod/assets/fonts/33112a1a3babe854-s.p.woff": "/prod/assets/fonts/33112a1a3babe854-s.p.woff",
     "/prod/assets/fonts/60964256366d74f2-s.p.woff": "/prod/assets/fonts/60964256366d74f2-s.p.woff",
@@ -43,6 +46,8 @@
     "/prod/assets/images/vigilado.png": "/prod/assets/images/vigilado.png",
     "/prod/assets/images/vigilado_vert.png": "/prod/assets/images/vigilado_vert.png",
     "/prod/assets/js/app.js": "/prod/assets/js/app.js",
+    "/prod/assets/js/app.js.LICENSE.txt": "/prod/assets/js/app.js.LICENSE.txt",
+    "/prod/assets/js/app.min.js": "/prod/assets/js/app.min.js",
     "/prod/favicon.ico": "/prod/favicon.ico",
     "/prod/index.html": "/prod/index.html",
     "/prod/nuestra_empresa/index.html": "/prod/nuestra_empresa/index.html"

@@ -1,0 +1,52 @@
+<extends src="layout.html">
+  <block name="head">
+    <title>ASULADO - INICIO</title>
+
+    <meta
+      name="title"
+      content="SaaS Tailwind | SaaS Web Template for Tailwind CSS"
+    />
+    <meta
+      name="description"
+      content="SaaS Tailwind is a complete Tailwind CSS template crafted specially for SaaS, Software Mobile App and Web App Sites. Comes with all essential components and pages you need to kickstart your SaaS websites."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://saas-tailwind.preview.uideck.com/"
+    />
+    <meta
+      property="og:title"
+      content="SaaS Tailwind | SaaS Web Template for Tailwind CSS"
+    />
+    <meta
+      property="og:description"
+      content="SaaS Tailwind is a complete Tailwind CSS template crafted specially for SaaS, Software Mobile App and Web App Sites. Comes with all essential components and pages you need to kickstart your SaaS websites."
+    />
+    <meta property="og:image" content="#" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://saas-tailwind.preview.uideck.com/"
+    />
+    <meta
+      property="twitter:title"
+      content="SaaS Tailwind | SaaS Web Template for Tailwind CSS"
+    />
+    <meta
+      property="twitter:description"
+      content="SaaS Tailwind is a complete Tailwind CSS template crafted specially for SaaS, Software Mobile App and Web App Sites. Comes with all essential components and pages you need to kickstart your SaaS websites."
+    />
+    <meta property="twitter:image" content />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include src="home/banners.html"></include>
+    <include src="home/proposito.html"></include>
+    <include src="home/servicios.html"></include>
+    <include src="home/cifras.html"></include>
+    <include src="home/documentos.html"></include>
+    <include src="home/blog.html" locals='{ "button": "VER TODOS"}'></include>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

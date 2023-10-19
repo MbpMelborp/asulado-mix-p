@@ -235,7 +235,7 @@ body {
 
 .as__header_vigilado {
   @apply fixed bottom-11 left-2 z-10 lg:w-auto w-3;
-  img{
+  img {
     @apply w-full;
   }
 }
@@ -1067,8 +1067,11 @@ body {
   }
   .as__ayuda_ilus {
     @apply z-0 col-start-1 col-end-1 row-start-1 row-end-2 flex justify-center;
-    svg {
-      @apply mt-0 w-full;
+    .as__ayuda_ilus_wrap {
+      @apply container mx-auto;
+      svg {
+        @apply mt-0 w-full;
+      }
     }
   }
 }

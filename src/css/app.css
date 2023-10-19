@@ -151,7 +151,7 @@ body {
     }
 
     ul.as__nav_links {
-      @apply hidden lg:flex h-full min-h-screen w-full flex-col items-center py-20 lg:w-auto lg:h-auto lg:min-h-max lg:flex-row lg:gap-x-1 lg:border-0 lg:p-0 xl:gap-x-5 lg:bg-transparent;
+      @apply hidden lg:flex h-[100svh] w-full flex-col items-center py-8 lg:w-auto lg:h-auto lg:min-h-max lg:flex-row lg:gap-x-1 lg:border-0 lg:p-0 xl:gap-x-5 lg:bg-transparent;
 
       &.nav_open {
         @apply flex duration-700 animate-in fade-in;

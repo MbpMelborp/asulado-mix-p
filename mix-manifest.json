@@ -29,6 +29,8 @@
     "/prod/assets/images/img_anciana.webp": "/prod/assets/images/img_anciana.webp",
     "/prod/assets/images/img_atencion_1.png": "/prod/assets/images/img_atencion_1.png",
     "/prod/assets/images/img_atencion_2.png": "/prod/assets/images/img_atencion_2.png",
+    "/prod/assets/images/img_gestion.png": "/prod/assets/images/img_gestion.png",
+    "/prod/assets/images/img_gestion.webp": "/prod/assets/images/img_gestion.webp",
     "/prod/assets/images/img_nino.webp": "/prod/assets/images/img_nino.webp",
     "/prod/assets/images/img_novedades_1.png": "/prod/assets/images/img_novedades_1.png",
     "/prod/assets/images/img_novedades_1.webp": "/prod/assets/images/img_novedades_1.webp",
@@ -62,7 +64,5 @@
     "/prod/favicon.ico": "/prod/favicon.ico",
     "/prod/index.html": "/prod/index.html",
     "/prod/nuestra_empresa/index.html": "/prod/nuestra_empresa/index.html",
-    "/prod/renta_vitalicia/index.html": "/prod/renta_vitalicia/index.html",
-    "/prod/assets/images/img_gestion.png": "/prod/assets/images/img_gestion.png",
-    "/prod/assets/images/img_gestion.webp": "/prod/assets/images/img_gestion.webp"
+    "/prod/renta_vitalicia/index.html": "/prod/renta_vitalicia/index.html"
 }

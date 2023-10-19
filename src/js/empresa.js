@@ -1,3 +1,7 @@
+// import Flicking from "@egjs/flicking";
+// import { AutoPlay } from "@egjs/flicking-plugins";
+// import { Arrow } from "@egjs/flicking-plugins";
+
 export function setPropositios(gsap, ScrollTrigger) {
   const id = document.getElementById("am__proposito");
   if (id) {
@@ -105,5 +109,17 @@ export function setComo(gsap, ScrollTrigger) {
         // console.log(progress);
       },
     });
+
+    // const flicking = new Flicking("#am__como_car", {
+    //   align: "center",
+    //   circular: true,
+    //   bound: true,
+    //   renderOnlyVisible: false,
+    // });
+
+    // flicking.addPlugins(
+    //   new AutoPlay({ duration: 8000, direction: "NEXT", stopOnHover: true })
+    // );
+    // flicking.addPlugins(new Arrow());
   }
 }

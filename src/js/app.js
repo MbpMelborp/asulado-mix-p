@@ -14,11 +14,11 @@ import {
   setHomeBlog,
 } from "./home";
 
-import { setTop, setQue, setGestion } from "./general";
+import { setTop, setQue, setGestion, setAyuda } from "./general";
 
 import { setPropositios, setComo } from "./empresa";
 
-import { setRV_auxilio } from "./prods";
+import { setRV_auxilio, setRV_destacados } from "./prods";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -47,6 +47,7 @@ gsap.ticker.lagSmoothing(0);
 let open_menu = false;
 const menu_button = document.getElementById("open_menu");
 const menu_nav = document.getElementById("navbar-default");
+const menu_wrap = document.getElementById("as__header");
 menu_button.addEventListener("click", handleMenu);
 
 function handleMenu() {
@@ -55,12 +56,15 @@ function handleMenu() {
   if (!open_menu) {
     document.querySelector("body").classList.add("overflow-hidden");
     menu_nav.classList.add("nav_open");
+    menu_wrap.classList.add("open");
     menu_nav.classList.remove("nav_close");
+
     lenis.stop();
   } else {
     document.querySelector("body").classList.remove("overflow-hidden");
     menu_nav.classList.add("nav_close");
     menu_nav.classList.remove("nav_open");
+    menu_wrap.classList.remove("open");
     lenis.start();
   }
 
@@ -79,6 +83,7 @@ if (document.getElementById("as__home")) {
 setTop(gsap, ScrollTrigger);
 setQue(gsap, ScrollTrigger);
 setGestion(gsap, ScrollTrigger);
+setAyuda(gsap, ScrollTrigger);
 //EMPRESA
 if (document.getElementById("as__nuestra_empresa")) {
   setHomeServicios(gsap, ScrollTrigger);
@@ -88,4 +93,5 @@ if (document.getElementById("as__nuestra_empresa")) {
 
 if (document.getElementById("as__renta_vitalicia")) {
   setRV_auxilio(gsap, ScrollTrigger);
+  setRV_destacados(gsap, ScrollTrigger);
 }

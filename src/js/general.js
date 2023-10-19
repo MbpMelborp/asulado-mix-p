@@ -147,6 +147,16 @@ export function setGestion(gsap, ScrollTrigger) {
 
     tl.addLabel("startp", 0)
       .fromTo(
+        ".as__gestion h3",
+        { clipPath: "inset(0 100% 0 0)", opacitiy: 0 },
+        {
+          clipPath: "inset(0 0% 0 0)",
+          opacity: 1,
+          duration: 4,
+        },
+        "startp"
+      )
+      .fromTo(
         ".as__gestion .as__gestion_content .prop_anim",
         { opacity: 0, y: 20 },
         {
@@ -156,10 +166,96 @@ export function setGestion(gsap, ScrollTrigger) {
           opacity: 1,
           stagger: 0.4,
         },
-        "startp"
+        "startp-=2"
       )
       .fromTo(
         ".as__gestion img",
+        { opacity: 0, y: 40 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 4,
+        },
+        "startp-=3"
+      );
+
+    const scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: id,
+      start: "-20% center",
+      end: "20% center",
+      scrub: 3,
+      // markers: true,
+      onUpdate: ({ progress }) => {
+        // console.log(progress);
+      },
+    });
+  }
+}
+
+export function setAyuda(gsap, ScrollTrigger) {
+  const id = document.getElementById("ayuda");
+
+  if (id) {
+    const tl_yoyo = gsap.timeline({ paused: false });
+    tl_yoyo
+      .to(
+        "#ayuda .na_nube",
+        {
+          transformOrigin: "center",
+          duration: 1,
+          repeat: -1,
+          y: 15,
+          ease: "sine.inOut",
+          stagger: 0.2,
+          yoyo: true,
+        },
+        "0"
+      )
+      .to(
+        "#ayuda .start",
+        {
+          transformOrigin: "center",
+          duration: 1,
+          repeat: -1,
+          rotation: function (index, target) {
+            return (index + 1) * 360;
+          },
+          y: -15,
+          ease: "sine.inOut",
+          stagger: 0.2,
+          yoyo: true,
+        },
+        "0"
+      );
+
+    const tl = gsap.timeline({ paused: true });
+
+    tl.addLabel("startp", 0)
+      .fromTo(
+        ".as__ayuda .as__ayuda_ilus",
+        { clipPath: "inset(0 100% 0 0)", opacitiy: 0 },
+        {
+          clipPath: "inset(0 0% 0 0)",
+          opacity: 1,
+          duration: 4,
+        },
+        "startp"
+      )
+      .fromTo(
+        ".as__ayuda .as__ayuda_content .prop_anim",
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 4,
+          opacity: 1,
+          stagger: 0.4,
+        },
+        "startp-=2"
+      )
+      .fromTo(
+        ".as__ayuda img",
         { opacity: 0, y: 40 },
         {
           y: 0,

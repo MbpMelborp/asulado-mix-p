@@ -28,6 +28,8 @@
     "tailwindcss-debug-screens": "^2.2.1"
   },
   "dependencies": {
+    "@egjs/flicking": "^4.11.0",
+    "@egjs/flicking-plugins": "^4.7.1",
     "@studio-freight/lenis": "^1.0.27",
     "alpinejs": "^3.13.1",
     "del": "^7.1.0",

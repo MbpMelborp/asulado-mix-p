@@ -95,3 +95,51 @@ export function setRV_auxilio(gsap, ScrollTrigger) {
     });
   }
 }
+
+export function setRV_destacados(gsap, ScrollTrigger) {
+  if (document.getElementById("rv_destacados")) {
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo(
+      ".as__rv_destacados_item",
+      { opacity: 0, y: 50 },
+      {
+        duration: 1,
+        opacity: 1,
+        y: 0,
+        stagger: 1,
+      },
+      "-=0"
+    )
+      .fromTo(
+        ".as__rv_destacados_item img",
+        { y: 30, scale: 1.1 },
+        {
+          y: 0,
+          scale: 1,
+          duration: 2,
+          stagger: 0.2,
+        },
+        "-=1"
+      )
+      .from(
+        ".as__rv_destacados_image",
+        { backgroundColor: "transparent", duration: 2, stagger: 0.3 },
+        "-=3"
+      );
+
+    const scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: document.getElementById("rv_destacados"),
+      // start: "20% bottom",
+      // end: "center center",
+      start: "top bottom",
+      end: "center center",
+      scrub: 3,
+      // markers: true,
+      onUpdate: ({ progress }) => {
+        // console.log(progress);
+      },
+    });
+  }
+}

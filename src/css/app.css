@@ -166,7 +166,7 @@ body {
 
           & > a:after {
             content: "\25BC";
-            @apply hidden lg:block text-[10px] pl-1 relative top-[-1px];
+            @apply hidden lg:inline-block text-[10px] pl-1 relative top-[-1px];
           }
           &:hover {
             .mega-menu {

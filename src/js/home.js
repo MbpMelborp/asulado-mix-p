@@ -434,7 +434,7 @@ export function setHomeDocumentos(gsap, ScrollTrigger) {
     tl_yoyo.to(
       ".as__documentos .img_doc_3",
       {
-        yPercent: -5,
+        yPercent: -1,
         duration: 1,
         repeat: -1,
         ease: "power4.inout",

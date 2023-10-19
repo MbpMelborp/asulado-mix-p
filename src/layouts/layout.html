@@ -70,8 +70,8 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
-    <include src="header.html"></include>
+  <body class="debug-screens" id="{{id}}">
+    <include src="header.html" locals='{ "top": {{top}} }'></include>
     <div id="smooth-wrapper">
       <div id="smooth-content" class="as__wrapper">
         <block name="content"> </block>

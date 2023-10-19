@@ -1,0 +1,65 @@
+<extends
+  src="layout.html"
+  locals='{ "id": "as__renta_vitalicia", "top": "init" }'
+>
+  <block name="head">
+    <title>ASULADO - NUESTRA EMPRESA</title>
+
+    <meta
+      name="title"
+      content="SaaS Tailwind | SaaS Web Template for Tailwind CSS"
+    />
+    <meta
+      name="description"
+      content="SaaS Tailwind is a complete Tailwind CSS template crafted specially for SaaS, Software Mobile App and Web App Sites. Comes with all essential components and pages you need to kickstart your SaaS websites."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://saas-tailwind.preview.uideck.com/"
+    />
+    <meta
+      property="og:title"
+      content="SaaS Tailwind | SaaS Web Template for Tailwind CSS"
+    />
+    <meta
+      property="og:description"
+      content="SaaS Tailwind is a complete Tailwind CSS template crafted specially for SaaS, Software Mobile App and Web App Sites. Comes with all essential components and pages you need to kickstart your SaaS websites."
+    />
+    <meta property="og:image" content="#" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://saas-tailwind.preview.uideck.com/"
+    />
+    <meta
+      property="twitter:title"
+      content="SaaS Tailwind | SaaS Web Template for Tailwind CSS"
+    />
+    <meta
+      property="twitter:description"
+      content="SaaS Tailwind is a complete Tailwind CSS template crafted specially for SaaS, Software Mobile App and Web App Sites. Comes with all essential components and pages you need to kickstart your SaaS websites."
+    />
+    <meta property="twitter:image" content />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="top.html"
+      locals='{ "bg": "bg-BG-2", "image": "top_renta_vitalicia.webp", "t1start":"1", "t2start":"3", "title1": "Renta", "title2": "Vitalicia" }'
+    ></include>
+    <include
+      src="renta_vitalicia/que_es.html"
+      locals='{ "bg":"bg-BG-4" }'
+    ></include>
+    <include
+      src="renta_vitalicia/auxilio.html"
+      locals='{ "bg":"bg-BG-4" }'
+    ></include>
+    <include
+      src="renta_vitalicia/gestion.html"
+      locals='{ "bg":"bg-BG-1" }'
+    ></include>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

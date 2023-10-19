@@ -1,4 +1,7 @@
-<extends src="layout.html">
+<extends
+  src="layout.html"
+  locals='{ "id": "as__nuestra_empresa", "top": "init" }'
+>
   <block name="head">
     <title>ASULADO - NUESTRA EMPRESA</title>
 
@@ -41,9 +44,13 @@
   </block>
   <!-- CONTENIDO DEL HOME -->
   <block name="content">
-    <div class="pp">NUestra empresa</div>
-    <div class="bg-blue-400 min-h-screen w-full">bbb</div>
-    <include src="text.html" locals='{ "author": "John Doe"}'></include>
+    <include
+      src="top.html"
+      locals='{ "bg": "bg-gradient-to-b from-[#93D1F0] to-[#E3F3FF]", "image": "top_nuestra_empresa.webp", "t1start":"1", "t2start":"3", "title1": "Nuestra", "title2": "empresa" }'
+    ></include>
+    <include src="empresa/proposito.html"></include>
+    <include src="empresa/sobre_nosotros.html"></include>
+    <include src="empresa/como.html"></include>
   </block>
   <!-- FIN CONTENIDO DEL HOME -->
 </extends>

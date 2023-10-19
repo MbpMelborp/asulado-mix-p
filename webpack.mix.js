@@ -43,6 +43,12 @@ mix
     from: /\"\/assets/g,
     to: cdn,
   })
+  .replaceInFile({
+    files: ["prod/*.html", "prod/**/*.html"],
+    from: /class=\"debug-screens\"/g,
+    to: "",
+  })
   .then(async () => {
     rimraf("prod/assets");
-  });
+  })
+  .browserSync("http://localhost:8000");

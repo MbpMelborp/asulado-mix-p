@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.html"],
+  content: ["./src/**/*.html", "./src/*.html"],
   theme: {
     extend: {
       fontFamily: {
@@ -14,11 +14,14 @@ module.exports = {
           1: "#08C1FE",
           2: "#F8EC81",
           3: "#6DC0FC",
+          4: "#F5FAFB",
         },
         azul: {
           dark: "#18254E",
           norm: "#273E82",
           bold: "#2752B0",
+          bright: "#2EB2CF",
+          bright2: "#08C1FE",
           light: "#E9F5F8",
         },
         amarillo: {

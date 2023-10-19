@@ -14,7 +14,11 @@ import {
   setHomeBlog,
 } from "./home";
 
-// import { RoughEase } from "gsap/EasePack";
+import { setTop, setQue, setGestion } from "./general";
+
+import { setPropositios, setComo } from "./empresa";
+
+import { setRV_auxilio } from "./prods";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -64,9 +68,24 @@ function handleMenu() {
 }
 
 //HOME
-setHomeBanners(gsap);
-setHomePropositios(gsap, ScrollTrigger);
-setHomeServicios(gsap, ScrollTrigger);
-setHomeCifras(gsap, ScrollTrigger);
-setHomeDocumentos(gsap, ScrollTrigger);
-setHomeBlog(gsap, ScrollTrigger);
+if (document.getElementById("as__home")) {
+  setHomeBanners(gsap);
+  setHomePropositios(gsap, ScrollTrigger);
+  setHomeServicios(gsap, ScrollTrigger);
+  setHomeCifras(gsap, ScrollTrigger);
+  setHomeDocumentos(gsap, ScrollTrigger);
+  setHomeBlog(gsap, ScrollTrigger);
+}
+setTop(gsap, ScrollTrigger);
+setQue(gsap, ScrollTrigger);
+setGestion(gsap, ScrollTrigger);
+//EMPRESA
+if (document.getElementById("as__nuestra_empresa")) {
+  setHomeServicios(gsap, ScrollTrigger);
+  setPropositios(gsap, ScrollTrigger);
+  setComo(gsap, ScrollTrigger);
+}
+
+if (document.getElementById("as__renta_vitalicia")) {
+  setRV_auxilio(gsap, ScrollTrigger);
+}

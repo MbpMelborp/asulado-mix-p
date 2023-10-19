@@ -20,29 +20,30 @@
       aria-controls="navbar-default"
       aria-expanded="false"
     >
-      <span class="sr-only">Abrir menú</span
-      ><i class="fa-solid fa-bars text-xl"></i>
+      <span class="sr-only">Menú</span
+      ><i class="i-open fa-solid fa-bars text-xl"></i>
+      <i class="i-close fa-solid fa-times text-xl"></i>
     </button>
-    <div class="as__nav_links nav_close" id="navbar-default">
-      <ul class="as__nav_links_ppal">
-        <li class="as__nav_links_ppal_li">
-          <a
-            class="as__nav_links_ppal_link"
-            aria-current="page"
-            title="INICIO"
-            href="/"
-            >INICIO</a
-          >
-        </li>
-        <li class="hoverable as__nav_links_ppal_li">
-          <a
-            class="as__nav_links_ppal_link relative block"
-            aria-current="page"
-            title="NOSOTROS"
-            href="/nuestra_empresa"
-            >NOSOTROS</a
-          >
-          <ul class="mega-menu">
+    <ul id="as__nav_links" class="as__nav_links">
+      <li class="as__nav_links_ppal_li">
+        <a
+          class="as__nav_links_ppal_link"
+          aria-current="page"
+          title="INICIO"
+          href="/"
+          >INICIO</a
+        >
+      </li>
+      <li class="hoverable as__nav_links_ppal_li">
+        <a
+          class="as__nav_links_ppal_link relative block"
+          aria-current="page"
+          title="NOSOTROS"
+          href="/nuestra_empresa"
+          >NOSOTROS</a
+        >
+        <div class="mega-menu">
+          <ul class="mega-menu-wrap">
             <li>
               <a href="/nuestra_empresa" title="Sobre nosotros">
                 <div class="mega-menu-content">
@@ -70,16 +71,18 @@
               </a>
             </li>
           </ul>
-        </li>
-        <li class="hoverable as__nav_links_ppal_li">
-          <a
-            class="as__nav_links_ppal_link relative block"
-            aria-current="page"
-            title="PRODUCTOS"
-            href="/renta_vitalicia"
-            >PRODUCTOS</a
-          >
-          <ul class="mega-menu">
+        </div>
+      </li>
+      <li class="hoverable as__nav_links_ppal_li">
+        <a
+          class="as__nav_links_ppal_link relative block"
+          aria-current="page"
+          title="PRODUCTOS"
+          href="/renta_vitalicia"
+          >PRODUCTOS</a
+        >
+        <div class="mega-menu">
+          <ul class="mega-menu-wrap">
             <li>
               <a href="/renta_vitalicia" title="Renta Vitalicia">
                 <div class="mega-menu-content">
@@ -131,44 +134,44 @@
               </a>
             </li>
           </ul>
-        </li>
-        <li class="as__nav_links_ppal_li">
-          <a
-            class="as__nav_links_ppal_link"
-            aria-current="page"
-            title="SOLICITUDES"
-            href="/"
-            >SOLICITUDES</a
-          >
-        </li>
-        <li class="as__nav_links_ppal_li">
-          <a
-            class="as__nav_links_ppal_link"
-            aria-current="page"
-            title="PREGUNTAS"
-            href="/"
-            >PREGUNTAS</a
-          >
-        </li>
-        <li class="as__nav_links_ppal_li">
-          <button
-            class="as__nav_links_ppal_link dest"
-            aria-current="page"
-            title="Blog | DE INTERÉS"
-          >
-            DE INTERÉS
-          </button>
-        </li>
-        <li class="usability as__nav_links_ppal_li">
-          <a
-            class="as__nav_links_ppal_link"
-            href="#"
-            aria-current="page"
-            title="Usabilidad"
-            ><i role="presentation" class="fa-solid fa-universal-access"></i
-          ></a>
-        </li>
-      </ul>
-    </div>
+        </div>
+      </li>
+      <li class="as__nav_links_ppal_li">
+        <a
+          class="as__nav_links_ppal_link"
+          aria-current="page"
+          title="SOLICITUDES"
+          href="/"
+          >SOLICITUDES</a
+        >
+      </li>
+      <li class="as__nav_links_ppal_li">
+        <a
+          class="as__nav_links_ppal_link"
+          aria-current="page"
+          title="PREGUNTAS"
+          href="/"
+          >PREGUNTAS</a
+        >
+      </li>
+      <li class="as__nav_links_ppal_li">
+        <button
+          class="as__nav_links_ppal_link dest"
+          aria-current="page"
+          title="Blog | DE INTERÉS"
+        >
+          DE INTERÉS
+        </button>
+      </li>
+      <li class="usability as__nav_links_ppal_li">
+        <a
+          class="as__nav_links_ppal_link"
+          href="#"
+          aria-current="page"
+          title="Usabilidad"
+          ><i role="presentation" class="fa-solid fa-universal-access"></i
+        ></a>
+      </li>
+    </ul>
   </nav>
 </header>

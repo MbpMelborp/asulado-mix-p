@@ -220,48 +220,48 @@ export function setHomePropositios(gsap, ScrollTrigger) {
         opacity: 0,
       },
       "=0"
-    );
-    tl.fromTo(
-      ".as_proposito .as__marquee .as__marquee_to_left",
-      { x: 0 },
-      {
-        x: toMarquee,
-        duration: 20,
-        opacity: 1,
-        ease: "linear",
-      },
-      "-=1"
-    );
-    tl.fromTo(
-      ".as_proposito .as_proposito_content .prop_anim",
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        opacity: 1,
-        stagger: 0.4,
-      },
-      "-=8"
-    );
-    tl.from(
-      ".as__proposito_link .as__button",
-      {
-        opacity: 0,
-        y: 20,
-        duration: 1,
-      },
-      "-=10"
-    );
-    tl.from(
-      ".as__proposito_ilus img",
-      {
-        opacity: 0,
-        y: 50,
-        duration: 4,
-      },
-      "-=3"
-    );
+    )
+      .fromTo(
+        ".as_proposito .as__marquee .as__marquee_to_left",
+        { x: 0 },
+        {
+          x: toMarquee,
+          duration: 20,
+          opacity: 1,
+          ease: "linear",
+        },
+        "-=1"
+      )
+      .fromTo(
+        ".as_proposito .as_proposito_content .prop_anim",
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          opacity: 1,
+          stagger: 0.4,
+        },
+        "-=8"
+      )
+      .from(
+        ".as__proposito_link .as__button",
+        {
+          opacity: 0,
+          y: 20,
+          duration: 1,
+        },
+        "-=10"
+      )
+      .from(
+        ".as__proposito_ilus img",
+        {
+          opacity: 0.5,
+          y: 50,
+          duration: 4,
+        },
+        "-=3"
+      );
 
     const scroll = ScrollTrigger.create({
       animation: tl,

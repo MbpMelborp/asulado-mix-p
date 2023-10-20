@@ -3,7 +3,7 @@
   locals='{ "id": "as__renta_vitalicia", "top": "init" }'
 >
   <block name="head">
-    <title>ASULADO - RENTA VITALICIA</title>
+    <title>ASULADO - SEGURO PREVISIONAL</title>
 
     <meta
       name="title"
@@ -46,24 +46,25 @@
   <block name="content">
     <include
       src="top.html"
-      locals='{ "bg": "bg-BG-2", "image": "top_renta_vitalicia.webp", "t1start":"1", "t2start":"3", "title1": "Renta", "title2": "Vitalicia" }'
+      locals='{ "bg": "bg-BG-1", "image": "top_seguro_previsional.webp", "t1start":"1", "t2start":"3", "title1": "Seguro", "title2": "Previsional" }'
     ></include>
     <include
-      src="renta_vitalicia/que_es.html"
+      src="seguro_previsional/que_es.html"
       locals='{ "bg":"bg-BG-4" }'
     ></include>
     <include
-      src="renta_vitalicia/auxilio.html"
-      locals='{ "bg":"bg-BG-4" }'
+      src="seguro_previsional/destacados.html"
+      locals='{ "bg":"as__bg_sky bg-BG-4 pt-0 pb-28" }'
     ></include>
     <include
-      src="renta_vitalicia/gestion.html"
-      locals='{ "bg":"bg-BG-1 py-16" }'
+      src="seguro_previsional/gestion.html"
+      locals='{ "bg":"bg-BG-1 py-32" }'
     ></include>
     <include
-      src="renta_vitalicia/destacados.html"
-      locals='{ "bg":"bg-BG-1" }'
+      src="seguro_previsional/listado.html"
+      locals='{ "bg":"bg-gradient-to-b from-[#F5FAFB] to-white py-16" }'
     ></include>
+
     <include
       src="ayuda.html"
       locals='{ "bg":"bg-gradient-to-b from-[#F4F9FC] to-[#E6F1F9]" }'

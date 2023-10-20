@@ -45,6 +45,8 @@
     "/prod/assets/images/img_proposito.webp": "/prod/assets/images/img_proposito.webp",
     "/prod/assets/images/img_renta.png": "/prod/assets/images/img_renta.png",
     "/prod/assets/images/img_seguro.png": "/prod/assets/images/img_seguro.png",
+    "/prod/assets/images/img_sp_auxilio.webp": "/prod/assets/images/img_sp_auxilio.webp",
+    "/prod/assets/images/img_sp_incapacidad.webp": "/prod/assets/images/img_sp_incapacidad.webp",
     "/prod/assets/images/mano_paraque.png": "/prod/assets/images/mano_paraque.png",
     "/prod/assets/images/mano_paraque.webp": "/prod/assets/images/mano_paraque.webp",
     "/prod/assets/images/mano_porque.png": "/prod/assets/images/mano_porque.png",
@@ -52,6 +54,7 @@
     "/prod/assets/images/novedades.png": "/prod/assets/images/novedades.png",
     "/prod/assets/images/quees_renta_vitalicia.png": "/prod/assets/images/quees_renta_vitalicia.png",
     "/prod/assets/images/quees_renta_vitalicia.webp": "/prod/assets/images/quees_renta_vitalicia.webp",
+    "/prod/assets/images/quees_seguro_revisional.webp": "/prod/assets/images/quees_seguro_revisional.webp",
     "/prod/assets/images/svg_anciana.svg": "/prod/assets/images/svg_anciana.svg",
     "/prod/assets/images/svg_nino_cuerpo.svg": "/prod/assets/images/svg_nino_cuerpo.svg",
     "/prod/assets/images/svg_nino_mano.svg": "/prod/assets/images/svg_nino_mano.svg",
@@ -59,6 +62,8 @@
     "/prod/assets/images/top_nuestra_empresa.png": "/prod/assets/images/top_nuestra_empresa.png",
     "/prod/assets/images/top_nuestra_empresa.webp": "/prod/assets/images/top_nuestra_empresa.webp",
     "/prod/assets/images/top_renta_vitalicia.webp": "/prod/assets/images/top_renta_vitalicia.webp",
+    "/prod/assets/images/top_seguro_previsional.png": "/prod/assets/images/top_seguro_previsional.png",
+    "/prod/assets/images/top_seguro_previsional.webp": "/prod/assets/images/top_seguro_previsional.webp",
     "/prod/assets/images/vigilado.png": "/prod/assets/images/vigilado.png",
     "/prod/assets/images/vigilado_vert.png": "/prod/assets/images/vigilado_vert.png",
     "/prod/assets/js/app.js": "/prod/assets/js/app.js",
@@ -67,5 +72,6 @@
     "/prod/favicon.ico": "/prod/favicon.ico",
     "/prod/index.html": "/prod/index.html",
     "/prod/nuestra_empresa/index.html": "/prod/nuestra_empresa/index.html",
-    "/prod/renta_vitalicia/index.html": "/prod/renta_vitalicia/index.html"
+    "/prod/renta_vitalicia/index.html": "/prod/renta_vitalicia/index.html",
+    "/prod/seguro_previsional/index.html": "/prod/seguro_previsional/index.html"
 }

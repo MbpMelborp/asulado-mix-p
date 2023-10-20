@@ -18,7 +18,12 @@ import { setTop, setQue, setGestion, setAyuda } from "./general";
 
 import { setPropositios, setComo } from "./empresa";
 
-import { setRV_auxilio, setRV_destacados } from "./prods";
+import {
+  setRV_auxilio,
+  setRV_destacados,
+  set_destacados,
+  set_listado,
+} from "./prods";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -86,13 +91,16 @@ setTop(gsap, ScrollTrigger);
 setQue(gsap, ScrollTrigger);
 setGestion(gsap, ScrollTrigger);
 setAyuda(gsap, ScrollTrigger);
+
 //EMPRESA
 if (document.getElementById("as__nuestra_empresa")) {
   setHomeServicios(gsap, ScrollTrigger);
   setPropositios(gsap, ScrollTrigger);
   setComo(gsap, ScrollTrigger);
 }
-
+//PRODS
+set_destacados(gsap, ScrollTrigger);
+set_listado(gsap, ScrollTrigger);
 if (document.getElementById("as__renta_vitalicia")) {
   setRV_auxilio(gsap, ScrollTrigger);
   setRV_destacados(gsap, ScrollTrigger);

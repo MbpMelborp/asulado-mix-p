@@ -143,3 +143,108 @@ export function setRV_destacados(gsap, ScrollTrigger) {
     });
   }
 }
+
+export function set_destacados(gsap, ScrollTrigger) {
+  const id = document.getElementById("as__destacados");
+  if (id) {
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo(
+      ".as__destacados_item",
+      { opacity: 0, y: 50 },
+      {
+        duration: 1,
+        opacity: 1,
+        y: 0,
+        stagger: 1,
+      },
+      "-=0"
+    )
+      .fromTo(
+        ".as__destacados_image img",
+        { y: 30, scale: 1.1 },
+        {
+          y: 0,
+          scale: 1,
+          duration: 2,
+          stagger: 0.2,
+        },
+        "-=1"
+      )
+      .from(
+        ".as__destacados_image",
+        { backgroundColor: "transparent", duration: 2, stagger: 0.3 },
+        "-=3"
+      );
+
+    const scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: id,
+      start: "top bottom",
+      end: "center center",
+      scrub: 3,
+      //markers: true,
+      onUpdate: ({ progress }) => {
+        // console.log(progress);
+      },
+    });
+  }
+}
+
+export function set_listado(gsap, ScrollTrigger) {
+  const id = document.getElementById("as__listado");
+  if (id) {
+    const tl_yoyo = gsap.timeline({ paused: false });
+    if (document.getElementsByClassName("ilus_rot_top_right"))
+      tl_yoyo.to(
+        ".ilus_rot_top_right",
+        {
+          transformOrigin: "right top",
+          duration: 1,
+          repeat: -1,
+          rotation: -5,
+          ease: "sine.inOut",
+          yoyo: true,
+        },
+        "0"
+      );
+
+    const tl = gsap.timeline({ paused: true });
+
+    tl.addLabel("startp", 0)
+      .fromTo(
+        ".as__listado .as__listado_content .prop_anim",
+        { opacity: 0, y: -20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 4,
+          opacity: 1,
+          stagger: 0.4,
+        },
+        "startp"
+      )
+      .fromTo(
+        ".as__listado_ilustra svg",
+        { opacity: 0, y: 40 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 4,
+        },
+        "startp-=3"
+      );
+
+    const scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: id,
+      start: "-20% center",
+      end: "20% center",
+      scrub: 3,
+      // markers: true,
+      onUpdate: ({ progress }) => {
+        // console.log(progress);
+      },
+    });
+  }
+}

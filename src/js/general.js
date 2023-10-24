@@ -269,6 +269,101 @@ export function setAyuda(gsap, ScrollTrigger) {
       animation: tl,
       trigger: id,
       start: "-20% center",
+      end: "10% center",
+      scrub: 3,
+      // markers: true,
+      onUpdate: ({ progress }) => {
+        // console.log(progress);
+      },
+    });
+  }
+}
+
+export function setDocumentosInt(gsap, ScrollTrigger) {
+  const id = document.getElementById("as__documentos_int");
+
+  if (id) {
+    const tl_yoyo = gsap.timeline({ paused: false });
+    tl_yoyo.to(
+      ".idocs_float",
+      {
+        transformOrigin: "center",
+        duration: 1,
+        repeat: -1,
+        y: 15,
+        ease: "sine.inOut",
+        stagger: 0.2,
+        yoyo: true,
+      },
+      "0"
+    );
+    // .to(
+    //   "#ayuda .start",
+    //   {
+    //     transformOrigin: "center",
+    //     duration: 1,
+    //     repeat: -1,
+    //     rotation: function (index, target) {
+    //       return (index + 1) * 360;
+    //     },
+    //     y: -15,
+    //     ease: "sine.inOut",
+    //     stagger: 0.2,
+    //     yoyo: true,
+    //   },
+    //   "0"
+    // );
+
+    const tl = gsap.timeline({ paused: true });
+
+    tl.addLabel("startp", 0)
+      .fromTo(
+        ".as__documentos_int .doc_img",
+        { yPercent: 20, opacitiy: 0 },
+        {
+          yPercent: 0,
+          opacity: 1,
+          duration: 4,
+        },
+        "startp"
+      )
+      .fromTo(
+        ".as__documentos_int .doc_ges",
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 4,
+          opacity: 1,
+        },
+        "startp+=1"
+      )
+      .fromTo(
+        ".as__documentos_int .doc_cal",
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 4,
+          opacity: 1,
+        },
+        "startp+=2"
+      );
+    // .fromTo(
+    //   ".as__ayuda img",
+    //   { opacity: 0, y: 40 },
+    //   {
+    //     y: 0,
+    //     opacity: 1,
+    //     duration: 4,
+    //   },
+    //   "startp-=3"
+    // );
+
+    const scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: id,
+      start: "-20% center",
       end: "20% center",
       scrub: 3,
       // markers: true,

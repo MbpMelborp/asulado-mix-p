@@ -15,6 +15,7 @@ module.exports = {
           2: "#F8EC81",
           3: "#6DC0FC",
           4: "#F5FAFB",
+          5: "#5DB8D7",
           8: "#E3F3FA",
           9: "#3C97D9",
         },
@@ -30,6 +31,13 @@ module.exports = {
           light: "#F5DA70",
           mid: "#F0C82F",
         },
+      },
+      listStyleImage: {
+        star: "var(--il-star-xs)",
+        "star-xs": "var(--il-star-2xs)",
+      },
+      backgroundImage: {
+        ayuda: "var(--il-ayuda)",
       },
     },
   },

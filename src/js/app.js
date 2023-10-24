@@ -14,7 +14,13 @@ import {
   setHomeBlog,
 } from "./home";
 
-import { setTop, setQue, setGestion, setAyuda } from "./general";
+import {
+  setTop,
+  setQue,
+  setGestion,
+  setAyuda,
+  setDocumentosInt,
+} from "./general";
 
 import { setPropositios, setComo } from "./empresa";
 
@@ -39,6 +45,43 @@ lenis.on("scroll", ({ scroll }) => {
     document.querySelector(".as__header").classList.remove("as__header_scroll");
   }
 });
+
+if (document.getElementById("documentos")) {
+  document.getElementById("docs_tabs").selectedIndex = 0;
+  document.getElementById("docs_tabs").addEventListener("change", (e) => {
+    changeTab(e.target.value);
+    lenis.scrollTo("#documentos", {
+      offset: -60,
+    });
+  });
+
+  const as = document.querySelectorAll(".tabs_link");
+
+  as.forEach((a) => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      const tab = e.target.dataset.tab;
+      changeTab(tab);
+      lenis.scrollTo("#documentos", {
+        offset: -80,
+      });
+    });
+  });
+}
+function changeTab(tab) {
+  document.getElementById("docs_tabs").selectedIndex = parseInt(tab);
+  document.querySelectorAll(".tabs_link").forEach((tabe) => {
+    if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
+    else tabe.classList.add("active");
+  });
+
+  document
+    .querySelectorAll(".as__g_documentos_tcon_list_int")
+    .forEach((tabe) => {
+      if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
+      else tabe.classList.add("active");
+    });
+}
 
 gsap.ticker.add((time) => {
   lenis.raf(time * 1000);
@@ -91,6 +134,7 @@ setTop(gsap, ScrollTrigger);
 setQue(gsap, ScrollTrigger);
 setGestion(gsap, ScrollTrigger);
 setAyuda(gsap, ScrollTrigger);
+setDocumentosInt(gsap, ScrollTrigger);
 
 //EMPRESA
 if (document.getElementById("as__nuestra_empresa")) {
@@ -101,7 +145,12 @@ if (document.getElementById("as__nuestra_empresa")) {
 //PRODS
 set_destacados(gsap, ScrollTrigger);
 set_listado(gsap, ScrollTrigger);
-if (document.getElementById("as__renta_vitalicia")) {
+if (
+  document.getElementById("as__renta_vitalicia") ||
+  document.getElementById("as__seguro_previsional") ||
+  document.getElementById("as__rv_sobreviviencia") ||
+  document.getElementById("as__rv_invalidez")
+) {
   setRV_auxilio(gsap, ScrollTrigger);
   setRV_destacados(gsap, ScrollTrigger);
 }

@@ -62,6 +62,8 @@
     "/prod/assets/images/top_nuestra_empresa.png": "/prod/assets/images/top_nuestra_empresa.png",
     "/prod/assets/images/top_nuestra_empresa.webp": "/prod/assets/images/top_nuestra_empresa.webp",
     "/prod/assets/images/top_renta_vitalicia.webp": "/prod/assets/images/top_renta_vitalicia.webp",
+    "/prod/assets/images/top_rv_pension_invalidez.webp": "/prod/assets/images/top_rv_pension_invalidez.webp",
+    "/prod/assets/images/top_rv_pension_sobreviviencia.webp": "/prod/assets/images/top_rv_pension_sobreviviencia.webp",
     "/prod/assets/images/top_seguro_previsional.png": "/prod/assets/images/top_seguro_previsional.png",
     "/prod/assets/images/top_seguro_previsional.webp": "/prod/assets/images/top_seguro_previsional.webp",
     "/prod/assets/images/vigilado.png": "/prod/assets/images/vigilado.png",
@@ -70,8 +72,11 @@
     "/prod/assets/js/app.js.LICENSE.txt": "/prod/assets/js/app.js.LICENSE.txt",
     "/prod/assets/js/app.min.js": "/prod/assets/js/app.min.js",
     "/prod/favicon.ico": "/prod/favicon.ico",
+    "/prod/gestion_documentos/index.html": "/prod/gestion_documentos/index.html",
     "/prod/index.html": "/prod/index.html",
     "/prod/nuestra_empresa/index.html": "/prod/nuestra_empresa/index.html",
+    "/prod/pension_invalidez/index.html": "/prod/pension_invalidez/index.html",
+    "/prod/pension_sobreviviencia/index.html": "/prod/pension_sobreviviencia/index.html",
     "/prod/renta_vitalicia/index.html": "/prod/renta_vitalicia/index.html",
     "/prod/seguro_previsional/index.html": "/prod/seguro_previsional/index.html"
 }

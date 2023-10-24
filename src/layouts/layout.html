@@ -82,5 +82,33 @@
     </div>
     <include src="footer.html"></include>
     <script src="/assets/js/app.js"></script>
+    <!-- Accessibility Code for "cunning-goat-k2f2ym-dev-ed--c.trailblaze.vf.force.com" -->
+    <script>
+      window.interdeal = {
+        sitekey: "c074ca6d2e877e9c8ed8da8d31a2f821",
+        Position: "Right",
+        Menulang: "ES",
+        domains: {
+          js: "https://cdn.equalweb.com/",
+          acc: "https://access.equalweb.com/",
+        },
+        btnStyle: {
+          vPosition: ["20%", null],
+          scale: ["0.6", "0.6"],
+          color: { main: "#273e82", second: "#ffffff" },
+          icon: { type: 11, shape: "circle", outline: false },
+        },
+      };
+      (function (doc, head, body) {
+        var coreCall = doc.createElement("script");
+        coreCall.src = interdeal.domains.js + "core/4.5.11/accessibility.js";
+        coreCall.defer = true;
+        coreCall.integrity =
+          "sha512-ituk7fx8YI2pGzcu9bn3wbur6GvkBObBAGbpaq/9oRHAiODhgNxe7fstsL6nJJ8JmSwn3b6nH9i2Mtfr5tdkVw==";
+        coreCall.crossOrigin = "anonymous";
+        coreCall.setAttribute("data-cfasync", true);
+        body ? body.appendChild(coreCall) : head.appendChild(coreCall);
+      })(document, document.head, document.body);
+    </script>
   </body>
 </html>

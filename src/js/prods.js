@@ -209,6 +209,20 @@ export function set_listado(gsap, ScrollTrigger) {
         "0"
       );
 
+    if (document.getElementsByClassName("ilus_rot_top_left"))
+      tl_yoyo.to(
+        ".ilus_rot_top_left",
+        {
+          transformOrigin: "right left",
+          duration: 1,
+          repeat: -1,
+          rotation: -5,
+          ease: "sine.inOut",
+          yoyo: true,
+        },
+        "0"
+      );
+
     const tl = gsap.timeline({ paused: true });
 
     tl.addLabel("startp", 0)

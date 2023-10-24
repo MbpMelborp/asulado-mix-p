@@ -1,0 +1,184 @@
+<extends
+  src="layout.html"
+  locals='{ "id": "as__gestion_documentos", "top": "init" }'
+>
+  <block name="head">
+    <title>ASULADO - GESTIÓN DE DOCUMENTOS</title>
+
+    <meta name="title" content="ASULADO Seguros de Vida" />
+    <meta
+      name="description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta property="og:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="og:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:image" content="#" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta property="twitter:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="twitter:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="twitter:image" content="https://www.asulado.com/" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="top.html"
+      locals='{ "bg": "bg-BG-3", "image": "top_renta_vitalicia.webp", "t1start":"1", "t2start":"3", "title1": "Gestión de", "title2": "documentos" }'
+    ></include>
+    <section>
+      <section class="as__section as__g_documentos">
+        <div class="as__section_wrapper">
+          <div class="as__section_content">
+            <div class="as__g_documentos_wrapper">
+              <i
+                class="as__g_documentos_ico fa-sharp fa-solid fa-circle-info"
+              ></i>
+              <div class="as__g_documentos_title">
+                <h2>
+                  <span>Información importante que te ayudará</span>
+                </h2>
+                <p>
+                  En ASULADO Seguros de Vida queremos que la gestión de tus
+                  documentos sea un proceso más sencillo, por eso, te
+                  compartimos toda la información que necesitas conocer.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <include src="gestion/tabs.html"></include>
+    <section
+      id="documentos_contenido"
+      class="as__section as__g_documentos_tcon"
+    >
+      <div class="as__section_wrapper full">
+        <div class="as__section_content_full">
+          <ul class="as__g_documentos_tcon_list">
+            <include
+              src="gestion/tabs_content.html"
+              locals='{
+                "cls": "active",
+                "data": "0",
+                "title": "Aportes pensión voluntaria",
+                "subtitle": "(cambios o cancelación)",
+                "que": "Es el ahorro que realizas en Pensión Voluntaria en la AFP, el cual se descuenta de tu mesada pensional mensualmente.",
+                "documento": "Carta de solicitud del pensionado",
+                "documento_sig": "para el ingreso, modificación o cancelación del producto.",
+                "gestion": "Aportes a Pensiones Voluntarias"
+              }'
+            ></include>
+
+            <include
+              src="gestion/tabs_content.html"
+              locals='{
+                "cls": "",
+                "data": "1",
+                "title": "Caja de compensación",
+                "subtitle": "",
+                "que": "Es la afiliación que se realiza en las diferentes cajas de compensación con el fin de acceder a subsidios, obtener microcréditos, disfrutar de tarifas preferenciales y muchos más beneficios.",
+                "documento": "Carta de la caja de compensación la cual se afilió,",
+                "documento_sig": "donde informe la fecha de afiliación y el porcentaje a descontar.",
+                "gestion": "Caja de compensación"
+              }'
+            ></include>
+
+            <include
+              src="gestion/tabs_content.html"
+              locals='{
+                "cls": "",
+                "data": "2",
+                "title": "Certificado de estudio",
+                "subtitle": "",
+                "que": "Es la certificación acreditada por la institución del programa académico que están cursando los beneficiarios entre los 18 y los 25 años, ésta se solicita con el fin de sustentar el cumplimiento a la norma y así garantizar la condición de derecho para recibir las mesadas de tu póliza de sobrevivencia.",
+                "documento": "Certificado de la institución vigilada por el Ministerio de Educación,",
+                "documento_sig": "donde informe el semestre que vas a cursar y se evidencia el cumplimiento mínimo de las 20 horas semanales del programa.",
+                "gestion": "Certificado de estudio"
+              }'
+            ></include>
+
+            <include
+              src="gestion/tabs_content.html"
+              locals='{
+                "cls": "",
+                "data": "3",
+                "title": "Certificado de supervivencia",
+                "subtitle": "",
+                "que": "Este documento se exige a los ciudadanos colombianos que se encuentran pensionados y viven en otro país.",
+                "documento": "Certificado expedido en el país donde vive el pensionado,",
+                "documento_sig": "se debe tramitar cada 6 meses.",
+                "gestion": "Certificado de supervivencia"
+              }'
+            ></include>
+
+            <include
+              src="gestion/tabs_content.html"
+              locals='{
+                "cls": "",
+                "data": "4",
+                "title": "Datos bancarios",
+                "subtitle": "",
+                "que": "Es un documento que emite el banco a petición del cliente, que confirma que dicha cuenta está registrada a su nombre.",
+                "documento": "Certificado de la cuenta bancaria del pensionado.",
+                "documento_sig": "",
+                "gestion": "Inscripción, modificación o cancelación cuenta financiera"
+              }'
+            ></include>
+
+            <include
+              src="gestion/tabs_content.html"
+              locals='{
+                "cls": "",
+                "data": "5",
+                "title": "Entidad Administradora de Fondos de Pensión",
+                "subtitle": "(AFP)",
+                "que": "Las Administradoras de Fondos de Pensión (AFP) son instituciones privadas que se encargan de recaudar y administrar los ahorros de las personas para su pensión.",
+                "documento": "Certificado de afiliación a la AFP.",
+                "documento_sig": "",
+                "gestion": "Afiliación a AFP-Cónyuge/Compañera(o) Temporal "
+              }'
+            ></include>
+
+            <include
+              src="gestion/tabs_content.html"
+              locals='{
+                "cls": "",
+                "data": "6",
+                "title": "Entidad Promotora de Salud",
+                "subtitle": "(EPS)",
+                "que": "Las EPS son las instituciones responsables de la afiliación, el registro de los afiliados y del recaudo de sus cotizaciones al sistema de salud.",
+                "documento": "Certificado de afiliación o traslado de EPS.",
+                "documento_sig": "",
+                "gestion": "Cambio de EPS"
+              }'
+            ></include>
+
+            <include
+              src="gestion/tabs_content.html"
+              locals='{
+                "cls": "",
+                "data": "7",
+                "title": "Redistribución de mesada",
+                "subtitle": "",
+                "que": "La redistribución pensional es la extinción de los derechos pensionales a favor de otro beneficiario con derecho a percibir la mesada pensional.",
+                "documento": "Formato redistribución de mesadas.",
+                "documento_sig": "",
+                "gestion": "Inclusión/Exclusión de Beneficiario"
+              }'
+            ></include>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

@@ -1,0 +1,55 @@
+<extends
+  src="layout.html"
+  locals='{ "id": "as__rv_sobreviviencia", "top": "init" }'
+>
+  <block name="head">
+    <title>ASULADO - RENTA VITALICIA POR SOBREVIVENCIA</title>
+
+    <meta name="title" content="ASULADO Seguros de Vida" />
+    <meta
+      name="description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta property="og:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="og:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:image" content="#" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta property="twitter:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="twitter:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="twitter:image" content="https://www.asulado.com/" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="top.html"
+      locals='{ "bg": "bg-BG-5", "image": "top_rv_pension_sobreviviencia.webp", "t1start":"1", "t2start":"3", "title1": "Renta Vitalicia", "title2": "por sobrevivencia" }'
+    ></include>
+    <include
+      src="rv_sobrevivencia/que_es.html"
+      locals='{ "bg":"bg-BG-4" }'
+    ></include>
+    <include
+      src="rv_sobrevivencia/listado.html"
+      locals='{ "bg":"bg-BG-4 pt-0 pb-28 list_right as__bg_sky_multy style2"  }'
+    ></include>
+    <include
+      src="rv_sobrevivencia/gestion.html"
+      locals='{ "bg":"bg-BG-1 pt-16 pb-24" }'
+    ></include>
+    <include src="documentos.html" locals='{ "bg":"py-24" }'></include>
+    <include
+      src="ayuda.html"
+      locals='{ "bg":"bg-gradient-to-b from-[#F4F9FC] to-[#E6F1F9]" }'
+    ></include>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

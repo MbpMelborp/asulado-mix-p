@@ -17,38 +17,47 @@ const config_html = {
 require("mix-html-builder");
 require("laravel-mix-replace-in-file");
 
-mix
-  .before(async () => {
-    rimraf("prod/*");
-  })
-  .js("src/js/app.js", "dist/assets/js/app.js")
-  //   .minify("dist/assets/js/app.js")
-  .postCss("src/css/app.css", "dist/assets/css/app.css", [
-    require("postcss-import"),
-    require("tailwindcss"),
-    require("autoprefixer"),
-  ])
-  //   .minify("dist/assets/css/app.css")
-  .html({
-    htmlRoot: "./src/pages/**/*.html", // Your html root file(s)
-    output: "dist", // The html output folder
-    ...config_html,
-  })
-  .then(async () => {
-    rimraf("prod/assets");
-  })
-  .copyDirectory("dist", "prod")
-  .replaceInFile({
-    files: ["prod/*.html", "prod/**/*.html"],
-    from: /\"\/assets/g,
-    to: cdn,
-  })
-  .replaceInFile({
-    files: ["prod/*.html", "prod/**/*.html"],
-    from: /class=\"debug-screens\"/g,
-    to: "",
-  })
-  .then(async () => {
-    rimraf("prod/assets");
-  })
-  .browserSync("http://localhost:8000");
+try {
+  mix
+    .before(async () => {
+      rimraf("prod/*");
+    })
+    .js("src/js/app.js", "dist/assets/js/app.js")
+    //   .minify("dist/assets/js/app.js")
+    .postCss("src/css/app.css", "dist/assets/css/app.css", [
+      require("postcss-import"),
+      require("tailwindcss"),
+      require("autoprefixer"),
+    ])
+    //   .minify("dist/assets/css/app.css")
+    .html({
+      htmlRoot: "./src/pages/**/*.html", // Your html root file(s)
+      output: "dist", // The html output folder
+      ...config_html,
+    });
+
+  if (mix.inProduction())
+    mix
+      .then(async () => {
+        rimraf("prod/assets");
+      })
+      .copyDirectory("dist", "prod")
+      .replaceInFile({
+        files: ["prod/*.html", "prod/**/*.html"],
+        from: /\"\/assets/g,
+        to: cdn,
+      })
+      .replaceInFile({
+        files: ["prod/*.html", "prod/**/*.html"],
+        from: /class=\"debug-screens\"/g,
+        to: "",
+      })
+      .then(async () => {
+        rimraf("prod/assets");
+      });
+  // .browserSync("http://localhost:8000");
+} catch (error) {
+  console.error(error);
+  // Expected output: ReferenceError: nonExistentFunction is not defined
+  // (Note: the exact output may be browser-dependent)
+}

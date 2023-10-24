@@ -1413,3 +1413,57 @@ body {
     }
   }
 }
+
+.as__g_faqs_tcon {
+  @apply bg-BG-4;
+  .as__section_wrapper {
+    .as__g_faqs_tcon_list {
+      @apply bg-white rounded-b-lg p-4;
+      .as__g_faqs_tcon_list_int {
+        @apply hidden lg:px-8;
+        &.active {
+          @apply flex flex-col gap-y-8;
+        }
+        h3 {
+          @apply text-2xl text-azul-norm font-bold font-je;
+        }
+        ol.fqs {
+          counter-reset: item;
+          @apply flex flex-col gap-y-8 text-base text-azul-dark font-light;
+          .fqs_list {
+            counter-increment: item;
+            @apply flex gap-x-4 w-full pb-8 border-b border-gray-200;
+            .fqs_info {
+              @apply hidden;
+            }
+            &.active {
+              .fqs_info {
+                @apply flex flex-col gap-y-4;
+              }
+              h4 {
+                &:after {
+                  content: "\f0d8" !important;
+                  
+                }
+              }
+            }
+            &:before {
+              content: counter(item);
+              @apply flex-none rounded-full bg-amarillo-light text-azul-dark font-bold text-sm h-8 w-8 flex justify-center items-center leading-none;
+            }
+            .fqs_list_int {
+              @apply flex flex-col gap-y-6 flex-1;
+              h4 {
+                @apply text-azul-norm font-bold text-xl w-full flex flex-row justify-between items-start cursor-pointer;
+                &:after {
+                  content: "\f0d7";
+                  font-family: "Font Awesome 6 Pro";
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

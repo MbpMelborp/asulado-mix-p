@@ -9,9 +9,10 @@ const cdn = '"https://asulado-cdn-mbp.s3.amazonaws.com/assets';
 const config_html = {
   partialRoot: "./src/partials", // default partial path
   layoutRoot: "./src/layouts", // default partial path
-  minify: {
-    removeComments: false,
-  },
+  minify: false,
+  // minify: {
+  //   removeComments: false,
+  // },
 };
 
 require("mix-html-builder");

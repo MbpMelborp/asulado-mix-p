@@ -31,32 +31,32 @@
   <block name="content">
     <include
       src="top.html"
-      locals='{ "bg": "bg-BG-3", "image": "top_renta_vitalicia.webp", "t1start":"1", "t2start":"3", "title1": "Gestión de", "title2": "documentos" }'
+      locals='{ "bg": "bg-BG-3", "image": "top_gestion_documentos.webp", "t1start":"1", "t2start":"3", "title1": "Gestión de", "title2": "documentos" }'
     ></include>
-    <section>
-      <section class="as__section as__g_documentos">
-        <div class="as__section_wrapper">
-          <div class="as__section_content">
-            <div class="as__g_documentos_wrapper">
-              <i
-                class="as__g_documentos_ico fa-sharp fa-solid fa-circle-info"
-              ></i>
-              <div class="as__g_documentos_title">
-                <h2>
-                  <span>Información importante que te ayudará</span>
-                </h2>
-                <p>
-                  En ASULADO Seguros de Vida queremos que la gestión de tus
-                  documentos sea un proceso más sencillo, por eso, te
-                  compartimos toda la información que necesitas conocer.
-                </p>
-              </div>
+
+    <section class="as__section as__g_documentos">
+      <div class="as__section_wrapper">
+        <div class="as__section_content">
+          <div class="as__g_documentos_wrapper">
+            <i
+              class="as__g_documentos_ico fa-sharp fa-solid fa-circle-info"
+            ></i>
+            <div class="as__g_documentos_title">
+              <h2>
+                <span>Información importante que te ayudará</span>
+              </h2>
+              <p>
+                En ASULADO Seguros de Vida queremos que la gestión de tus
+                documentos sea un proceso más sencillo, por eso, te compartimos
+                toda la información que necesitas conocer.
+              </p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </section>
-    <include src="gestion/tabs.html"></include>
+    <include src="gestion/tabs.html" locals='{"cls":""}'></include>
+    <section></include>
     <section
       id="documentos_contenido"
       class="as__section as__g_documentos_tcon"

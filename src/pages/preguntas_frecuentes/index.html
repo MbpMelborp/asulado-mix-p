@@ -1,0 +1,59 @@
+<extends src="layout.html" locals='{ "id": "as__faqs", "top": "init" }'>
+  <block name="head">
+    <title>ASULADO - GESTIÓN DE DOCUMENTOS</title>
+
+    <meta name="title" content="ASULADO Seguros de Vida" />
+    <meta
+      name="description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta property="og:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="og:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:image" content="#" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta property="twitter:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="twitter:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="twitter:image" content="https://www.asulado.com/" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="top.html"
+      locals='{ "bg": "bg-BG-3", "image": "top_preguntas_frecuentes.webp", "t1start":"1", "t2start":"3", "title1": "Preguntas", "title2": "frecuentes" }'
+    ></include>
+
+    <include src="faqs/tabs.html" locals='{"cls":"pt-4"}'></include>
+    <section id="faqs_contenido" class="as__section as__g_faqs_tcon">
+      <div class="as__section_wrapper full">
+        <div class="as__section_content_full">
+          <ul class="as__g_faqs_tcon_list">
+            <include
+              src="faqs/faq_1.html"
+              locals='{
+                "cls": "active",
+                "data": "0"
+              }'
+            ></include>
+            <include
+              src="faqs/faq_2.html"
+              locals='{
+              "cls": "",
+              "data": "1"
+            }'
+            ></include>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

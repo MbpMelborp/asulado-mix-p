@@ -59,8 +59,10 @@
     "/prod/assets/images/svg_nino_cuerpo.svg": "/prod/assets/images/svg_nino_cuerpo.svg",
     "/prod/assets/images/svg_nino_mano.svg": "/prod/assets/images/svg_nino_mano.svg",
     "/prod/assets/images/svg_nino_mano.webp": "/prod/assets/images/svg_nino_mano.webp",
+    "/prod/assets/images/top_gestion_documentos.webp": "/prod/assets/images/top_gestion_documentos.webp",
     "/prod/assets/images/top_nuestra_empresa.png": "/prod/assets/images/top_nuestra_empresa.png",
     "/prod/assets/images/top_nuestra_empresa.webp": "/prod/assets/images/top_nuestra_empresa.webp",
+    "/prod/assets/images/top_preguntas_frecuentes.webp": "/prod/assets/images/top_preguntas_frecuentes.webp",
     "/prod/assets/images/top_renta_vitalicia.webp": "/prod/assets/images/top_renta_vitalicia.webp",
     "/prod/assets/images/top_rv_pension_invalidez.webp": "/prod/assets/images/top_rv_pension_invalidez.webp",
     "/prod/assets/images/top_rv_pension_sobreviviencia.webp": "/prod/assets/images/top_rv_pension_sobreviviencia.webp",
@@ -77,6 +79,7 @@
     "/prod/nuestra_empresa/index.html": "/prod/nuestra_empresa/index.html",
     "/prod/pension_invalidez/index.html": "/prod/pension_invalidez/index.html",
     "/prod/pension_sobreviviencia/index.html": "/prod/pension_sobreviviencia/index.html",
+    "/prod/preguntas_frecuentes/index.html": "/prod/preguntas_frecuentes/index.html",
     "/prod/renta_vitalicia/index.html": "/prod/renta_vitalicia/index.html",
     "/prod/seguro_previsional/index.html": "/prod/seguro_previsional/index.html"
 }

@@ -367,15 +367,15 @@ body {
           }
         }
         .as_footer_ct_item {
-          @apply flex gap-x-2;
+          @apply flex gap-x-2 font-light;
           .ttle {
-            @apply mb-2 text-lg text-azul-dark font-bold;
+            @apply mb-2 text-lg text-azul-dark font-normal leading-tight;
           }
           i {
             @apply flex h-6 w-6 items-center justify-center rounded-full bg-[#E9F5F8] text-sm text-[#2EB2CF];
           }
           p {
-            @apply mb-0;
+            @apply mb-0 leading-tight;
             &.space {
               @apply mb-1;
             }
@@ -1307,7 +1307,7 @@ body {
         }
       }
       .as__doc_tabs {
-        @apply hidden divide-x divide-gray-200 lg:flex items-stretch;
+        @apply hidden divide-x divide-gray-200 lg:flex items-stretch border-b border-b-gray-200;
         li {
           @apply text-azul-dark flex-1;
           a {
@@ -1443,7 +1443,6 @@ body {
               h4 {
                 &:after {
                   content: "\f0d8" !important;
-                  
                 }
               }
             }
@@ -1458,6 +1457,27 @@ body {
                 &:after {
                   content: "\f0d7";
                   font-family: "Font Awesome 6 Pro";
+                }
+              }
+              ul {
+                @apply list-disc list-outside pl-8 flex flex-col gap-y-2 text-base;
+              }
+              table {
+                @apply w-full text-base text-left;
+                thead {
+                  @apply text-base text-azul-dark uppercase bg-gray-50;
+                  tr {
+                    th {
+                      @apply px-6 py-2;
+                    }
+                  }
+                }
+                tbody {
+                  tr {
+                    td {
+                      @apply px-6 py-2 border-b text-sm border-gray-200;
+                    }
+                  }
                 }
               }
             }

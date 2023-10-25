@@ -110,7 +110,7 @@ if (document.getElementById("faqs")) {
       e.preventDefault();
       const tab = e.target.dataset.tab;
       changeTab2(tab);
-      lenis.scrollTo("#documentos", {
+      lenis.scrollTo("#faqs", {
         offset: -80,
       });
     });

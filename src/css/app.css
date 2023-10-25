@@ -525,9 +525,9 @@ body {
       @apply text-azul-bold;
     }
     .as_proposito_content {
-      @apply mt-48 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 py-12 text-center font-je text-3xl font-bold leading-6 sm:mt-32 sm:pt-28 md:pb-14 md:text-5xl md:leading-none;
+      @apply mt-48 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 py-12 text-center font-je text-3xl font-bold leading-6 sm:mt-48 sm:pt-28 md:pb-14 md:text-5xl md:leading-none;
       span {
-        @apply text-primary;
+        @apply text-white;
       }
       strong {
         @apply text-azul-bold;

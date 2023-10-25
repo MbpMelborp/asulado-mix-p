@@ -31,35 +31,31 @@ try {
       require("autoprefixer"),
     ])
     //   .minify("dist/assets/css/app.css")
-    .options({
-      minimize: false,
-    })
     .html({
       htmlRoot: "./src/pages/**/*.html", // Your html root file(s)
       output: "dist", // The html output folder
       ...config_html,
     });
 
-  if (mix.inProduction()) mix;
-  mix
-
-    .then(async () => {
-      rimraf("prod/assets");
-    })
-    .copyDirectory("dist", "prod")
-    .replaceInFile({
-      files: ["prod/*.html", "prod/**/*.html"],
-      from: /\"\/assets/g,
-      to: cdn,
-    })
-    .replaceInFile({
-      files: ["prod/*.html", "prod/**/*.html"],
-      from: /class=\"debug-screens\"/g,
-      to: "",
-    })
-    .then(async () => {
-      rimraf("prod/assets");
-    });
+  if (mix.inProduction())
+    mix
+      .then(async () => {
+        rimraf("prod/assets");
+      })
+      .copyDirectory("dist", "prod")
+      .replaceInFile({
+        files: ["prod/*.html", "prod/**/*.html"],
+        from: /\"\/assets/g,
+        to: cdn,
+      })
+      .replaceInFile({
+        files: ["prod/*.html", "prod/**/*.html"],
+        from: /class=\"debug-screens\"/g,
+        to: "",
+      })
+      .then(async () => {
+        rimraf("prod/assets");
+      });
   // .browserSync("http://localhost:8000");
 } catch (error) {
   console.error(error);

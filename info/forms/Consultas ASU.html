@@ -1,0 +1,348 @@
+<apex:page docType="xhtml-1.0-strict" title="Consulta PQRS - Asulado Seguros de Vida S.A." showHeader="true" sidebar="false" controller="CasesConsult" id="pg">
+    <head>
+        <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+        <title>Consulta PQRS - Asulado Seguros de Vida S.A.</title>
+        <link rel="icon" type="image/x-icon" value="{!URLFOR($Resource.logos, 'logos/asu-favicon-alt.png')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/bootstrap/css/bootstrap.min.css')}"/>
+        <apex:stylesheet value="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap"/>
+        <apex:stylesheet value="https://fonts.googleapis.com/css?family=Barlow&amp;display=swap"/>
+        <apex:stylesheet value="https://fonts.googleapis.com/css?family=Cookie&amp;display=swap"/>
+        <apex:stylesheet value="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&amp;display=swap"/>
+        <apex:stylesheet value="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/fonts/simple-line-icons.min.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/Articles-Cards-images.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/Contact-Details-icons.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/Faq-by-pomdre-faq.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/Faq-by-pomdre.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/FAQ-Frequentlly-Asked-Questions-faq.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/FAQ-Frequentlly-Asked-Questions.css')}"/>
+        <apex:stylesheet value="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/Pretty-Footer-.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/vanilla-zoom.min.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/asu-navbar.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/asu-footer.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/asu-contact-button.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/asu-global.css')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/bootstrap/js/bootstrap.min.js')}"/>
+        <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"/>
+        <apex:includeScript value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/js/vanilla-zoom.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/js/theme.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/js/Faq-by-pomdre.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/js/funcionalidades.js')}"/>
+        <script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> 
+        
+        <!-- Google Tag Manager --> 
+        <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                                                      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                            })(window,document,'script','dataLayer','GTM-MMFR7WP');
+        </script>
+        <!-- End Google Tag Manager -->
+    </head>
+    <apex:insert name="header">
+        <c:AsuladoHeader />
+        <hr/>
+    </apex:insert>
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMFR7WP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+            <main class="asu-main asu-bg-2 page landing-page">
+                <div class="asu-banner-section">
+                    <div class="asu-banner-content">
+                        <h1><b class="asu-text-blue-alt">Consulta tus</b><br/><b class="asu-text-blue">PQRS</b></h1>
+                            </div>
+                        <img class="asu-banner-img" src="{!URLFOR($Resource.banners, 'banners/banner-solicitudes.png')}"/>
+                            </div>
+                        
+                        <div class="asu-solicitudes-contenido">
+                            <div class="asu-solicitudes-container">
+                                <p class="asu-text-blue">En Asulado estamos atentos al seguimiento de tus solicitudes. Si previamente radicaste una solicitud y quieres conocer su avance, no es necesario que la radiques de nuevo. Diligencia el siguiente formulario y consulta tu PQRS</p>
+                                <p class="asu-text-blue"><b>¡Recuerda que también estamos a una llamada de distancia! comunícate en la línea gratuita nacional 01 8000 412 854 o al (604) 402 68 76 si te encuentras en Medellín. También puedes contactarnos a través de nuestro correo electrónico info@asulado.com.co</b></p>
+                                    <div class="asu-solicitudes-formulario">
+                                        <apex:form id="fm">
+                                            <apex:pageBlock id="pb">
+                                                <apex:pageBlockSection id="pbs" columns="1">
+                                                    <apex:pageBlockSectionItem >
+                                                        <apex:outputLabel styleclass="asu-text-black" value="Número de caso"/>
+                                                        <apex:inputText value="{!caseNumber}" styleclass="form-control"/>
+                                                    </apex:pageBlockSectionItem>
+                                                    <apex:pageBlockSectionItem >
+                                                       	<apex:outputLabel styleclass="asu-text-black" value="Tipo de documento"/>
+                                                        <apex:selectList id="tipo_doc" value="{!tipo_doc}" size="1" styleclass="form-control">
+                                                        	<apex:selectOptions value="{!tipo_doc_options}"/>
+                                                        </apex:selectList>
+                                                     </apex:pageBlockSectionItem>
+                                                     <apex:pageBlockSectionItem >
+                                                         <apex:outputLabel styleclass="asu-text-black" value="Número de documento"/>
+                                                         <apex:inputText value="{!Numerodedocumento}" styleclass="form-control" required="true"/>
+                                                      </apex:pageBlockSectionItem>
+                                                      <apex:pageBlockSectionItem >
+                                                      	<div data-type="image" class="g-recaptcha" data-sitekey="{!publicKey}" data-callback="recaptchaCallback"></div>
+                                                      </apex:pageBlockSectionItem>
+                                                      <apex:pageBlockSectionItem rendered="{!verified}">
+                                                        <p>Google reCAPTCHA verified successfully.</p>
+                                                    </apex:pageBlockSectionItem>
+                                                      </apex:pageBlockSection>
+                                                            <apex:pageBlockButtons id="pbb" location="bottom">
+                                                        	<apex:commandButton action="{!showCaseDetails}" styleClass="hideButton" value="Mostrar detalles del caso" id="btnVerify"/>
+                                                            </apex:pageBlockButtons>
+                                                            <apex:pageBlockSection title="Resultados" rendered="{!NOT(ISBLANK(searchResults))}">
+                                                            <apex:pageBlockTable value="{!searchResults}" var="case">
+                                                                <apex:column headerValue="Número de caso" value="{!case.CaseNumber}"/>
+                                                                <apex:column headerValue="Asunto del caso" value="{!case.pqr_detalle__c}"/>
+                                                                <apex:column headerValue="Descripción del caso" value="{!case.Description}"/>
+                                                                <apex:column headerValue="Estado" value="{!case.Status}"/>
+                                                                <apex:column headerValue="Nombre y apellido solicitante" value="{!case.Contact.Name}"/>
+                                                                <apex:column headerValue="Notificación enviada a" value="{!case.Contact.Email}"/>
+                                                                <apex:column headerValue="Fecha de creación" value="{!case.CreatedDate}"/>
+                                                                <apex:column headerValue="Fecha de cierre" value="{!case.ClosedDate}"/>
+                                                            </apex:pageBlockTable>
+                                                            </apex:pageBlockSection>
+                                                            </apex:pageBlock>
+                                                            </apex:form>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            </main>
+                                                            
+                                                              <img class="asu-sfc-logo" src="{!URLFOR($Resource.img, 'img/logos/sfc-logo-black.png')}"/>
+                                                              </body>
+
+    <script type='text/javascript' src='https://www.google.com/recaptcha/api.js'/>
+    <script type='text/javascript'>
+        function recaptchaCallback() {
+        var btnVerify = document.getElementById("pg:fm:pb:pbb:btnVerify");
+        if (btnVerify.classList.contains("hideButton") ) {
+            btnVerify.classList.remove("hideButton");
+        }
+    }
+    </script> 
+            <apex:insert name="footer">
+                <hr/>
+                <c:AsuladoFooter />
+                    </apex:insert>
+                <style>
+                    .hideButton{
+        display:none !important;
+        }
+                    /* -- MAIN -- */
+                    /* #region main */
+                    .asu-main {
+                        padding-top: 5rem !important;
+                    }
+        /* #endregion main */
+        
+        /* -- BANNER -- */
+        /* #region banner */
+        .asu-banner-section {
+            width: 100%;
+            margin: 0;
+            margin-top: 5rem;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+        }
+        .asu-banner-content {
+            width: 40%;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .asu-banner-img {
+            width: 60%;
+            object-fit: contain;
+        }
+        .asu-banner-button-container {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        .asu-banner-button {
+            margin: 0.5rem;
+            padding: 0.5rem;
+            border: 0;
+            box-shadow: 0 0.2rem 0.5rem #cccccc;
+            border-radius: 0.2rem;
+            border-bottom: solid orange 1px;
+        }
+        .asu-banner-button span {
+            margin-left: 0.5rem;
+        }
+        .asu-banner-button img {
+            height: 1.2rem;
+        }
+        /* #endregion banner */
+        
+        /* -- CONTACTO -- */
+        /* #region contacto */
+        .asu-solicitudes-contenido {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+        .asu-solicitudes-redes {
+            padding: 3rem;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .asu-solicitudes-redes img {
+            width: 60%;
+            object-fit: cover;
+        }
+        .asu-solicitudes-redes div span {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .asu-solicitudes-redes div span img {
+            width: 3rem;
+            margin-left: 0.5rem;
+            object-fit: cover;
+        }
+        .asu-solicitudes-container {
+            padding: 3rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .asu-solicitudes-formulario {
+            display: flex;
+            flex-direction: column;
+        }
+        .asu-form-row {
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: row;
+        }
+        .asu-form-row label {
+            margin: 0.5rem 0 0.5rem 0.5rem;
+            text-align: justify;
+        }
+        .asu-form-field {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .asu-form-field label {
+            margin: 0.5rem 0;
+        }
+        /* #endregion contacto */
+        
+        /* #region opciones */
+        .asu-atencion-option {
+            display: none;
+        }
+        .asu-defensoria-option {
+            display: none;
+        }
+        .asu-superfinanciera-option {
+            display: none;
+        }
+        .asu-tutela-option {
+            display: none;
+        }
+        .asu-demanda-option {
+            display: none;
+        }
+        .asu-atencion-1-option {
+            display: none;
+        }
+        .asu-atencion-2-option {
+            display: none;
+        }
+        .asu-atencion-3-option {
+            display: none;
+        }
+        .asu-atencion-4-option {
+            display: none;
+        }
+        .asu-atencion-5-option {
+            display: none;
+        }
+        .asu-atencion-6-option {
+            display: none;
+        }
+        .asu-atencion-7-option {
+            display: none;
+        }
+        .asu-atencion-8-option {
+            display: none;
+        }
+        .asu-atencion-9-option {
+            display: none;
+        }
+        .asu-defensoria-1-option {
+            display: none;
+        }
+        .asu-defensoria-2-option {
+            display: none;
+        }
+        .asu-defensoria-3-option {
+            display: none;
+        }
+        .asu-defensoria-4-option {
+            display: none;
+        }
+        .asu-superfinanciera-1-option {
+            display: none;
+        }
+        .asu-superfinanciera-2-option {
+            display: none;
+        }
+        .asu-superfinanciera-3-option {
+            display: none;
+        }
+        .asu-superfinanciera-4-option {
+            display: none;
+        }
+        /* #endregion opciones */
+        
+        /* -- RESPONSIVE -- */
+        /* #region responsive */
+        @media (max-width: 1024px) {
+            .asu-main{
+                padding-top: 8rem !important;
+            }
+        }
+        @media (max-width: 426px) {
+            .asu-banner-section {
+                margin-top: 2rem;
+                flex-direction: column;
+            }
+            .asu-banner-content {
+                width: 100%;
+                padding: 2rem;
+                padding-bottom: 0;
+            }
+            .asu-banner-img {
+                width: 100%;
+            }
+            
+            .asu-solicitudes-contenido {
+                flex-direction: column-reverse;
+            }
+            .asu-solicitudes-redes {
+                width: 100%;
+            }
+            .asu-solicitudes-container {
+                width: 100%;
+            }
+        }
+        /* #endregion responsive */
+        </style>
+        </apex:page>

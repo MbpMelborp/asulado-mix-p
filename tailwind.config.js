@@ -25,6 +25,7 @@ module.exports = {
           bold: "#2752B0",
           bright: "#2EB2CF",
           bright2: "#08C1FE",
+          mid: "#2E52FA",
           light: "#E9F5F8",
         },
         amarillo: {
@@ -38,11 +39,30 @@ module.exports = {
       },
       backgroundImage: {
         ayuda: "var(--il-ayuda)",
+        lusa: "var(--il-lusa)",
       },
     },
+  },
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#273E82",
+          secondary: "#5FA4C0",
+          accent: "#08C1FE",
+          neutral: "#1e2433",
+          "base-100": "#fff",
+          info: "#2251dd",
+          success: "#3ddbc9",
+          warning: "#d28704",
+          error: "#e53e68",
+        },
+      },
+    ],
   },
   plugins: [
     require("tailwindcss-animate"),
     require("tailwindcss-debug-screens"),
+    require("daisyui"),
   ],
 };

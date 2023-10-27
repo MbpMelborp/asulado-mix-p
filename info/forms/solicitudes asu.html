@@ -1,0 +1,1976 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-04-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<apex:page docType="xhtml-1.0-strict" title="Solicitudes - Asulado Seguros de Vida S.A." showHeader="true" sidebar="false" standardController="Contact" extensions="exampleClass" id="pg">
+    <head>
+        <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+        <title>Solicitudes - Asulado Seguros de Vida S.A.</title>
+        
+        <meta name="description" content="Explora nuestros productos y servicios, todos opciones perfectas para tu bienestar. Cuida tu futuro con ASULADO."/>
+        <meta name="keywords" content="Renta vitalicia, seguro previsional, Seguro previsional de invalidez y sobrevivencia, que es invalidez, seguridad social y previsión social"/>
+        <meta name="author" content="Asulado"/>
+        <link rel="icon" type="image/x-icon" value="{!URLFOR($Resource.logos, 'logos/asu-favicon-alt.png')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/bootstrap/css/bootstrap.min.css')}"/>
+        <apex:stylesheet value="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap"/>
+        <apex:stylesheet value="https://fonts.googleapis.com/css?family=Barlow&amp;display=swap"/>
+        <apex:stylesheet value="https://fonts.googleapis.com/css?family=Cookie&amp;display=swap"/>
+        <apex:stylesheet value="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&amp;display=swap"/>
+        <apex:stylesheet value="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/fonts/simple-line-icons.min.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/Articles-Cards-images.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/Contact-Details-icons.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/Faq-by-pomdre-faq.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/Faq-by-pomdre.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/FAQ-Frequentlly-Asked-Questions-faq.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/FAQ-Frequentlly-Asked-Questions.css')}"/>
+        <apex:stylesheet value="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/Pretty-Footer-.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/vanilla-zoom.min.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/asu-navbar.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/asu-footer.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/asu-contact-button.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/css/asu-global.css')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/bootstrap/js/bootstrap.min.js')}"/>
+        <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"/>
+        <apex:includeScript value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/js/vanilla-zoom.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/js/theme.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/js/Faq-by-pomdre.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.FuentesAsulado, 'Fuentes/js/funcionalidades.js')}"/>
+        <script type='text/javascript' src='https://www.google.com/recaptcha/api.js' async="" defer=""/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> 
+
+            <!-- Google Tag Manager --> 
+        <script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MMFR7WP');
+        </script>
+        <!-- End Google Tag Manager -->
+    </head>
+        <apex:insert name="header">
+        <c:AsuladoHeader />
+        <hr/>
+    </apex:insert>
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+        	<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMFR7WP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <main class="asu-main asu-bg-2 page landing-page">
+            <div class="asu-banner-section">
+                <div class="asu-banner-content">
+                    <h1><b class="asu-text-blue-alt">Solicitudes o</b><br/><b class="asu-text-blue">Peticiones</b></h1>
+                </div>
+                <img class="asu-banner-img" src="{!URLFOR($Resource.banners, 'banners/banner-solicitudes.png')}"/>
+            </div>
+
+            <div class="asu-solicitudes-contenido">
+                <div class="asu-solicitudes-container">
+                    
+                    <a class="asu-banner-footer-button asu-text-black asu-bg-1 asu-border-bottom-orange" href="Consultas_Asulado">
+                    <img src="{!URLFOR($Resource.icons, 'icons/star-icon.png')}"/>
+                    <span>Para consultar tus solicitudes o peticiones haz clic aquí. </span>
+                </a>
+                    <p></p>
+                    <p></p>
+                    <p class="asu-text-blue">En Asulado estamos atentos a tus peticiones o solicitudes. Diligencia tu información, el motivo de tu caso y escríbenos tu mensaje; nos pondremos en contacto lo más pronto posible.</p>
+                    <p class="asu-text-blue"><b>¡Recuerda que también estamos a una llamada de distancia! comunícate en la línea gratuita nacional 01 8000 412 854 o al (604) 402 68 76 si te encuentras en Medellín. También puedes contactarnos a través de nuestro correo electrónico info@asulado.com.co</b></p>
+                    <div class="asu-solicitudes-formulario">
+                        <apex:form id="fm">
+                            <apex:pageBlock id="pb">
+                                <apex:pageBlockSection title="Caso creado exitosamente" rendered="{!NOT(ISBLANK(searchResults))}">
+        
+                            	<apex:pageBlockTable value="{!searchResults}" var="case">
+                                	<apex:column headerValue="Número de caso" value="{!case.CaseNumber}"/>
+                                	<apex:column headerValue="Asunto del caso" value="{!case.pqr_detalle__c}"/>
+                                	<apex:column headerValue="Descripción del caso" value="{!case.Description}"/>
+                                	<apex:column headerValue="Estado" value="{!case.Status}"/>
+                                	<apex:column headerValue="Nombre y apellido solicitante" value="{!case.Contact.Name}"/>
+                                    <apex:column headerValue="Notificación enviada a" value="{!case.Contact.Email}"/>
+                                	<apex:column headerValue="Fecha de creación" value="{!case.CreatedDate}"/>
+                               	</apex:pageBlockTable>
+                            </apex:pageBlockSection>  
+                                    <apex:pageBlockSection columns="1" rendered="{!NOT(ISBLANK(searchResults))}">
+                                        <span class="asu-text-black">*Ten en cuenta que si vas realizar cambios en tus datos de contacto, lo debes reportar en nuestra Línea de servicio Asulado: Medellin (604) 4026876 y Nacional 01 8000 412 854.</span>
+                                        <p></p>
+                                        <p></p>
+                                        <span class="asu-text-black">Si deseas radicar otra solicitud o petición <a class="asu-text-blue" href="Solicitudes_Asulado">haz clic aquí.</a></span>
+                                    </apex:pageBlockSection>
+                                <apex:pageBlockSection id="pbs" columns="2" rendered="{!NOT(NOT(ISBLANK(searchResults)))}">
+                                    <apex:pageBlockSectionItem >
+                                        <apex:outputLabel styleclass="asu-text-black" value="Tipo de solicitud"/>
+                                        <select id="recordType" name="recordType" size="1" class="form-control" required="true" onchange="actualizarTema()">
+                                            <option value="" selected="selected" hidden="hidden"> -- Seleccione una opción -- </option>
+                                            <option value="0128a000000ijlEAAQ">Petición</option>
+                                            <option value="0128a000000ijlFAAQ">Quejas</option>
+                                            <option value="0128a000000ijlGAAQ">Reclamos</option>
+                                            <option value="0128a000000ijlHAAQ">Servicios</option>
+                                        </select>
+                            		</apex:pageBlockSectionItem>
+                                            
+                                          <apex:pageBlockSectionItem >
+                                		<apex:outputLabel styleclass="asu-text-black" value="Tipo de documento"/>
+                                		<select id="tipo_doc" value="Tipo_de_documento__c" name="Tipodedocumento" size="1" class="form-control" required="true">
+                                    		<option value="CC">Cedula ciudadania</option>
+                                    		<option value="TI">Tarjeta identidad</option>
+                                    		<option value="Pasaporte">Pasaporte</option>
+                                    		<option value="NIT">Nit</option>
+                                    		<option value="PEP">Permiso especial de permanencia</option>
+                                    		<option value="RCN">Registro civil nacimiento</option>
+                                		</select>
+                                    </apex:pageBlockSectionItem>  
+                                            
+                                            
+                                    <apex:pageBlockSectionItem >
+                                        <apex:outputLabel styleclass="asu-text-black" value="Tema"/>
+                                        <select id="Tema" class="form-control" name="Tema" onchange="actualizarDetalle()" required="true">
+                                            <option value="" selected="selected" hidden="hidden"> -- Seleccione una opción -- </option> 
+                                        </select>
+                                    </apex:pageBlockSectionItem>
+                                    
+                                        
+                            		<apex:pageBlockSectionItem >
+                                		<apex:outputLabel styleclass="asu-text-black" value="Número de documento"/>
+                                		<input label="Numero de documento" name="Numerodedocumento" placeholder="Número de documento" class="form-control" required="true"/>
+                            		</apex:pageBlockSectionItem>
+                                        
+                                       <apex:pageBlockSectionItem >
+                                        <apex:outputLabel styleclass="asu-text-black" value="Detalle"/>
+                                        <select id="Detalle" name="Detalle" class="form-control" onchange="" required="true">
+                                            <option value="" selected="selected" hidden="hidden"> -- Seleccione una opción -- </option>
+                                        </select>
+                                    </apex:pageBlockSectionItem>       
+                                                  
+                            		<apex:pageBlockSectionItem >
+                                		<apex:outputLabel styleclass="asu-text-black" value="Nombres"/>
+                                		<input label="Primer Nombre" name="FirstName" placeholder="Nombres" class="form-control" required="true"/>
+                            		</apex:pageBlockSectionItem>
+                                        
+                                        <apex:pageBlockSectionItem >
+                                        <apex:outputLabel styleclass="asu-text-black" value="Celular"/>
+                                		<input class="form-control" name="Phone" id="Phone" type="text" placeholder="Teléfono celular" required="true"/>
+                            		</apex:pageBlockSectionItem>
+                                        
+									<apex:pageBlockSectionItem >
+                                        <apex:outputLabel styleclass="asu-text-black" value="Apellidos"/>
+                                		<input label="Segundo Nombre" name="LastName" placeholder="Apellidos" class="form-control" required="true"/>
+                            		</apex:pageBlockSectionItem>
+                            		
+                                    <apex:pageBlockSectionItem >
+                                        <apex:outputLabel styleclass="asu-text-black" value="Email"/>
+                                        <input class="form-control" name="Email" id="Email" type="email" placeholder="Correo electronico" required="true"/>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >
+                                        <apex:outputLabel styleclass="asu-text-black" value="¿Por cuál medio deseas que te demos respuesta?"/>
+                                        <select id="MedioRta" class="form-control" name="MedioRta" onchange="actualizarMedio()" required="true">
+                                            <option value="" selected="selected" hidden="hidden"> -- Seleccione una opción -- </option>
+                                            <option value="Correo electrónico">Correo electrónico</option>
+                                            <option value="Teléfono">Teléfono</option>
+                                            <option value="Carta física">Carta física</option>
+                                        </select>
+                                    </apex:pageBlockSectionItem>
+                                    
+                                     <apex:pageBlockSectionItem >
+                                        <apex:outputLabel styleclass="asu-text-black" value="Departamento"/>
+                                        <select id="Departamento" disabled="true" class="form-control" name="Departamento" onchange="actualizarCiudad()">
+                                            <option value="" selected="selected" hidden="hidden"> -- Seleccione una opción -- </option>
+                                                <OPTION VALUE="91-AMAZONAS">AMAZONAS</OPTION>
+                                                <OPTION VALUE="05-ANTIOQUIA">ANTIOQUIA</OPTION>
+                                                <OPTION VALUE="81-ARAUCA">ARAUCA</OPTION>
+                                                <OPTION VALUE="08-ATLÁNTICO">ATLÁNTICO</OPTION>
+                                                <OPTION VALUE="11-BOGOTÁ">BOGOTÁ</OPTION>
+                                                <OPTION VALUE="13-BOLÍVAR">BOLÍVAR</OPTION>
+                                                <OPTION VALUE="15-BOYACA">BOYACÁ</OPTION>
+                                                <OPTION VALUE="17-CALDAS">CALDAS</OPTION>
+                                                <OPTION VALUE="18-CAQUETA">CAQUETÁ</OPTION>
+                                                <OPTION VALUE="85-CASANARE">CASANARE</OPTION>
+                                                <OPTION VALUE="19-CAUCA">CAUCA</OPTION>
+                                                <OPTION VALUE="20-CESAR">CESAR</OPTION>
+                                                <OPTION VALUE="27-CHOCO">CHOCÓ</OPTION>
+                                                <OPTION VALUE="23-CÓRDOBA">CÓRDOBA</OPTION>
+                                                <OPTION VALUE="25-CUNDINAMARCA">CUNDINAMARCA</OPTION>
+                                                <OPTION VALUE="94-GUAINIA">GUAINÍA</OPTION>
+                                                <OPTION VALUE="95-GUAVIARE">GUAVIARE</OPTION>
+                                                <OPTION VALUE="41-HUILA">HUILA</OPTION>
+                                                <OPTION VALUE="44-LA GUAJIRA">LA GUAJIRA</OPTION>
+                                                <OPTION VALUE="47-MAGDALENA">MAGDALENA</OPTION>
+                                                <OPTION VALUE="50-META">META</OPTION>
+                                                <OPTION VALUE="52-NARIÑO">NARIÑO</OPTION>
+                                                <OPTION VALUE="54-NORTE SANTANDER">NORTE DE SANTANDER</OPTION>
+                                                <OPTION VALUE="86-PUTUMAYO">PUTUMAYO</OPTION>
+                                                <OPTION VALUE="63-QUINDIO">QUINDÍO</OPTION>
+                                                <OPTION VALUE="66-RISARALDA">RISARALDA</OPTION>
+                                                <OPTION VALUE="88-SAN ANDRÉS">SAN ANDRÉS Y PROVIDENCIA</OPTION>
+                                                <OPTION VALUE="68-SANTANDER">SANTANDER</OPTION>
+                                                <OPTION VALUE="70-SUCRE">SUCRE</OPTION>
+                                                <OPTION VALUE="73-TOLIMA">TOLIMA</OPTION>
+                                                <OPTION VALUE="76-VALLE">VALLE DEL CAUCA</OPTION>
+                                                <OPTION VALUE="97-VAUPES">VAUPÉS</OPTION>
+                                                <OPTION VALUE="99-VICHADA">VICHADA</OPTION>
+
+                                        </select>
+                                    </apex:pageBlockSectionItem>
+                                     <apex:pageBlockSectionItem >
+                                        <apex:outputLabel styleclass="asu-text-black" value="Ciudad"/>
+                                        <select id="Ciudad" disabled="true" class="form-control" name="Ciudad">
+                                        <option value="" selected="selected" hidden="hidden"> -- Seleccione una opción -- </option>
+                                            
+                                        </select>
+                                    </apex:pageBlockSectionItem>
+                                    
+                                    <apex:pageBlockSectionItem >
+                                        <apex:outputLabel styleclass="asu-text-black" value="Dirección"/>
+                                        <input class="form-control" disabled="true" name="MailingStreet" id="MailingStreet" type="text" placeholder="Dirección"/>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >
+                                        
+                                        <select id="Tipo" class="form-control" name="Tipo" hidden="true">
+                                        <option value="Atención a clientes" selected="selected"> Atención a clientes</option>
+                                            
+                                        </select>
+                                    </apex:pageBlockSectionItem>
+                                    
+                                    <apex:pageBlockSectionItem >
+                                        <apex:outputLabel styleclass="asu-text-black" value="Descripción de la solicitud"/>
+                                        <textarea id="Descripcion" class="form-control" name="Descripcion" required="true"></textarea>
+                                    </apex:pageBlockSectionItem>
+                                          <apex:pageBlockSectionItem >
+                                        <input type="hidden"/>
+                                    </apex:pageBlockSectionItem>
+                                        
+                                        <apex:pageBlockSectionItem >
+                                        <apex:outputLabel styleclass="asu-text-black" value="Adjuntar documentos (máximo 5 MB)"/>
+                                    </apex:pageBlockSectionItem>
+                                        
+                                          <apex:pageBlockSectionItem >
+                                        <input type="hidden"/>
+                                    </apex:pageBlockSectionItem>
+                                    
+                                        
+                                    <apex:pageBlockSectionItem >
+                                        <apex:inputFile filename="{!fileName1}" styleclass="form-control" contentType="{!contentType1}" value="{!afile1}"/>
+                                    </apex:pageBlockSectionItem>
+                                        <apex:pageBlockSectionItem >
+                                        <input type="hidden"/>
+                                    </apex:pageBlockSectionItem>
+                                        <apex:pageBlockSectionItem >
+                                        <apex:inputFile filename="{!fileName2}" styleclass="form-control" contentType="{!contentType2}" value="{!afile2}"/>
+                                    </apex:pageBlockSectionItem>
+                                        <apex:pageBlockSectionItem >
+                                        <input type="hidden"/>
+                                    </apex:pageBlockSectionItem>
+                                        <apex:pageBlockSectionItem >
+                                        <apex:inputFile filename="{!fileName3}" styleclass="form-control" contentType="{!contentType3}" value="{!afile3}"/>
+                                    </apex:pageBlockSectionItem>
+                                        <apex:pageBlockSectionItem >
+                                        <input type="hidden"/>
+                                    </apex:pageBlockSectionItem>
+                                        
+                                        <apex:pageBlockSectionItem >
+                                        <apex:inputFile filename="{!fileName4}" styleclass="form-control" contentType="{!contentType4}" value="{!afile4}"/>
+                                    </apex:pageBlockSectionItem>
+                                        <apex:pageBlockSectionItem >
+                                        <input type="hidden"/>
+                                    </apex:pageBlockSectionItem>
+                                        <apex:pageBlockSectionItem >
+                                        <apex:inputFile filename="{!fileName5}" styleclass="form-control" contentType="{!contentType5}" value="{!afile5}"/>
+                                    </apex:pageBlockSectionItem>
+                                        <apex:pageBlockSectionItem >
+                                        <input type="hidden"/>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >
+                                        <input type="checkbox" name="TratamientoDatos" id="Pro_Acepta_Tratamiento_datos_personales__c" required="true"/>
+                                        <label for="Pro_Acepta_Tratamiento_datos_personales__c" class="asu-text-black">Autorizo el tratamiento de mis datos personales, de conformidad con la <a class="asu-text-blue" href="{!URLFOR($Resource.Asulado_files, 'files/Politica-de-tratamiento-de-datos-personales-Asulado.pdf')}">política de tratamiento de datos.</a></label>
+                                    </apex:pageBlockSectionItem>
+                                            <apex:pageBlockSectionItem >
+                                        <input type="hidden"/>
+                                    </apex:pageBlockSectionItem>
+                                    <apex:pageBlockSectionItem >
+                                    	<div data-type="image" class="g-recaptcha" data-sitekey="{!publicKey}" data-callback="recaptchaCallback"></div>
+                                   	</apex:pageBlockSectionItem>
+                            </apex:pageBlockSection>
+                            <apex:pageBlockButtons id="pbb" location="bottom">
+                            	<apex:commandButton action="{!save}" styleClass="hideButton" value="Enviar solicitud" id="btnVerify"/>
+                          	</apex:pageBlockButtons>
+                          	
+                          </apex:pageBlock>
+                        </apex:form>
+                    </div>
+                </div>
+            </div>
+        </main>
+			
+		<script type='text/javascript' src='https://www.google.com/recaptcha/api.js'/>
+        <script>
+        function actualizarTema() {              
+            var Tema = document.getElementById("Tema");
+            var Tipo = document.getElementById("recordType");
+            Tema.options.length = 0;
+        	if (Tipo.value == "0128a000000ijlEAAQ"){
+                Tema.options[Tema.options.length] = new Option("Atención de pensionado en Oficina Protección", "Atención de pensionado en Oficina Protección");
+                Tema.options[Tema.options.length] = new Option("Actualización de datos", "Actualización de datos");
+                Tema.options[Tema.options.length] = new Option("Asesoría pensional", "Asesoría pensional");
+                Tema.options[Tema.options.length] = new Option("Canales de servicio", "Canales de servicio");
+                Tema.options[Tema.options.length] = new Option("Certificados o Colilla", "Certificados o Colilla");
+                Tema.options[Tema.options.length] = new Option("Información de Aseguradora el sector y regulación", "Información de Aseguradora el sector y regulación");
+              	Tema.options[Tema.options.length] = new Option("Nómina y Pagos", "Nómina y Pagos");
+                Tema.options[Tema.options.length] = new Option("Novedades de Nómina", "Novedades de Nómina");
+        		Tema.options[Tema.options.length] = new Option("Otros", "Otros");
+            
+           	}else if (Tipo.value == "0128a000000ijlFAAQ"){
+                Tema.options[Tema.options.length] = new Option("Actualización de datos", "Actualización de datos");
+                Tema.options[Tema.options.length] = new Option("Canales de servicio", "Canales de servicio");
+               	Tema.options[Tema.options.length] = new Option("Otros", "Otros");
+                
+            }else if (Tipo.value == "0128a000000ijlGAAQ"){
+               Tema.options[Tema.options.length] = new Option("Actualización de datos", "Actualización de datos");
+                Tema.options[Tema.options.length] = new Option("Certificados o Colilla", "Certificados o Colilla");
+                Tema.options[Tema.options.length] = new Option("Nómina y Pagos", "Nómina y Pagos");
+                Tema.options[Tema.options.length] = new Option("Novedades de Nómina", "Novedades de Nómina");
+                Tema.options[Tema.options.length] = new Option("Resarcimiento", "Resarcimiento");
+                Tema.options[Tema.options.length] = new Option("Otros", "Otros");
+                
+            }else if (Tipo.value == "0128a000000ijlHAAQ"){
+                Tema.options[Tema.options.length] = new Option("Actualización de datos", "Actualización de datos");
+                Tema.options[Tema.options.length] = new Option("Asesoría pensional", "Asesoría pensional");
+                Tema.options[Tema.options.length] = new Option("Canales de servicio", "Canales de servicio");
+                Tema.options[Tema.options.length] = new Option("Certificados o Colilla", "Certificados o Colilla");
+                Tema.options[Tema.options.length] = new Option("Información de Aseguradora el sector y regulación", "Información de Aseguradora el sector y regulación");
+              	Tema.options[Tema.options.length] = new Option("Nómina y Pagos", "Nómina y Pagos");
+                Tema.options[Tema.options.length] = new Option("Novedades de Nómina", "Novedades de Nómina");
+        		Tema.options[Tema.options.length] = new Option("Otros", "Otros");
+        		}
+                actualizarDetalle()
+            }
+        function actualizarDetalle() {
+                var Tema = document.getElementById("Tema");
+                var Detalle = document.getElementById("Detalle");
+                var Tipo = document.getElementById("recordType");    
+                Detalle.options.length = 0;
+                if (Tipo.value == "0128a000000ijlEAAQ"){
+                    if (Tema.value == "Atención de pensionado en Oficina Protección") {
+                        Detalle.options[Detalle.options.length] = new Option("Atención de pensionado en Oficina Protección", "Atención de pensionado en Oficina Protección");
+                    } else if (Tema.value == "Actualización de datos") {
+                        Detalle.options[Detalle.options.length] = new Option("Eliminar suscripción a comunicaciones", "Eliminar suscripción a comunicaciones");
+                        Detalle.options[Detalle.options.length] = new Option("Actualización datos socioeconomicos / Sarlaft", "Actualización datos socioeconomicos / Sarlaft");
+                        Detalle.options[Detalle.options.length] = new Option("Actualización de datos básicos", "Actualización de datos básicos");
+                        Detalle.options[Detalle.options.length] = new Option("Actualización de datos de localización", "Actualización de datos de localización");
+                        Detalle.options[Detalle.options.length] = new Option("Actualización poderes", "Actualización poderes");
+                    } else if (Tema.value == "Asesoría pensional") {
+                        Detalle.options[Detalle.options.length] = new Option("Preguntas generales Rentas Vitalicias", "Preguntas generales Rentas Vitalicias");
+                        Detalle.options[Detalle.options.length] = new Option("Recepción complementos clínicos y administrativos", "Recepción complementos clínicos y administrativos");
+                        Detalle.options[Detalle.options.length] = new Option("Recepción de historia clínica", "Recepción de historia clínica");
+                        Detalle.options[Detalle.options.length] = new Option("Asesoría sobre Sustitución Pensional", "Asesoría sobre Sustitución Pensional");
+                        Detalle.options[Detalle.options.length] = new Option("Seguimiento a la solicitud o trámite", "Seguimiento a la solicitud o trámite");
+                        Detalle.options[Detalle.options.length] = new Option("Asesoría en incremento pensional", "Asesoría en incremento pensional");
+                        Detalle.options[Detalle.options.length] = new Option("Asesoría en Participación de Utilidades", "Asesoría en Participación de Utilidades");
+                    } else if (Tema.value == "Canales de servicio") {
+                        Detalle.options[Detalle.options.length] = new Option("Asesoria Oferta en canales", "Asesoria Oferta en canales");
+                        Detalle.options[Detalle.options.length] = new Option("Información sobre comunicación enviada", "Información sobre comunicación enviada");
+                    } else if (Tema.value == "Certificados o Colilla") {
+                        Detalle.options[Detalle.options.length] = new Option("Colilla de pago pensionados", "Colilla de pago pensionados");
+                        Detalle.options[Detalle.options.length] = new Option("Certificado de Ingresos y Retenciones - Declaración de renta", "Certificado de Ingresos y Retenciones - Declaración de renta");
+                        Detalle.options[Detalle.options.length] = new Option("Duplicado Carátula de Póliza", "Duplicado Carátula de Póliza");
+                        Detalle.options[Detalle.options.length] = new Option("Clausulado Renta Vitalicia", "Clausulado Renta Vitalicia");
+                        Detalle.options[Detalle.options.length] = new Option("Constancia de pensionado", "Constancia de pensionado");
+                    } else if (Tema.value == "Información de Aseguradora el sector y regulación") {
+                        Detalle.options[Detalle.options.length] = new Option("Asesoría normas decretos y leyes", "Asesoría normas decretos y leyes");
+                        Detalle.options[Detalle.options.length] = new Option("Asesoría sobre la Aseguradora y el sector", "Asesoría sobre la Aseguradora y el sector");
+                    } else if (Tema.value == "Nómina y Pagos") {
+                        Detalle.options[Detalle.options.length] = new Option("Solicitud de cobro de Auxilio funerario", "Solicitud de cobro de Auxilio funerario");
+                        Detalle.options[Detalle.options.length] = new Option("Asesoría pago de mesada (deducciones movimientos)", "Asesoría pago de mesada (deducciones movimientos)");
+                    } else if (Tema.value == "Novedades de Nómina") {
+                        Detalle.options[Detalle.options.length] = new Option("Apelación dictamen de invalidez", "Apelación dictamen de invalidez");
+                        Detalle.options[Detalle.options.length] = new Option("Certificado de Estudio", "Certificado de Estudio");
+                        Detalle.options[Detalle.options.length] = new Option("Embargo/Desembargo", "Embargo/Desembargo");
+                        Detalle.options[Detalle.options.length] = new Option("Cambio de EPS", "Cambio de EPS");
+                        Detalle.options[Detalle.options.length] = new Option("Libranza", "Libranza");
+                        Detalle.options[Detalle.options.length] = new Option("Caja de Compensación", "Caja de Compensación");
+                        Detalle.options[Detalle.options.length] = new Option("Aportes a Pensiones Voluntarias", "Aportes a Pensiones Voluntarias");
+                        Detalle.options[Detalle.options.length] = new Option("Afiliación a AFP - Cónyuge/Compañera(o) Temporal", "Afiliación a AFP - Cónyuge/Compañera(o) Temporal");
+                        Detalle.options[Detalle.options.length] = new Option("Certificado de Supervivencia", "Certificado de Supervivencia");
+                        Detalle.options[Detalle.options.length] = new Option("Inclusión/Exclusión de Beneficiario", "Inclusión/Exclusión de Beneficiario");
+                        Detalle.options[Detalle.options.length] = new Option("Fallecimiento de Rentista o Beneficiario", "Fallecimiento de Rentista o Beneficiario");
+                        Detalle.options[Detalle.options.length] = new Option("Cambio en porcentaje de Invalidez", "Cambio en porcentaje de Invalidez");
+                        Detalle.options[Detalle.options.length] = new Option("Inscripción modificación o cancelación cuenta financiera", "Inscripción modificación o cancelación cuenta financiera");
+                        Detalle.options[Detalle.options.length] = new Option("Duplicado dictamen de invalidez", "Duplicado dictamen de invalidez");
+                    } else if (Tema.value == "Otros") {
+                        Detalle.options[Detalle.options.length] = new Option("Otros", "Otros");
+                    }
+                }else if (Tipo.value == "0128a000000ijlFAAQ"){
+                    if (Tema.value == "Actualización de datos") {
+                        Detalle.options[Detalle.options.length] = new Option("Queja por protección de datos personales", "Queja por protección de datos personales");
+                    } else if (Tema.value == "Canales de servicio") {
+                        Detalle.options[Detalle.options.length] = new Option("Inconformidad con Asesoría de Renta Vitalicia", "Inconformidad con Asesoría de Renta Vitalicia");
+                        Detalle.options[Detalle.options.length] = new Option("Inconformidad con Afiliación a EPS", "Inconformidad con Afiliación a EPS");
+                        Detalle.options[Detalle.options.length] = new Option("Inconformidad con Apertura de Cuenta Bancaria", "Inconformidad con Apertura de Cuenta Bancaria");
+                        Detalle.options[Detalle.options.length] = new Option("Errores de funcionamiento de canales digitales", "Errores de funcionamiento de canales digitales");
+                        Detalle.options[Detalle.options.length] = new Option("Insatisfacción de canales digitales", "Insatisfacción de canales digitales");
+                        Detalle.options[Detalle.options.length] = new Option("Demora en la atención de Línea de servicio", "Demora en la atención de Línea de servicio");
+                        Detalle.options[Detalle.options.length] = new Option("Mala asesoría de Línea de servicio", "Mala asesoría de Línea de servicio");
+                    } else if (Tema.value == "Otros") {
+                        Detalle.options[Detalle.options.length] = new Option("Otros", "Otros");
+                    }
+                }else if (Tipo.value == "0128a000000ijlGAAQ"){
+                    if (Tema.value == "Actualización de datos") {
+                        Detalle.options[Detalle.options.length] = new Option("Queja por protección de datos personales", "Queja por protección de datos personales");
+                        Detalle.options[Detalle.options.length] = new Option("Inconvenientes con la creación o actualización de datos", "Inconvenientes con la creación o actualización de datos");
+                    } else if (Tema.value == "Certificados o Colilla") {
+                        Detalle.options[Detalle.options.length] = new Option("Inconformidad / Demora con certificado o colilla", "Inconformidad / Demora con certificado o colilla");
+                    } else if (Tema.value == "Nómina  y Pagos") {
+                        Detalle.options[Detalle.options.length] = new Option("Inconvenientes o errores en el pago de EPS/AFP", "Inconvenientes o errores en el pago de EPS/AFP");
+                        Detalle.options[Detalle.options.length] = new Option("Inconformidad / Demora con el pago de mesada", "Inconformidad / Demora con el pago de mesada");
+                        Detalle.options[Detalle.options.length] = new Option("Inconformidad con incremento pensional", "Inconformidad con incremento pensional");
+                        Detalle.options[Detalle.options.length] = new Option("Inconformidad con Participación de Utilidades", "Inconformidad con Participación de Utilidades");
+                    } else if (Tema.value == "Novedades de Nómina") {
+                        Detalle.options[Detalle.options.length] = new Option("Inconformidad / Demora con calificación de Calificación IPS Juntas Regional y/o Junta Nacional", "Inconformidad / Demora con calificación de Calificación IPS Juntas Regional y/o Junta Nacional");
+                        Detalle.options[Detalle.options.length] = new Option("Inconformidad / Demora con definición de Auxilio funerario", "Inconformidad / Demora con definición de Auxilio funerario");
+                        Detalle.options[Detalle.options.length] = new Option("Inconformidad / Demora con definición de Sustitución Pensional Sobrevivencia", "Inconformidad / Demora con definición de Sustitución Pensional Sobrevivencia");
+                        Detalle.options[Detalle.options.length] = new Option("Inconformidad / Demora con aplicación de novedad de nómina", "Inconformidad / Demora con aplicación de novedad de nómina");
+                        Detalle.options[Detalle.options.length] = new Option("Solicitud de resarcimiento", "Solicitud de resarcimiento");
+                    } else if (Tema.value == "Resarcimiento") {
+                        Detalle.options[Detalle.options.length] = new Option("Solicitud de resarcimiento", "Solicitud de resarcimiento");
+                    } else if (Tema.value == "Otros") {
+                        Detalle.options[Detalle.options.length] = new Option("Otros", "Otros");
+                    }
+                }else if (Tipo.value == "0128a000000ijlHAAQ"){
+                    if (Tema.value == "Actualización de datos") {
+                        Detalle.options[Detalle.options.length] = new Option("Actualización datos socioeconomicos / Sarlaft", "Actualización datos socioeconomicos / Sarlaft");
+                        Detalle.options[Detalle.options.length] = new Option("Actualización de datos básicos", "Actualización de datos básicos");
+                        Detalle.options[Detalle.options.length] = new Option("Actualización de datos de localización", "Actualización de datos de localización");
+                        Detalle.options[Detalle.options.length] = new Option("Actualización poderes", "Actualización poderes");
+                    } else if (Tema.value == "Asesoría pensional") {
+                        Detalle.options[Detalle.options.length] = new Option("Preguntas generales Rentas Vitalicias", "Preguntas generales Rentas Vitalicias");
+                        Detalle.options[Detalle.options.length] = new Option("Recepción complementos clínicos y administrativos", "Recepción complementos clínicos y administrativos");
+                        Detalle.options[Detalle.options.length] = new Option("Recepción de historia clínica", "Recepción de historia clínica");
+                        Detalle.options[Detalle.options.length] = new Option("Asesoría sobre Sustitución Pensional", "Asesoría sobre Sustitución Pensional");
+                        Detalle.options[Detalle.options.length] = new Option("Seguimiento a la solicitud o trámite", "Seguimiento a la solicitud o trámite");
+                        Detalle.options[Detalle.options.length] = new Option("Asesoría en incremento pensional", "Asesoría en incremento pensional");
+                        Detalle.options[Detalle.options.length] = new Option("Asesoría en Participación de Utilidades", "Asesoría en Participación de Utilidades");
+                    } else if (Tema.value == "Canales de servicio") {
+                        Detalle.options[Detalle.options.length] = new Option("Asesoria Oferta en canales", "Asesoria Oferta en canales");
+                        Detalle.options[Detalle.options.length] = new Option("Información sobre comunicación enviada", "Información sobre comunicación enviada");
+                    } else if (Tema.value == "Certificados o Colilla") {
+                        Detalle.options[Detalle.options.length] = new Option("Colilla de pago pensionados", "Colilla de pago pensionados");
+                        Detalle.options[Detalle.options.length] = new Option("Certificado de Ingresos y Retenciones - Declaración de renta", "Certificado de Ingresos y Retenciones - Declaración de renta");
+                        Detalle.options[Detalle.options.length] = new Option("Duplicado Carátula de Póliza", "Duplicado Carátula de Póliza");
+                        Detalle.options[Detalle.options.length] = new Option("Clausulado Renta Vitalicia", "Clausulado Renta Vitalicia");
+                        Detalle.options[Detalle.options.length] = new Option("Constancia de pensionado", "Constancia de pensionado");
+                    } else if (Tema.value == "Información de Aseguradora el sector y regulación") {
+                        Detalle.options[Detalle.options.length] = new Option("Asesoría normas decretos y leyes", "Asesoría normas decretos y leyes");
+                        Detalle.options[Detalle.options.length] = new Option("Asesoría sobre la Aseguradora y el sector", "Asesoría sobre la Aseguradora y el sector");
+                    } else if (Tema.value == "Nómina y Pagos") {
+                        Detalle.options[Detalle.options.length] = new Option("Solicitud de cobro de Auxilio funerario", "Solicitud de cobro de Auxilio funerario");
+                        Detalle.options[Detalle.options.length] = new Option("Asesoría pago de mesada (deducciones movimientos)", "Asesoría pago de mesada (deducciones movimientos)");
+                    } else if (Tema.value == "Novedades de Nómina") {
+                        Detalle.options[Detalle.options.length] = new Option("Certificado de Estudio", "Certificado de Estudio");
+                        Detalle.options[Detalle.options.length] = new Option("Embargo/Desembargo", "Embargo/Desembargo");
+                        Detalle.options[Detalle.options.length] = new Option("Cambio de EPS", "Cambio de EPS");
+                        Detalle.options[Detalle.options.length] = new Option("Libranza", "Libranza");
+                        Detalle.options[Detalle.options.length] = new Option("Caja de Compensación", "Caja de Compensación");
+                        Detalle.options[Detalle.options.length] = new Option("Afiliación a AFP - Cónyuge/Compañera(o) Temporal", "Afiliación a AFP - Cónyuge/Compañera(o) Temporal");
+                        Detalle.options[Detalle.options.length] = new Option("Certificado de Supervivencia", "Certificado de Supervivencia");
+                        Detalle.options[Detalle.options.length] = new Option("Inclusión/Exclusión de Beneficiario", "Inclusión/Exclusión de Beneficiario");
+                        Detalle.options[Detalle.options.length] = new Option("Fallecimiento de Rentista o Beneficiario", "Fallecimiento de Rentista o Beneficiario");
+                        Detalle.options[Detalle.options.length] = new Option("Cambio en porcentaje de Invalidez", "Cambio en porcentaje de Invalidez");
+                        Detalle.options[Detalle.options.length] = new Option("Inscripción modificación o cancelación cuenta financiera", "Inscripción modificación o cancelación cuenta financiera");
+                        Detalle.options[Detalle.options.length] = new Option("Duplicado dictamen de invalidez", "Duplicado dictamen de invalidez");
+                        Detalle.options[Detalle.options.length] = new Option("Asesoría Aportes a Pensiones Voluntarias", "Asesoría Aportes a Pensiones Voluntarias");
+                        Detalle.options[Detalle.options.length] = new Option("Asesoría solicitud de calificación", "Asesoría solicitud de calificación");
+                    } else if (Tema.value == "Otros") {
+                        Detalle.options[Detalle.options.length] = new Option("Otros", "Otros");
+                    }
+                }
+			}
+        function recaptchaCallback() {
+            var btnVerify = document.getElementById("pg:fm:pb:pbb:btnVerify");
+            if (btnVerify.classList.contains("hideButton") ) {
+                btnVerify.classList.remove("hideButton");
+            }
+}
+        function actualizarMedio() {
+            var MedioRta = document.getElementById("MedioRta");
+            
+            if (MedioRta.value == "Carta física") {
+                document.getElementById('MailingStreet').disabled = false;
+                document.getElementById('Departamento').disabled = false;
+                document.getElementById('Ciudad').disabled = false;
+            } else {
+                document.getElementById('MailingStreet').disabled = true;
+                document.getElementById('Departamento').disabled = true;
+                document.getElementById('Ciudad').disabled = true;
+            }
+		}
+        function actualizarCiudad() {
+			var Departamento = document.getElementById("Departamento");
+			var Ciudad = document.getElementById("Ciudad");
+            Ciudad.options.length = 0;
+
+			if (Departamento.value == "91-AMAZONAS") {
+				Ciudad.options[Ciudad.options.length] = new Option( "EL ENCANTO", "91263-EL ENCANTO");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA CHORRERA", "91405-LA CHORRERA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA PEDRERA", "91407-LA PEDRERA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA VICTORIA", "91430-LA VICTORIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LETICIA", "91001-LETICIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MIRITI - PARANÁ", "91460-MIRITI - PARANÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO ALEGRIA", "91530-PUERTO ALEGRIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO ARICA", "91536-PUERTO ARICA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO NARIÑO", "91540-PUERTO NARIÑO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO SANTANDER", "91669-PUERTO SANTANDER");
+                Ciudad.options[Ciudad.options.length] = new Option( "TARAPACÁ", "91798-TARAPACÁ");
+
+			    } 
+            else if (Departamento.value == "05-ANTIOQUIA") {
+                Ciudad.options[Ciudad.options.length] = new Option( "ABEJORRAL", "05002-ABEJORRAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "ABRIAQUÍ", "05004-ABRIAQUÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "ALEJANDRÍA", "05021-ALEJANDRÍA");
+                Ciudad.options[Ciudad.options.length] = new Option( "AMAGa", "05030-AMAGa");
+                Ciudad.options[Ciudad.options.length] = new Option( "AMALFI", "05031-AMALFI");
+                Ciudad.options[Ciudad.options.length] = new Option( "ANDES", "05034-ANDES");
+                Ciudad.options[Ciudad.options.length] = new Option( "ANGELOPOLIS", "05036-ANGELOPOLIS");
+                Ciudad.options[Ciudad.options.length] = new Option( "ANGOSTURA", "05038-ANGOSTURA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ANORÍ", "05040-ANORÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "ANZA", "05044-ANZA");
+                Ciudad.options[Ciudad.options.length] = new Option( "APARTADÓ", "05045-APARTADÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARBOLETES", "05051-ARBOLETES");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARGELIA", "05055-ARGELIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARMENIA", "05059-ARMENIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BARBOSA", "05079-BARBOSA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BELLO", "05088-BELLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "BELMIRA", "05086-BELMIRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BETANIA", "05091-BETANIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BETULIA", "05093-BETULIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BRICEÑO", "05107-BRICEÑO");
+                Ciudad.options[Ciudad.options.length] = new Option( "BURITICÁ", "05113-BURITICÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAICEDO", "05125-CAICEDO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CALDAS", "05129-CALDAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAMPAMENTO", "05134-CAMPAMENTO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CARACOLÍ", "05142-CARACOLÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CARAMANTA", "05145-CARAMANTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAREPA", "05147-CAREPA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CARMEN DE VIBORAL", "05148-CARMEN DE VIBORAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAROLINA", "05150-CAROLINA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAUCASIA", "05154-CAUCASIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAÑASGORDAS", "05138-CAÑASGORDAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHIGORODÓ", "05172-CHIGORODÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CISNEROS", "05190-CISNEROS");
+                Ciudad.options[Ciudad.options.length] = new Option( "CIUDAD BOLÍVAR", "05101-CIUDAD BOLÍVAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "COCORNÁ", "05197-COCORNÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CONCEPCIÓN", "05206-CONCEPCIÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "CONCORDIA", "05209-CONCORDIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "COPACABANA", "05212-COPACABANA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CÁCERES", "05120-CÁCERES");
+                Ciudad.options[Ciudad.options.length] = new Option( "DABEIBA", "05234-DABEIBA");
+                Ciudad.options[Ciudad.options.length] = new Option( "DON MATiAS", "05237-DON MATiAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "EBÉJICO", "05240-EBÉJICO");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL BAGRE", "05250-EL BAGRE");
+                Ciudad.options[Ciudad.options.length] = new Option( "ENTRERRIOS", "05264-ENTRERRIOS");
+                Ciudad.options[Ciudad.options.length] = new Option( "ENVIGADO", "05266-ENVIGADO");
+                Ciudad.options[Ciudad.options.length] = new Option( "FREDONIA", "05282-FREDONIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "FRONTINO", "05284-FRONTINO");
+                Ciudad.options[Ciudad.options.length] = new Option( "GIRALDO", "05306-GIRALDO");
+                Ciudad.options[Ciudad.options.length] = new Option( "GIRARDOTA", "05308-GIRARDOTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GRANADA", "05313-GRANADA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUADALUPE", "05315-GUADALUPE");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUARNE", "05318-GUARNE");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUATAPE", "05321-GUATAPE");
+                Ciudad.options[Ciudad.options.length] = new Option( "GÓMEZ PLATA", "05310-GÓMEZ PLATA");
+                Ciudad.options[Ciudad.options.length] = new Option( "HELICONIA", "05347-HELICONIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "HISPANIA", "05353-HISPANIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ITAGUI", "05360-ITAGUI");
+                Ciudad.options[Ciudad.options.length] = new Option( "ITUANGO", "05361-ITUANGO");
+                Ciudad.options[Ciudad.options.length] = new Option( "JARDÍN", "05364-JARDÍN");
+                Ciudad.options[Ciudad.options.length] = new Option( "JERICÓ", "05368-JERICÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA CEJA", "05376-LA CEJA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA ESTRELLA", "05380-LA ESTRELLA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA PINTADA", "05390-LA PINTADA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA UNIÓN", "05400-LA UNIÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "LIBORINA", "05411-LIBORINA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MACEO", "05425-MACEO");
+                Ciudad.options[Ciudad.options.length] = new Option( "MARINILLA", "05440-MARINILLA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MEDELLÍN", "05001-MEDELLÍN");
+                Ciudad.options[Ciudad.options.length] = new Option( "MONTEBELLO", "05467-MONTEBELLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "MURINDÓ", "05475-MURINDÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "MUTATA", "05480-MUTATA");
+                Ciudad.options[Ciudad.options.length] = new Option( "NARIÑO", "05483-NARIÑO");
+                Ciudad.options[Ciudad.options.length] = new Option( "NECHÍ", "05495-NECHÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "NECOCLÍ", "05490-NECOCLÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "OLAYA", "05501-OLAYA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PEQUE", "05543-PEQUE");
+                Ciudad.options[Ciudad.options.length] = new Option( "PEÑOL", "05541-PEÑOL");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUEBLORRICO", "05576-PUEBLORRICO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO BERRiO", "05579-PUERTO BERRiO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO NARE", "05585-PUERTO NARE");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO TRIUNFO", "05591-PUERTO TRIUNFO");
+                Ciudad.options[Ciudad.options.length] = new Option( "REMEDIOS", "05604-REMEDIOS");
+                Ciudad.options[Ciudad.options.length] = new Option( "RETIRO", "05607-RETIRO");
+                Ciudad.options[Ciudad.options.length] = new Option( "RIONEGRO", "05615-RIONEGRO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SABANALARGA", "05628-SABANALARGA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SABANETA", "05631-SABANETA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SALGAR", "05642-SALGAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN ANDRÉS", "05647-SAN ANDRÉS");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN CARLOS", "05649-SAN CARLOS");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN FRANCISCO", "05652-SAN FRANCISCO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JERÓNIMO", "05656-SAN JERÓNIMO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JOSÉ DE LA MONTAÑA", "05658-SAN JOSÉ DE LA MONTAÑA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JUAN DE URABA", "05659-SAN JUAN DE URABA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN LUIS", "05660-SAN LUIS");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN PEDRO", "05664-SAN PEDRO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN PEDRO DE URABA", "05665-SAN PEDRO DE URABA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN RAFAEL", "05667-SAN RAFAEL");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN ROQUE", "05670-SAN ROQUE");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN VICENTE", "05674-SAN VICENTE");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA BaRBARA", "05679-SANTA BaRBARA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTAFÉ DE ANTIOQUIA", "05042-SANTAFÉ DE ANTIOQUIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTO DOMINGO", "05690-SANTO DOMINGO");
+                Ciudad.options[Ciudad.options.length] = new Option("SANTA ROSA DE OSOS", "05686-SANTA ROSA DE OSOS");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTUARIO", "05697-SANTUARIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SEGOVIA", "05736-SEGOVIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SONSON", "05756-SONSON");
+                Ciudad.options[Ciudad.options.length] = new Option( "SOPETRaN", "05761-SOPETRaN");
+                Ciudad.options[Ciudad.options.length] = new Option( "TARAZÁ", "05790-TARAZÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "TARSO", "05792-TARSO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TITIRIBÍ", "05809-TITIRIBÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "TOLEDO", "05819-TOLEDO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TURBO", "05837-TURBO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TÁMESIS", "05789-TÁMESIS");
+                Ciudad.options[Ciudad.options.length] = new Option( "URAMITA", "05842-URAMITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "URRAO", "05847-URRAO");
+                Ciudad.options[Ciudad.options.length] = new Option( "VALDIVIA", "05854-VALDIVIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VALPARAISO", "05856-VALPARAISO");
+                Ciudad.options[Ciudad.options.length] = new Option( "VEGACHÍ", "05858-VEGACHÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "VENECIA", "05861-VENECIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VIGÍA DEL FUERTE", "05873-VIGÍA DEL FUERTE");
+                Ciudad.options[Ciudad.options.length] = new Option( "YALÍ", "05885-YALÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "YARUMAL", "05887-YARUMAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "YOLOMBÓ", "05890-YOLOMBÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "YONDÓ", "05893-YONDÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "ZARAGOZA", "05895-ZARAGOZA");
+
+                } 
+            else if (Departamento.value == "81-ARAUCA") {
+                Ciudad.options[Ciudad.options.length] = new Option( "ARAUCA", "81001-ARAUCA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARAUQUITA", "81065-ARAUQUITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CRAVO NORTE", "81220-CRAVO NORTE");
+                Ciudad.options[Ciudad.options.length] = new Option( "FORTUL", "81300-FORTUL");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO RONDÓN", "81591-PUERTO RONDÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "SARAVENA", "81736-SARAVENA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TAME", "81794-TAME");
+
+                } 
+            else if (Departamento.value == "88-SAN ANDRÉS") {
+                Ciudad.options[Ciudad.options.length] = new Option( "PROVIDENCIA Y SANTA CATALINA", "88564-PROVIDENCIA Y SANTA CATALINA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN ANDRÉS", "88001-SAN ANDRÉS");
+
+                } 
+            else if (Departamento.value == "08-ATLÁNTICO") {
+                Ciudad.options[Ciudad.options.length] = new Option( "BARANOA", "08078-BARANOA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BARRANQUILLA", "08001-BARRANQUILLA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAMPO DE LA CRUZ", "08137-CAMPO DE LA CRUZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CANDELARIA", "08141-CANDELARIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GALAPA", "08296-GALAPA");
+                Ciudad.options[Ciudad.options.length] = new Option( "JUAN DE ACOSTA", "08372-JUAN DE ACOSTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LURUACO", "08421-LURUACO");
+                Ciudad.options[Ciudad.options.length] = new Option( "MALAMBO", "08433-MALAMBO");
+                Ciudad.options[Ciudad.options.length] = new Option( "MANATi", "08436-MANATi");
+                Ciudad.options[Ciudad.options.length] = new Option( "PALMAR DE VARELA", "08520-PALMAR DE VARELA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PIOJÓ", "08549-PIOJÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "POLONUEVO", "08558-POLONUEVO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PONEDERA", "08560-PONEDERA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO COLOMBIA", "08573-PUERTO COLOMBIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "REPELON", "08606-REPELON");
+                Ciudad.options[Ciudad.options.length] = new Option( "Sabanagrande", "08634-Sabanagrande");
+                Ciudad.options[Ciudad.options.length] = new Option( "SABANALARGA", "08638-SABANALARGA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA LUCiA", "08675-SANTA LUCiA");
+                Ciudad.options[Ciudad.options.length] = new Option( "Santo Tomas", "08685-Santo Tomas");
+                Ciudad.options[Ciudad.options.length] = new Option( "SOLEDAD", "08758-SOLEDAD");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUAN", "08770-SUAN");
+                Ciudad.options[Ciudad.options.length] = new Option( "TUBARA", "08832-TUBARA");
+                Ciudad.options[Ciudad.options.length] = new Option( "USIACURi", "08849-USIACURi");
+
+                } 
+            else if (Departamento.value == "11-BOGOTÁ") {
+                Ciudad.options[Ciudad.options.length] = new Option( "BOGOTÁ D.C.", "11001-BOGOTA D.C.");
+
+                } 
+            else if (Departamento.value == "13-BOLÍVAR") {
+                Ciudad.options[Ciudad.options.length] = new Option( "ACHÍ", "13006-ACHÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "ALTOS DEL ROSARIO", "13030-ALTOS DEL ROSARIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARENAL", "13042-ARENAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARJONA", "13052-ARJONA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARROYOHONDO", "13062-ARROYOHONDO");
+                Ciudad.options[Ciudad.options.length] = new Option( "BARRANCO DE LOBA", "13074-BARRANCO DE LOBA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CALAMAR", "13140-CALAMAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "CANTAGALLO", "13160-CANTAGALLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CARMEN DE BOLÍVAR", "13244-CARMEN DE BOLÍVAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "CARTAGENA", "13001-CARTAGENA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CICUCO", "13188-CICUCO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CLEMENCIA", "13222-CLEMENCIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CÓRDOBA", "13212-CÓRDOBA");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL GUAMO", "13248-EL GUAMO");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL PEÑON", "13268-EL PEÑON");
+                Ciudad.options[Ciudad.options.length] = new Option( "HATILLO DE LOBA", "13300-HATILLO DE LOBA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MAGANGUÉ", "13430-MAGANGUÉ");
+                Ciudad.options[Ciudad.options.length] = new Option( "MAHATES", "13433-MAHATES");
+                Ciudad.options[Ciudad.options.length] = new Option( "MARGARITA", "13440-MARGARITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MARÍA LA BAJA", "13442-MARÍA LA BAJA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MOMPÓS", "13468-MOMPÓS");
+                Ciudad.options[Ciudad.options.length] = new Option( "MONTECRISTO", "13458-MONTECRISTO");
+                Ciudad.options[Ciudad.options.length] = new Option( "MORALES", "13473-MORALES");
+                Ciudad.options[Ciudad.options.length] = new Option( "PINILLOS", "13549-PINILLOS");
+                Ciudad.options[Ciudad.options.length] = new Option( "REGIDOR", "13580-REGIDOR");
+                Ciudad.options[Ciudad.options.length] = new Option( "RÍO VIEJO", "13600-RÍO VIEJO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN CRISTOBAL", "13620-SAN CRISTOBAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN ESTANISLAO", "13647-SAN ESTANISLAO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN FERNANDO", "13650-SAN FERNANDO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JACINTO", "13654-SAN JACINTO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JACINTO DEL CAUCA", "13655-SAN JACINTO DEL CAUCA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JUAN NEPOMUCENO", "13657-SAN JUAN NEPOMUCENO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN MARTIN DE LOBA", "13667-SAN MARTIN DE LOBA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN PABLO", "13670-SAN PABLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA CATALINA", "13673-SANTA CATALINA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA ROSA DE LIMA", "13683-SANTA ROSA DE LIMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA ROSA DEL SUR", "13688-SANTA ROSA DEL SUR");
+                Ciudad.options[Ciudad.options.length] = new Option( "SIMITÍ", "13744-SIMITÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SOPLAVIENTO", "13760-SOPLAVIENTO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TALAIGUA NUEVO", "13780-TALAIGUA NUEVO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TIQUISIO", "13810-TIQUISIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TURBACO", "13836-TURBACO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TURBANA", "13838-TURBANA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLANUEVA", "13873-VILLANUEVA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ZAMBRANO", "13894-ZAMBRANO");
+
+                } 
+            else if (Departamento.value == "15-BOYACA") {
+                Ciudad.options[Ciudad.options.length] = new Option( "ALMEIDA", "15022-ALMEIDA");
+                Ciudad.options[Ciudad.options.length] = new Option( "AQUITANIA", "15047-AQUITANIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARCABUCO", "15051-ARCABUCO");
+                Ciudad.options[Ciudad.options.length] = new Option( "BELÉN", "15087-BELÉN");
+                Ciudad.options[Ciudad.options.length] = new Option( "BERBEO", "15090-BERBEO");
+                Ciudad.options[Ciudad.options.length] = new Option( "BETÉITIVA", "15092-BETÉITIVA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BOAVITA", "15097-BOAVITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BOYACÁ", "15104-BOYACÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "BRICEÑO", "15106-BRICEÑO");
+                Ciudad.options[Ciudad.options.length] = new Option( "BUENAVISTA", "15109-BUENAVISTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BUSBANZÁ", "15114-BUSBANZÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CALDAS", "15131-CALDAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAMPOHERMOSO", "15135-CAMPOHERMOSO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CERINZA", "15162-CERINZA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHINAVITA", "15172-CHINAVITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHIQUINQUIRÁ", "15176-CHIQUINQUIRÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHISCAS", "15180-CHISCAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHITA", "15183-CHITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHITARAQUE", "15185-CHITARAQUE");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHIVATÁ", "15187-CHIVATÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHIVOR", "15236-CHIVOR");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHÍQUIZA", "15232-CHÍQUIZA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CIÉNEGA", "15189-CIÉNEGA");
+                Ciudad.options[Ciudad.options.length] = new Option( "COPER", "15212-COPER");
+                Ciudad.options[Ciudad.options.length] = new Option( "CORRALES", "15215-CORRALES");
+                Ciudad.options[Ciudad.options.length] = new Option( "COVARACHÍA", "15218-COVARACHÍA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CUBARÁ", "15223-CUBARÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CUCAITA", "15224-CUCAITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CUÍTIVA", "15226-CUÍTIVA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CÓMBITA", "15204-CÓMBITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "DUITAMA", "15238-DUITAMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL COCUY", "15244-EL COCUY");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL ESPINO", "15248-EL ESPINO");
+                Ciudad.options[Ciudad.options.length] = new Option( "FIRAVITOBA", "15272-FIRAVITOBA");
+                Ciudad.options[Ciudad.options.length] = new Option( "FLORESTA", "15276-FLORESTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GACHANTIVÁ", "15293-GACHANTIVÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "GAMEZA", "15296-GAMEZA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GARAGOA", "15299-GARAGOA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUACAMAYAS", "15317-GUACAMAYAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUATEQUE", "15322-GUATEQUE");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUAYATÁ", "15325-GUAYATÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "GÜICÁN", "15332-GÜICÁN");
+                Ciudad.options[Ciudad.options.length] = new Option( "IZA", "15362-IZA");
+                Ciudad.options[Ciudad.options.length] = new Option( "JENESANO", "15367-JENESANO");
+                Ciudad.options[Ciudad.options.length] = new Option( "JERICÓ", "15368-JERICÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA CAPILLA", "15380-LA CAPILLA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA UVITA", "15403-LA UVITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA VICTORIA", "15401-LA VICTORIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LABRANZAGRANDE", "15377-LABRANZAGRANDE");
+                Ciudad.options[Ciudad.options.length] = new Option( "MACANAL", "15425-MACANAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "MARIPÍ", "15442-MARIPÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "MIRAFLORES", "15455-MIRAFLORES");
+                Ciudad.options[Ciudad.options.length] = new Option( "MONGUA", "15464-MONGUA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MONGUÍ", "15466-MONGUÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "MONIQUIRÁ", "15469-MONIQUIRÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "MOTAVITA", "15476-MOTAVITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MUZO", "15480-MUZO");
+                Ciudad.options[Ciudad.options.length] = new Option( "NOBSA", "15491-NOBSA");
+                Ciudad.options[Ciudad.options.length] = new Option( "NUEVO COLÓN", "15494-NUEVO COLÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "OICATÁ", "15500-OICATÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "OTANCHE", "15507-OTANCHE");
+                Ciudad.options[Ciudad.options.length] = new Option( "PACHAVITA", "15511-PACHAVITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PAIPA", "15516-PAIPA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PAJARITO", "15518-PAJARITO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PANQUEBA", "15522-PANQUEBA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PAUNA", "15531-PAUNA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PAYA", "15533-PAYA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PAZ DE RÍO", "15537-PAZ DE RÍO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PESCA", "15542-PESCA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PISBA", "15550-PISBA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO BOYACa", "15572-PUERTO BOYACa");
+                Ciudad.options[Ciudad.options.length] = new Option( "PÁEZ", "15514-PÁEZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "QUÍPAMA", "15580-QUÍPAMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "RAMIRIQUÍ", "15599-RAMIRIQUÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "RONDÓN", "15621-RONDÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "RÁQUIRA", "15600-RÁQUIRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SABOYÁ", "15632-SABOYÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAMACÁ", "15646-SAMACÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN EDUARDO", "15660-SAN EDUARDO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JOSÉ DE PARE", "15664-SAN JOSÉ DE PARE");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN LUIS DE GACENO", "15667-SAN LUIS DE GACENO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN MATEO", "15673-SAN MATEO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN MIGUEL DE SEMA", "15676-SAN MIGUEL DE SEMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN PABLO BORBUR", "15681-SAN PABLO BORBUR");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN ROSA VITERBO", "15693-SAN ROSA VITERBO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA MARÍA", "15690-SANTA MARÍA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA SOFÍA", "15696-SANTA SOFÍA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTANA", "15686-SANTANA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SATIVANORTE", "15720-SATIVANORTE");
+                Ciudad.options[Ciudad.options.length] = new Option( "SATIVASUR", "15723-SATIVASUR");
+                Ciudad.options[Ciudad.options.length] = new Option( "SIACHOQUE", "15740-SIACHOQUE");
+                Ciudad.options[Ciudad.options.length] = new Option( "SOATÁ", "15753-SOATÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SOCHA", "15757-SOCHA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SOCOTÁ", "15755-SOCOTÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SOGAMOSO", "15759-SOGAMOSO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SOMONDOCO", "15761-SOMONDOCO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SORA", "15762-SORA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SORACÁ", "15764-SORACÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SOTAQUIRÁ", "15763-SOTAQUIRÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUSACÓN", "15774-SUSACÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUTAMARCHÁN", "15776-SUTAMARCHÁN");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUTATENZA", "15778-SUTATENZA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SÁCHICA", "15638-SÁCHICA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TASCO", "15790-TASCO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TENZA", "15798-TENZA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TIBANÁ", "15804-TIBANÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "TIBASOSA", "15806-TIBASOSA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TINJACÁ", "15808-TINJACÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "TIPACOQUE", "15810-TIPACOQUE");
+                Ciudad.options[Ciudad.options.length] = new Option( "TOCA", "15814-TOCA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TOGÜÍ", "15816-TOGÜÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "TOTA", "15822-TOTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TUNJA", "15001-TUNJA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TUNUNGUÁ", "15832-TUNUNGUÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "TURMEQUÉ", "15835-TURMEQUÉ");
+                Ciudad.options[Ciudad.options.length] = new Option( "TUTA", "15837-TUTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TUTAZÁ", "15839-TUTAZÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "TÓPAGA", "15820-TÓPAGA");
+                Ciudad.options[Ciudad.options.length] = new Option( "UMBITA", "15842-UMBITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VENTAQUEMADA", "15861-VENTAQUEMADA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLA DE LEYVA", "15407-VILLA DE LEYVA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VIRACACHÁ", "15879-VIRACACHÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "ZETAQUIRA", "15897-ZETAQUIRA");
+
+                } 
+            else if (Departamento.value == "17-CALDAS") {
+                Ciudad.options[Ciudad.options.length] = new Option( "AGUADAS", "17013-AGUADAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "ANSERMA", "17042-ANSERMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARANZAZU", "17050-ARANZAZU");
+                Ciudad.options[Ciudad.options.length] = new Option( "BELALCÁZAR", "17088-BELALCÁZAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHINCHINa", "17174-CHINCHINa");
+                Ciudad.options[Ciudad.options.length] = new Option( "FILADELFIA", "17272-FILADELFIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA DORADA", "17380-LA DORADA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA MERCED", "17388-LA MERCED");
+                Ciudad.options[Ciudad.options.length] = new Option( "MANIZALES", "17001-MANIZALES");
+                Ciudad.options[Ciudad.options.length] = new Option( "MANZANARES", "17433-MANZANARES");
+                Ciudad.options[Ciudad.options.length] = new Option( "MARMATO", "17442-MARMATO");
+                Ciudad.options[Ciudad.options.length] = new Option( "MARQUETALIA", "17444-MARQUETALIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MARULANDA", "17446-MARULANDA");
+                Ciudad.options[Ciudad.options.length] = new Option( "NEIRA", "17486-NEIRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "NORCASIA", "17495-NORCASIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PALESTINA", "17524-PALESTINA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PENSILVANIA", "17541-PENSILVANIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PÁCORA", "17513-PÁCORA");
+                Ciudad.options[Ciudad.options.length] = new Option( "RIOSUCIO", "17614-RIOSUCIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "RISARALDA", "17616-RISARALDA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SALAMINA", "17653-SALAMINA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAMANÁ", "17662-SAMANÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JOSÉ", "17665-SAN JOSÉ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUPÍA", "17777-SUPÍA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VICTORIA", "17867-VICTORIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLAMARiA", "17873-VILLAMARiA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VITERBO", "17877-VITERBO");
+
+                } 
+            else if (Departamento.value == "18-CAQUETA") {
+                Ciudad.options[Ciudad.options.length] = new Option("ALBANIA", "18029-ALBANIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BELÉN DE LOS ADAQUIES", "18094-BELÉN DE LOS ANDAQUIES");
+                Ciudad.options[Ciudad.options.length] = new Option( "CARTAGENA DE CHAIRÁ", "18150-CARTAGENA DEL CHAIRÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "URRILLO", "18205-CURRILLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL ONCELLO", "18247-EL DONCELLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "E PAUJIL", "18256-EL PAUJIL");
+                Ciudad.options[Ciudad.options.length] = new Option( "FORENCIA", "18001-FLORENCIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA MNTAÑITA", "18410-LA MONTAÑITA");
+                Ciudad.options[Ciudad.options.length] = new Option("MILaN", "18460-MILaN");
+                Ciudad.options[Ciudad.options.length] = new Option( "MORELIA", "18479-MORELIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUETO RICO", "18592-PUERTO RICO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JOSE DE FRAGUA", "18610-SAN JOSE DEL FRAGUA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN VICENTE DE CAGUÁN", "18753-SAN VICENTE DEL CAGUÁN");
+                Ciudad.options[Ciudad.options.length] = new Option("SOLANO", "18756-SOLANO");
+                Ciudad.options[Ciudad.options.length] = new Option("SOLITA", "18785-SOLITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VAPARAISO", "18860-VALPARAISO");
+
+                } 
+            else if (Departamento.value == "85-CASANARE") {
+                Ciudad.options[Ciudad.options.length] = new Option( "AGUAZUL", "85010-AGUAZUL");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHAMEZA", "85015-CHAMEZA");
+                Ciudad.options[Ciudad.options.length] = new Option( "HATO COROZAL", "85125-HATO COROZAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA SALINA", "85136-LA SALINA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MANÍ", "85139-MANÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "MONTERREY", "85162-MONTERREY");
+                Ciudad.options[Ciudad.options.length] = new Option( "NUNCHÍA", "85225-NUNCHÍA");
+                Ciudad.options[Ciudad.options.length] = new Option( "OROCUÉ", "85230-OROCUÉ");
+                Ciudad.options[Ciudad.options.length] = new Option( "PAZ DE ARIPORO", "85250-PAZ DE ARIPORO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PORE", "85263-PORE");
+                Ciudad.options[Ciudad.options.length] = new Option( "RECETOR", "85279-RECETOR");
+                Ciudad.options[Ciudad.options.length] = new Option( "SABANALARGA", "85300-SABANALARGA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN LUIS DE PALENQUE", "85325-SAN LUIS DE PALENQUE");
+                Ciudad.options[Ciudad.options.length] = new Option( "SÁCAMA", "85315-SÁCAMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TAURAMENA", "85410-TAURAMENA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TRINIDAD", "85430-TRINIDAD");
+                Ciudad.options[Ciudad.options.length] = new Option( "TÁMARA", "85400-TÁMARA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLANUEVA", "85440-VILLANUEVA");
+                Ciudad.options[Ciudad.options.length] = new Option( "YOPAL", "85001-YOPAL");
+
+                } 
+            else if (Departamento.value == "19-CAUCA") {
+                Ciudad.options[Ciudad.options.length] = new Option( "ALMAGUER", "19022-ALMAGUER");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARGELIA", "19050-ARGELIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BALBOA", "19075-BALBOA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BOLÍVAR", "19100-BOLÍVAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "BUENOS AIRES", "19110-BUENOS AIRES");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAJIBÍO", "19130-CAJIBÍO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CALDONO", "19137-CALDONO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CALOTO", "19142-CALOTO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CORINTO", "19212-CORINTO");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL TAMBO", "19256-EL TAMBO");
+                Ciudad.options[Ciudad.options.length] = new Option( "FLORENCIA", "19290-FLORENCIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUAPI", "19318-GUAPI");
+                Ciudad.options[Ciudad.options.length] = new Option( "INZÁ", "19355-INZÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "JAMBALO", "19364-JAMBALO");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA SIERRA", "19392-LA SIERRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA VEGA", "19397-LA VEGA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LOPEZ", "19418-LOPEZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "MERCADERES", "19450-MERCADERES");
+                Ciudad.options[Ciudad.options.length] = new Option( "MIRANDA", "19455-MIRANDA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MORALES", "19473-MORALES");
+                Ciudad.options[Ciudad.options.length] = new Option( "PADILLA", "19513-PADILLA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PAEZ", "19517-PAEZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "PATIA", "19532-PATIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PIAMONTE", "19533-PIAMONTE");
+                Ciudad.options[Ciudad.options.length] = new Option( "PIENDAMO", "19548-PIENDAMO");
+                Ciudad.options[Ciudad.options.length] = new Option( "POPAYÁN", "19001-POPAYÁN");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO TEJADA", "19573-PUERTO TEJADA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PURACE", "19585-PURACE");
+                Ciudad.options[Ciudad.options.length] = new Option( "ROSAS", "19622-ROSAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN SEBASTIAN", "19693-SAN SEBASTIAN");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA ROSA", "19701-SANTA ROSA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTANDER DE QUILICHAO", "19698-SANTANDER DE QUILICHAO");
+                Ciudad.options[Ciudad.options.length] = new Option( "Silvia", "19743-Silvia");
+                Ciudad.options[Ciudad.options.length] = new Option( "SOTARA", "19760-SOTARA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUAREZ", "19780-SUAREZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUCRE", "19785-SUCRE");
+                Ciudad.options[Ciudad.options.length] = new Option( "TIMBIO", "19807-TIMBIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TIMBIQUI", "19809-TIMBIQUI");
+                Ciudad.options[Ciudad.options.length] = new Option( "TORIBIO", "19821-TORIBIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TOTORO", "19824-TOTORO");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLA RICA", "19845-VILLA RICA");
+
+                } 
+            else if (Departamento.value == "20-CESAR") {
+                Ciudad.options[Ciudad.options.length] = new Option( "AGUACHICA", "20011-AGUACHICA");
+                Ciudad.options[Ciudad.options.length] = new Option( "AGUSTÍN CODAZZI", "20013-AGUSTÍN CODAZZI");
+                Ciudad.options[Ciudad.options.length] = new Option( "ASTREA", "20032-ASTREA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BECERRIL", "20045-BECERRIL");
+                Ciudad.options[Ciudad.options.length] = new Option( "BOSCONIA", "20060-BOSCONIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHIMICHAGUA", "20175-CHIMICHAGUA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHIRIGUANA", "20178-CHIRIGUANA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CURUMANÍ", "20228-CURUMANÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL COPEY", "20238-EL COPEY");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL PASO", "20250-EL PASO");
+                Ciudad.options[Ciudad.options.length] = new Option( "GAMARRA", "20295-GAMARRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GONZÁLEZ", "20310-GONZÁLEZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA GLORIA", "20383-LA GLORIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA JAGUA DE IBIRICO", "20400-LA JAGUA DE IBIRICO");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA PAZ", "20621-LA PAZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "MANAURE", "20443-MANAURE");
+                Ciudad.options[Ciudad.options.length] = new Option( "PAILITAS", "20517-PAILITAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "PELAYA", "20550-PELAYA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUEBLO BELLO", "20570-PUEBLO BELLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "RÍO DE ORO", "20614-RÍO DE ORO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN ALBERTO", "20710-SAN ALBERTO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN DIEGO", "20750-SAN DIEGO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN MARTÍN", "20770-SAN MARTÍN");
+                Ciudad.options[Ciudad.options.length] = new Option( "TAMALAMEQUE", "20787-TAMALAMEQUE");
+                Ciudad.options[Ciudad.options.length] = new Option( "VALLEDUPAR", "20001-VALLEDUPAR");
+
+                } 
+            else if (Departamento.value == "27-CHOCO") {
+                Ciudad.options[Ciudad.options.length] = new Option( "ACANDÍ", "27006-ACANDÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "ALTO BAUDÓ", "27025-ALTO BAUDÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "ATRATO", "27050-ATRATO");
+                Ciudad.options[Ciudad.options.length] = new Option( "BAGADÓ", "27073-BAGADÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "BAHÍA SOLANO", "27075-BAHÍA SOLANO");
+                Ciudad.options[Ciudad.options.length] = new Option( "BAJO BAUDÓ", "27077-BAJO BAUDÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "BELÉN DE BAJIRA", "27086-BELÉN DE BAJIRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BOJAYA", "27099-BOJAYA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CANTON DE SAN PABLO", "27135-CANTON DE SAN PABLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CARMÉN DEL DARIÉN", "27150-CARMÉN DEL DARIÉN");
+                Ciudad.options[Ciudad.options.length] = new Option( "CERTEGUI", "27160-CERTEGUI");
+                Ciudad.options[Ciudad.options.length] = new Option( "CONDOTO", "27205-CONDOTO");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL CARMEN DE ATRATO", "27245-EL CARMEN DE ATRATO");
+                Ciudad.options[Ciudad.options.length] = new Option( "El Litoral del San Juan", "27250-El Litoral del San Juan");
+                Ciudad.options[Ciudad.options.length] = new Option( "ITSMINA", "27361-ITSMINA");
+                Ciudad.options[Ciudad.options.length] = new Option( "JURADÓ", "27372-JURADÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "LLORÓ", "27413-LLORÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "MEDIO ATRATO", "27425-MEDIO ATRATO");
+                Ciudad.options[Ciudad.options.length] = new Option( "MEDIO BAUDÓ", "27430-MEDIO BAUDÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "MEDIO SAN JUAN", "27450-MEDIO SAN JUAN");
+                Ciudad.options[Ciudad.options.length] = new Option( "NUQUÍ", "27495-NUQUÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "NÓVITA", "27491-NÓVITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "QUIBDÓ", "27001-QUIBDÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "RIO QUITO", "27600-RIO QUITO");
+                Ciudad.options[Ciudad.options.length] = new Option( "RIOSUCIO", "27615-RIOSUCIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "RÍO FRÍO", "27580-RÍO FRÍO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JOSÉ DEL PALMAR", "27660-SAN JOSÉ DEL PALMAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "SIPÍ", "27745-SIPÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "TADÓ", "27787-TADÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "UNGUÍA", "27800-UNGUÍA");
+                Ciudad.options[Ciudad.options.length] = new Option( "UNION PANAMERICANA", "27810-UNION PANAMERICANA");
+
+                } 
+            else if (Departamento.value == "23-CÓRDOBA") {
+                Ciudad.options[Ciudad.options.length] = new Option( "AYAPEL", "23068-AYAPEL");
+                Ciudad.options[Ciudad.options.length] = new Option( "BUENAVISTA", "23079-BUENAVISTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CANALETE", "23090-CANALETE");
+                Ciudad.options[Ciudad.options.length] = new Option( "CERETÉ", "23162-CERETÉ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHIMÁ", "23168-CHIMÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHINÚ", "23182-CHINÚ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CIÉNAGA DE ORO", "23189-CIÉNAGA DE ORO");
+                Ciudad.options[Ciudad.options.length] = new Option( "COTORRA", "23300-COTORRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA APARTADA", "23350-LA APARTADA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LORICA", "23417-LORICA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LOS CÓRDOBAS", "23419-LOS CÓRDOBAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "MOMIL", "23464-MOMIL");
+                Ciudad.options[Ciudad.options.length] = new Option( "MONTELÍBANO", "23466-MONTELÍBANO");
+                Ciudad.options[Ciudad.options.length] = new Option( "MONTERÍA", "23001-MONTERÍA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MOÑITOS", "23500-MOÑITOS");
+                Ciudad.options[Ciudad.options.length] = new Option( "PLANETA RICA", "23555-PLANETA RICA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUEBLO NUEVO", "23570-PUEBLO NUEVO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO ESCONDIDO", "23574-PUERTO ESCONDIDO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO LIBERTADOR", "23580-PUERTO LIBERTADOR");
+                Ciudad.options[Ciudad.options.length] = new Option( "PURÍSIMA", "23586-PURÍSIMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAHAGÚN", "23660-SAHAGÚN");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN ANDRÉS SOTAVENTO", "23670-SAN ANDRÉS SOTAVENTO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN ANTERO", "23672-SAN ANTERO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN BERNARDO DEL VIENTO", "23675-SAN BERNARDO DEL VIENTO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN CARLOS", "23678-SAN CARLOS");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN PELAYO", "23686-SAN PELAYO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TIERRALTA", "23807-TIERRALTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VALENCIA", "23855-VALENCIA");
+
+                } 
+            else if (Departamento.value == "25-CUNDINAMARCA") {
+                Ciudad.options[Ciudad.options.length] = new Option( "AGUA DE DIOS", "25001-AGUA DE DIOS");
+                Ciudad.options[Ciudad.options.length] = new Option( "ALBÁN", "25019-ALBÁN");
+                Ciudad.options[Ciudad.options.length] = new Option( "ANAPOIMA", "25035-ANAPOIMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ANOLAIMA", "25040-ANOLAIMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "APULO", "25599-APULO");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARBELÁEZ", "25053-ARBELÁEZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "BELTRÁN", "25086-BELTRÁN");
+                Ciudad.options[Ciudad.options.length] = new Option( "BITUIMA", "25095-BITUIMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BOJACÁ", "25099-BOJACÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CABRERA", "25120-CABRERA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CACHIPAY", "25123-CACHIPAY");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAJICÁ", "25126-CAJICÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAPARRAPÍ", "25148-CAPARRAPÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAQUEZA", "25151-CAQUEZA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CARMEN DE CARUPA", "25154-CARMEN DE CARUPA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHAGUANÍ", "25168-CHAGUANÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHIPAQUE", "25178-CHIPAQUE");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHOACHÍ", "25181-CHOACHÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHOCONTÁ", "25183-CHOCONTÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHÍA", "25175-CHÍA");
+                Ciudad.options[Ciudad.options.length] = new Option( "COGUA", "25200-COGUA");
+                Ciudad.options[Ciudad.options.length] = new Option( "COTA", "25214-COTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CUCUNUBÁ", "25224-CUCUNUBÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL COLEGIO", "25245-EL COLEGIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL PEÑÓN", "25258-EL PEÑÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL ROSAL", "25260-EL ROSAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "FACATATIVÁ", "25269-FACATATIVÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "FOMEQUE", "25279-FOMEQUE");
+                Ciudad.options[Ciudad.options.length] = new Option( "FOSCA", "25281-FOSCA");
+                Ciudad.options[Ciudad.options.length] = new Option( "FUNZA", "25286-FUNZA");
+                Ciudad.options[Ciudad.options.length] = new Option( "FUSAGASUGÁ", "25290-FUSAGASUGÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "FÚQUENE", "25288-FÚQUENE");
+                Ciudad.options[Ciudad.options.length] = new Option( "GACHALA", "25293-GACHALA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GACHANCIPÁ", "25295-GACHANCIPÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "GACHETA", "25297-GACHETA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GAMA", "25299-GAMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GIRARDOT", "25307-GIRARDOT");
+                Ciudad.options[Ciudad.options.length] = new Option( "GRANADA", "25312-GRANADA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUACHETÁ", "25317-GUACHETÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUADUAS", "25320-GUADUAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUASCA", "25322-GUASCA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUATAQUÍ", "25324-GUATAQUÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUATAVITA", "25326-GUATAVITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUAYABAL DE SIQUIMA", "25328-GUAYABAL DE SIQUIMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUAYABETAL", "25335-GUAYABETAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUTIÉRREZ", "25339-GUTIÉRREZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "JERUSALÉN", "25368-JERUSALÉN");
+                Ciudad.options[Ciudad.options.length] = new Option( "JUNÍN", "25372-JUNÍN");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA CALERA", "25377-LA CALERA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA MESA", "25386-LA MESA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA PALMA", "25394-LA PALMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA PEÑA", "25398-LA PEÑA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA VEGA", "25402-LA VEGA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LENGUAZAQUE", "25407-LENGUAZAQUE");
+                Ciudad.options[Ciudad.options.length] = new Option( "MACHETA", "25426-MACHETA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MADRID", "25430-MADRID");
+                Ciudad.options[Ciudad.options.length] = new Option( "MANTA", "25436-MANTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MEDINA", "25438-MEDINA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MOSQUERA", "25473-MOSQUERA");
+                Ciudad.options[Ciudad.options.length] = new Option( "NARIÑO", "25483-NARIÑO");
+                Ciudad.options[Ciudad.options.length] = new Option( "NEMOCoN", "25486-NEMOCoN");
+                Ciudad.options[Ciudad.options.length] = new Option( "NILO", "25488-NILO");
+                Ciudad.options[Ciudad.options.length] = new Option( "NIMAIMA", "25489-NIMAIMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "NOCAIMA", "25491-NOCAIMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PACHO", "25513-PACHO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PAIME", "25518-PAIME");
+                Ciudad.options[Ciudad.options.length] = new Option( "PANDI", "25524-PANDI");
+                Ciudad.options[Ciudad.options.length] = new Option( "PARATEBUENO", "25530-PARATEBUENO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PASCA", "25535-PASCA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO SALGAR", "25572-PUERTO SALGAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "PULI", "25580-PULI");
+                Ciudad.options[Ciudad.options.length] = new Option( "QUEBRADANEGRA", "25592-QUEBRADANEGRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "QUETAME", "25594-QUETAME");
+                Ciudad.options[Ciudad.options.length] = new Option( "QUIPILE", "25596-QUIPILE");
+                Ciudad.options[Ciudad.options.length] = new Option( "RICAURTE", "25612-RICAURTE");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN ANTONIO DE TEQUENDAMA", "25645-SAN ANTONIO DE TEQUENDAMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN BERNARDO", "25649-SAN BERNARDO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN CAYETANO", "25653-SAN CAYETANO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN FRANCISCO", "25658-SAN FRANCISCO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JUAN DE RÍO SECO", "25662-SAN JUAN DE RÍO SECO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SASAIMA", "25718-SASAIMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SESQUILÉ", "25736-SESQUILÉ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SIBATÉ", "25740-SIBATÉ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SILVANIA", "25743-SILVANIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SIMIJACA", "25745-SIMIJACA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SOACHA", "25754-SOACHA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SOPÓ", "25758-SOPÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUBACHOQUE", "25769-SUBACHOQUE");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUESCA", "25772-SUESCA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUPATÁ", "25777-SUPATÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUSA", "25779-SUSA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUTATAUSA", "25781-SUTATAUSA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TABIO", "25785-TABIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TAUSA", "25793-TAUSA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TENA", "25797-TENA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TENJO", "25799-TENJO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TIBACUY", "25805-TIBACUY");
+                Ciudad.options[Ciudad.options.length] = new Option( "TIBIRITA", "25807-TIBIRITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TOCAIMA", "25815-TOCAIMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TOCANCIPÁ", "25817-TOCANCIPÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "TOPAIPI", "25823-TOPAIPI");
+                Ciudad.options[Ciudad.options.length] = new Option( "UBALÁ", "25839-UBALÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "UBAQUE", "25841-UBAQUE");
+                Ciudad.options[Ciudad.options.length] = new Option( "UBATE", "25843-UBATE");
+                Ciudad.options[Ciudad.options.length] = new Option( "UNE", "25845-UNE");
+                Ciudad.options[Ciudad.options.length] = new Option( "VENECIA", "25506-VENECIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VERGARA", "25862-VERGARA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VIANÍ", "25867-VIANÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLAGOMEZ", "25871-VILLAGOMEZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLAPINZÓN", "25873-VILLAPINZÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLETA", "25875-VILLETA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VIOTÁ", "25878-VIOTÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "YACOPÍ", "25885-YACOPÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "ZIPACoN", "25898-ZIPACoN");
+                Ciudad.options[Ciudad.options.length] = new Option( "ZIPAQUIRÁ", "25899-ZIPAQUIRÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "ÚTICA", "25851-ÚTICA");
+
+                } 
+            else if (Departamento.value == "94-GUAINIA") {
+                Ciudad.options[Ciudad.options.length] = new Option( "BARRANCO MINA", "94343-BARRANCO MINA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CACAHUAL", "94886-CACAHUAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "INÍRIDA", "94001-INÍRIDA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA GUADALUPE", "94885-LA GUADALUPE");
+                Ciudad.options[Ciudad.options.length] = new Option( "MAPIRIPaN", "94663-MAPIRIPaN");
+                Ciudad.options[Ciudad.options.length] = new Option( "MORICHAL", "94888-MORICHAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "PANA PANA", "94887-PANA PANA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO COLOMBIA", "94884-PUERTO COLOMBIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN FELIPE", "94883-SAN FELIPE");
+
+                } 
+            else if (Departamento.value == "95-GUAVIARE") {
+                Ciudad.options[Ciudad.options.length] = new Option( "CALAMAR", "95015-CALAMAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL RETORNO", "95025-EL RETORNO");
+                Ciudad.options[Ciudad.options.length] = new Option( "MIRAFLORES", "95200-MIRAFLORES");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JOSÉ DEL GUAVIARE", "95001-SAN JOSÉ DEL GUAVIARE");
+
+                } 
+            else if (Departamento.value == "41-HUILA") {
+                Ciudad.options[Ciudad.options.length] = new Option( "ACEVEDO", "41006-ACEVEDO");
+                Ciudad.options[Ciudad.options.length] = new Option( "AGRADO", "41013-AGRADO");
+                Ciudad.options[Ciudad.options.length] = new Option( "AIPE", "41016-AIPE");
+                Ciudad.options[Ciudad.options.length] = new Option( "ALGECIRAS", "41020-ALGECIRAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "ALTAMIRA", "41026-ALTAMIRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BARAYA", "41078-BARAYA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAMPOALEGRE", "41132-CAMPOALEGRE");
+                Ciudad.options[Ciudad.options.length] = new Option( "COLOMBIA", "41206-COLOMBIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ELÍAS", "41244-ELÍAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "GARZÓN", "41298-GARZÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "GIGANTE", "41306-GIGANTE");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUADALUPE", "41319-GUADALUPE");
+                Ciudad.options[Ciudad.options.length] = new Option( "HOBO", "41349-HOBO");
+                Ciudad.options[Ciudad.options.length] = new Option( "IQUIRA", "41357-IQUIRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ISNOS", "41359-ISNOS");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA ARGENTINA", "41378-LA ARGENTINA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA PLATA", "41396-LA PLATA");
+                Ciudad.options[Ciudad.options.length] = new Option( "NEIVA", "41001-NEIVA");
+                Ciudad.options[Ciudad.options.length] = new Option( "NÁTAGA", "41483-NÁTAGA");
+                Ciudad.options[Ciudad.options.length] = new Option( "OPORAPA", "41503-OPORAPA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PAICOL", "41518-PAICOL");
+                Ciudad.options[Ciudad.options.length] = new Option( "PALERMO", "41524-PALERMO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PALESTINA", "41530-PALESTINA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PITAL", "41548-PITAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "PITALITO", "41551-PITALITO");
+                Ciudad.options[Ciudad.options.length] = new Option( "RIVERA", "41615-RIVERA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SALADOBLANCO", "41660-SALADOBLANCO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN AGUSTÍN", "41668-SAN AGUSTÍN");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA MARÍA", "41676-SANTA MARÍA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUAZA", "41770-SUAZA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TARQUI", "41791-TARQUI");
+                Ciudad.options[Ciudad.options.length] = new Option( "TELLO", "41799-TELLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TERUEL", "41801-TERUEL");
+                Ciudad.options[Ciudad.options.length] = new Option( "TESALIA", "41797-TESALIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TIMANÁ", "41807-TIMANÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLAVIEJA", "41872-VILLAVIEJA");
+                Ciudad.options[Ciudad.options.length] = new Option( "YAGUARÁ", "41885-YAGUARÁ");
+
+                } 
+            else if (Departamento.value == "44-LA GUAJIRA") {
+                Ciudad.options[Ciudad.options.length] = new Option( "ALBANIA", "44035-ALBANIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BARRANCAS", "44078-BARRANCAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "DIBULLA", "44090-DIBULLA");
+                Ciudad.options[Ciudad.options.length] = new Option( "DISTRACCION", "44098-DISTRACCION");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL MOLINO", "44110-EL MOLINO");
+                Ciudad.options[Ciudad.options.length] = new Option( "FONSECA", "44279-FONSECA");
+                Ciudad.options[Ciudad.options.length] = new Option( "HATONUEVO", "44378-HATONUEVO");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA JAGUA DEL PILAR", "44420-LA JAGUA DEL PILAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "MAICAO", "44430-MAICAO");
+                Ciudad.options[Ciudad.options.length] = new Option( "MANAURE", "44560-MANAURE");
+                Ciudad.options[Ciudad.options.length] = new Option( "RIOHACHA", "44001-RIOHACHA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JUAN DEL CESAR", "44650-SAN JUAN DEL CESAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "URIBIA", "44847-URIBIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "URUMITA", "44855-URUMITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLANUEVA", "44874-VILLANUEVA");
+
+                } 
+            else if (Departamento.value == "47-MAGDALENA") {
+                Ciudad.options[Ciudad.options.length] = new Option( "ALGARROBO", "47030-ALGARROBO");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARACATACA", "47053-ARACATACA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARIGUANÍ", "47058-ARIGUANÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CERRO SAN ANTONIO", "47161-CERRO SAN ANTONIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHIBOLO", "47170-CHIBOLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CIÉNAGA", "47189-CIÉNAGA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CONCORDIA", "47205-CONCORDIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL BANCO", "47245-EL BANCO");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL PIÑON", "47258-EL PIÑON");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL RETEN", "47268-EL RETEN");
+                Ciudad.options[Ciudad.options.length] = new Option( "FUNDACION", "47288-FUNDACION");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUAMAL", "47318-GUAMAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "NUEVA GRANADA", "47460-NUEVA GRANADA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PEDRAZA", "47541-PEDRAZA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PIJIÑO DEL CARMEN", "47545-PIJIÑO DEL CARMEN");
+                Ciudad.options[Ciudad.options.length] = new Option( "PIVIJAY", "47551-PIVIJAY");
+                Ciudad.options[Ciudad.options.length] = new Option( "PLATO", "47555-PLATO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUEBLO VIEJO", "47570-PUEBLO VIEJO");
+                Ciudad.options[Ciudad.options.length] = new Option( "REMOLINO", "47605-REMOLINO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SABANAS DE SAN ANGEL", "47660-SABANAS DE SAN ANGEL");
+                Ciudad.options[Ciudad.options.length] = new Option( "SALAMINA", "47675-SALAMINA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN SEBASTIAN DE BUENAVISTA", "47692-SAN SEBASTIAN DE BUENAVISTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN ZENON", "47703-SAN ZENON");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA ANA", "47707-SANTA ANA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA BARBARA DE PINTO", "47720-SANTA BARBARA DE PINTO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA MARTA", "47001-SANTA MARTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SITIONUEVO", "47745-SITIONUEVO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TENERIFE", "47798-TENERIFE");
+                Ciudad.options[Ciudad.options.length] = new Option( "ZAPAYAN", "47960-ZAPAYAN");
+                Ciudad.options[Ciudad.options.length] = new Option( "ZONA BANANERA", "47980-ZONA BANANERA");
+
+                } 
+            else if (Departamento.value == "50-META") {
+                Ciudad.options[Ciudad.options.length] = new Option( "ACACiAS", "50006-ACACiAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "BARRANCA DE UPIA", "50110-BARRANCA DE UPIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CABUYARO", "50124-CABUYARO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CASTILLA LA NUEVA", "50150-CASTILLA LA NUEVA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CUMARAL", "50226-CUMARAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL CALVARIO", "50245-EL CALVARIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL CASTILLO", "50251-EL CASTILLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL DORADO", "50270-EL DORADO");
+                Ciudad.options[Ciudad.options.length] = new Option( "FUENTE DE ORO", "50287-FUENTE DE ORO");
+                Ciudad.options[Ciudad.options.length] = new Option( "GRANADA", "50313-GRANADA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUAMAL", "50318-GUAMAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA MACARENA", "50350-LA MACARENA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA URIBE", "50370-LA URIBE");
+                Ciudad.options[Ciudad.options.length] = new Option( "LEJANÍAS", "50400-LEJANÍAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "MAPIRIPaN", "50325-MAPIRIPaN");
+                Ciudad.options[Ciudad.options.length] = new Option( "MESETAS", "50330-MESETAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO CONCORDIA", "50450-PUERTO CONCORDIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO GAITÁN", "50568-PUERTO GAITÁN");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO LLERAS", "50577-PUERTO LLERAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO LoPEZ", "50573-PUERTO LoPEZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO RICO", "50590-PUERTO RICO");
+                Ciudad.options[Ciudad.options.length] = new Option( "RESTREPO", "50606-RESTREPO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN CARLOS GUAROA", "50680-SAN CARLOS GUAROA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JUAN DE ARAMA", "50683-SAN JUAN DE ARAMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JUANITO", "50686-SAN JUANITO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN LUIS DE CUBARRAL", "50223-SAN LUIS DE CUBARRAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN MARTÍN", "50689-SAN MARTÍN");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLAVICENCIO", "50001-VILLAVICENCIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "VISTA HERMOSA", "50711-VISTA HERMOSA");
+
+                } 
+            else if (Departamento.value == "52-NARIÑO") {
+                Ciudad.options[Ciudad.options.length] = new Option( "ALBAN", "52019-ALBAN");
+                Ciudad.options[Ciudad.options.length] = new Option( "ALDANA", "52022-ALDANA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ANCUYA", "52036-ANCUYA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARBOLEDA", "52051-ARBOLEDA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BARBACOAS", "52079-BARBACOAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "BELEN", "52083-BELEN");
+                Ciudad.options[Ciudad.options.length] = new Option( "BUESACO", "52110-BUESACO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHACHAGUI", "52240-CHACHAGUI");
+                Ciudad.options[Ciudad.options.length] = new Option( "COLON", "52203-COLON");
+                Ciudad.options[Ciudad.options.length] = new Option( "CONSACA", "52207-CONSACA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CONTADERO", "52210-CONTADERO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CUASPUD", "52224-CUASPUD");
+                Ciudad.options[Ciudad.options.length] = new Option( "CUMBAL", "52227-CUMBAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "CUMBITARA", "52233-CUMBITARA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CÓRDOBA", "52215-CÓRDOBA");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL CHARCO", "52250-EL CHARCO");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL PEÑOL", "52254-EL PEÑOL");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL ROSARIO", "52256-EL ROSARIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "El Tablon de Gomez", "52258-El Tablon de Gomez");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL TAMBO", "52260-EL TAMBO");
+                Ciudad.options[Ciudad.options.length] = new Option( "FRANCISCO PIZARRO", "52520-FRANCISCO PIZARRO");
+                Ciudad.options[Ciudad.options.length] = new Option( "FUNES", "52287-FUNES");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUACHUCAL", "52317-GUACHUCAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUAITARILLA", "52320-GUAITARILLA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUALMATAN", "52323-GUALMATAN");
+                Ciudad.options[Ciudad.options.length] = new Option( "ILES", "52352-ILES");
+                Ciudad.options[Ciudad.options.length] = new Option( "IMUES", "52354-IMUES");
+                Ciudad.options[Ciudad.options.length] = new Option( "IPIALES", "52356-IPIALES");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA CRUZ", "52378-LA CRUZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA FLORIDA", "52381-LA FLORIDA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA LLANADA", "52385-LA LLANADA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA TOLA", "52390-LA TOLA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA UNION", "52399-LA UNION");
+                Ciudad.options[Ciudad.options.length] = new Option( "LEIVA", "52405-LEIVA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LINARES", "52411-LINARES");
+                Ciudad.options[Ciudad.options.length] = new Option( "LOS ANDES", "52418-LOS ANDES");
+                Ciudad.options[Ciudad.options.length] = new Option( "Magui", "52427-Magui");
+                Ciudad.options[Ciudad.options.length] = new Option( "MALLAMA", "52435-MALLAMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MOSQUERA", "52473-MOSQUERA");
+                Ciudad.options[Ciudad.options.length] = new Option( "NARIÑO", "52480-NARIÑO");
+                Ciudad.options[Ciudad.options.length] = new Option( "OLAYA HERRERA", "52490-OLAYA HERRERA");
+                Ciudad.options[Ciudad.options.length] = new Option( "OSPINA", "52506-OSPINA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PASTO", "52001-PASTO");
+                Ciudad.options[Ciudad.options.length] = new Option( "POLICARPA", "52540-POLICARPA");
+                Ciudad.options[Ciudad.options.length] = new Option( "POTOSÍ", "52560-POTOSÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "PROVIDENCIA", "52565-PROVIDENCIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERRES", "52573-PUERRES");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUPIALES", "52585-PUPIALES");
+                Ciudad.options[Ciudad.options.length] = new Option( "RICAURTE", "52612-RICAURTE");
+                Ciudad.options[Ciudad.options.length] = new Option( "ROBERTO PAYAN", "52621-ROBERTO PAYAN");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAMANIEGO", "52678-SAMANIEGO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN BERNARDO", "52685-SAN BERNARDO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN LORENZO", "52687-SAN LORENZO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN PABLO", "52693-SAN PABLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN PEDRO DE CARTAGO", "52694-SAN PEDRO DE CARTAGO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANDONÁ", "52683-SANDONÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA BaRBARA", "52696-SANTA BaRBARA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA CRUZ", "52699-SANTA CRUZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAPUYES", "52720-SAPUYES");
+                Ciudad.options[Ciudad.options.length] = new Option( "TAMINANGO", "52786-TAMINANGO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TANGUA", "52788-TANGUA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TUMACO", "52835-TUMACO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TUQUERRES", "52838-TUQUERRES");
+                Ciudad.options[Ciudad.options.length] = new Option( "YACUANQUER", "52885-YACUANQUER");
+
+                } 
+            else if (Departamento.value == "54-NORTE SANTANDER") {
+               Ciudad.options[Ciudad.options.length] = new Option( "ABREGO", "54003-ABREGO");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARBOLEDAS", "54051-ARBOLEDAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "BOCHALEMA", "54099-BOCHALEMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BUCARASICA", "54109-BUCARASICA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CACHIRÁ", "54128-CACHIRÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHINÁCOTA", "54172-CHINÁCOTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHITAGÁ", "54174-CHITAGÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CONVENCIÓN", "54206-CONVENCIÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "CUCUTILLA", "54223-CUCUTILLA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CÁCOTA", "54125-CÁCOTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CÚCUTA", "54001-CÚCUTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "DURANIA", "54239-DURANIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL CARMEN", "54245-EL CARMEN");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL TARRA", "54250-EL TARRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL ZULIA", "54261-EL ZULIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GRAMALOTE", "54313-GRAMALOTE");
+                Ciudad.options[Ciudad.options.length] = new Option( "HACARÍ", "54344-HACARÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "HERRÁN", "54347-HERRÁN");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA ESPERANZA", "54385-LA ESPERANZA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA PLAYA", "54398-LA PLAYA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LABATECA", "54377-LABATECA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LOS PATIOS", "54405-LOS PATIOS");
+                Ciudad.options[Ciudad.options.length] = new Option( "LOURDES", "54418-LOURDES");
+                Ciudad.options[Ciudad.options.length] = new Option( "MUTISCUA", "54480-MUTISCUA");
+                Ciudad.options[Ciudad.options.length] = new Option( "OCAÑA", "54498-OCAÑA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PAMPLONA", "54518-PAMPLONA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PAMPLONITA", "54520-PAMPLONITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO SANTANDER", "54553-PUERTO SANTANDER");
+                Ciudad.options[Ciudad.options.length] = new Option( "RAGONVALIA", "54599-RAGONVALIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SALAZAR", "54660-SALAZAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN CALIXTO", "54670-SAN CALIXTO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN CAYETANO", "54673-SAN CAYETANO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTIAGO", "54680-SANTIAGO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SARDINATA", "54720-SARDINATA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SILOS", "54743-SILOS");
+                Ciudad.options[Ciudad.options.length] = new Option( "TEORAMA", "54800-TEORAMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TIBÚ", "54810-TIBÚ");
+                Ciudad.options[Ciudad.options.length] = new Option( "TOLEDO", "54820-TOLEDO");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLA CARO", "54871-VILLA CARO");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLA DEL ROSARIO", "54874-VILLA DEL ROSARIO");
+
+                } 
+            else if (Departamento.value == "86-PUTUMAYO") {
+                Ciudad.options[Ciudad.options.length] = new Option( "COLÓN", "86219-COLÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "MOCOA", "86001-MOCOA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ORITO", "86320-ORITO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO ASIS", "86568-PUERTO ASIS");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO CAICEDO", "86569-PUERTO CAICEDO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO GUZMAN", "86571-PUERTO GUZMAN");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO LEGUIZAMO", "86573-PUERTO LEGUIZAMO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN FRANCISCO", "86755-SAN FRANCISCO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN MIGUEL", "86757-SAN MIGUEL");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTIAGO", "86760-SANTIAGO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SIBUNDOY", "86749-SIBUNDOY");
+                Ciudad.options[Ciudad.options.length] = new Option( "VALLE DEL GUAMUEZ", "86865-VALLE DEL GUAMUEZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLA GARZON", "86885-VILLA GARZON");
+
+                } 
+            else if (Departamento.value == "63-QUINDIO") {
+                Ciudad.options[Ciudad.options.length] = new Option( "ARMENIA", "63001-ARMENIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BUENAVISTA", "63111-BUENAVISTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CALARCA", "63130-CALARCA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CIRCASIA", "63190-CIRCASIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CoRDOBA", "63212-CoRDOBA");
+                Ciudad.options[Ciudad.options.length] = new Option( "FILANDIA", "63272-FILANDIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GeNOVA", "63302-GeNOVA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA TEBAIDA", "63401-LA TEBAIDA");
+                Ciudad.options[Ciudad.options.length] = new Option( "Montengro", "63470-Montengro");
+                Ciudad.options[Ciudad.options.length] = new Option( "PIJAO", "63548-PIJAO");
+                Ciudad.options[Ciudad.options.length] = new Option( "QUIMBAYA", "63594-QUIMBAYA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SALENTO", "63690-SALENTO");
+
+                } 
+            else if (Departamento.value == "66-RISARALDA") {
+                Ciudad.options[Ciudad.options.length] = new Option("APÍA", "66045-APÍA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BALBOA", "66075-BALBOA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BELÉN DE UMBRÍA", "66088-BELÉN DE UMBRÍA");
+                Ciudad.options[Ciudad.options.length] = new Option( "DOSQUEBRADAS", "66170-DOSQUEBRADAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUÁTICA", "66318-GUÁTICA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA CELIA", "66383-LA CELIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA VIRGINIA", "66400-LA VIRGINIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MARSELLA", "66440-MARSELLA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MISTRATÓ", "66456-MISTRATÓ");
+                Ciudad.options[Ciudad.options.length] = new Option( "PEREIRA", "66001-PEREIRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUEBLO RICO", "66572-PUEBLO RICO");
+                Ciudad.options[Ciudad.options.length] = new Option( "QUINCHiA", "66594-QUINCHiA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA ROSA DE CABAL", "66682-SANTA ROSA DE CABAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTUARIO", "66687-SANTUARIO");
+
+                } 
+            else if (Departamento.value == "68-SANTANDER") {
+                Ciudad.options[Ciudad.options.length] = new Option( "AGUADA", "68013-AGUADA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ALBANIA", "68020-ALBANIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARATOCA", "68051-ARATOCA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BARBOSA", "68077-BARBOSA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BARICHARA", "68079-BARICHARA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BARRANCABERMEJA", "68081-BARRANCABERMEJA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BETULIA", "68092-BETULIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BOLÍVAR", "68101-BOLÍVAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "BUCARAMANGA", "68001-BUCARAMANGA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CABRERA", "68121-CABRERA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CALIFORNIA", "68132-CALIFORNIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAPITANEJO", "68147-CAPITANEJO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CARCASÍ", "68152-CARCASÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CEPITÁ", "68160-CEPITÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CERRITO", "68162-CERRITO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHARALÁ", "68167-CHARALÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHARTA", "68169-CHARTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHIMA", "68176-CHIMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHIPATÁ", "68179-CHIPATÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CIMITARRA", "68190-CIMITARRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CONCEPCIÓN", "68207-CONCEPCIÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "CONFINES", "68209-CONFINES");
+                Ciudad.options[Ciudad.options.length] = new Option( "CONTRATACIÓN", "68211-CONTRATACIÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "COROMORO", "68217-COROMORO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CURITÍ", "68229-CURITÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL CARMEN DE CHUCURÍ", "68235-EL CARMEN DE CHUCURÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL GUACAMAYO", "68245-EL GUACAMAYO");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL PEÑÓN", "68250-EL PEÑÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL PLAYÓN", "68255-EL PLAYÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "ENCINO", "68264-ENCINO");
+                Ciudad.options[Ciudad.options.length] = new Option( "ENCISO", "68266-ENCISO");
+                Ciudad.options[Ciudad.options.length] = new Option( "FLORIDABLANCA", "68276-FLORIDABLANCA");
+                Ciudad.options[Ciudad.options.length] = new Option( "FLORIÁN", "68271-FLORIÁN");
+                Ciudad.options[Ciudad.options.length] = new Option( "GALÁN", "68296-GALÁN");
+                Ciudad.options[Ciudad.options.length] = new Option( "GAMBITA", "68298-GAMBITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GIRÓN", "68307-GIRÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUACA", "68318-GUACA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUADALUPE", "68320-GUADALUPE");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUAPOTÁ", "68322-GUAPOTÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUAVATÁ", "68324-GUAVATÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "GuEPSA", "68327-GuEPSA");
+                Ciudad.options[Ciudad.options.length] = new Option( "HATO", "68344-HATO");
+                Ciudad.options[Ciudad.options.length] = new Option( "JESÚS MARÍA", "68368-JESÚS MARÍA");
+                Ciudad.options[Ciudad.options.length] = new Option( "JORDÁN", "68370-JORDÁN");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA BELLEZA", "68377-LA BELLEZA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA PAZ", "68397-LA PAZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "LANDÁZURI", "68385-LANDÁZURI");
+                Ciudad.options[Ciudad.options.length] = new Option( "LEBRÍJA", "68406-LEBRÍJA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LOS SANTOS", "68418-LOS SANTOS");
+                Ciudad.options[Ciudad.options.length] = new Option( "MACARAVITA", "68425-MACARAVITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MATANZA", "68444-MATANZA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MOGOTES", "68464-MOGOTES");
+                Ciudad.options[Ciudad.options.length] = new Option( "MOLAGAVITA", "68468-MOLAGAVITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MÁLAGA", "68432-MÁLAGA");
+                Ciudad.options[Ciudad.options.length] = new Option( "OCAMONTE", "68498-OCAMONTE");
+                Ciudad.options[Ciudad.options.length] = new Option( "OIBA", "68500-OIBA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ONZAGA", "68502-ONZAGA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PALMAR", "68522-PALMAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "PALMAS DEL SOCORRO", "68524-PALMAS DEL SOCORRO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PIEDECUESTA", "68547-PIEDECUESTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PINCHOTE", "68549-PINCHOTE");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUENTE NACIONAL", "68572-PUENTE NACIONAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO PARRA", "68573-PUERTO PARRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO WILCHES", "68575-PUERTO WILCHES");
+                Ciudad.options[Ciudad.options.length] = new Option( "PÁRAMO", "68533-PÁRAMO");
+                Ciudad.options[Ciudad.options.length] = new Option( "RIONEGRO", "68615-RIONEGRO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SABANA DE TORRES", "68655-SABANA DE TORRES");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN ANDRÉS", "68669-SAN ANDRÉS");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN BENITO", "68673-SAN BENITO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN GIL", "68679-SAN GIL");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JOAQUÍN", "68682-SAN JOAQUÍN");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JOSÉ DE MIRANDA", "68684-SAN JOSÉ DE MIRANDA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN MIGUEL", "68686-SAN MIGUEL");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN VICENTE DE CHUCURÍ", "68689-SAN VICENTE DE CHUCURÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA BÁRBARA", "68705-SANTA BÁRBARA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA HELENA DEL OPÓN", "68720-SANTA HELENA DEL OPÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "SIMACOTA", "68745-SIMACOTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SOCORRO", "68755-SOCORRO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUAITA", "68770-SUAITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUCRE", "68773-SUCRE");
+                Ciudad.options[Ciudad.options.length] = new Option( "SURATA", "68780-SURATA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TONA", "68820-TONA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VALLE DE SAN JOSÉ", "68855-VALLE DE SAN JOSÉ");
+                Ciudad.options[Ciudad.options.length] = new Option( "VETAS", "68867-VETAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLANUEVA", "68872-VILLANUEVA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VÉLEZ", "68861-VÉLEZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "ZAPATOCA", "68895-ZAPATOCA");
+
+                } 
+            else if (Departamento.value == "70-SUCRE") {
+                Ciudad.options[Ciudad.options.length] = new Option( "BUENAVISTA", "70110-BUENAVISTA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAIMITO", "70124-CAIMITO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHALÁN", "70230-CHALÁN");
+                Ciudad.options[Ciudad.options.length] = new Option( "COLOSO", "70204-COLOSO");
+                Ciudad.options[Ciudad.options.length] = new Option( "COROZAL", "70215-COROZAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "COVEÑAS", "70221-COVEÑAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL ROBLE", "70233-EL ROBLE");
+                Ciudad.options[Ciudad.options.length] = new Option( "GALERAS", "70235-GALERAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUARANDA", "70265-GUARANDA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA UNIÓN", "70400-LA UNIÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "LOS PALMITOS", "70418-LOS PALMITOS");
+                Ciudad.options[Ciudad.options.length] = new Option( "MAJAGUAL", "70429-MAJAGUAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "MORROA", "70473-MORROA");
+                Ciudad.options[Ciudad.options.length] = new Option( "OVEJAS", "70508-OVEJAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "PALMITO", "70523-PALMITO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAMPUÉS", "70670-SAMPUÉS");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN BENITO ABAD", "70678-SAN BENITO ABAD");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN JUAN BETULIA", "70702-SAN JUAN BETULIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN MARCOS", "70708-SAN MARCOS");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN ONOFRE", "70713-SAN ONOFRE");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN PEDRO", "70717-SAN PEDRO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTIAGO DE TOLÚ", "70820-SANTIAGO DE TOLÚ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SINCELEJO", "70001-SINCELEJO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SINCÉ", "70742-SINCÉ");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUCRE", "70771-SUCRE");
+                Ciudad.options[Ciudad.options.length] = new Option( "TOLÚ VIEJO", "70823-TOLÚ VIEJO");
+
+                } 
+            else if (Departamento.value == "73-TOLIMA") {
+                Ciudad.options[Ciudad.options.length] = new Option( "ALPUJARRA", "73024-ALPUJARRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ALVARADO", "73026-ALVARADO");
+                Ciudad.options[Ciudad.options.length] = new Option( "AMBALEMA", "73030-AMBALEMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ANZOÁTEGUI", "73043-ANZOÁTEGUI");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARMERO", "73055-ARMERO");
+                Ciudad.options[Ciudad.options.length] = new Option( "ATACO", "73067-ATACO");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAJAMARCA", "73124-CAJAMARCA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CARMEN DE APICALÁ", "73148-CARMEN DE APICALÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "CASABIANCA", "73152-CASABIANCA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CHAPARRAL", "73168-CHAPARRAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "COELLO", "73200-COELLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "COYAIMA", "73217-COYAIMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CUNDAY", "73226-CUNDAY");
+                Ciudad.options[Ciudad.options.length] = new Option( "DOLORES", "73236-DOLORES");
+                Ciudad.options[Ciudad.options.length] = new Option( "ESPINAL", "73268-ESPINAL");
+                Ciudad.options[Ciudad.options.length] = new Option( "FALAN", "73270-FALAN");
+                Ciudad.options[Ciudad.options.length] = new Option( "FLANDES", "73275-FLANDES");
+                Ciudad.options[Ciudad.options.length] = new Option( "FRESNO", "73283-FRESNO");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUAMO", "73319-GUAMO");
+                Ciudad.options[Ciudad.options.length] = new Option( "HERVEO", "73347-HERVEO");
+                Ciudad.options[Ciudad.options.length] = new Option( "HONDA", "73349-HONDA");
+                Ciudad.options[Ciudad.options.length] = new Option( "IBAGUe", "73001-IBAGUe");
+                Ciudad.options[Ciudad.options.length] = new Option( "ICONONZO", "73352-ICONONZO");
+                Ciudad.options[Ciudad.options.length] = new Option( "LeRIDA", "73408-LeRIDA");
+                Ciudad.options[Ciudad.options.length] = new Option( "LiBANO", "73411-LiBANO");
+                Ciudad.options[Ciudad.options.length] = new Option( "MARIQUITA", "73443-MARIQUITA");
+                Ciudad.options[Ciudad.options.length] = new Option( "MELGAR", "73449-MELGAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "MURILLO", "73461-MURILLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "NATAGAIMA", "73483-NATAGAIMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ORTEGA", "73504-ORTEGA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PALOCABILDO", "73520-PALOCABILDO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PIEDRAS", "73547-PIEDRAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "PLANADAS", "73555-PLANADAS");
+                Ciudad.options[Ciudad.options.length] = new Option( "PRADO", "73563-PRADO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PURIFICACIÓN", "73585-PURIFICACIÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "RIOBLANCO", "73616-RIOBLANCO");
+                Ciudad.options[Ciudad.options.length] = new Option( "RONCESVALLES", "73622-RONCESVALLES");
+                Ciudad.options[Ciudad.options.length] = new Option( "ROVIRA", "73624-ROVIRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SALDAÑA", "73671-SALDAÑA");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN ANTONIO", "73675-SAN ANTONIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN LUIS", "73678-SAN LUIS");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA ISABEL", "73686-SANTA ISABEL");
+                Ciudad.options[Ciudad.options.length] = new Option( "SUÁREZ", "73770-SUÁREZ");
+                Ciudad.options[Ciudad.options.length] = new Option( "VALLE DE SAN JUAN", "73854-VALLE DE SAN JUAN");
+                Ciudad.options[Ciudad.options.length] = new Option( "VENADILLO", "73861-VENADILLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLAHERMOSA", "73870-VILLAHERMOSA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VILLARRICA", "73873-VILLARRICA");
+
+                } 
+            else if (Departamento.value == "76-VALLE") {
+                Ciudad.options[Ciudad.options.length] = new Option( "ALCALa", "76020-ALCALa");
+                Ciudad.options[Ciudad.options.length] = new Option( "ANDALUCÍA", "76036-ANDALUCÍA");
+                Ciudad.options[Ciudad.options.length] = new Option( "ANSERMANUEVO", "76041-ANSERMANUEVO");
+                Ciudad.options[Ciudad.options.length] = new Option( "ARGELIA", "76054-ARGELIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BOLÍVAR", "76100-BOLÍVAR");
+                Ciudad.options[Ciudad.options.length] = new Option( "BUENAVENTURA", "76109-BUENAVENTURA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BUGA", "76111-BUGA");
+                Ciudad.options[Ciudad.options.length] = new Option( "BUGALAGRANDE", "76113-BUGALAGRANDE");
+                Ciudad.options[Ciudad.options.length] = new Option( "CAICEDONIA", "76122-CAICEDONIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CALI", "76001-CALI");
+                Ciudad.options[Ciudad.options.length] = new Option( "CALIMA", "76126-CALIMA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CANDELARIA", "76130-CANDELARIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "CARTAGO", "76147-CARTAGO");
+                Ciudad.options[Ciudad.options.length] = new Option( "DAGUA", "76233-DAGUA");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL CAIRO", "76246-EL CAIRO");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL CERRITO", "76248-EL CERRITO");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL DOVIO", "76250-EL DOVIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "EL ÁGUILA", "76243-EL ÁGUILA");
+                Ciudad.options[Ciudad.options.length] = new Option( "FLORIDA", "76275-FLORIDA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GINEBRA", "76306-GINEBRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "GUACARÍ", "76318-GUACARÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "JAMUNDÍ", "76364-JAMUNDÍ");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA CUMBRE", "76377-LA CUMBRE");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA UNIÓN", "76400-LA UNIÓN");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA VICTORIA", "76403-LA VICTORIA");
+                Ciudad.options[Ciudad.options.length] = new Option( "OBANDO", "76497-OBANDO");
+                Ciudad.options[Ciudad.options.length] = new Option( "PALMIRA", "76520-PALMIRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PRADERA", "76563-PRADERA");
+                Ciudad.options[Ciudad.options.length] = new Option( "RESTREPO", "76606-RESTREPO");
+                Ciudad.options[Ciudad.options.length] = new Option( "RIOFRIO", "76616-RIOFRIO");
+                Ciudad.options[Ciudad.options.length] = new Option( "ROLDANILLO", "76622-ROLDANILLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SAN PEDRO", "76670-SAN PEDRO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SEVILLA", "76736-SEVILLA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TORO", "76823-TORO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TRUJILLO", "76828-TRUJILLO");
+                Ciudad.options[Ciudad.options.length] = new Option( "TULUÁ", "76834-TULUÁ");
+                Ciudad.options[Ciudad.options.length] = new Option( "ULLOA", "76845-ULLOA");
+                Ciudad.options[Ciudad.options.length] = new Option( "VERSALLES", "76863-VERSALLES");
+                Ciudad.options[Ciudad.options.length] = new Option( "VIJES", "76869-VIJES");
+                Ciudad.options[Ciudad.options.length] = new Option( "YOTOCO", "76890-YOTOCO");
+                Ciudad.options[Ciudad.options.length] = new Option( "YUMBO", "76892-YUMBO");
+                Ciudad.options[Ciudad.options.length] = new Option( "ZARZAL", "76895-ZARZAL");
+
+                } 
+            else if (Departamento.value == "97-VAUPES") {
+                Ciudad.options[Ciudad.options.length] = new Option("CARURU", "97161-CARURU");
+                Ciudad.options[Ciudad.options.length] = new Option( "MITÚ", "97001-MITÚ");
+                Ciudad.options[Ciudad.options.length] = new Option( "PACOA", "97511-PACOA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PAPUNAHUA", "97777-PAPUNAHUA");
+                Ciudad.options[Ciudad.options.length] = new Option( "TARAIRA", "97666-TARAIRA");
+                Ciudad.options[Ciudad.options.length] = new Option( "YAVARATÉ", "97889-YAVARATÉ");
+
+                } 
+            else if (Departamento.value == "99-VICHADA") {
+                Ciudad.options[Ciudad.options.length] = new Option( "CUMARIBO", "99773-CUMARIBO");
+                Ciudad.options[Ciudad.options.length] = new Option( "LA PRIMAVERA", "99524-LA PRIMAVERA");
+                Ciudad.options[Ciudad.options.length] = new Option( "PUERTO CARREÑO", "99001-PUERTO CARREÑO");
+                Ciudad.options[Ciudad.options.length] = new Option( "SANTA ROSALÍA", "99624-SANTA ROSALÍA");
+  
+             }
+        }
+        </script>
+        <img class="asu-sfc-logo" src="{!URLFOR($Resource.img, 'img/logos/sfc-logo-black.png')}"/>
+    </body>
+    <apex:insert name="footer">
+        <hr/>
+        <c:AsuladoFooter />
+    </apex:insert>
+    <style>
+     
+        
+        .asu-banner-footer-button {
+        width: 50%;
+        margin: 0;
+        padding: 0.5rem 1rem;
+        gap: 0.5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        box-shadow: 0 0 0.5rem var(--asu-grey-3);
+        border-radius: 0.5rem;
+        text-decoration: none;
+    }
+   
+        .hideButton{
+        display:none !important;
+        }
+        /* -- MAIN -- */
+        /* #region main */
+        .asu-main {
+            padding-top: 5rem !important;
+        }
+        /* #endregion main */
+    
+        /* -- BANNER -- */
+        /* #region banner */
+        .asu-banner-section {
+            width: 100%;
+            margin: 0;
+            margin-top: 5rem;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+        }
+        .asu-banner-content {
+            width: 40%;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .asu-banner-img {
+            width: 60%;
+            object-fit: contain;
+        }
+        .asu-banner-button-container {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        .asu-banner-button {
+            margin: 0.5rem;
+            padding: 0.5rem;
+            border: 0;
+            box-shadow: 0 0.2rem 0.5rem #cccccc;
+            border-radius: 0.2rem;
+            border-bottom: solid orange 1px;
+        }
+        .asu-banner-button span {
+            margin-left: 0.5rem;
+        }
+        .asu-banner-button img {
+            height: 1.2rem;
+        }
+        /* #endregion banner */
+    
+        /* -- CONTACTO -- */
+        /* #region contacto */
+        .asu-solicitudes-contenido {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+        .asu-solicitudes-redes {
+            padding: 3rem;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .asu-solicitudes-redes img {
+            width: 60%;
+            object-fit: cover;
+        }
+        .asu-solicitudes-redes div span {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .asu-solicitudes-redes div span img {
+            width: 3rem;
+            margin-left: 0.5rem;
+            object-fit: cover;
+        }
+        .asu-solicitudes-container {
+            padding: 3rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .asu-solicitudes-formulario {
+            display: flex;
+            flex-direction: column;
+        }
+        .asu-form-row {
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: row;
+        }
+        .asu-form-row label {
+            margin: 0.5rem 0 0.5rem 0.5rem;
+            text-align: justify;
+        }
+        .asu-form-field {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .asu-form-field label {
+            margin: 0.5rem 0;
+        }
+        /* #endregion contacto */
+    
+        /* #region opciones */
+        .asu-atencion-option {
+            display: none;
+        }
+        .asu-defensoria-option {
+            display: none;
+        }
+        .asu-superfinanciera-option {
+            display: none;
+        }
+        .asu-tutela-option {
+            display: none;
+        }
+        .asu-demanda-option {
+            display: none;
+        }
+        .asu-atencion-1-option {
+            display: none;
+        }
+        .asu-atencion-2-option {
+            display: none;
+        }
+        .asu-atencion-3-option {
+            display: none;
+        }
+        .asu-atencion-4-option {
+            display: none;
+        }
+        .asu-atencion-5-option {
+            display: none;
+        }
+        .asu-atencion-6-option {
+            display: none;
+        }
+        .asu-atencion-7-option {
+            display: none;
+        }
+        .asu-atencion-8-option {
+            display: none;
+        }
+        .asu-atencion-9-option {
+            display: none;
+        }
+        .asu-defensoria-1-option {
+            display: none;
+        }
+        .asu-defensoria-2-option {
+            display: none;
+        }
+        .asu-defensoria-3-option {
+            display: none;
+        }
+        .asu-defensoria-4-option {
+            display: none;
+        }
+        .asu-superfinanciera-1-option {
+            display: none;
+        }
+        .asu-superfinanciera-2-option {
+            display: none;
+        }
+        .asu-superfinanciera-3-option {
+            display: none;
+        }
+        .asu-superfinanciera-4-option {
+            display: none;
+        }
+        /* #endregion opciones */
+    
+        /* -- RESPONSIVE -- */
+        /* #region responsive */
+        @media (max-width: 1024px) {
+            .asu-main{
+                padding-top: 8rem !important;
+            }
+        }
+        @media (max-width: 426px) {
+            .asu-banner-section {
+                margin-top: 2rem;
+                flex-direction: column;
+            }
+            .asu-banner-content {
+                width: 100%;
+                padding: 2rem;
+                padding-bottom: 0;
+            }
+            .asu-banner-img {
+                width: 100%;
+            }
+    
+            .asu-solicitudes-contenido {
+                flex-direction: column-reverse;
+            }
+            .asu-solicitudes-redes {
+                width: 100%;
+            }
+            .asu-solicitudes-container {
+                width: 100%;
+            }
+        }
+        /* #endregion responsive */
+    </style>
+</apex:page>

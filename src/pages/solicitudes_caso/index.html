@@ -1,0 +1,67 @@
+<extends
+  src="layout.html"
+  locals='{ "id": "as__gestion_documentos", "top": "init" }'
+>
+  <block name="head">
+    <title>ASULADO - SOLICITUDES</title>
+
+    <meta name="title" content="ASULADO Seguros de Vida" />
+    <meta
+      name="description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta property="og:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="og:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:image" content="#" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta property="twitter:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="twitter:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="twitter:image" content="https://www.asulado.com/" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="top.html"
+      locals='{ "bg": "bg-BG-1", "image": "top_solicitudes.webp", "t1start":"1", "t2start":"3", "title1": "Gestiona", "title2": "tus PQRS" }'
+    ></include>
+
+    <section class="as__section as__g_solicitudes">
+      <div class="as__section_wrapper">
+        <div class="as__section_content">
+          <div class="as__g_documentos_top">
+            <div class="as__g_documentos_wrapper full">
+              <i
+                class="as__g_documentos_ico fa-sharp fa-solid fa-circle-info"
+              ></i>
+              <div class="as__g_documentos_title">
+                <h2>
+                  <span>¡Estamos atentos a tus necesidades!</span>
+                </h2>
+                <div class="sol_info small">
+                  <i></i>
+                  <p>
+                    También puedes comunicarte a nuestra línea gratuita nacional
+                    01 8000 412 854 o, si estás ubicado en Medellín al (604) 402
+                    6876.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <include src="solicitudes/info_form.html" locals='{"cls":""}'></include>
+  </block>
+
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

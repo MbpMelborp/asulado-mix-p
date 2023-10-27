@@ -15,6 +15,7 @@
     "/prod/assets/images/ILUS2.webp": "/prod/assets/images/ILUS2.webp",
     "/prod/assets/images/ILUS3.webp": "/prod/assets/images/ILUS3.webp",
     "/prod/assets/images/TOP/top_solicitudes.png": "/prod/assets/images/TOP/top_solicitudes.png",
+    "/prod/assets/images/asu-favicon-alt.png": "/prod/assets/images/asu-favicon-alt.png",
     "/prod/assets/images/banner_home.png": "/prod/assets/images/banner_home.png",
     "/prod/assets/images/banner_home.webp": "/prod/assets/images/banner_home.webp",
     "/prod/assets/images/blog/blog_1.jpg": "/prod/assets/images/blog/blog_1.jpg",
@@ -84,5 +85,6 @@
     "/prod/preguntas_frecuentes/index.html": "/prod/preguntas_frecuentes/index.html",
     "/prod/renta_vitalicia/index.html": "/prod/renta_vitalicia/index.html",
     "/prod/seguro_previsional/index.html": "/prod/seguro_previsional/index.html",
-    "/prod/solicitudes/index.html": "/prod/solicitudes/index.html"
+    "/prod/solicitudes/index.html": "/prod/solicitudes/index.html",
+    "/prod/solicitudes_caso/index.html": "/prod/solicitudes_caso/index.html"
 }

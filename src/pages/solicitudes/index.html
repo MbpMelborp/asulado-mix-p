@@ -34,149 +34,52 @@
       locals='{ "bg": "bg-BG-1", "image": "top_solicitudes.webp", "t1start":"1", "t2start":"3", "title1": "Gestiona", "title2": "tus PQRS" }'
     ></include>
 
-    <section class="as__section as__g_documentos">
+    <section class="as__section as__g_solicitudes">
       <div class="as__section_wrapper">
         <div class="as__section_content">
-          <div class="as__g_documentos_wrapper">
-            <i
-              class="as__g_documentos_ico fa-sharp fa-solid fa-circle-info"
-            ></i>
-            <div class="as__g_documentos_title">
-              <h2>
-                <span>¡Estamos atentos a tus necesidades!</span>
-              </h2>
+          <div class="as__g_documentos_top">
+            <div class="as__g_documentos_wrapper">
+              <i
+                class="as__g_documentos_ico fa-sharp fa-solid fa-circle-info"
+              ></i>
+              <div class="as__g_documentos_title">
+                <h2>
+                  <span>¡Estamos atentos a tus necesidades!</span>
+                </h2>
+                <div class="sol_info">
+                  <i> </i>
+                  <p>
+                    También puedes comunicarte a nuestra línea gratuita nacional
+                    01 8000 412 854 o, si estás ubicado en Medellín al (604) 402
+                    6876.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="as__solicitudes_info">
               <p>
-                También puedes comunicarte a nuestra línea gratuita nacional 01 8000 412 854 o, si estás ubicado en Medellín al (604) 402 6876.
+                Para nosotros es importante realizar seguimiento a todas las
+                solicitudes.
               </p>
+              <h4>¿Quieres conocer el estado de tu caso?</h4>
+              <a
+                href="/solicitudes_caso"
+                title="¿Quieres conocer el estado de tu
+              caso?"
+                class="as__button small"
+              >
+                <span>MÁS INFORMACIÓN</span>
+                <i role="presentation" class="fa-light fa-arrow-right"></i>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
     <include src="solicitudes/tabs.html" locals='{"cls":""}'></include>
-    <section></include>
-    <section
-      id="documentos_contenido"
-      class="as__section as__g_documentos_tcon"
-    >
-      <div class="as__section_wrapper full">
-        <div class="as__section_content_full">
-          <ul class="as__g_documentos_tcon_list">
-            <include
-              src="gestion/tabs_content.html"
-              locals='{
-                "cls": "active",
-                "data": "0",
-                "title": "Aportes pensión voluntaria",
-                "subtitle": "(cambios o cancelación)",
-                "que": "Es el ahorro que realizas en Pensión Voluntaria en la AFP, el cual se descuenta de tu mesada pensional mensualmente.",
-                "documento": "Carta de solicitud del pensionado",
-                "documento_sig": "para el ingreso, modificación o cancelación del producto.",
-                "gestion": "Aportes a Pensiones Voluntarias"
-              }'
-            ></include>
-
-            <include
-              src="gestion/tabs_content.html"
-              locals='{
-                "cls": "",
-                "data": "1",
-                "title": "Caja de compensación",
-                "subtitle": "",
-                "que": "Es la afiliación que se realiza en las diferentes cajas de compensación con el fin de acceder a subsidios, obtener microcréditos, disfrutar de tarifas preferenciales y muchos más beneficios.",
-                "documento": "Carta de la caja de compensación la cual se afilió,",
-                "documento_sig": "donde informe la fecha de afiliación y el porcentaje a descontar.",
-                "gestion": "Caja de compensación"
-              }'
-            ></include>
-
-            <include
-              src="gestion/tabs_content.html"
-              locals='{
-                "cls": "",
-                "data": "2",
-                "title": "Certificado de estudio",
-                "subtitle": "",
-                "que": "Es la certificación acreditada por la institución del programa académico que están cursando los beneficiarios entre los 18 y los 25 años, ésta se solicita con el fin de sustentar el cumplimiento a la norma y así garantizar la condición de derecho para recibir las mesadas de tu póliza de sobrevivencia.",
-                "documento": "Certificado de la institución vigilada por el Ministerio de Educación,",
-                "documento_sig": "donde informe el semestre que vas a cursar y se evidencia el cumplimiento mínimo de las 20 horas semanales del programa.",
-                "gestion": "Certificado de estudio"
-              }'
-            ></include>
-
-            <include
-              src="gestion/tabs_content.html"
-              locals='{
-                "cls": "",
-                "data": "3",
-                "title": "Certificado de supervivencia",
-                "subtitle": "",
-                "que": "Este documento se exige a los ciudadanos colombianos que se encuentran pensionados y viven en otro país.",
-                "documento": "Certificado expedido en el país donde vive el pensionado,",
-                "documento_sig": "se debe tramitar cada 6 meses.",
-                "gestion": "Certificado de supervivencia"
-              }'
-            ></include>
-
-            <include
-              src="gestion/tabs_content.html"
-              locals='{
-                "cls": "",
-                "data": "4",
-                "title": "Datos bancarios",
-                "subtitle": "",
-                "que": "Es un documento que emite el banco a petición del cliente, que confirma que dicha cuenta está registrada a su nombre.",
-                "documento": "Certificado de la cuenta bancaria del pensionado.",
-                "documento_sig": "",
-                "gestion": "Inscripción, modificación o cancelación cuenta financiera"
-              }'
-            ></include>
-
-            <include
-              src="gestion/tabs_content.html"
-              locals='{
-                "cls": "",
-                "data": "5",
-                "title": "Entidad Administradora de Fondos de Pensión",
-                "subtitle": "(AFP)",
-                "que": "Las Administradoras de Fondos de Pensión (AFP) son instituciones privadas que se encargan de recaudar y administrar los ahorros de las personas para su pensión.",
-                "documento": "Certificado de afiliación a la AFP.",
-                "documento_sig": "",
-                "gestion": "Afiliación a AFP-Cónyuge/Compañera(o) Temporal "
-              }'
-            ></include>
-
-            <include
-              src="gestion/tabs_content.html"
-              locals='{
-                "cls": "",
-                "data": "6",
-                "title": "Entidad Promotora de Salud",
-                "subtitle": "(EPS)",
-                "que": "Las EPS son las instituciones responsables de la afiliación, el registro de los afiliados y del recaudo de sus cotizaciones al sistema de salud.",
-                "documento": "Certificado de afiliación o traslado de EPS.",
-                "documento_sig": "",
-                "gestion": "Cambio de EPS"
-              }'
-            ></include>
-
-            <include
-              src="gestion/tabs_content.html"
-              locals='{
-                "cls": "",
-                "data": "7",
-                "title": "Redistribución de mesada",
-                "subtitle": "",
-                "que": "La redistribución pensional es la extinción de los derechos pensionales a favor de otro beneficiario con derecho a percibir la mesada pensional.",
-                "documento": "Formato redistribución de mesadas.",
-                "documento_sig": "",
-                "gestion": "Inclusión/Exclusión de Beneficiario"
-              }'
-            ></include>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <include src="solicitudes/sol_form.html" locals='{"cls":""}'></include>
   </block>
+
   <!-- FIN CONTENIDO DEL HOME -->
 </extends>

@@ -76,6 +76,7 @@
     "/prod/assets/js/app.js": "/prod/assets/js/app.js",
     "/prod/assets/js/app.js.LICENSE.txt": "/prod/assets/js/app.js.LICENSE.txt",
     "/prod/assets/js/app.min.js": "/prod/assets/js/app.min.js",
+    "/prod/consumidor_financiero/index.html": "/prod/consumidor_financiero/index.html",
     "/prod/favicon.ico": "/prod/favicon.ico",
     "/prod/gestion_documentos/index.html": "/prod/gestion_documentos/index.html",
     "/prod/index.html": "/prod/index.html",
@@ -86,5 +87,6 @@
     "/prod/renta_vitalicia/index.html": "/prod/renta_vitalicia/index.html",
     "/prod/seguro_previsional/index.html": "/prod/seguro_previsional/index.html",
     "/prod/solicitudes/index.html": "/prod/solicitudes/index.html",
-    "/prod/solicitudes_caso/index.html": "/prod/solicitudes_caso/index.html"
+    "/prod/solicitudes_caso/index.html": "/prod/solicitudes_caso/index.html",
+    "/prod/terminos/index.html": "/prod/terminos/index.html"
 }

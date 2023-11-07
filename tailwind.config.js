@@ -40,6 +40,9 @@ module.exports = {
       backgroundImage: {
         ayuda: "var(--il-ayuda)",
         lusa: "var(--il-lusa)",
+        chat_open: "var(--il-chat-open)",
+        chat_close: "var(--il-chat-close)",
+        chat_wap: "var(--il-chat-wap)",
       },
     },
   },

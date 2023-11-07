@@ -69,6 +69,13 @@ if (document.getElementById("documentos")) {
   });
 }
 
+if (document.getElementById("open_chat_btn")) {
+  document.getElementById("open_chat_btn").addEventListener("click", (e) => {
+    e.preventDefault();
+    document.getElementById("open_chat").classList.toggle("toopen");
+  });
+}
+
 if (document.getElementById("faqs")) {
   const faq = document.querySelectorAll(
     ".as__g_faqs_tcon_list_int .fqs_list:first-child"

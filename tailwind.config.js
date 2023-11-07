@@ -43,6 +43,7 @@ module.exports = {
         chat_open: "var(--il-chat-open)",
         chat_close: "var(--il-chat-close)",
         chat_wap: "var(--il-chat-wap)",
+        chat_2: "var(--il-chat-2)",
       },
     },
   },

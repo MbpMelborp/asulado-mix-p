@@ -1074,7 +1074,7 @@ body {
         }
       }
       .as__button {
-        @apply mt-10 self-center md:self-start;
+        @apply mt-4 self-center md:self-start;
         &:hover ~ .as__rv_destacados_content {
           @apply hidden;
         }

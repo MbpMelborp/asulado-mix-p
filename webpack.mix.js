@@ -5,6 +5,7 @@ const { rimraf, rimrafSync, native, nativeSync } = require("rimraf");
 // const tailwindcss = require("tailwindcss");
 
 const cdn = '"https://asulado-cdn-mbp.s3.amazonaws.com/assets';
+const docs = '"https://asulado-cdn-mbp.s3.amazonaws.com/documentos';
 
 const config_html = {
   partialRoot: "./src/partials", // default partial path
@@ -50,11 +51,17 @@ try {
       })
       .replaceInFile({
         files: ["prod/*.html", "prod/**/*.html"],
+        from: /\"\/documentos/g,
+        to: docs,
+      })
+      .replaceInFile({
+        files: ["prod/*.html", "prod/**/*.html"],
         from: /class=\"debug-screens\"/g,
         to: "",
       })
       .then(async () => {
         rimraf("prod/assets");
+        rimraf("prod/documentos");
       });
   // .browserSync("http://localhost:8000");
 } catch (error) {

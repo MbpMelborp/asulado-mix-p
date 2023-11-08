@@ -1698,7 +1698,8 @@ body {
 
     li {
       @apply flex flex-col;
-      a {
+      a,
+      button {
         @apply p-0 rounded-full border-2 border-azul-bright2 bg-white h-14 w-14 bg-contain bg-no-repeat flex flex-col;
         /* &:before {
           content: "";
@@ -1739,17 +1740,31 @@ body {
     h2 {
       @apply text-azul-bold text-2xl font-bold font-je;
     }
-    a{
+    a {
       @apply font-bold text-azul-bold underline underline-offset-4;
     }
     div {
       @apply flex flex-col gap-y-4 text-azul-dark;
-      ul{
+      ul {
         @apply flex flex-col gap-y-2 ml-8;
-        li{
+        li {
           @apply list-disc;
         }
       }
     }
   }
+}
+
+.embeddedServiceHelpButton .helpButton .uiButton {
+  position: fixed;
+  cursor: pointer;
+  bottom: 40px;
+  right: 40px;
+  z-index: 999;
+  width: 60px;
+  height: auto;
+  border-radius: 50%;
+}
+.embeddedServiceHelpButton .helpButton .uiButton:focus {
+  background-color: #cccccc;
 }

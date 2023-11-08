@@ -223,3 +223,69 @@ if (
   setRV_auxilio(gsap, ScrollTrigger);
   setRV_destacados(gsap, ScrollTrigger);
 }
+
+/** CHAT
+ *
+ */
+
+var initESW = function (gslbBaseURL) {
+  embedded_svc.settings.displayHelpButton = false; //Or false
+  embedded_svc.settings.language = ""; //For example, enter 'en' or 'en-US'
+  embedded_svc.settings.chatbotAvatarImgURL =
+    "https://www.asulado.com/resource/1693413698000/Avatar";
+  embedded_svc.settings.avatarImgURL =
+    "https://www.asulado.com/resource/1693413698000/Avatar";
+
+  embedded_svc.settings.enabledFeatures = ["LiveAgent"];
+  embedded_svc.settings.entryFeature = "LiveAgent";
+
+  embedded_svc.init(
+    "https://asulado.my.salesforce.com",
+    "https://www.asulado.com/",
+    gslbBaseURL,
+    "00D8a000003gPOw",
+    "Chat_Web",
+    {
+      baseLiveAgentContentURL:
+        "https://c.la5-c2-ia5.salesforceliveagent.com/content",
+      deploymentId: "5728a000000Tmu9",
+      buttonId: "5738a000000Tn5E",
+      baseLiveAgentURL: "https://d.la5-c2-ia5.salesforceliveagent.com/chat",
+      eswLiveAgentDevName: "Chat_Web",
+      isOfflineSupportEnabled: false,
+    }
+  );
+};
+
+if (!window.embedded_svc) {
+  var s = document.createElement("script");
+  s.setAttribute(
+    "src",
+    "https://asulado.my.salesforce.com/embeddedservice/5.0/esw.min.js"
+  );
+  s.onload = function () {
+    initESW(null);
+  };
+  document.body.appendChild(s);
+} else {
+  initESW("https://service.force.com");
+}
+
+document.getElementById("start_chat").addEventListener("click", startChat);
+
+function startChat() {
+  console.log("Iniciando chat");
+  embedded_svc.liveAgentAPI.startChat({
+    directToAgentRouting: {
+      buttonId: "5738a000000Tn5E",
+      fallback: true,
+    },
+    extraPrechatInfo: [
+      {
+        entityName: "Contact",
+        saveToTranscript: "",
+      },
+    ],
+    extraPrechatFormDetails: [],
+  });
+}

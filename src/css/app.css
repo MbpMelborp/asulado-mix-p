@@ -1003,11 +1003,17 @@ body {
         &.small {
           @apply !text-[1.5rem] lg:text-3xl lg:max-w-xs !leading-[1em];
         }
+        &.nom {
+          @apply lg:-ml-0;
+        }
       }
       div {
         @apply lg:col-start-1 lg:col-end-5 row-start-1 row-span-1;
         img {
           @apply w-8/12 lg:max-w-none lg:w-full mx-auto lg:mr-auto;
+          &.small {
+            @apply lg:w-11/12;
+          }
         }
       }
     }

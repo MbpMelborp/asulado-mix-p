@@ -1,0 +1,74 @@
+<extends
+  src="layout.html"
+  locals='{ "id": "as__gestion_documentos", "top": "init" }'
+>
+  <block name="head">
+    <title>
+      Solicitudes o peticiones | ASULADO Seguros de Vida | ASULADO Seguros de
+      Vida
+    </title>
+    <meta
+      name="title"
+      content="Solicitudes o peticiones | ASULADO Seguros de Vida | ASULADO Seguros de Vida"
+    />
+    <meta
+      name="keywords"
+      content="Asulado seguros de vida teléfono, Novedades pensionados asulado, Asulado correo electrónico, pension anticipada de vejez"
+    />
+    <meta
+      name="description"
+      content="¡Estamos atentos a tus necesidades! Gestiona todas tus solicitudes de ASULADO desde tu casa, así de simple y sencillo."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta
+      property="og:title"
+      content="Solicitudes o peticiones | ASULADO Seguros de Vida | ASULADO Seguros de Vida"
+    />
+    <meta
+      property="og:description"
+      content="¡Estamos atentos a tus necesidades! Gestiona todas tus solicitudes de ASULADO desde tu casa, así de simple y sencillo."
+    />
+    <meta property="og:image" content="/assets/fb.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta
+      property="twitter:title"
+      content="Solicitudes o peticiones | ASULADO Seguros de Vida | ASULADO Seguros de Vida"
+    />
+    <meta
+      property="twitter:description"
+      content="¡Estamos atentos a tus necesidades! Gestiona todas tus solicitudes de ASULADO desde tu casa, así de simple y sencillo."
+    />
+    <meta property="twitter:image" content="/assets/fb.png" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="top.html"
+      locals='{ "bg": "bg-BG-1", "image": "top_solicitudes.webp", "t1start":"1", "t2start":"3", "title1": "", "title2": "Suscríbete" }'
+    ></include>
+
+    <section class="as__section as__g_solicitudes">
+      <div class="as__section_wrapper">
+        <div class="as__section_content_full">
+          <div class="as__g_documentos_top">
+            <div class="as__g_documentos_wrapper full">
+              <i
+                class="as__g_documentos_ico fa-sharp fa-solid fa-circle-info"
+              ></i>
+              <h3>
+                Queremos estar más cerca de ti, por eso, para tu comodidad,
+                podrás elegir qué información quieres recibir de ASULADO cada
+                mes y el medio de tu preferencia.
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <include src="suscribete/sol_form.html" locals='{"cls":""}'></include>
+  </block>
+
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

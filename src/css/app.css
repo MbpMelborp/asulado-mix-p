@@ -1296,7 +1296,12 @@ body {
     @apply flex flex-row justify-between gap-x-14 gap-y-8;
     .as__g_documentos_wrapper {
       @apply flex gap-x-4 w-full lg:w-7/12;
-
+      &.full {
+        @apply lg:w-full;
+        h3 {
+          @apply text-azul-norm font-je font-bold text-xl;
+        }
+      }
       .as__g_documentos_ico {
         @apply text-azul-bright text-3xl;
       }
@@ -1305,6 +1310,7 @@ body {
         h2 {
           @apply text-azul-norm font-je font-bold text-3xl;
         }
+
         .sol_info {
           @apply flex gap-x-6;
           i {
@@ -1632,6 +1638,20 @@ body {
               }
               &.fc-file {
                 @apply basis-1/5;
+              }
+            }
+          }
+          &.form_info_info {
+            &.nop {
+              @apply mt-0;
+            }
+            .form-control {
+              @apply basis-1/5 px-4;
+              h4 {
+                @apply text-azul-dark text-lg;
+              }
+              label {
+                @apply justify-start gap-x-2;
               }
             }
           }

@@ -5,8 +5,8 @@ const { rimraf, rimrafSync, native, nativeSync } = require("rimraf");
 // const tailwindcss = require("tailwindcss");
 
 const cdn = '"https://asulado-cdn-mbp.s3.amazonaws.com/assets';
-const cdn_final = "https://dw2fbj22ajabu.cloudfront.net/assets";
-const cdn_qa = "https://dw2fbj22ajabu.cloudfront.net/assets";
+const cdn_final = '"https://d2d3tju83rs4vu.cloudfront.net/assets';
+const cdn_qa = '"https://dw2fbj22ajabu.cloudfront.net/assets';
 
 const config_html = {
   partialRoot: "./src/partials", // default partial path

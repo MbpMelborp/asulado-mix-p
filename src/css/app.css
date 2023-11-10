@@ -1637,6 +1637,9 @@ body {
             }
           }
           &.form_info_sol {
+            &.nop {
+              @apply mt-0;
+            }
             .form-control {
               @apply basis-1/2 px-4;
               &.fc-full {
@@ -1651,13 +1654,16 @@ body {
             &.nop {
               @apply mt-0;
             }
-            .form-control {
-              @apply basis-1/5 px-4;
-              h4 {
-                @apply text-azul-dark text-lg;
-              }
-              label {
-                @apply justify-start gap-x-2;
+            .as__form_wrapper {
+              @apply items-center;
+              .form-control {
+                @apply basis-1/5 px-4;
+                h4 {
+                  @apply text-azul-dark text-xl font-bold font-je;
+                }
+                label {
+                  @apply justify-start gap-x-2;
+                }
               }
             }
           }

@@ -5,7 +5,7 @@ const { rimraf, rimrafSync, native, nativeSync } = require("rimraf");
 // const tailwindcss = require("tailwindcss");
 
 const cdn = '"https://asulado-cdn-mbp.s3.amazonaws.com/assets';
-const docs = '"https://asulado-cdn-mbp.s3.amazonaws.com/documentos';
+const cdn_final = "https://dw2fbj22ajabu.cloudfront.net/assets";
 
 const config_html = {
   partialRoot: "./src/partials", // default partial path
@@ -42,26 +42,43 @@ try {
     mix
       .then(async () => {
         rimraf("prod/assets");
+        rimraf("final/assets");
       })
       .copyDirectory("dist", "prod")
+      .copyDirectory("dist", "final")
       .replaceInFile({
         files: ["prod/*.html", "prod/**/*.html"],
         from: /\"\/assets/g,
         to: cdn,
       })
       .replaceInFile({
-        files: ["prod/*.html", "prod/**/*.html"],
-        from: /\"\/documentos/g,
-        to: docs,
+        files: ["final/*.html", "final/**/*.html"],
+        from: /\"\/assets/g,
+        to: cdn_final,
       })
+      // .replaceInFile({
+      //   files: ["prod/*.html", "prod/**/*.html"],
+      //   from: /\"\/documentos/g,
+      //   to: docs,
+      // })
+      // .replaceInFile({
+      //   files: ["final/*.html", "final/**/*.html"],
+      //   from: /\"\/documentos/g,
+      //   to: docs,
+      // })
       .replaceInFile({
-        files: ["prod/*.html", "prod/**/*.html"],
+        files: [
+          "prod/*.html",
+          "prod/**/*.html",
+          "final/*.html",
+          "final/**/*.html",
+        ],
         from: /class=\"debug-screens\"/g,
         to: "",
       })
       .then(async () => {
         rimraf("prod/assets");
-        rimraf("prod/documentos");
+        rimraf("final/assets");
       });
   // .browserSync("http://localhost:8000");
 } catch (error) {

@@ -1423,7 +1423,7 @@ body {
             }
             i {
               @apply transition-colors h-9 w-9 rounded-full text-white bg-azul-bright2 flex justify-center items-center  duration-500 ease-in-out text-xl;
-              &.ico_t{
+              &.ico_t {
                 @apply font-je text-xl not-italic font-bold leading-[1me];
               }
             }
@@ -1620,8 +1620,106 @@ body {
           }
         }
       }
-      #fm,
       form {
+        @apply flex flex-col gap-8;
+
+        fieldset {
+          @apply py-2 border-b border-blue-300 mt-8;
+          legend {
+            @apply w-full flex gap-x-2 text-azul-norm font-je font-bold text-xl lg:text-xl;
+            i {
+              @apply h-7 w-7 text-sm rounded-full text-white bg-azul-mid flex justify-center items-center;
+            }
+          }
+        }
+        h6 {
+          @apply text-azul-dark text-lg;
+        }
+        .form-control {
+          @apply mb-4;
+          label.label {
+            @apply !mb-0;
+          }
+          &.as_select {
+            select {
+              @apply select select-bordered;
+            }
+          }
+          &.as_input {
+            input {
+              @apply input input-bordered input-md;
+            }
+          }
+          &.as_textarea {
+            textarea {
+              @apply textarea textarea-bordered h-24;
+            }
+          }
+          &.fc-file {
+            input {
+              @apply file-input file-input-primary file-input-bordered w-full file-input-sm;
+            }
+          }
+        }
+        .brandSecondaryBrd {
+          table {
+            @apply my-8 w-full;
+            tr {
+              td {
+                label.label {
+                  @apply flex justify-start items-center gap-x-2 mt-4 mb-8;
+                }
+                .label-text {
+                  @apply text-base;
+                  a {
+                    @apply text-azul-bold underline underline-offset-4;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .as__form_wrapper {
+          @apply items-center;
+
+          .form-control {
+            @apply basis-1/5 px-4;
+            h4 {
+              @apply text-azul-dark text-xl font-bold font-je;
+            }
+            label {
+              @apply justify-start gap-x-2;
+            }
+          }
+        }
+        .form-info {
+          @apply py-8 text-base font-light text-azul-dark;
+          a {
+            @apply text-azul-bold underline underline-offset-4;
+          }
+        }
+        .pbBottomButtons {
+          .pbTitle {
+            @apply hidden;
+          }
+        }
+        .pbButtonb {
+          @apply btn btn-primary;
+        }
+      }
+      .form_info_sol {
+        @apply hidden;
+        .form-control {
+          @apply basis-1/2 px-4;
+          &.fc-full {
+            @apply basis-full;
+          }
+          &.fc-file {
+            @apply basis-1/5;
+          }
+        }
+      }
+      /* form#fm {
         @apply flex flex-col gap-8;
         fieldset {
           @apply py-8 border-b border-blue-300 mt-8;
@@ -1705,7 +1803,7 @@ body {
             @apply text-azul-bold underline underline-offset-4;
           }
         }
-      }
+      } */
     }
   }
 }

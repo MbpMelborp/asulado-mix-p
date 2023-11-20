@@ -1,0 +1,129 @@
+<section class="as__section as__g_solicitudes_forms">
+  <div class="as__section_wrapper full">
+    <div class="as__section_content_full as__g_solicitudes_forms_int">
+      <div class="as__g_solicitudes_forms_head">
+        <h4 class="full">
+          <i role="presentation" class="fa-solid fa-info"></i>
+          Si radicaste una solicitud en ASULADO y quieres conocer su estado,
+          diligencia el siguiente formulario: 
+        </h4>
+      </div>
+      <p>
+        En Asulado estamos atentos al seguimiento de tus solicitudes. Si
+        previamente radicaste una solicitud y quieres conocer su avance, no es
+        necesario que la radiques de nuevo. Diligencia el siguiente formulario y
+        consulta tu PQRS
+      </p>
+      <p>
+        <b
+          >¡Recuerda que también estamos a una llamada de distancia! comunícate
+          en la línea gratuita nacional 01 8000 412 854 o al (604) 402 68 76 si
+          te encuentras en Medellín. También puedes contactarnos a través de
+          nuestro correo electrónico info@asulado.com.co</b
+        >
+      </p>
+
+      <apex:form id="fm">
+        <apex:pageBlock id="pb">
+          <apex:pageBlockSection
+            title="Caso creado exitosamente"
+            rendered="{!NOT(ISBLANK(searchResults))}"
+          >
+            <apex:pageBlockTable value="{!searchResults}" var="case">
+              <apex:column
+                headerValue="Número de caso"
+                value="{!case.CaseNumber}"
+              />
+              <apex:column
+                headerValue="Asunto del caso"
+                value="{!case.pqr_detalle__c}"
+              />
+              <apex:column
+                headerValue="Descripción del caso"
+                value="{!case.Description}"
+              />
+              <apex:column headerValue="Estado" value="{!case.Status}" />
+              <apex:column
+                headerValue="Nombre y apellido solicitante"
+                value="{!case.Contact.Name}"
+              />
+              <apex:column
+                headerValue="Notificación enviada a"
+                value="{!case.Contact.Email}"
+              />
+              <apex:column
+                headerValue="Fecha de creación"
+                value="{!case.CreatedDate}"
+              />
+            </apex:pageBlockTable>
+          </apex:pageBlockSection>
+
+          <fieldset class="form_info_per">
+            <legend>
+              <i role="presentation" class="fa-solid fa-rectangle-list"></i>
+              Información de la solicitud
+            </legend>
+            <div class="as__form_wrapper">
+              <apex:pageBlockSectionItem class="form-control as_input">
+                <label class="label">
+                  <span class="label-text">Número de caso</span>
+                </label>
+                <input value="{!caseNumber}" />
+              </apex:pageBlockSectionItem>
+
+              <apex:pageBlockSectionItem class="form-control as_select">
+                <label class="label">
+                  <span class="label-text">Tipo de documento</span>
+                </label>
+                <select id="tipo_doc" value="{!tipo_doc}" size="1">
+                  <option value="{!tipo_doc_options}"></option>
+                </select>
+              </apex:pageBlockSectionItem>
+
+              <apex:pageBlockSectionItem class="form-control as_input">
+                <label class="label">
+                  <span class="label-text">Número de documento</span>
+                </label>
+                <input value="{!Numerodedocumento}" required="true" />
+              </apex:pageBlockSectionItem>
+              <div class="form-control">
+                <apex:pageBlockSectionItem>
+                  <input type="hidden" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem>
+                  <div
+                    data-type="image"
+                    class="g-recaptcha"
+                    data-sitekey="{!publicKey}"
+                    data-callback="recaptchaCallback"
+                  ></div>
+                </apex:pageBlockSectionItem>
+              </div>
+              <apex:pageBlockButtons id="pbb" location="bottom">
+                <apex:commandButton
+                  action="{!save}"
+                  styleClass="btn btn-primary"
+                  value="Enviar solicitud"
+                  id="btnVerify"
+                />
+              </apex:pageBlockButtons>
+            </div>
+          </fieldset>
+        </apex:pageBlock>
+      </apex:form>
+    </div>
+  </div>
+</section>
+
+<script
+  src="https://www.google.com/recaptcha/api.js"
+  type="text/javascript"
+></script>
+<script type="text/javascript">
+  function recaptchaCallback() {
+    var btnVerify = document.getElementById("pg:fm:pb:pbb:btnVerify");
+    if (btnVerify.classList.contains("hideButton")) {
+      btnVerify.classList.remove("hideButton");
+    }
+  }
+</script>

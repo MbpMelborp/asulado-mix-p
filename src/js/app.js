@@ -46,6 +46,10 @@ lenis.on("scroll", ({ scroll }) => {
   }
 });
 
+if (document.getElementById("as__header")) {
+  document.getElementById("as__header").classList.add("init");
+}
+
 if (document.getElementById("documentos")) {
   document.getElementById("docs_tabs").selectedIndex = 0;
   document.getElementById("docs_tabs").addEventListener("change", (e) => {

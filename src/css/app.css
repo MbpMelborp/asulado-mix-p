@@ -254,6 +254,12 @@ body {
     @apply w-full;
   }
 }
+.as__header_asulado {
+  @apply fixed bottom-24 right-3 z-10 lg:w-auto w-3;
+  img {
+    @apply w-full;
+  }
+}
 .as__page_home {
 }
 .as__section {

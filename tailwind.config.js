@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        je: ["var(--font-je)"],
-        sans: ["var(--font-avenir)"],
+        je: ["var(--font-je)", "'Sora'", "sans-serif"],
+        sans: ["var(--font-avenir)", "'Nunito'", "sans-serif"],
       },
       colors: {
         primary: "#273E82",

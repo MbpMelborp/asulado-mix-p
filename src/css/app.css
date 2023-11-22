@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Sora:wght@100;300;400;500;600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -46,16 +48,8 @@
   font-weight: 700;
   font-style: normal;
 }
-@font-face {
-  font-family: "__avenir_Fallback_d0bd6f";
-  src: local("Arial");
-  ascent-override: 98.43%;
-  descent-override: 36.03%;
-  line-gap-override: 0%;
-  size-adjust: 101.59%;
-}
 .__className_d0bd6f {
-  font-family: "__avenir_d0bd6f", "__avenir_Fallback_d0bd6f";
+  font-family: "__avenir_d0bd6f";
 }
 
 @font-face {
@@ -84,21 +78,13 @@
   font-weight: 400;
   font-style: normal;
 }
-@font-face {
-  font-family: "__jeko_Fallback_bd9979";
-  src: local("Arial");
-  ascent-override: 86.44%;
-  descent-override: 22.51%;
-  line-gap-override: 20.26%;
-  size-adjust: 111.06%;
-}
 .__className_bd9979 {
-  font-family: "__jeko_bd9979", "__jeko_Fallback_bd9979";
+  font-family: "__jeko_bd9979";
 }
 
 :root {
-  --font-avenir: "__avenir_d0bd6f", "__avenir_Fallback_d0bd6f";
-  --font-je: "__jeko_bd9979", "__jeko_Fallback_bd9979";
+  --font-avenir: "__avenir_d0bd6f";
+  --font-je: "__jeko_bd9979";
 
   /*ILUSTRACIONES*/
   --il-chat-close: url("data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjYxcHgiIGhlaWdodD0iNjFweCIgdmlld0JveD0iMCAwIDYxIDYxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9Ikdyb3VwLUNvcHkiPgogICAgICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlIiB4PSIwIiB5PSIwIiB3aWR0aD0iNjEiIGhlaWdodD0iNjEiPjwvcmVjdD4KICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMiwgMTIpIiBmaWxsPSIjNDdEMUZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTM0LjczNDM3NSwzNy40NjU2MjUgTDE5LjA1OTM3NSwyMS42NzE4NzUgTDMuMjY1NjI1LDM3LjQ2NTYyNSBDMi41NTMxMjUsMzguMTc4MTI1IDEuMzY1NjI1LDM4LjE3ODEyNSAwLjUzNDM3NSwzNy40NjU2MjUgQy0wLjE3ODEyNSwzNi42MzQzNzUgLTAuMTc4MTI1LDM1LjQ0Njg3NSAwLjUzNDM3NSwzNC43MzQzNzUgTDE2LjMyODEyNSwxOC45NDA2MjUgTDAuNTM0Mzc1LDMuMjY1NjI1IEMtMC4xNzgxMjUsMi41NTMxMjUgLTAuMTc4MTI1LDEuMzY1NjI1IDAuNTM0Mzc1LDAuNTM0Mzc1IEMxLjM2NTYyNSwtMC4xNzgxMjUgMi41NTMxMjUsLTAuMTc4MTI1IDMuMjY1NjI1LDAuNTM0Mzc1IEwxOS4wNTkzNzUsMTYuMzI4MTI1IEwzNC43MzQzNzUsMC41MzQzNzUgQzM1LjQ0Njg3NSwtMC4xNzgxMjUgMzYuNjM0Mzc1LC0wLjE3ODEyNSAzNy40NjU2MjUsMC41MzQzNzUgQzM4LjE3ODEyNSwxLjM2NTYyNSAzOC4xNzgxMjUsMi41NTMxMjUgMzcuNDY1NjI1LDMuMjY1NjI1IEwyMS42NzE4NzUsMTguOTQwNjI1IEwzNy40NjU2MjUsMzQuNzM0Mzc1IEMzOC4xNzgxMjUsMzUuNDQ2ODc1IDM4LjE3ODEyNSwzNi42MzQzNzUgMzcuNDY1NjI1LDM3LjQ2NTYyNSBDMzYuNjM0Mzc1LDM4LjE3ODEyNSAzNS40NDY4NzUsMzguMTc4MTI1IDM0LjczNDM3NSwzNy40NjU2MjUgWiIgaWQ9IlBhdGgiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+");
@@ -998,7 +984,7 @@ body {
     .as__gestion_ilustra {
       @apply w-full lg:w-7/12 flex flex-col-reverse max-w-md mx-auto lg:max-w-none lg:mx-0 lg:grid lg:grid-cols-10 lg:grid-rows-1 gap-y-8;
       h3 {
-        @apply lg:-ml-4 col-start-1 lg:col-start-5 col-end-11 row-start-2 lg:row-start-1 row-span-1 text-4xl lg:text-6xl text-azul-norm self-center font-je font-bold leading-[0.9em] pb-2;
+        @apply col-start-1 lg:col-start-5 col-end-11 row-start-2 lg:row-start-1 row-span-1 text-4xl lg:text-6xl text-azul-norm self-center font-je font-bold leading-[0.9em] pb-2;
         &.small {
           @apply !text-[1.5rem] lg:text-3xl lg:max-w-xs !leading-[1em];
         }
@@ -1297,6 +1283,9 @@ body {
 
 .as__g_solicitudes {
   @apply pt-16 pb-8 bg-BG-4;
+  &.plain {
+    @apply bg-white;
+  }
   .as__g_documentos_top {
     @apply flex flex-row justify-between gap-x-14 gap-y-8;
     .as__g_documentos_wrapper {
@@ -1306,6 +1295,12 @@ body {
         h3 {
           @apply text-azul-norm font-je font-bold text-xl;
         }
+        h2 {
+          @apply text-azul-norm font-je font-bold text-2xl;
+        }
+      }
+      .as__g_documentos_int {
+        @apply pt-1 flex flex-col gap-y-4;
       }
       .as__g_documentos_ico {
         @apply text-azul-bright text-3xl;
@@ -1319,12 +1314,20 @@ body {
         .sol_info {
           @apply flex gap-x-6;
           i {
-            @apply h-auto w-36 bg-lusa bg-no-repeat bg-contain;
+            @apply flex-none w-14 h-14 bg-lusa bg-no-repeat bg-contain block;
           }
           &.small {
+            @apply items-center;
             i {
-              @apply h-auto w-20;
+              @apply h-14 w-14;
             }
+            p{
+              @apply max-w-lg;
+            }
+
+          }
+          a {
+            @apply text-azul-bold underline underline-offset-2 font-bold;
           }
         }
       }
@@ -1360,6 +1363,9 @@ body {
 }
 .as__g_documentos_tabs {
   @apply bg-BG-4;
+  &.plain {
+    @apply bg-white;
+  }
   .as__section_wrapper {
     .as__g_documentos_tabs_int {
       @apply bg-white z-0 overflow-hidden rounded-lg p-4;
@@ -1385,7 +1391,7 @@ body {
               @apply transition-colors h-8 w-8 rounded-full text-white bg-azul-bright2 flex justify-center items-center mb-4 duration-500 ease-in-out;
             }
             b {
-              @apply mt-auto font-normal text-lg leading-none;
+              @apply mt-2 font-normal text-lg leading-none font-je;
             }
             small {
               @apply text-sm leading-none;
@@ -1444,6 +1450,9 @@ body {
 }
 .as__g_documentos_tcon {
   @apply bg-BG-4;
+  &.plain {
+    @apply bg-white;
+  }
   .as__section_wrapper {
     .as__g_documentos_tcon_list {
       @apply bg-white rounded-b-lg p-4;
@@ -1899,4 +1908,62 @@ body {
 }
 .embeddedServiceHelpButton .helpButton .uiButton:focus {
   background-color: #cccccc;
+}
+
+.as__gov_int {
+  @apply w-full flex flex-col gap-y-4 text-azul-dark !px-4 bg-white pt-8;
+  &.as__g_documentos_tcon_list_int {
+    @apply hidden;
+    &.active {
+      @apply flex;
+    }
+  }
+  h2 {
+    @apply text-2xl text-azul-bright2 font-je;
+  }
+  .gob-list {
+    @apply my-8 divide-slate-300 divide-y md:divide-y-0 divide-solid md:divide-x flex flex-col md:flex-row gap-y-4 md:gap-x-4;
+    li {
+      @apply p-4 flex-1 flex flex-col gap-y-2;
+      i.gobi {
+        @apply transition-colors text-lg h-9 w-9 rounded-full text-white bg-azul-bright2 flex justify-center items-center  duration-500 ease-in-out mb-3;
+      }
+      h3 {
+        @apply text-azul-norm font-je text-xl font-normal;
+      }
+      p {
+        @apply leading-normal text-sm;
+      }
+    }
+  }
+}
+.as__desc {
+  @apply p-8 rounded-xl bg-[#E9F5F8] flex flex-col gap-y-4 mb-8;
+  h3 {
+    @apply flex gap-x-4 items-center text-2xl text-azul-norm font-je;
+    i {
+      @apply text-sm transition-colors h-8 w-8 rounded-full text-white bg-azul-mid flex justify-center items-center duration-500 ease-in-out;
+    }
+  }
+  .as__desc_items {
+    @apply flex flex-wrap justify-start items-start;
+    .as__desc_item {
+      @apply w-full md:w-auto md:basis-1/2 lg:basis-1/3 2xl:basis-1/4 p-2;
+      a {
+        @apply flex gap-x-4 justify-between w-full items-center text-azul-dark font-light p-4 rounded-lg bg-white border-azul-bright2 border transition-colors hover:bg-azul-light duration-500 ease-in-out;
+        div {
+          @apply grow flex flex-col gap-y-0;
+          b {
+            @apply text-azul-norm font-bold text-lg leading-[1em];
+          }
+          span {
+            @apply text-azul-dark font-light text-sm;
+          }
+        }
+        i.itc {
+          @apply flex-none transition-colors h-12 w-12 rounded-full text-azul-bright bg-white flex justify-center items-center duration-500 ease-in-out border border-azul-bright2 text-2xl;
+        }
+      }
+    }
+  }
 }

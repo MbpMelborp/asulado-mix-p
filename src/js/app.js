@@ -77,27 +77,21 @@ if (document.getElementById("open_chat_btn")) {
 }
 
 if (document.getElementById("faqs")) {
-  const faq = document.querySelectorAll(
-    ".as__g_faqs_tcon_list_int .fqs_list:first-child"
-  );
-  document
-    .querySelectorAll(".as__g_faqs_tcon_list_int .fqs_list")
-    .forEach((fq) => {
-      fq.children[0].children[0].addEventListener("click", (e) => {
-        e.preventDefault();
-        if (
-          !e.target.parentElement.parentElement.classList.contains("active")
-        ) {
-          for (let ep of e.target.parentElement.parentElement.parentElement
-            .children) {
-            ep.classList.remove("active");
-          }
-          e.target.parentElement.parentElement.classList.add("active");
-        } else {
-          e.target.parentElement.parentElement.classList.remove("active");
+  const faq = document.querySelectorAll(".as__g_faqs_ls .fqs_list:first-child");
+  document.querySelectorAll(".as__g_faqs_ls .fqs_list").forEach((fq) => {
+    fq.children[0].children[0].addEventListener("click", (e) => {
+      e.preventDefault();
+      if (!e.target.parentElement.parentElement.classList.contains("active")) {
+        for (let ep of e.target.parentElement.parentElement.parentElement
+          .children) {
+          ep.classList.remove("active");
         }
-      });
+        e.target.parentElement.parentElement.classList.add("active");
+      } else {
+        e.target.parentElement.parentElement.classList.remove("active");
+      }
     });
+  });
   faq.forEach((fq) => {
     fq.classList.add("active");
   });
@@ -137,6 +131,8 @@ function changeTab(tab) {
       if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
       else tabe.classList.add("active");
     });
+
+  console.log(document.querySelectorAll(".as__g_documentos_tcon_list_int"));
 }
 
 function changeTab2(tab) {

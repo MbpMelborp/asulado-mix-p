@@ -1,0 +1,100 @@
+<extends
+  src="layout.html"
+  locals='{ "id": "as__nuestra_empresa", "top": "init" }'
+>
+  <block name="head">
+    <title>Sobre nosotros |ASULADO Seguros de Vida</title>
+    <meta name="title" content="Sobre nosotros | ASULADO Seguros de Vida" />
+    <meta
+      name="keywords"
+      content="Cómo funciona asulado, Qué es asulado, pension anticipada en colombia, seguro de pensiones"
+    />
+    <meta
+      name="description"
+      content="Descubre quiénes somos y cómo aseguramos tu futuro en ASULADO Seguros de Vida. ¡Tu tranquilidad es nuestro objetivo!"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta
+      property="og:title"
+      content="Sobre nosotros | ASULADO Seguros de Vida"
+    />
+    <meta
+      property="og:description"
+      content="Descubre quiénes somos y cómo aseguramos tu futuro en ASULADO Seguros de Vida. ¡Tu tranquilidad es nuestro objetivo!"
+    />
+    <meta property="og:image" content="/assets/fb.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta
+      property="twitter:title"
+      content="Sobre nosotros | ASULADO Seguros de Vida"
+    />
+    <meta
+      property="twitter:description"
+      content="Descubre quiénes somos y cómo aseguramos tu futuro en ASULADO Seguros de Vida. ¡Tu tranquilidad es nuestro objetivo!"
+    />
+    <meta property="twitter:image" content="/assets/fb.png" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="top.html"
+      locals='{ "bg": "bg-BG-8", "image": "top_gobierno.webp", "t1start":"1", "t2start":"3", "title1": "Gobierno", "title2": "corporativo" }'
+    ></include>
+    <section class="as__section as__g_solicitudes plain">
+      <div class="as__section_wrapper">
+        <div class="as__section_content_full">
+          <div class="as__g_documentos_top">
+            <div class="as__g_documentos_wrapper full">
+              <i
+                class="as__g_documentos_ico fa-sharp fa-solid fa-circle-info"
+              ></i>
+              <div class="as__g_documentos_int">
+                <h2>Generalidades</h2>
+                <p>
+                  Somos una compañía que busca dinamizar el mercado de des Z
+                  acumulación patrimonial y completar la oferta de aseguramiento
+                  que tiene el sistema de pensiones de ahorro individual en las
+                  modalidades de renta vitalic ia y seguro previsional.
+                </p>
+                <p>
+                  Queremos acompañar a los colombianos para que puedan construir
+                  bienestar para el futuro, el retiro y la vejez, así como
+                  solventar situaciones de invalidez o sobrevivencia.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <include src="gobierno/tabs.html" locals='{"cls":"pt-4 plain"}'></include>
+    <section
+      id="documentos_contenido"
+      class="as__section as__g_documentos_tcon plain"
+    >
+      <div class="as__section_wrapper full">
+        <div class="as__section_content_full">
+          <div class="as__g_gobierno">
+            <include
+              src="gobierno/1_ppios.html"
+              locals='{
+              "cls": "active",
+              "data": "0"
+            }'
+            ></include>
+            <include
+              src="gobierno/2_pol_corp.html"
+              locals='{
+              "cls": "",
+              "data": "1"
+            }'
+            ></include>
+          </div>
+        </div>
+      </div>
+    </section>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

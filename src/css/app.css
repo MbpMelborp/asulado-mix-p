@@ -249,7 +249,7 @@ body {
 }
 
 .as__header_vigilado {
-  @apply fixed bottom-11 left-2 z-10 lg:w-auto w-3;
+  @apply fixed bottom-20 left-2 z-10 lg:w-auto w-3;
   img {
     @apply w-full;
   }
@@ -1321,10 +1321,9 @@ body {
             i {
               @apply h-14 w-14;
             }
-            p{
+            p {
               @apply max-w-lg;
             }
-
           }
           a {
             @apply text-azul-bold underline underline-offset-2 font-bold;
@@ -1965,5 +1964,12 @@ body {
         }
       }
     }
+  }
+}
+
+.as_usability {
+  @apply block fixed lg:hidden bottom-5 left-1 z-50;
+  i {
+    @apply text-azul-dark text-3xl;
   }
 }

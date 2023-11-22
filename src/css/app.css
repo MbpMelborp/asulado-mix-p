@@ -1282,7 +1282,7 @@ body {
 }
 
 .as__g_solicitudes {
-  @apply pt-16 pb-8 bg-BG-4;
+  @apply pt-8 pb-2 bg-BG-4;
   &.plain {
     @apply bg-white;
   }
@@ -1390,7 +1390,7 @@ body {
               @apply transition-colors h-8 w-8 rounded-full text-white bg-azul-bright2 flex justify-center items-center mb-4 duration-500 ease-in-out;
             }
             b {
-              @apply mt-2 font-normal text-lg leading-none font-je;
+              @apply mt-2 font-normal text-base leading-none font-je;
             }
             small {
               @apply text-sm leading-none;

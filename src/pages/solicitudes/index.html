@@ -46,9 +46,9 @@
   <block name="content">
     <include
       src="top.html"
-      locals='{ "bg": "bg-BG-1", "image": "top_solicitudes.webp", "t1start":"1", "t2start":"3", "title1": "Gestiona", "title2": "tus PQRS" }'
+      locals='{ "bg": "bg-BG-1", "image": "top_solicitudes.webp", "t1start":"1", "t2start":"3", "title1": "Gestiona", "title2": "tus solicitudes" }'
     ></include>
-
+    <include src="solicitudes/tabs.html" locals='{"cls":"pt-8"}'></include>
     <section class="as__section as__g_solicitudes">
       <div class="as__section_wrapper">
         <div class="as__section_content">
@@ -85,7 +85,7 @@
 
             <div class="as__solicitudes_info">
               <p>
-                Para nosotros es importante realizar seguimiento a todas las
+                Para nosotros es importante realizar seguimiento a tus
                 solicitudes.
               </p>
               <h4>¿Quieres conocer el estado de tu caso?</h4>
@@ -103,7 +103,6 @@
         </div>
       </div>
     </section>
-    <include src="solicitudes/tabs.html" locals='{"cls":""}'></include>
     <include src="solicitudes/sol_form.html" locals='{"cls":""}'></include>
   </block>
 

@@ -1449,7 +1449,7 @@ body {
   }
 }
 .as__g_documentos_tcon {
-  @apply bg-BG-4;
+  @apply bg-BG-4 pb-8;
   &.plain {
     @apply bg-white;
   }
@@ -1527,7 +1527,7 @@ body {
 }
 
 .as__g_faqs_tcon {
-  @apply bg-BG-4;
+  @apply bg-BG-4 pb-8;
   .as__section_wrapper {
     .as__g_faqs_tcon_list {
       @apply bg-white rounded-b-lg p-4;

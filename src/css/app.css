@@ -1322,12 +1322,18 @@ body {
           i {
             @apply flex-none w-14 h-14 bg-lusa bg-no-repeat bg-contain block;
           }
+          div {
+            @apply flex flex-col gap-y-2;
+            ul {
+              @apply ml-8 flex flex-col gap-y-1 text-sm list-disc list-outside;
+            }
+          }
           &.small {
             @apply items-center;
             i {
               @apply h-14 w-14;
             }
-            p {
+            div {
               @apply max-w-lg;
             }
           }

@@ -773,6 +773,11 @@ body {
       }
     }
   }
+  &.mar_t {
+    .as__top_int h2 {
+      @apply md:-mt-1;
+    }
+  }
 }
 
 /** EMPRESA PROPOSITO */

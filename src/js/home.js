@@ -332,9 +332,9 @@ export function setHomeServicios(gsap, ScrollTrigger) {
 
 export function setHomeCifras(gsap, ScrollTrigger) {
   if (document.getElementById("home_cifras")) {
-    const toCLiets = 25;
+    const toCLiets = 27;
     const toCobertura = 5;
-    const toColaboradores = 50;
+    const toColaboradores = 82;
     const counters = { clientes: 0, cobertura: 0, colaboradores: 0 };
 
     const tl = gsap.timeline({ paused: true });
@@ -376,7 +376,7 @@ export function setHomeCifras(gsap, ScrollTrigger) {
             val: toCLiets,
             duration: 1,
             roundProps: "clientes",
-            ease: "back.out",
+            ease: "ease.out",
             delay: 1,
             onUpdate: function () {
               counters.clientes = Math.round(counters.val);
@@ -393,7 +393,7 @@ export function setHomeCifras(gsap, ScrollTrigger) {
             val: toCobertura,
             duration: 1,
             roundProps: "cobertura",
-            ease: "back.out",
+            ease: "ease.out",
             delay: 1.5,
             onUpdate: function () {
               counters.cobertura = Math.round(counters.val);
@@ -410,12 +410,14 @@ export function setHomeCifras(gsap, ScrollTrigger) {
             val: toColaboradores,
             duration: 1,
             roundProps: "colaboradores",
-            ease: "back.out",
+            ease: "ease.out",
             delay: 2,
             onUpdate: function () {
               counters.colaboradores = Math.round(counters.val);
+              // console.log(counters.val);
+              var cols = counters.colaboradores / 10;
               document.getElementById("home_cifras_colaboradores").innerHTML =
-                counters.colaboradores;
+                cols.toFixed(1);
               //   setColaboradores(Math.round(counters.val));
             },
           }

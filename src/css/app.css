@@ -621,6 +621,9 @@ body {
       }
       h4 {
         @apply font-je -mt-4 mb-0 ml-6 text-7xl font-bold leading-[0.8em] text-amarillo-mid md:mr-4 md:text-8xl;
+        small {
+          @apply !text-lg font-normal;
+        }
       }
       p {
         @apply mx-12 p-0 text-azul-dark;
@@ -1890,7 +1893,7 @@ body {
 .as__terms {
   @apply flex flex-col gap-y-8;
   .as__terms_info {
-    @apply flex flex-col gap-y-4;
+    @apply flex flex-col gap-y-4 pb-20;
     h1 {
       @apply text-azul-bold text-3xl font-bold font-je;
     }

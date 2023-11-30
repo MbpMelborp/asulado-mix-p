@@ -620,13 +620,25 @@ body {
         @apply mx-auto w-3/5 md:w-full 2xl:w-[80%];
       }
       h4 {
-        @apply font-je -mt-4 mb-0 ml-6 text-7xl font-bold leading-[0.8em] text-amarillo-mid md:mr-4 md:text-8xl;
+        @apply flex justify-center gap-x-2 items-end font-je -mt-4 mb-0 ml-6 text-7xl font-bold leading-[0.8em] text-amarillo-mid md:mr-4 md:text-8xl;
+        span {
+          @apply text-center;
+          &.l {
+            @apply w-32 md:w-40;
+          }
+          &.m {
+            @apply w-24 md:w-32;
+          }
+          &.s {
+            @apply w-14 md:w-16;
+          }
+        }
         small {
-          @apply !text-lg font-normal;
+          @apply !text-2xl font-normal mb-2;
         }
       }
       p {
-        @apply mx-12 p-0 text-azul-dark;
+        @apply mt-4 md:mt-2 mx-12 p-0 text-azul-dark text-center md:text-left;
       }
     }
   }

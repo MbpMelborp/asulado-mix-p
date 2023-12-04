@@ -191,6 +191,50 @@ function handleMenu() {
 }
 
 //HOME
+if (document.getElementById("modal_sus")) {
+  function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  function getCookieValue(name) {
+    const regex = new RegExp(`(^| )${name}=([^;]+)`);
+    const match = document.cookie.match(regex);
+    if (match) {
+      return match[2];
+    }
+  }
+  function deleteCookie(name) {
+    document.cookie =
+      name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+  }
+
+  document.getElementById("modal_sus").checked = getCookieValue("modal_sus")
+    ? false
+    : true;
+
+  document.getElementById("showcheck").checked = getCookieValue("modal_sus")
+    ? false
+    : true;
+
+  // document.getElementById("modal_sus").checked = true;
+
+  document.getElementById("modal_sus").addEventListener("change", (e) => {
+    if (e.target.checked) {
+    } else {
+    }
+  });
+  document.getElementById("showcheck").addEventListener("change", (e) => {
+    if (e.target.checked) {
+      setCookie("modal_sus", true, 30);
+    } else {
+      deleteCookie("modal_sus");
+      // setCookie("modal_sus", "false", 1);
+    }
+  });
+}
+
 if (document.getElementById("as__home")) {
   setHomeBanners(gsap);
   setHomePropositios(gsap, ScrollTrigger);

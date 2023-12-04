@@ -1277,21 +1277,24 @@ body {
     .as__documentos_int_item {
       @apply flex h-auto w-full flex-col xl:px-8;
       &.doc_img {
-        @apply md:order-2 w-4/12;
+        @apply md:order-2 md:w-4/12 w-full;
+        svg {
+          @apply w-full mx-auto max-w-xs md:max-w-none;
+        }
       }
       &.doc_ges {
-        @apply md:order-1 w-4/12;
+        @apply md:order-1 md:w-4/12 w-full;
       }
       &.doc_cal {
-        @apply md:order-2 w-4/12;
+        @apply md:order-2 md:w-4/12 w-full;
       }
       .doc_ico {
-        @apply w-16 h-16 text-3xl mb-8 text-white bg-azul-bold rounded-full flex items-center justify-center;
+        @apply mx-auto md:mx-0 w-16 h-16 text-3xl mb-8 text-white bg-azul-bold rounded-full flex items-center justify-center;
       }
       .as__documentos_int_content {
         @apply z-10 mb-4 flex h-auto flex-col space-y-4;
         h2 {
-          @apply relative text-azul-norm font-je text-4xl font-bold;
+          @apply text-center md:text-left relative text-azul-norm font-je text-4xl font-bold;
         }
         p {
           @apply mx-auto max-w-xl text-center font-sans font-light text-azul-dark md:mx-0 md:max-w-none md:text-left;
@@ -2003,5 +2006,27 @@ body {
   @apply block fixed lg:hidden bottom-5 left-1 z-50;
   i {
     @apply text-azul-dark text-3xl;
+  }
+}
+
+.modal_ss {
+  @apply !bg-transparent;
+  .modal-box {
+    @apply bg-BG-8 border border-azul-bright2;
+    .close_small {
+      @apply bg-white text-azul-norm btn btn-sm btn-circle btn-ghost absolute right-2 top-2 h-8 w-8;
+    }
+    .modal_info {
+      @apply flex flex-col gap-y-4;
+      img {
+        @apply max-w-[300px] w-full px-8 mx-auto;
+      }
+      p {
+        @apply text-azul-dark font-je text-2xl text-center leading-tight;
+      }
+      .modal_check {
+        @apply pt-4 border-t border-slate-200 text-azul-dark flex gap-x-4 items-center justify-center;
+      }
+    }
   }
 }

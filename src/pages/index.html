@@ -35,6 +35,39 @@
     <include src="home/cifras.html"></include>
     <include src="home/documentos.html"></include>
     <!-- <include src="home/blog.html" locals='{ "button": "VER TODOS"}'></include> -->
+
+    <!-- MODAL  -->
+    <!-- <label for="modal_sus" class="btn">open modal</label> -->
+    <input type="checkbox" id="modal_sus" class="modal-toggle" />
+    <div class="modal modal_ss" role="dialog">
+      <div class="modal-box">
+        <form method="dialog">
+          <label for="modal_sus" class="close_modal close_small"> ✕ </label>
+        </form>
+        <div class="modal_info">
+          <img src="/assets/images/top_suscribete.webp" alt="Suscríbete" />
+          <p>
+            <b>Suscríbete ahora</b> y recibe la información más importante
+            directamente en tu correo electrónico.
+          </p>
+          <a href="/suscribete" class="as__button">
+            <span>Suscríbirme</span>
+            <i role="presentation" class="fa-light fa-arrow-right"></i>
+          </a>
+          <div class="modal_check">
+            <label for="showcheck"> No volver a mostrar este mensaje </label>
+            <input
+              id="showcheck"
+              name="showcheck"
+              type="checkbox"
+              class="checkbox checkbox-sm checkbox-info"
+            />
+          </div>
+        </div>
+      </div>
+      <label class="modal-backdrop" for="modal_sus">Cerrar</label>
+    </div>
+    <!-- MODAL -->
   </block>
   <!-- FIN CONTENIDO DEL HOME -->
 </extends>

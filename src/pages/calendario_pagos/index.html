@@ -1,0 +1,67 @@
+<extends src="layout.html" locals='{ "id": "as__faqs", "top": "init" }'>
+  <block name="head">
+    <title>
+      Calendario de pago | ASULADO Seguros de Vida | ASULADO Seguros de Vida
+    </title>
+    <meta
+      name="title"
+      content="Calendario de pago | ASULADO Seguros de Vida | ASULADO Seguros de Vida"
+    />
+    <meta
+      name="keywords"
+      content="Qué es asulado, Cómo funciona asulado, Qué es una renta vitalicia, que es un seguro previsional, que es vitalicio"
+    />
+    <meta
+      name="description"
+      content="Conoce el cronograma pago de nómina a pensionados."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta
+      property="og:title"
+      content="Calendario de pago | ASULADO Seguros de Vida | ASULADO Seguros de Vida"
+    />
+    <meta
+      property="og:description"
+      content="Conoce el cronograma pago de nómina a pensionados."
+    />
+    <meta property="og:image" content="/assets/fb.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta
+      property="twitter:title"
+      content="Calendario de pago | ASULADO Seguros de Vida | ASULADO Seguros de Vida"
+    />
+    <meta
+      property="twitter:description"
+      content="Conoce el cronograma pago de nómina a pensionados."
+    />
+    <meta property="twitter:image" content="/assets/fb.png" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="top.html"
+      locals='{ "bg": "bg-BG-2", "image": "top_calendario.webp", "t1start":"1", "t2start":"3", "title1": "Calendario", "title2": "de pagos" }'
+    ></include>
+
+    <section id="as__calendario" class="as__section as__calendario">
+      <div class="as__section_wrapper">
+        <div class="as__section_content">
+          <div class="calendario-top">
+            <i
+              class="doc_ico fa-solid fa-calendar-heart"
+              aria-hidden="true"
+            ></i>
+            <div class="calendario-top-info">
+              <p>Conoce el cronograma pago de nómina a pensionados.</p>
+              <div>El próximo pago será el <span id="proximo_pago"></span></div>
+            </div>
+          </div>
+          <div class="calendar"></div>
+        </div>
+      </div>
+    </section>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

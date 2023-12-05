@@ -31,6 +31,8 @@ import {
   set_listado,
 } from "./prods";
 
+import { setCalendar } from "./calendar";
+
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -267,6 +269,10 @@ if (
   setRV_auxilio(gsap, ScrollTrigger);
   setRV_destacados(gsap, ScrollTrigger);
 }
+
+//CALENDAR
+
+setCalendar(gsap);
 
 /** CHAT
  *

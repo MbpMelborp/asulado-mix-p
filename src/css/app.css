@@ -1316,7 +1316,7 @@ body {
     @apply bg-white;
   }
   .as__g_documentos_top {
-    @apply flex flex-row justify-between gap-x-14 gap-y-8;
+    @apply flex flex-col md:flex-row justify-between gap-x-14 gap-y-8;
     .as__g_documentos_wrapper {
       @apply flex gap-x-4 w-full lg:w-7/12;
       &.full {
@@ -1341,7 +1341,7 @@ body {
         }
 
         .sol_info {
-          @apply flex gap-x-6;
+          @apply flex flex-col md:flex-row gap-y-6 gap-x-6;
           i {
             @apply flex-none w-14 h-14 bg-lusa bg-no-repeat bg-contain block;
           }
@@ -1640,7 +1640,7 @@ body {
     .as__g_solicitudes_forms_int {
       @apply bg-white z-0 overflow-hidden rounded-lg p-4 flex flex-col gap-y-4;
       .as__g_solicitudes_forms_head {
-        @apply flex gap-x-8 justify-between items-center;
+        @apply flex flex-col md:flex-row gap-x-8 gap-y-8 justify-between items-center;
         h4 {
           @apply lg:w-6/12 w-full text-azul-bold text-xl font-je font-bold flex flex-col gap-y-4;
           i {
@@ -1984,14 +1984,14 @@ body {
     @apply w-20 inline-block text-lg text-azul-norm font-je font-normal py-1 px-2 rounded-2xl bg-BG-8;
   }
   .gpert {
-    @apply text-azul-dark font-je text-xl mb-2;
+    @apply text-azul-dark font-je text-2xl mb-2 font-bold;
   }
   .g-junta {
     @apply my-2 divide-slate-300 divide-y md:divide-y-0 divide-solid md:divide-x flex flex-col md:flex-row gap-y-4 md:gap-x-4;
     li {
       @apply cursor-pointer p-4 flex-1 flex flex-col gap-y-2;
       h4 {
-        @apply text-azul-dark font-je text-lg font-normal leading-tight;
+        @apply text-azul-dark font-je text-[1.1rem] font-normal leading-tight;
       }
     }
   }
@@ -2121,6 +2121,62 @@ body {
     @apply p-4 flex flex-col gap-y-2 w-full md:w-1/5;
     h4 {
       @apply text-azul-dark font-je text-lg font-normal leading-tight;
+    }
+  }
+}
+.calendar {
+  @apply mb-8 font-sans;
+  .calendar-header {
+    @apply !border-none font-je rounded-t-xl text-azul-dark text-2xl !mb-0 pointer-events-none bg-BG-4;
+    .prev,
+    .next {
+      @apply hidden;
+    }
+  }
+  .months-container {
+    @apply bg-azul-light rounded-b-xl p-8 gap-y-4;
+    .month-container {
+      @apply opacity-0;
+      .month {
+        @apply bg-white rounded-xl mb-8 w-[95%] px-4 h-full;
+        thead {
+          .month-title {
+            @apply font-normal m-1 text-lg font-je bg-BG-2 text-azul-dark rounded-lg py-1 leading-none px-4 border border-white;
+          }
+          .day-header {
+            @apply text-azul-dark text-base;
+          }
+        }
+        tr {
+          td {
+            @apply px-0.5 py-1 border-b border-red-400 pointer-events-none;
+            .last_day {
+              @apply bg-azul-dark text-white text-lg font-bold;
+            }
+            .today {
+              @apply bg-azul-mid text-white font-bold;
+            }
+            .weekend {
+              @apply opacity-75 bg-slate-200;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.calendario-top {
+  @apply py-8 flex gap-8;
+  .doc_ico {
+    @apply mx-auto md:mx-0 w-16 h-16 text-3xl mb-8 text-white bg-azul-bold rounded-full flex items-center justify-center;
+  }
+  .calendario-top-info {
+    @apply flex flex-col gap-y-4 text-2xl text-azul-dark font-je;
+    div {
+      @apply text-xl;
+      span {
+        @apply inline-block rounded-2xl bg-azul-bright2 text-white px-2 py-1;
+      }
     }
   }
 }

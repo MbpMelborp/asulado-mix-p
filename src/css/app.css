@@ -1971,6 +1971,12 @@ body {
       p {
         @apply leading-normal text-sm;
       }
+      &.frw {
+        @apply flex-initial;
+        .gpert{
+          @apply my-auto;
+        }
+      }
     }
     &.gaccionistas {
       li {

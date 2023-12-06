@@ -53,6 +53,7 @@ if (document.getElementById("as__header")) {
 }
 
 if (document.getElementById("documentos")) {
+  const as = document.querySelectorAll(".tabs_link");
   document.getElementById("docs_tabs").selectedIndex = 0;
   document.getElementById("docs_tabs").addEventListener("change", (e) => {
     changeTab(e.target.value);
@@ -61,18 +62,37 @@ if (document.getElementById("documentos")) {
     });
   });
 
-  const as = document.querySelectorAll(".tabs_link");
-
   as.forEach((a) => {
     a.addEventListener("click", (e) => {
       e.preventDefault();
       const tab = e.target.dataset.tab;
+      const hash = e.target.dataset.hash;
+      history.replaceState(
+        {},
+        document.title,
+        window.location.pathname + window.location.search
+      );
+      let url = window.location.href;
+      url = url.split("#")[0];
+      url = url + "#" + hash;
+      history.replaceState({}, document.title, url);
+
+      console.log("hash", hash);
       changeTab(tab);
       lenis.scrollTo("#documentos", {
         offset: -80,
       });
     });
   });
+  if (window.location.hash) {
+    const hast = window.location.hash.split("#")[1];
+    const elTag = document.querySelector(
+      ".tabs_link[data-hash='" + hast + "']"
+    );
+
+    if (elTag) elTag.click();
+  } else {
+  }
 }
 
 if (document.getElementById("open_chat_btn")) {

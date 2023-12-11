@@ -1973,7 +1973,7 @@ body {
       }
       &.frw {
         @apply flex-initial;
-        .gpert{
+        .gpert {
           @apply my-auto;
         }
       }
@@ -2048,20 +2048,23 @@ body {
 .modal_ss {
   @apply !bg-transparent;
   .modal-box {
-    @apply bg-BG-8 border border-azul-bright2;
+    @apply bg-BG-8 border border-azul-bright2 max-w-sm p-4;
     .close_small {
       @apply bg-white text-azul-norm btn btn-sm btn-circle btn-ghost absolute right-2 top-2 h-8 w-8;
     }
     .modal_info {
-      @apply flex flex-col gap-y-4;
+      @apply flex flex-col gap-y-2;
       img {
-        @apply max-w-[300px] w-full px-8 mx-auto;
+        @apply max-w-[250px] w-full px-8 mx-auto;
+      }
+      h3 {
+        @apply text-azul-dark font-je font-bold text-2xl leading-tight text-center;
       }
       p {
-        @apply text-azul-dark font-je text-2xl text-center leading-tight;
+        @apply text-azul-dark text-lg text-center leading-tight;
       }
       .modal_check {
-        @apply pt-4 border-t border-slate-200 text-azul-dark flex gap-x-4 items-center justify-center;
+        @apply pt-2 mt-2 border-t border-slate-200 text-azul-dark flex gap-x-4 items-center justify-center;
       }
     }
   }

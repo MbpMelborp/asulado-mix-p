@@ -29,7 +29,20 @@ const options = {
   ],
   holidayFormat: `YYYY-MM-DD`,
 };
-
+const novedades = [
+  "2024-01-19",
+  "2024-02-16",
+  "2024-03-13",
+  "2024-04-18",
+  "2024-05-17",
+  "2024-06-17",
+  "2024-07-18",
+  "2024-08-15",
+  "2024-09-18",
+  "2024-10-17",
+  "2024-11-15",
+  "2024-12-13",
+];
 dayjs.extend(dayjsBusinessDays, options);
 
 export function setCalendar(gsap) {
@@ -41,7 +54,7 @@ export function setCalendar(gsap) {
 
     const calendar = new Calendar(".calendar", {
       language: "es",
-    //   numberMonthsDisplayed: 16,
+      //   numberMonthsDisplayed: 16,
       startDate: new Date(),
       enableRangeSelection: false,
       renderEnd: () => {
@@ -59,6 +72,7 @@ export function setCalendar(gsap) {
       },
       customDayRenderer: (element, date) => {
         const today = new Date();
+        const fdate = dayjs(date).format(`YYYY-MM-DD`);
         if (
           dayjs(date).lastBusinessDayOfMonth().format(`DD/MM/YYYY`) ==
           dayjs(date).format(`DD/MM/YYYY`)
@@ -72,6 +86,9 @@ export function setCalendar(gsap) {
         }
         if (!dayjs(date).isBusinessDay()) {
           element.classList.add("weekend");
+        }
+        if (novedades.includes(fdate)) {
+          element.classList.add("novedad");
         }
       },
     });

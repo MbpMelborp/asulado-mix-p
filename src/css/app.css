@@ -2199,10 +2199,10 @@ body {
         @apply inline-block rounded-sm bg-azul-bright2 text-white w-4 h-4;
       }
       .last_day {
-        @apply bg-azul-bold text-white text-lg font-bold;
+        @apply bg-azul-bold text-white;
       }
       .today {
-        @apply bg-azul-bright2 text-white font-bold;
+        @apply bg-azul-bright2 text-white 
       }
       .weekend {
         @apply opacity-75 bg-slate-200;

@@ -236,11 +236,7 @@ if (document.getElementById("modal_sus")) {
     ? false
     : true;
 
-  document.getElementById("showcheck").checked = getCookieValue("modal_sus")
-    ? false
-    : true;
-
-  // document.getElementById("modal_sus").checked = true;
+  document.getElementById("showcheck").checked = false;
 
   document.getElementById("modal_sus").addEventListener("change", (e) => {
     if (e.target.checked) {

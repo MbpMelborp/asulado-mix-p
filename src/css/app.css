@@ -1403,6 +1403,9 @@ body {
   .as__section_wrapper {
     .as__g_documentos_tabs_int {
       @apply bg-white z-0 overflow-hidden rounded-lg pt-4 px-4 pb-0;
+      &.pb {
+        @apply pb-4;
+      }
       h2 {
         @apply text-azul-norm font-je font-bold text-3xl my-8;
       }

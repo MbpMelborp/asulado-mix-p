@@ -2202,7 +2202,7 @@ body {
         @apply bg-azul-bold text-white;
       }
       .today {
-        @apply bg-azul-bright2 text-white 
+        @apply bg-azul-bright2 text-white;
       }
       .weekend {
         @apply opacity-75 bg-slate-200;

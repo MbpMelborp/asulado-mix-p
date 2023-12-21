@@ -44,6 +44,8 @@ module.exports = {
         chat_close: "var(--il-chat-close)",
         chat_wap: "var(--il-chat-wap)",
         chat_2: "var(--il-chat-2)",
+        lusa_r_0: "var(--il-lusa-robot-0)",
+        lusa_r_1: "var(--il-lusa-robot-1)",
       },
     },
   },
@@ -68,5 +70,6 @@ module.exports = {
     require("tailwindcss-animate"),
     require("tailwindcss-debug-screens"),
     require("daisyui"),
+    require("@tailwindcss/typography"),
   ],
 };

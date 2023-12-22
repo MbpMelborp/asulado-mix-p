@@ -1,0 +1,73 @@
+<extends
+  src="layout.html"
+  locals='{ "id": "as__gestion_documentos", "top": "init" }'
+>
+  <block name="head">
+    <title>ASULADO Seguros de Vida</title>
+    <meta name="title" content="ASULADO Seguros de Vida" />
+    <meta
+      name="keywords"
+      content="Asulado seguros de vida, renta vitalicia, seguro previsional, pension anticipada"
+    />
+    <meta
+      name="description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta property="og:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="og:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:image" content="/assets/fb.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta property="twitter:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="twitter:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="twitter:image" content="/assets/fb.png" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="top_content.html"
+      locals='{ "image": "top_aumento_mesada.jpg", "title":"Aumento de Mesada Pensional 2024" }'
+    ></include>
+    <section class="as__section as__blog_content">
+      <div class="as__section_wrapper">
+        <div class="as__section_content">
+          <div class="as__blog_info">
+            <article class="prose">
+              <h3>
+                ¡Si eres parte de la familia ASULADO, esta información es para
+                ti!
+              </h3>
+              <p>
+                Te informamos nos encontramos realizando el proceso de
+                actualización de los valores de la mesada pensional según los
+                incrementos definidos por el Gobierno Nacional para el 2024.
+                Entendiendo que el Salario Mínimo aumentó un X%, te contamos que
+                si tu mesada para el 2023 era de $1.160.000 pesos, para el 2024
+                será de $XXX pesos.
+              </p>
+              <p>
+                Ahora, si el valor de tu mesada pensional corresponde a un valor
+                diferente, desde ASULADO estamos a la espera del nuevo valor del
+                IPC que se defina por parte del DANE.
+              </p>
+              <h4>
+                Permanece actualizado de esta información a través de nuestros
+                canales digitales de atención.
+              </h4>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </block>
+
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

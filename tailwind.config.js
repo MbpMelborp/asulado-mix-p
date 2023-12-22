@@ -18,6 +18,7 @@ module.exports = {
           5: "#5DB8D7",
           8: "#E3F3FA",
           9: "#3C97D9",
+          10: "#CEE3EB",
         },
         azul: {
           dark: "#18254E",
@@ -46,6 +47,7 @@ module.exports = {
         chat_2: "var(--il-chat-2)",
         lusa_r_0: "var(--il-lusa-robot-0)",
         lusa_r_1: "var(--il-lusa-robot-1)",
+        piso: "var(--bg-piso-1)",
       },
     },
   },

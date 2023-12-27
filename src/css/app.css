@@ -571,6 +571,9 @@ body {
               @apply flex flex-col gap-4 md:ml-9;
               p {
                 @apply text-azul-dark text-lg leading-tight text-center md:text-left;
+                &.dest {
+                  @apply text-azul-bold text-lg;
+                }
               }
               a {
                 @apply md:mr-auto;

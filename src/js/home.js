@@ -1,3 +1,4 @@
+const timerInterval = 12000;
 function setBanners(gsap) {
   let tls = setTls(gsap);
   const banners = document.querySelectorAll(".banner");
@@ -20,7 +21,7 @@ function setBanners(gsap) {
     clearInterval(interval);
     interval = setInterval(() => {
       btn_next.click();
-    }, 8000);
+    }, timerInterval);
   });
   const btn_prev = document.querySelector(".as__banner_controls_arrows .prev");
   btn_prev.addEventListener("click", () => {
@@ -41,12 +42,12 @@ function setBanners(gsap) {
     clearInterval(interval);
     interval = setInterval(() => {
       btn_next.click();
-    }, 8000);
+    }, timerInterval);
   });
 
   let interval = setInterval(() => {
     btn_next.click();
-  }, 8000);
+  }, timerInterval);
 
   if (banners.length > 1) {
     setDots(tls, interval);

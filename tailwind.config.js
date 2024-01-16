@@ -29,6 +29,10 @@ module.exports = {
           mid: "#2E52FA",
           light: "#E9F5F8",
         },
+        alpha: {
+          10: "#FAFEFE",
+          20: "#E9F5F8",
+        },
         amarillo: {
           light: "#F5DA70",
           mid: "#F0C82F",
@@ -48,6 +52,7 @@ module.exports = {
         lusa_r_0: "var(--il-lusa-robot-0)",
         lusa_r_1: "var(--il-lusa-robot-1)",
         piso: "var(--bg-piso-1)",
+        "p-login": "var(--il-bg-login)",
       },
     },
   },

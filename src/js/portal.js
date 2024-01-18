@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 
 const id_login = "pa__login";
 const pa__login = document.getElementById(id_login);
-console.log(pa__login);
+
 if (pa__login) {
   const tl_pa__login = gsap.timeline({ paused: false });
 
@@ -71,9 +71,10 @@ if (pa__login) {
   //     "-=0"
   //   );
 }
-
-// document.getElementById("start_chat").addEventListener("click", startChat);
-document.getElementById("link_chat").addEventListener("click", startChat);
+if (document.getElementById("start_chat"))
+  document.getElementById("start_chat").addEventListener("click", startChat);
+if (document.getElementById("link_chat"))
+  document.getElementById("link_chat").addEventListener("click", startChat);
 
 function startChat() {
   console.log("Iniciando chat");
@@ -89,5 +90,12 @@ function startChat() {
       },
     ],
     extraPrechatFormDetails: [],
+  });
+}
+
+if (document.getElementById("open_chat_btn")) {
+  document.getElementById("open_chat_btn").addEventListener("click", (e) => {
+    e.preventDefault();
+    document.getElementById("open_chat").classList.toggle("toopen");
   });
 }

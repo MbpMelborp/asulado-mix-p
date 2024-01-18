@@ -53,6 +53,7 @@ module.exports = {
         lusa_r_1: "var(--il-lusa-robot-1)",
         piso: "var(--bg-piso-1)",
         "p-login": "var(--il-bg-login)",
+        "p-login2": "var(--il-bg-login2)",
       },
     },
   },

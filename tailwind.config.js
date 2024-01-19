@@ -54,6 +54,7 @@ module.exports = {
         piso: "var(--bg-piso-1)",
         "p-login": "var(--il-bg-login)",
         "p-login2": "var(--il-bg-login2)",
+        "p-banner": "var(--il-bg-banner)",
       },
     },
   },

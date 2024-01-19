@@ -1,15 +1,32 @@
 http://asulado-cdn-mbp.s3-website-us-east-1.amazonaws.com/renta_vitalicia/
 
+Primera vez:
 npm i
 
-npm run watch -> esto es para que compile los cambios y genere la carpeta dist
-npm run devp -> monta el servidor interno 
+Flujo de trabajo normal
 
-npm run prod -> genera el compilado final
+1. Arrancamos el servidor para ver cambios
+   npm run watch -> esto es para que compile los cambios y genere la carpeta dist
 
-lo que se cambia esta en 
-src/css -> estilos app.css sitio y portal.css -> portal
+2. Arrancamos el servidor para ver en web
+   npm run devp -> monta el servidor interno http://localhost:8000
+
+3. Una vez ya este todo listo en ambiente local se compila para producción
+   npm run prod -> genera el compilado final
+
+4. Se hace commit en el repositorio por el vscode
+   Si se hacen cambios en los assets se le avisa a Arcangel para que actualice el CDN de ellos
+
+lo que se cambia esta en
+src/css -> estilos app.css sitio y portal.css -> portal 
+tailwind.config.js contiene la configuración de tailwind
+
 src/js -> js para sitio app.js y portal.js -> portal
-Las imagenes siempre en dist/assets/images 
+Las imagenes siempre en dist/assets/images
 
-src/layout layout par a el sitio
+LARAVEL MIX
+src/layout layout par a el sitio <extends src="layout.html" locals='{ "id": "as__home", "top":"" }'>
+src/partials son los includes <include src="home/banners.html"></include>
+src/pages contiene las páginas del sitio
+
+Para los banners src/partials/home/banners.html

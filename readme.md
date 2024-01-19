@@ -17,8 +17,12 @@ Flujo de trabajo normal
 4. Se hace commit en el repositorio por el vscode
    Si se hacen cambios en los assets se le avisa a Arcangel para que actualice el CDN de ellos
 
+5. en la carpeta fina/ busco el cod y pag que modifique en src primero formatenado el doc con shift + alt + f copio el cod
+
+6. Abro en Salesforce y agrego o modifico el cod y guardo, y se prueba en prod
+
 lo que se cambia esta en
-src/css -> estilos app.css sitio y portal.css -> portal 
+src/css -> estilos app.css sitio y portal.css -> portal
 tailwind.config.js contiene la configuración de tailwind
 
 src/js -> js para sitio app.js y portal.js -> portal

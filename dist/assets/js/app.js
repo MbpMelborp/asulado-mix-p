@@ -14706,6 +14706,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     };
   } // Element closest() polyfill
 
+
   if (typeof Element !== "undefined" && !Element.prototype.matches) {
     var prototype = Element.prototype;
     Element.prototype.matches = prototype.msMatchesSelector || prototype.webkitMatchesSelector;
@@ -15194,8 +15195,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
           titleCell.classList.add('month-title');
           titleCell.setAttribute('colspan', this.options.displayWeekNumber ? '8' : '7');
           titleCell.textContent = Calendar.locales[this.options.language].months[monthStartDate.getMonth()];
-          titleCell.innerHTML +=" "+monthStartDate.getFullYear();
-          console.log(titleCell.innerHTML)
           titleRow.appendChild(titleCell);
           thead.appendChild(titleRow);
           var headerRow = document.createElement('tr');
@@ -16826,7 +16825,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     });
   }
 });
-
 
 /***/ }),
 

@@ -1602,6 +1602,7 @@ body {
           @apply lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-span-1 self-stretch;
           h3 {
             @apply my-auto text-azul-norm font-je font-bold text-2xl lg:text-3xl;
+
             small {
               @apply text-xl block;
             }

@@ -576,7 +576,7 @@ body {
 .pa__banner {
   @apply bg-gradient-to-b from-[#FFFFFF] to-[#EEF7FB] min-h-[450px] flex flex-col items-center justify-center;
   .pa_banner_int {
-    @apply bg-p-banner bg-no-repeat bg-center bg-contain pt-20 pb-12 h-full w-full;
+    @apply bg-p-banner bg-no-repeat bg-center bg-cover pt-20 pb-12 h-full w-full;
   }
   .as__section_content {
     @apply w-full flex  items-center justify-around;
@@ -602,18 +602,147 @@ body {
 }
 
 .pa__inner_item {
-  @apply bg-gradient-to-b from-[#EFF8FC] to-transparent text-azul-dark;
+  @apply bg-gradient-to-b from-[#EFF8FC] to-[#EFF8FC] text-azul-dark;
   .pa__inner {
-    @apply flex flex-col py-12;
-    .pa__inner_title {
-      @apply flex gap-4;
-      i {
-        @apply mt-2 flex h-8 w-8 items-center justify-center rounded-full bg-azul-bright2 text-base text-white;
-      }
-      div {
-        h2 {
-          @apply text-azul-bold text-2xl font-je;
+    @apply flex flex-col py-12 gap-8;
+
+    .servicios_wrap {
+      @apply flex justify-between gap-0;
+      ul.servicios_items {
+        @apply flex flex-col gap-2.5 md:w-3/12 mt-8;
+        li {
+          @apply cursor-pointer pl-5 pr-2 py-4 rounded-l-full text-lg font-light font-je text-azul-dark flex gap-2 items-center leading-none hover:bg-alpha-30 transition-colors ease-in-out;
+          i {
+            @apply flex h-8 w-8 items-center justify-center  rounded-full text-2xl text-azul-bright2;
+          }
+          &.active {
+            @apply bg-white font-normal;
+          }
         }
+      }
+      div.servicios_contents {
+        @apply md:w-9/12 bg-white rounded-2xl px-8 py-8 flex flex-col gap-4;
+        h5 {
+          @apply text-azul-dark text-xl font-je font-light;
+        }
+
+        .servicios_contents_item {
+          @apply w-full;
+          ul {
+            @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full;
+            .service_link {
+              @apply flex flex-col gap-2.5 rounded-3xl bg-gradient-to-b from-[#EFF8FC]    via-transparent via-20% to-transparent text-azul-dark p-3 border border-[#E3F2F8];
+              h3 {
+                @apply flex items-center gap-2 font-je text-azul-dark text-lg font-normal leading-tight;
+                i {
+                  @apply flex h-8 w-8 items-center justify-center rounded-full bg-alpha-20 text-xl text-azul-bright2;
+                }
+              }
+              img {
+                @apply w-full;
+              }
+              p {
+                @apply text-sm text-azul-dark font-light leading-none;
+              }
+              .as__button {
+                @apply mt-auto ml-auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.pa__inner_title {
+  @apply flex gap-4;
+  i {
+    @apply flex h-8 w-8 items-center justify-center rounded-full bg-azul-bright2 text-base text-white;
+  }
+  div {
+    h2 {
+      @apply text-azul-bold text-3xl font-je;
+    }
+  }
+}
+.as__calendario {
+  @apply w-full font-sans delay-300 duration-700 flex items-center justify-between bg-azul-light pt-4 pb-2.5 transition-colors ease-in-out mt-12 text-azul-dark;
+  nav {
+    @apply mx-auto flex w-full flex-wrap items-center justify-between 2xl:container 2xl:mx-auto md:px-4 divide-x divide-azul-bright2;
+    h4 {
+      @apply flex-auto text-azul-dark text-lg font-je flex items-center gap-2;
+      i {
+        @apply flex h-7 w-7 items-center justify-center rounded-full border border-azul-bright2 text-base text-azul-bright2;
+      }
+    }
+    .cal_prox {
+      @apply flex-auto flex justify-center items-baseline gap-2;
+      b {
+        @apply flex px-2 py-1 rounded-full bg-alpha-30 text-azul-dark text-sm font-normal;
+      }
+    }
+    .cal_max {
+      @apply flex-auto flex justify-end items-baseline gap-3;
+      b {
+        @apply flex px-2 py-1 rounded-full bg-amarillo-light text-azul-dark text-sm font-normal;
+      }
+      a {
+        @apply underline underline-offset-2 text-azul-bold font-light;
+      }
+    }
+  }
+}
+
+.as__button {
+  @apply flex items-center justify-center text-sm uppercase leading-none;
+  span {
+    @apply flex h-9 items-center justify-center rounded-full bg-amarillo-light px-8 pt-0.5 text-center text-azul-dark transition-all duration-300 ease-in-out;
+  }
+  i {
+    @apply flex h-9 w-9 items-center justify-center rounded-full bg-amarillo-light text-center text-azul-dark transition-all duration-300 ease-in-out;
+  }
+  &:hover {
+    span {
+      @apply rounded-br-none rounded-tr-none bg-azul-dark text-white;
+    }
+    i {
+      @apply rounded-bl-none rounded-tl-none bg-azul-dark text-white;
+    }
+  }
+  &.small {
+    @apply text-xs;
+    span {
+      @apply h-8 px-6;
+    }
+    i {
+      @apply h-8 w-8;
+    }
+  }
+}
+.as__articulos {
+  @apply bg-gradient-to-b from-[#EFF8FC] to-[#F8FCFE] py-12;
+}
+.pa__inner_articulos {
+  @apply flex flex-col gap-8;
+
+  ul.servicios_articulos_item {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full;
+    .service_link {
+      @apply flex flex-col gap-2.5 rounded-3xl bg-gradient-to-b from-[#FFFFFF] via-[#FAFDFE] via-20% to-[#FAFDFE] text-azul-dark py-4 px-3 border border-[#E3F2F8];
+      h3 {
+        @apply flex items-center gap-2 font-je text-azul-dark text-lg font-normal leading-tight;
+        i {
+          @apply flex h-8 w-8 items-center justify-center rounded-full bg-alpha-20 text-xl text-azul-bright2;
+        }
+      }
+      img {
+        @apply w-full block rounded-lg;
+      }
+      p {
+        @apply text-sm text-azul-dark font-light leading-none;
+      }
+      .as__button {
+        @apply mt-auto ml-auto;
       }
     }
   }

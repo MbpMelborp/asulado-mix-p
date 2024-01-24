@@ -32,6 +32,7 @@ module.exports = {
         alpha: {
           10: "#FAFEFE",
           20: "#E9F5F8",
+          30: "#D3EBF1",
         },
         amarillo: {
           light: "#F5DA70",

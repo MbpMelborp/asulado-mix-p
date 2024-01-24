@@ -29,6 +29,7 @@
   </block>
   <!-- CONTENIDO DEL HOME -->
   <block name="content">
+    <include src="PORTAL/p_calendario.html"></include>
     <div class="pa__banner as__section">
       <div class="pa_banner_int">
         <div class="as__section_wrapper">
@@ -66,6 +67,73 @@
                 </p>
               </div>
             </div>
+            <div class="servicios_wrap">
+              <ul class="servicios_items">
+                <li class="active">
+                  <i class="fa-light fa-money-check-dollar-pen"></i>
+                  Certificados y otros documentos
+                </li>
+                <li>
+                  <i class="fa-light fa-pen-to-square"></i>
+                  Actualización de datos
+                </li>
+                <li>
+                  <i class="fa-light fa-file-invoice-dollar"></i>
+                  Novedades de Nómina
+                </li>
+                <li>
+                  <i class="fa-light fa-arrow-progress"></i>
+                  Seguimiento a trámites
+                </li>
+              </ul>
+              <div class="servicios_contents">
+                <h5>Selecciona la opción que necesitas:</h5>
+                <div class="servicios_contents_item">
+                  <ul>
+                    <include
+                      src="PORTAL/p_home_servicio.html"
+                      locals='{ "ico": "file-invoice",  "title":"Colilla de pagos", "image":"tmp_servicio.png", "content":"Documento que reúne información sobre tu mesada pensional, incluyendo: valor mensual de la mesada, fecha y descuentos realizados."}'
+                    ></include>
+
+                    <include
+                      src="PORTAL/p_home_servicio.html"
+                      locals='{ "ico": "file-lines",  "title":"Certificado de Pensión", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    ></include>
+
+                    <include
+                      src="PORTAL/p_home_servicio.html"
+                      locals='{ "ico": "file-invoice-dollar",  "title":"Copia de poliza", "image":"tmp_servicio.png", "content":"Documento que ilustra los componentes de tu póliza de Renta Vitalicia, tus deberes y derechos como cliente y nuestras obligaciones y derechos como Aseguradora de Vida."}'
+                    ></include>
+
+                    <include
+                      src="PORTAL/p_home_servicio.html"
+                      locals='{ "ico": "money-check-pen",  "title":"Certificado de Ingresos y Retenciones", "image":"tmp_servicio.png", "content":"Documento que informa los ingresos y las retenciones que se realizaron durante un periodo de tiempo determinado. Te servirá para que realices tu declaración de renta y otros trámites."}'
+                    ></include>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="as__section as__articulos">
+      <div class="pa_banner_int">
+        <div class="as__section_wrapper">
+          <div class="as__section_content pa__inner_articulos">
+            <div class="pa__inner_title">
+              <i class="i_ayuda fa-regular fa-circle-info"></i>
+              <div>
+                <h2>Artículos de interés</h2>
+              </div>
+            </div>
+            <ul class="servicios_articulos_item">
+              <include
+                src="PORTAL/p_home_articulo.html"
+                locals='{ "title":"5 consejos para aprovechar el seguro previsional", "image":"tmp_articulo.jpg", "content":"Laboris in officia irure duis irure aliqua do magna aliqua consectetur. Adipisicing occaecat qui ut voluptate ut Lorem in culpa est."}'
+              ></include>
+            </ul>
           </div>
         </div>
       </div>

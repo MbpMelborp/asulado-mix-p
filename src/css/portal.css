@@ -499,18 +499,27 @@ body {
           @apply leading-tight text-base text-azul-dark;
         }
         form {
-          @apply flex flex-col gap-4;
-          .form-control {
-            @apply flex flex-col gap-0;
-            label {
-              @apply text-azul-bold text-sm;
-            }
-            .input {
-              @apply border-slate-400;
-            }
-            button.btn {
+          @apply flex flex-col gap-0;
+          table {
+            @apply w-full;
+            tr {
+              td.form-control {
+                @apply relative mb-4;
+                label {
+                  @apply text-azul-bold text-sm;
+                }
+                .input {
+                  @apply border-slate-400;
+                }
+                i {
+                  @apply absolute bottom-4 right-4 text-azul-dark;
+                }
+                button.btn {
+                }
+              }
             }
           }
+
           .form-action {
             @apply mt-4 text-base text-azul-norm underline underline-offset-2 hover:text-azul-norm;
           }
@@ -600,16 +609,15 @@ body {
     }
   }
 }
-
 .pa__inner_item {
   @apply bg-gradient-to-b from-[#EFF8FC] to-[#EFF8FC] text-azul-dark;
   .pa__inner {
     @apply flex flex-col py-12 gap-8;
 
     .servicios_wrap {
-      @apply flex justify-between gap-0;
+      @apply flex md:flex-row flex-col justify-between gap-0;
       ul.servicios_items {
-        @apply flex flex-col gap-2.5 md:w-3/12 mt-8;
+        @apply flex flex-col gap-2.5 w-full md:w-3/12 mt-8;
         li {
           @apply cursor-pointer pl-5 pr-2 py-4 rounded-l-full text-lg font-light font-je text-azul-dark flex gap-2 items-center leading-none hover:bg-alpha-30 transition-colors ease-in-out;
           i {
@@ -621,7 +629,7 @@ body {
         }
       }
       div.servicios_contents {
-        @apply md:w-9/12 bg-white rounded-2xl px-8 py-8 flex flex-col gap-4;
+        @apply w-full md:w-9/12 bg-white rounded-2xl px-8 py-8 flex flex-col gap-4;
         h5 {
           @apply text-azul-dark text-xl font-je font-light;
         }

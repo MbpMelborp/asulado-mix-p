@@ -114,3 +114,150 @@ if (document.getElementById("togglePassword")) {
     this.classList.toggle("fa-eye");
   });
 }
+
+/**
+ * MENU
+ */
+let open_menu = false;
+const menu_button = document.getElementById("open_menu");
+const menu_nav = document.getElementById("as__nav_links");
+const menu_wrap = document.getElementById("as__header");
+menu_button.addEventListener("click", handleMenu);
+
+function handleMenu() {
+  // lenis.scroll = window.scrollY;
+  // console.log(document.querySelector("body").classList);
+  if (!open_menu) {
+    document.querySelector("body").classList.add("overflow-hidden");
+    menu_nav.classList.add("nav_open");
+    menu_wrap.classList.add("open");
+    menu_button.classList.add("open");
+    menu_nav.classList.remove("nav_close");
+  } else {
+    document.querySelector("body").classList.remove("overflow-hidden");
+    menu_nav.classList.add("nav_close");
+    menu_button.classList.remove("open");
+    menu_nav.classList.remove("nav_open");
+    menu_wrap.classList.remove("open");
+  }
+  open_menu = !open_menu;
+}
+
+if (document.getElementById("servicios")) {
+  const as = document.querySelectorAll(".tabs_link");
+  document.getElementById("docs_tabs").selectedIndex = 0;
+  document.getElementById("docs_tabs").addEventListener("change", (e) => {
+    changeTab(e.target.value);
+    location.href = "#servicios";
+  });
+
+  as.forEach((a) => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      const tab = e.target.dataset.tab;
+      const hash = e.target.dataset.hash;
+      history.replaceState(
+        {},
+        document.title,
+        window.location.pathname + window.location.search
+      );
+      let url = window.location.href;
+      url = url.split("#")[0];
+      url = url + "#" + hash;
+      history.replaceState({}, document.title, url);
+
+      changeTab(tab);
+      location.href = "#servicios";
+    });
+  });
+  if (window.location.hash) {
+    const hast = window.location.hash.split("#")[1];
+    const elTag = document.querySelector(
+      ".tabs_link[data-hash='" + hast + "']"
+    );
+
+    if (elTag) elTag.click();
+  } else {
+  }
+}
+
+function changeTab(tab) {
+  document.getElementById("docs_tabs").selectedIndex = parseInt(tab);
+  document.querySelectorAll(".tabs_link").forEach((tabe) => {
+    if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
+    else tabe.classList.add("active");
+  });
+  document.querySelectorAll(".servicios_contents_item").forEach((tabe) => {
+    if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
+    else tabe.classList.add("active");
+  });
+
+  gsap.fromTo(
+    ".servicios_contents_item.active ul li",
+    { opacity: 0 },
+    { opacity: 1, y: 5, duration: 0.5, stagger: 0.2, ease: "power1.inOut" }
+  );
+}
+if (document.getElementById("as__ayuda")) {
+  const tl_banner = gsap.timeline({ paused: false });
+  tl_banner.to(
+    ".as__ayuda svg .ban_st",
+    {
+      transformOrigin: "center",
+      duration: 4,
+      repeat: -1,
+      rotate: function (i) {
+        return i % 2 == 0 ? 360 : -360;
+      },
+      ease: "power4.inout",
+      yoyo: true,
+      stagger: 0.2,
+    },
+    "0"
+  );
+  tl_banner.to(
+    ".as__ayuda svg .ban_nube_1",
+    {
+      scale: 1.1,
+      transformOrigin: "center",
+      duration: 4,
+      repeat: -1,
+      ease: "power4.inout",
+      yoyo: true,
+      stagger: 0.2,
+    },
+    "0"
+  );
+  tl_banner.fromTo(
+    ".as__ayuda svg .ban_nube_it",
+    {
+      x: "-40vw",
+    },
+    {
+      x: "180vw",
+      transformOrigin: "center",
+      duration: 19,
+      repeat: -1,
+      ease: "power4.inout",
+      // yoyo: true,
+      stagger: 0.2,
+    },
+    "0"
+  );
+  tl_banner.fromTo(
+    ".as__ayuda svg .ban_nube_dt",
+    {
+      x: "20vw",
+    },
+    {
+      x: "-120vw",
+      transformOrigin: "center",
+      duration: 15,
+      repeat: -1,
+      ease: "power4.inout",
+      // yoyo: true,
+      stagger: 0.2,
+    },
+    "0"
+  );
+}

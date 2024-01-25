@@ -53,10 +53,10 @@
         </div>
       </div>
     </div>
-    <div class="as__section pa__inner_item">
+    <div id="servicios" class="as__section pa__inner_item">
       <div class="pa_banner_int">
         <div class="as__section_wrapper">
-          <div class="as__section_content pa__inner">
+          <div class="as__section_content_full pa__inner">
             <div class="pa__inner_title">
               <i class="i_ayuda fa-regular fa-list-check"></i>
               <div>
@@ -68,27 +68,67 @@
               </div>
             </div>
             <div class="servicios_wrap">
-              <ul class="servicios_items">
-                <li class="active">
-                  <i class="fa-light fa-money-check-dollar-pen"></i>
-                  Certificados y otros documentos
-                </li>
-                <li>
-                  <i class="fa-light fa-pen-to-square"></i>
-                  Actualización de datos
-                </li>
-                <li>
-                  <i class="fa-light fa-file-invoice-dollar"></i>
-                  Novedades de Nómina
-                </li>
-                <li>
-                  <i class="fa-light fa-arrow-progress"></i>
-                  Seguimiento a trámites
-                </li>
-              </ul>
+              <div class="servicios_items">
+                <div class="as__doc_tabs_small">
+                  <label for="tabs">Selecciona los tipos de servicio</label>
+                  <select id="docs_tabs">
+                    <option value="0">Certificados y otros documentos</option>
+                    <option value="1">Actualización de datos</option>
+                    <option value="2">Novedades de Nómina</option>
+                    <option value="3">Seguimiento a trámites</option>
+                  </select>
+                </div>
+
+                <ul>
+                  <li>
+                    <a
+                      href="#servicios"
+                      data-tab="0"
+                      class="tabs_link active"
+                      data-hash="certificados"
+                    >
+                      <i class="fa-light fa-money-check-dollar-pen"></i>
+                      Certificados y otros documentos
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#servicios"
+                      data-tab="1"
+                      class="tabs_link"
+                      data-hash="actualizacion"
+                    >
+                      <i class="fa-light fa-pen-to-square"></i>
+                      Actualización de datos
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#servicios"
+                      data-tab="2"
+                      class="tabs_link"
+                      data-hash="novedades"
+                    >
+                      <i class="fa-light fa-file-invoice-dollar"></i>
+                      Novedades de Nómina
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#documentos"
+                      data-tab="3"
+                      class="tabs_link"
+                      data-hash="seguimiento"
+                    >
+                      <i class="fa-light fa-arrow-progress"></i>
+                      Seguimiento a trámites
+                    </a>
+                  </li>
+                </ul>
+              </div>
               <div class="servicios_contents">
                 <h5>Selecciona la opción que necesitas:</h5>
-                <div class="servicios_contents_item">
+                <div data-tab="0" class="servicios_contents_item active">
                   <ul>
                     <include
                       src="PORTAL/p_home_servicio.html"
@@ -111,6 +151,65 @@
                     ></include>
                   </ul>
                 </div>
+                <div data-tab="1" class="servicios_contents_item">
+                  <ul>
+                    <include
+                      src="PORTAL/p_home_servicio.html"
+                      locals='{ "ico": "file-invoice",  "title":"Actualización de documentos de identidad", "image":"tmp_servicio.png", "content":"Documento que reúne información sobre tu mesada pensional, incluyendo: valor mensual de la mesada, fecha y descuentos realizados."}'
+                    ></include>
+
+                    <include
+                      src="PORTAL/p_home_servicio.html"
+                      locals='{ "ico": "file-lines",  "title":"Actualización de datos de contacto", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    ></include>
+                  </ul>
+                </div>
+                <div data-tab="2" class="servicios_contents_item">
+                  <ul>
+                    <include
+                      src="PORTAL/p_home_servicio.html"
+                      locals='{ "ico": "file-invoice",  "title":"Redistribuciones de Mesada", "image":"tmp_servicio.png", "content":"Documento que reúne información sobre tu mesada pensional, incluyendo: valor mensual de la mesada, fecha y descuentos realizados."}'
+                    ></include>
+
+                    <include
+                      src="PORTAL/p_home_servicio.html"
+                      locals='{ "ico": "file-lines",  "title":"Certificado de Estudio", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    ></include>
+                    <include
+                      src="PORTAL/p_home_servicio.html"
+                      locals='{ "ico": "file-lines",  "title":"Certificado de supervivencia", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    ></include>
+                    <include
+                      src="PORTAL/p_home_servicio.html"
+                      locals='{ "ico": "file-lines",  "title":"Novedades de EPS", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    ></include>
+                    <include
+                      src="PORTAL/p_home_servicio.html"
+                      locals='{ "ico": "file-lines",  "title":"Novedades de Caja de Compensación", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    ></include>
+                    <include
+                      src="PORTAL/p_home_servicio.html"
+                      locals='{ "ico": "file-lines",  "title":"Novedades de Cuenta Financiera", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    ></include>
+                    <include
+                      src="PORTAL/p_home_servicio.html"
+                      locals='{ "ico": "file-lines",  "title":"Novedades Pensión Voluntaria", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    ></include>
+                  </ul>
+                </div>
+                <div data-tab="3" class="servicios_contents_item">
+                  <ul>
+                    <include
+                      src="PORTAL/p_home_servicio.html"
+                      locals='{ "ico": "file-invoice",  "title":"Consultas PQRS", "image":"tmp_servicio.png", "content":"Documento que reúne información sobre tu mesada pensional, incluyendo: valor mensual de la mesada, fecha y descuentos realizados."}'
+                    ></include>
+
+                    <include
+                      src="PORTAL/p_home_servicio.html"
+                      locals='{ "ico": "file-lines",  "title":"Consulta Novedades", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    ></include>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -119,33 +218,32 @@
     </div>
 
     <div class="as__section as__articulos">
-      <div class="pa_banner_int">
-        <div class="as__section_wrapper">
-          <div class="as__section_content pa__inner_articulos">
-            <div class="pa__inner_title">
-              <i class="i_ayuda fa-regular fa-circle-info"></i>
-              <div>
-                <h2>Artículos de interés</h2>
-              </div>
+      <div class="as__section_wrapper">
+        <div class="as__section_content_full pa__inner_articulos">
+          <div class="pa__inner_title">
+            <i class="i_ayuda fa-regular fa-circle-info"></i>
+            <div>
+              <h2>Artículos de interés</h2>
             </div>
-            <ul class="servicios_articulos_item">
-              <include
-                src="PORTAL/p_home_articulo.html"
-                locals='{ "title":"5 consejos para aprovechar el seguro previsional", "image":"tmp_articulo.jpg", "content":"Laboris in officia irure duis irure aliqua do magna aliqua consectetur. Adipisicing occaecat qui ut voluptate ut Lorem in culpa est."}'
-              ></include>
-              <include
-                src="PORTAL/p_home_articulo.html"
-                locals='{ "title":"5 consejos para aprovechar el seguro previsional", "image":"tmp_articulo.jpg", "content":"Laboris in officia irure duis irure aliqua do magna aliqua consectetur. Adipisicing occaecat qui ut voluptate ut Lorem in culpa est."}'
-              ></include>
-              <include
-                src="PORTAL/p_home_articulo.html"
-                locals='{ "title":"5 consejos para aprovechar el seguro previsional", "image":"tmp_articulo.jpg", "content":"Laboris in officia irure duis irure aliqua do magna aliqua consectetur. Adipisicing occaecat qui ut voluptate ut Lorem in culpa est."}'
-              ></include>
-            </ul>
           </div>
+          <ul class="servicios_articulos_item">
+            <include
+              src="PORTAL/p_home_articulo.html"
+              locals='{ "title":"5 consejos para aprovechar el seguro previsional", "image":"tmp_articulo.jpg", "content":"Laboris in officia irure duis irure aliqua do magna aliqua consectetur. Adipisicing occaecat qui ut voluptate ut Lorem in culpa est."}'
+            ></include>
+            <include
+              src="PORTAL/p_home_articulo.html"
+              locals='{ "title":"5 consejos para aprovechar el seguro previsional", "image":"tmp_articulo.jpg", "content":"Laboris in officia irure duis irure aliqua do magna aliqua consectetur. Adipisicing occaecat qui ut voluptate ut Lorem in culpa est."}'
+            ></include>
+            <include
+              src="PORTAL/p_home_articulo.html"
+              locals='{ "title":"5 consejos para aprovechar el seguro previsional", "image":"tmp_articulo.jpg", "content":"Laboris in officia irure duis irure aliqua do magna aliqua consectetur. Adipisicing occaecat qui ut voluptate ut Lorem in culpa est."}'
+            ></include>
+          </ul>
         </div>
       </div>
     </div>
+    <include src="PORTAL/p_ayuda.html"></include>
   </block>
   <!-- FIN CONTENIDO DEL HOME -->
 </extends>

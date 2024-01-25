@@ -499,18 +499,27 @@ body {
           @apply leading-tight text-base text-azul-dark;
         }
         form {
-          @apply flex flex-col gap-4;
-          .form-control {
-            @apply flex flex-col gap-0;
-            label {
-              @apply text-azul-bold text-sm;
-            }
-            .input {
-              @apply border-slate-400;
-            }
-            button.btn {
+          @apply flex flex-col gap-0;
+          table {
+            @apply w-full;
+            tr {
+              td.form-control {
+                @apply relative mb-4;
+                label {
+                  @apply text-azul-bold text-sm;
+                }
+                .input {
+                  @apply border-slate-400;
+                }
+                i {
+                  @apply absolute bottom-4 right-4 text-azul-dark;
+                }
+                button.btn {
+                }
+              }
             }
           }
+
           .form-action {
             @apply mt-4 text-base text-azul-norm underline underline-offset-2 hover:text-azul-norm;
           }
@@ -600,7 +609,6 @@ body {
     }
   }
 }
-
 .pa__inner_item {
   @apply bg-gradient-to-b from-[#EFF8FC] to-[#EFF8FC] text-azul-dark;
   .pa__inner {

@@ -323,6 +323,22 @@ body {
         i {
           @apply flex items-center justify-center rounded-full text-base text-white;
         }
+        &.dropdown {
+          .avat {
+            @apply w-8 h-8 rounded-full;
+          }
+          ul {
+            @apply z-[1] menu p-2 shadow bg-base-100 rounded-box w-52;
+            li {
+              a {
+                @apply flex justify-between items-center;
+                i {
+                  @apply text-base text-azul-bold;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -504,7 +520,7 @@ body {
 .pa_login {
   @apply w-screen min-h-screen flex md:flex-row flex-col bg-gradient-to-b from-[#F8FCFE] to-[#EEF7FB];
   .pa_login_screen {
-    @apply bg-p-login py-16 px-2 bg-cover md:bg-cover bg-center flex flex-col md:min-h-screen items-center justify-center w-full md:w-1/2;
+    @apply md:top-0 md:left-0 md:self-start md:sticky bg-p-login py-16 px-2 bg-cover md:bg-cover bg-center flex flex-col md:min-h-screen items-center justify-center w-full md:w-1/2;
     h1 {
       @apply flex flex-col justify-center gap-3 text-center font-je text-azul-bold font-semibold;
       span {
@@ -526,9 +542,15 @@ body {
         @apply hidden md:block max-w-[180px] mb-auto;
       }
       .pa_login_form_int {
-        @apply flex flex-col gap-4 my-auto;
+        @apply flex flex-col gap-2.5 my-auto;
+        h3 {
+          @apply text-azul-bold text-2xl font-je;
+        }
         p {
           @apply leading-tight text-base text-azul-dark;
+          b {
+            @apply text-azul-bold;
+          }
         }
         form {
           @apply flex flex-col gap-0;
@@ -536,7 +558,7 @@ body {
             @apply w-full;
             tr {
               td.form-control {
-                @apply relative mb-4;
+                @apply relative mb-2.5;
                 label {
                   @apply text-azul-bold text-sm;
                 }
@@ -568,11 +590,11 @@ body {
             @apply mt-1 font-je text-xl font-semibold text-azul-dark;
           }
           ul {
-            @apply flex flex-col gap-4 justify-start divide-solid divide-slate-100 divide-y;
+            @apply flex flex-col gap-3 justify-start divide-solid divide-slate-100 divide-y;
             li {
               @apply text-base flex flex-col md:flex-row gap-3 items-start md:items-center justify-start pt-2;
               &.blo {
-                @apply flex-col items-start gap-3 md:gap-1;
+                @apply flex-col items-start gap-2.5 md:gap-1;
                 div {
                   @apply flex md:flex-row flex-col gap-3 md:gap-2;
                 }
@@ -594,7 +616,7 @@ body {
   }
   &.pa_mant {
     .pa_login_screen {
-      @apply md:w-full bg-p-login2 flex flex-col gap-8;
+      @apply md:min-h-screen md:w-full bg-p-login2 flex flex-col gap-8;
       h1 {
         @apply flex flex-col justify-center gap-3 text-center font-je text-azul-bold font-semibold;
         span {

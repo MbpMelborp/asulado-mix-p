@@ -1998,7 +1998,7 @@ body {
 .as__terms {
   @apply flex flex-col gap-y-8;
   .as__terms_info {
-    @apply flex flex-col gap-y-4 pb-20;
+    @apply flex flex-col gap-y-4 pb-8;
     h1 {
       @apply text-azul-bold text-3xl font-bold font-je;
     }

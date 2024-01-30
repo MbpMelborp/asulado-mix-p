@@ -28,22 +28,39 @@ try {
     .js("src/js/app.js", "dist/assets/js/app.js")
     .js("src/js/portal.js", "dist/assets/js/portal.js")
     //   .minify("dist/assets/js/app.js")
-    .postCss("src/css/app.css", "dist/assets/css/app.css", [
+
+    .postCss("src/css/app.css", "dist/assets/css/")
+    .postCss("src/css/portal.css", "dist/assets/css/")
+    .postCss("src/css/forms.css", "dist/assets/css/")
+    // .postCss("src/css/", "dist/assets/css/", [
+    //   require("postcss-import"),
+    //   require("tailwindcss"),
+    //   require("autoprefixer"),
+    // ])
+    /*.postCss("src/css/portal.css", "dist/assets/css/portal.css", [
       require("postcss-import"),
       require("tailwindcss"),
       require("autoprefixer"),
     ])
-    .postCss("src/css/portal.css", "dist/assets/css/portal.css", [
+    .postCss("src/css/forms.css", "dist/assets/css/forms.css", [
       require("postcss-import"),
       require("tailwindcss"),
       require("autoprefixer"),
-    ])
+    ])*/
     //   .minify("dist/assets/css/app.css")
     .html({
       htmlRoot: "./src/pages/**/*.html", // Your html root file(s)
       output: "dist", // The html output folder
       ...config_html,
     });
+
+  mix.options({
+    postCss: [
+      require("postcss-import"),
+      require("tailwindcss"),
+      require("autoprefixer"),
+    ],
+  });
 
   if (mix.inProduction())
     mix

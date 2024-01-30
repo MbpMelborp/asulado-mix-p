@@ -31,6 +31,9 @@ module.exports = {
         },
         alpha: {
           10: "#FAFEFE",
+          15: "#EFF8FC",
+          18: "#F8FCFE",
+          19: "#EAF3FA",
           20: "#E9F5F8",
           30: "#D3EBF1",
         },

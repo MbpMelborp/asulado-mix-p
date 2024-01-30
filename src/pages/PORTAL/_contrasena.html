@@ -1,4 +1,4 @@
-<extends src="portal.html" locals='{ "id": "as__home", "top":"" }'>
+<extends src="portal_clean.html" locals='{ "id": "pa__login", "top":"" }'>
   <block name="head">
     <title>ASULADO Seguros de Vida</title>
     <meta name="title" content="ASULADO Seguros de Vida" />
@@ -29,44 +29,44 @@
   </block>
   <!-- CONTENIDO DEL HOME -->
   <block name="content">
-    <include
-      src="PORTAL/p_top_no_img.html"
-      locals='{ "cls":"inl", "ico": "lock-keyhole", "title":"Cambio de contraseña", "image":"tmp_header.png", "content":"Actualizar las contraseñas es una excelente forma de proteger tu cuenta."}'
-    ></include>
-
-    <div id="content" class="as__section pa__inter">
-      <div class="as__section_wrapper">
-        <div class="as__section_content_full pa__inter_content">
-          <div class="pa__forms">
-            <div role="alert" class="alert">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                class="stroke-info shrink-0 w-6 h-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
-              <span
-                >¡Recuerda! Tu seguridad es nuestra prioridad y por eso te
-                recomendamos actualizarlas, por lo menos, dos veces al
-                año.</span
-              >
-            </div>
+    <div class="pa_login">
+      <div class="pa_login_screen">
+        <h1>
+          <span class="anim_1"> Bienvenido a </span>
+          <img
+            class="anim_1"
+            src="/assets/images/logo_asulado.svg"
+            alt="logo_asulado"
+          />
+          <b class="anim_1"> tu aliado en beneficios garantizados </b>
+        </h1>
+      </div>
+      <div class="pa_login_form">
+        <div class="pa_login_form_wrap">
+          <img
+            class="pa_login_form_logo"
+            alt="Asulado"
+            src="/assets/images/header_logo.svg"
+          />
+          <div class="pa_login_form_int">
+            <h3>Cambio de contraseña</h3>
+            <p>
+              Actualizar las contraseñas es una excelente forma de proteger tu
+              cuenta.
+            </p>
+            <p>
+              ¡Recuerda! Tu seguridad es nuestra prioridad y por eso te
+              recomendamos actualizarlas, por lo menos, dos veces al año.
+            </p>
             <form
               id="j_id0:j_id2"
               name="j_id0:j_id2"
               method="post"
               action="/AsuladoTransaccional/LoginTransaccional"
               enctype="application/x-www-form-urlencoded"
-              class="pa__hlf"
             >
               <input type="hidden" name="j_id0:j_id2" value="j_id0:j_id2" />
+
               <div class="apexp">
                 <div
                   id="j_id0:j_id2:pb"
@@ -135,7 +135,7 @@
                                 >
                                 <input
                                   class="w-full input input-bordered input-primary"
-                                  id="id_password2"
+                                  id="id_password"
                                   name="Contrasena"
                                   placeholder=""
                                   required="true"
@@ -143,7 +143,7 @@
                                 />
                                 <i
                                   class="far fa-eye"
-                                  id="togglePassword2"
+                                  id="togglePassword"
                                   style="margin-left: -30px; cursor: pointer"
                                   aria-hidden="true"
                                 ></i>
@@ -175,11 +175,51 @@
               <div id="j_id0:j_id2:j_id35"></div>
             </form>
           </div>
+          <div class="pa_login_form_ayuda">
+            <i class="i_ayuda fa-solid fa-question"></i>
+            <div class="pa_login_form_ayuda_info">
+              <h3>¿Necesitas ayuda?</h3>
+              <ul>
+                <li class="line">
+                  Escríbenos <a id="link_chat" href="#">Chat en línea</a>
+                  <a href="" target="_blank"
+                    ><i class="fa-brands fa-whatsapp"></i> WhatsApp</a
+                  >
+                </li>
+                <li class="blo">
+                  Llama a nuestras líneas
+                  <div>
+                    <a href="tel:018000412854 " target="_blank"
+                      >Nacional <span> 01 8000 412 854 </span></a
+                    >
+                    <a href="tel:6044026876" target="_blank"
+                      >Medellín <span> (604) 402 68 76</span></a
+                    >
+                  </div>
+                </li>
+                <li class="line">
+                  Redes sociales
+                  <a
+                    href="https://www.facebook.com/Asuladosegurosdevida/"
+                    target="_blank"
+                    ><i class="fa-brands fa-facebook-f"></i> Facebook</a
+                  >
+                  <a
+                    href="https://www.instagram.com/asuladoseguros/"
+                    target="_blank"
+                    ><i class="fa-brands fa-instagram"></i> Instagram</a
+                  ><a
+                    href="https://www.youtube.com/channel/UC9fAsL1UH4xqJh4S66pe8ow"
+                    target="_blank"
+                    ><i class="fa-brands fa-youtube"></i> Youtube</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-    <include src="PORTAL/p_ayuda.html"></include>
   </block>
   <!-- FIN CONTENIDO DEL HOME -->
 </extends>

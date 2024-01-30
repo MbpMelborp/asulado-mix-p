@@ -1,0 +1,64 @@
+<extends src="portal.html" locals='{ "id": "as__home", "top":"" }'>
+  <block name="head">
+    <title>ASULADO Seguros de Vida</title>
+    <meta name="title" content="ASULADO Seguros de Vida" />
+    <meta
+      name="keywords"
+      content="Asulado seguros de vida, renta vitalicia, seguro previsional, pension anticipada"
+    />
+    <meta
+      name="description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta property="og:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="og:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:image" content="/assets/fb.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta property="twitter:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="twitter:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="twitter:image" content="/assets/fb.png" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="PORTAL/p_top.html"
+      locals='{ "cls":"", "ico": "comments-question-check",  "title":"Solicitudes y PQRS", "image":"tmp_header.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+    ></include>
+
+    <div id="servicios" class="as__section pa__options">
+      <div class="as__section_wrapper">
+        <div class="as__section_content_full pa__option">
+          <ul>
+            <include
+              src="PORTAL/p_link_servicio.html"
+              locals='{ "cls":"active", "ico": "file-invoice",  "title":"Consultas PQRS", "content":"Documento que reúne información sobre tu mesada pensional, incluyendo: valor mensual de la mesada, fecha y descuentos realizados."}'
+            ></include>
+
+            <include
+              src="PORTAL/p_link_servicio.html"
+              locals='{ "cls":"", "ico": "file-lines",  "title":"Consulta Novedades", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+            ></include>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="content" class="as__section pa__inter">
+      <div class="as__section_wrapper">
+        <div class="as__section_content_full pa__inter_content">aaa</div>
+      </div>
+    </div>
+
+    <include src="PORTAL/p_ayuda.html"></include>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

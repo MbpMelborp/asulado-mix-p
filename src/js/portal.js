@@ -157,7 +157,10 @@ function handleMenu() {
   open_menu = !open_menu;
 }
 
-if (document.getElementById("servicios")) {
+if (
+  document.getElementById("servicios") &&
+  document.getElementById("docs_tabs")
+) {
   const as = document.querySelectorAll(".tabs_link");
   document.getElementById("docs_tabs").selectedIndex = 0;
   document.getElementById("docs_tabs").addEventListener("change", (e) => {

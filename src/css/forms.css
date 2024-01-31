@@ -30,6 +30,9 @@
     -webkit-appearance: button;
     cursor: pointer;
   }
+  .slds-hide {
+    @apply !hidden;
+  }
   html input[disabled] {
     cursor: default;
   }
@@ -66,269 +69,46 @@
   }
   .slds-button:hover,
   .slds-button:focus {
-    --slds-c-button-color-border: var(--slds-c-button-color-border-hover);
-    --slds-c-button-color-background: var(
-      --slds-c-button-color-background-hover
-    );
-    color: var(
-      --slds-c-button-text-color-hover,
-      var(
-        --sds-c-button-text-color-hover,
-        var(--lwc-brandAccessibleActive, #135f90)
-      )
-    );
+    @apply ring-1 ring-azul-bright2 ring-offset-4;
   }
   .slds-button:focus {
-    box-shadow: var(
-      --slds-c-button-shadow-focus,
-      var(
-        --sds-c-button-shadow-focus,
-        var(--lwc-shadowButtonFocus, 0 0 3px #0176d3)
-      )
-    );
-    outline: 0;
+    @apply outline-none;
   }
   .slds-button:active {
-    color: var(
-      --slds-c-button-text-color-active,
-      var(
-        --sds-c-button-text-color-active,
-        var(--lwc-brandAccessibleActive, #135f90)
-      )
-    );
-    background-color: var(--slds-c-button-color-background-active);
-    border-color: var(--slds-c-button-color-border-active);
   }
   .slds-button:disabled {
-    background-color: transparent;
-    border-color: transparent;
-    color: var(
-      --slds-g-color-neutral-base-80,
-      var(--lwc-colorTextButtonDefaultDisabled, rgb(201, 201, 201))
-    );
-    cursor: default;
+    @apply btn-disabled;
   }
   .slds-button:disabled * {
-    pointer-events: none;
+    @apply pointer-events-none;
   }
   .slds-button:hover .slds-button__icon,
   .slds-button:focus .slds-button__icon,
   .slds-button:active .slds-button__icon,
   .slds-button:disabled .slds-button__icon {
-    fill: currentColor;
-    pointer-events: none;
+    @apply fill-current pointer-events-none;
   }
   .slds-button_neutral {
-    --slds-c-button-spacing-inline-start: var(
-      --slds-c-button-neutral-spacing-inline-start,
-      var(
-        --sds-c-button-neutral-spacing-inline-start,
-        var(--lwc-spacingMedium, 1rem)
-      )
-    );
-    --slds-c-button-spacing-inline-end: var(
-      --slds-c-button-neutral-spacing-inline-end,
-      var(
-        --sds-c-button-neutral-spacing-inline-end,
-        var(--lwc-spacingMedium, 1rem)
-      )
-    );
-    text-align: center;
-    justify-content: center;
-    transition: border 0.15s linear;
-    --slds-c-button-color-background: var(
-      --slds-c-button-neutral-color-background,
-      var(
-        --sds-c-button-neutral-color-background,
-        var(
-          --slds-g-color-neutral-base-100,
-          var(--lwc-buttonColorBackgroundPrimary, rgb(255, 255, 255))
-        )
-      )
-    );
-    --slds-c-button-color-border: var(
-      --slds-c-button-neutral-color-border,
-      var(
-        --sds-c-button-neutral-color-border,
-        var(
-          --slds-g-color-border-base-4,
-          var(--lwc-buttonColorBorderPrimary, #d4d4d4)
-        )
-      )
-    );
-  }
-  .slds-button_neutral:hover,
-  .slds-button_neutral:focus {
-    --slds-c-button-color-background-hover: var(
-      --slds-c-button-neutral-color-background-hover,
-      var(
-        --sds-c-button-neutral-color-background-hover,
-        var(
-          --slds-g-color-neutral-base-95,
-          var(--lwc-colorBackgroundButtonDefaultHover, rgba(25, 124, 190, 0.05))
-        )
-      )
-    );
-    --slds-c-button-color-border-hover: var(
-      --slds-c-button-neutral-color-border-hover,
-      var(
-        --sds-c-button-neutral-color-border-hover,
-        var(
-          --slds-g-color-border-base-4,
-          var(--lwc-buttonColorBorderPrimary, #d4d4d4)
-        )
-      )
-    );
-  }
-  .slds-button_neutral:active {
-    --slds-c-button-color-background-active: var(
-      --slds-c-button-neutral-color-background-active,
-      var(
-        --sds-c-button-neutral-color-background-active,
-        var(
-          --slds-g-color-neutral-base-95,
-          var(--lwc-colorBackgroundButtonDefaultActive, rgb(243, 243, 243))
-        )
-      )
-    );
-    --slds-c-button-color-border-active: var(
-      --slds-c-button-neutral-color-border-active,
-      var(
-        --sds-c-button-neutral-color-border-active,
-        var(
-          --slds-g-color-border-base-4,
-          var(--lwc-buttonColorBorderPrimary, #d4d4d4)
-        )
-      )
-    );
+    @apply btn-neutral;
   }
   .slds-button_neutral:disabled {
-    background-color: var(
-      --slds-g-color-neutral-base-100,
-      var(--lwc-colorBackgroundButtonDefaultDisabled, rgb(255, 255, 255))
-    );
-    border-color: var(
-      --slds-g-color-border-base-1,
-      var(--lwc-buttonColorBorderPrimary, #d4d4d4)
-    );
+    @apply btn-disabled;
   }
   .slds-button_brand {
-    --slds-c-button-spacing-inline-start: var(
-      --slds-c-button-brand-spacing-inline-start,
-      var(
-        --sds-c-button-brand-spacing-inline-start,
-        var(--lwc-spacingMedium, 1rem)
-      )
-    );
-    --slds-c-button-spacing-inline-end: var(
-      --slds-c-button-brand-spacing-inline-end,
-      var(
-        --sds-c-button-brand-spacing-inline-end,
-        var(--lwc-spacingMedium, 1rem)
-      )
-    );
-    text-align: center;
-    justify-content: center;
-    transition: border 0.15s linear;
-    --slds-c-button-color-background: var(
-      --slds-c-button-brand-color-background,
-      var(
-        --sds-c-button-brand-color-background,
-        var(--lwc-brandAccessible, #2574a9)
-      )
-    );
-    --slds-c-button-color-border: var(
-      --slds-c-button-brand-color-border,
-      var(
-        --sds-c-button-brand-color-border,
-        var(--lwc-brandAccessible, #2574a9)
-      )
-    );
-    --slds-c-button-text-color: var(
-      --slds-c-button-brand-text-color,
-      var(
-        --sds-c-button-brand-text-color,
-        var(
-          --slds-g-color-neutral-base-100,
-          var(--lwc-colorTextBrandPrimary, #ffffff)
-        )
-      )
-    );
   }
   .slds-button_brand:hover,
   .slds-button_brand:focus {
-    --slds-c-button-color-background-hover: var(
-      --slds-c-button-brand-color-background-hover,
-      var(
-        --sds-c-button-brand-color-background-hover,
-        var(--lwc-brandAccessibleActive, #135f90)
-      )
-    );
-    --slds-c-button-color-border-hover: var(
-      --slds-c-button-brand-color-border-hover,
-      var(
-        --sds-c-button-brand-color-border-hover,
-        var(--lwc-brandAccessibleActive, #135f90)
-      )
-    );
-    --slds-c-button-text-color-hover: var(
-      --slds-c-button-brand-text-color-hover,
-      var(
-        --sds-c-button-brand-text-color-hover,
-        var(
-          --slds-g-link-text-color-hover,
-          var(--lwc-colorTextBrandPrimary, #ffffff)
-        )
-      )
-    );
   }
   .slds-button_brand:active {
-    --slds-c-button-color-background-active: var(
-      --slds-c-button-brand-color-background-active,
-      var(
-        --sds-c-button-brand-color-background-active,
-        var(--lwc-brandAccessibleActive, #135f90)
-      )
-    );
-    --slds-c-button-color-border-active: var(
-      --sds-c-button-brand-color-border-active,
-      var(
-        --sds-c-button-brand-color-border-active,
-        var(--lwc-brandAccessibleActive, #135f90)
-      )
-    );
-    --slds-c-button-text-color-active: var(
-      --slds-c-button-brand-text-color-active,
-      var(
-        --sds-c-button-brand-text-color-active,
-        var(
-          --slds-g-color-neutral-base-100,
-          var(--lwc-colorTextBrandPrimary, #ffffff)
-        )
-      )
-    );
   }
   .slds-button_brand:disabled {
-    background-color: var(
-      --slds-g-color-neutral-base-80,
-      var(--lwc-brandDisabled, rgb(201, 199, 197))
-    );
-    border-color: var(
-      --slds-g-color-neutral-base-80,
-      var(--lwc-brandDisabled, rgb(201, 199, 197))
-    );
-    color: var(
-      --slds-g-color-neutral-base-100,
-      var(--lwc-colorTextButtonBrandDisabled, rgb(255, 255, 255))
-    );
+    @apply btn-disabled;
   }
   .slds-button__icon {
-    width: var(--lwc-squareIconMediumContentAlt, 0.875rem);
-    height: var(--lwc-squareIconMediumContentAlt, 0.875rem);
-    fill: var(--slds-c-icon-color-foreground, currentColor);
+    @apply fill-azul-bright2 w-3.5 h-3.5;
   }
   .slds-button__icon_left {
-    margin-right: var(--lwc-spacingXSmall, 0.5rem);
+    @apply mr-2;
   }
 
   .slds-icon_container {
@@ -344,173 +124,46 @@
     );
   }
   .slds-icon {
-    width: var(--lwc-squareIconMediumBoundary, 2rem);
-    height: var(--lwc-squareIconMediumBoundary, 2rem);
-    fill: var(
-      --slds-c-icon-color-foreground,
-      var(
-        --sds-c-icon-color-foreground,
-        var(
-          --slds-g-color-neutral-base-100,
-          var(--lwc-colorTextIconInverse, rgb(255, 255, 255))
-        )
-      )
-    );
+    @apply fill-azul-bright2 h-8 w-8;
   }
   .slds-icon_x-small {
-    width: var(--lwc-squareIconUtilitySmall, 1rem);
-    height: var(--lwc-squareIconUtilitySmall, 1rem);
-    line-height: var(--lwc-lineHeightReset, 1);
+    @apply h-4 w-4 leading-none;
   }
   .slds-icon-text-default {
-    --slds-c-icon-color-foreground: var(
-      --slds-c-icon-color-foreground-default,
-      var(
-        --sds-c-icon-color-foreground-default,
-        var(
-          --slds-g-color-neutral-base-50,
-          var(--lwc-colorTextIconDefault, rgb(116, 116, 116))
-        )
-      )
-    );
   }
   .slds-icon-text-error {
-    --slds-c-icon-color-foreground: var(
+    /* --slds-c-icon-color-foreground: var(
       --slds-g-color-error-base-40,
       var(--lwc-colorTextError, rgb(234, 0, 30))
     );
+    @apply  */
   }
   .slds-accordion {
-    position: relative;
+    @apply relative;
   }
   .slds-accordion__list-item {
-    border-top-width: var(
-      --slds-c-accordion-sizing-border,
-      var(--sds-c-accordion-sizing-border, var(--lwc-borderWidthThin, 1px))
-    );
-    border-top-style: solid;
-    border-top-color: var(
-      --slds-c-accordion-color-border,
-      var(
-        --sds-c-accordion-color-border,
-        var(--slds-g-color-border-base-1, var(--lwc-colorBorder, #d4d4d4))
-      )
-    );
+    @apply border-t border-slate-100;
   }
   .slds-accordion__list-item:first-child {
-    border-top: 0;
+    @apply border-none;
   }
   .slds-accordion__summary {
-    display: flex;
-    margin-top: calc(
-      var(
-          --slds-c-accordion-section-spacing-block-start,
-          var(
-            --sds-c-accordion-section-spacing-block-start,
-            var(--lwc-spacingSmall, 0.75rem)
-          )
-        ) * -1
-    );
-    margin-right: calc(
-      var(
-          --slds-c-accordion-section-spacing-inline-end,
-          var(
-            --sds-c-accordion-section-spacing-inline-end,
-            var(--lwc-spacingSmall, 0.75rem)
-          )
-        ) * -1
-    );
-    margin-bottom: calc(
-      var(
-          --slds-c-accordion-section-spacing-block-end,
-          var(
-            --sds-c-accordion-section-spacing-block-end,
-            var(--lwc-spacingSmall, 0.75rem)
-          )
-        ) * -1
-    );
-    margin-left: calc(
-      var(
-          --slds-c-accordion-section-spacing-inline-start,
-          var(
-            --sds-c-accordion-section-spacing-inline-start,
-            var(--lwc-spacingSmall, 0.75rem)
-          )
-        ) * -1
-    );
-    padding-top: var(
-      --slds-c-accordion-section-spacing-block-start,
-      var(
-        --sds-c-accordion-section-spacing-block-start,
-        var(--lwc-spacingSmall, 0.75rem)
-      )
-    );
-    padding-right: var(
-      --slds-c-accordion-section-spacing-inline-end,
-      var(
-        --sds-c-accordion-section-spacing-inline-end,
-        var(--lwc-spacingSmall, 0.75rem)
-      )
-    );
-    padding-bottom: var(
-      --slds-c-accordion-section-spacing-block-end,
-      var(
-        --sds-c-accordion-section-spacing-block-end,
-        var(--lwc-spacingSmall, 0.75rem)
-      )
-    );
-    padding-left: var(
-      --slds-c-accordion-section-spacing-inline-start,
-      var(
-        --sds-c-accordion-section-spacing-inline-start,
-        var(--lwc-spacingSmall, 0.75rem)
-      )
-    );
-    background-color: var(
-      --slds-c-accordion-summary-color-background,
-      var(--sds-c-accordion-summary-color-background, transparent)
-    );
+    @apply bg-transparent p-2.5 m-[-0.75rem] flex;
   }
   .slds-accordion__summary-heading {
-    display: flex;
-    flex-grow: 1;
-    min-width: 0;
-    color: var(
-      --slds-c-accordion-heading-text-color,
-      var(
-        --sds-c-accordion-heading-text-color,
-        var(--slds-g-color-neutral-base-10, var(--lwc-colorTextDefault, #333))
-      )
-    );
-    font-size: var(
-      --slds-c-accordion-heading-font-size,
-      var(--sds-c-accordion-heading-font-size, var(--lwc-varFontSize5, 1rem))
-    );
-    line-height: var(
-      --slds-c-accordion-heading-line-height,
-      var(
-        --sds-c-accordion-heading-line-height,
-        var(--lwc-lineHeightHeading, 1.25)
-      )
-    );
+    @apply flex flex-1 min-w-0 text-azul-bright2 text-lg font-je font-normal py-2 leading-tight;
   }
   .slds-accordion__section {
     @apply border-b border-solid border-neutral-100 pb-8;
   }
   .slds-accordion__content {
-    overflow: hidden;
-    visibility: hidden;
-    opacity: 0;
-    height: 0;
+    @apply overflow-hidden invisible opacity-0 h-0;
   }
   .slds-is-open > .slds-accordion__summary {
-    margin-bottom: 0;
+    @apply mb-0;
   }
   .slds-is-open > .slds-accordion__content {
-    overflow: visible;
-    visibility: visible;
-    opacity: 1;
-    height: auto;
+    @apply overflow-hidden visible opacity-100 h-auto;
   }
   .slds-card {
     @apply relative p-0 border-none;
@@ -519,22 +172,7 @@
     @apply px-0 py-0;
   }
   .slds-card__body_inner {
-    --slds-c-card-body-spacing-inline-end: var(
-      --sds-c-card-body-spacing-inline-end,
-      var(
-        --sds-c-card-body-spacing-inline,
-        var(--lwc-varSpacingHorizontalMedium, 1rem)
-      )
-    );
-    --slds-c-card-body-spacing-inline-start: var(
-      --sds-c-card-body-spacing-inline-start,
-      var(
-        --sds-c-card-body-spacing-inline,
-        var(--lwc-varSpacingHorizontalMedium, 1rem)
-      )
-    );
-    padding-top: 0;
-    padding-bottom: 0;
+    @apply py-0;
   }
   .slds-card__body:empty {
     display: none;
@@ -583,7 +221,7 @@
     @apply shadow-none;
   }
   .slds-input[readonly] {
-    @apply bg-gray-100 text-slate-600;
+    @apply bg-disabled text-slate-600 border-slate-300;
   }
   .slds-input-has-icon {
     @apply relative;
@@ -624,27 +262,21 @@
     @apply inline-flex;
   }
   .slds-file-selector__dropzone {
-    padding: var(--lwc-spacingXxxSmall, 0.125rem);
-    border: var(--lwc-borderWidthThin, 1px) dashed
-      var(--slds-g-color-border-base-4, var(--lwc-colorBorder, #d4d4d4));
-    border-radius: var(--lwc-borderRadiusMedium, 0.25rem);
+    @apply p-0.5 border-dashed border-slate-300 rounded;
   }
   .slds-file-selector__input:focus
     ~ .slds-file-selector__body
     > .slds-file-selector__button {
-    box-shadow: var(--lwc-shadowButtonFocus, 0 0 3px #0176d3);
+    @apply shadow-slate-300 shadow-md;
   }
   .slds-file-selector__button {
-    display: inline-flex;
-    align-items: center;
+    @apply inline-flex items-center;
   }
   .slds-file-selector_files .slds-file-selector__body {
-    display: flex;
-    align-items: center;
+    @apply flex items-center;
   }
   .slds-file-selector_files .slds-file-selector__text {
-    margin-left: var(--lwc-spacingXSmall, 0.5rem);
-    margin-right: var(--lwc-spacingSmall, 0.75rem);
+    @apply ml-2 mr-3;
   }
   .slds-page-header__title {
     font-size: var(--lwc-pageHeaderTitleFontSize, 1.125rem);
@@ -665,71 +297,38 @@
   }
   .slds-dropdown-trigger:hover .slds-dropdown,
   .slds-dropdown-trigger:focus .slds-dropdown {
-    visibility: visible;
-    opacity: 1;
-    transition:
-      opacity var(--lwc-durationQuickly, 0.1s) linear,
-      visibility var(--lwc-durationQuickly, 0.1s) linear;
+    @apply visible opacity-100 transition-all duration-100;
   }
   .slds-dropdown-trigger {
-    position: relative;
-    display: inline-block;
+    @apply inline-block relative;
   }
   .slds-dropdown-trigger .slds-dropdown {
-    top: 100%;
+    @apply top-full;
   }
   .slds-dropdown-trigger_click .slds-dropdown,
   .slds-dropdown-trigger_click:hover .slds-dropdown {
-    display: none;
+    @apply hidden;
   }
   .slds-dropdown {
-    min-width: var(--lwc-sizeXxSmall, 6rem);
-    max-width: var(--lwc-sizeMedium, 20rem);
-    margin-top: var(--lwc-spacingXxxSmall, 0.125rem);
-    margin-bottom: var(--lwc-spacingXxxSmall, 0.125rem);
-    border: var(--lwc-borderWidthThin, 1px) solid
-      var(--slds-g-color-border-base-4, var(--lwc-colorBorder, #d4d4d4));
-
-    @apply absolute text-azul-dark translate-x-[-50%] shadow-sm bg-white text-sm left-[50%] z-50 float-left p-1 rounded;
+    @apply absolute text-azul-dark translate-x-[-50%] shadow-sm bg-white text-sm left-[50%] z-50 float-left p-1 rounded min-w-24 max-w-80 my-0.5 border border-slate-400;
   }
   .slds-dropdown_fluid {
-    min-width: var(--lwc-sizeXSmall, 12rem);
-    max-width: 100%;
-    width: 100%;
+    @apply min-w-48 max-w-full w-full;
   }
   .slds-combobox_container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+    @apply flex flex-col relative;
   }
   .slds-combobox {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
+    @apply static flex flex-col flex-auto;
   }
   .slds-combobox__form-element {
-    flex: 1 1 auto;
+    @apply flex-auto;
   }
   input[readonly][role="combobox"] {
-    padding-left: var(--lwc-spacingSmall, 0.75rem);
-    border-color: var(
-      --slds-g-color-border-base-4,
-      var(--lwc-colorBorderInput, #d4d4d4)
-    );
-    background-color: var(
-      --slds-g-color-neutral-base-100,
-      var(--lwc-colorBackgroundInput, rgb(255, 255, 255))
-    );
-    font-size: inherit;
-    font-weight: var(--lwc-fontWeightRegular, 400);
+    @apply pl-3 border-slate-300 bg-white text-base;
   }
   input[readonly][role="combobox"]:focus {
-    border-color: var(
-      --slds-g-color-brand-base-60,
-      var(--lwc-colorBorderBrandPrimary, rgb(27, 150, 255))
-    );
-    box-shadow: var(--lwc-shadowButtonFocus, 0 0 3px #0176d3);
+    @apply border-azul-bright2 shadow-sm;
   }
   .slds-listbox__option:hover {
     cursor: pointer;
@@ -739,22 +338,14 @@
   }
   .slds-listbox_vertical .slds-listbox__option:focus,
   .slds-listbox_vertical .slds-listbox__option:hover {
-    background-color: var(
-      --slds-g-color-neutral-base-95,
-      var(--lwc-colorBackgroundRowHover, rgba(25, 124, 190, 0.05))
-    );
     text-decoration: none;
+    @apply bg-azul-bright2;
   }
   .slds-listbox_vertical .slds-listbox__option_plain {
-    padding: var(--lwc-spacingXSmall, 0.5rem) var(--lwc-spacingSmall, 0.75rem);
+    @apply py-2 px-3;
   }
   .slds-listbox__option-text_entity {
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: block;
-    margin-bottom: var(--lwc-spacingXxxSmall, 0.125rem);
+    @apply max-w-full overflow-hidden truncate block mb-1;
   }
   .slds-has-error {
     /* border-color: var(
@@ -825,41 +416,39 @@
     @apply w-full;
   }
   .slds-media {
-    display: flex;
-    align-items: flex-start;
+    @apply flex items-start;
   }
   .slds-media__figure {
-    flex-shrink: 0;
-    margin-right: var(--lwc-spacingSmall, 0.75rem);
+    @apply flex-shrink-0 mr-3;
   }
   .slds-media__body {
     flex: 1;
-    min-width: 0;
+    @apply min-w-0;
   }
   .slds-media__body,
   .slds-media__body > :last-child {
-    margin-bottom: 0;
+    @apply mb-0;
   }
   .slds-media_center {
-    align-items: center;
+    @apply items-center;
   }
   .slds-text-heading--medium {
     @apply text-2xl leading-tight;
   }
   .slds-text-align_center {
-    text-align: center;
+    @apply text-center;
   }
   .slds-size_1-of-1 {
-    width: 100%;
+    @apply w-full;
   }
   .slds-size_12-of-12 {
-    width: 100%;
+    @apply w-full;
   }
   .slds-order_1 {
-    order: 1;
+    @apply order-1;
   }
   .slds-order_2 {
-    order: 2;
+    @apply order-2;
   }
 
   /**/
@@ -913,9 +502,7 @@
     text-transform: none !important;
     white-space: nowrap !important;
   }
-  .slds-hide {
-    @apply !hidden;
-  }
+
   .slds-show_inline-block {
     @apply inline-block;
   }
@@ -1002,15 +589,15 @@
   .os-step-label[vlocity_ins-omniscriptStep_omniscriptStep] {
     /* @apply font-light; */
   }
-  /*! CSS Used from: Embedded */
+
   label.slds-form-element__label[vlocity_ins-input_input_slds] {
     @apply overflow-hidden whitespace-nowrap overflow-ellipsis w-full;
   }
-  /*! CSS Used from: Embedded */
+
   label.slds-form-element__label[vlocity_ins-maskedInput_maskedInput_slds] {
     @apply overflow-hidden whitespace-nowrap overflow-ellipsis w-full;
   }
-  /*! CSS Used from: Embedded */
+
   .slds-input[vlocity_ins-combobox_combobox_slds] {
     @apply cursor-pointer;
   }
@@ -1026,7 +613,7 @@
   .dropdown-container[vlocity_ins-combobox_combobox_slds] {
     @apply max-h-[300px] overflow-y-scroll;
   }
-  /*! CSS Used from: Embedded */
+
   .omniscript-article[data-content-position="top"][c-proRadicacionPQRSEnglish_proRadicacionPQRSEnglish] {
     @apply flex-col;
   }
@@ -1044,14 +631,14 @@
   .omni-block_content[vlocity_ins-omniscriptBlock_omniscriptBlock] {
     @apply px-0 !flex flex-wrap items-start justify-between gap-y-2;
   }
-  /*! CSS Used from: Embedded */
+
   label.slds-form-element__label[vlocity_ins-textarea_textarea_slds] {
     @apply w-full whitespace-nowrap overflow-hidden overflow-ellipsis;
   }
   textarea[vlocity_ins-textarea_textarea_slds]::placeholder {
     @apply text-slate-300;
   }
-  /*! CSS Used from: Embedded */
+
   .slds-scoped-notification.slds-scoped-notification_form[vlocity_ins-omniscriptMessaging_omniscriptMessaging] {
     @apply rounded-lg;
   }
@@ -1065,15 +652,15 @@
   .slds-scoped-notification.slds-scoped-notification_form.slds-scoped-notification--error:focus[vlocity_ins-omniscriptMessaging_omniscriptMessaging] {
     @apply shadow-none;
   }
-  /*! CSS Used from: Embedded */
+
   .omni-file[vlocity_ins-omniscriptFile_omniscriptFile] {
     @apply mb-1.5;
   }
-  /*! CSS Used from: Embedded */
+
   [lwc-66unc5l95ad-host] {
     @apply block;
   }
-  /*! CSS Used from: Embedded */
+
   slot[lwc-7gt6355bheb] {
     @apply inline-block;
   }

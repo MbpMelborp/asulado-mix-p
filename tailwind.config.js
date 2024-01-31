@@ -20,6 +20,7 @@ module.exports = {
           9: "#3C97D9",
           10: "#CEE3EB",
         },
+        disabled: { DEFAULT: "#D5D5D5", border: "#D3D5D5" },
         azul: {
           dark: "#18254E",
           norm: "#273E82",

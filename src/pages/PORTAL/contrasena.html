@@ -31,7 +31,7 @@
   <block name="content">
     <include
       src="PORTAL/p_top_no_img.html"
-      locals='{ "cls":"inl", "ico": "lock-keyhole", "title":"Cambio de contraseña", "image":"tmp_header.png", "content":"Actualizar las contraseñas es una excelente forma de proteger tu cuenta."}'
+      locals='{ "cls":"inl small", "ico": "lock-keyhole", "title":"Cambio de contraseña", "image":"tmp_header.png", "content":"Actualizar las contraseñas es una excelente forma de proteger tu cuenta."}'
     ></include>
 
     <div id="content" class="as__section pa__inter">
@@ -54,9 +54,8 @@
               </svg>
               <span
                 >¡Recuerda! Tu seguridad es nuestra prioridad y por eso te
-                recomendamos actualizarlas, por lo menos, dos veces al
-                año.</span
-              >
+                recomendamos actualizar tu contraseña
+              </span>
             </div>
             <form
               id="j_id0:j_id2"
@@ -117,12 +116,6 @@
                                   required="true"
                                   type="password"
                                 />
-                                <i
-                                  class="far fa-eye"
-                                  id="togglePassword"
-                                  style="margin-left: -30px; cursor: pointer"
-                                  aria-hidden="true"
-                                ></i>
                               </td>
                               <td
                                 class="dataCol first form-control"
@@ -130,7 +123,7 @@
                               >
                                 <label class="label">
                                   <span class="label-text"
-                                    >Verifica la constraseña</span
+                                    >Repetir contraseña</span
                                   ></label
                                 >
                                 <input
@@ -141,12 +134,17 @@
                                   required="true"
                                   type="password"
                                 />
-                                <i
-                                  class="far fa-eye"
-                                  id="togglePassword2"
-                                  style="margin-left: -30px; cursor: pointer"
-                                  aria-hidden="true"
-                                ></i>
+
+                                <ul class="validates">
+                                  <ul>
+                                    <li><b>Incluye:</b></li>
+                                    <li>1 mayúscula</li>
+                                    <li>1 minúscula</li>
+                                    <li>1 número</li>
+                                    <li>1 carácter especial</li>
+                                    <li>8 caracteres de longitud</li>
+                                  </ul>
+                                </ul>
                               </td>
                             </tr>
                             <tr>
@@ -155,7 +153,7 @@
                                   id="j_id0:j_id2:pb:pbs:j_id7:Login"
                                   type="submit"
                                   name="j_id0:j_id2:pb:pbs:j_id7:Login"
-                                  value="Cambiar constraseña"
+                                  value="CAMBIAR CONTRASEÑA"
                                   class="btn btn-primary"
                                 />
                               </td>

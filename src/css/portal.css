@@ -561,6 +561,9 @@ body {
                 @apply relative mb-2.5;
                 label {
                   @apply text-azul-bold !text-base;
+                  span {
+                    @apply text-base text-azul-bold;
+                  }
                 }
                 .input {
                   @apply border-slate-400;
@@ -910,6 +913,13 @@ body {
         @apply md:ml-20;
       }
     }
+    &.small {
+      div.pa__header_int {
+        p {
+          @apply md:ml-16;
+        }
+      }
+    }
   }
   &.nimg {
     img {
@@ -1001,6 +1011,9 @@ body {
           @apply relative mb-2.5;
           label {
             @apply text-azul-bold !text-base;
+            span {
+              @apply text-base text-azul-bold;
+            }
           }
           .input {
             @apply border-slate-400;
@@ -1016,6 +1029,12 @@ body {
 
     .form-action {
       @apply mt-4 text-base text-azul-norm underline underline-offset-2 hover:text-azul-norm;
+    }
+  }
+  .validates {
+    @apply flex flex-col gap-2 px-2 mt-2;
+    li {
+      @apply text-sm;
     }
   }
 }

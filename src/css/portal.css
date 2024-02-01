@@ -560,7 +560,7 @@ body {
               td.form-control {
                 @apply relative mb-2.5;
                 label {
-                  @apply text-azul-bold text-sm;
+                  @apply text-azul-bold !text-base;
                 }
                 .input {
                   @apply border-slate-400;
@@ -1000,7 +1000,7 @@ body {
         td.form-control {
           @apply relative mb-2.5;
           label {
-            @apply text-azul-bold text-sm;
+            @apply text-azul-bold !text-base;
           }
           .input {
             @apply border-slate-400;

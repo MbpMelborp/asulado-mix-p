@@ -303,17 +303,26 @@ body {
       }
     }
     .as__nav_search {
-      @apply gap-3 hidden lg:flex flex-auto justify-center items-center;
+      @apply gap-3 flex lg:flex flex-auto justify-center items-center;
       .as__nav_search_ico {
         @apply cursor-pointer xl:hidden h-9 w-9 flex items-center justify-center rounded-full bg-[#47D1FF] text-sm text-white;
       }
       form {
-        @apply xl:flex bg-[#47D1FF] rounded-full py-0.5 pl-4 pr-1 hidden items-center justify-between;
+        @apply xl:flex bg-[#47D1FF] rounded-none xl:rounded-full pt-1 pb-2 xl:py-0.5 pl-4 pr-1 items-center justify-between absolute w-screen left-0 top-12 text-left xl:w-full xl:static z-20 xl:left-auto hidden transition-colors;
+        &:focus-within {
+          @apply bg-azul-bold;
+        }
+
         input {
-          @apply w-auto bg-[#47D1FF] placeholder:text-white text-white text-sm font-light p-0 border-none;
+          @apply flex-1 w-auto bg-[#47D1FF] placeholder:text-white text-white text-sm font-light p-0 xl:border-none border-b border-b-white outline-none py-2 focus:bg-azul-bold transition-colors;
         }
         button {
-          @apply outline-none flex h-8 w-8 items-center justify-center rounded-full bg-[#08C1FE] text-sm text-white;
+          @apply outline-none flex h-8 w-8 items-center justify-center rounded-full xl:bg-[#08C1FE] text-sm text-white bg-azul-dark;
+        }
+      }
+      &.open {
+        form {
+          @apply flex;
         }
       }
     }

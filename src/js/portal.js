@@ -76,6 +76,16 @@ if (document.getElementById("start_chat"))
 if (document.getElementById("link_chat"))
   document.getElementById("link_chat").addEventListener("click", startChat);
 
+if (document.getElementById("nav_search")) {
+  document
+    .querySelector("#nav_search .as__nav_search_ico")
+    .addEventListener("click", (e) => {
+      document.getElementById("nav_search").classList.toggle("open");
+      e.target.classList.toggle("fa-xmark");
+      e.target.classList.toggle("fa-magnifying-glass");
+    });
+}
+
 function startChat() {
   console.log("Iniciando chat");
   embedded_svc.liveAgentAPI.startChat({

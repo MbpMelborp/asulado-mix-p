@@ -825,35 +825,35 @@ body {
 }
 
 .as__ayuda {
-  @apply bg-gradient-to-b from-alpha-18 to-alpha-19  grid grid-cols-1 grid-rows-1 pt-8;
+  @apply bg-gradient-to-b from-alpha-18 from-40% to-azul-20  border-b border-azul-bright2 grid grid-cols-1 grid-rows-1 pt-8;
   .as__section_wrapper {
     @apply col-start-1 row-span-1 row-start-1 py-8 lg:py-24 z-10 relative;
     .pa__ayuda {
       @apply flex flex-col gap-8;
       h2 {
-        @apply w-full text-4xl font-je text-azul-bright2 text-center;
+        @apply w-auto mx-auto text-4xl font-je text-azul-bold text-center flex py-1.5 px-5 rounded-full bg-white;
       }
       ul.pa__ayuda_items {
         @apply w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 2xl:w-10/12 mx-auto items-start justify-between;
         li {
           @apply lg:w-auto w-full flex flex-col items-center justify-center gap-3;
           i.ayu-ico {
-            @apply flex h-20 w-20 2xl:h-28 2xl:w-28 items-center justify-center rounded-full border-azul-bright2 border md:border-2 bg-alpha-20 text-3xl 2xl:text-5xl text-azul-bright2;
+            @apply flex h-20 w-20 2xl:h-28 2xl:w-28 items-center justify-center rounded-full border-azul-bold border md:border-2 bg-gradient-radial from-amarillo-10 to-amarillo-light text-3xl 2xl:text-5xl text-azul-bold shadow-lg shadow-alpha-30;
           }
           p {
             @apply text-azul-bold text-center text-xl 2xl:text-2xl font-je;
           }
           a {
-            @apply flex flex-row gap-2 rounded-full bg-white text-azul-dark text-base pt-1.5 pb-1 px-4 lg:flex-nowrap transition-colors ease-in-out hover:bg-alpha-30 hover:text-azul-bold font-normal;
+            @apply flex flex-row gap-2 rounded-full bg-alpha-10 text-azul-dark text-base pt-1.5 pb-1 px-4 lg:flex-nowrap transition-all ease-in-out hover:bg-alpha-10 hover:text-azul-dark font-normal hover:scale-110 ring-2 ring-azul-bright2/50 hover:ring-azul-bright2/80;
             span {
-              @apply 2xl:text-lg font-normal text-azul-bright2 font-je text-base;
+              @apply 2xl:text-lg font-normal text-azul-bold font-je text-base;
             }
             i {
               @apply 2xl:text-lg text-azul-dark mt-1;
             }
           }
           div {
-            @apply flex flex-col gap-1 items-center justify-center w-full;
+            @apply flex flex-col gap-1.5 items-center justify-center w-full;
             a {
               @apply items-center lg:w-full xl:w-auto flex lg:flex-col xl:flex-row !gap-y-0;
             }

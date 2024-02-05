@@ -29,6 +29,9 @@ module.exports = {
           bright2: "#08C1FE",
           mid: "#2E52FA",
           light: "#E9F5F8",
+          20: "#afecff",
+          40: "#3bc3ed",
+          60: "#5782e0",
         },
         alpha: {
           10: "#FAFEFE",
@@ -40,6 +43,8 @@ module.exports = {
         },
         amarillo: {
           light: "#F5DA70",
+          10: "#F8E7A0",
+          70: "#d6c16f",
           mid: "#F0C82F",
         },
       },
@@ -60,6 +65,7 @@ module.exports = {
         "p-login": "var(--il-bg-login)",
         "p-login2": "var(--il-bg-login2)",
         "p-banner": "var(--il-bg-banner)",
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
     },
   },

@@ -582,6 +582,9 @@ body {
                 }
                 button.btn {
                 }
+                .label-text{
+                  @apply text-azul-bold;
+                }
               }
             }
           }
@@ -1032,6 +1035,9 @@ body {
             @apply absolute bottom-4 right-4 text-azul-dark;
           }
           button.btn {
+          }
+          .label-text{
+            @apply text-azul-bold;
           }
         }
       }

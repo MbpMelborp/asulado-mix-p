@@ -41,22 +41,22 @@
             <include
               src="PORTAL/p_link_servicio.html"
               locals='{
-            "cls":"active",
-            "ico":"money-check-dollar-pen",
-            "title":"Crear una solicitud",
-            "content":"¡Tus inquietudes son importantes para nosotros! Inicia tu solicitud ahora.",
-            "link":"pqrs_1_crear.html"
-         }'
+                "cls":"",
+                "ico":"money-check-dollar-pen",
+                "title":"Crear una solicitud",
+                "content":"¡Tus inquietudes son importantes para nosotros! Inicia tu solicitud ahora.",
+                "link":"pqrs_1_crear.html"
+             }'
             ></include>
             <include
               src="PORTAL/p_link_servicio.html"
               locals='{
-            "cls":"",
-            "ico":"file-lines",
-            "title":"Consultar una solicitud",
-            "content":"Para nosotros es importante realizar seguimiento a tus solicitudes. Conoce el estado de tu caso",
-            "link":"pqrs_2_consultar.html"
-         }'
+              "cls":"active",
+              "ico":"file-lines",
+              "title":"Consultar una solicitud",
+              "content":"Para nosotros es importante realizar seguimiento a tus solicitudes. Conoce el estado de tu caso",
+              "link":"pqrs_2_consultar.html"
+              }'
             ></include>
           </ul>
         </div>
@@ -68,41 +68,48 @@
         <div class="as__section_content_full pa__inter_content">
           <div class="pa_co_header">
             <h3>¿Qué tipo de PQRS puedes realizar?</h3>
-            <ul class="items">
-              <li>
-                <h4>Petición</h4>
-                <p>
-                  Es una solicitud mediante la cual se requiere información
-                  adicional y complementaria sobre nuestra oferta de servicios
-                </p>
-              </li>
-              <li>
-                <h4>Queja</h4>
-                <p>
-                  Es una manifestación de inconformidad sobre la atención en
-                  cualquier canal
-                </p>
-              </li>
-              <li>
-                <h4>Reclamo</h4>
-                <p>
-                  Es la manifestación de inconformidad respecto a un producto o
-                  servicio adquirido, ofrecido o prestado por una entidad
-                  vigilada
-                </p>
-              </li>
-              <li>
-                <h4>Servicio</h4>
-                <p>
-                  Es la entrega de la oferta de valor a través de los canales de
-                  atención, la cual puede ser: transaccional, asesoría o
-                  informativa.
-                </p>
-              </li>
-            </ul>
           </div>
           <div class="pa_co_content">
-            <include src="PORTAL/1_pqrs/1_crear_1.html"></include>
+            <div class="overflow-x-auto">
+              <table class="table table-zebra">
+                <thead>
+                  <tr>
+                    <th>Número de Caso</th>
+                    <th>Fecha</th>
+                    <th>Tema</th>
+                    <th>Detalle</th>
+                    <th>Estado del Caso</th>
+                    <th>Observación</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>NOV000677</td>
+                    <td>01/16/2024</td>
+                    <td>Atención de pensionado en Oficina Protección</td>
+                    <td>Atención de pensionado en Oficina Protección</td>
+                    <td>Abierto</td>
+                    <td>El equipo Asulado está gestionando tu solicitud</td>
+                  </tr>
+                  <tr>
+                    <td>NOV000677</td>
+                    <td>01/16/2024</td>
+                    <td>Atención de pensionado en Oficina Protección</td>
+                    <td>Atención de pensionado en Oficina Protección</td>
+                    <td>Abierto</td>
+                    <td>El equipo Asulado está gestionando tu solicitud</td>
+                  </tr>
+                  <tr>
+                    <td>NOV000677</td>
+                    <td>01/16/2024</td>
+                    <td>Atencion de pensionado en Oficina Protección</td>
+                    <td>Atención de pensionado en Oficina Protección</td>
+                    <td>Abierto</td>
+                    <td>El equipo Asulado está gestionando tu solicitud</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
           <div class="pa_co_footer prose"></div>
         </div>

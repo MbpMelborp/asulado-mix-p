@@ -582,7 +582,7 @@ body {
                 }
                 button.btn {
                 }
-                .label-text{
+                .label-text {
                   @apply text-azul-bold;
                 }
               }
@@ -1036,7 +1036,7 @@ body {
           }
           button.btn {
           }
-          .label-text{
+          .label-text {
             @apply text-azul-bold;
           }
         }
@@ -1076,4 +1076,16 @@ body {
   @apply w-full max-w-full text-azul-dark text-sm;
 }
 .pa_co_content {
+}
+.table {
+  :where(th) {
+    @apply border-b border-azul-bright2 text-azul-bold text-base font-normal;
+  }
+  &.table-zebra {
+    tbody {
+      tr:nth-child(2n) {
+        @apply bg-alpha-20;
+      }
+    }
+  }
 }

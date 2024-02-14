@@ -225,7 +225,6 @@ function changeTab(tab) {
   document.querySelectorAll(".tabs_link").forEach((tabe) => {
     if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
     else {
-      // alert(tabe.dataset.hash);
       tabe.classList.add("active");
       window.location.hash = tabe.dataset.hash; // Change the page hash
       var url = location.href;
@@ -233,10 +232,10 @@ function changeTab(tab) {
       history.replaceState(null, null, url);
     }
   });
-  // document.querySelectorAll(".servicios_contents_item").forEach((tabe) => {
-  //   if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
-  //   else tabe.classList.add("active");
-  // });
+  document.querySelectorAll(".servicios_contents_item").forEach((tabe) => {
+    if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
+    else tabe.classList.add("active");
+  });
 
   gsap.fromTo(
     ".servicios_contents_item.active ul li",

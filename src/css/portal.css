@@ -690,7 +690,7 @@ body {
       @apply flex lg:flex-row flex-col justify-between gap-0;
 
       .servicios_items {
-        @apply lg:bg-transparent lg:p-0 pt-3 pb-3 px-4 rounded-b-lg shadow-lg lg:shadow-none bg-alpha-20 w-full lg:w-3/12 sticky top-12 self-start;
+        @apply lg:bg-transparent lg:p-0 pt-3 pb-3 px-4 rounded-b-lg shadow-lg lg:shadow-none bg-alpha-20 w-full lg:w-3/12 sticky top-12 self-start z-10;
         ul {
           @apply flex-col gap-2.5 mt-8 hidden lg:flex;
           li {
@@ -714,7 +714,7 @@ body {
         }
       }
       div.servicios_contents {
-        @apply w-full lg:w-9/12 bg-white rounded-b-xl lg:rounded-2xl px-8 py-8 flex flex-col gap-4;
+        @apply w-full lg:w-9/12 bg-white rounded-b-xl lg:rounded-2xl px-8 py-8 flex flex-col gap-4 z-0;
         h5 {
           @apply text-azul-dark text-xl font-je font-light;
         }

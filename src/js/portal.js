@@ -175,14 +175,24 @@ if (
   document.getElementById("docs_tabs").selectedIndex = 0;
   document.getElementById("docs_tabs").addEventListener("change", (e) => {
     changeTab(e.target.value);
-    location.href = "#servicios";
+    // location.href = "#servicios";
   });
+  document
+    .querySelectorAll(".as__nav_links_ppal_link[data-tab]")
+    .forEach((tabe) => {
+      tabe.addEventListener("click", (e) => {
+        e.preventDefault();
+        const tab = e.target.dataset.tab;
+        changeTab(tab);
+      });
+    });
 
   as.forEach((a) => {
     a.addEventListener("click", (e) => {
       e.preventDefault();
       const tab = e.target.dataset.tab;
       const hash = e.target.dataset.hash;
+
       history.replaceState(
         {},
         document.title,
@@ -194,7 +204,7 @@ if (
       history.replaceState({}, document.title, url);
 
       changeTab(tab);
-      location.href = "#servicios";
+      // location.href = "#";
     });
   });
   if (window.location.hash) {
@@ -202,7 +212,9 @@ if (
     const elTag = document.querySelector(
       ".tabs_link[data-hash='" + hast + "']"
     );
-
+    var url = location.href;
+    location.href = "#servicios";
+    history.replaceState(null, null, url);
     if (elTag) elTag.click();
   } else {
   }
@@ -212,12 +224,19 @@ function changeTab(tab) {
   document.getElementById("docs_tabs").selectedIndex = parseInt(tab);
   document.querySelectorAll(".tabs_link").forEach((tabe) => {
     if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
-    else tabe.classList.add("active");
+    else {
+      // alert(tabe.dataset.hash);
+      tabe.classList.add("active");
+      window.location.hash = tabe.dataset.hash; // Change the page hash
+      var url = location.href;
+      location.href = "#servicios";
+      history.replaceState(null, null, url);
+    }
   });
-  document.querySelectorAll(".servicios_contents_item").forEach((tabe) => {
-    if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
-    else tabe.classList.add("active");
-  });
+  // document.querySelectorAll(".servicios_contents_item").forEach((tabe) => {
+  //   if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
+  //   else tabe.classList.add("active");
+  // });
 
   gsap.fromTo(
     ".servicios_contents_item.active ul li",

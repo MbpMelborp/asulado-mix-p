@@ -194,6 +194,9 @@ body {
   &.open,
   &.init {
     @apply border-none lg:border-b border-gray-100 bg-[#08C1FE] bg-opacity-50 backdrop-blur-3xl lg:bg-opacity-90 lg:backdrop-blur-sm;
+    .h_tools{
+      @apply hidden;
+    }
   }
   nav {
     @apply w-full mx-auto flex xl:flex-wrap items-center justify-between flex-row gap-y-2 2xl:container md:px-4 2xl:mx-auto 2xl:px-0;
@@ -338,7 +341,7 @@ body {
             @apply w-8 h-8 rounded-full;
           }
           ul {
-            @apply z-[1] menu p-2 shadow bg-base-100 rounded-box lg:w-80 w-52;
+            @apply z-[1] menu p-2 shadow bg-base-100 rounded-box lg:w-80 w-80;
             li {
               a {
                 @apply flex justify-between items-center;
@@ -352,10 +355,10 @@ body {
       }
     }
     .dropdown-content {
-      @apply z-[1] menu p-2 shadow bg-base-100 rounded-box lg:w-80 w-52;
+      @apply z-[1] menu p-2 lg:shadow lg:bg-base-100 lg:rounded-box lg:w-80 w-full;
       li {
         a {
-          @apply hover:bg-alpha-19 rounded-none hover:rounded flex justify-between items-center border-b border-base-200;
+          @apply hover:lg:bg-alpha-19 !text-base  lg:!text-base rounded-none hover:rounded flex lg:justify-between justify-center items-center border-b border-alpha-20 lg:border-base-200 leading-none !py-1 ;
           i {
             @apply text-base text-azul-bold;
           }

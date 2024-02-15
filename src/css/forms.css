@@ -55,7 +55,7 @@
   ::selection {
   }
 
-  .slds-button {
+  .slds-button:not(.prevMonth, .nextMonth, .currentDate) {
     @apply btn btn-primary;
     &.slds-file-selector__button {
       @apply btn-xs btn-neutral;
@@ -112,16 +112,7 @@
   }
 
   .slds-icon_container {
-    display: inline-block;
-    border-radius: var(
-      --slds-c-icon-radius-border,
-      var(--sds-c-icon-radius-border, var(--lwc-borderRadiusMedium, 0.25rem))
-    );
-    line-height: var(--lwc-lineHeightReset, 1);
-    background-color: var(
-      --slds-c-icon-color-background,
-      var(--sds-c-icon-color-background, transparent)
-    );
+    @apply bg-alpha-20 rounded leading-normal inline-block;
   }
   .slds-icon {
     @apply fill-azul-bright2 h-8 w-8;
@@ -169,7 +160,7 @@
     @apply relative p-0 border-none;
   }
   .slds-card__body {
-    @apply px-0 py-0;
+    @apply px-0 py-4;
   }
   .slds-card__body_inner {
     @apply py-0;
@@ -204,7 +195,7 @@
     @apply text-red-600;
   }
   .slds-input-has-icon .slds-input__icon {
-    @apply fill-azul-dark;
+    @apply fill-alpha-30;
   }
   .slds-input {
     @apply border border-slate-400 transition-colors inline-block w-full rounded-md shadow-none text-slate-700 bg-white leading-tight min-h-12 px-2 py-0;
@@ -231,6 +222,9 @@
   }
   .slds-input-has-icon .slds-input__icon:not(button) {
     @apply pointer-events-none;
+  }
+  .slds-input-has-icon .slds-input__icon:has(.Date) {
+    @apply top-[22%] !h-10 !w-10 leading-[0.6em] min-h-6;
   }
   .slds-input-has-icon_right .slds-input__icon {
     @apply right-[0.75rem];
@@ -434,6 +428,9 @@
   }
   .slds-text-heading--medium {
     @apply text-2xl leading-tight;
+  }
+  .slds-card__header-title {
+    @apply text-2xl mb-4 text-azul-bold;
   }
   .slds-text-align_center {
     @apply text-center;

@@ -26,44 +26,86 @@
         <i class="i-close fa-solid fa-times text-xl"></i>
       </button>
       <ul id="as__nav_links" class="as__nav_links">
-        <li class="as__nav_links_ppal_li">
+        <li class="as__nav_links_ppal_li dropdown dropdown-hover">
           <a
             class="as__nav_links_ppal_link"
             aria-current="page"
             title="INICIO"
             href="/PORTAL/#certificados"
             data-tab="0"
+            tabindex="0"
+            role="button"
             >Certificados</a
           >
+          <ul tabindex="0" class="dropdown-content">
+            <li>
+              <a href="/PORTAL/2_certificados_colilla.html">Colilla de pagos</a>
+            </li>
+            <li>
+              <a href="/PORTAL/2_certificados_pension.html"
+                >Certificado de pensión</a
+              >
+            </li>
+            <li><a href="#">Copia de póliza</a></li>
+            <li>
+              <a href="/PORTAL/2_certificados_ingreso.html"
+                >Certificado de ingresos y retenciones</a
+              >
+            </li>
+          </ul>
         </li>
-        <li class="as__nav_links_ppal_li">
+        <li class="as__nav_links_ppal_li dropdown dropdown-hover">
           <a
             class="as__nav_links_ppal_link"
             aria-current="page"
             title="INICIO"
             href="/PORTAL/#actualizacion"
             data-tab="1"
+            tabindex="0"
+            role="button"
             >Actualización de datos</a
           >
+          <ul tabindex="0" class="dropdown-content">
+            <li><a href="#">Actualización de documentos de identidad</a></li>
+            <li><a href="#">Actualización de datos de contacto</a></li>
+          </ul>
         </li>
-        <li class="as__nav_links_ppal_li">
+        <li class="as__nav_links_ppal_li dropdown dropdown-hover">
           <a
             class="as__nav_links_ppal_link"
             aria-current="page"
             title="INICIO"
             href="/PORTAL/#novedades"
             data-tab="2"
+            tabindex="0"
+            role="button"
             >Novedades</a
           >
+          <ul tabindex="0" class="dropdown-content">
+            <li><a href="#">Redistribuciones de mesada</a></li>
+            <li><a href="#">Certificado de estudio</a></li>
+            <li><a href="#">Certificado de supervivencia</a></li>
+            <li><a href="#">Novedades de EPS</a></li>
+            <li><a href="#">Novedades de Caja de Compensación</a></li>
+            <li><a href="#">Novedades de cuenta financiera</a></li>
+            <li><a href="#">Novedades Pensión Voluntaria</a></li>
+          </ul>
         </li>
-        <li class="as__nav_links_ppal_li">
+        <li class="as__nav_links_ppal_li dropdown dropdown-hover">
           <a
             class="as__nav_links_ppal_link"
             aria-current="page"
             title="INICIO"
-            href="/PORTAL/pqrs_1_crear.html"
+            href="/PORTAL/#seguimiento"
+            data-tab="3"
+            tabindex="0"
+            role="button"
             >Solicitudes y PQR</a
           >
+          <ul tabindex="0" class="dropdown-content">
+            <li><a href="#"> Consultas PQRS</a></li>
+            <li><a href="#"> Consulta novedades</a></li>
+          </ul>
         </li>
         <li class="as__nav_links_ppal_li">
           <a
@@ -101,6 +143,7 @@
             ><i class="fa-solid fa-gear-complex"></i
           ></a>
         </div> -->
+
         <div class="as__nav_item dropdown dropdown-end">
           <img
             class="avat"
@@ -111,7 +154,14 @@
           />
           <ul class="dropdown-content" tabindex="0">
             <li>
-              <a href="#">Configuración <i class="fa-solid fa-gear"></i></a>
+              <a href="#">
+                Actualización de documentos de identidad
+                <i class="fa-solid fa-user-gear"></i
+              ></a>
+              <a href="#">
+                Actualización de datos de contacto
+                <i class="fa-solid fa-user-pen"></i
+              ></a>
             </li>
             <li>
               <a href="#"

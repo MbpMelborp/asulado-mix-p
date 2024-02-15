@@ -333,11 +333,12 @@ body {
           @apply flex items-center justify-center rounded-full text-base text-white;
         }
         &.dropdown {
+          @apply z-20;
           .avat {
             @apply w-8 h-8 rounded-full;
           }
           ul {
-            @apply z-[1] menu p-2 shadow bg-base-100 rounded-box w-52;
+            @apply z-[1] menu p-2 shadow bg-base-100 rounded-box lg:w-80 w-52;
             li {
               a {
                 @apply flex justify-between items-center;
@@ -346,6 +347,17 @@ body {
                 }
               }
             }
+          }
+        }
+      }
+    }
+    .dropdown-content {
+      @apply z-[1] menu p-2 shadow bg-base-100 rounded-box lg:w-80 w-52;
+      li {
+        a {
+          @apply hover:bg-alpha-19 rounded-none hover:rounded flex justify-between items-center border-b border-base-200;
+          i {
+            @apply text-base text-azul-bold;
           }
         }
       }

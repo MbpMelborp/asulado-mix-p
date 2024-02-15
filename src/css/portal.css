@@ -1035,6 +1035,9 @@ body {
     &#pg:fm {
       @apply md:w-1/2;
     }
+    &[name="pg:fm"] {
+      @apply md:w-1/2;
+    }
     table {
       @apply w-full;
       tr {

@@ -194,7 +194,7 @@ body {
   &.open,
   &.init {
     @apply border-none lg:border-b border-gray-100 bg-[#08C1FE] bg-opacity-50 backdrop-blur-3xl lg:bg-opacity-90 lg:backdrop-blur-sm;
-    .h_tools{
+    .h_tools {
       @apply hidden;
     }
   }
@@ -358,7 +358,7 @@ body {
       @apply z-[1] menu p-2 lg:shadow lg:bg-base-100 lg:rounded-box lg:w-80 w-full;
       li {
         a {
-          @apply hover:lg:bg-alpha-19 !text-base  lg:!text-base rounded-none hover:rounded flex lg:justify-between justify-center items-center border-b border-alpha-20 lg:border-base-200 leading-none !py-1 ;
+          @apply hover:lg:bg-alpha-19 !text-base  lg:!text-base rounded-none hover:rounded flex lg:justify-between justify-center items-center border-b border-alpha-20 lg:border-base-200 leading-none !py-1;
           i {
             @apply text-base text-azul-bold;
           }
@@ -1030,6 +1030,9 @@ body {
   form {
     @apply flex flex-col gap-0;
     &.pa__hlf {
+      @apply md:w-1/2;
+    }
+    &#pg:fm {
       @apply md:w-1/2;
     }
     table {

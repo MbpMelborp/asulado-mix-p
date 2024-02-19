@@ -553,7 +553,7 @@
     @apply pointer-events-none select-none opacity-80;
   }
   .omni-read-only [data-omni-input] input {
-    @apply grayscale brightness-75 opacity-80;
+    @apply grayscale brightness-90 opacity-80;
   }
   .omniscript-article .slds-file-selector.slds-file-selector_files {
     @apply w-full;

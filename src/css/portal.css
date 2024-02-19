@@ -171,7 +171,7 @@ body {
     nav {
       @apply flex-col h-[100svh] py-12;
       .as__nav_wrap {
-        @apply w-full flex-col items-center justify-between gap-4;
+        @apply w-full flex-col items-center justify-between gap-4 lg:gap-x-0;
         &.h_menu {
           @apply h-[70svh];
         }
@@ -227,13 +227,13 @@ body {
     }
 
     ul.as__nav_links {
-      @apply hidden lg:flex w-full flex-col items-center py-8 lg:w-auto lg:h-auto lg:min-h-max lg:flex-row lg:gap-x-1 lg:border-0 lg:p-0 xl:gap-x-5 lg:bg-transparent;
+      @apply hidden lg:flex w-full flex-col items-center py-8 lg:w-auto lg:h-auto lg:min-h-max lg:flex-row lg:gap-x-0 lg:border-0 lg:p-0 2xl:gap-x-2 lg:bg-transparent;
 
       &.nav_open {
         @apply flex duration-700 animate-in fade-in;
       }
       li.as__nav_links_ppal_li {
-        @apply my-auto w-full px-4 text-center md:w-auto md:px-0;
+        @apply my-auto w-full lg:px-0 2xl:px-4 text-center md:w-auto md:px-0;
         &.usability {
           @apply mr-4;
         }
@@ -252,7 +252,8 @@ body {
         }
         a.as__nav_links_ppal_link,
         button.as__nav_links_ppal_link {
-          @apply block rounded-2xl px-2 pb-1 pt-1.5 text-xl leading-none text-white transition-colors ease-in-out hover:bg-blue-100 hover:text-azul-bold md:px-2 md:text-sm;
+          @apply block rounded-2xl px-2 lg:px-2 pb-1 pt-1.5 text-xl leading-none text-white transition-colors ease-in-out hover:bg-blue-100 hover:text-azul-bold md:px-2 md:text-sm;
+          @apply leading-none;
           i {
             @apply text-xl;
           }
@@ -330,7 +331,7 @@ body {
       }
     }
     .as__nav_items {
-      @apply flex items-center gap-4 md:gap-5 mr-4;
+      @apply flex items-center gap-4 md:gap-5 lg:gap-x-2 mr-4 lg:mr-0;
       .as__nav_item {
         i {
           @apply flex items-center justify-center rounded-full text-base text-white;
@@ -338,7 +339,7 @@ body {
         &.dropdown {
           @apply z-20;
           .avat {
-            @apply w-8 h-8 rounded-full;
+            @apply w-8 h-8 block rounded-full;
           }
           ul {
             @apply z-[1] menu p-2 shadow bg-base-100 rounded-box lg:w-80 w-80;
@@ -361,6 +362,9 @@ body {
           @apply hover:lg:bg-alpha-19 !text-base  lg:!text-base rounded-none hover:rounded flex lg:justify-between justify-center items-center border-b border-alpha-20 lg:border-base-200 leading-none !py-1;
           i {
             @apply text-base text-azul-bold;
+          }
+          &.disabled {
+            @apply cursor-not-allowed text-slate-200;
           }
         }
       }
@@ -894,7 +898,7 @@ body {
 .pa__header {
   @apply bg-gradient-to-b from-white to-alpha-15 pt-20 pb-4;
   .pa__header_top {
-    @apply flex flex-col md:flex-row items-center justify-between gap-4;
+    @apply flex flex-col md:flex-row items-center justify-start gap-4;
     img {
       @apply max-w-xs;
     }
@@ -963,14 +967,16 @@ body {
     @apply w-full flex flex-wrap gap-4 items-stretch justify-center;
     .service_link {
       /* md:max-w-[50%] lg:max-w-[calc(33%-12px)] xl:max-w-[calc(25%-12px)] */
-      @apply flex-1 flex-shrink-0 w-full min-w-80  bg-alpha-20 border border-azul-bright2 transition-colors ease-in-out min-h-32;
+      @apply flex-1 flex-shrink-0 w-full min-w-80 bg-white border-alpha-30 transition-colors ease-in-out min-h-32 border;
       h3 {
         @apply bg-transparent;
       }
       &.active {
-        @apply bg-white border-alpha-30;
+        @apply bg-alpha-20  border-azul-bright2;
         .as__button {
           @apply hidden;
+        }
+        h3 {
         }
       }
       &:has(.as__button:hover) {
@@ -996,6 +1002,9 @@ body {
   }
   .as__button {
     @apply mt-auto ml-auto;
+    &.disabled {
+      @apply opacity-30 grayscale pointer-events-none cursor-not-allowed;
+    }
   }
 }
 
@@ -1079,6 +1088,9 @@ body {
   @apply flex flex-col gap-4;
   h3 {
     @apply text-azul-bold text-2xl font-je;
+  }
+  h4 {
+    @apply text-azul-bold text-xl font-je;
   }
   ul.items {
     @apply bg-alpha-10 rounded-xl px-6 py-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  md:divide-x divide-solid divide-alpha-30 gap-4 border border-alpha-15;

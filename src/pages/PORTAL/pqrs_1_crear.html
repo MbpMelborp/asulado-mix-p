@@ -31,7 +31,13 @@
   <block name="content">
     <include
       src="PORTAL/p_top.html"
-      locals='{ "cls":"", "ico": "comments-question-check",  "title":"Solicitudes y PQRS", "image":"tmp_header.png", "content":"En ASULADO valoramos tu opinión y estamos comprometidos con la mejora continua. Por eso, hemos creado este espacio especialmente para ti, donde puedes diligenciar tus PQRS de forma rápida y sencilla."}'
+      locals='{ 
+        "cls":"",
+        "ico": "comments-question-check",
+        "title":"Solicitudes",
+        "image":"tmp_header.png",
+        "content":"En ASULADO valoramos tu opinión y estamos comprometidos con la mejora continua. Por eso, hemos creado este espacio especialmente para ti, donde puedes diligenciar tus preguntas, quejas, reclamos y servicios de forma rápida y sencilla."
+      }'
     ></include>
 
     <div id="servicios" class="as__section pa__options">
@@ -44,8 +50,8 @@
             "cls":"active",
             "ico":"money-check-dollar-pen",
             "title":"Crear una solicitud",
-            "content":"¡Tus inquietudes son importantes para nosotros! Inicia tu solicitud ahora.",
-            "link":"pqrs_1_crear.html"
+            "content":"¡Tus inquietudes son importantes para nosotros! Inicia tu solicitud ahora!",
+            "link":"/PORTAL/pqrs_1_crear.html"
          }'
             ></include>
             <include
@@ -55,7 +61,7 @@
             "ico":"file-lines",
             "title":"Consultar una solicitud",
             "content":"Para nosotros es importante realizar seguimiento a tus solicitudes. Conoce el estado de tu caso",
-            "link":"pqrs_2_consultar.html"
+            "link":"/PORTAL/pqrs_2_consultar.html"
          }'
             ></include>
           </ul>
@@ -96,7 +102,7 @@
                 <p>
                   Es la entrega de la oferta de valor a través de los canales de
                   atención, la cual puede ser: transaccional, asesoría o
-                  informativa.
+                  informativa
                 </p>
               </li>
             </ul>

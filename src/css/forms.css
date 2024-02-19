@@ -1,5 +1,5 @@
 .pa_co_content {
-  @apply py-8;
+  @apply pt-2 pb-8;
   article,
   section {
     @apply flex flex-col;

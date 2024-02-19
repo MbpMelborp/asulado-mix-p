@@ -1,4 +1,8 @@
-<extends src="portal.html" locals='{ "id": "as__home", "top":"" }'>
+<extends
+  src="portal.html"
+  locals='{ "id": "as__home",
+ "top":"" }'
+>
   <block name="head">
     <title>ASULADO Seguros de Vida</title>
     <meta name="title" content="ASULADO Seguros de Vida" />
@@ -36,7 +40,7 @@
         "ico":"file-invoice",
         "title":"Colilla de pagos",
         "image":"tmp_header.png",
-        "content":"Qui nulla non et proident fugiat sit nisi minim. Anim laborum ex fugiat eiusmod. Et reprehenderit veniam laboris fugiat dolore laboris ipsum amet. Nostrud anim elit consequat sunt ut laboris culpa."
+        "content":"Aquí podrás obtener información detallada sobre los pagos de tu mesada. ¡Explora y gestiona tu información pensional de manera fácil y rápida!"
      }'
     ></include>
 
@@ -46,22 +50,46 @@
           <ul>
             <include
               src="PORTAL/p_link_servicio.html"
-              locals='{ "cls":"", "link":"/PORTAL/2_certificados_colilla.html", "ico": "file-invoice",  "title":"Colilla de pagos", "image":"tmp_servicio.png", "content":"Documento que reúne información sobre tu mesada pensional, incluyendo: valor mensual de la mesada, fecha y descuentos realizados."}'
+              locals='{ "cls":"",
+               "link":"/PORTAL/2_certificados_colilla.html",
+               "ico": "file-invoice",
+               "title":"Colilla de pagos",
+               "image":"tmp_servicio.png",
+               "content":"Documento que reúne información sobre tu mesada pensional, incluyendo: valor mensual de la mesada, fecha y descuentos realizados."
+              }'
             ></include>
 
             <include
               src="PORTAL/p_link_servicio.html"
-              locals='{ "cls":"active", "link":"/PORTAL/2_certificados_pension.html", "ico": "file-lines",  "title":"Certificado de pensión", "image":"tmp_servicio.png", "content":"Documento que certifica el ingreso de una mesada pensional por parte de ASULADO. Reúne información sobre el tipo de pensión, valor de la mesada pensional y la fecha desde cuándo formas parte de nuestra Familia."}'
+              locals='{ "cls":"active",
+               "link":"/PORTAL/2_certificados_pension.html",
+               "ico": "file-lines",
+               "title":"Certificado de pensión",
+               "image":"tmp_servicio.png",
+               "content":"Documento que certifica el ingreso de una mesada pensional por parte de ASULADO. Reúne información sobre el tipo de pensión, valor de la mesada pensional y la fecha desde cuándo formas parte de nuestra Familia."
+              }'
             ></include>
 
             <include
               src="PORTAL/p_link_servicio.html"
-              locals='{ "cls":"", "link":"#", "ico": "file-invoice-dollar",  "title":"Copia de póliza", "image":"tmp_servicio.png", "content":"Documento que ilustra los componentes de tu póliza de Renta Vitalicia, tus deberes y derechos como cliente y nuestras obligaciones y derechos como Aseguradora de Vida."}'
+              locals='{ "cls":"",
+               "link":"#",
+               "ico": "file-invoice-dollar",
+               "title":"Copia de póliza",
+               "image":"tmp_servicio.png",
+               "content":"Documento que ilustra los componentes de tu póliza de Renta Vitalicia, tus deberes y derechos como cliente y nuestras obligaciones y derechos como Aseguradora de Vida."
+              }'
             ></include>
 
             <include
               src="PORTAL/p_link_servicio.html"
-              locals='{"cls":"", "link":"/PORTAL/2_certificados_ingreso.html", "ico": "money-check-pen",  "title":"Certificado de ingresos y retenciones", "image":"tmp_servicio.png", "content":"Documento que informa los ingresos y las retenciones que se realizaron durante un periodo de tiempo determinado. Te servirá para que realices tu declaración de renta y otros trámites."}'
+              locals='{"cls":"",
+               "link":"/PORTAL/2_certificados_ingreso.html",
+               "ico": "money-check-pen",
+               "title":"Certificado de ingresos y retenciones",
+               "image":"tmp_servicio.png",
+               "content":"Documento que informa los ingresos y las retenciones que se realizaron durante un periodo de tiempo determinado. Te servirá para que realices tu declaración de renta y otros trámites."
+              }'
             ></include>
           </ul>
         </div>
@@ -71,7 +99,23 @@
     <div id="content" class="as__section pa__inter">
       <div class="as__section_wrapper">
         <div class="as__section_content_full pa__inter_content">
-          <div class="pa_co_header"></div>
+          <div class="pa_co_header">
+            <h4>Tipo de consulta:</h4>
+            <ul class="items">
+              <li>
+                <p>
+                  Selecciona <b>“Consultar último pago de mi mesada”</b> para
+                  obtener detalles sobre tu último pago.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Selecciona <b>“Consultar varios periodos de mesada”</b> para
+                  comparar y revisar tus pagos anteriores.
+                </p>
+              </li>
+            </ul>
+          </div>
           <div class="pa_co_content">
             <include
               src="PORTAL/2_certificados/1_certificados_colilla.html"

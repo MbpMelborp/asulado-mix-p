@@ -1,4 +1,8 @@
-<extends src="portal.html" locals='{ "id": "as__home", "top":"" }'>
+<extends
+  src="portal.html"
+  locals='{ "id": "as__home",
+"top":"" }'
+>
   <block name="head">
     <title>ASULADO Seguros de Vida</title>
     <meta name="title" content="ASULADO Seguros de Vida" />
@@ -76,6 +80,7 @@
                   <option value="0">Certificados y otros documentos</option>
                   <option value="1">Actualización de datos</option>
                   <option value="2">Novedades de nómina</option>
+                  <option value="4">Solicitudes</option>
                   <option value="3">Seguimiento a solicitudes</option>
                 </select>
               </div>
@@ -117,6 +122,17 @@
                 <li>
                   <a
                     href="#servicios"
+                    data-tab="4"
+                    class="tabs_link"
+                    data-hash="solicitudes"
+                  >
+                    <i class="fa-light fa-hand-wave"></i>
+                    Solicitudes
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#servicios"
                     data-tab="3"
                     class="tabs_link"
                     data-hash="seguimiento"
@@ -133,22 +149,38 @@
                 <ul>
                   <include
                     src="PORTAL/p_home_servicio.html"
-                    locals='{ "link":"/PORTAL/2_certificados_colilla.html", "ico": "file-invoice",  "title":"Colilla de pagos", "image":"tmp_servicio.png", "content":"Documento que reúne información sobre tu mesada pensional, incluyendo: valor mensual de la mesada, fecha y descuentos realizados."}'
+                    locals='{ "link":"/PORTAL/2_certificados_colilla.html",
+                    "ico": "file-invoice",
+                     "title":"Colilla de pagos",
+                    "image":"tmp_servicio.png",
+                    "content":"Documento que reúne información sobre tu mesada pensional, incluyendo: valor mensual de la mesada, fecha y descuentos realizados."}'
                   ></include>
 
                   <include
                     src="PORTAL/p_home_servicio.html"
-                    locals='{ "link":"/PORTAL/2_certificados_pension.html", "ico": "file-lines",  "title":"Certificado de pensión", "image":"tmp_servicio.png", "content":"Documento que certifica el ingreso de una mesada pensional por parte de ASULADO. Reúne información sobre el tipo de pensión, valor de la mesada pensional y la fecha desde cuándo formas parte de nuestra Familia."}'
+                    locals='{ "link":"/PORTAL/2_certificados_pension.html",
+                    "ico": "file-lines",
+                     "title":"Certificado de pensión",
+                    "image":"tmp_servicio.png",
+                    "content":"Documento que certifica el ingreso de una mesada pensional por parte de ASULADO. Reúne información sobre el tipo de pensión, valor de la mesada pensional y la fecha desde cuándo formas parte de nuestra Familia."}'
                   ></include>
 
                   <include
                     src="PORTAL/p_home_servicio.html"
-                    locals='{ "link":"#", "ico": "file-invoice-dollar",  "title":"Copia de póliza", "image":"tmp_servicio.png", "content":"Documento que ilustra los componentes de tu póliza de Renta Vitalicia, tus deberes y derechos como cliente y nuestras obligaciones y derechos como Aseguradora de Vida."}'
+                    locals='{ "link":"#",
+                    "ico": "file-invoice-dollar",
+                     "title":"Copia de póliza",
+                    "image":"tmp_servicio.png",
+                    "content":"Documento que ilustra los componentes de tu póliza de Renta Vitalicia, tus deberes y derechos como cliente y nuestras obligaciones y derechos como Aseguradora de Vida."}'
                   ></include>
 
                   <include
                     src="PORTAL/p_home_servicio.html"
-                    locals='{ "link":"/PORTAL/2_certificados_ingreso.html", "ico": "money-check-pen",  "title":"Certificado de ingresos y retenciones", "image":"tmp_servicio.png", "content":"Documento que informa los ingresos y las retenciones que se realizaron durante un periodo de tiempo determinado. Te servirá para que realices tu declaración de renta y otros trámites."}'
+                    locals='{ "link":"/PORTAL/2_certificados_ingreso.html",
+                    "ico": "money-check-pen",
+                     "title":"Certificado de ingresos y retenciones",
+                    "image":"tmp_servicio.png",
+                    "content":"Documento que informa los ingresos y las retenciones que se realizaron durante un periodo de tiempo determinado. Te servirá para que realices tu declaración de renta y otros trámites."}'
                   ></include>
                 </ul>
               </div>
@@ -156,12 +188,22 @@
                 <ul>
                   <include
                     src="PORTAL/p_home_servicio.html"
-                    locals='{ "link":"#", "ico": "file-invoice",  "title":"Actualización de documentos de identidad", "image":"tmp_servicio.png", "content":"Documento que reúne información sobre tu mesada pensional, incluyendo: valor mensual de la mesada, fecha y descuentos realizados."}'
+                    locals='{ "link":"#",
+                    "ico": "file-invoice",
+                     "title":"Actualización de documentos de identidad",
+                    "image":"tmp_servicio.png",
+                    "content":"¡Mantén tu información al día! Si recientemente cambiaste tu documento de identidad, es importante que lo actualices. Esto nos ayuda a que todos tus datos estén correctos."
+                  }'
                   ></include>
 
                   <include
                     src="PORTAL/p_home_servicio.html"
-                    locals='{ "link":"/PORTAL/3_actualizacion_contacto.html", "ico": "file-lines",  "title":"Actualización de datos de contacto", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    locals='{ "link":"/PORTAL/3_actualizacion_contacto.html",
+                    "ico": "file-lines",
+                     "title":"Actualización de datos de contacto",
+                    "image":"tmp_servicio.png",
+                    "content":"¡Aseguremos una buena comunicación! Déjanos saber si has cambiado tu dirección, número de teléfono o correo electrónico, así podremos contactarnos en cualquier momento."
+                  }'
                   ></include>
                 </ul>
               </div>
@@ -169,32 +211,80 @@
                 <ul>
                   <include
                     src="PORTAL/p_home_servicio.html"
-                    locals='{ "link":"#", "ico": "file-invoice",  "title":"Redistribuciones de mesada", "image":"tmp_servicio.png", "content":"Documento que reúne información sobre tu mesada pensional, incluyendo: valor mensual de la mesada, fecha y descuentos realizados."}'
+                    locals='{ "link":"#",
+                    "ico": "file-invoice",
+                     "title":"Redistribuciones de mesada",
+                    "image":"tmp_servicio.png",
+                    "content":"Si recientemente has realizado cambios en la distribución de tu mesada pensional, como ajustes en los montos o beneficiarios, ¡cuéntanos! Tener esta información actualizada nos ayuda a que tus beneficios en ASULADO se administren de la mejor forma."
+                  }'
                   ></include>
 
                   <include
                     src="PORTAL/p_home_servicio.html"
-                    locals='{ "link":"#", "ico": "file-lines",  "title":"Certificado de estudio", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    locals='{ "link":"#",
+                    "ico": "file-lines",
+                     "title":"Certificado de estudio",
+                    "image":"tmp_servicio.png",
+                    "content":"Documento que certifica que los beneficiarios de pensión entre los 18 y 25 años están estudiando un mínimo de 20 horas semanales. Este documento debe presentarse cada 6 meses."
+                  }'
                   ></include>
                   <include
                     src="PORTAL/p_home_servicio.html"
-                    locals='{ "link":"#", "ico": "file-lines",  "title":"Certificado de supervivencia", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    locals='{ "link":"#",
+                    "ico": "file-lines",
+                     "title":"Certificado de supervivencia",
+                    "image":"tmp_servicio.png",
+                    "content":"Documento que certifica que te encuentras disponible para seguir recibiendo tu mesada pensional. Este certificado debe ser presentado por los ciudadanos colombianos que se encuentran pensionados y viven en otro país."
+                  }'
                   ></include>
                   <include
                     src="PORTAL/p_home_servicio.html"
-                    locals='{ "link":"#", "ico": "file-lines",  "title":"Novedades de EPS", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    locals='{ "link":"#",
+                    "ico": "file-lines",
+                     "title":"Novedades de EPS",
+                    "image":"tmp_servicio.png",
+                    "content":"¡Tu bienestar es nuestra prioridad! Si recientemente hubo cambios con tu EPS, ¡queremos saberlo! Mantén tu información actualizada para que podamos brindarte el mejor servicio."
+                  }'
                   ></include>
                   <include
                     src="PORTAL/p_home_servicio.html"
-                    locals='{ "link":"#", "ico": "file-lines",  "title":"Novedades de Caja de Compensación", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    locals='{ "link":"#",
+                    "ico": "file-lines",
+                     "title":"Novedades de Caja de Compensación",
+                    "image":"tmp_servicio.png",
+                    "content":"Si recientemente has tenido cambios en tu Caja de Compensación, como el proveedor de servicios o cualquier actualización relevante, ¡queremos saberlo! Así podemos acompañarte en cada paso."
+                  }'
                   ></include>
                   <include
                     src="PORTAL/p_home_servicio.html"
-                    locals='{ "link":"#", "ico": "file-lines",  "title":"Novedades de cuenta financiera", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    locals='{ "link":"#",
+                    "ico": "file-lines",
+                     "title":"Novedades de cuenta financiera",
+                    "image":"tmp_servicio.png",
+                    "content":"Cuéntanos si recientemente hubo cambios en tu cuenta financiera, ya sea el banco, número de cuenta o cualquier actualización. Esto nos permite garantizar que tus mesadas se procesen sin contratiempos. ¡Tu bienestar es nuestra prioridad!"
+                  }'
                   ></include>
                   <include
                     src="PORTAL/p_home_servicio.html"
-                    locals='{ "link":"#", "ico": "file-lines",  "title":"Novedades Pensión Voluntaria", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    locals='{ "link":"#",
+                    "ico": "file-lines",
+                     "title":"Novedades Pensión Voluntaria",
+                    "image":"tmp_servicio.png",
+                    "content":"Si has realizado cambios en tu Pensión Voluntaria, como ajustes en las contribuciones o cualquier modificación, ¡cuéntanos! Así podemos mantener tu información actualizada y brindarte el mejor acompañamiento."
+                  }'
+                  ></include>
+                </ul>
+              </div>
+              <div data-tab="4" class="servicios_contents_item">
+                <ul>
+                  <include
+                    src="PORTAL/p_home_servicio.html"
+                    locals='{ "link":"/PORTAL/pqrs_1_crear.html",
+                    "ico": "file-invoice",
+                    "title":"Crear una solicitud",
+                    "image":"tmp_servicio.png",
+                    "content":"¡Tus inquietudes son importantes para nosotros! Inicia tu solicitud ahora!."
+                  }'
                   ></include>
                 </ul>
               </div>
@@ -202,12 +292,21 @@
                 <ul>
                   <include
                     src="PORTAL/p_home_servicio.html"
-                    locals='{ "link":"/PORTAL/pqrs_1_crear.html", "ico": "file-invoice",  "title":"Consultas PQRS", "image":"tmp_servicio.png", "content":"Documento que reúne información sobre tu mesada pensional, incluyendo: valor mensual de la mesada, fecha y descuentos realizados."}'
+                    locals='{ "link":"/PORTAL/pqrs_2_consultar.html",
+                      "ico":"file-lines",
+                      "title":"Consultar una solicitud",
+                      "image":"tmp_servicio.png",
+                      "content":"Para nosotros es importante realizar seguimiento a tus solicitudes. Conoce el estado de tu caso"
+                  }'
                   ></include>
-
                   <include
                     src="PORTAL/p_home_servicio.html"
-                    locals='{ "link":"#", "ico": "file-lines",  "title":"Consulta novedades", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+                    locals='{ "link":"#",
+                    "ico": "file-lines",
+                    "title":"Consulta novedades",
+                    "image":"tmp_servicio.png",
+                    "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."
+                  }'
                   ></include>
                 </ul>
               </div>
@@ -229,15 +328,24 @@
           <ul class="servicios_articulos_item">
             <include
               src="PORTAL/p_home_articulo.html"
-              locals='{ "title":"5 consejos para aprovechar el seguro previsional", "image":"tmp_articulo.jpg", "content":"Laboris in officia irure duis irure aliqua do magna aliqua consectetur. Adipisicing occaecat qui ut voluptate ut Lorem in culpa est."}'
+              locals='{ "title":"5 consejos para aprovechar el seguro previsional",
+              "image":"tmp_articulo.jpg",
+              "content":"Laboris in officia irure duis irure aliqua do magna aliqua consectetur. Adipisicing occaecat qui ut voluptate ut Lorem in culpa est."
+            }'
             ></include>
             <include
               src="PORTAL/p_home_articulo.html"
-              locals='{ "title":"5 consejos para aprovechar el seguro previsional", "image":"tmp_articulo.jpg", "content":"Laboris in officia irure duis irure aliqua do magna aliqua consectetur. Adipisicing occaecat qui ut voluptate ut Lorem in culpa est."}'
+              locals='{ "title":"5 consejos para aprovechar el seguro previsional",
+              "image":"tmp_articulo.jpg",
+              "content":"Laboris in officia irure duis irure aliqua do magna aliqua consectetur. Adipisicing occaecat qui ut voluptate ut Lorem in culpa est."
+            }'
             ></include>
             <include
               src="PORTAL/p_home_articulo.html"
-              locals='{ "title":"5 consejos para aprovechar el seguro previsional", "image":"tmp_articulo.jpg", "content":"Laboris in officia irure duis irure aliqua do magna aliqua consectetur. Adipisicing occaecat qui ut voluptate ut Lorem in culpa est."}'
+              locals='{ "title":"5 consejos para aprovechar el seguro previsional",
+              "image":"tmp_articulo.jpg",
+              "content":"Laboris in officia irure duis irure aliqua do magna aliqua consectetur. Adipisicing occaecat qui ut voluptate ut Lorem in culpa est."
+            }'
             ></include>
           </ul>
         </div>

@@ -166,6 +166,18 @@ function handleMenu() {
   }
   open_menu = !open_menu;
 }
+const serviceLinks = document.querySelectorAll(".service_link a[href='#']");
+serviceLinks.forEach((link) => {
+  link.classList.add("disabled");
+});
+
+const serviceNavsLinks = document.querySelectorAll(
+  ".as__nav_links_ppal_li .dropdown-content a[href='#']"
+);
+
+serviceNavsLinks.forEach((link) => {
+  link.classList.add("disabled");
+});
 
 if (
   document.getElementById("servicios") &&

@@ -1,4 +1,8 @@
-<extends src="portal.html" locals='{ "id": "as__home", "top":"" }'>
+<extends
+  src="portal.html"
+  locals='{ "id": "as__home",
+"top":"" }'
+>
   <block name="head">
     <title>ASULADO Seguros de Vida</title>
     <meta name="title" content="ASULADO Seguros de Vida" />
@@ -34,9 +38,9 @@
       locals='{
         "cls":"",
         "ico":"user-pen",
-        "title":"Actualización de datos de contacto",
+        "title":"Actualización de datos",
         "image":"tmp_header.png",
-        "content":"Qui nulla non et proident fugiat sit nisi minim. Anim laborum ex fugiat eiusmod. Et reprehenderit veniam laboris fugiat dolore laboris ipsum amet. Nostrud anim elit consequat sunt ut laboris culpa."
+        "content":"¡Para nosotros es muy importante estar al día con tu información! Aquí puedes actualizar los datos más relevantes."
      }'
     ></include>
 
@@ -46,12 +50,21 @@
           <ul>
             <include
               src="PORTAL/p_link_servicio.html"
-              locals='{ "cls":"", "link":"/PORTAL/3_actualizacion_documentos.html", "ico": "file-invoice",  "title":"Actualización de documentos de identidad", "image":"tmp_servicio.png", "content":"Documento que reúne información sobre tu mesada pensional, incluyendo: valor mensual de la mesada, fecha y descuentos realizados."}'
+              locals='{ "cls":"",
+              "link":"/PORTAL/3_actualizacion_documentos.html",
+              "ico": "file-invoice",  "title":"Actualización de documentos de identidad",
+              "image":"tmp_servicio.png",
+              "content":"¡Mantén tu información al día! Tener tus documentos de identidad nos ayuda a protegerte y a garantizar un excelente servicio"}'
             ></include>
 
             <include
               src="PORTAL/p_link_servicio.html"
-              locals='{ "cls":"active", "link":"/PORTAL/3_actualizacion_contacto.html", "ico": "user-pen",  "title":"Actualización de datos de contacto", "image":"tmp_servicio.png", "content":"Certifica que recibes una mesada pensional de ASULADO. Reúne información sobre el tipo de pensión y la fecha desde cuándo formas parte de nuestra familia."}'
+              locals='{ "cls":"active",
+              "link":"/PORTAL/3_actualizacion_contacto.html",
+              "ico": "user-pen",  "title":"Actualización de datos de contacto",
+              "image":"tmp_servicio.png",
+              "content":"¡Aseguremos una buena comunicación! Tener actualizada tu información nos ayuda a ofrecerte la mejor atención"
+            }'
             ></include>
           </ul>
         </div>
@@ -63,9 +76,7 @@
         <div class="as__section_content_full pa__inter_content">
           <div class="pa_co_header"></div>
           <div class="pa_co_content">
-            <include
-              src="PORTAL/3_actualizacion/2_contacto.html"
-            ></include>
+            <include src="PORTAL/3_actualizacion/2_contacto.html"></include>
           </div>
           <div class="pa_co_footer prose"></div>
         </div>

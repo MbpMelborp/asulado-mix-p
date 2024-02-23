@@ -43,13 +43,25 @@ const novedades = [
   "2024-11-15",
   "2024-12-13",
 ];
+
 dayjs.extend(dayjsBusinessDays, options);
 
 export function setCalendar(gsap) {
-  if (document.getElementById("as__calendario")) {
-    const today = new Date();
-    const lastday = dayjs(today).lastBusinessDayOfMonth().format(`DD/MM/YYYY`);
+  const today = new Date();
+  const lastday = dayjs(today).lastBusinessDayOfMonth().format(`DD/MM/YYYY`);
 
+  if (document.getElementById("as__calendario_pay")) {
+    document.getElementById("as__calendario_pay").innerHTML = lastday;
+
+    const today = new Date();
+    const nextNovedad = novedades.find((date) => dayjs(date).isAfter(today));
+    document.getElementById("as__calendario_next").innerHTML = nextNovedad
+      .split("-")
+      .reverse()
+      .join("/");
+  }
+
+  if (document.getElementById("as__calendario")) {
     document.getElementById("proximo_pago").innerHTML = lastday;
 
     const calendar = new Calendar(".calendar", {

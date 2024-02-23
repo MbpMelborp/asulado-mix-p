@@ -1,4 +1,5 @@
 import { gsap } from "gsap";
+import { setCalendar } from "./calendar";
 
 const id_login = "pa__login";
 const pa__login = document.getElementById(id_login);
@@ -318,3 +319,6 @@ if (document.getElementById("as__ayuda")) {
     "0"
   );
 }
+
+//CALENDAR
+setCalendar(gsap);

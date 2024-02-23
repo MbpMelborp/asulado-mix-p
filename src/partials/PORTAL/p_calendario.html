@@ -1,10 +1,25 @@
-<div id="as__calendario" class="as__calendario">
+<div class="as__calendario">
   <nav>
     <h4><i class="fa-light fa-calendar-heart"></i> Calendario de pagos</h4>
-    <div class="cal_prox">El próximo pago será el <b> 29/12/2023 </b></div>
+    <div class="cal_prox">
+      El próximo pago será el <b id="as__calendario_pay"> </b>
+    </div>
     <div class="cal_max">
-      Fecha máxima para reportar tus novedades es <b>19/01/2024</b
-      ><a href="#">Reportar novedades</a>
+      Fecha máxima para reportar tus novedades es
+      <b id="as__calendario_next"></b
+      ><a class="tabs_link" data-tab="2" href="#servicios" data-hash="novedades"
+        >Reportar</a
+      >
+    </div>
+    <div class="cal_btn">
+      <a href="/PORTAL/calendario.html" class="as__button2 small">
+        <span>Ver calendario</span>
+        <i
+          role="presentation"
+          class="fa-light fa-arrow-right"
+          aria-hidden="true"
+        ></i>
+      </a>
     </div>
   </nav>
 </div>

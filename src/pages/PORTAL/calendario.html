@@ -1,0 +1,76 @@
+<extends src="portal.html" locals='{ "id": "as__home", "top":"" }'>
+  <block name="head">
+    <title>ASULADO Seguros de Vida</title>
+    <meta name="title" content="ASULADO Seguros de Vida" />
+    <meta
+      name="keywords"
+      content="Asulado seguros de vida, renta vitalicia, seguro previsional, pension anticipada"
+    />
+    <meta
+      name="description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta property="og:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="og:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:image" content="/assets/fb.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta property="twitter:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="twitter:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="twitter:image" content="/assets/fb.png" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="PORTAL/p_top.html"
+      locals='{
+      "cls":"",
+      "ico":"calendar-heart",
+      "title":"Calendario de pagos",
+      "image":"top_calendario.webp",
+      "content":"¡Conoce el calendario de pagos de tu mesada pensional como cliente de ASULADO!"
+   }'
+    ></include>
+
+    <div id="content" class="as__section pa__inter">
+      <div class="as__section_wrapper">
+        <div
+          id="as__calendario"
+          class="as__section_content_full pa__inter_content"
+        >
+          <div class="calendario-top">
+            <div class="calendario-top-info">
+              <div class="infop">
+                El próximo pago será el <span id="proximo_pago"></span>
+              </div>
+              <ul class="infot">
+                <li><span class="today"></span> Fecha actual</li>
+                <li>
+                  <span class="novedad"></span> Fecha máxima para reportar tus
+                  novedades y queden aplicadas el mismo mes, de lo contrario
+                  quedarán registradas para el siguiente mes
+                </li>
+                <li>
+                  <span class="last_day"></span> Fecha máxima para recibir el
+                  pago de tu pensión
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="calendar"></div>
+        </div>
+      </div>
+    </div>
+
+    <include src="PORTAL/p_ayuda.html"></include>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

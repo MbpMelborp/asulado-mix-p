@@ -383,7 +383,7 @@
     @apply bg-white;
   }
   .slds-grid {
-    @apply flex;
+    @apply flex gap-y-2;
   }
   .slds-grid_vertical {
     @apply flex-col;

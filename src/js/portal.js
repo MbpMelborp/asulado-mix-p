@@ -322,3 +322,52 @@ if (document.getElementById("as__ayuda")) {
 
 //CALENDAR
 setCalendar(gsap);
+
+if (document.getElementById("faqs")) {
+  const faq = document.querySelectorAll(".as__g_faqs_ls .fqs_list:first-child");
+  document.querySelectorAll(".as__g_faqs_ls .fqs_list").forEach((fq) => {
+    fq.children[0].children[0].addEventListener("click", (e) => {
+      e.preventDefault();
+      if (!e.target.parentElement.parentElement.classList.contains("active")) {
+        for (let ep of e.target.parentElement.parentElement.parentElement
+          .children) {
+          ep.classList.remove("active");
+        }
+        e.target.parentElement.parentElement.classList.add("active");
+      } else {
+        e.target.parentElement.parentElement.classList.remove("active");
+      }
+    });
+  });
+  faq.forEach((fq) => {
+    fq.classList.add("active");
+  });
+
+  document.getElementById("docs_tabs").selectedIndex = 0;
+  document.getElementById("docs_tabs").addEventListener("change", (e) => {
+    changeTab2(e.target.value);
+  });
+
+  const as = document.querySelectorAll(".tabs_link");
+
+  as.forEach((a) => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      const tab = e.target.dataset.tab;
+      changeTab2(tab);
+    });
+  });
+}
+
+function changeTab2(tab) {
+  document.getElementById("docs_tabs").selectedIndex = parseInt(tab);
+  document.querySelectorAll(".tabs_link").forEach((tabe) => {
+    if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
+    else tabe.classList.add("active");
+  });
+
+  document.querySelectorAll(".as__g_faqs_tcon_list_int").forEach((tabe) => {
+    if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
+    else tabe.classList.add("active");
+  });
+}

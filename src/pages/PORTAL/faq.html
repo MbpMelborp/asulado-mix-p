@@ -1,0 +1,97 @@
+<extends src="portal.html" locals='{ "id": "as__home", "top":"" }'>
+  <block name="head">
+    <title>ASULADO Seguros de Vida</title>
+    <meta name="title" content="ASULADO Seguros de Vida" />
+    <meta
+      name="keywords"
+      content="Asulado seguros de vida, renta vitalicia, seguro previsional, pension anticipada"
+    />
+    <meta
+      name="description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta property="og:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="og:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:image" content="/assets/fb.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta property="twitter:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="twitter:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="twitter:image" content="/assets/fb.png" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="PORTAL/p_top.html"
+      locals='{
+      "cls":"",
+      "ico":"message-question",
+      "title":"Preguntas frecuentes",
+      "image":"top_calendario.webp",
+      "content":"¡Conoce el calendario de pagos de tu mesada pensional como cliente de ASULADO!"
+   }'
+    ></include>
+    <include src="faqs/tabs.html" locals='{"cls":"pt-4"}'></include>
+    <section id="faqs_contenido" class="as__section as__g_faqs_tcon">
+      <div class="as__section_wrapper full">
+        <div class="as__section_content_full">
+          <ul class="as__g_faqs_tcon_list">
+            <include
+              src="faqs/faq_1.html"
+              locals='{
+                "cls": "active",
+                "data": "0"
+              }'
+            ></include>
+            <include
+              src="faqs/faq_2.html"
+              locals='{
+              "cls": "",
+              "data": "1"
+            }'
+            ></include>
+            <include
+              src="faqs/faq_3.html"
+              locals='{
+              "cls": "",
+              "data": "2"
+            }'
+            ></include>
+            <include
+              src="faqs/faq_4.html"
+              locals='{
+              "cls": "",
+              "data": "3"
+            }'
+            ></include>
+            <include
+              src="faqs/faq_5.html"
+              locals='{
+            "cls": "",
+            "data": "4"
+          }'
+            ></include>
+            <include
+              src="faqs/faq_6.html"
+              locals='{
+            "cls": "",
+            "data": "5"
+          }'
+            ></include>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <include src="PORTAL/p_ayuda.html"></include>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

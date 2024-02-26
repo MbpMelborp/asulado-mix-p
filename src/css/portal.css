@@ -1234,3 +1234,169 @@ body {
     }
   }
 }
+
+
+.as__g_documentos_tabs {
+  @apply bg-BG-4;
+  &.plain {
+    @apply bg-white;
+  }
+  .as__section_wrapper {
+    .as__g_documentos_tabs_int {
+      @apply bg-white z-0 overflow-hidden rounded-lg pt-4 px-4 pb-0;
+      &.pb {
+        @apply pb-4;
+      }
+      h2 {
+        @apply text-azul-norm font-je font-bold text-3xl my-8;
+      }
+      .as__doc_tabs_small {
+        @apply lg:hidden flex flex-col gap-y-4;
+        select {
+          @apply bg-BG-4 border border-gray-200 text-azul-norm text-xl rounded-lg focus:ring-4 focus:ring-blue-300 block w-full p-2.5;
+        }
+      }
+      .as__doc_tabs {
+        @apply hidden divide-x divide-gray-200 lg:flex items-stretch border-b border-b-gray-200;
+        li {
+          @apply text-azul-dark flex-1;
+          a {
+            @apply text-azul-dark flex flex-col w-full px-2 pt-2 pb-3 focus:ring-4 focus:ring-blue-300 focus:outline-none h-full transition-colors duration-500 ease-in-out;
+            * {
+              @apply select-none pointer-events-none;
+            }
+            i {
+              @apply transition-colors h-10 w-10 rounded-full text-white bg-azul-bright2 flex justify-center items-center mb-4 duration-500 ease-in-out;
+            }
+            b {
+              @apply mt-2 font-normal text-base leading-none font-je;
+            }
+            small {
+              @apply text-sm leading-none;
+            }
+            &.active {
+              @apply bg-[#E9F5F8] rounded-t-lg;
+              i {
+                @apply bg-transparent text-azul-dark;
+              }
+            }
+            &:hover {
+              @apply bg-[#E9F5F8];
+            }
+          }
+        }
+      }
+      .as__doc_tabs_info {
+        @apply hidden lg:flex gap-x-4 items-stretch;
+        li {
+          @apply text-azul-dark flex-1;
+          &:nth-child(odd) {
+            .tab_info {
+              @apply bg-[#F5FAFB];
+            }
+          }
+          &:nth-child(even) {
+            .tab_info {
+              @apply bg-[#E9F5F8];
+            }
+          }
+          .tab_info {
+            @apply text-azul-dark flex flex-col w-full px-4 pt-4 pb-4 h-full rounded-lg;
+            * {
+              @apply select-none pointer-events-none;
+            }
+            i {
+              @apply transition-colors h-9 w-9 rounded-full text-white bg-azul-bright2 flex justify-center items-center  duration-500 ease-in-out text-xl;
+              &.ico_t {
+                @apply font-je text-xl not-italic font-bold leading-[1me];
+              }
+            }
+            b {
+              @apply mt-4 font-bold text-lg text-azul-dark font-je leading-none mb-4;
+            }
+            p {
+              @apply text-base leading-[1.1em] font-light text-azul-dark;
+            }
+            small {
+              @apply text-sm leading-none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.as__g_faqs_tcon {
+  @apply bg-BG-4 pb-8;
+  .as__section_wrapper {
+    .as__g_faqs_tcon_list {
+      @apply bg-white rounded-b-lg p-4;
+      .as__g_faqs_tcon_list_int {
+        @apply hidden lg:px-8;
+        &.active {
+          @apply flex flex-col gap-y-8;
+        }
+        h3 {
+          @apply text-2xl text-azul-norm font-bold font-je;
+        }
+        ol.fqs {
+          counter-reset: item;
+          @apply flex flex-col gap-y-8 text-base text-azul-dark font-light;
+          .fqs_list {
+            counter-increment: item;
+            @apply flex gap-x-4 w-full pb-8 border-b border-gray-200;
+            .fqs_info {
+              @apply hidden;
+            }
+            &.active {
+              .fqs_info {
+                @apply flex flex-col gap-y-4;
+              }
+              h4 {
+                &:after {
+                  content: "\f0d8" !important;
+                }
+              }
+            }
+            &:before {
+              content: counter(item);
+              @apply flex-none rounded-full bg-amarillo-light text-azul-dark font-bold text-sm h-8 w-8 flex justify-center items-center leading-none;
+            }
+            .fqs_list_int {
+              @apply flex flex-col gap-y-6 flex-1;
+              h4 {
+                @apply text-azul-norm font-semibold text-lg w-full flex flex-row justify-between items-start cursor-pointer;
+                &:after {
+                  content: "\f0d7";
+                  font-family: "Font Awesome 6 Pro";
+                }
+              }
+              ul {
+                @apply list-disc list-outside pl-8 flex flex-col gap-y-2 text-base;
+              }
+              table {
+                @apply w-full text-base text-left;
+                thead {
+                  @apply text-base text-azul-dark uppercase bg-gray-50;
+                  tr {
+                    th {
+                      @apply px-6 py-2;
+                    }
+                  }
+                }
+                tbody {
+                  tr {
+                    td {
+                      @apply px-6 py-2 border-b text-sm border-gray-200;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

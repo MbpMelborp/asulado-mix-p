@@ -1237,7 +1237,7 @@ body {
 
 
 .as__g_documentos_tabs {
-  @apply bg-BG-4;
+  @apply bg-alpha-15;
   &.plain {
     @apply bg-white;
   }
@@ -1328,7 +1328,7 @@ body {
 }
 
 .as__g_faqs_tcon {
-  @apply bg-BG-4 pb-8;
+  @apply bg-gradient-to-b to-alpha-18 from-alpha-15 pb-8;
   .as__section_wrapper {
     .as__g_faqs_tcon_list {
       @apply bg-white rounded-b-lg p-4;

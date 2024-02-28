@@ -1065,6 +1065,9 @@ body {
 }
 
 .pa__forms {
+  .pa__forms_msg {
+    @apply my-2;
+  }
   form {
     @apply flex flex-col gap-0;
     &.pa__hlf {
@@ -1234,7 +1237,6 @@ body {
     }
   }
 }
-
 
 .as__g_documentos_tabs {
   @apply bg-alpha-15;

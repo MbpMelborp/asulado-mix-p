@@ -4,6 +4,16 @@ import { setCalendar } from "./calendar";
 const id_login = "pa__login";
 const pa__login = document.getElementById(id_login);
 
+if (document.getElementById("hora")) {
+  const horaElement = document.getElementById("hora");
+  const currentDate = new Date();
+  const hora = currentDate.getHours();
+  const minutos = currentDate.getMinutes();
+  const segundos = currentDate.getSeconds();
+  const fecha = currentDate.toLocaleDateString();
+
+  horaElement.innerHTML = `<b>Fecha y hora:</b> ${fecha} ${hora}:${minutos}:${segundos}`;
+}
 if (pa__login) {
   const tl_pa__login = gsap.timeline({ paused: false });
 

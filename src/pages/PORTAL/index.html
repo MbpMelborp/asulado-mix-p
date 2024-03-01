@@ -45,9 +45,11 @@
               />
             </div>
             <div class="pa_banner_content">
-              <h2>{Nombre}</h2>
+              <h2>¡Hola {!$User.FirstName}!</h2>
+
               <h3>
-                ¡Bienvenido a ASULADO, tu aliado en beneficios garantizados!
+                ¡{!$User.Genero__c} a ASULADO, tu aliado en beneficios
+                garantizados!
               </h3>
               <p>
                 Este es un lugar exclusivo para nuestros clientes ASULADO. Aquí
@@ -281,9 +283,9 @@
                     src="PORTAL/p_home_servicio.html"
                     locals='{ "link":"/PORTAL/pqrs_1_crear.html",
                     "ico": "file-invoice",
-                    "title":"Crear una Solicitud",
+                    "title":"Crear una solicitud",
                     "image":"tmp_servicio.png",
-                    "content":"¡Tus necesidades son importantes para nosotros! Realiza una Solicitud ahora."
+                    "content":"¡Tus necesidades son importantes para nosotros! Realiza una solicitud ahora."
                   }'
                   ></include>
                 </ul>
@@ -296,14 +298,14 @@
                       "ico":"file-lines",
                       "title":"Consultar una Solicitud",
                       "image":"tmp_servicio.png",
-                      "content":"¡Para nosotros es importante realizar seguimiento a tus solicitudes! Si recientemente realizaste una Solicitud puedes conocer el estado del proceso aquí."
+                      "content":"¡Para nosotros es importante realizar seguimiento a tus solicitudes! Si recientemente realizaste una solicitud puedes conocer el estado del proceso aquí."
                   }'
                   ></include>
                   <include
                     src="PORTAL/p_home_servicio.html"
                     locals='{ "link":"#",
                     "ico": "file-lines",
-                    "title":"Consulta Novedades",
+                    "title":"Consulta novedades",
                     "image":"tmp_servicio.png",
                     "content":"¡Tu bienestar es nuestra prioridad! Por eso puedes conocer el estado de la actualización de tus novedades de nómina aquí."
                   }'

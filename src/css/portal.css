@@ -350,6 +350,9 @@ body {
                   @apply text-base text-azul-bold;
                 }
               }
+              &.conex {
+                @apply text-sm text-azul-60 gap-y-1 flex gap-x-2 text-center px-8 py-2 border-b border-slate-300;
+              }
             }
           }
         }

@@ -446,7 +446,7 @@ body {
   }
   .as__footer_legals {
     @apply flex justify-center lg:justify-between flex-col gap-x-8 gap-y-8 py-8 text-azul-norm lg:flex-row lg:items-center lg:text-left text-center;
-    img{
+    img {
       @apply max-w-xs mx-auto lg:mx-0;
     }
     .as_footer_dir {
@@ -2195,6 +2195,9 @@ body {
         @apply w-full md:w-4/12 flex flex-col gap-y-2;
         img {
           @apply w-full mx-0;
+          &.crp {
+            @apply aspect-[3/4] object-top object-cover;
+          }
         }
         h4 {
           @apply text-azul-dark font-je text-lg font-normal leading-tight;
@@ -2205,7 +2208,8 @@ body {
       }
       .modal_info_int {
         @apply flex flex-col gap-y-4 w-full md:w-8/12;
-        h5 {
+        h5,
+        h4 {
           @apply text-azul-bright2 font-je text-2xl  leading-tight;
         }
         h6 {
@@ -2217,6 +2221,14 @@ body {
         }
         ul {
           @apply ml-4 flex flex-col gap-y-2 list-disc list-outside;
+        }
+        blockquote {
+          p {
+            @apply text-azul-dark text-xl font-light leading-tight;
+          }
+        }
+        a {
+          @apply text-2xl;
         }
       }
     }
@@ -2237,13 +2249,60 @@ body {
     }
   }
 }
-
+.g-alta-modal {
+  @apply modal modal-bottom sm:modal-middle;
+  .modal-box {
+    @apply p-0 rounded-xl;
+    .modal-action {
+      @apply mt-0;
+      button {
+        @apply z-20 ml-auto text-base text-azul-bold flex justify-center items-center;
+      }
+    }
+    .modal-content {
+      @apply flex flex-row gap-4 px-2 pt-0 pb-2;
+      img {
+        @apply w-2/5;
+      }
+      div {
+        @apply w-3/5;
+        h4 {
+          @apply text-azul-dark font-je text-lg font-normal leading-tight;
+        }
+        blockquote {
+          @apply text-azul-dark text-lg font-light;
+        }
+      }
+    }
+  }
+}
 .g-alta {
   @apply my-2 justify-center divide-slate-300 divide-y md:divide-y-0 divide-solid md:divide-x flex flex-col md:flex-row flex-wrap;
   li {
     @apply p-4 flex flex-col gap-y-2 w-full md:w-1/5;
     h4 {
       @apply text-azul-dark font-je text-lg font-normal leading-tight;
+    }
+    img {
+      @apply z-0;
+    }
+    button {
+      @apply z-20 ml-auto -mt-12 h-10 w-10 text-base bg-azul-bold text-white flex justify-center items-center;
+      .q {
+        @apply block;
+      }
+      .a {
+        @apply hidden;
+      }
+      &:hover {
+        @apply bg-azul-norm;
+        .q {
+          @apply hidden;
+        }
+        .a {
+          @apply block;
+        }
+      }
     }
   }
 }

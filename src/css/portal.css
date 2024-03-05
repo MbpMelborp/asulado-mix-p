@@ -1060,6 +1060,28 @@ body {
       &:focus-within {
         @apply border-azul-bright2 bg-alpha-10;
       }
+      .seacrh_result {
+        @apply flex flex-col gap-2;
+        h3 {
+          @apply text-azul-bold text-2xl font-je;
+        }
+
+        li {
+          @apply list-inside py-2 list-image-star-xs;
+          a {
+            @apply inline-block pb-1 text-base text-azul-bold underline underline-offset-2 hover:text-azul-dark;
+          }
+        }
+        .no_results {
+          @apply max-w-lg mx-auto w-full text-center;
+          h4{
+            @apply text-azul-bold text-2xl font-je mb-4;
+          }
+          img {
+            @apply w-full;
+          }
+        }
+      }
     }
   }
 }

@@ -4,7 +4,6 @@
   "description": "ASULADO LARAVEL MIX",
   "main": "tailwind.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npx mix watch",
     "prod": "npx mix --production",
     "devp": "cd dist && python3 -m http.server"
@@ -32,8 +31,6 @@
     "@egjs/flicking": "^4.11.0",
     "@egjs/flicking-plugins": "^4.7.1",
     "@studio-freight/lenis": "^1.0.27",
-    "alpinejs": "^3.13.1",
-    "chart.js": "^4.4.0",
     "dayjs-business-days2": "^1.2.2",
     "del": "^7.1.0",
     "gsap": "^3.12.5",

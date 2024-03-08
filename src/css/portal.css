@@ -1078,7 +1078,7 @@ body {
             @apply text-azul-bold text-2xl font-je mb-4;
           }
           img {
-            @apply w-full;
+            @apply w-full my-4;
           }
         }
       }

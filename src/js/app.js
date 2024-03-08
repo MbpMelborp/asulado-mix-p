@@ -1,9 +1,5 @@
 import Lenis from "@studio-freight/lenis";
 import { gsap } from "gsap";
-import Alpine from "alpinejs";
-
-window.Alpine = Alpine;
-Alpine.start();
 
 import {
   setHomeBanners,

@@ -100,6 +100,7 @@ if (document.getElementById("open_chat_btn")) {
 
 if (document.getElementById("faqs")) {
   const faq = document.querySelectorAll(".as__g_faqs_ls .fqs_list:first-child");
+
   document.querySelectorAll(".as__g_faqs_ls .fqs_list").forEach((fq) => {
     fq.children[0].children[0].addEventListener("click", (e) => {
       e.preventDefault();
@@ -121,7 +122,7 @@ if (document.getElementById("faqs")) {
   document.getElementById("docs_tabs").selectedIndex = 0;
   document.getElementById("docs_tabs").addEventListener("change", (e) => {
     changeTab2(e.target.value);
-    lenis.scrollTo("#documentos", {
+    lenis.scrollTo("#faqs", {
       offset: -60,
     });
   });

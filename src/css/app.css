@@ -1004,9 +1004,9 @@ body {
 }
 
 /** EMPRESA COMO */
-.as__video{
+.as__video {
   @apply py-24;
-  iframe{
+  iframe {
     @apply aspect-video max-w-3xl mx-auto w-full;
   }
 }
@@ -2463,6 +2463,125 @@ body {
       }
       p {
         @apply text-sm;
+      }
+    }
+  }
+}
+/*
+  * EDUCACION FINANCIERA
+  */
+
+.as__educacion_info {
+  @apply flex gap-4 py-8;
+  i {
+    @apply flex h-7 w-7 items-center justify-center rounded-full bg-azul-bright2 text-lg text-white;
+  }
+  p {
+    @apply text-azul-bold leading-tight max-w-4xl text-lg;
+  }
+}
+
+.as__g_educacion_tabs {
+  @apply bg-BG-4;
+  &.plain {
+    @apply bg-white;
+  }
+  .as__section_wrapper {
+    .as__g_educacion_tabs_int {
+      @apply bg-white z-0 overflow-hidden rounded-lg pt-4 px-4 pb-0;
+      &.pb {
+        @apply pb-4;
+      }
+      h2 {
+        @apply text-azul-norm font-je font-bold text-3xl my-8;
+      }
+      .as__doc_tabs_small {
+        @apply lg:hidden flex flex-col gap-y-4;
+        select {
+          @apply bg-BG-4 border border-gray-200 text-azul-norm text-xl rounded-lg focus:ring-4 focus:ring-blue-300 block w-full p-2.5;
+        }
+      }
+      .as__doc_tabs {
+        @apply hidden divide-x divide-gray-200 lg:flex items-stretch border-b border-b-gray-200;
+        li {
+          @apply text-azul-dark flex-1;
+          a {
+            @apply py-4 block rounded-sm;
+            * {
+              @apply select-none pointer-events-none;
+            }
+            .as__servicios_item {
+              @apply w-auto mx-auto flex flex-col gap-y-4;
+              .as__servicios_image {
+                @apply z-0 h-36 w-36 overflow-hidden rounded-full self-center;
+                &.img_renta {
+                  @apply bg-amarillo-light;
+                }
+                &.img_seguro {
+                  @apply bg-[#35A6C3];
+                }
+                img {
+                  @apply h-full w-full object-cover;
+                }
+              }
+              .as__servicios_content {
+                @apply mx-auto z-20 mb-4 mt-[-1em] flex h-auto flex-col space-y-4 md:mt-[-2em];
+                p {
+                  @apply relative mx-auto pr-12 font-je text-2xl font-bold leading-[0.8em] md:mx-0 md:pr-0;
+                  span {
+                    @apply font-normal relative z-10 block text-azul-dark;
+                  }
+                  b {
+                    @apply relative z-0 ml-8 inline-block rounded-full bg-azul-light px-4 pb-1 pt-2 font-normal text-azul-bold;
+                  }
+                }
+              }
+            }
+            &.active {
+              @apply border border-azul-40 bg-gradient-to-b  from-[#E9F3FA] via-white via-30%  to-white;
+            }
+            &:hover {
+              @apply bg-gradient-to-b  from-[#E9F3FA] via-white via-30%  to-white;
+            }
+          }
+        }
+      }
+      .as__doc_tabs_info {
+        @apply hidden lg:flex gap-x-4 items-stretch;
+        li {
+          @apply text-azul-dark flex-1;
+          &:nth-child(odd) {
+            .tab_info {
+              @apply bg-[#F5FAFB];
+            }
+          }
+          &:nth-child(even) {
+            .tab_info {
+              @apply bg-[#E9F5F8];
+            }
+          }
+          .tab_info {
+            @apply text-azul-dark flex flex-col w-full px-4 pt-4 pb-4 h-full rounded-lg;
+            * {
+              @apply select-none pointer-events-none;
+            }
+            i {
+              @apply transition-colors h-9 w-9 rounded-full text-white bg-azul-bright2 flex justify-center items-center  duration-500 ease-in-out text-xl;
+              &.ico_t {
+                @apply font-je text-xl not-italic font-bold leading-[1me];
+              }
+            }
+            b {
+              @apply mt-4 font-bold text-lg text-azul-dark font-je leading-none mb-4;
+            }
+            p {
+              @apply text-base leading-[1.1em] font-light text-azul-dark;
+            }
+            small {
+              @apply text-sm leading-none;
+            }
+          }
+        }
       }
     }
   }

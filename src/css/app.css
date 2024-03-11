@@ -2472,7 +2472,7 @@ body {
   */
 
 .as__educacion_info {
-  @apply flex gap-4 py-8;
+  @apply flex gap-4;
   i {
     @apply flex h-7 w-7 items-center justify-center rounded-full bg-azul-bright2 text-lg text-white;
   }
@@ -2480,7 +2480,12 @@ body {
     @apply text-azul-bold leading-tight max-w-4xl text-lg;
   }
 }
-
+.as__educa{
+  @apply bg-BG-4 py-8;
+  img.img_seguro{
+    @apply mix-blend-multiply w-full max-w-lg;
+  }
+}
 .as__g_educacion_tabs {
   @apply bg-BG-4;
   &.plain {

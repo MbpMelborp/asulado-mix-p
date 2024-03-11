@@ -1004,7 +1004,12 @@ body {
 }
 
 /** EMPRESA COMO */
-
+.as__video{
+  @apply py-24;
+  iframe{
+    @apply aspect-video max-w-3xl mx-auto w-full;
+  }
+}
 .as__como {
   @apply overflow-hidden bg-gradient-to-b from-[#E9F3FA] to-[#FBFBFB]  pb-12 pt-28;
   .as__section_content {

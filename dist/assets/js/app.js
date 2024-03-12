@@ -1,2 +1,15773 @@
-/*! For license information please see app.js.LICENSE.txt */
-(()=>{var __webpack_modules__={494:(t,e,n)=>{"use strict";function i(t,e,n){return Math.max(t,Math.min(e,n))}class r{advance(t){if(!this.isRunning)return;let e=!1;if(this.lerp)this.value=(n=this.value,r=this.to,s=60*this.lerp,o=t,function(t,e,n){return(1-n)*t+n*e}(n,r,1-Math.exp(-s*o))),Math.round(this.value)===this.to&&(this.value=this.to,e=!0);else{this.currentTime+=t;const n=i(0,this.currentTime/this.duration,1);e=n>=1;const r=e?1:this.easing(n);this.value=this.from+(this.to-this.from)*r}var n,r,s,o;this.onUpdate?.(this.value,e),e&&this.stop()}stop(){this.isRunning=!1}fromTo(t,e,{lerp:n=.1,duration:i=1,easing:r=(t=>t),onStart:s,onUpdate:o}){this.from=this.value=t,this.to=e,this.lerp=n,this.duration=i,this.easing=r,this.currentTime=0,this.isRunning=!0,s?.(),this.onUpdate=o}}class s{constructor({wrapper:t,content:e,autoResize:n=!0}={}){if(this.wrapper=t,this.content=e,n){const t=function(t,e){let n;return function(){let e=arguments,i=this;clearTimeout(n),n=setTimeout((function(){t.apply(i,e)}),250)}}(this.resize);this.wrapper!==window&&(this.wrapperResizeObserver=new ResizeObserver(t),this.wrapperResizeObserver.observe(this.wrapper)),this.contentResizeObserver=new ResizeObserver(t),this.contentResizeObserver.observe(this.content)}this.resize()}destroy(){this.wrapperResizeObserver?.disconnect(),this.contentResizeObserver?.disconnect()}resize=()=>{this.onWrapperResize(),this.onContentResize()};onWrapperResize=()=>{this.wrapper===window?(this.width=window.innerWidth,this.height=window.innerHeight):(this.width=this.wrapper.clientWidth,this.height=this.wrapper.clientHeight)};onContentResize=()=>{this.scrollHeight=this.content.scrollHeight,this.scrollWidth=this.content.scrollWidth};get limit(){return{x:this.scrollWidth-this.width,y:this.scrollHeight-this.height}}}class o{constructor(){this.events={}}emit(t,...e){let n=this.events[t]||[];for(let t=0,i=n.length;t<i;t++)n[t](...e)}on(t,e){return this.events[t]?.push(e)||(this.events[t]=[e]),()=>{this.events[t]=this.events[t]?.filter((t=>e!==t))}}off(t,e){this.events[t]=this.events[t]?.filter((t=>e!==t))}destroy(){this.events={}}}class a{constructor(t,{wheelMultiplier:e=1,touchMultiplier:n=2,normalizeWheel:i=!1}){this.element=t,this.wheelMultiplier=e,this.touchMultiplier=n,this.normalizeWheel=i,this.touchStart={x:null,y:null},this.emitter=new o,this.element.addEventListener("wheel",this.onWheel,{passive:!1}),this.element.addEventListener("touchstart",this.onTouchStart,{passive:!1}),this.element.addEventListener("touchmove",this.onTouchMove,{passive:!1}),this.element.addEventListener("touchend",this.onTouchEnd,{passive:!1})}on(t,e){return this.emitter.on(t,e)}destroy(){this.emitter.destroy(),this.element.removeEventListener("wheel",this.onWheel,{passive:!1}),this.element.removeEventListener("touchstart",this.onTouchStart,{passive:!1}),this.element.removeEventListener("touchmove",this.onTouchMove,{passive:!1}),this.element.removeEventListener("touchend",this.onTouchEnd,{passive:!1})}onTouchStart=t=>{const{clientX:e,clientY:n}=t.targetTouches?t.targetTouches[0]:t;this.touchStart.x=e,this.touchStart.y=n,this.lastDelta={x:0,y:0},this.emitter.emit("scroll",{deltaX:0,deltaY:0,event:t})};onTouchMove=t=>{const{clientX:e,clientY:n}=t.targetTouches?t.targetTouches[0]:t,i=-(e-this.touchStart.x)*this.touchMultiplier,r=-(n-this.touchStart.y)*this.touchMultiplier;this.touchStart.x=e,this.touchStart.y=n,this.lastDelta={x:i,y:r},this.emitter.emit("scroll",{deltaX:i,deltaY:r,event:t})};onTouchEnd=t=>{this.emitter.emit("scroll",{deltaX:this.lastDelta.x,deltaY:this.lastDelta.y,event:t})};onWheel=t=>{let{deltaX:e,deltaY:n}=t;this.normalizeWheel&&(e=i(-100,e,100),n=i(-100,n,100)),e*=this.wheelMultiplier,n*=this.wheelMultiplier,this.emitter.emit("scroll",{deltaX:e,deltaY:n,event:t})}}function l(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}function c(t,e){t.prototype=Object.create(e.prototype),t.prototype.constructor=t,t.__proto__=e}var u,d,h,p,f,_,m,g,y,v,b,D,w,E,T,S={autoSleep:120,force3D:"auto",nullTargetWarn:1,units:{lineHeight:""}},x={duration:.5,overwrite:!1,delay:0},P=1e8,M=1e-8,k=2*Math.PI,O=k/4,C=0,L=Math.sqrt,I=Math.cos,A=Math.sin,R=function(t){return"string"==typeof t},B=function(t){return"function"==typeof t},N=function(t){return"number"==typeof t},Y=function(t){return void 0===t},W=function(t){return"object"==typeof t},H=function(t){return!1!==t},F=function(){return"undefined"!=typeof window},q=function(t){return B(t)||R(t)},z="function"==typeof ArrayBuffer&&ArrayBuffer.isView||function(){},U=Array.isArray,j=/(?:-?\.?\d|\.)+/gi,V=/[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g,X=/[-+=.]*\d+[.e-]*\d*[a-z%]*/g,$=/[-+=.]*\d+\.?\d*(?:e-|e\+)?\d*/gi,K=/[+-]=-?[.\d]+/,G=/[^,'"\[\]\s]+/gi,Z=/^[+\-=e\s\d]*\d+[.\d]*([a-z]*|%)\s*$/i,J={},Q={},tt=function(t){return(Q=kt(t,J))&&Cn},et=function(t,e){return console.warn("Invalid property",t,"set to",e,"Missing plugin? gsap.registerPlugin()")},nt=function(t,e){return!e&&console.warn(t)},it=function(t,e){return t&&(J[t]=e)&&Q&&(Q[t]=e)||J},rt=function(){return 0},st={suppressEvents:!0,isStart:!0,kill:!1},ot={suppressEvents:!0,kill:!1},at={suppressEvents:!0},lt={},ct=[],ut={},dt={},ht={},pt=30,ft=[],_t="",mt=function(t){var e,n,i=t[0];if(W(i)||B(i)||(t=[t]),!(e=(i._gsap||{}).harness)){for(n=ft.length;n--&&!ft[n].targetTest(i););e=ft[n]}for(n=t.length;n--;)t[n]&&(t[n]._gsap||(t[n]._gsap=new Ue(t[n],e)))||t.splice(n,1);return t},gt=function(t){return t._gsap||mt(ae(t))[0]._gsap},yt=function(t,e,n){return(n=t[e])&&B(n)?t[e]():Y(n)&&t.getAttribute&&t.getAttribute(e)||n},vt=function(t,e){return(t=t.split(",")).forEach(e)||t},bt=function(t){return Math.round(1e5*t)/1e5||0},Dt=function(t){return Math.round(1e7*t)/1e7||0},wt=function(t,e){var n=e.charAt(0),i=parseFloat(e.substr(2));return t=parseFloat(t),"+"===n?t+i:"-"===n?t-i:"*"===n?t*i:t/i},Et=function(t,e){for(var n=e.length,i=0;t.indexOf(e[i])<0&&++i<n;);return i<n},Tt=function(){var t,e,n=ct.length,i=ct.slice(0);for(ut={},ct.length=0,t=0;t<n;t++)(e=i[t])&&e._lazy&&(e.render(e._lazy[0],e._lazy[1],!0)._lazy=0)},St=function(t,e,n,i){ct.length&&!d&&Tt(),t.render(e,n,i||d&&e<0&&(t._initted||t._startAt)),ct.length&&!d&&Tt()},xt=function(t){var e=parseFloat(t);return(e||0===e)&&(t+"").match(G).length<2?e:R(t)?t.trim():t},Pt=function(t){return t},Mt=function(t,e){for(var n in e)n in t||(t[n]=e[n]);return t},kt=function(t,e){for(var n in e)t[n]=e[n];return t},Ot=function t(e,n){for(var i in n)"__proto__"!==i&&"constructor"!==i&&"prototype"!==i&&(e[i]=W(n[i])?t(e[i]||(e[i]={}),n[i]):n[i]);return e},Ct=function(t,e){var n,i={};for(n in t)n in e||(i[n]=t[n]);return i},Lt=function(t){var e,n=t.parent||p,i=t.keyframes?(e=U(t.keyframes),function(t,n){for(var i in n)i in t||"duration"===i&&e||"ease"===i||(t[i]=n[i])}):Mt;if(H(t.inherit))for(;n;)i(t,n.vars.defaults),n=n.parent||n._dp;return t},It=function(t,e,n,i,r){void 0===n&&(n="_first"),void 0===i&&(i="_last");var s,o=t[i];if(r)for(s=e[r];o&&o[r]>s;)o=o._prev;return o?(e._next=o._next,o._next=e):(e._next=t[n],t[n]=e),e._next?e._next._prev=e:t[i]=e,e._prev=o,e.parent=e._dp=t,e},At=function(t,e,n,i){void 0===n&&(n="_first"),void 0===i&&(i="_last");var r=e._prev,s=e._next;r?r._next=s:t[n]===e&&(t[n]=s),s?s._prev=r:t[i]===e&&(t[i]=r),e._next=e._prev=e.parent=null},Rt=function(t,e){t.parent&&(!e||t.parent.autoRemoveChildren)&&t.parent.remove&&t.parent.remove(t),t._act=0},Bt=function(t,e){if(t&&(!e||e._end>t._dur||e._start<0))for(var n=t;n;)n._dirty=1,n=n.parent;return t},Nt=function(t,e,n,i){return t._startAt&&(d?t._startAt.revert(ot):t.vars.immediateRender&&!t.vars.autoRevert||t._startAt.render(e,!0,i))},Yt=function t(e){return!e||e._ts&&t(e.parent)},Wt=function(t){return t._repeat?Ht(t._tTime,t=t.duration()+t._rDelay)*t:0},Ht=function(t,e){var n=Math.floor(t/=e);return t&&n===t?n-1:n},Ft=function(t,e){return(t-e._start)*e._ts+(e._ts>=0?0:e._dirty?e.totalDuration():e._tDur)},qt=function(t){return t._end=Dt(t._start+(t._tDur/Math.abs(t._ts||t._rts||M)||0))},zt=function(t,e){var n=t._dp;return n&&n.smoothChildTiming&&t._ts&&(t._start=Dt(n._time-(t._ts>0?e/t._ts:((t._dirty?t.totalDuration():t._tDur)-e)/-t._ts)),qt(t),n._dirty||Bt(n,t)),t},Ut=function(t,e){var n;if((e._time||!e._dur&&e._initted||e._start<t._time&&(e._dur||!e.add))&&(n=Ft(t.rawTime(),e),(!e._dur||ne(0,e.totalDuration(),n)-e._tTime>M)&&e.render(n,!0)),Bt(t,e)._dp&&t._initted&&t._time>=t._dur&&t._ts){if(t._dur<t.duration())for(n=t;n._dp;)n.rawTime()>=0&&n.totalTime(n._tTime),n=n._dp;t._zTime=-1e-8}},jt=function(t,e,n,i){return e.parent&&Rt(e),e._start=Dt((N(n)?n:n||t!==p?Qt(t,n,e):t._time)+e._delay),e._end=Dt(e._start+(e.totalDuration()/Math.abs(e.timeScale())||0)),It(t,e,"_first","_last",t._sort?"_start":0),Kt(e)||(t._recent=e),i||Ut(t,e),t._ts<0&&zt(t,t._tTime),t},Vt=function(t,e){return(J.ScrollTrigger||et("scrollTrigger",e))&&J.ScrollTrigger.create(e,t)},Xt=function(t,e,n,i,r){return Je(t,e,r),t._initted?!n&&t._pt&&!d&&(t._dur&&!1!==t.vars.lazy||!t._dur&&t.vars.lazy)&&y!==Ce.frame?(ct.push(t),t._lazy=[r,i],1):void 0:1},$t=function t(e){var n=e.parent;return n&&n._ts&&n._initted&&!n._lock&&(n.rawTime()<0||t(n))},Kt=function(t){var e=t.data;return"isFromStart"===e||"isStart"===e},Gt=function(t,e,n,i){var r=t._repeat,s=Dt(e)||0,o=t._tTime/t._tDur;return o&&!i&&(t._time*=s/t._dur),t._dur=s,t._tDur=r?r<0?1e10:Dt(s*(r+1)+t._rDelay*r):s,o>0&&!i&&zt(t,t._tTime=t._tDur*o),t.parent&&qt(t),n||Bt(t.parent,t),t},Zt=function(t){return t instanceof Ve?Bt(t):Gt(t,t._dur)},Jt={_start:0,endTime:rt,totalDuration:rt},Qt=function t(e,n,i){var r,s,o,a=e.labels,l=e._recent||Jt,c=e.duration()>=P?l.endTime(!1):e._dur;return R(n)&&(isNaN(n)||n in a)?(s=n.charAt(0),o="%"===n.substr(-1),r=n.indexOf("="),"<"===s||">"===s?(r>=0&&(n=n.replace(/=/,"")),("<"===s?l._start:l.endTime(l._repeat>=0))+(parseFloat(n.substr(1))||0)*(o?(r<0?l:i).totalDuration()/100:1)):r<0?(n in a||(a[n]=c),a[n]):(s=parseFloat(n.charAt(r-1)+n.substr(r+1)),o&&i&&(s=s/100*(U(i)?i[0]:i).totalDuration()),r>1?t(e,n.substr(0,r-1),i)+s:c+s)):null==n?c:+n},te=function(t,e,n){var i,r,s=N(e[1]),o=(s?2:1)+(t<2?0:1),a=e[o];if(s&&(a.duration=e[1]),a.parent=n,t){for(i=a,r=n;r&&!("immediateRender"in i);)i=r.vars.defaults||{},r=H(r.vars.inherit)&&r.parent;a.immediateRender=H(i.immediateRender),t<2?a.runBackwards=1:a.startAt=e[o-1]}return new rn(e[0],a,e[o+1])},ee=function(t,e){return t||0===t?e(t):e},ne=function(t,e,n){return n<t?t:n>e?e:n},ie=function(t,e){return R(t)&&(e=Z.exec(t))?e[1]:""},re=[].slice,se=function(t,e){return t&&W(t)&&"length"in t&&(!e&&!t.length||t.length-1 in t&&W(t[0]))&&!t.nodeType&&t!==f},oe=function(t,e,n){return void 0===n&&(n=[]),t.forEach((function(t){var i;return R(t)&&!e||se(t,1)?(i=n).push.apply(i,ae(t)):n.push(t)}))||n},ae=function(t,e,n){return h&&!e&&h.selector?h.selector(t):!R(t)||n||!_&&Le()?U(t)?oe(t,n):se(t)?re.call(t,0):t?[t]:[]:re.call((e||m).querySelectorAll(t),0)},le=function(t){return t=ae(t)[0]||nt("Invalid scope")||{},function(e){var n=t.current||t.nativeElement||t;return ae(e,n.querySelectorAll?n:n===t?nt("Invalid scope")||m.createElement("div"):t)}},ce=function(t){return t.sort((function(){return.5-Math.random()}))},ue=function(t){if(B(t))return t;var e=W(t)?t:{each:t},n=We(e.ease),i=e.from||0,r=parseFloat(e.base)||0,s={},o=i>0&&i<1,a=isNaN(i)||o,l=e.axis,c=i,u=i;return R(i)?c=u={center:.5,edges:.5,end:1}[i]||0:!o&&a&&(c=i[0],u=i[1]),function(t,o,d){var h,p,f,_,m,g,y,v,b,D=(d||e).length,w=s[D];if(!w){if(!(b="auto"===e.grid?0:(e.grid||[1,P])[1])){for(y=-P;y<(y=d[b++].getBoundingClientRect().left)&&b<D;);b<D&&b--}for(w=s[D]=[],h=a?Math.min(b,D)*c-.5:i%b,p=b===P?0:a?D*u/b-.5:i/b|0,y=0,v=P,g=0;g<D;g++)f=g%b-h,_=p-(g/b|0),w[g]=m=l?Math.abs("y"===l?_:f):L(f*f+_*_),m>y&&(y=m),m<v&&(v=m);"random"===i&&ce(w),w.max=y-v,w.min=v,w.v=D=(parseFloat(e.amount)||parseFloat(e.each)*(b>D?D-1:l?"y"===l?D/b:b:Math.max(b,D/b))||0)*("edges"===i?-1:1),w.b=D<0?r-D:r,w.u=ie(e.amount||e.each)||0,n=n&&D<0?Ne(n):n}return D=(w[t]-w.min)/w.max||0,Dt(w.b+(n?n(D):D)*w.v)+w.u}},de=function(t){var e=Math.pow(10,((t+"").split(".")[1]||"").length);return function(n){var i=Dt(Math.round(parseFloat(n)/t)*t*e);return(i-i%1)/e+(N(n)?0:ie(n))}},he=function(t,e){var n,i,r=U(t);return!r&&W(t)&&(n=r=t.radius||P,t.values?(t=ae(t.values),(i=!N(t[0]))&&(n*=n)):t=de(t.increment)),ee(e,r?B(t)?function(e){return i=t(e),Math.abs(i-e)<=n?i:e}:function(e){for(var r,s,o=parseFloat(i?e.x:e),a=parseFloat(i?e.y:0),l=P,c=0,u=t.length;u--;)(r=i?(r=t[u].x-o)*r+(s=t[u].y-a)*s:Math.abs(t[u]-o))<l&&(l=r,c=u);return c=!n||l<=n?t[c]:e,i||c===e||N(e)?c:c+ie(e)}:de(t))},pe=function(t,e,n,i){return ee(U(t)?!e:!0===n?!!(n=0):!i,(function(){return U(t)?t[~~(Math.random()*t.length)]:(n=n||1e-5)&&(i=n<1?Math.pow(10,(n+"").length-2):1)&&Math.floor(Math.round((t-n/2+Math.random()*(e-t+.99*n))/n)*n*i)/i}))},fe=function(t,e,n){return ee(n,(function(n){return t[~~e(n)]}))},_e=function(t){for(var e,n,i,r,s=0,o="";~(e=t.indexOf("random(",s));)i=t.indexOf(")",e),r="["===t.charAt(e+7),n=t.substr(e+7,i-e-7).match(r?G:j),o+=t.substr(s,e-s)+pe(r?n:+n[0],r?0:+n[1],+n[2]||1e-5),s=i+1;return o+t.substr(s,t.length-s)},me=function(t,e,n,i,r){var s=e-t,o=i-n;return ee(r,(function(e){return n+((e-t)/s*o||0)}))},ge=function(t,e,n){var i,r,s,o=t.labels,a=P;for(i in o)(r=o[i]-e)<0==!!n&&r&&a>(r=Math.abs(r))&&(s=i,a=r);return s},ye=function(t,e,n){var i,r,s,o=t.vars,a=o[e],l=h,c=t._ctx;if(a)return i=o[e+"Params"],r=o.callbackScope||t,n&&ct.length&&Tt(),c&&(h=c),s=i?a.apply(r,i):a.call(r),h=l,s},ve=function(t){return Rt(t),t.scrollTrigger&&t.scrollTrigger.kill(!!d),t.progress()<1&&ye(t,"onInterrupt"),t},be=[],De=function(t){if(t)if(t=!t.name&&t.default||t,F()||t.headless){var e=t.name,n=B(t),i=e&&!n&&t.init?function(){this._props=[]}:t,r={init:rt,render:pn,add:Ge,kill:_n,modifier:fn,rawVars:0},s={targetTest:0,get:0,getSetter:cn,aliases:{},register:0};if(Le(),t!==i){if(dt[e])return;Mt(i,Mt(Ct(t,r),s)),kt(i.prototype,kt(r,Ct(t,s))),dt[i.prop=e]=i,t.targetTest&&(ft.push(i),lt[e]=1),e=("css"===e?"CSS":e.charAt(0).toUpperCase()+e.substr(1))+"Plugin"}it(e,i),t.register&&t.register(Cn,i,yn)}else be.push(t)},we=255,Ee={aqua:[0,we,we],lime:[0,we,0],silver:[192,192,192],black:[0,0,0],maroon:[128,0,0],teal:[0,128,128],blue:[0,0,we],navy:[0,0,128],white:[we,we,we],olive:[128,128,0],yellow:[we,we,0],orange:[we,165,0],gray:[128,128,128],purple:[128,0,128],green:[0,128,0],red:[we,0,0],pink:[we,192,203],cyan:[0,we,we],transparent:[we,we,we,0]},Te=function(t,e,n){return(6*(t+=t<0?1:t>1?-1:0)<1?e+(n-e)*t*6:t<.5?n:3*t<2?e+(n-e)*(2/3-t)*6:e)*we+.5|0},Se=function(t,e,n){var i,r,s,o,a,l,c,u,d,h,p=t?N(t)?[t>>16,t>>8&we,t&we]:0:Ee.black;if(!p){if(","===t.substr(-1)&&(t=t.substr(0,t.length-1)),Ee[t])p=Ee[t];else if("#"===t.charAt(0)){if(t.length<6&&(i=t.charAt(1),r=t.charAt(2),s=t.charAt(3),t="#"+i+i+r+r+s+s+(5===t.length?t.charAt(4)+t.charAt(4):"")),9===t.length)return[(p=parseInt(t.substr(1,6),16))>>16,p>>8&we,p&we,parseInt(t.substr(7),16)/255];p=[(t=parseInt(t.substr(1),16))>>16,t>>8&we,t&we]}else if("hsl"===t.substr(0,3))if(p=h=t.match(j),e){if(~t.indexOf("="))return p=t.match(V),n&&p.length<4&&(p[3]=1),p}else o=+p[0]%360/360,a=+p[1]/100,i=2*(l=+p[2]/100)-(r=l<=.5?l*(a+1):l+a-l*a),p.length>3&&(p[3]*=1),p[0]=Te(o+1/3,i,r),p[1]=Te(o,i,r),p[2]=Te(o-1/3,i,r);else p=t.match(j)||Ee.transparent;p=p.map(Number)}return e&&!h&&(i=p[0]/we,r=p[1]/we,s=p[2]/we,l=((c=Math.max(i,r,s))+(u=Math.min(i,r,s)))/2,c===u?o=a=0:(d=c-u,a=l>.5?d/(2-c-u):d/(c+u),o=c===i?(r-s)/d+(r<s?6:0):c===r?(s-i)/d+2:(i-r)/d+4,o*=60),p[0]=~~(o+.5),p[1]=~~(100*a+.5),p[2]=~~(100*l+.5)),n&&p.length<4&&(p[3]=1),p},xe=function(t){var e=[],n=[],i=-1;return t.split(Me).forEach((function(t){var r=t.match(X)||[];e.push.apply(e,r),n.push(i+=r.length+1)})),e.c=n,e},Pe=function(t,e,n){var i,r,s,o,a="",l=(t+a).match(Me),c=e?"hsla(":"rgba(",u=0;if(!l)return t;if(l=l.map((function(t){return(t=Se(t,e,1))&&c+(e?t[0]+","+t[1]+"%,"+t[2]+"%,"+t[3]:t.join(","))+")"})),n&&(s=xe(t),(i=n.c).join(a)!==s.c.join(a)))for(o=(r=t.replace(Me,"1").split(X)).length-1;u<o;u++)a+=r[u]+(~i.indexOf(u)?l.shift()||c+"0,0,0,0)":(s.length?s:l.length?l:n).shift());if(!r)for(o=(r=t.split(Me)).length-1;u<o;u++)a+=r[u]+l[u];return a+r[o]},Me=function(){var t,e="(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3,4}){1,2}\\b";for(t in Ee)e+="|"+t+"\\b";return new RegExp(e+")","gi")}(),ke=/hsl[a]?\(/,Oe=function(t){var e,n=t.join(" ");if(Me.lastIndex=0,Me.test(n))return e=ke.test(n),t[1]=Pe(t[1],e),t[0]=Pe(t[0],e,xe(t[1])),!0},Ce=function(){var t,e,n,i,r,s,o=Date.now,a=500,l=33,c=o(),u=c,d=1e3/240,h=d,p=[],y=function n(f){var _,m,g,y,v=o()-u,b=!0===f;if((v>a||v<0)&&(c+=v-l),((_=(g=(u+=v)-c)-h)>0||b)&&(y=++i.frame,r=g-1e3*i.time,i.time=g/=1e3,h+=_+(_>=d?4:d-_),m=1),b||(t=e(n)),m)for(s=0;s<p.length;s++)p[s](g,r,y,f)};return i={time:0,frame:0,tick:function(){y(!0)},deltaRatio:function(t){return r/(1e3/(t||60))},wake:function(){g&&(!_&&F()&&(f=_=window,m=f.document||{},J.gsap=Cn,(f.gsapVersions||(f.gsapVersions=[])).push(Cn.version),tt(Q||f.GreenSockGlobals||!f.gsap&&f||{}),be.forEach(De)),n="undefined"!=typeof requestAnimationFrame&&requestAnimationFrame,t&&i.sleep(),e=n||function(t){return setTimeout(t,h-1e3*i.time+1|0)},b=1,y(2))},sleep:function(){(n?cancelAnimationFrame:clearTimeout)(t),b=0,e=rt},lagSmoothing:function(t,e){a=t||1/0,l=Math.min(e||33,a)},fps:function(t){d=1e3/(t||240),h=1e3*i.time+d},add:function(t,e,n){var r=e?function(e,n,s,o){t(e,n,s,o),i.remove(r)}:t;return i.remove(t),p[n?"unshift":"push"](r),Le(),r},remove:function(t,e){~(e=p.indexOf(t))&&p.splice(e,1)&&s>=e&&s--},_listeners:p},i}(),Le=function(){return!b&&Ce.wake()},Ie={},Ae=/^[\d.\-M][\d.\-,\s]/,Re=/["']/g,Be=function(t){for(var e,n,i,r={},s=t.substr(1,t.length-3).split(":"),o=s[0],a=1,l=s.length;a<l;a++)n=s[a],e=a!==l-1?n.lastIndexOf(","):n.length,i=n.substr(0,e),r[o]=isNaN(i)?i.replace(Re,"").trim():+i,o=n.substr(e+1).trim();return r},Ne=function(t){return function(e){return 1-t(1-e)}},Ye=function t(e,n){for(var i,r=e._first;r;)r instanceof Ve?t(r,n):!r.vars.yoyoEase||r._yoyo&&r._repeat||r._yoyo===n||(r.timeline?t(r.timeline,n):(i=r._ease,r._ease=r._yEase,r._yEase=i,r._yoyo=n)),r=r._next},We=function(t,e){return t&&(B(t)?t:Ie[t]||function(t){var e,n,i,r,s=(t+"").split("("),o=Ie[s[0]];return o&&s.length>1&&o.config?o.config.apply(null,~t.indexOf("{")?[Be(s[1])]:(e=t,n=e.indexOf("(")+1,i=e.indexOf(")"),r=e.indexOf("(",n),e.substring(n,~r&&r<i?e.indexOf(")",i+1):i)).split(",").map(xt)):Ie._CE&&Ae.test(t)?Ie._CE("",t):o}(t))||e},He=function(t,e,n,i){void 0===n&&(n=function(t){return 1-e(1-t)}),void 0===i&&(i=function(t){return t<.5?e(2*t)/2:1-e(2*(1-t))/2});var r,s={easeIn:e,easeOut:n,easeInOut:i};return vt(t,(function(t){for(var e in Ie[t]=J[t]=s,Ie[r=t.toLowerCase()]=n,s)Ie[r+("easeIn"===e?".in":"easeOut"===e?".out":".inOut")]=Ie[t+"."+e]=s[e]})),s},Fe=function(t){return function(e){return e<.5?(1-t(1-2*e))/2:.5+t(2*(e-.5))/2}},qe=function t(e,n,i){var r=n>=1?n:1,s=(i||(e?.3:.45))/(n<1?n:1),o=s/k*(Math.asin(1/r)||0),a=function(t){return 1===t?1:r*Math.pow(2,-10*t)*A((t-o)*s)+1},l="out"===e?a:"in"===e?function(t){return 1-a(1-t)}:Fe(a);return s=k/s,l.config=function(n,i){return t(e,n,i)},l},ze=function t(e,n){void 0===n&&(n=1.70158);var i=function(t){return t?--t*t*((n+1)*t+n)+1:0},r="out"===e?i:"in"===e?function(t){return 1-i(1-t)}:Fe(i);return r.config=function(n){return t(e,n)},r};vt("Linear,Quad,Cubic,Quart,Quint,Strong",(function(t,e){var n=e<5?e+1:e;He(t+",Power"+(n-1),e?function(t){return Math.pow(t,n)}:function(t){return t},(function(t){return 1-Math.pow(1-t,n)}),(function(t){return t<.5?Math.pow(2*t,n)/2:1-Math.pow(2*(1-t),n)/2}))})),Ie.Linear.easeNone=Ie.none=Ie.Linear.easeIn,He("Elastic",qe("in"),qe("out"),qe()),D=7.5625,E=1/(w=2.75),He("Bounce",(function(t){return 1-T(1-t)}),T=function(t){return t<E?D*t*t:t<.7272727272727273?D*Math.pow(t-1.5/w,2)+.75:t<.9090909090909092?D*(t-=2.25/w)*t+.9375:D*Math.pow(t-2.625/w,2)+.984375}),He("Expo",(function(t){return t?Math.pow(2,10*(t-1)):0})),He("Circ",(function(t){return-(L(1-t*t)-1)})),He("Sine",(function(t){return 1===t?1:1-I(t*O)})),He("Back",ze("in"),ze("out"),ze()),Ie.SteppedEase=Ie.steps=J.SteppedEase={config:function(t,e){void 0===t&&(t=1);var n=1/t,i=t+(e?0:1),r=e?1:0;return function(t){return((i*ne(0,.99999999,t)|0)+r)*n}}},x.ease=Ie["quad.out"],vt("onComplete,onUpdate,onStart,onRepeat,onReverseComplete,onInterrupt",(function(t){return _t+=t+","+t+"Params,"}));var Ue=function(t,e){this.id=C++,t._gsap=this,this.target=t,this.harness=e,this.get=e?e.get:yt,this.set=e?e.getSetter:cn},je=function(){function t(t){this.vars=t,this._delay=+t.delay||0,(this._repeat=t.repeat===1/0?-2:t.repeat||0)&&(this._rDelay=t.repeatDelay||0,this._yoyo=!!t.yoyo||!!t.yoyoEase),this._ts=1,Gt(this,+t.duration,1,1),this.data=t.data,h&&(this._ctx=h,h.data.push(this)),b||Ce.wake()}var e=t.prototype;return e.delay=function(t){return t||0===t?(this.parent&&this.parent.smoothChildTiming&&this.startTime(this._start+t-this._delay),this._delay=t,this):this._delay},e.duration=function(t){return arguments.length?this.totalDuration(this._repeat>0?t+(t+this._rDelay)*this._repeat:t):this.totalDuration()&&this._dur},e.totalDuration=function(t){return arguments.length?(this._dirty=0,Gt(this,this._repeat<0?t:(t-this._repeat*this._rDelay)/(this._repeat+1))):this._tDur},e.totalTime=function(t,e){if(Le(),!arguments.length)return this._tTime;var n=this._dp;if(n&&n.smoothChildTiming&&this._ts){for(zt(this,t),!n._dp||n.parent||Ut(n,this);n&&n.parent;)n.parent._time!==n._start+(n._ts>=0?n._tTime/n._ts:(n.totalDuration()-n._tTime)/-n._ts)&&n.totalTime(n._tTime,!0),n=n.parent;!this.parent&&this._dp.autoRemoveChildren&&(this._ts>0&&t<this._tDur||this._ts<0&&t>0||!this._tDur&&!t)&&jt(this._dp,this,this._start-this._delay)}return(this._tTime!==t||!this._dur&&!e||this._initted&&Math.abs(this._zTime)===M||!t&&!this._initted&&(this.add||this._ptLookup))&&(this._ts||(this._pTime=t),St(this,t,e)),this},e.time=function(t,e){return arguments.length?this.totalTime(Math.min(this.totalDuration(),t+Wt(this))%(this._dur+this._rDelay)||(t?this._dur:0),e):this._time},e.totalProgress=function(t,e){return arguments.length?this.totalTime(this.totalDuration()*t,e):this.totalDuration()?Math.min(1,this._tTime/this._tDur):this.rawTime()>0?1:0},e.progress=function(t,e){return arguments.length?this.totalTime(this.duration()*(!this._yoyo||1&this.iteration()?t:1-t)+Wt(this),e):this.duration()?Math.min(1,this._time/this._dur):this.rawTime()>0?1:0},e.iteration=function(t,e){var n=this.duration()+this._rDelay;return arguments.length?this.totalTime(this._time+(t-1)*n,e):this._repeat?Ht(this._tTime,n)+1:1},e.timeScale=function(t,e){if(!arguments.length)return-1e-8===this._rts?0:this._rts;if(this._rts===t)return this;var n=this.parent&&this._ts?Ft(this.parent._time,this):this._tTime;return this._rts=+t||0,this._ts=this._ps||-1e-8===t?0:this._rts,this.totalTime(ne(-Math.abs(this._delay),this._tDur,n),!1!==e),qt(this),function(t){for(var e=t.parent;e&&e.parent;)e._dirty=1,e.totalDuration(),e=e.parent;return t}(this)},e.paused=function(t){return arguments.length?(this._ps!==t&&(this._ps=t,t?(this._pTime=this._tTime||Math.max(-this._delay,this.rawTime()),this._ts=this._act=0):(Le(),this._ts=this._rts,this.totalTime(this.parent&&!this.parent.smoothChildTiming?this.rawTime():this._tTime||this._pTime,1===this.progress()&&Math.abs(this._zTime)!==M&&(this._tTime-=M)))),this):this._ps},e.startTime=function(t){if(arguments.length){this._start=t;var e=this.parent||this._dp;return e&&(e._sort||!this.parent)&&jt(e,this,t-this._delay),this}return this._start},e.endTime=function(t){return this._start+(H(t)?this.totalDuration():this.duration())/Math.abs(this._ts||1)},e.rawTime=function(t){var e=this.parent||this._dp;return e?t&&(!this._ts||this._repeat&&this._time&&this.totalProgress()<1)?this._tTime%(this._dur+this._rDelay):this._ts?Ft(e.rawTime(t),this):this._tTime:this._tTime},e.revert=function(t){void 0===t&&(t=at);var e=d;return d=t,(this._initted||this._startAt)&&(this.timeline&&this.timeline.revert(t),this.totalTime(-.01,t.suppressEvents)),"nested"!==this.data&&!1!==t.kill&&this.kill(),d=e,this},e.globalTime=function(t){for(var e=this,n=arguments.length?t:e.rawTime();e;)n=e._start+n/(Math.abs(e._ts)||1),e=e._dp;return!this.parent&&this._sat?this._sat.globalTime(t):n},e.repeat=function(t){return arguments.length?(this._repeat=t===1/0?-2:t,Zt(this)):-2===this._repeat?1/0:this._repeat},e.repeatDelay=function(t){if(arguments.length){var e=this._time;return this._rDelay=t,Zt(this),e?this.time(e):this}return this._rDelay},e.yoyo=function(t){return arguments.length?(this._yoyo=t,this):this._yoyo},e.seek=function(t,e){return this.totalTime(Qt(this,t),H(e))},e.restart=function(t,e){return this.play().totalTime(t?-this._delay:0,H(e))},e.play=function(t,e){return null!=t&&this.seek(t,e),this.reversed(!1).paused(!1)},e.reverse=function(t,e){return null!=t&&this.seek(t||this.totalDuration(),e),this.reversed(!0).paused(!1)},e.pause=function(t,e){return null!=t&&this.seek(t,e),this.paused(!0)},e.resume=function(){return this.paused(!1)},e.reversed=function(t){return arguments.length?(!!t!==this.reversed()&&this.timeScale(-this._rts||(t?-1e-8:0)),this):this._rts<0},e.invalidate=function(){return this._initted=this._act=0,this._zTime=-1e-8,this},e.isActive=function(){var t,e=this.parent||this._dp,n=this._start;return!(e&&!(this._ts&&this._initted&&e.isActive()&&(t=e.rawTime(!0))>=n&&t<this.endTime(!0)-M))},e.eventCallback=function(t,e,n){var i=this.vars;return arguments.length>1?(e?(i[t]=e,n&&(i[t+"Params"]=n),"onUpdate"===t&&(this._onUpdate=e)):delete i[t],this):i[t]},e.then=function(t){var e=this;return new Promise((function(n){var i=B(t)?t:Pt,r=function(){var t=e.then;e.then=null,B(i)&&(i=i(e))&&(i.then||i===e)&&(e.then=t),n(i),e.then=t};e._initted&&1===e.totalProgress()&&e._ts>=0||!e._tTime&&e._ts<0?r():e._prom=r}))},e.kill=function(){ve(this)},t}();Mt(je.prototype,{_time:0,_start:0,_end:0,_tTime:0,_tDur:0,_dirty:0,_repeat:0,_yoyo:!1,parent:null,_initted:!1,_rDelay:0,_ts:1,_dp:0,ratio:0,_zTime:-1e-8,_prom:0,_ps:!1,_rts:1});var Ve=function(t){function e(e,n){var i;return void 0===e&&(e={}),(i=t.call(this,e)||this).labels={},i.smoothChildTiming=!!e.smoothChildTiming,i.autoRemoveChildren=!!e.autoRemoveChildren,i._sort=H(e.sortChildren),p&&jt(e.parent||p,l(i),n),e.reversed&&i.reverse(),e.paused&&i.paused(!0),e.scrollTrigger&&Vt(l(i),e.scrollTrigger),i}c(e,t);var n=e.prototype;return n.to=function(t,e,n){return te(0,arguments,this),this},n.from=function(t,e,n){return te(1,arguments,this),this},n.fromTo=function(t,e,n,i){return te(2,arguments,this),this},n.set=function(t,e,n){return e.duration=0,e.parent=this,Lt(e).repeatDelay||(e.repeat=0),e.immediateRender=!!e.immediateRender,new rn(t,e,Qt(this,n),1),this},n.call=function(t,e,n){return jt(this,rn.delayedCall(0,t,e),n)},n.staggerTo=function(t,e,n,i,r,s,o){return n.duration=e,n.stagger=n.stagger||i,n.onComplete=s,n.onCompleteParams=o,n.parent=this,new rn(t,n,Qt(this,r)),this},n.staggerFrom=function(t,e,n,i,r,s,o){return n.runBackwards=1,Lt(n).immediateRender=H(n.immediateRender),this.staggerTo(t,e,n,i,r,s,o)},n.staggerFromTo=function(t,e,n,i,r,s,o,a){return i.startAt=n,Lt(i).immediateRender=H(i.immediateRender),this.staggerTo(t,e,i,r,s,o,a)},n.render=function(t,e,n){var i,r,s,o,a,l,c,u,h,f,_,m,g=this._time,y=this._dirty?this.totalDuration():this._tDur,v=this._dur,b=t<=0?0:Dt(t),D=this._zTime<0!=t<0&&(this._initted||!v);if(this!==p&&b>y&&t>=0&&(b=y),b!==this._tTime||n||D){if(g!==this._time&&v&&(b+=this._time-g,t+=this._time-g),i=b,h=this._start,l=!(u=this._ts),D&&(v||(g=this._zTime),(t||!e)&&(this._zTime=t)),this._repeat){if(_=this._yoyo,a=v+this._rDelay,this._repeat<-1&&t<0)return this.totalTime(100*a+t,e,n);if(i=Dt(b%a),b===y?(o=this._repeat,i=v):((o=~~(b/a))&&o===b/a&&(i=v,o--),i>v&&(i=v)),f=Ht(this._tTime,a),!g&&this._tTime&&f!==o&&this._tTime-f*a-this._dur<=0&&(f=o),_&&1&o&&(i=v-i,m=1),o!==f&&!this._lock){var w=_&&1&f,E=w===(_&&1&o);if(o<f&&(w=!w),g=w?0:b%v?v:b,this._lock=1,this.render(g||(m?0:Dt(o*a)),e,!v)._lock=0,this._tTime=b,!e&&this.parent&&ye(this,"onRepeat"),this.vars.repeatRefresh&&!m&&(this.invalidate()._lock=1),g&&g!==this._time||l!==!this._ts||this.vars.onRepeat&&!this.parent&&!this._act)return this;if(v=this._dur,y=this._tDur,E&&(this._lock=2,g=w?v:-1e-4,this.render(g,!0),this.vars.repeatRefresh&&!m&&this.invalidate()),this._lock=0,!this._ts&&!l)return this;Ye(this,m)}}if(this._hasPause&&!this._forcing&&this._lock<2&&(c=function(t,e,n){var i;if(n>e)for(i=t._first;i&&i._start<=n;){if("isPause"===i.data&&i._start>e)return i;i=i._next}else for(i=t._last;i&&i._start>=n;){if("isPause"===i.data&&i._start<e)return i;i=i._prev}}(this,Dt(g),Dt(i)),c&&(b-=i-(i=c._start))),this._tTime=b,this._time=i,this._act=!u,this._initted||(this._onUpdate=this.vars.onUpdate,this._initted=1,this._zTime=t,g=0),!g&&i&&!e&&!o&&(ye(this,"onStart"),this._tTime!==b))return this;if(i>=g&&t>=0)for(r=this._first;r;){if(s=r._next,(r._act||i>=r._start)&&r._ts&&c!==r){if(r.parent!==this)return this.render(t,e,n);if(r.render(r._ts>0?(i-r._start)*r._ts:(r._dirty?r.totalDuration():r._tDur)+(i-r._start)*r._ts,e,n),i!==this._time||!this._ts&&!l){c=0,s&&(b+=this._zTime=-1e-8);break}}r=s}else{r=this._last;for(var T=t<0?t:i;r;){if(s=r._prev,(r._act||T<=r._end)&&r._ts&&c!==r){if(r.parent!==this)return this.render(t,e,n);if(r.render(r._ts>0?(T-r._start)*r._ts:(r._dirty?r.totalDuration():r._tDur)+(T-r._start)*r._ts,e,n||d&&(r._initted||r._startAt)),i!==this._time||!this._ts&&!l){c=0,s&&(b+=this._zTime=T?-1e-8:M);break}}r=s}}if(c&&!e&&(this.pause(),c.render(i>=g?0:-1e-8)._zTime=i>=g?1:-1,this._ts))return this._start=h,qt(this),this.render(t,e,n);this._onUpdate&&!e&&ye(this,"onUpdate",!0),(b===y&&this._tTime>=this.totalDuration()||!b&&g)&&(h!==this._start&&Math.abs(u)===Math.abs(this._ts)||this._lock||((t||!v)&&(b===y&&this._ts>0||!b&&this._ts<0)&&Rt(this,1),e||t<0&&!g||!b&&!g&&y||(ye(this,b===y&&t>=0?"onComplete":"onReverseComplete",!0),this._prom&&!(b<y&&this.timeScale()>0)&&this._prom())))}return this},n.add=function(t,e){var n=this;if(N(e)||(e=Qt(this,e,t)),!(t instanceof je)){if(U(t))return t.forEach((function(t){return n.add(t,e)})),this;if(R(t))return this.addLabel(t,e);if(!B(t))return this;t=rn.delayedCall(0,t)}return this!==t?jt(this,t,e):this},n.getChildren=function(t,e,n,i){void 0===t&&(t=!0),void 0===e&&(e=!0),void 0===n&&(n=!0),void 0===i&&(i=-P);for(var r=[],s=this._first;s;)s._start>=i&&(s instanceof rn?e&&r.push(s):(n&&r.push(s),t&&r.push.apply(r,s.getChildren(!0,e,n)))),s=s._next;return r},n.getById=function(t){for(var e=this.getChildren(1,1,1),n=e.length;n--;)if(e[n].vars.id===t)return e[n]},n.remove=function(t){return R(t)?this.removeLabel(t):B(t)?this.killTweensOf(t):(At(this,t),t===this._recent&&(this._recent=this._last),Bt(this))},n.totalTime=function(e,n){return arguments.length?(this._forcing=1,!this._dp&&this._ts&&(this._start=Dt(Ce.time-(this._ts>0?e/this._ts:(this.totalDuration()-e)/-this._ts))),t.prototype.totalTime.call(this,e,n),this._forcing=0,this):this._tTime},n.addLabel=function(t,e){return this.labels[t]=Qt(this,e),this},n.removeLabel=function(t){return delete this.labels[t],this},n.addPause=function(t,e,n){var i=rn.delayedCall(0,e||rt,n);return i.data="isPause",this._hasPause=1,jt(this,i,Qt(this,t))},n.removePause=function(t){var e=this._first;for(t=Qt(this,t);e;)e._start===t&&"isPause"===e.data&&Rt(e),e=e._next},n.killTweensOf=function(t,e,n){for(var i=this.getTweensOf(t,n),r=i.length;r--;)Xe!==i[r]&&i[r].kill(t,e);return this},n.getTweensOf=function(t,e){for(var n,i=[],r=ae(t),s=this._first,o=N(e);s;)s instanceof rn?Et(s._targets,r)&&(o?(!Xe||s._initted&&s._ts)&&s.globalTime(0)<=e&&s.globalTime(s.totalDuration())>e:!e||s.isActive())&&i.push(s):(n=s.getTweensOf(r,e)).length&&i.push.apply(i,n),s=s._next;return i},n.tweenTo=function(t,e){e=e||{};var n,i=this,r=Qt(i,t),s=e,o=s.startAt,a=s.onStart,l=s.onStartParams,c=s.immediateRender,u=rn.to(i,Mt({ease:e.ease||"none",lazy:!1,immediateRender:!1,time:r,overwrite:"auto",duration:e.duration||Math.abs((r-(o&&"time"in o?o.time:i._time))/i.timeScale())||M,onStart:function(){if(i.pause(),!n){var t=e.duration||Math.abs((r-(o&&"time"in o?o.time:i._time))/i.timeScale());u._dur!==t&&Gt(u,t,0,1).render(u._time,!0,!0),n=1}a&&a.apply(u,l||[])}},e));return c?u.render(0):u},n.tweenFromTo=function(t,e,n){return this.tweenTo(e,Mt({startAt:{time:Qt(this,t)}},n))},n.recent=function(){return this._recent},n.nextLabel=function(t){return void 0===t&&(t=this._time),ge(this,Qt(this,t))},n.previousLabel=function(t){return void 0===t&&(t=this._time),ge(this,Qt(this,t),1)},n.currentLabel=function(t){return arguments.length?this.seek(t,!0):this.previousLabel(this._time+M)},n.shiftChildren=function(t,e,n){void 0===n&&(n=0);for(var i,r=this._first,s=this.labels;r;)r._start>=n&&(r._start+=t,r._end+=t),r=r._next;if(e)for(i in s)s[i]>=n&&(s[i]+=t);return Bt(this)},n.invalidate=function(e){var n=this._first;for(this._lock=0;n;)n.invalidate(e),n=n._next;return t.prototype.invalidate.call(this,e)},n.clear=function(t){void 0===t&&(t=!0);for(var e,n=this._first;n;)e=n._next,this.remove(n),n=e;return this._dp&&(this._time=this._tTime=this._pTime=0),t&&(this.labels={}),Bt(this)},n.totalDuration=function(t){var e,n,i,r=0,s=this,o=s._last,a=P;if(arguments.length)return s.timeScale((s._repeat<0?s.duration():s.totalDuration())/(s.reversed()?-t:t));if(s._dirty){for(i=s.parent;o;)e=o._prev,o._dirty&&o.totalDuration(),(n=o._start)>a&&s._sort&&o._ts&&!s._lock?(s._lock=1,jt(s,o,n-o._delay,1)._lock=0):a=n,n<0&&o._ts&&(r-=n,(!i&&!s._dp||i&&i.smoothChildTiming)&&(s._start+=n/s._ts,s._time-=n,s._tTime-=n),s.shiftChildren(-n,!1,-Infinity),a=0),o._end>r&&o._ts&&(r=o._end),o=e;Gt(s,s===p&&s._time>r?s._time:r,1,1),s._dirty=0}return s._tDur},e.updateRoot=function(t){if(p._ts&&(St(p,Ft(t,p)),y=Ce.frame),Ce.frame>=pt){pt+=S.autoSleep||120;var e=p._first;if((!e||!e._ts)&&S.autoSleep&&Ce._listeners.length<2){for(;e&&!e._ts;)e=e._next;e||Ce.sleep()}}},e}(je);Mt(Ve.prototype,{_lock:0,_hasPause:0,_forcing:0});var Xe,$e,Ke=function(t,e,n,i,r,s,o){var a,l,c,u,d,h,p,f,_=new yn(this._pt,t,e,0,1,hn,null,r),m=0,g=0;for(_.b=n,_.e=i,n+="",(p=~(i+="").indexOf("random("))&&(i=_e(i)),s&&(s(f=[n,i],t,e),n=f[0],i=f[1]),l=n.match($)||[];a=$.exec(i);)u=a[0],d=i.substring(m,a.index),c?c=(c+1)%5:"rgba("===d.substr(-5)&&(c=1),u!==l[g++]&&(h=parseFloat(l[g-1])||0,_._pt={_next:_._pt,p:d||1===g?d:",",s:h,c:"="===u.charAt(1)?wt(h,u)-h:parseFloat(u)-h,m:c&&c<4?Math.round:0},m=$.lastIndex);return _.c=m<i.length?i.substring(m,i.length):"",_.fp=o,(K.test(i)||p)&&(_.e=0),this._pt=_,_},Ge=function(t,e,n,i,r,s,o,a,l,c){B(i)&&(i=i(r||0,t,s));var u,d=t[e],h="get"!==n?n:B(d)?l?t[e.indexOf("set")||!B(t["get"+e.substr(3)])?e:"get"+e.substr(3)](l):t[e]():d,p=B(d)?l?an:on:sn;if(R(i)&&(~i.indexOf("random(")&&(i=_e(i)),"="===i.charAt(1)&&((u=wt(h,i)+(ie(h)||0))||0===u)&&(i=u)),!c||h!==i||$e)return isNaN(h*i)||""===i?(!d&&!(e in t)&&et(e,i),Ke.call(this,t,e,h,i,p,a||S.stringFilter,l)):(u=new yn(this._pt,t,e,+h||0,i-(h||0),"boolean"==typeof d?dn:un,0,p),l&&(u.fp=l),o&&u.modifier(o,this,t),this._pt=u)},Ze=function(t,e,n,i,r,s){var o,a,l,c;if(dt[t]&&!1!==(o=new dt[t]).init(r,o.rawVars?e[t]:function(t,e,n,i,r){if(B(t)&&(t=tn(t,r,e,n,i)),!W(t)||t.style&&t.nodeType||U(t)||z(t))return R(t)?tn(t,r,e,n,i):t;var s,o={};for(s in t)o[s]=tn(t[s],r,e,n,i);return o}(e[t],i,r,s,n),n,i,s)&&(n._pt=a=new yn(n._pt,r,t,0,1,o.render,o,0,o.priority),n!==v))for(l=n._ptLookup[n._targets.indexOf(r)],c=o._props.length;c--;)l[o._props[c]]=a;return o},Je=function t(e,n,i){var r,s,o,a,l,c,h,f,_,m,g,y,v,b=e.vars,D=b.ease,w=b.startAt,E=b.immediateRender,T=b.lazy,S=b.onUpdate,k=b.runBackwards,O=b.yoyoEase,C=b.keyframes,L=b.autoRevert,I=e._dur,A=e._startAt,R=e._targets,B=e.parent,N=B&&"nested"===B.data?B.vars.targets:R,Y="auto"===e._overwrite&&!u,W=e.timeline;if(W&&(!C||!D)&&(D="none"),e._ease=We(D,x.ease),e._yEase=O?Ne(We(!0===O?D:O,x.ease)):0,O&&e._yoyo&&!e._repeat&&(O=e._yEase,e._yEase=e._ease,e._ease=O),e._from=!W&&!!b.runBackwards,!W||C&&!b.stagger){if(y=(f=R[0]?gt(R[0]).harness:0)&&b[f.prop],r=Ct(b,lt),A&&(A._zTime<0&&A.progress(1),n<0&&k&&E&&!L?A.render(-1,!0):A.revert(k&&I?ot:st),A._lazy=0),w){if(Rt(e._startAt=rn.set(R,Mt({data:"isStart",overwrite:!1,parent:B,immediateRender:!0,lazy:!A&&H(T),startAt:null,delay:0,onUpdate:S&&function(){return ye(e,"onUpdate")},stagger:0},w))),e._startAt._dp=0,e._startAt._sat=e,n<0&&(d||!E&&!L)&&e._startAt.revert(ot),E&&I&&n<=0&&i<=0)return void(n&&(e._zTime=n))}else if(k&&I&&!A)if(n&&(E=!1),o=Mt({overwrite:!1,data:"isFromStart",lazy:E&&!A&&H(T),immediateRender:E,stagger:0,parent:B},r),y&&(o[f.prop]=y),Rt(e._startAt=rn.set(R,o)),e._startAt._dp=0,e._startAt._sat=e,n<0&&(d?e._startAt.revert(ot):e._startAt.render(-1,!0)),e._zTime=n,E){if(!n)return}else t(e._startAt,M,M);for(e._pt=e._ptCache=0,T=I&&H(T)||T&&!I,s=0;s<R.length;s++){if(h=(l=R[s])._gsap||mt(R)[s]._gsap,e._ptLookup[s]=m={},ut[h.id]&&ct.length&&Tt(),g=N===R?s:N.indexOf(l),f&&!1!==(_=new f).init(l,y||r,e,g,N)&&(e._pt=a=new yn(e._pt,l,_.name,0,1,_.render,_,0,_.priority),_._props.forEach((function(t){m[t]=a})),_.priority&&(c=1)),!f||y)for(o in r)dt[o]&&(_=Ze(o,r,e,g,l,N))?_.priority&&(c=1):m[o]=a=Ge.call(e,l,o,"get",r[o],g,N,0,b.stringFilter);e._op&&e._op[s]&&e.kill(l,e._op[s]),Y&&e._pt&&(Xe=e,p.killTweensOf(l,m,e.globalTime(n)),v=!e.parent,Xe=0),e._pt&&T&&(ut[h.id]=1)}c&&gn(e),e._onInit&&e._onInit(e)}e._onUpdate=S,e._initted=(!e._op||e._pt)&&!v,C&&n<=0&&W.render(P,!0,!0)},Qe=function(t,e,n,i){var r,s,o=e.ease||i||"power1.inOut";if(U(e))s=n[t]||(n[t]=[]),e.forEach((function(t,n){return s.push({t:n/(e.length-1)*100,v:t,e:o})}));else for(r in e)s=n[r]||(n[r]=[]),"ease"===r||s.push({t:parseFloat(t),v:e[r],e:o})},tn=function(t,e,n,i,r){return B(t)?t.call(e,n,i,r):R(t)&&~t.indexOf("random(")?_e(t):t},en=_t+"repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase,autoRevert",nn={};vt(en+",id,stagger,delay,duration,paused,scrollTrigger",(function(t){return nn[t]=1}));var rn=function(t){function e(e,n,i,r){var s;"number"==typeof n&&(i.duration=n,n=i,i=null);var o,a,c,d,h,f,_,m,g=(s=t.call(this,r?n:Lt(n))||this).vars,y=g.duration,v=g.delay,b=g.immediateRender,D=g.stagger,w=g.overwrite,E=g.keyframes,T=g.defaults,x=g.scrollTrigger,P=g.yoyoEase,M=n.parent||p,k=(U(e)||z(e)?N(e[0]):"length"in n)?[e]:ae(e);if(s._targets=k.length?mt(k):nt("GSAP target "+e+" not found. https://gsap.com",!S.nullTargetWarn)||[],s._ptLookup=[],s._overwrite=w,E||D||q(y)||q(v)){if(n=s.vars,(o=s.timeline=new Ve({data:"nested",defaults:T||{},targets:M&&"nested"===M.data?M.vars.targets:k})).kill(),o.parent=o._dp=l(s),o._start=0,D||q(y)||q(v)){if(d=k.length,_=D&&ue(D),W(D))for(h in D)~en.indexOf(h)&&(m||(m={}),m[h]=D[h]);for(a=0;a<d;a++)(c=Ct(n,nn)).stagger=0,P&&(c.yoyoEase=P),m&&kt(c,m),f=k[a],c.duration=+tn(y,l(s),a,f,k),c.delay=(+tn(v,l(s),a,f,k)||0)-s._delay,!D&&1===d&&c.delay&&(s._delay=v=c.delay,s._start+=v,c.delay=0),o.to(f,c,_?_(a,f,k):0),o._ease=Ie.none;o.duration()?y=v=0:s.timeline=0}else if(E){Lt(Mt(o.vars.defaults,{ease:"none"})),o._ease=We(E.ease||n.ease||"none");var O,C,L,I=0;if(U(E))E.forEach((function(t){return o.to(k,t,">")})),o.duration();else{for(h in c={},E)"ease"===h||"easeEach"===h||Qe(h,E[h],c,E.easeEach);for(h in c)for(O=c[h].sort((function(t,e){return t.t-e.t})),I=0,a=0;a<O.length;a++)(L={ease:(C=O[a]).e,duration:(C.t-(a?O[a-1].t:0))/100*y})[h]=C.v,o.to(k,L,I),I+=L.duration;o.duration()<y&&o.to({},{duration:y-o.duration()})}}y||s.duration(y=o.duration())}else s.timeline=0;return!0!==w||u||(Xe=l(s),p.killTweensOf(k),Xe=0),jt(M,l(s),i),n.reversed&&s.reverse(),n.paused&&s.paused(!0),(b||!y&&!E&&s._start===Dt(M._time)&&H(b)&&Yt(l(s))&&"nested"!==M.data)&&(s._tTime=-1e-8,s.render(Math.max(0,-v)||0)),x&&Vt(l(s),x),s}c(e,t);var n=e.prototype;return n.render=function(t,e,n){var i,r,s,o,a,l,c,u,h,p=this._time,f=this._tDur,_=this._dur,m=t<0,g=t>f-M&&!m?f:t<M?0:t;if(_){if(g!==this._tTime||!t||n||!this._initted&&this._tTime||this._startAt&&this._zTime<0!==m){if(i=g,u=this.timeline,this._repeat){if(o=_+this._rDelay,this._repeat<-1&&m)return this.totalTime(100*o+t,e,n);if(i=Dt(g%o),g===f?(s=this._repeat,i=_):((s=~~(g/o))&&s===Dt(g/o)&&(i=_,s--),i>_&&(i=_)),(l=this._yoyo&&1&s)&&(h=this._yEase,i=_-i),a=Ht(this._tTime,o),i===p&&!n&&this._initted&&s===a)return this._tTime=g,this;s!==a&&(u&&this._yEase&&Ye(u,l),this.vars.repeatRefresh&&!l&&!this._lock&&this._time!==o&&this._initted&&(this._lock=n=1,this.render(Dt(o*s),!0).invalidate()._lock=0))}if(!this._initted){if(Xt(this,m?t:i,n,e,g))return this._tTime=0,this;if(!(p===this._time||n&&this.vars.repeatRefresh&&s!==a))return this;if(_!==this._dur)return this.render(t,e,n)}if(this._tTime=g,this._time=i,!this._act&&this._ts&&(this._act=1,this._lazy=0),this.ratio=c=(h||this._ease)(i/_),this._from&&(this.ratio=c=1-c),i&&!p&&!e&&!s&&(ye(this,"onStart"),this._tTime!==g))return this;for(r=this._pt;r;)r.r(c,r.d),r=r._next;u&&u.render(t<0?t:u._dur*u._ease(i/this._dur),e,n)||this._startAt&&(this._zTime=t),this._onUpdate&&!e&&(m&&Nt(this,t,0,n),ye(this,"onUpdate")),this._repeat&&s!==a&&this.vars.onRepeat&&!e&&this.parent&&ye(this,"onRepeat"),g!==this._tDur&&g||this._tTime!==g||(m&&!this._onUpdate&&Nt(this,t,0,!0),(t||!_)&&(g===this._tDur&&this._ts>0||!g&&this._ts<0)&&Rt(this,1),e||m&&!p||!(g||p||l)||(ye(this,g===f?"onComplete":"onReverseComplete",!0),this._prom&&!(g<f&&this.timeScale()>0)&&this._prom()))}}else!function(t,e,n,i){var r,s,o,a=t.ratio,l=e<0||!e&&(!t._start&&$t(t)&&(t._initted||!Kt(t))||(t._ts<0||t._dp._ts<0)&&!Kt(t))?0:1,c=t._rDelay,u=0;if(c&&t._repeat&&(u=ne(0,t._tDur,e),s=Ht(u,c),t._yoyo&&1&s&&(l=1-l),s!==Ht(t._tTime,c)&&(a=1-l,t.vars.repeatRefresh&&t._initted&&t.invalidate())),l!==a||d||i||t._zTime===M||!e&&t._zTime){if(!t._initted&&Xt(t,e,i,n,u))return;for(o=t._zTime,t._zTime=e||(n?M:0),n||(n=e&&!o),t.ratio=l,t._from&&(l=1-l),t._time=0,t._tTime=u,r=t._pt;r;)r.r(l,r.d),r=r._next;e<0&&Nt(t,e,0,!0),t._onUpdate&&!n&&ye(t,"onUpdate"),u&&t._repeat&&!n&&t.parent&&ye(t,"onRepeat"),(e>=t._tDur||e<0)&&t.ratio===l&&(l&&Rt(t,1),n||d||(ye(t,l?"onComplete":"onReverseComplete",!0),t._prom&&t._prom()))}else t._zTime||(t._zTime=e)}(this,t,e,n);return this},n.targets=function(){return this._targets},n.invalidate=function(e){return(!e||!this.vars.runBackwards)&&(this._startAt=0),this._pt=this._op=this._onUpdate=this._lazy=this.ratio=0,this._ptLookup=[],this.timeline&&this.timeline.invalidate(e),t.prototype.invalidate.call(this,e)},n.resetTo=function(t,e,n,i,r){b||Ce.wake(),this._ts||this.play();var s=Math.min(this._dur,(this._dp._time-this._start)*this._ts);return this._initted||Je(this,s),function(t,e,n,i,r,s,o,a){var l,c,u,d,h=(t._pt&&t._ptCache||(t._ptCache={}))[e];if(!h)for(h=t._ptCache[e]=[],u=t._ptLookup,d=t._targets.length;d--;){if((l=u[d][e])&&l.d&&l.d._pt)for(l=l.d._pt;l&&l.p!==e&&l.fp!==e;)l=l._next;if(!l)return $e=1,t.vars[e]="+=0",Je(t,o),$e=0,a?nt(e+" not eligible for reset"):1;h.push(l)}for(d=h.length;d--;)(l=(c=h[d])._pt||c).s=!i&&0!==i||r?l.s+(i||0)+s*l.c:i,l.c=n-l.s,c.e&&(c.e=bt(n)+ie(c.e)),c.b&&(c.b=l.s+ie(c.b))}(this,t,e,n,i,this._ease(s/this._dur),s,r)?this.resetTo(t,e,n,i,1):(zt(this,0),this.parent||It(this._dp,this,"_first","_last",this._dp._sort?"_start":0),this.render(0))},n.kill=function(t,e){if(void 0===e&&(e="all"),!(t||e&&"all"!==e))return this._lazy=this._pt=0,this.parent?ve(this):this;if(this.timeline){var n=this.timeline.totalDuration();return this.timeline.killTweensOf(t,e,Xe&&!0!==Xe.vars.overwrite)._first||ve(this),this.parent&&n!==this.timeline.totalDuration()&&Gt(this,this._dur*this.timeline._tDur/n,0,1),this}var i,r,s,o,a,l,c,u=this._targets,d=t?ae(t):u,h=this._ptLookup,p=this._pt;if((!e||"all"===e)&&function(t,e){for(var n=t.length,i=n===e.length;i&&n--&&t[n]===e[n];);return n<0}(u,d))return"all"===e&&(this._pt=0),ve(this);for(i=this._op=this._op||[],"all"!==e&&(R(e)&&(a={},vt(e,(function(t){return a[t]=1})),e=a),e=function(t,e){var n,i,r,s,o=t[0]?gt(t[0]).harness:0,a=o&&o.aliases;if(!a)return e;for(i in n=kt({},e),a)if(i in n)for(r=(s=a[i].split(",")).length;r--;)n[s[r]]=n[i];return n}(u,e)),c=u.length;c--;)if(~d.indexOf(u[c]))for(a in r=h[c],"all"===e?(i[c]=e,o=r,s={}):(s=i[c]=i[c]||{},o=e),o)(l=r&&r[a])&&("kill"in l.d&&!0!==l.d.kill(a)||At(this,l,"_pt"),delete r[a]),"all"!==s&&(s[a]=1);return this._initted&&!this._pt&&p&&ve(this),this},e.to=function(t,n){return new e(t,n,arguments[2])},e.from=function(t,e){return te(1,arguments)},e.delayedCall=function(t,n,i,r){return new e(n,0,{immediateRender:!1,lazy:!1,overwrite:!1,delay:t,onComplete:n,onReverseComplete:n,onCompleteParams:i,onReverseCompleteParams:i,callbackScope:r})},e.fromTo=function(t,e,n){return te(2,arguments)},e.set=function(t,n){return n.duration=0,n.repeatDelay||(n.repeat=0),new e(t,n)},e.killTweensOf=function(t,e,n){return p.killTweensOf(t,e,n)},e}(je);Mt(rn.prototype,{_targets:[],_lazy:0,_startAt:0,_op:0,_onInit:0}),vt("staggerTo,staggerFrom,staggerFromTo",(function(t){rn[t]=function(){var e=new Ve,n=re.call(arguments,0);return n.splice("staggerFromTo"===t?5:4,0,0),e[t].apply(e,n)}}));var sn=function(t,e,n){return t[e]=n},on=function(t,e,n){return t[e](n)},an=function(t,e,n,i){return t[e](i.fp,n)},ln=function(t,e,n){return t.setAttribute(e,n)},cn=function(t,e){return B(t[e])?on:Y(t[e])&&t.setAttribute?ln:sn},un=function(t,e){return e.set(e.t,e.p,Math.round(1e6*(e.s+e.c*t))/1e6,e)},dn=function(t,e){return e.set(e.t,e.p,!!(e.s+e.c*t),e)},hn=function(t,e){var n=e._pt,i="";if(!t&&e.b)i=e.b;else if(1===t&&e.e)i=e.e;else{for(;n;)i=n.p+(n.m?n.m(n.s+n.c*t):Math.round(1e4*(n.s+n.c*t))/1e4)+i,n=n._next;i+=e.c}e.set(e.t,e.p,i,e)},pn=function(t,e){for(var n=e._pt;n;)n.r(t,n.d),n=n._next},fn=function(t,e,n,i){for(var r,s=this._pt;s;)r=s._next,s.p===i&&s.modifier(t,e,n),s=r},_n=function(t){for(var e,n,i=this._pt;i;)n=i._next,i.p===t&&!i.op||i.op===t?At(this,i,"_pt"):i.dep||(e=1),i=n;return!e},mn=function(t,e,n,i){i.mSet(t,e,i.m.call(i.tween,n,i.mt),i)},gn=function(t){for(var e,n,i,r,s=t._pt;s;){for(e=s._next,n=i;n&&n.pr>s.pr;)n=n._next;(s._prev=n?n._prev:r)?s._prev._next=s:i=s,(s._next=n)?n._prev=s:r=s,s=e}t._pt=i},yn=function(){function t(t,e,n,i,r,s,o,a,l){this.t=e,this.s=i,this.c=r,this.p=n,this.r=s||un,this.d=o||this,this.set=a||sn,this.pr=l||0,this._next=t,t&&(t._prev=this)}return t.prototype.modifier=function(t,e,n){this.mSet=this.mSet||this.set,this.set=mn,this.m=t,this.mt=n,this.tween=e},t}();vt(_t+"parent,duration,ease,delay,overwrite,runBackwards,startAt,yoyo,immediateRender,repeat,repeatDelay,data,paused,reversed,lazy,callbackScope,stringFilter,id,yoyoEase,stagger,inherit,repeatRefresh,keyframes,autoRevert,scrollTrigger",(function(t){return lt[t]=1})),J.TweenMax=J.TweenLite=rn,J.TimelineLite=J.TimelineMax=Ve,p=new Ve({sortChildren:!1,defaults:x,autoRemoveChildren:!0,id:"root",smoothChildTiming:!0}),S.stringFilter=Oe;var vn=[],bn={},Dn=[],wn=0,En=0,Tn=function(t){return(bn[t]||Dn).map((function(t){return t()}))},Sn=function(){var t=Date.now(),e=[];t-wn>2&&(Tn("matchMediaInit"),vn.forEach((function(t){var n,i,r,s,o=t.queries,a=t.conditions;for(i in o)(n=f.matchMedia(o[i]).matches)&&(r=1),n!==a[i]&&(a[i]=n,s=1);s&&(t.revert(),r&&e.push(t))})),Tn("matchMediaRevert"),e.forEach((function(t){return t.onMatch(t,(function(e){return t.add(null,e)}))})),wn=t,Tn("matchMedia"))},xn=function(){function t(t,e){this.selector=e&&le(e),this.data=[],this._r=[],this.isReverted=!1,this.id=En++,t&&this.add(t)}var e=t.prototype;return e.add=function(t,e,n){B(t)&&(n=e,e=t,t=B);var i=this,r=function(){var t,r=h,s=i.selector;return r&&r!==i&&r.data.push(i),n&&(i.selector=le(n)),h=i,t=e.apply(i,arguments),B(t)&&i._r.push(t),h=r,i.selector=s,i.isReverted=!1,t};return i.last=r,t===B?r(i,(function(t){return i.add(null,t)})):t?i[t]=r:r},e.ignore=function(t){var e=h;h=null,t(this),h=e},e.getTweens=function(){var e=[];return this.data.forEach((function(n){return n instanceof t?e.push.apply(e,n.getTweens()):n instanceof rn&&!(n.parent&&"nested"===n.parent.data)&&e.push(n)})),e},e.clear=function(){this._r.length=this.data.length=0},e.kill=function(t,e){var n=this;if(t?function(){for(var e,i=n.getTweens(),r=n.data.length;r--;)"isFlip"===(e=n.data[r]).data&&(e.revert(),e.getChildren(!0,!0,!1).forEach((function(t){return i.splice(i.indexOf(t),1)})));for(i.map((function(t){return{g:t._dur||t._delay||t._sat&&!t._sat.vars.immediateRender?t.globalTime(0):-1/0,t}})).sort((function(t,e){return e.g-t.g||-1/0})).forEach((function(e){return e.t.revert(t)})),r=n.data.length;r--;)(e=n.data[r])instanceof Ve?"nested"!==e.data&&(e.scrollTrigger&&e.scrollTrigger.revert(),e.kill()):!(e instanceof rn)&&e.revert&&e.revert(t);n._r.forEach((function(e){return e(t,n)})),n.isReverted=!0}():this.data.forEach((function(t){return t.kill&&t.kill()})),this.clear(),e)for(var i=vn.length;i--;)vn[i].id===this.id&&vn.splice(i,1)},e.revert=function(t){this.kill(t||{})},t}(),Pn=function(){function t(t){this.contexts=[],this.scope=t,h&&h.data.push(this)}var e=t.prototype;return e.add=function(t,e,n){W(t)||(t={matches:t});var i,r,s,o=new xn(0,n||this.scope),a=o.conditions={};for(r in h&&!o.selector&&(o.selector=h.selector),this.contexts.push(o),e=o.add("onMatch",e),o.queries=t,t)"all"===r?s=1:(i=f.matchMedia(t[r]))&&(vn.indexOf(o)<0&&vn.push(o),(a[r]=i.matches)&&(s=1),i.addListener?i.addListener(Sn):i.addEventListener("change",Sn));return s&&e(o,(function(t){return o.add(null,t)})),this},e.revert=function(t){this.kill(t||{})},e.kill=function(t){this.contexts.forEach((function(e){return e.kill(t,!0)}))},t}(),Mn={registerPlugin:function(){for(var t=arguments.length,e=new Array(t),n=0;n<t;n++)e[n]=arguments[n];e.forEach((function(t){return De(t)}))},timeline:function(t){return new Ve(t)},getTweensOf:function(t,e){return p.getTweensOf(t,e)},getProperty:function(t,e,n,i){R(t)&&(t=ae(t)[0]);var r=gt(t||{}).get,s=n?Pt:xt;return"native"===n&&(n=""),t?e?s((dt[e]&&dt[e].get||r)(t,e,n,i)):function(e,n,i){return s((dt[e]&&dt[e].get||r)(t,e,n,i))}:t},quickSetter:function(t,e,n){if((t=ae(t)).length>1){var i=t.map((function(t){return Cn.quickSetter(t,e,n)})),r=i.length;return function(t){for(var e=r;e--;)i[e](t)}}t=t[0]||{};var s=dt[e],o=gt(t),a=o.harness&&(o.harness.aliases||{})[e]||e,l=s?function(e){var i=new s;v._pt=0,i.init(t,n?e+n:e,v,0,[t]),i.render(1,i),v._pt&&pn(1,v)}:o.set(t,a);return s?l:function(e){return l(t,a,n?e+n:e,o,1)}},quickTo:function(t,e,n){var i,r=Cn.to(t,kt(((i={})[e]="+=0.1",i.paused=!0,i),n||{})),s=function(t,n,i){return r.resetTo(e,t,n,i)};return s.tween=r,s},isTweening:function(t){return p.getTweensOf(t,!0).length>0},defaults:function(t){return t&&t.ease&&(t.ease=We(t.ease,x.ease)),Ot(x,t||{})},config:function(t){return Ot(S,t||{})},registerEffect:function(t){var e=t.name,n=t.effect,i=t.plugins,r=t.defaults,s=t.extendTimeline;(i||"").split(",").forEach((function(t){return t&&!dt[t]&&!J[t]&&nt(e+" effect requires "+t+" plugin.")})),ht[e]=function(t,e,i){return n(ae(t),Mt(e||{},r),i)},s&&(Ve.prototype[e]=function(t,n,i){return this.add(ht[e](t,W(n)?n:(i=n)&&{},this),i)})},registerEase:function(t,e){Ie[t]=We(e)},parseEase:function(t,e){return arguments.length?We(t,e):Ie},getById:function(t){return p.getById(t)},exportRoot:function(t,e){void 0===t&&(t={});var n,i,r=new Ve(t);for(r.smoothChildTiming=H(t.smoothChildTiming),p.remove(r),r._dp=0,r._time=r._tTime=p._time,n=p._first;n;)i=n._next,!e&&!n._dur&&n instanceof rn&&n.vars.onComplete===n._targets[0]||jt(r,n,n._start-n._delay),n=i;return jt(p,r,0),r},context:function(t,e){return t?new xn(t,e):h},matchMedia:function(t){return new Pn(t)},matchMediaRefresh:function(){return vn.forEach((function(t){var e,n,i=t.conditions;for(n in i)i[n]&&(i[n]=!1,e=1);e&&t.revert()}))||Sn()},addEventListener:function(t,e){var n=bn[t]||(bn[t]=[]);~n.indexOf(e)||n.push(e)},removeEventListener:function(t,e){var n=bn[t],i=n&&n.indexOf(e);i>=0&&n.splice(i,1)},utils:{wrap:function t(e,n,i){var r=n-e;return U(e)?fe(e,t(0,e.length),n):ee(i,(function(t){return(r+(t-e)%r)%r+e}))},wrapYoyo:function t(e,n,i){var r=n-e,s=2*r;return U(e)?fe(e,t(0,e.length-1),n):ee(i,(function(t){return e+((t=(s+(t-e)%s)%s||0)>r?s-t:t)}))},distribute:ue,random:pe,snap:he,normalize:function(t,e,n){return me(t,e,0,1,n)},getUnit:ie,clamp:function(t,e,n){return ee(n,(function(n){return ne(t,e,n)}))},splitColor:Se,toArray:ae,selector:le,mapRange:me,pipe:function(){for(var t=arguments.length,e=new Array(t),n=0;n<t;n++)e[n]=arguments[n];return function(t){return e.reduce((function(t,e){return e(t)}),t)}},unitize:function(t,e){return function(n){return t(parseFloat(n))+(e||ie(n))}},interpolate:function t(e,n,i,r){var s=isNaN(e+n)?0:function(t){return(1-t)*e+t*n};if(!s){var o,a,l,c,u,d=R(e),h={};if(!0===i&&(r=1)&&(i=null),d)e={p:e},n={p:n};else if(U(e)&&!U(n)){for(l=[],c=e.length,u=c-2,a=1;a<c;a++)l.push(t(e[a-1],e[a]));c--,s=function(t){t*=c;var e=Math.min(u,~~t);return l[e](t-e)},i=n}else r||(e=kt(U(e)?[]:{},e));if(!l){for(o in n)Ge.call(h,e,o,"get",n[o]);s=function(t){return pn(t,h)||(d?e.p:e)}}}return ee(i,s)},shuffle:ce},install:tt,effects:ht,ticker:Ce,updateRoot:Ve.updateRoot,plugins:dt,globalTimeline:p,core:{PropTween:yn,globals:it,Tween:rn,Timeline:Ve,Animation:je,getCache:gt,_removeLinkedListItem:At,reverting:function(){return d},context:function(t){return t&&h&&(h.data.push(t),t._ctx=h),h},suppressOverwrites:function(t){return u=t}}};vt("to,from,fromTo,delayedCall,set,killTweensOf",(function(t){return Mn[t]=rn[t]})),Ce.add(Ve.updateRoot),v=Mn.to({},{duration:0});var kn=function(t,e){for(var n=t._pt;n&&n.p!==e&&n.op!==e&&n.fp!==e;)n=n._next;return n},On=function(t,e){return{name:t,rawVars:1,init:function(t,n,i){i._onInit=function(t){var i,r;if(R(n)&&(i={},vt(n,(function(t){return i[t]=1})),n=i),e){for(r in i={},n)i[r]=e(n[r]);n=i}!function(t,e){var n,i,r,s=t._targets;for(n in e)for(i=s.length;i--;)(r=t._ptLookup[i][n])&&(r=r.d)&&(r._pt&&(r=kn(r,n)),r&&r.modifier&&r.modifier(e[n],t,s[i],n))}(t,n)}}}},Cn=Mn.registerPlugin({name:"attr",init:function(t,e,n,i,r){var s,o,a;for(s in this.tween=n,e)a=t.getAttribute(s)||"",(o=this.add(t,"setAttribute",(a||0)+"",e[s],i,r,0,0,s)).op=s,o.b=a,this._props.push(s)},render:function(t,e){for(var n=e._pt;n;)d?n.set(n.t,n.p,n.b,n):n.r(t,n.d),n=n._next}},{name:"endArray",init:function(t,e){for(var n=e.length;n--;)this.add(t,n,t[n]||0,e[n],0,0,0,0,0,1)}},On("roundProps",de),On("modifiers"),On("snap",he))||Mn;rn.version=Ve.version=Cn.version="3.12.5",g=1,F()&&Le();Ie.Power0,Ie.Power1,Ie.Power2,Ie.Power3,Ie.Power4,Ie.Linear,Ie.Quad,Ie.Cubic,Ie.Quart,Ie.Quint,Ie.Strong,Ie.Elastic,Ie.Back,Ie.SteppedEase,Ie.Bounce,Ie.Sine,Ie.Expo,Ie.Circ;var Ln,In,An,Rn,Bn,Nn,Yn,Wn,Hn={},Fn=180/Math.PI,qn=Math.PI/180,zn=Math.atan2,Un=/([A-Z])/g,jn=/(left|right|width|margin|padding|x)/i,Vn=/[\s,\(]\S/,Xn={autoAlpha:"opacity,visibility",scale:"scaleX,scaleY",alpha:"opacity"},$n=function(t,e){return e.set(e.t,e.p,Math.round(1e4*(e.s+e.c*t))/1e4+e.u,e)},Kn=function(t,e){return e.set(e.t,e.p,1===t?e.e:Math.round(1e4*(e.s+e.c*t))/1e4+e.u,e)},Gn=function(t,e){return e.set(e.t,e.p,t?Math.round(1e4*(e.s+e.c*t))/1e4+e.u:e.b,e)},Zn=function(t,e){var n=e.s+e.c*t;e.set(e.t,e.p,~~(n+(n<0?-.5:.5))+e.u,e)},Jn=function(t,e){return e.set(e.t,e.p,t?e.e:e.b,e)},Qn=function(t,e){return e.set(e.t,e.p,1!==t?e.b:e.e,e)},ti=function(t,e,n){return t.style[e]=n},ei=function(t,e,n){return t.style.setProperty(e,n)},ni=function(t,e,n){return t._gsap[e]=n},ii=function(t,e,n){return t._gsap.scaleX=t._gsap.scaleY=n},ri=function(t,e,n,i,r){var s=t._gsap;s.scaleX=s.scaleY=n,s.renderTransform(r,s)},si=function(t,e,n,i,r){var s=t._gsap;s[e]=n,s.renderTransform(r,s)},oi="transform",ai=oi+"Origin",li=function t(e,n){var i=this,r=this.target,s=r.style,o=r._gsap;if(e in Hn&&s){if(this.tfm=this.tfm||{},"transform"===e)return Xn.transform.split(",").forEach((function(e){return t.call(i,e,n)}));if(~(e=Xn[e]||e).indexOf(",")?e.split(",").forEach((function(t){return i.tfm[t]=xi(r,t)})):this.tfm[e]=o.x?o[e]:xi(r,e),e===ai&&(this.tfm.zOrigin=o.zOrigin),this.props.indexOf(oi)>=0)return;o.svg&&(this.svgo=r.getAttribute("data-svg-origin"),this.props.push(ai,n,"")),e=oi}(s||n)&&this.props.push(e,n,s[e])},ci=function(t){t.translate&&(t.removeProperty("translate"),t.removeProperty("scale"),t.removeProperty("rotate"))},ui=function(){var t,e,n=this.props,i=this.target,r=i.style,s=i._gsap;for(t=0;t<n.length;t+=3)n[t+1]?i[n[t]]=n[t+2]:n[t+2]?r[n[t]]=n[t+2]:r.removeProperty("--"===n[t].substr(0,2)?n[t]:n[t].replace(Un,"-$1").toLowerCase());if(this.tfm){for(e in this.tfm)s[e]=this.tfm[e];s.svg&&(s.renderTransform(),i.setAttribute("data-svg-origin",this.svgo||"")),(t=Yn())&&t.isStart||r[oi]||(ci(r),s.zOrigin&&r[ai]&&(r[ai]+=" "+s.zOrigin+"px",s.zOrigin=0,s.renderTransform()),s.uncache=1)}},di=function(t,e){var n={target:t,props:[],revert:ui,save:li};return t._gsap||Cn.core.getCache(t),e&&e.split(",").forEach((function(t){return n.save(t)})),n},hi=function(t,e){var n=In.createElementNS?In.createElementNS((e||"http://www.w3.org/1999/xhtml").replace(/^https/,"http"),t):In.createElement(t);return n&&n.style?n:In.createElement(t)},pi=function t(e,n,i){var r=getComputedStyle(e);return r[n]||r.getPropertyValue(n.replace(Un,"-$1").toLowerCase())||r.getPropertyValue(n)||!i&&t(e,_i(n)||n,1)||""},fi="O,Moz,ms,Ms,Webkit".split(","),_i=function(t,e,n){var i=(e||Bn).style,r=5;if(t in i&&!n)return t;for(t=t.charAt(0).toUpperCase()+t.substr(1);r--&&!(fi[r]+t in i););return r<0?null:(3===r?"ms":r>=0?fi[r]:"")+t},mi=function(){"undefined"!=typeof window&&window.document&&(Ln=window,In=Ln.document,An=In.documentElement,Bn=hi("div")||{style:{}},hi("div"),oi=_i(oi),ai=oi+"Origin",Bn.style.cssText="border-width:0;line-height:0;position:absolute;padding:0",Wn=!!_i("perspective"),Yn=Cn.core.reverting,Rn=1)},gi=function t(e){var n,i=hi("svg",this.ownerSVGElement&&this.ownerSVGElement.getAttribute("xmlns")||"http://www.w3.org/2000/svg"),r=this.parentNode,s=this.nextSibling,o=this.style.cssText;if(An.appendChild(i),i.appendChild(this),this.style.display="block",e)try{n=this.getBBox(),this._gsapBBox=this.getBBox,this.getBBox=t}catch(t){}else this._gsapBBox&&(n=this._gsapBBox());return r&&(s?r.insertBefore(this,s):r.appendChild(this)),An.removeChild(i),this.style.cssText=o,n},yi=function(t,e){for(var n=e.length;n--;)if(t.hasAttribute(e[n]))return t.getAttribute(e[n])},vi=function(t){var e;try{e=t.getBBox()}catch(n){e=gi.call(t,!0)}return e&&(e.width||e.height)||t.getBBox===gi||(e=gi.call(t,!0)),!e||e.width||e.x||e.y?e:{x:+yi(t,["x","cx","x1"])||0,y:+yi(t,["y","cy","y1"])||0,width:0,height:0}},bi=function(t){return!(!t.getCTM||t.parentNode&&!t.ownerSVGElement||!vi(t))},Di=function(t,e){if(e){var n,i=t.style;e in Hn&&e!==ai&&(e=oi),i.removeProperty?("ms"!==(n=e.substr(0,2))&&"webkit"!==e.substr(0,6)||(e="-"+e),i.removeProperty("--"===n?e:e.replace(Un,"-$1").toLowerCase())):i.removeAttribute(e)}},wi=function(t,e,n,i,r,s){var o=new yn(t._pt,e,n,0,1,s?Qn:Jn);return t._pt=o,o.b=i,o.e=r,t._props.push(n),o},Ei={deg:1,rad:1,turn:1},Ti={grid:1,flex:1},Si=function t(e,n,i,r){var s,o,a,l,c=parseFloat(i)||0,u=(i+"").trim().substr((c+"").length)||"px",d=Bn.style,h=jn.test(n),p="svg"===e.tagName.toLowerCase(),f=(p?"client":"offset")+(h?"Width":"Height"),_=100,m="px"===r,g="%"===r;if(r===u||!c||Ei[r]||Ei[u])return c;if("px"!==u&&!m&&(c=t(e,n,i,"px")),l=e.getCTM&&bi(e),(g||"%"===u)&&(Hn[n]||~n.indexOf("adius")))return s=l?e.getBBox()[h?"width":"height"]:e[f],bt(g?c/s*_:c/100*s);if(d[h?"width":"height"]=_+(m?u:r),o=~n.indexOf("adius")||"em"===r&&e.appendChild&&!p?e:e.parentNode,l&&(o=(e.ownerSVGElement||{}).parentNode),o&&o!==In&&o.appendChild||(o=In.body),(a=o._gsap)&&g&&a.width&&h&&a.time===Ce.time&&!a.uncache)return bt(c/a.width*_);if(!g||"height"!==n&&"width"!==n)(g||"%"===u)&&!Ti[pi(o,"display")]&&(d.position=pi(e,"position")),o===e&&(d.position="static"),o.appendChild(Bn),s=Bn[f],o.removeChild(Bn),d.position="absolute";else{var y=e.style[n];e.style[n]=_+r,s=e[f],y?e.style[n]=y:Di(e,n)}return h&&g&&((a=gt(o)).time=Ce.time,a.width=o[f]),bt(m?s*c/_:s&&c?_/s*c:0)},xi=function(t,e,n,i){var r;return Rn||mi(),e in Xn&&"transform"!==e&&~(e=Xn[e]).indexOf(",")&&(e=e.split(",")[0]),Hn[e]&&"transform"!==e?(r=Ni(t,i),r="transformOrigin"!==e?r[e]:r.svg?r.origin:Yi(pi(t,ai))+" "+r.zOrigin+"px"):(!(r=t.style[e])||"auto"===r||i||~(r+"").indexOf("calc("))&&(r=Oi[e]&&Oi[e](t,e,n)||pi(t,e)||yt(t,e)||("opacity"===e?1:0)),n&&!~(r+"").trim().indexOf(" ")?Si(t,e,r,n)+n:r},Pi=function(t,e,n,i){if(!n||"none"===n){var r=_i(e,t,1),s=r&&pi(t,r,1);s&&s!==n?(e=r,n=s):"borderColor"===e&&(n=pi(t,"borderTopColor"))}var o,a,l,c,u,d,h,p,f,_,m,g=new yn(this._pt,t.style,e,0,1,hn),y=0,v=0;if(g.b=n,g.e=i,n+="","auto"===(i+="")&&(d=t.style[e],t.style[e]=i,i=pi(t,e)||i,d?t.style[e]=d:Di(t,e)),Oe(o=[n,i]),i=o[1],l=(n=o[0]).match(X)||[],(i.match(X)||[]).length){for(;a=X.exec(i);)h=a[0],f=i.substring(y,a.index),u?u=(u+1)%5:"rgba("!==f.substr(-5)&&"hsla("!==f.substr(-5)||(u=1),h!==(d=l[v++]||"")&&(c=parseFloat(d)||0,m=d.substr((c+"").length),"="===h.charAt(1)&&(h=wt(c,h)+m),p=parseFloat(h),_=h.substr((p+"").length),y=X.lastIndex-_.length,_||(_=_||S.units[e]||m,y===i.length&&(i+=_,g.e+=_)),m!==_&&(c=Si(t,e,d,_)||0),g._pt={_next:g._pt,p:f||1===v?f:",",s:c,c:p-c,m:u&&u<4||"zIndex"===e?Math.round:0});g.c=y<i.length?i.substring(y,i.length):""}else g.r="display"===e&&"none"===i?Qn:Jn;return K.test(i)&&(g.e=0),this._pt=g,g},Mi={top:"0%",bottom:"100%",left:"0%",right:"100%",center:"50%"},ki=function(t,e){if(e.tween&&e.tween._time===e.tween._dur){var n,i,r,s=e.t,o=s.style,a=e.u,l=s._gsap;if("all"===a||!0===a)o.cssText="",i=1;else for(r=(a=a.split(",")).length;--r>-1;)n=a[r],Hn[n]&&(i=1,n="transformOrigin"===n?ai:oi),Di(s,n);i&&(Di(s,oi),l&&(l.svg&&s.removeAttribute("transform"),Ni(s,1),l.uncache=1,ci(o)))}},Oi={clearProps:function(t,e,n,i,r){if("isFromStart"!==r.data){var s=t._pt=new yn(t._pt,e,n,0,0,ki);return s.u=i,s.pr=-10,s.tween=r,t._props.push(n),1}}},Ci=[1,0,0,1,0,0],Li={},Ii=function(t){return"matrix(1, 0, 0, 1, 0, 0)"===t||"none"===t||!t},Ai=function(t){var e=pi(t,oi);return Ii(e)?Ci:e.substr(7).match(V).map(bt)},Ri=function(t,e){var n,i,r,s,o=t._gsap||gt(t),a=t.style,l=Ai(t);return o.svg&&t.getAttribute("transform")?"1,0,0,1,0,0"===(l=[(r=t.transform.baseVal.consolidate().matrix).a,r.b,r.c,r.d,r.e,r.f]).join(",")?Ci:l:(l!==Ci||t.offsetParent||t===An||o.svg||(r=a.display,a.display="block",(n=t.parentNode)&&t.offsetParent||(s=1,i=t.nextElementSibling,An.appendChild(t)),l=Ai(t),r?a.display=r:Di(t,"display"),s&&(i?n.insertBefore(t,i):n?n.appendChild(t):An.removeChild(t))),e&&l.length>6?[l[0],l[1],l[4],l[5],l[12],l[13]]:l)},Bi=function(t,e,n,i,r,s){var o,a,l,c=t._gsap,u=r||Ri(t,!0),d=c.xOrigin||0,h=c.yOrigin||0,p=c.xOffset||0,f=c.yOffset||0,_=u[0],m=u[1],g=u[2],y=u[3],v=u[4],b=u[5],D=e.split(" "),w=parseFloat(D[0])||0,E=parseFloat(D[1])||0;n?u!==Ci&&(a=_*y-m*g)&&(l=w*(-m/a)+E*(_/a)-(_*b-m*v)/a,w=w*(y/a)+E*(-g/a)+(g*b-y*v)/a,E=l):(w=(o=vi(t)).x+(~D[0].indexOf("%")?w/100*o.width:w),E=o.y+(~(D[1]||D[0]).indexOf("%")?E/100*o.height:E)),i||!1!==i&&c.smooth?(v=w-d,b=E-h,c.xOffset=p+(v*_+b*g)-v,c.yOffset=f+(v*m+b*y)-b):c.xOffset=c.yOffset=0,c.xOrigin=w,c.yOrigin=E,c.smooth=!!i,c.origin=e,c.originIsAbsolute=!!n,t.style[ai]="0px 0px",s&&(wi(s,c,"xOrigin",d,w),wi(s,c,"yOrigin",h,E),wi(s,c,"xOffset",p,c.xOffset),wi(s,c,"yOffset",f,c.yOffset)),t.setAttribute("data-svg-origin",w+" "+E)},Ni=function(t,e){var n=t._gsap||new Ue(t);if("x"in n&&!e&&!n.uncache)return n;var i,r,s,o,a,l,c,u,d,h,p,f,_,m,g,y,v,b,D,w,E,T,x,P,M,k,O,C,L,I,A,R,B=t.style,N=n.scaleX<0,Y="px",W="deg",H=getComputedStyle(t),F=pi(t,ai)||"0";return i=r=s=l=c=u=d=h=p=0,o=a=1,n.svg=!(!t.getCTM||!bi(t)),H.translate&&("none"===H.translate&&"none"===H.scale&&"none"===H.rotate||(B[oi]=("none"!==H.translate?"translate3d("+(H.translate+" 0 0").split(" ").slice(0,3).join(", ")+") ":"")+("none"!==H.rotate?"rotate("+H.rotate+") ":"")+("none"!==H.scale?"scale("+H.scale.split(" ").join(",")+") ":"")+("none"!==H[oi]?H[oi]:"")),B.scale=B.rotate=B.translate="none"),m=Ri(t,n.svg),n.svg&&(n.uncache?(M=t.getBBox(),F=n.xOrigin-M.x+"px "+(n.yOrigin-M.y)+"px",P=""):P=!e&&t.getAttribute("data-svg-origin"),Bi(t,P||F,!!P||n.originIsAbsolute,!1!==n.smooth,m)),f=n.xOrigin||0,_=n.yOrigin||0,m!==Ci&&(b=m[0],D=m[1],w=m[2],E=m[3],i=T=m[4],r=x=m[5],6===m.length?(o=Math.sqrt(b*b+D*D),a=Math.sqrt(E*E+w*w),l=b||D?zn(D,b)*Fn:0,(d=w||E?zn(w,E)*Fn+l:0)&&(a*=Math.abs(Math.cos(d*qn))),n.svg&&(i-=f-(f*b+_*w),r-=_-(f*D+_*E))):(R=m[6],I=m[7],O=m[8],C=m[9],L=m[10],A=m[11],i=m[12],r=m[13],s=m[14],c=(g=zn(R,L))*Fn,g&&(P=T*(y=Math.cos(-g))+O*(v=Math.sin(-g)),M=x*y+C*v,k=R*y+L*v,O=T*-v+O*y,C=x*-v+C*y,L=R*-v+L*y,A=I*-v+A*y,T=P,x=M,R=k),u=(g=zn(-w,L))*Fn,g&&(y=Math.cos(-g),A=E*(v=Math.sin(-g))+A*y,b=P=b*y-O*v,D=M=D*y-C*v,w=k=w*y-L*v),l=(g=zn(D,b))*Fn,g&&(P=b*(y=Math.cos(g))+D*(v=Math.sin(g)),M=T*y+x*v,D=D*y-b*v,x=x*y-T*v,b=P,T=M),c&&Math.abs(c)+Math.abs(l)>359.9&&(c=l=0,u=180-u),o=bt(Math.sqrt(b*b+D*D+w*w)),a=bt(Math.sqrt(x*x+R*R)),g=zn(T,x),d=Math.abs(g)>2e-4?g*Fn:0,p=A?1/(A<0?-A:A):0),n.svg&&(P=t.getAttribute("transform"),n.forceCSS=t.setAttribute("transform","")||!Ii(pi(t,oi)),P&&t.setAttribute("transform",P))),Math.abs(d)>90&&Math.abs(d)<270&&(N?(o*=-1,d+=l<=0?180:-180,l+=l<=0?180:-180):(a*=-1,d+=d<=0?180:-180)),e=e||n.uncache,n.x=i-((n.xPercent=i&&(!e&&n.xPercent||(Math.round(t.offsetWidth/2)===Math.round(-i)?-50:0)))?t.offsetWidth*n.xPercent/100:0)+Y,n.y=r-((n.yPercent=r&&(!e&&n.yPercent||(Math.round(t.offsetHeight/2)===Math.round(-r)?-50:0)))?t.offsetHeight*n.yPercent/100:0)+Y,n.z=s+Y,n.scaleX=bt(o),n.scaleY=bt(a),n.rotation=bt(l)+W,n.rotationX=bt(c)+W,n.rotationY=bt(u)+W,n.skewX=d+W,n.skewY=h+W,n.transformPerspective=p+Y,(n.zOrigin=parseFloat(F.split(" ")[2])||!e&&n.zOrigin||0)&&(B[ai]=Yi(F)),n.xOffset=n.yOffset=0,n.force3D=S.force3D,n.renderTransform=n.svg?ji:Wn?Ui:Hi,n.uncache=0,n},Yi=function(t){return(t=t.split(" "))[0]+" "+t[1]},Wi=function(t,e,n){var i=ie(e);return bt(parseFloat(e)+parseFloat(Si(t,"x",n+"px",i)))+i},Hi=function(t,e){e.z="0px",e.rotationY=e.rotationX="0deg",e.force3D=0,Ui(t,e)},Fi="0deg",qi="0px",zi=") ",Ui=function(t,e){var n=e||this,i=n.xPercent,r=n.yPercent,s=n.x,o=n.y,a=n.z,l=n.rotation,c=n.rotationY,u=n.rotationX,d=n.skewX,h=n.skewY,p=n.scaleX,f=n.scaleY,_=n.transformPerspective,m=n.force3D,g=n.target,y=n.zOrigin,v="",b="auto"===m&&t&&1!==t||!0===m;if(y&&(u!==Fi||c!==Fi)){var D,w=parseFloat(c)*qn,E=Math.sin(w),T=Math.cos(w);w=parseFloat(u)*qn,D=Math.cos(w),s=Wi(g,s,E*D*-y),o=Wi(g,o,-Math.sin(w)*-y),a=Wi(g,a,T*D*-y+y)}_!==qi&&(v+="perspective("+_+zi),(i||r)&&(v+="translate("+i+"%, "+r+"%) "),(b||s!==qi||o!==qi||a!==qi)&&(v+=a!==qi||b?"translate3d("+s+", "+o+", "+a+") ":"translate("+s+", "+o+zi),l!==Fi&&(v+="rotate("+l+zi),c!==Fi&&(v+="rotateY("+c+zi),u!==Fi&&(v+="rotateX("+u+zi),d===Fi&&h===Fi||(v+="skew("+d+", "+h+zi),1===p&&1===f||(v+="scale("+p+", "+f+zi),g.style[oi]=v||"translate(0, 0)"},ji=function(t,e){var n,i,r,s,o,a=e||this,l=a.xPercent,c=a.yPercent,u=a.x,d=a.y,h=a.rotation,p=a.skewX,f=a.skewY,_=a.scaleX,m=a.scaleY,g=a.target,y=a.xOrigin,v=a.yOrigin,b=a.xOffset,D=a.yOffset,w=a.forceCSS,E=parseFloat(u),T=parseFloat(d);h=parseFloat(h),p=parseFloat(p),(f=parseFloat(f))&&(p+=f=parseFloat(f),h+=f),h||p?(h*=qn,p*=qn,n=Math.cos(h)*_,i=Math.sin(h)*_,r=Math.sin(h-p)*-m,s=Math.cos(h-p)*m,p&&(f*=qn,o=Math.tan(p-f),r*=o=Math.sqrt(1+o*o),s*=o,f&&(o=Math.tan(f),n*=o=Math.sqrt(1+o*o),i*=o)),n=bt(n),i=bt(i),r=bt(r),s=bt(s)):(n=_,s=m,i=r=0),(E&&!~(u+"").indexOf("px")||T&&!~(d+"").indexOf("px"))&&(E=Si(g,"x",u,"px"),T=Si(g,"y",d,"px")),(y||v||b||D)&&(E=bt(E+y-(y*n+v*r)+b),T=bt(T+v-(y*i+v*s)+D)),(l||c)&&(o=g.getBBox(),E=bt(E+l/100*o.width),T=bt(T+c/100*o.height)),o="matrix("+n+","+i+","+r+","+s+","+E+","+T+")",g.setAttribute("transform",o),w&&(g.style[oi]=o)},Vi=function(t,e,n,i,r){var s,o,a=360,l=R(r),c=parseFloat(r)*(l&&~r.indexOf("rad")?Fn:1)-i,u=i+c+"deg";return l&&("short"===(s=r.split("_")[1])&&(c%=a)!==c%180&&(c+=c<0?a:-360),"cw"===s&&c<0?c=(c+36e9)%a-~~(c/a)*a:"ccw"===s&&c>0&&(c=(c-36e9)%a-~~(c/a)*a)),t._pt=o=new yn(t._pt,e,n,i,c,Kn),o.e=u,o.u="deg",t._props.push(n),o},Xi=function(t,e){for(var n in e)t[n]=e[n];return t},$i=function(t,e,n){var i,r,s,o,a,l,c,u=Xi({},n._gsap),d=n.style;for(r in u.svg?(s=n.getAttribute("transform"),n.setAttribute("transform",""),d[oi]=e,i=Ni(n,1),Di(n,oi),n.setAttribute("transform",s)):(s=getComputedStyle(n)[oi],d[oi]=e,i=Ni(n,1),d[oi]=s),Hn)(s=u[r])!==(o=i[r])&&"perspective,force3D,transformOrigin,svgOrigin".indexOf(r)<0&&(a=ie(s)!==(c=ie(o))?Si(n,r,s,c):parseFloat(s),l=parseFloat(o),t._pt=new yn(t._pt,i,r,a,l-a,$n),t._pt.u=c||0,t._props.push(r));Xi(i,u)};vt("padding,margin,Width,Radius",(function(t,e){var n="Top",i="Right",r="Bottom",s="Left",o=(e<3?[n,i,r,s]:[n+s,n+i,r+i,r+s]).map((function(n){return e<2?t+n:"border"+n+t}));Oi[e>1?"border"+t:t]=function(t,e,n,i,r){var s,a;if(arguments.length<4)return s=o.map((function(e){return xi(t,e,n)})),5===(a=s.join(" ")).split(s[0]).length?s[0]:a;s=(i+"").split(" "),a={},o.forEach((function(t,e){return a[t]=s[e]=s[e]||s[(e-1)/2|0]})),t.init(e,a,r)}}));var Ki,Gi,Zi,Ji={name:"css",register:mi,targetTest:function(t){return t.style&&t.nodeType},init:function(t,e,n,i,r){var s,o,a,l,c,u,d,h,p,f,_,m,g,y,v,b,D,w,E,T,x=this._props,P=t.style,M=n.vars.startAt;for(d in Rn||mi(),this.styles=this.styles||di(t),b=this.styles.props,this.tween=n,e)if("autoRound"!==d&&(o=e[d],!dt[d]||!Ze(d,e,n,i,t,r)))if(c=typeof o,u=Oi[d],"function"===c&&(c=typeof(o=o.call(n,i,t,r))),"string"===c&&~o.indexOf("random(")&&(o=_e(o)),u)u(this,t,d,o,n)&&(v=1);else if("--"===d.substr(0,2))s=(getComputedStyle(t).getPropertyValue(d)+"").trim(),o+="",Me.lastIndex=0,Me.test(s)||(h=ie(s),p=ie(o)),p?h!==p&&(s=Si(t,d,s,p)+p):h&&(o+=h),this.add(P,"setProperty",s,o,i,r,0,0,d),x.push(d),b.push(d,0,P[d]);else if("undefined"!==c){if(M&&d in M?(s="function"==typeof M[d]?M[d].call(n,i,t,r):M[d],R(s)&&~s.indexOf("random(")&&(s=_e(s)),ie(s+"")||"auto"===s||(s+=S.units[d]||ie(xi(t,d))||""),"="===(s+"").charAt(1)&&(s=xi(t,d))):s=xi(t,d),l=parseFloat(s),(f="string"===c&&"="===o.charAt(1)&&o.substr(0,2))&&(o=o.substr(2)),a=parseFloat(o),d in Xn&&("autoAlpha"===d&&(1===l&&"hidden"===xi(t,"visibility")&&a&&(l=0),b.push("visibility",0,P.visibility),wi(this,P,"visibility",l?"inherit":"hidden",a?"inherit":"hidden",!a)),"scale"!==d&&"transform"!==d&&~(d=Xn[d]).indexOf(",")&&(d=d.split(",")[0])),_=d in Hn)if(this.styles.save(d),m||((g=t._gsap).renderTransform&&!e.parseTransform||Ni(t,e.parseTransform),y=!1!==e.smoothOrigin&&g.smooth,(m=this._pt=new yn(this._pt,P,oi,0,1,g.renderTransform,g,0,-1)).dep=1),"scale"===d)this._pt=new yn(this._pt,g,"scaleY",g.scaleY,(f?wt(g.scaleY,f+a):a)-g.scaleY||0,$n),this._pt.u=0,x.push("scaleY",d),d+="X";else{if("transformOrigin"===d){b.push(ai,0,P[ai]),w=void 0,E=void 0,T=void 0,w=(D=o).split(" "),E=w[0],T=w[1]||"50%","top"!==E&&"bottom"!==E&&"left"!==T&&"right"!==T||(D=E,E=T,T=D),w[0]=Mi[E]||E,w[1]=Mi[T]||T,o=w.join(" "),g.svg?Bi(t,o,0,y,0,this):((p=parseFloat(o.split(" ")[2])||0)!==g.zOrigin&&wi(this,g,"zOrigin",g.zOrigin,p),wi(this,P,d,Yi(s),Yi(o)));continue}if("svgOrigin"===d){Bi(t,o,1,y,0,this);continue}if(d in Li){Vi(this,g,d,l,f?wt(l,f+o):o);continue}if("smoothOrigin"===d){wi(this,g,"smooth",g.smooth,o);continue}if("force3D"===d){g[d]=o;continue}if("transform"===d){$i(this,o,t);continue}}else d in P||(d=_i(d)||d);if(_||(a||0===a)&&(l||0===l)&&!Vn.test(o)&&d in P)a||(a=0),(h=(s+"").substr((l+"").length))!==(p=ie(o)||(d in S.units?S.units[d]:h))&&(l=Si(t,d,s,p)),this._pt=new yn(this._pt,_?g:P,d,l,(f?wt(l,f+a):a)-l,_||"px"!==p&&"zIndex"!==d||!1===e.autoRound?$n:Zn),this._pt.u=p||0,h!==p&&"%"!==p&&(this._pt.b=s,this._pt.r=Gn);else if(d in P)Pi.call(this,t,d,s,f?f+o:o);else if(d in t)this.add(t,d,s||t[d],f?f+o:o,i,r);else if("parseTransform"!==d){et(d,o);continue}_||(d in P?b.push(d,0,P[d]):b.push(d,1,s||t[d])),x.push(d)}v&&gn(this)},render:function(t,e){if(e.tween._time||!Yn())for(var n=e._pt;n;)n.r(t,n.d),n=n._next;else e.styles.revert()},get:xi,aliases:Xn,getSetter:function(t,e,n){var i=Xn[e];return i&&i.indexOf(",")<0&&(e=i),e in Hn&&e!==ai&&(t._gsap.x||xi(t,"x"))?n&&Nn===n?"scale"===e?ii:ni:(Nn=n||{})&&("scale"===e?ri:si):t.style&&!Y(t.style[e])?ti:~e.indexOf("-")?ei:cn(t,e)},core:{_removeProperty:Di,_getMatrix:Ri}};Cn.utils.checkPrefix=_i,Cn.core.getStyleSaver=di,Zi=vt((Ki="x,y,z,scale,scaleX,scaleY,xPercent,yPercent")+","+(Gi="rotation,rotationX,rotationY,skewX,skewY")+",transform,transformOrigin,svgOrigin,force3D,smoothOrigin,transformPerspective",(function(t){Hn[t]=1})),vt(Gi,(function(t){S.units[t]="deg",Li[t]=1})),Xn[Zi[13]]=Ki+","+Gi,vt("0:translateX,1:translateY,2:translateZ,8:rotate,8:rotationZ,8:rotateZ,9:rotateX,10:rotateY",(function(t){var e=t.split(":");Xn[e[1]]=Zi[e[0]]})),vt("x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective",(function(t){S.units[t]="px"})),Cn.registerPlugin(Ji);var Qi=Cn.registerPlugin(Ji)||Cn;Qi.core.Tween;function tr(t){return tr="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},tr(t)}function er(t,e,n){return e=function(t){var e=function(t,e){if("object"!=tr(t)||!t)return t;var n=t[Symbol.toPrimitive];if(void 0!==n){var i=n.call(t,e||"default");if("object"!=tr(i))return i;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===e?String:Number)(t)}(t,"string");return"symbol"==tr(e)?e:String(e)}(e),e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}var nr=12e3;function ir(t,e){var n=document.querySelectorAll(".banner"),i=document.querySelector(".as__banner_controls_dots"),r="";n.forEach((function(t,e){t.classList.contains("active")?r+='<li class="dot active">'.concat(e+1,"</div>"):r+='<li class="dot">'.concat(e+1,"</li>")})),i.innerHTML=r}function rr(t){var e=t.timeline({paused:!1});e.to(".banner.active .as__banner_content h1 ",{duration:1,opacity:1,ease:"power2.out"},"=0"),e.from(".banner.active .as__banner_piso",{yPercent:100,duration:1,opacity:0,ease:"power2.inout"},"-=1"),e.from(".banner.active .as__banner_content .ban_anim1",{scale:.8,duration:1,opacity:0,stagger:.2,ease:"power2.out"},"-=1"),e.from(".banner.active  .as__banner_images img",{duration:1,y:-10,opacity:0,stagger:.2,ease:"power2.out"},"-=1"),e.fromTo(".banner.active .as__banner_left .as__banner_left_int",{yPercent:20,opacity:0,scale:.8},{opacity:1,yPercent:0,scale:1,duration:1.2,stagger:.1,ease:"power2.out"},"-=1"),t.set(".banner.active .as__banner_right",{opacity:1}),e.fromTo(".banner.active .as__banner_right .as__banner_right_int",{xPercent:100,opacity:1},{opacity:1,xPercent:0,duration:1.2,stagger:.1,ease:"power2.out"},"-=1");var n=t.timeline({paused:!1});n.to(".banner.active .as__banner_right_int #gafas",{transformOrigin:"center",duration:1,repeat:-1,y:256,ease:"sine.inOut",yoyo:!0,stagger:.2},"0"),n.to(".banner.active .as__banner_right_int #mano",{scale:1.1,transformOrigin:"left top",duration:3,rotate:10,y:467,repeat:-1,ease:"power4.inout",yoyo:!0,stagger:.2},"0");var i=t.timeline({paused:!1});return i.to(".banner.active .as__banner_left_int #cabeza",{transformOrigin:"center bottom",duration:1,repeat:-1,rotate:5,ease:"sine.inOut",yoyo:!0,stagger:.2},"0"),i.to(".banner.active .as__banner_left_int #mano",{transformOrigin:"top left",duration:3,rotate:15,y:286,repeat:-1,ease:"power4.inout",yoyo:!0},"0"),i.to(".banner.active .as__banner_left_int #pierna",{transformOrigin:"180px 0px 0px",duration:3,rotate:-15,repeat:-1,ease:"power4.inout",yoyo:!0},"0"),{tl:e,tl_banner_anciana:n,tl_banner_ninos:i}}function sr(t,e){if(document.getElementById("home_servicios")){var n=t.timeline({paused:!0});n.fromTo(".as__servicios_item",{opacity:0,y:50},{duration:1,opacity:1,y:0,stagger:1},"-=0"),n.fromTo(".as__servicios_image img",{y:30,scale:1.1},{y:0,scale:1,duration:2,stagger:.2},"-=1"),n.from(".img_renta",{backgroundColor:"transparent",duration:2},"-=3"),n.from(".img_seguro",{backgroundColor:"transparent",duration:2},"-=3");e.create({animation:n,trigger:document.getElementById("home_servicios"),start:"top bottom",end:"center center",scrub:3,onUpdate:function(t){t.progress}})}}var or=n(177),ar=n(995);function lr(t,e={}){if(!t||!1==t instanceof HTMLElement)throw new Error("Missing/invalid rootElement: ",t);const n=JSON.parse(JSON.stringify(ar.V.DEFAULT));let i;for(let i in n)e.hasOwnProperty(i)?n[i]=e[i]:t.hasAttribute("data-"+i)&&(n[i]=t.getAttribute("data-"+i));return n.system=ar.V.SYSTEM_VANILLA,i=new ar.V(n),this._core=new or.Q(t,i),this._core.init(),setTimeout((()=>{this._core.config.autostart&&this._core.tick()}),150),this}lr.getDefaultConfiguration=function(){return JSON.parse(JSON.stringify(ar.V.DEFAULT))},lr.prototype.play=function(){this._core.play()},lr.prototype.pause=function(){this._core.pause()},lr.prototype.setScrollContent=function(t){this._core.setScrollContent(t)},lr.prototype.setScrollSpeed=function(t){this._core.setScrollSpeed(t)},lr.prototype.getScrollSpeed=function(){return+this._core.config.speed},lr.prototype.setPosition=function(t){this._core.setPosition(t)},lr.prototype.setPauseOnHover=function(t){this._core.setPauseOnHover(t)},lr.prototype.setPerspective=function(t){this._core.setPerspective(t)},lr.prototype.destroy=function(){this._core.destroy()};const cr=lr;function ur(t){return ur="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},ur(t)}function dr(t,e,n){return e=function(t){var e=function(t,e){if("object"!=ur(t)||!t)return t;var n=t[Symbol.toPrimitive];if(void 0!==n){var i=n.call(t,e||"default");if("object"!=ur(i))return i;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===e?String:Number)(t)}(t,"string");return"symbol"==ur(e)?e:String(e)}(e),e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}function hr(t){return hr="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},hr(t)}function pr(t,e,n){return e=function(t){var e=function(t,e){if("object"!=hr(t)||!t)return t;var n=t[Symbol.toPrimitive];if(void 0!==n){var i=n.call(t,e||"default");if("object"!=hr(i))return i;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===e?String:Number)(t)}(t,"string");return"symbol"==hr(e)?e:String(e)}(e),e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}function fr(t){return fr="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},fr(t)}function _r(t,e,n){return e=function(t){var e=function(t,e){if("object"!=fr(t)||!t)return t;var n=t[Symbol.toPrimitive];if(void 0!==n){var i=n.call(t,e||"default");if("object"!=fr(i))return i;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===e?String:Number)(t)}(t,"string");return"symbol"==fr(e)?e:String(e)}(e),e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}var mr=n(319),gr=n.n(mr),yr=(n(363),n(379)),vr=n.n(yr),br=n(77),Dr={insert:"head",singleton:!1};vr()(br.Z,Dr);br.Z.locals;var wr=n(484),Er=n.n(wr),Tr=n(215),Sr=["2024-01-19","2024-02-16","2024-03-13","2024-04-18","2024-05-17","2024-06-17","2024-07-18","2024-08-15","2024-09-18","2024-10-17","2024-11-15","2024-12-13"];function xr(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}Er().extend(Tr.Z,{holidays:["2023-12-08","2023-12-25","2024-01-01","2024-01-08","2024-03-25","2024-03-28","2024-03-29","2024-05-01","2024-05-13","2024-06-03","2024-06-10","2024-07-01","2024-07-20","2024-08-07","2024-08-19","2024-10-14","2024-11-04","2024-11-11","2024-12-08","2024-12-25"],holidayFormat:"YYYY-MM-DD"});var Pr,Mr,kr,Or,Cr,Lr,Ir,Ar,Rr,Br,Nr,Yr,Wr,Hr=function(){return Pr||"undefined"!=typeof window&&(Pr=window.gsap)&&Pr.registerPlugin&&Pr},Fr=1,qr=[],zr=[],Ur=[],jr=Date.now,Vr=function(t,e){return e},Xr=function(t,e){return~Ur.indexOf(t)&&Ur[Ur.indexOf(t)+1][e]},$r=function(t){return!!~Br.indexOf(t)},Kr=function(t,e,n,i,r){return t.addEventListener(e,n,{passive:!1!==i,capture:!!r})},Gr=function(t,e,n,i){return t.removeEventListener(e,n,!!i)},Zr="scrollLeft",Jr="scrollTop",Qr=function(){return Nr&&Nr.isPressed||zr.cache++},ts=function(t,e){var n=function n(i){if(i||0===i){Fr&&(kr.history.scrollRestoration="manual");var r=Nr&&Nr.isPressed;i=n.v=Math.round(i)||(Nr&&Nr.iOS?1:0),t(i),n.cacheID=zr.cache,r&&Vr("ss",i)}else(e||zr.cache!==n.cacheID||Vr("ref"))&&(n.cacheID=zr.cache,n.v=t());return n.v+n.offset};return n.offset=0,t&&n},es={s:Zr,p:"left",p2:"Left",os:"right",os2:"Right",d:"width",d2:"Width",a:"x",sc:ts((function(t){return arguments.length?kr.scrollTo(t,ns.sc()):kr.pageXOffset||Or[Zr]||Cr[Zr]||Lr[Zr]||0}))},ns={s:Jr,p:"top",p2:"Top",os:"bottom",os2:"Bottom",d:"height",d2:"Height",a:"y",op:es,sc:ts((function(t){return arguments.length?kr.scrollTo(es.sc(),t):kr.pageYOffset||Or[Jr]||Cr[Jr]||Lr[Jr]||0}))},is=function(t,e){return(e&&e._ctx&&e._ctx.selector||Pr.utils.toArray)(t)[0]||("string"==typeof t&&!1!==Pr.config().nullTargetWarn?console.warn("Element not found:",t):null)},rs=function(t,e){var n=e.s,i=e.sc;$r(t)&&(t=Or.scrollingElement||Cr);var r=zr.indexOf(t),s=i===ns.sc?1:2;!~r&&(r=zr.push(t)-1),zr[r+s]||Kr(t,"scroll",Qr);var o=zr[r+s],a=o||(zr[r+s]=ts(Xr(t,n),!0)||($r(t)?i:ts((function(e){return arguments.length?t[n]=e:t[n]}))));return a.target=t,o||(a.smooth="smooth"===Pr.getProperty(t,"scrollBehavior")),a},ss=function(t,e,n){var i=t,r=t,s=jr(),o=s,a=e||50,l=Math.max(500,3*a),c=function(t,e){var l=jr();e||l-s>a?(r=i,i=t,o=s,s=l):n?i+=t:i=r+(t-r)/(l-o)*(s-o)};return{update:c,reset:function(){r=i=n?0:i,o=s=0},getVelocity:function(t){var e=o,a=r,u=jr();return(t||0===t)&&t!==i&&c(t),s===o||u-o>l?0:(i+(n?a:-a))/((n?u:s)-e)*1e3}}},os=function(t,e){return e&&!t._gsapAllow&&t.preventDefault(),t.changedTouches?t.changedTouches[0]:t},as=function(t){var e=Math.max.apply(Math,t),n=Math.min.apply(Math,t);return Math.abs(e)>=Math.abs(n)?e:n},ls=function(){var t,e,n,i;(Rr=Pr.core.globals().ScrollTrigger)&&Rr.core&&(t=Rr.core,e=t.bridge||{},n=t._scrollers,i=t._proxies,n.push.apply(n,zr),i.push.apply(i,Ur),zr=n,Ur=i,Vr=function(t,n){return e[t](n)})},cs=function(t){return Pr=t||Hr(),!Mr&&Pr&&"undefined"!=typeof document&&document.body&&(kr=window,Or=document,Cr=Or.documentElement,Lr=Or.body,Br=[kr,Or,Cr,Lr],Pr.utils.clamp,Wr=Pr.core.context||function(){},Ar="onpointerenter"in Lr?"pointer":"mouse",Ir=us.isTouch=kr.matchMedia&&kr.matchMedia("(hover: none), (pointer: coarse)").matches?1:"ontouchstart"in kr||navigator.maxTouchPoints>0||navigator.msMaxTouchPoints>0?2:0,Yr=us.eventTypes=("ontouchstart"in Cr?"touchstart,touchmove,touchcancel,touchend":"onpointerdown"in Cr?"pointerdown,pointermove,pointercancel,pointerup":"mousedown,mousemove,mouseup,mouseup").split(","),setTimeout((function(){return Fr=0}),500),ls(),Mr=1),Mr};es.op=ns,zr.cache=0;var us=function(){function t(t){this.init(t)}var e,n,i;return t.prototype.init=function(t){Mr||cs(Pr)||console.warn("Please gsap.registerPlugin(Observer)"),Rr||ls();var e=t.tolerance,n=t.dragMinimum,i=t.type,r=t.target,s=t.lineHeight,o=t.debounce,a=t.preventDefault,l=t.onStop,c=t.onStopDelay,u=t.ignore,d=t.wheelSpeed,h=t.event,p=t.onDragStart,f=t.onDragEnd,_=t.onDrag,m=t.onPress,g=t.onRelease,y=t.onRight,v=t.onLeft,b=t.onUp,D=t.onDown,w=t.onChangeX,E=t.onChangeY,T=t.onChange,S=t.onToggleX,x=t.onToggleY,P=t.onHover,M=t.onHoverEnd,k=t.onMove,O=t.ignoreCheck,C=t.isNormalizer,L=t.onGestureStart,I=t.onGestureEnd,A=t.onWheel,R=t.onEnable,B=t.onDisable,N=t.onClick,Y=t.scrollSpeed,W=t.capture,H=t.allowClicks,F=t.lockAxis,q=t.onLockAxis;this.target=r=is(r)||Cr,this.vars=t,u&&(u=Pr.utils.toArray(u)),e=e||1e-9,n=n||0,d=d||1,Y=Y||1,i=i||"wheel,touch,pointer",o=!1!==o,s||(s=parseFloat(kr.getComputedStyle(Lr).lineHeight)||22);var z,U,j,V,X,$,K,G=this,Z=0,J=0,Q=t.passive||!a,tt=rs(r,es),et=rs(r,ns),nt=tt(),it=et(),rt=~i.indexOf("touch")&&!~i.indexOf("pointer")&&"pointerdown"===Yr[0],st=$r(r),ot=r.ownerDocument||Or,at=[0,0,0],lt=[0,0,0],ct=0,ut=function(){return ct=jr()},dt=function(t,e){return(G.event=t)&&u&&~u.indexOf(t.target)||e&&rt&&"touch"!==t.pointerType||O&&O(t,e)},ht=function(){var t=G.deltaX=as(at),n=G.deltaY=as(lt),i=Math.abs(t)>=e,r=Math.abs(n)>=e;T&&(i||r)&&T(G,t,n,at,lt),i&&(y&&G.deltaX>0&&y(G),v&&G.deltaX<0&&v(G),w&&w(G),S&&G.deltaX<0!=Z<0&&S(G),Z=G.deltaX,at[0]=at[1]=at[2]=0),r&&(D&&G.deltaY>0&&D(G),b&&G.deltaY<0&&b(G),E&&E(G),x&&G.deltaY<0!=J<0&&x(G),J=G.deltaY,lt[0]=lt[1]=lt[2]=0),(V||j)&&(k&&k(G),j&&(_(G),j=!1),V=!1),$&&!($=!1)&&q&&q(G),X&&(A(G),X=!1),z=0},pt=function(t,e,n){at[n]+=t,lt[n]+=e,G._vx.update(t),G._vy.update(e),o?z||(z=requestAnimationFrame(ht)):ht()},ft=function(t,e){F&&!K&&(G.axis=K=Math.abs(t)>Math.abs(e)?"x":"y",$=!0),"y"!==K&&(at[2]+=t,G._vx.update(t,!0)),"x"!==K&&(lt[2]+=e,G._vy.update(e,!0)),o?z||(z=requestAnimationFrame(ht)):ht()},_t=function(t){if(!dt(t,1)){var e=(t=os(t,a)).clientX,i=t.clientY,r=e-G.x,s=i-G.y,o=G.isDragging;G.x=e,G.y=i,(o||Math.abs(G.startX-e)>=n||Math.abs(G.startY-i)>=n)&&(_&&(j=!0),o||(G.isDragging=!0),ft(r,s),o||p&&p(G))}},mt=G.onPress=function(t){dt(t,1)||t&&t.button||(G.axis=K=null,U.pause(),G.isPressed=!0,t=os(t),Z=J=0,G.startX=G.x=t.clientX,G.startY=G.y=t.clientY,G._vx.reset(),G._vy.reset(),Kr(C?r:ot,Yr[1],_t,Q,!0),G.deltaX=G.deltaY=0,m&&m(G))},gt=G.onRelease=function(t){if(!dt(t,1)){Gr(C?r:ot,Yr[1],_t,!0);var e=!isNaN(G.y-G.startY),n=G.isDragging,i=n&&(Math.abs(G.x-G.startX)>3||Math.abs(G.y-G.startY)>3),s=os(t);!i&&e&&(G._vx.reset(),G._vy.reset(),a&&H&&Pr.delayedCall(.08,(function(){if(jr()-ct>300&&!t.defaultPrevented)if(t.target.click)t.target.click();else if(ot.createEvent){var e=ot.createEvent("MouseEvents");e.initMouseEvent("click",!0,!0,kr,1,s.screenX,s.screenY,s.clientX,s.clientY,!1,!1,!1,!1,0,null),t.target.dispatchEvent(e)}}))),G.isDragging=G.isGesturing=G.isPressed=!1,l&&n&&!C&&U.restart(!0),f&&n&&f(G),g&&g(G,i)}},yt=function(t){return t.touches&&t.touches.length>1&&(G.isGesturing=!0)&&L(t,G.isDragging)},vt=function(){return(G.isGesturing=!1)||I(G)},bt=function(t){if(!dt(t)){var e=tt(),n=et();pt((e-nt)*Y,(n-it)*Y,1),nt=e,it=n,l&&U.restart(!0)}},Dt=function(t){if(!dt(t)){t=os(t,a),A&&(X=!0);var e=(1===t.deltaMode?s:2===t.deltaMode?kr.innerHeight:1)*d;pt(t.deltaX*e,t.deltaY*e,0),l&&!C&&U.restart(!0)}},wt=function(t){if(!dt(t)){var e=t.clientX,n=t.clientY,i=e-G.x,r=n-G.y;G.x=e,G.y=n,V=!0,l&&U.restart(!0),(i||r)&&ft(i,r)}},Et=function(t){G.event=t,P(G)},Tt=function(t){G.event=t,M(G)},St=function(t){return dt(t)||os(t,a)&&N(G)};U=G._dc=Pr.delayedCall(c||.25,(function(){G._vx.reset(),G._vy.reset(),U.pause(),l&&l(G)})).pause(),G.deltaX=G.deltaY=0,G._vx=ss(0,50,!0),G._vy=ss(0,50,!0),G.scrollX=tt,G.scrollY=et,G.isDragging=G.isGesturing=G.isPressed=!1,Wr(this),G.enable=function(t){return G.isEnabled||(Kr(st?ot:r,"scroll",Qr),i.indexOf("scroll")>=0&&Kr(st?ot:r,"scroll",bt,Q,W),i.indexOf("wheel")>=0&&Kr(r,"wheel",Dt,Q,W),(i.indexOf("touch")>=0&&Ir||i.indexOf("pointer")>=0)&&(Kr(r,Yr[0],mt,Q,W),Kr(ot,Yr[2],gt),Kr(ot,Yr[3],gt),H&&Kr(r,"click",ut,!0,!0),N&&Kr(r,"click",St),L&&Kr(ot,"gesturestart",yt),I&&Kr(ot,"gestureend",vt),P&&Kr(r,Ar+"enter",Et),M&&Kr(r,Ar+"leave",Tt),k&&Kr(r,Ar+"move",wt)),G.isEnabled=!0,t&&t.type&&mt(t),R&&R(G)),G},G.disable=function(){G.isEnabled&&(qr.filter((function(t){return t!==G&&$r(t.target)})).length||Gr(st?ot:r,"scroll",Qr),G.isPressed&&(G._vx.reset(),G._vy.reset(),Gr(C?r:ot,Yr[1],_t,!0)),Gr(st?ot:r,"scroll",bt,W),Gr(r,"wheel",Dt,W),Gr(r,Yr[0],mt,W),Gr(ot,Yr[2],gt),Gr(ot,Yr[3],gt),Gr(r,"click",ut,!0),Gr(r,"click",St),Gr(ot,"gesturestart",yt),Gr(ot,"gestureend",vt),Gr(r,Ar+"enter",Et),Gr(r,Ar+"leave",Tt),Gr(r,Ar+"move",wt),G.isEnabled=G.isPressed=G.isDragging=!1,B&&B(G))},G.kill=G.revert=function(){G.disable();var t=qr.indexOf(G);t>=0&&qr.splice(t,1),Nr===G&&(Nr=0)},qr.push(G),C&&$r(r)&&(Nr=G),G.enable(h)},e=t,(n=[{key:"velocityX",get:function(){return this._vx.getVelocity()}},{key:"velocityY",get:function(){return this._vy.getVelocity()}}])&&xr(e.prototype,n),i&&xr(e,i),t}();us.version="3.12.5",us.create=function(t){return new us(t)},us.register=cs,us.getAll=function(){return qr.slice()},us.getById=function(t){return qr.filter((function(e){return e.vars.id===t}))[0]},Hr()&&Pr.registerPlugin(us);var ds,hs,ps,fs,_s,ms,gs,ys,vs,bs,Ds,ws,Es,Ts,Ss,xs,Ps,Ms,ks,Os,Cs,Ls,Is,As,Rs,Bs,Ns,Ys,Ws,Hs,Fs,qs,zs,Us,js,Vs,Xs,$s,Ks=1,Gs=Date.now,Zs=Gs(),Js=0,Qs=0,to=function(t,e,n){var i=_o(t)&&("clamp("===t.substr(0,6)||t.indexOf("max")>-1);return n["_"+e+"Clamp"]=i,i?t.substr(6,t.length-7):t},eo=function(t,e){return!e||_o(t)&&"clamp("===t.substr(0,6)?t:"clamp("+t+")"},no=function t(){return Qs&&requestAnimationFrame(t)},io=function(){return Ts=1},ro=function(){return Ts=0},so=function(t){return t},oo=function(t){return Math.round(1e5*t)/1e5||0},ao=function(){return"undefined"!=typeof window},lo=function(){return ds||ao()&&(ds=window.gsap)&&ds.registerPlugin&&ds},co=function(t){return!!~gs.indexOf(t)},uo=function(t){return("Height"===t?Fs:ps["inner"+t])||_s["client"+t]||ms["client"+t]},ho=function(t){return Xr(t,"getBoundingClientRect")||(co(t)?function(){return Sa.width=ps.innerWidth,Sa.height=Fs,Sa}:function(){return Yo(t)})},po=function(t,e){var n=e.s,i=e.d2,r=e.d,s=e.a;return Math.max(0,(n="scroll"+i)&&(s=Xr(t,n))?s()-ho(t)()[r]:co(t)?(_s[n]||ms[n])-uo(i):t[n]-t["offset"+i])},fo=function(t,e){for(var n=0;n<ks.length;n+=3)(!e||~e.indexOf(ks[n+1]))&&t(ks[n],ks[n+1],ks[n+2])},_o=function(t){return"string"==typeof t},mo=function(t){return"function"==typeof t},go=function(t){return"number"==typeof t},yo=function(t){return"object"==typeof t},vo=function(t,e,n){return t&&t.progress(e?0:1)&&n&&t.pause()},bo=function(t,e){if(t.enabled){var n=t._ctx?t._ctx.add((function(){return e(t)})):e(t);n&&n.totalTime&&(t.callbackAnimation=n)}},Do=Math.abs,wo="left",Eo="right",To="bottom",So="width",xo="height",Po="Right",Mo="Left",ko="Top",Oo="Bottom",Co="padding",Lo="margin",Io="Width",Ao="Height",Ro="px",Bo=function(t){return ps.getComputedStyle(t)},No=function(t,e){for(var n in e)n in t||(t[n]=e[n]);return t},Yo=function(t,e){var n=e&&"matrix(1, 0, 0, 1, 0, 0)"!==Bo(t)[Ss]&&ds.to(t,{x:0,y:0,xPercent:0,yPercent:0,rotation:0,rotationX:0,rotationY:0,scale:1,skewX:0,skewY:0}).progress(1),i=t.getBoundingClientRect();return n&&n.progress(0).kill(),i},Wo=function(t,e){var n=e.d2;return t["offset"+n]||t["client"+n]||0},Ho=function(t){var e,n=[],i=t.labels,r=t.duration();for(e in i)n.push(i[e]/r);return n},Fo=function(t){var e=ds.utils.snap(t),n=Array.isArray(t)&&t.slice(0).sort((function(t,e){return t-e}));return n?function(t,i,r){var s;if(void 0===r&&(r=.001),!i)return e(t);if(i>0){for(t-=r,s=0;s<n.length;s++)if(n[s]>=t)return n[s];return n[s-1]}for(s=n.length,t+=r;s--;)if(n[s]<=t)return n[s];return n[0]}:function(n,i,r){void 0===r&&(r=.001);var s=e(n);return!i||Math.abs(s-n)<r||s-n<0==i<0?s:e(i<0?n-t:n+t)}},qo=function(t,e,n,i){return n.split(",").forEach((function(n){return t(e,n,i)}))},zo=function(t,e,n,i,r){return t.addEventListener(e,n,{passive:!i,capture:!!r})},Uo=function(t,e,n,i){return t.removeEventListener(e,n,!!i)},jo=function(t,e,n){(n=n&&n.wheelHandler)&&(t(e,"wheel",n),t(e,"touchmove",n))},Vo={startColor:"green",endColor:"red",indent:0,fontSize:"16px",fontWeight:"normal"},Xo={toggleActions:"play",anticipatePin:0},$o={top:0,left:0,center:.5,bottom:1,right:1},Ko=function(t,e){if(_o(t)){var n=t.indexOf("="),i=~n?+(t.charAt(n-1)+1)*parseFloat(t.substr(n+1)):0;~n&&(t.indexOf("%")>n&&(i*=e/100),t=t.substr(0,n-1)),t=i+(t in $o?$o[t]*e:~t.indexOf("%")?parseFloat(t)*e/100:parseFloat(t)||0)}return t},Go=function(t,e,n,i,r,s,o,a){var l=r.startColor,c=r.endColor,u=r.fontSize,d=r.indent,h=r.fontWeight,p=fs.createElement("div"),f=co(n)||"fixed"===Xr(n,"pinType"),_=-1!==t.indexOf("scroller"),m=f?ms:n,g=-1!==t.indexOf("start"),y=g?l:c,v="border-color:"+y+";font-size:"+u+";color:"+y+";font-weight:"+h+";pointer-events:none;white-space:nowrap;font-family:sans-serif,Arial;z-index:1000;padding:4px 8px;border-width:0;border-style:solid;";return v+="position:"+((_||a)&&f?"fixed;":"absolute;"),(_||a||!f)&&(v+=(i===ns?Eo:To)+":"+(s+parseFloat(d))+"px;"),o&&(v+="box-sizing:border-box;text-align:left;width:"+o.offsetWidth+"px;"),p._isStart=g,p.setAttribute("class","gsap-marker-"+t+(e?" marker-"+e:"")),p.style.cssText=v,p.innerText=e||0===e?t+"-"+e:t,m.children[0]?m.insertBefore(p,m.children[0]):m.appendChild(p),p._offset=p["offset"+i.op.d2],Zo(p,0,i,g),p},Zo=function(t,e,n,i){var r={display:"block"},s=n[i?"os2":"p2"],o=n[i?"p2":"os2"];t._isFlipped=i,r[n.a+"Percent"]=i?-100:0,r[n.a]=i?"1px":0,r["border"+s+Io]=1,r["border"+o+Io]=0,r[n.p]=e+"px",ds.set(t,r)},Jo=[],Qo={},ta=function(){return Gs()-Js>34&&(js||(js=requestAnimationFrame(ya)))},ea=function(){(!Is||!Is.isPressed||Is.startX>ms.clientWidth)&&(zr.cache++,Is?js||(js=requestAnimationFrame(ya)):ya(),Js||aa("scrollStart"),Js=Gs())},na=function(){Bs=ps.innerWidth,Rs=ps.innerHeight},ia=function(){zr.cache++,!Es&&!Ls&&!fs.fullscreenElement&&!fs.webkitFullscreenElement&&(!As||Bs!==ps.innerWidth||Math.abs(ps.innerHeight-Rs)>.25*ps.innerHeight)&&ys.restart(!0)},ra={},sa=[],oa=function t(){return Uo(La,"scrollEnd",t)||_a(!0)},aa=function(t){return ra[t]&&ra[t].map((function(t){return t()}))||sa},la=[],ca=function(t){for(var e=0;e<la.length;e+=5)(!t||la[e+4]&&la[e+4].query===t)&&(la[e].style.cssText=la[e+1],la[e].getBBox&&la[e].setAttribute("transform",la[e+2]||""),la[e+3].uncache=1)},ua=function(t,e){var n;for(xs=0;xs<Jo.length;xs++)!(n=Jo[xs])||e&&n._ctx!==e||(t?n.kill(1):n.revert(!0,!0));qs=!0,e&&ca(e),e||aa("revert")},da=function(t,e){zr.cache++,(e||!Vs)&&zr.forEach((function(t){return mo(t)&&t.cacheID++&&(t.rec=0)})),_o(t)&&(ps.history.scrollRestoration=Ws=t)},ha=0,pa=function(){ms.appendChild(Hs),Fs=!Is&&Hs.offsetHeight||ps.innerHeight,ms.removeChild(Hs)},fa=function(t){return vs(".gsap-marker-start, .gsap-marker-end, .gsap-marker-scroller-start, .gsap-marker-scroller-end").forEach((function(e){return e.style.display=t?"none":"block"}))},_a=function(t,e){if(!Js||t||qs){pa(),Vs=La.isRefreshing=!0,zr.forEach((function(t){return mo(t)&&++t.cacheID&&(t.rec=t())}));var n=aa("refreshInit");Os&&La.sort(),e||ua(),zr.forEach((function(t){mo(t)&&(t.smooth&&(t.target.style.scrollBehavior="auto"),t(0))})),Jo.slice(0).forEach((function(t){return t.refresh()})),qs=!1,Jo.forEach((function(t){if(t._subPinOffset&&t.pin){var e=t.vars.horizontal?"offsetWidth":"offsetHeight",n=t.pin[e];t.revert(!0,1),t.adjustPinSpacing(t.pin[e]-n),t.refresh()}})),zs=1,fa(!0),Jo.forEach((function(t){var e=po(t.scroller,t._dir),n="max"===t.vars.end||t._endClamp&&t.end>e,i=t._startClamp&&t.start>=e;(n||i)&&t.setPositions(i?e-1:t.start,n?Math.max(i?e:t.start+1,e):t.end,!0)})),fa(!1),zs=0,n.forEach((function(t){return t&&t.render&&t.render(-1)})),zr.forEach((function(t){mo(t)&&(t.smooth&&requestAnimationFrame((function(){return t.target.style.scrollBehavior="smooth"})),t.rec&&t(t.rec))})),da(Ws,1),ys.pause(),ha++,Vs=2,ya(2),Jo.forEach((function(t){return mo(t.vars.onRefresh)&&t.vars.onRefresh(t)})),Vs=La.isRefreshing=!1,aa("refresh")}else zo(La,"scrollEnd",oa)},ma=0,ga=1,ya=function(t){if(2===t||!Vs&&!qs){La.isUpdating=!0,$s&&$s.update(0);var e=Jo.length,n=Gs(),i=n-Zs>=50,r=e&&Jo[0].scroll();if(ga=ma>r?-1:1,Vs||(ma=r),i&&(Js&&!Ts&&n-Js>200&&(Js=0,aa("scrollEnd")),Ds=Zs,Zs=n),ga<0){for(xs=e;xs-- >0;)Jo[xs]&&Jo[xs].update(0,i);ga=1}else for(xs=0;xs<e;xs++)Jo[xs]&&Jo[xs].update(0,i);La.isUpdating=!1}js=0},va=[wo,"top",To,Eo,Lo+Oo,Lo+Po,Lo+ko,Lo+Mo,"display","flexShrink","float","zIndex","gridColumnStart","gridColumnEnd","gridRowStart","gridRowEnd","gridArea","justifySelf","alignSelf","placeSelf","order"],ba=va.concat([So,xo,"boxSizing","max"+Io,"max"+Ao,"position",Lo,Co,Co+ko,Co+Po,Co+Oo,Co+Mo]),Da=function(t,e,n,i){if(!t._gsap.swappedIn){for(var r,s=va.length,o=e.style,a=t.style;s--;)o[r=va[s]]=n[r];o.position="absolute"===n.position?"absolute":"relative","inline"===n.display&&(o.display="inline-block"),a[To]=a[Eo]="auto",o.flexBasis=n.flexBasis||"auto",o.overflow="visible",o.boxSizing="border-box",o[So]=Wo(t,es)+Ro,o[xo]=Wo(t,ns)+Ro,o[Co]=a[Lo]=a.top=a[wo]="0",Ea(i),a[So]=a["max"+Io]=n[So],a[xo]=a["max"+Ao]=n[xo],a[Co]=n[Co],t.parentNode!==e&&(t.parentNode.insertBefore(e,t),e.appendChild(t)),t._gsap.swappedIn=!0}},wa=/([A-Z])/g,Ea=function(t){if(t){var e,n,i=t.t.style,r=t.length,s=0;for((t.t._gsap||ds.core.getCache(t.t)).uncache=1;s<r;s+=2)n=t[s+1],e=t[s],n?i[e]=n:i[e]&&i.removeProperty(e.replace(wa,"-$1").toLowerCase())}},Ta=function(t){for(var e=ba.length,n=t.style,i=[],r=0;r<e;r++)i.push(ba[r],n[ba[r]]);return i.t=t,i},Sa={left:0,top:0},xa=function(t,e,n,i,r,s,o,a,l,c,u,d,h,p){mo(t)&&(t=t(a)),_o(t)&&"max"===t.substr(0,3)&&(t=d+("="===t.charAt(4)?Ko("0"+t.substr(3),n):0));var f,_,m,g=h?h.time():0;if(h&&h.seek(0),isNaN(t)||(t=+t),go(t))h&&(t=ds.utils.mapRange(h.scrollTrigger.start,h.scrollTrigger.end,0,d,t)),o&&Zo(o,n,i,!0);else{mo(e)&&(e=e(a));var y,v,b,D,w=(t||"0").split(" ");m=is(e,a)||ms,(y=Yo(m)||{})&&(y.left||y.top)||"none"!==Bo(m).display||(D=m.style.display,m.style.display="block",y=Yo(m),D?m.style.display=D:m.style.removeProperty("display")),v=Ko(w[0],y[i.d]),b=Ko(w[1]||"0",n),t=y[i.p]-l[i.p]-c+v+r-b,o&&Zo(o,b,i,n-b<20||o._isStart&&b>20),n-=n-b}if(p&&(a[p]=t||-.001,t<0&&(t=0)),s){var E=t+n,T=s._isStart;f="scroll"+i.d2,Zo(s,E,i,T&&E>20||!T&&(u?Math.max(ms[f],_s[f]):s.parentNode[f])<=E+1),u&&(l=Yo(o),u&&(s.style[i.op.p]=l[i.op.p]-i.op.m-s._offset+Ro))}return h&&m&&(f=Yo(m),h.seek(d),_=Yo(m),h._caScrollDist=f[i.p]-_[i.p],t=t/h._caScrollDist*d),h&&h.seek(g),h?t:Math.round(t)},Pa=/(webkit|moz|length|cssText|inset)/i,Ma=function(t,e,n,i){if(t.parentNode!==e){var r,s,o=t.style;if(e===ms){for(r in t._stOrig=o.cssText,s=Bo(t))+r||Pa.test(r)||!s[r]||"string"!=typeof o[r]||"0"===r||(o[r]=s[r]);o.top=n,o.left=i}else o.cssText=t._stOrig;ds.core.getCache(t).uncache=1,e.appendChild(t)}},ka=function(t,e,n){var i=e,r=i;return function(e){var s=Math.round(t());return s!==i&&s!==r&&Math.abs(s-i)>3&&Math.abs(s-r)>3&&(e=s,n&&n()),r=i,i=e,e}},Oa=function(t,e,n){var i={};i[e.p]="+="+n,ds.set(t,i)},Ca=function(t,e){var n=rs(t,e),i="_scroll"+e.p2,r=function e(r,s,o,a,l){var c=e.tween,u=s.onComplete,d={};o=o||n();var h=ka(n,o,(function(){c.kill(),e.tween=0}));return l=a&&l||0,a=a||r-o,c&&c.kill(),s[i]=r,s.inherit=!1,s.modifiers=d,d[i]=function(){return h(o+a*c.ratio+l*c.ratio*c.ratio)},s.onUpdate=function(){zr.cache++,e.tween&&ya()},s.onComplete=function(){e.tween=0,u&&u.call(c)},c=e.tween=ds.to(t,s)};return t[i]=n,n.wheelHandler=function(){return r.tween&&r.tween.kill()&&(r.tween=0)},zo(t,"wheel",n.wheelHandler),La.isTouch&&zo(t,"touchmove",n.wheelHandler),r},La=function(){function t(e,n){hs||t.register(ds)||console.warn("Please gsap.registerPlugin(ScrollTrigger)"),Ys(this),this.init(e,n)}return t.prototype.init=function(e,n){if(this.progress=this.start=0,this.vars&&this.kill(!0,!0),Qs){var i,r,s,o,a,l,c,u,d,h,p,f,_,m,g,y,v,b,D,w,E,T,S,x,P,M,k,O,C,L,I,A,R,B,N,Y,W,H,F,q,z,U,j=e=No(_o(e)||go(e)||e.nodeType?{trigger:e}:e,Xo),V=j.onUpdate,X=j.toggleClass,$=j.id,K=j.onToggle,G=j.onRefresh,Z=j.scrub,J=j.trigger,Q=j.pin,tt=j.pinSpacing,et=j.invalidateOnRefresh,nt=j.anticipatePin,it=j.onScrubComplete,rt=j.onSnapComplete,st=j.once,ot=j.snap,at=j.pinReparent,lt=j.pinSpacer,ct=j.containerAnimation,ut=j.fastScrollEnd,dt=j.preventOverlaps,ht=e.horizontal||e.containerAnimation&&!1!==e.horizontal?es:ns,pt=!Z&&0!==Z,ft=is(e.scroller||ps),_t=ds.core.getCache(ft),mt=co(ft),gt="fixed"===("pinType"in e?e.pinType:Xr(ft,"pinType")||mt&&"fixed"),yt=[e.onEnter,e.onLeave,e.onEnterBack,e.onLeaveBack],vt=pt&&e.toggleActions.split(" "),bt="markers"in e?e.markers:Xo.markers,Dt=mt?0:parseFloat(Bo(ft)["border"+ht.p2+Io])||0,wt=this,Et=e.onRefreshInit&&function(){return e.onRefreshInit(wt)},Tt=function(t,e,n){var i=n.d,r=n.d2,s=n.a;return(s=Xr(t,"getBoundingClientRect"))?function(){return s()[i]}:function(){return(e?uo(r):t["client"+r])||0}}(ft,mt,ht),St=function(t,e){return!e||~Ur.indexOf(t)?ho(t):function(){return Sa}}(ft,mt),xt=0,Pt=0,Mt=0,kt=rs(ft,ht);if(wt._startClamp=wt._endClamp=!1,wt._dir=ht,nt*=45,wt.scroller=ft,wt.scroll=ct?ct.time.bind(ct):kt,o=kt(),wt.vars=e,n=n||e.animation,"refreshPriority"in e&&(Os=1,-9999===e.refreshPriority&&($s=wt)),_t.tweenScroll=_t.tweenScroll||{top:Ca(ft,ns),left:Ca(ft,es)},wt.tweenTo=i=_t.tweenScroll[ht.p],wt.scrubDuration=function(t){(R=go(t)&&t)?A?A.duration(t):A=ds.to(n,{ease:"expo",totalProgress:"+=0",inherit:!1,duration:R,paused:!0,onComplete:function(){return it&&it(wt)}}):(A&&A.progress(1).kill(),A=0)},n&&(n.vars.lazy=!1,n._initted&&!wt.isReverted||!1!==n.vars.immediateRender&&!1!==e.immediateRender&&n.duration()&&n.render(0,!0,!0),wt.animation=n.pause(),n.scrollTrigger=wt,wt.scrubDuration(Z),L=0,$||($=n.vars.id)),ot&&(yo(ot)&&!ot.push||(ot={snapTo:ot}),"scrollBehavior"in ms.style&&ds.set(mt?[ms,_s]:ft,{scrollBehavior:"auto"}),zr.forEach((function(t){return mo(t)&&t.target===(mt?fs.scrollingElement||_s:ft)&&(t.smooth=!1)})),s=mo(ot.snapTo)?ot.snapTo:"labels"===ot.snapTo?function(t){return function(e){return ds.utils.snap(Ho(t),e)}}(n):"labelsDirectional"===ot.snapTo?(q=n,function(t,e){return Fo(Ho(q))(t,e.direction)}):!1!==ot.directional?function(t,e){return Fo(ot.snapTo)(t,Gs()-Pt<500?0:e.direction)}:ds.utils.snap(ot.snapTo),B=ot.duration||{min:.1,max:2},B=yo(B)?bs(B.min,B.max):bs(B,B),N=ds.delayedCall(ot.delay||R/2||.1,(function(){var t=kt(),e=Gs()-Pt<500,r=i.tween;if(!(e||Math.abs(wt.getVelocity())<10)||r||Ts||xt===t)wt.isActive&&xt!==t&&N.restart(!0);else{var o,a,u=(t-l)/m,d=n&&!pt?n.totalProgress():u,h=e?0:(d-I)/(Gs()-Ds)*1e3||0,p=ds.utils.clamp(-u,1-u,Do(h/2)*h/.185),f=u+(!1===ot.inertia?0:p),_=ot,g=_.onStart,y=_.onInterrupt,v=_.onComplete;if(o=s(f,wt),go(o)||(o=f),a=Math.round(l+o*m),t<=c&&t>=l&&a!==t){if(r&&!r._initted&&r.data<=Do(a-t))return;!1===ot.inertia&&(p=o-u),i(a,{duration:B(Do(.185*Math.max(Do(f-d),Do(o-d))/h/.05||0)),ease:ot.ease||"power3",data:Do(a-t),onInterrupt:function(){return N.restart(!0)&&y&&y(wt)},onComplete:function(){wt.update(),xt=kt(),n&&(A?A.resetTo("totalProgress",o,n._tTime/n._tDur):n.progress(o)),L=I=n&&!pt?n.totalProgress():wt.progress,rt&&rt(wt),v&&v(wt)}},t,p*m,a-t-p*m),g&&g(wt,i.tween)}}})).pause()),$&&(Qo[$]=wt),(F=(J=wt.trigger=is(J||!0!==Q&&Q))&&J._gsap&&J._gsap.stRevert)&&(F=F(wt)),Q=!0===Q?J:is(Q),_o(X)&&(X={targets:J,className:X}),Q&&(!1===tt||tt===Lo||(tt=!(!tt&&Q.parentNode&&Q.parentNode.style&&"flex"===Bo(Q.parentNode).display)&&Co),wt.pin=Q,(r=ds.core.getCache(Q)).spacer?g=r.pinState:(lt&&((lt=is(lt))&&!lt.nodeType&&(lt=lt.current||lt.nativeElement),r.spacerIsNative=!!lt,lt&&(r.spacerState=Ta(lt))),r.spacer=b=lt||fs.createElement("div"),b.classList.add("pin-spacer"),$&&b.classList.add("pin-spacer-"+$),r.pinState=g=Ta(Q)),!1!==e.force3D&&ds.set(Q,{force3D:!0}),wt.spacer=b=r.spacer,C=Bo(Q),x=C[tt+ht.os2],w=ds.getProperty(Q),E=ds.quickSetter(Q,ht.a,Ro),Da(Q,b,C),v=Ta(Q)),bt){f=yo(bt)?No(bt,Vo):Vo,h=Go("scroller-start",$,ft,ht,f,0),p=Go("scroller-end",$,ft,ht,f,0,h),D=h["offset"+ht.op.d2];var Ot=is(Xr(ft,"content")||ft);u=this.markerStart=Go("start",$,Ot,ht,f,D,0,ct),d=this.markerEnd=Go("end",$,Ot,ht,f,D,0,ct),ct&&(H=ds.quickSetter([u,d],ht.a,Ro)),gt||Ur.length&&!0===Xr(ft,"fixedMarkers")||(U=Bo(z=mt?ms:ft).position,z.style.position="absolute"===U||"fixed"===U?U:"relative",ds.set([h,p],{force3D:!0}),M=ds.quickSetter(h,ht.a,Ro),O=ds.quickSetter(p,ht.a,Ro))}if(ct){var Ct=ct.vars.onUpdate,Lt=ct.vars.onUpdateParams;ct.eventCallback("onUpdate",(function(){wt.update(0,0,1),Ct&&Ct.apply(ct,Lt||[])}))}if(wt.previous=function(){return Jo[Jo.indexOf(wt)-1]},wt.next=function(){return Jo[Jo.indexOf(wt)+1]},wt.revert=function(t,e){if(!e)return wt.kill(!0);var i=!1!==t||!wt.enabled,r=Es;i!==wt.isReverted&&(i&&(Y=Math.max(kt(),wt.scroll.rec||0),Mt=wt.progress,W=n&&n.progress()),u&&[u,d,h,p].forEach((function(t){return t.style.display=i?"none":"block"})),i&&(Es=wt,wt.update(i)),!Q||at&&wt.isActive||(i?function(t,e,n){Ea(n);var i=t._gsap;if(i.spacerIsNative)Ea(i.spacerState);else if(t._gsap.swappedIn){var r=e.parentNode;r&&(r.insertBefore(t,e),r.removeChild(e))}t._gsap.swappedIn=!1}(Q,b,g):Da(Q,b,Bo(Q),P)),i||wt.update(i),Es=r,wt.isReverted=i)},wt.refresh=function(r,s,f,D){if(!Es&&wt.enabled||s)if(Q&&r&&Js)zo(t,"scrollEnd",oa);else{!Vs&&Et&&Et(wt),Es=wt,i.tween&&!f&&(i.tween.kill(),i.tween=0),A&&A.pause(),et&&n&&n.revert({kill:!1}).invalidate(),wt.isReverted||wt.revert(!0,!0),wt._subPinOffset=!1;var E,x,M,O,C,L,I,R,B,H,F,q,z,U=Tt(),j=St(),V=ct?ct.duration():po(ft,ht),X=m<=.01,$=0,K=D||0,Z=yo(f)?f.end:e.end,nt=e.endTrigger||J,it=yo(f)?f.start:e.start||(0!==e.start&&J?Q?"0 0":"0 100%":0),rt=wt.pinnedContainer=e.pinnedContainer&&is(e.pinnedContainer,wt),st=J&&Math.max(0,Jo.indexOf(wt))||0,ot=st;for(bt&&yo(f)&&(q=ds.getProperty(h,ht.p),z=ds.getProperty(p,ht.p));ot--;)(L=Jo[ot]).end||L.refresh(0,1)||(Es=wt),!(I=L.pin)||I!==J&&I!==Q&&I!==rt||L.isReverted||(H||(H=[]),H.unshift(L),L.revert(!0,!0)),L!==Jo[ot]&&(st--,ot--);for(mo(it)&&(it=it(wt)),it=to(it,"start",wt),l=xa(it,J,U,ht,kt(),u,h,wt,j,Dt,gt,V,ct,wt._startClamp&&"_startClamp")||(Q?-.001:0),mo(Z)&&(Z=Z(wt)),_o(Z)&&!Z.indexOf("+=")&&(~Z.indexOf(" ")?Z=(_o(it)?it.split(" ")[0]:"")+Z:($=Ko(Z.substr(2),U),Z=_o(it)?it:(ct?ds.utils.mapRange(0,ct.duration(),ct.scrollTrigger.start,ct.scrollTrigger.end,l):l)+$,nt=J)),Z=to(Z,"end",wt),c=Math.max(l,xa(Z||(nt?"100% 0":V),nt,U,ht,kt()+$,d,p,wt,j,Dt,gt,V,ct,wt._endClamp&&"_endClamp"))||-.001,$=0,ot=st;ot--;)(I=(L=Jo[ot]).pin)&&L.start-L._pinPush<=l&&!ct&&L.end>0&&(E=L.end-(wt._startClamp?Math.max(0,L.start):L.start),(I===J&&L.start-L._pinPush<l||I===rt)&&isNaN(it)&&($+=E*(1-L.progress)),I===Q&&(K+=E));if(l+=$,c+=$,wt._startClamp&&(wt._startClamp+=$),wt._endClamp&&!Vs&&(wt._endClamp=c||-.001,c=Math.min(c,po(ft,ht))),m=c-l||(l-=.01)&&.001,X&&(Mt=ds.utils.clamp(0,1,ds.utils.normalize(l,c,Y))),wt._pinPush=K,u&&$&&((E={})[ht.a]="+="+$,rt&&(E[ht.p]="-="+kt()),ds.set([u,d],E)),!Q||zs&&wt.end>=po(ft,ht)){if(J&&kt()&&!ct)for(x=J.parentNode;x&&x!==ms;)x._pinOffset&&(l-=x._pinOffset,c-=x._pinOffset),x=x.parentNode}else E=Bo(Q),O=ht===ns,M=kt(),T=parseFloat(w(ht.a))+K,!V&&c>1&&(F={style:F=(mt?fs.scrollingElement||_s:ft).style,value:F["overflow"+ht.a.toUpperCase()]},mt&&"scroll"!==Bo(ms)["overflow"+ht.a.toUpperCase()]&&(F.style["overflow"+ht.a.toUpperCase()]="scroll")),Da(Q,b,E),v=Ta(Q),x=Yo(Q,!0),R=gt&&rs(ft,O?es:ns)(),tt?((P=[tt+ht.os2,m+K+Ro]).t=b,(ot=tt===Co?Wo(Q,ht)+m+K:0)&&(P.push(ht.d,ot+Ro),"auto"!==b.style.flexBasis&&(b.style.flexBasis=ot+Ro)),Ea(P),rt&&Jo.forEach((function(t){t.pin===rt&&!1!==t.vars.pinSpacing&&(t._subPinOffset=!0)})),gt&&kt(Y)):(ot=Wo(Q,ht))&&"auto"!==b.style.flexBasis&&(b.style.flexBasis=ot+Ro),gt&&((C={top:x.top+(O?M-l:R)+Ro,left:x.left+(O?R:M-l)+Ro,boxSizing:"border-box",position:"fixed"})[So]=C["max"+Io]=Math.ceil(x.width)+Ro,C[xo]=C["max"+Ao]=Math.ceil(x.height)+Ro,C[Lo]=C[Lo+ko]=C[Lo+Po]=C[Lo+Oo]=C[Lo+Mo]="0",C[Co]=E[Co],C[Co+ko]=E[Co+ko],C[Co+Po]=E[Co+Po],C[Co+Oo]=E[Co+Oo],C[Co+Mo]=E[Co+Mo],y=function(t,e,n){for(var i,r=[],s=t.length,o=n?8:0;o<s;o+=2)i=t[o],r.push(i,i in e?e[i]:t[o+1]);return r.t=t.t,r}(g,C,at),Vs&&kt(0)),n?(B=n._initted,Cs(1),n.render(n.duration(),!0,!0),S=w(ht.a)-T+m+K,k=Math.abs(m-S)>1,gt&&k&&y.splice(y.length-2,2),n.render(0,!0,!0),B||n.invalidate(!0),n.parent||n.totalTime(n.totalTime()),Cs(0)):S=m,F&&(F.value?F.style["overflow"+ht.a.toUpperCase()]=F.value:F.style.removeProperty("overflow-"+ht.a));H&&H.forEach((function(t){return t.revert(!1,!0)})),wt.start=l,wt.end=c,o=a=Vs?Y:kt(),ct||Vs||(o<Y&&kt(Y),wt.scroll.rec=0),wt.revert(!1,!0),Pt=Gs(),N&&(xt=-1,N.restart(!0)),Es=0,n&&pt&&(n._initted||W)&&n.progress()!==W&&n.progress(W||0,!0).render(n.time(),!0,!0),(X||Mt!==wt.progress||ct||et)&&(n&&!pt&&n.totalProgress(ct&&l<-.001&&!Mt?ds.utils.normalize(l,c,0):Mt,!0),wt.progress=X||(o-l)/m===Mt?0:Mt),Q&&tt&&(b._pinOffset=Math.round(wt.progress*S)),A&&A.invalidate(),isNaN(q)||(q-=ds.getProperty(h,ht.p),z-=ds.getProperty(p,ht.p),Oa(h,ht,q),Oa(u,ht,q-(D||0)),Oa(p,ht,z),Oa(d,ht,z-(D||0))),X&&!Vs&&wt.update(),!G||Vs||_||(_=!0,G(wt),_=!1)}},wt.getVelocity=function(){return(kt()-a)/(Gs()-Ds)*1e3||0},wt.endAnimation=function(){vo(wt.callbackAnimation),n&&(A?A.progress(1):n.paused()?pt||vo(n,wt.direction<0,1):vo(n,n.reversed()))},wt.labelToScroll=function(t){return n&&n.labels&&(l||wt.refresh()||l)+n.labels[t]/n.duration()*m||0},wt.getTrailing=function(t){var e=Jo.indexOf(wt),n=wt.direction>0?Jo.slice(0,e).reverse():Jo.slice(e+1);return(_o(t)?n.filter((function(e){return e.vars.preventOverlaps===t})):n).filter((function(t){return wt.direction>0?t.end<=l:t.start>=c}))},wt.update=function(t,e,r){if(!ct||r||t){var s,u,d,p,f,_,g,D=!0===Vs?Y:wt.scroll(),w=t?0:(D-l)/m,P=w<0?0:w>1?1:w||0,C=wt.progress;if(e&&(a=o,o=ct?kt():D,ot&&(I=L,L=n&&!pt?n.totalProgress():P)),nt&&Q&&!Es&&!Ks&&Js&&(!P&&l<D+(D-a)/(Gs()-Ds)*nt?P=1e-4:1===P&&c>D+(D-a)/(Gs()-Ds)*nt&&(P=.9999)),P!==C&&wt.enabled){if(p=(f=(s=wt.isActive=!!P&&P<1)!==(!!C&&C<1))||!!P!=!!C,wt.direction=P>C?1:-1,wt.progress=P,p&&!Es&&(u=P&&!C?0:1===P?1:1===C?2:3,pt&&(d=!f&&"none"!==vt[u+1]&&vt[u+1]||vt[u],g=n&&("complete"===d||"reset"===d||d in n))),dt&&(f||g)&&(g||Z||!n)&&(mo(dt)?dt(wt):wt.getTrailing(dt).forEach((function(t){return t.endAnimation()}))),pt||(!A||Es||Ks?n&&n.totalProgress(P,!(!Es||!Pt&&!t)):(A._dp._time-A._start!==A._time&&A.render(A._dp._time-A._start),A.resetTo?A.resetTo("totalProgress",P,n._tTime/n._tDur):(A.vars.totalProgress=P,A.invalidate().restart()))),Q)if(t&&tt&&(b.style[tt+ht.os2]=x),gt){if(p){if(_=!t&&P>C&&c+1>D&&D+1>=po(ft,ht),at)if(t||!s&&!_)Ma(Q,b);else{var R=Yo(Q,!0),B=D-l;Ma(Q,ms,R.top+(ht===ns?B:0)+Ro,R.left+(ht===ns?0:B)+Ro)}Ea(s||_?y:v),k&&P<1&&s||E(T+(1!==P||_?0:S))}}else E(oo(T+S*P));ot&&!i.tween&&!Es&&!Ks&&N.restart(!0),X&&(f||st&&P&&(P<1||!Us))&&vs(X.targets).forEach((function(t){return t.classList[s||st?"add":"remove"](X.className)})),V&&!pt&&!t&&V(wt),p&&!Es?(pt&&(g&&("complete"===d?n.pause().totalProgress(1):"reset"===d?n.restart(!0).pause():"restart"===d?n.restart(!0):n[d]()),V&&V(wt)),!f&&Us||(K&&f&&bo(wt,K),yt[u]&&bo(wt,yt[u]),st&&(1===P?wt.kill(!1,1):yt[u]=0),f||yt[u=1===P?1:3]&&bo(wt,yt[u])),ut&&!s&&Math.abs(wt.getVelocity())>(go(ut)?ut:2500)&&(vo(wt.callbackAnimation),A?A.progress(1):vo(n,"reverse"===d?1:!P,1))):pt&&V&&!Es&&V(wt)}if(O){var W=ct?D/ct.duration()*(ct._caScrollDist||0):D;M(W+(h._isFlipped?1:0)),O(W)}H&&H(-D/ct.duration()*(ct._caScrollDist||0))}},wt.enable=function(e,n){wt.enabled||(wt.enabled=!0,zo(ft,"resize",ia),mt||zo(ft,"scroll",ea),Et&&zo(t,"refreshInit",Et),!1!==e&&(wt.progress=Mt=0,o=a=xt=kt()),!1!==n&&wt.refresh())},wt.getTween=function(t){return t&&i?i.tween:A},wt.setPositions=function(t,e,n,i){if(ct){var r=ct.scrollTrigger,s=ct.duration(),o=r.end-r.start;t=r.start+o*t/s,e=r.start+o*e/s}wt.refresh(!1,!1,{start:eo(t,n&&!!wt._startClamp),end:eo(e,n&&!!wt._endClamp)},i),wt.update()},wt.adjustPinSpacing=function(t){if(P&&t){var e=P.indexOf(ht.d)+1;P[e]=parseFloat(P[e])+t+Ro,P[1]=parseFloat(P[1])+t+Ro,Ea(P)}},wt.disable=function(e,n){if(wt.enabled&&(!1!==e&&wt.revert(!0,!0),wt.enabled=wt.isActive=!1,n||A&&A.pause(),Y=0,r&&(r.uncache=1),Et&&Uo(t,"refreshInit",Et),N&&(N.pause(),i.tween&&i.tween.kill()&&(i.tween=0)),!mt)){for(var s=Jo.length;s--;)if(Jo[s].scroller===ft&&Jo[s]!==wt)return;Uo(ft,"resize",ia),mt||Uo(ft,"scroll",ea)}},wt.kill=function(t,i){wt.disable(t,i),A&&!i&&A.kill(),$&&delete Qo[$];var s=Jo.indexOf(wt);s>=0&&Jo.splice(s,1),s===xs&&ga>0&&xs--,s=0,Jo.forEach((function(t){return t.scroller===wt.scroller&&(s=1)})),s||Vs||(wt.scroll.rec=0),n&&(n.scrollTrigger=null,t&&n.revert({kill:!1}),i||n.kill()),u&&[u,d,h,p].forEach((function(t){return t.parentNode&&t.parentNode.removeChild(t)})),$s===wt&&($s=0),Q&&(r&&(r.uncache=1),s=0,Jo.forEach((function(t){return t.pin===Q&&s++})),s||(r.spacer=0)),e.onKill&&e.onKill(wt)},Jo.push(wt),wt.enable(!1,!1),F&&F(wt),n&&n.add&&!m){var It=wt.update;wt.update=function(){wt.update=It,l||c||wt.refresh()},ds.delayedCall(.01,wt.update),m=.01,l=c=0}else wt.refresh();Q&&function(){if(Xs!==ha){var t=Xs=ha;requestAnimationFrame((function(){return t===ha&&_a(!0)}))}}()}else this.update=this.refresh=this.kill=so},t.register=function(e){return hs||(ds=e||lo(),ao()&&window.document&&t.enable(),hs=Qs),hs},t.defaults=function(t){if(t)for(var e in t)Xo[e]=t[e];return Xo},t.disable=function(t,e){Qs=0,Jo.forEach((function(n){return n[e?"kill":"disable"](t)})),Uo(ps,"wheel",ea),Uo(fs,"scroll",ea),clearInterval(ws),Uo(fs,"touchcancel",so),Uo(ms,"touchstart",so),qo(Uo,fs,"pointerdown,touchstart,mousedown",io),qo(Uo,fs,"pointerup,touchend,mouseup",ro),ys.kill(),fo(Uo);for(var n=0;n<zr.length;n+=3)jo(Uo,zr[n],zr[n+1]),jo(Uo,zr[n],zr[n+2])},t.enable=function(){if(ps=window,fs=document,_s=fs.documentElement,ms=fs.body,ds&&(vs=ds.utils.toArray,bs=ds.utils.clamp,Ys=ds.core.context||so,Cs=ds.core.suppressOverwrites||so,Ws=ps.history.scrollRestoration||"auto",ma=ps.pageYOffset,ds.core.globals("ScrollTrigger",t),ms)){Qs=1,(Hs=document.createElement("div")).style.height="100vh",Hs.style.position="absolute",pa(),no(),us.register(ds),t.isTouch=us.isTouch,Ns=us.isTouch&&/(iPad|iPhone|iPod|Mac)/g.test(navigator.userAgent),As=1===us.isTouch,zo(ps,"wheel",ea),gs=[ps,fs,_s,ms],ds.matchMedia?(t.matchMedia=function(t){var e,n=ds.matchMedia();for(e in t)n.add(e,t[e]);return n},ds.addEventListener("matchMediaInit",(function(){return ua()})),ds.addEventListener("matchMediaRevert",(function(){return ca()})),ds.addEventListener("matchMedia",(function(){_a(0,1),aa("matchMedia")})),ds.matchMedia("(orientation: portrait)",(function(){return na(),na}))):console.warn("Requires GSAP 3.11.0 or later"),na(),zo(fs,"scroll",ea);var e,n,i=ms.style,r=i.borderTopStyle,s=ds.core.Animation.prototype;for(s.revert||Object.defineProperty(s,"revert",{value:function(){return this.time(-.01,!0)}}),i.borderTopStyle="solid",e=Yo(ms),ns.m=Math.round(e.top+ns.sc())||0,es.m=Math.round(e.left+es.sc())||0,r?i.borderTopStyle=r:i.removeProperty("border-top-style"),ws=setInterval(ta,250),ds.delayedCall(.5,(function(){return Ks=0})),zo(fs,"touchcancel",so),zo(ms,"touchstart",so),qo(zo,fs,"pointerdown,touchstart,mousedown",io),qo(zo,fs,"pointerup,touchend,mouseup",ro),Ss=ds.utils.checkPrefix("transform"),ba.push(Ss),hs=Gs(),ys=ds.delayedCall(.2,_a).pause(),ks=[fs,"visibilitychange",function(){var t=ps.innerWidth,e=ps.innerHeight;fs.hidden?(Ps=t,Ms=e):Ps===t&&Ms===e||ia()},fs,"DOMContentLoaded",_a,ps,"load",_a,ps,"resize",ia],fo(zo),Jo.forEach((function(t){return t.enable(0,1)})),n=0;n<zr.length;n+=3)jo(Uo,zr[n],zr[n+1]),jo(Uo,zr[n],zr[n+2])}},t.config=function(e){"limitCallbacks"in e&&(Us=!!e.limitCallbacks);var n=e.syncInterval;n&&clearInterval(ws)||(ws=n)&&setInterval(ta,n),"ignoreMobileResize"in e&&(As=1===t.isTouch&&e.ignoreMobileResize),"autoRefreshEvents"in e&&(fo(Uo)||fo(zo,e.autoRefreshEvents||"none"),Ls=-1===(e.autoRefreshEvents+"").indexOf("resize"))},t.scrollerProxy=function(t,e){var n=is(t),i=zr.indexOf(n),r=co(n);~i&&zr.splice(i,r?6:2),e&&(r?Ur.unshift(ps,e,ms,e,_s,e):Ur.unshift(n,e))},t.clearMatchMedia=function(t){Jo.forEach((function(e){return e._ctx&&e._ctx.query===t&&e._ctx.kill(!0,!0)}))},t.isInViewport=function(t,e,n){var i=(_o(t)?is(t):t).getBoundingClientRect(),r=i[n?So:xo]*e||0;return n?i.right-r>0&&i.left+r<ps.innerWidth:i.bottom-r>0&&i.top+r<ps.innerHeight},t.positionInViewport=function(t,e,n){_o(t)&&(t=is(t));var i=t.getBoundingClientRect(),r=i[n?So:xo],s=null==e?r/2:e in $o?$o[e]*r:~e.indexOf("%")?parseFloat(e)*r/100:parseFloat(e)||0;return n?(i.left+s)/ps.innerWidth:(i.top+s)/ps.innerHeight},t.killAll=function(t){if(Jo.slice(0).forEach((function(t){return"ScrollSmoother"!==t.vars.id&&t.kill()})),!0!==t){var e=ra.killAll||[];ra={},e.forEach((function(t){return t()}))}},t}();La.version="3.12.5",La.saveStyles=function(t){return t?vs(t).forEach((function(t){if(t&&t.style){var e=la.indexOf(t);e>=0&&la.splice(e,5),la.push(t,t.style.cssText,t.getBBox&&t.getAttribute("transform"),ds.core.getCache(t),Ys())}})):la},La.revert=function(t,e){return ua(!t,e)},La.create=function(t,e){return new La(t,e)},La.refresh=function(t){return t?ia():(hs||La.register())&&_a(!0)},La.update=function(t){return++zr.cache&&ya(!0===t?2:0)},La.clearScrollMemory=da,La.maxScroll=function(t,e){return po(t,e?es:ns)},La.getScrollFunc=function(t,e){return rs(is(t),e?es:ns)},La.getById=function(t){return Qo[t]},La.getAll=function(){return Jo.filter((function(t){return"ScrollSmoother"!==t.vars.id}))},La.isScrolling=function(){return!!Js},La.snapDirectional=Fo,La.addEventListener=function(t,e){var n=ra[t]||(ra[t]=[]);~n.indexOf(e)||n.push(e)},La.removeEventListener=function(t,e){var n=ra[t],i=n&&n.indexOf(e);i>=0&&n.splice(i,1)},La.batch=function(t,e){var n,i=[],r={},s=e.interval||.016,o=e.batchMax||1e9,a=function(t,e){var n=[],i=[],r=ds.delayedCall(s,(function(){e(n,i),n=[],i=[]})).pause();return function(t){n.length||r.restart(!0),n.push(t.trigger),i.push(t),o<=n.length&&r.progress(1)}};for(n in e)r[n]="on"===n.substr(0,2)&&mo(e[n])&&"onRefreshInit"!==n?a(0,e[n]):e[n];return mo(o)&&(o=o(),zo(La,"refresh",(function(){return o=e.batchMax()}))),vs(t).forEach((function(t){var e={};for(n in r)e[n]=r[n];e.trigger=t,i.push(La.create(e))})),i};var Ia,Aa=function(t,e,n,i){return e>i?t(i):e<0&&t(0),n>i?(i-e)/(n-e):n<0?e/(e-n):1},Ra=function t(e,n){!0===n?e.style.removeProperty("touch-action"):e.style.touchAction=!0===n?"auto":n?"pan-"+n+(us.isTouch?" pinch-zoom":""):"none",e===_s&&t(ms,n)},Ba={auto:1,scroll:1},Na=function(t){var e,n=t.event,i=t.target,r=t.axis,s=(n.changedTouches?n.changedTouches[0]:n).target,o=s._gsap||ds.core.getCache(s),a=Gs();if(!o._isScrollT||a-o._isScrollT>2e3){for(;s&&s!==ms&&(s.scrollHeight<=s.clientHeight&&s.scrollWidth<=s.clientWidth||!Ba[(e=Bo(s)).overflowY]&&!Ba[e.overflowX]);)s=s.parentNode;o._isScroll=s&&s!==i&&!co(s)&&(Ba[(e=Bo(s)).overflowY]||Ba[e.overflowX]),o._isScrollT=a}(o._isScroll||"x"===r)&&(n.stopPropagation(),n._gsapAllow=!0)},Ya=function(t,e,n,i){return us.create({target:t,capture:!0,debounce:!1,lockAxis:!0,type:e,onWheel:i=i&&Na,onPress:i,onDrag:i,onScroll:i,onEnable:function(){return n&&zo(fs,us.eventTypes[0],Ha,!1,!0)},onDisable:function(){return Uo(fs,us.eventTypes[0],Ha,!0)}})},Wa=/(input|label|select|textarea)/i,Ha=function(t){var e=Wa.test(t.target.tagName);(e||Ia)&&(t._gsapAllow=!0,Ia=e)},Fa=function(t){yo(t)||(t={}),t.preventDefault=t.isNormalizer=t.allowClicks=!0,t.type||(t.type="wheel,touch"),t.debounce=!!t.debounce,t.id=t.id||"normalizer";var e,n,i,r,s,o,a,l,c=t,u=c.normalizeScrollX,d=c.momentum,h=c.allowNestedScroll,p=c.onRelease,f=is(t.target)||_s,_=ds.core.globals().ScrollSmoother,m=_&&_.get(),g=Ns&&(t.content&&is(t.content)||m&&!1!==t.content&&!m.smooth()&&m.content()),y=rs(f,ns),v=rs(f,es),b=1,D=(us.isTouch&&ps.visualViewport?ps.visualViewport.scale*ps.visualViewport.width:ps.outerWidth)/ps.innerWidth,w=0,E=mo(d)?function(){return d(e)}:function(){return d||2.8},T=Ya(f,t.type,!0,h),S=function(){return r=!1},x=so,P=so,M=function(){n=po(f,ns),P=bs(Ns?1:0,n),u&&(x=bs(0,po(f,es))),i=ha},k=function(){g._gsap.y=oo(parseFloat(g._gsap.y)+y.offset)+"px",g.style.transform="matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, "+parseFloat(g._gsap.y)+", 0, 1)",y.offset=y.cacheID=0},O=function(){M(),s.isActive()&&s.vars.scrollY>n&&(y()>n?s.progress(1)&&y(n):s.resetTo("scrollY",n))};return g&&ds.set(g,{y:"+=0"}),t.ignoreCheck=function(t){return Ns&&"touchmove"===t.type&&function(){if(r){requestAnimationFrame(S);var t=oo(e.deltaY/2),n=P(y.v-t);if(g&&n!==y.v+y.offset){y.offset=n-y.v;var i=oo((parseFloat(g&&g._gsap.y)||0)-y.offset);g.style.transform="matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, "+i+", 0, 1)",g._gsap.y=i+"px",y.cacheID=zr.cache,ya()}return!0}y.offset&&k(),r=!0}()||b>1.05&&"touchstart"!==t.type||e.isGesturing||t.touches&&t.touches.length>1},t.onPress=function(){r=!1;var t=b;b=oo((ps.visualViewport&&ps.visualViewport.scale||1)/D),s.pause(),t!==b&&Ra(f,b>1.01||!u&&"x"),o=v(),a=y(),M(),i=ha},t.onRelease=t.onGestureStart=function(t,e){if(y.offset&&k(),e){zr.cache++;var i,r,o=E();u&&(r=(i=v())+.05*o*-t.velocityX/.227,o*=Aa(v,i,r,po(f,es)),s.vars.scrollX=x(r)),r=(i=y())+.05*o*-t.velocityY/.227,o*=Aa(y,i,r,po(f,ns)),s.vars.scrollY=P(r),s.invalidate().duration(o).play(.01),(Ns&&s.vars.scrollY>=n||i>=n-1)&&ds.to({},{onUpdate:O,duration:o})}else l.restart(!0);p&&p(t)},t.onWheel=function(){s._ts&&s.pause(),Gs()-w>1e3&&(i=0,w=Gs())},t.onChange=function(t,e,n,r,s){if(ha!==i&&M(),e&&u&&v(x(r[2]===e?o+(t.startX-t.x):v()+e-r[1])),n){y.offset&&k();var l=s[2]===n,c=l?a+t.startY-t.y:y()+n-s[1],d=P(c);l&&c!==d&&(a+=d-c),y(d)}(n||e)&&ya()},t.onEnable=function(){Ra(f,!u&&"x"),La.addEventListener("refresh",O),zo(ps,"resize",O),y.smooth&&(y.target.style.scrollBehavior="auto",y.smooth=v.smooth=!1),T.enable()},t.onDisable=function(){Ra(f,!0),Uo(ps,"resize",O),La.removeEventListener("refresh",O),T.kill()},t.lockAxis=!1!==t.lockAxis,(e=new us(t)).iOS=Ns,Ns&&!y()&&y(1),Ns&&ds.ticker.add(so),l=e._dc,s=ds.to(e,{ease:"power4",paused:!0,inherit:!1,scrollX:u?"+=0.1":"+=0",scrollY:"+=0.1",modifiers:{scrollY:ka(y,y(),(function(){return s.pause()}))},onUpdate:ya,onComplete:l.vars.onComplete}),e};function qa(t,e){var n="undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(!n){if(Array.isArray(t)||(n=function(t,e){if(!t)return;if("string"==typeof t)return za(t,e);var n=Object.prototype.toString.call(t).slice(8,-1);"Object"===n&&t.constructor&&(n=t.constructor.name);if("Map"===n||"Set"===n)return Array.from(t);if("Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))return za(t,e)}(t))||e&&t&&"number"==typeof t.length){n&&(t=n);var i=0,r=function(){};return{s:r,n:function(){return i>=t.length?{done:!0}:{done:!1,value:t[i++]}},e:function(t){throw t},f:r}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var s,o=!0,a=!1;return{s:function(){n=n.call(t)},n:function(){var t=n.next();return o=t.done,t},e:function(t){a=!0,s=t},f:function(){try{o||null==n.return||n.return()}finally{if(a)throw s}}}}function za(t,e){(null==e||e>t.length)&&(e=t.length);for(var n=0,i=new Array(e);n<e;n++)i[n]=t[n];return i}La.sort=function(t){return Jo.sort(t||function(t,e){return-1e6*(t.vars.refreshPriority||0)+t.start-(e.start+-1e6*(e.vars.refreshPriority||0))})},La.observe=function(t){return new us(t)},La.normalizeScroll=function(t){if(void 0===t)return Is;if(!0===t&&Is)return Is.enable();if(!1===t)return Is&&Is.kill(),void(Is=t);var e=t instanceof us?t:Fa(t);return Is&&Is.target===e.target&&Is.kill(),co(e.target)&&(Is=e),e},La.core={_getVelocityProp:ss,_inputObserver:Ya,_scrollers:zr,_proxies:Ur,bridge:{ss:function(){Js||aa("scrollStart"),Js=Gs()},ref:function(){return Es}}},lo()&&ds.registerPlugin(La),Qi.registerPlugin(La);var Ua=new class{constructor({wrapper:t=window,content:e=document.documentElement,wheelEventsTarget:n=t,eventsTarget:i=n,smoothWheel:l=!0,syncTouch:c=!1,syncTouchLerp:u=.075,touchInertiaMultiplier:d=35,duration:h,easing:p=(t=>Math.min(1,1.001-Math.pow(2,-10*t))),lerp:f=!h&&.1,infinite:_=!1,orientation:m="vertical",gestureOrientation:g="vertical",touchMultiplier:y=1,wheelMultiplier:v=1,normalizeWheel:b=!1,autoResize:D=!0}={}){window.lenisVersion="1.0.34",t!==document.documentElement&&t!==document.body||(t=window),this.options={wrapper:t,content:e,wheelEventsTarget:n,eventsTarget:i,smoothWheel:l,syncTouch:c,syncTouchLerp:u,touchInertiaMultiplier:d,duration:h,easing:p,lerp:f,infinite:_,gestureOrientation:g,orientation:m,touchMultiplier:y,wheelMultiplier:v,normalizeWheel:b,autoResize:D},this.animate=new r,this.emitter=new o,this.dimensions=new s({wrapper:t,content:e,autoResize:D}),this.toggleClass("lenis",!0),this.velocity=0,this.isLocked=!1,this.isStopped=!1,this.isSmooth=c||l,this.isScrolling=!1,this.targetScroll=this.animatedScroll=this.actualScroll,this.options.wrapper.addEventListener("scroll",this.onNativeScroll,{passive:!1}),this.virtualScroll=new a(i,{touchMultiplier:y,wheelMultiplier:v,normalizeWheel:b}),this.virtualScroll.on("scroll",this.onVirtualScroll)}destroy(){this.emitter.destroy(),this.options.wrapper.removeEventListener("scroll",this.onNativeScroll,{passive:!1}),this.virtualScroll.destroy(),this.dimensions.destroy(),this.toggleClass("lenis",!1),this.toggleClass("lenis-smooth",!1),this.toggleClass("lenis-scrolling",!1),this.toggleClass("lenis-stopped",!1),this.toggleClass("lenis-locked",!1)}on(t,e){return this.emitter.on(t,e)}off(t,e){return this.emitter.off(t,e)}setScroll(t){this.isHorizontal?this.rootElement.scrollLeft=t:this.rootElement.scrollTop=t}onVirtualScroll=({deltaX:t,deltaY:e,event:n})=>{if(n.ctrlKey)return;const i=n.type.includes("touch"),r=n.type.includes("wheel");if(this.options.syncTouch&&i&&"touchstart"===n.type)return void this.reset();const s=0===t&&0===e,o="vertical"===this.options.gestureOrientation&&0===e||"horizontal"===this.options.gestureOrientation&&0===t;if(s||o)return;let a=n.composedPath();if(a=a.slice(0,a.indexOf(this.rootElement)),a.find((t=>t.hasAttribute?.("data-lenis-prevent")||i&&t.hasAttribute?.("data-lenis-prevent-touch")||r&&t.hasAttribute?.("data-lenis-prevent-wheel")||t.classList?.contains("lenis"))))return;if(this.isStopped||this.isLocked)return void n.preventDefault();if(this.isSmooth=this.options.syncTouch&&i||this.options.smoothWheel&&r,!this.isSmooth)return this.isScrolling=!1,void this.animate.stop();n.preventDefault();let l=e;"both"===this.options.gestureOrientation?l=Math.abs(e)>Math.abs(t)?e:t:"horizontal"===this.options.gestureOrientation&&(l=t);const c=i&&this.options.syncTouch,u=i&&"touchend"===n.type&&Math.abs(l)>5;u&&(l=this.velocity*this.options.touchInertiaMultiplier),this.scrollTo(this.targetScroll+l,{programmatic:!1,...c?{lerp:u?this.options.syncTouchLerp:1}:{lerp:this.options.lerp,duration:this.options.duration,easing:this.options.easing}})};resize(){this.dimensions.resize()}emit(){this.emitter.emit("scroll",this)}onNativeScroll=()=>{if(!this.__preventNextScrollEvent&&!this.isScrolling){const t=this.animatedScroll;this.animatedScroll=this.targetScroll=this.actualScroll,this.velocity=0,this.direction=Math.sign(this.animatedScroll-t),this.emit()}};reset(){this.isLocked=!1,this.isScrolling=!1,this.animatedScroll=this.targetScroll=this.actualScroll,this.velocity=0,this.animate.stop()}start(){this.isStopped=!1,this.reset()}stop(){this.isStopped=!0,this.animate.stop(),this.reset()}raf(t){const e=t-(this.time||t);this.time=t,this.animate.advance(.001*e)}scrollTo(t,{offset:e=0,immediate:n=!1,lock:r=!1,duration:s=this.options.duration,easing:o=this.options.easing,lerp:a=!s&&this.options.lerp,onComplete:l=null,force:c=!1,programmatic:u=!0}={}){if(!this.isStopped&&!this.isLocked||c){if(["top","left","start"].includes(t))t=0;else if(["bottom","right","end"].includes(t))t=this.limit;else{let n;if("string"==typeof t?n=document.querySelector(t):t?.nodeType&&(n=t),n){if(this.options.wrapper!==window){const t=this.options.wrapper.getBoundingClientRect();e-=this.isHorizontal?t.left:t.top}const i=n.getBoundingClientRect();t=(this.isHorizontal?i.left:i.top)+this.animatedScroll}}if("number"==typeof t){if(t+=e,t=Math.round(t),this.options.infinite?u&&(this.targetScroll=this.animatedScroll=this.scroll):t=i(0,t,this.limit),n)return this.animatedScroll=this.targetScroll=t,this.setScroll(this.scroll),this.reset(),void l?.(this);if(!u){if(t===this.targetScroll)return;this.targetScroll=t}this.animate.fromTo(this.animatedScroll,t,{duration:s,easing:o,lerp:a,onStart:()=>{r&&(this.isLocked=!0),this.isScrolling=!0},onUpdate:(t,e)=>{this.isScrolling=!0,this.velocity=t-this.animatedScroll,this.direction=Math.sign(this.velocity),this.animatedScroll=t,this.setScroll(this.scroll),u&&(this.targetScroll=t),e||this.emit(),e&&(this.reset(),this.emit(),l?.(this),this.__preventNextScrollEvent=!0,requestAnimationFrame((()=>{delete this.__preventNextScrollEvent})))}})}}}get rootElement(){return this.options.wrapper===window?document.documentElement:this.options.wrapper}get limit(){return this.dimensions.limit[this.isHorizontal?"x":"y"]}get isHorizontal(){return"horizontal"===this.options.orientation}get actualScroll(){return this.isHorizontal?this.rootElement.scrollLeft:this.rootElement.scrollTop}get scroll(){return this.options.infinite?(this.animatedScroll%(t=this.limit)+t)%t:this.animatedScroll;var t}get progress(){return 0===this.limit?1:this.scroll/this.limit}get isSmooth(){return this.__isSmooth}set isSmooth(t){this.__isSmooth!==t&&(this.__isSmooth=t,this.toggleClass("lenis-smooth",t))}get isScrolling(){return this.__isScrolling}set isScrolling(t){this.__isScrolling!==t&&(this.__isScrolling=t,this.toggleClass("lenis-scrolling",t))}get isStopped(){return this.__isStopped}set isStopped(t){this.__isStopped!==t&&(this.__isStopped=t,this.toggleClass("lenis-stopped",t))}get isLocked(){return this.__isLocked}set isLocked(t){this.__isLocked!==t&&(this.__isLocked=t,this.toggleClass("lenis-locked",t))}get className(){let t="lenis";return this.isStopped&&(t+=" lenis-stopped"),this.isLocked&&(t+=" lenis-locked"),this.isScrolling&&(t+=" lenis-scrolling"),this.isSmooth&&(t+=" lenis-smooth"),t}toggleClass(t,e){this.rootElement.classList.toggle(t,e),this.emitter.emit("className change",this)}};if(Ua.on("scroll",(function(t){var e=t.scroll;La.update(),e>20?document.querySelector(".as__header").classList.add("as__header_scroll"):document.querySelector(".as__header").classList.remove("as__header_scroll")})),document.getElementById("as__header")&&document.getElementById("as__header").classList.add("init"),document.getElementById("documentos")){var ja=document.querySelectorAll(".tabs_link");if(document.getElementById("docs_tabs").selectedIndex=0,document.getElementById("docs_tabs").addEventListener("change",(function(t){Ka(t.target.value),Ua.scrollTo("#documentos",{offset:-60})})),ja.forEach((function(t){t.addEventListener("click",(function(t){t.preventDefault();var e=t.target.dataset.tab,n=t.target.dataset.hash;history.replaceState({},document.title,window.location.pathname+window.location.search);var i=window.location.href;i=(i=i.split("#")[0])+"#"+n,history.replaceState({},document.title,i),console.log("hash",n),Ka(e),Ua.scrollTo("#documentos",{offset:-80})}))})),window.location.hash){var Va=window.location.hash.split("#")[1],Xa=document.querySelector(".tabs_link[data-hash='"+Va+"']");Xa&&Xa.click()}}if(document.getElementById("open_chat_btn")&&document.getElementById("open_chat_btn").addEventListener("click",(function(t){t.preventDefault(),document.getElementById("open_chat").classList.toggle("toopen")})),document.getElementById("faqs")){var $a=document.querySelectorAll(".as__g_faqs_ls .fqs_list:first-child");document.querySelectorAll(".as__g_faqs_ls .fqs_list").forEach((function(t){t.children[0].children[0].addEventListener("click",(function(t){if(t.preventDefault(),t.target.parentElement.parentElement.classList.contains("active"))t.target.parentElement.parentElement.classList.remove("active");else{var e,n=qa(t.target.parentElement.parentElement.parentElement.children);try{for(n.s();!(e=n.n()).done;){e.value.classList.remove("active")}}catch(t){n.e(t)}finally{n.f()}t.target.parentElement.parentElement.classList.add("active")}}))})),$a.forEach((function(t){t.classList.add("active")})),document.getElementById("docs_tabs").selectedIndex=0,document.getElementById("docs_tabs").addEventListener("change",(function(t){Ga(t.target.value),Ua.scrollTo("#faqs",{offset:-60})})),document.querySelectorAll(".tabs_link").forEach((function(t){t.addEventListener("click",(function(t){t.preventDefault(),Ga(t.target.dataset.tab),Ua.scrollTo("#faqs",{offset:-80})}))}))}function Ka(t){document.getElementById("docs_tabs").selectedIndex=parseInt(t),document.querySelectorAll(".tabs_link").forEach((function(e){t!==e.dataset.tab?e.classList.remove("active"):e.classList.add("active")})),document.querySelectorAll(".as__g_documentos_tcon_list_int").forEach((function(e){t!==e.dataset.tab?e.classList.remove("active"):e.classList.add("active")})),console.log(document.querySelectorAll(".as__g_documentos_tcon_list_int"))}function Ga(t){document.getElementById("docs_tabs").selectedIndex=parseInt(t),document.querySelectorAll(".tabs_link").forEach((function(e){t!==e.dataset.tab?e.classList.remove("active"):e.classList.add("active")})),document.querySelectorAll(".as__g_faqs_tcon_list_int").forEach((function(e){t!==e.dataset.tab?e.classList.remove("active"):e.classList.add("active")}))}Qi.ticker.add((function(t){Ua.raf(1e3*t)})),Qi.ticker.lagSmoothing(0);var Za=!1,Ja=document.getElementById("open_menu"),Qa=document.getElementById("as__nav_links"),tl=document.getElementById("as__header");if(Ja.addEventListener("click",(function(){Za?(document.querySelector("body").classList.remove("overflow-hidden"),Qa.classList.add("nav_close"),Ja.classList.remove("open"),Qa.classList.remove("nav_open"),tl.classList.remove("open"),Ua.start()):(document.querySelector("body").classList.add("overflow-hidden"),Qa.classList.add("nav_open"),tl.classList.add("open"),Ja.classList.add("open"),Qa.classList.remove("nav_close"),Ua.stop());Za=!Za})),document.getElementById("modal_sus")){document.getElementById("modal_sus").checked=!function(t){var e=new RegExp("(^| )".concat(t,"=([^;]+)")),n=document.cookie.match(e);if(n)return n[2]}("modal_sus"),document.getElementById("showcheck").checked=!1,document.getElementById("modal_sus").addEventListener("change",(function(t){t.target.checked})),document.getElementById("showcheck").addEventListener("change",(function(t){var e;t.target.checked?function(t,e,n){var i=new Date;i.setTime(i.getTime()+24*n*60*60*1e3);var r="expires="+i.toUTCString();document.cookie=t+"="+e+";"+r+";path=/"}("modal_sus",!0,30):(e="modal_sus",document.cookie=e+"=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;")}))}document.getElementById("as__home")&&(function(t){if(document.getElementById("home_banners")){var e=t.timeline({paused:!1});e.to(".as__banner .ban_st_1",{transformOrigin:"center",duration:4,repeat:-1,rotate:function(t){return t%2==0?360:-360},ease:"power4.inout",yoyo:!0,stagger:.2},"0"),e.to(".as__banner .ban_nube_1",{scale:1.1,transformOrigin:"center",duration:4,repeat:-1,ease:"power4.inout",yoyo:!0,stagger:.2},"0"),e.fromTo(".as__banner .ban_nube_it",{x:"-40vw"},{x:"180vw",transformOrigin:"center",duration:19,repeat:-1,ease:"power4.inout",stagger:.2},"0"),e.fromTo(".as__banner .ban_nube_dt",{x:"20vw"},{x:"-120vw",transformOrigin:"center",duration:15,repeat:-1,ease:"power4.inout",stagger:.2},"0"),function(t){var e=rr(t),n=document.querySelectorAll(".banner"),i=document.querySelector(".as__banner_controls_arrows .next");i.addEventListener("click",(function(){var s=document.querySelector(".banner.active"),o=s.nextElementSibling;o?(s.classList.remove("active"),o.classList.add("active")):(s.classList.remove("active"),n[0].classList.add("active")),e.tl.kill(),e.tl_banner_anciana.kill(),e.tl_banner_ninos.kill(),e=rr(t),ir(),clearInterval(r),r=setInterval((function(){i.click()}),nr)})),document.querySelector(".as__banner_controls_arrows .prev").addEventListener("click",(function(){var s=document.querySelector(".banner.active"),o=s.previousElementSibling;o?(s.classList.remove("active"),o.classList.add("active")):(s.classList.remove("active"),n[n.length-1].classList.add("active")),e.tl.kill(),e.tl_banner_anciana.kill(),e.tl_banner_ninos.kill(),e=rr(t),ir(),clearInterval(r),r=setInterval((function(){i.click()}),nr)}));var r=setInterval((function(){i.click()}),nr);n.length>1?ir():1==n.length&&(document.querySelector(".as__banner_controls_arrows").style.display="none",document.querySelector(".as__banner_controls_dots").style.display="none")}(t)}}(Qi),function(t,e){if(document.getElementById("home_proposito")){var n=t.timeline({paused:!0}),i=-(document.querySelector(".as_proposito .as__marquee .as__marquee_to_left").offsetWidth-window.innerWidth);n.from(".as_proposito .as__title_section",{y:-20,duration:4,opacity:0},"=0").fromTo(".as_proposito .as__marquee .as__marquee_to_left",{x:0},{x:i,duration:20,opacity:1,ease:"linear"},"-=1").fromTo(".as_proposito .as_proposito_content .prop_anim",{opacity:0,y:20},er(er({opacity:1,y:0,duration:1},"opacity",1),"stagger",.4),"-=8").from(".as__proposito_link .as__button",{opacity:0,y:20,duration:1},"-=10").from(".as__proposito_ilus img",{opacity:.5,y:50,duration:4},"-=3"),e.create({animation:n,trigger:document.getElementById("home_proposito"),start:"-20% bottom",end:"40% center",scrub:3,onUpdate:function(t){t.progress}})}}(Qi,La),sr(Qi,La),function(t,e){if(document.getElementById("home_cifras")){var n={clientes:0,cobertura:0,colaboradores:0},i=t.timeline({paused:!0});i.from(".as__cifras .as__title_section",{y:-20,duration:4,opacity:0},"=0"),i.fromTo(".as__cifras .as__cifras_content .as__cifras_content_cifra",{opacity:0,y:20},er(er({opacity:1,y:0,duration:1},"opacity",1),"stagger",.4),"-=1"),e.create({animation:i,trigger:document.getElementById("home_cifras"),start:"-20% bottom",end:"center center",scrub:3,onEnter:function(){t.fromTo(n,{val:0},{val:27,duration:1,roundProps:"clientes",ease:"ease.out",delay:1,onUpdate:function(){n.clientes=Math.round(n.val),document.getElementById("home_cifras_clientes").innerHTML=n.clientes}}),t.fromTo(n,{val:0},{val:5,duration:1,roundProps:"cobertura",ease:"ease.out",delay:1.5,onUpdate:function(){n.cobertura=Math.round(n.val),document.getElementById("home_cifras_cobertura").innerHTML=n.cobertura}}),t.fromTo(n,{val:0},{val:82,duration:1,roundProps:"colaboradores",ease:"ease.out",delay:2,onUpdate:function(){n.colaboradores=Math.round(n.val);var t=n.colaboradores/10;document.getElementById("home_cifras_colaboradores").innerHTML=t.toFixed(1)}})},onUpdate:function(t){t.progress}})}}(Qi,La),function(t,e){if(document.getElementById("home_documentos")){var n=t.timeline({paused:!0});n.to(".as__documentos .img_doc_3",{yPercent:-1,duration:1,repeat:-1,ease:"power4.inout",yoyo:!0},"0");var i=t.timeline({paused:!0});i.from(".as__documentos .as__title_section",{y:-20,duration:1,opacity:0},"=0"),i.from(".as__documentos .as__documentos_img",er(er({opacity:0,yPercent:20,duration:8},"opacity",1),"ease","power4.out"),"+=2"),i.fromTo(".as__documentos .as__documentos_content h4 span",{opacity:0,y:20},er(er({opacity:1,y:0,duration:1},"opacity",1),"stagger",.4),"-=3"),i.fromTo(".as__documentos .as__documentos_content_info",{opacity:0,y:-20},er({opacity:0,y:0,duration:2},"opacity",1),"-=2"),i.addLabel("end","-=4"),i.fromTo(".as__documentos .img_doc_1",{opacity:0,scale:.6},{opacity:1,scale:1,duration:3},"end"),i.fromTo(".as__documentos .img_doc_2",{y:100,scale:1.2},{y:0,scale:1,duration:3},"end"),i.fromTo(".as__documentos .img_doc_3",{opacity:0,scale:.8},{opacity:1,scale:1,duration:3},"end"),e.create({animation:i,trigger:document.getElementById("home_documentos"),start:"-20% bottom",end:"30% center",scrub:3,onUpdate:function(t){1==t.progress?n.play():n.pause()}})}}(Qi,La),function(t,e){if(document.getElementById("home_blog")){var n=t.timeline({paused:!0});n.from(".as__blog .as__title_section",{y:-20,duration:4,opacity:0},"=0"),n.fromTo(".as__blog .as__blog_posts .as__post_small a",{opacity:0,xPercent:-20},er(er({opacity:1,xPercent:0,duration:1},"opacity",1),"stagger",.4),"-=2"),e.create({animation:n,trigger:document.getElementById("home_blog"),start:"-20% bottom",end:"top center",scrub:3,onUpdate:function(t){t.progress}})}}(Qi,La)),function(t,e){if(document.getElementById("as__top")){var n=t.timeline({paused:!1});n.from(".as__top_svg",{scale:1.1,opacitiy:0,transformOrigin:"center",duration:1,ease:"power4.inout"},"0"),n.fromTo(".as__top_int img",{yPercent:150,opacity:0},{opacity:1,yPercent:0,duration:.8,ease:"power4.inout"},"-=1"),n.fromTo(".as__top_title_item",{xPercent:-10,opacity:0},{opacity:1,xPercent:0,duration:1,stagger:.3,ease:"power4.inout"},"-=0")}var i=document.getElementById("as__top_marquee");if(i){var r=document.getElementById("as__top_marquee").dataset.marquee,s=(new cr(i,{content:r,easing:!0,speed:.1}),t.timeline({paused:!0}));s.to("#as__top_marquee",{yPercent:60,duration:4,opacitiy:0}),s.to(".as__top_int",{duration:2,opacitiy:.8},"-=4");e.create({animation:s,trigger:document.getElementById("as__top_marquee"),start:"center center",end:"150% center",scrub:3,onUpdate:function(t){t.progress}})}}(Qi,La),function(t,e){var n=document.getElementById("que_es");if(n){var i=t.timeline({paused:!0});i.from(".as__que_es .as__title_section",{y:-20,duration:4,opacity:0},0).addLabel("startp",0).fromTo(".as__que_es .as__que_es_content .prop_anim",{opacity:0,y:20},dr(dr({opacity:1,y:0,duration:4},"opacity",1),"stagger",.4),"startp").fromTo(".as__que_es img",{opacity:0,y:40},{y:0,opacity:1,duration:4},"startp-=3");e.create({animation:i,trigger:n,start:"-20% center",end:"20% center",scrub:3,onUpdate:function(t){t.progress}})}}(Qi,La),function(t,e){var n=document.getElementById("gestion");if(n){var i=t.timeline({paused:!0});i.addLabel("startp",0).fromTo(".as__gestion h3",{clipPath:"inset(0 100% 0 0)",opacitiy:0},{clipPath:"inset(0 0% 0 0)",opacity:1,duration:4},"startp").fromTo(".as__gestion .as__gestion_content .prop_anim",{opacity:0,y:20},dr(dr({opacity:1,y:0,duration:4},"opacity",1),"stagger",.4),"startp-=2").fromTo(".as__gestion img",{opacity:0,y:40},{y:0,opacity:1,duration:4},"startp-=3");e.create({animation:i,trigger:n,start:"-20% center",end:"20% center",scrub:3,onUpdate:function(t){t.progress}})}}(Qi,La),function(t,e){var n=document.getElementById("ayuda");if(n){t.timeline({paused:!1}).to("#ayuda .na_nube",{transformOrigin:"center",duration:1,repeat:-1,y:15,ease:"sine.inOut",stagger:.2,yoyo:!0},"0").to("#ayuda .start",{transformOrigin:"center",duration:1,repeat:-1,rotation:function(t,e){return 360*(t+1)},y:-15,ease:"sine.inOut",stagger:.2,yoyo:!0},"0");var i=t.timeline({paused:!0});i.addLabel("startp",0).fromTo(".as__ayuda .as__ayuda_ilus",{clipPath:"inset(0 100% 0 0)",opacitiy:0},{clipPath:"inset(0 0% 0 0)",opacity:1,duration:4},"startp").fromTo(".as__ayuda .as__ayuda_content .prop_anim",{opacity:0,y:20},dr(dr({opacity:1,y:0,duration:4},"opacity",1),"stagger",.4),"startp-=2").fromTo(".as__ayuda img",{opacity:0,y:40},{y:0,opacity:1,duration:4},"startp-=3");e.create({animation:i,trigger:n,start:"-20% center",end:"10% center",scrub:3,onUpdate:function(t){t.progress}})}}(Qi,La),function(t,e){var n=document.getElementById("as__documentos_int");if(n){t.timeline({paused:!1}).to(".idocs_float",{transformOrigin:"center",duration:1,repeat:-1,y:15,ease:"sine.inOut",stagger:.2,yoyo:!0},"0");var i=t.timeline({paused:!0});i.addLabel("startp",0).fromTo(".as__documentos_int .doc_img",{yPercent:20,opacitiy:0},{yPercent:0,opacity:1,duration:4},"startp").fromTo(".as__documentos_int .doc_ges",{opacity:0,y:20},dr({opacity:1,y:0,duration:4},"opacity",1),"startp+=1").fromTo(".as__documentos_int .doc_cal",{opacity:0,y:20},dr({opacity:1,y:0,duration:4},"opacity",1),"startp+=2");e.create({animation:i,trigger:n,start:"-20% center",end:"20% center",scrub:3,onUpdate:function(t){t.progress}})}}(Qi,La),document.getElementById("as__nuestra_empresa")&&(sr(Qi,La),function(t,e){var n=document.getElementById("am__proposito");if(n){var i=t.timeline({paused:!0}),r=-(document.querySelector(".as_em_proposito .as__marquee .as__marquee_to_left").offsetWidth-window.innerWidth);i.from(".as_em_proposito .as__title_section",{y:-20,duration:4,opacity:0},0).addLabel("startp",0).fromTo(".as_em_proposito .as_proposito_content .prop_anim",{opacity:0,y:20},pr(pr({opacity:1,y:0,duration:4},"opacity",1),"stagger",.4),"startp").fromTo(".as_em_proposito img",{opacity:0,y:20},{y:0,opacity:1,duration:4},"startp-=3").fromTo(".as_em_proposito .as__marquee .as__marquee_to_left",{x:0},{x:r,duration:20,opacity:1,ease:"linear"},"startp"),e.create({animation:i,trigger:n,start:"-10% center",end:"30% center",scrub:3,onUpdate:function(t){t.progress}})}}(Qi,La),function(t,e){var n=document.getElementById("am__como");if(n){var i=t.timeline({paused:!0});i.from(".as__como .as__title_section",{y:-20,duration:4,opacity:0},"=0"),i.fromTo(".as__como .as__como_item .anim",{opacity:0,xPercent:-20},pr(pr({opacity:1,xPercent:0,duration:1},"opacity",1),"stagger",.4),"-=2"),e.create({animation:i,trigger:n,start:"-20% bottom",end:"top center",scrub:3,onUpdate:function(t){t.progress}})}}(Qi,La)),function(t,e){var n=document.getElementById("as__destacados");if(n){var i=t.timeline({paused:!0});i.fromTo(".as__destacados_item",{opacity:0,y:50},{duration:1,opacity:1,y:0,stagger:1},"-=0").fromTo(".as__destacados_image img",{y:30,scale:1.1},{y:0,scale:1,duration:2,stagger:.2},"-=1").from(".as__destacados_image",{backgroundColor:"transparent",duration:2,stagger:.3},"-=3");e.create({animation:i,trigger:n,start:"top bottom",end:"center center",scrub:3,onUpdate:function(t){t.progress}})}}(Qi,La),function(t,e){var n=document.getElementById("as__listado");if(n){var i=t.timeline({paused:!1});document.getElementsByClassName("ilus_rot_top_right")&&i.to(".ilus_rot_top_right",{transformOrigin:"right top",duration:1,repeat:-1,rotation:-5,ease:"sine.inOut",yoyo:!0},"0"),document.getElementsByClassName("ilus_rot_top_left")&&i.to(".ilus_rot_top_left",{transformOrigin:"right left",duration:1,repeat:-1,rotation:-5,ease:"sine.inOut",yoyo:!0},"0");var r=t.timeline({paused:!0});r.addLabel("startp",0).fromTo(".as__listado .as__listado_content .prop_anim",{opacity:0,y:-20},_r(_r({opacity:1,y:0,duration:4},"opacity",1),"stagger",.4),"startp").fromTo(".as__listado_ilustra svg",{opacity:0,y:40},{y:0,opacity:1,duration:4},"startp-=3");e.create({animation:r,trigger:n,start:"-20% center",end:"20% center",scrub:3,onUpdate:function(t){t.progress}})}}(Qi,La),(document.getElementById("as__renta_vitalicia")||document.getElementById("as__seguro_previsional")||document.getElementById("as__rv_sobreviviencia")||document.getElementById("as__rv_invalidez"))&&(function(t,e){var n=document.getElementById("rv_auxilio");if(n){t.timeline({paused:!1}).to("#rv_auxilio #i_anim",{transformOrigin:"center",duration:1,repeat:-1,y:-5,ease:"sine.inOut",yoyo:!0},"0").to("#rv_auxilio #nube_2",{transformOrigin:"center",duration:1,repeat:-1,y:15,ease:"sine.inOut",yoyo:!0},"0").to("#rv_auxilio #numbe_1",{transformOrigin:"center",duration:1,repeat:-1,y:-15,ease:"sine.inOut",yoyo:!0},"0").to("#rv_auxilio .start",{transformOrigin:"center",duration:1,repeat:-1,rotation:function(t,e){return 360*(t+1)},y:-15,ease:"sine.inOut",stagger:.2,yoyo:!0},"0");var i=t.timeline({paused:!0});i.addLabel("startp",0).fromTo(".as__rv_auxilio .as__rv_auxilio_content .prop_anim",{opacity:0,y:-20},_r(_r({opacity:1,y:0,duration:4},"opacity",1),"stagger",.4),"startp").fromTo(".as__rv_auxilio_ilustra svg",{opacity:0,y:40},{y:0,opacity:1,duration:4},"startp-=3"),e.create({animation:i,trigger:n,start:"-20% center",end:"20% center",scrub:3,onUpdate:function(t){t.progress}})}}(Qi,La),function(t,e){if(document.getElementById("rv_destacados")){var n=t.timeline({paused:!0});n.fromTo(".as__rv_destacados_item",{opacity:0,y:50},{duration:1,opacity:1,y:0,stagger:1},"-=0").fromTo(".as__rv_destacados_item img",{y:30,scale:1.1},{y:0,scale:1,duration:2,stagger:.2},"-=1").from(".as__rv_destacados_image",{backgroundColor:"transparent",duration:2,stagger:.3},"-=3"),e.create({animation:n,trigger:document.getElementById("rv_destacados"),start:"top bottom",end:"center center",scrub:3,onUpdate:function(t){t.progress}})}}(Qi,La)),function(t){var e=new Date,n=Er()(e).lastBusinessDayOfMonth().format("DD/MM/YYYY");if(document.getElementById("as__calendario_pay")){document.getElementById("as__calendario_pay").innerHTML=n;var i=new Date,r=Sr.find((function(t){return Er()(t).isAfter(i)}));document.getElementById("as__calendario_next").innerHTML=r.split("-").reverse().join("/")}if(document.getElementById("as__calendario")){document.getElementById("proximo_pago").innerHTML=n;new(gr())(".calendar",{language:"es",startDate:new Date,enableRangeSelection:!1,renderEnd:function(){t.fromTo(".month-container",{opacity:0},{opacity:1,duration:.5,ease:"power4.inout",stagger:.1,dalay:1})},customDayRenderer:function(t,e){var n=new Date,i=Er()(e).format("YYYY-MM-DD");Er()(e).lastBusinessDayOfMonth().format("DD/MM/YYYY")==Er()(e).format("DD/MM/YYYY")&&t.classList.add("last_day"),Er()(e).format("DD/MM/YYYY")==Er()(n).format("DD/MM/YYYY")&&t.classList.add("today"),Er()(e).isBusinessDay()||t.classList.add("weekend"),Sr.includes(i)&&t.classList.add("novedad")}})}}(Qi);var el=function(t){embedded_svc.settings.displayHelpButton=!1,embedded_svc.settings.language="",embedded_svc.settings.chatbotAvatarImgURL="https://www.asulado.com/resource/1693413698000/Avatar",embedded_svc.settings.avatarImgURL="https://www.asulado.com/resource/1693413698000/Avatar",embedded_svc.settings.enabledFeatures=["LiveAgent"],embedded_svc.settings.entryFeature="LiveAgent",embedded_svc.init("https://asulado.my.salesforce.com","https://www.asulado.com/",t,"00D8a000003gPOw","Chat_Web",{baseLiveAgentContentURL:"https://c.la5-c2-ia5.salesforceliveagent.com/content",deploymentId:"5728a000000Tmu9",buttonId:"5738a000000Tn5E",baseLiveAgentURL:"https://d.la5-c2-ia5.salesforceliveagent.com/chat",eswLiveAgentDevName:"Chat_Web",isOfflineSupportEnabled:!1})};if(window.embedded_svc)el("https://service.force.com");else{var nl=document.createElement("script");nl.setAttribute("src","https://asulado.my.salesforce.com/embeddedservice/5.0/esw.min.js"),nl.onload=function(){el(null)},document.body.appendChild(nl)}document.getElementById("start_chat").addEventListener("click",(function(){console.log("Iniciando chat"),embedded_svc.liveAgentAPI.startChat({directToAgentRouting:{buttonId:"5738a000000Tn5E",fallback:!0},extraPrechatInfo:[{entityName:"Contact",saveToTranscript:""}],extraPrechatFormDetails:[]})}))},77:(t,e,n)=>{"use strict";n.d(e,{Z:()=>s});var i=n(645),r=n.n(i)()((function(t){return t[1]}));r.push([t.id,'.calendar{-webkit-touch-callout:none;border-radius:4px;direction:ltr;overflow-x:hidden;padding:4px;-webkit-user-select:none;-moz-user-select:none;user-select:none}.calendar:after{clear:both;content:"";display:block}.calendar .calendar-rtl{direction:rtl}.calendar .calendar-rtl .calendar-rtl table tr td span{float:right}.calendar table{border-spacing:0;margin:auto}.calendar table td,.calendar table th{border:none;font-size:12px;height:20px;padding:4px 5px;text-align:center;width:20px}.calendar .calendar-header{border:1px solid #ddd;margin-bottom:20px;width:100%}.calendar .calendar-header table{width:100%}.calendar .calendar-header table th{cursor:pointer;font-size:22px;padding:5px 10px}.calendar .calendar-header table th:hover{background:#eee}.calendar .calendar-header table th.disabled,.calendar .calendar-header table th.disabled:hover{background:none;color:#fff;cursor:default}.calendar .calendar-header table th.next,.calendar .calendar-header table th.prev{width:20px}.calendar .calendar-header .year-title{font-weight:700;height:20px;text-align:center;width:auto}.calendar .calendar-header .year-neighbor{opacity:.4}@media (max-width:991px){.calendar .calendar-header .year-neighbor{display:none}}.calendar .calendar-header .year-neighbor2{opacity:.2}@media (max-width:767px){.calendar .calendar-header .year-neighbor2{display:none}}.calendar .months-container{display:none;flex-wrap:wrap;width:100%}.calendar .months-container .month-container{float:left;padding:0;text-align:center}.calendar .months-container .month-container.month-2{width:16.66666667%}.calendar .months-container .month-container.month-3{width:25%}.calendar .months-container .month-container.month-4{width:33.33333333%}.calendar .months-container .month-container.month-6{width:50%}.calendar .months-container .month-container.month-12{width:100%}.calendar table.month th.month-title{font-size:16px;padding-bottom:5px}.calendar table.month th.day-header{font-size:14px}.calendar table.month tr td,.calendar table.month tr th{padding:0}.calendar table.month tr td.hidden,.calendar table.month tr th.hidden{display:none}.calendar table.month td.week-number{border-right:1px solid #eee;cursor:default;font-weight:700;padding:5px}.calendar table.month td.day.round-left{border-radius:8px 0 0 8px}.calendar table.month td.day.round-right{webkit-border-radius:0 8px 8px 0;border-radius:0 8px 8px 0}.calendar table.month td.day .day-content{border-radius:4px;padding:5px 6px}.calendar table.month td.new,.calendar table.month td.new:hover,.calendar table.month td.old,.calendar table.month td.old:hover{background:none;cursor:default}.calendar table.month td.disabled,.calendar table.month td.disabled:hover{color:#ddd}.calendar table.month td.disabled .day-content:hover,.calendar table.month td.disabled:hover .day-content:hover{background:none;cursor:default}.calendar table.month td.range .day-content{background:rgba(0,0,0,.2);border-radius:0}.calendar table.month td.range.range-start .day-content{border-bottom-left-radius:4px;border-top-left-radius:4px}.calendar table.month td.range.range-end .day-content{border-bottom-right-radius:4px;border-top-right-radius:4px}.calendar .calendar-loading-container{min-height:200px;position:relative;text-align:center}.calendar .calendar-loading-container .calendar-loading{left:50%;position:absolute;top:50%;transform:translateX(-50%) translateY(-50%)}.calendar .calendar-spinner{margin:20px auto;text-align:center;width:80px}.calendar .calendar-spinner>div{animation:sk-bouncedelay 1s ease-in-out infinite both;background-color:#333;border-radius:100%;display:inline-block;height:16px;margin:5px;width:16px}.calendar .calendar-spinner>div.bounce1{animation-delay:-.32s}.calendar .calendar-spinner>div.bounce2{animation-delay:-.16s}.calendar-context-menu,.calendar-context-menu .submenu{background-color:#fff;border:1px solid #ddd;box-shadow:2px 2px 5px rgba(0,0,0,.2);-webkit-box-shadow:2px 2px 5px rgba(0,0,0,.2);display:none;position:absolute}.calendar-context-menu .item{position:relative}.calendar-context-menu .item .content{box-sizing:border-box;cursor:pointer;display:table;padding:5px 10px;white-space:nowrap;width:100%}.calendar-context-menu .item .content:hover{background:#eee}.calendar-context-menu .item .content .text{display:table-cell}.calendar-context-menu .item .content .arrow{display:table-cell;padding-left:10px;text-align:right}.calendar-context-menu .item .submenu{top:-1px}.calendar-context-menu .item .submenu:not(.open-left){left:100%}.calendar-context-menu .item .submenu.open-left{right:100%}.calendar-context-menu .item:hover>.submenu{display:block}.table-striped .calendar table.month tr td,.table-striped .calendar table.month tr th{background-color:transparent}table.month td.day .day-content:hover{background:rgba(0,0,0,.2);cursor:pointer}@keyframes sk-bouncedelay{0%,80%,to{transform:scale(0)}40%{transform:scale(1)}}',""]);const s=r},645:t=>{"use strict";t.exports=function(t){var e=[];return e.toString=function(){return this.map((function(e){var n=t(e);return e[2]?"@media ".concat(e[2]," {").concat(n,"}"):n})).join("")},e.i=function(t,n,i){"string"==typeof t&&(t=[[null,t,""]]);var r={};if(i)for(var s=0;s<this.length;s++){var o=this[s][0];null!=o&&(r[o]=!0)}for(var a=0;a<t.length;a++){var l=[].concat(t[a]);i&&r[l[0]]||(n&&(l[2]?l[2]="".concat(n," and ").concat(l[2]):l[2]=n),e.push(l))}},e}},215:(t,e)=>{"use strict";e.Z=(t={},e,n)=>{const i=[1,2,3,4,5];n.getWorkingWeekdays=function(){return t.workingWeekdays||i},n.setWorkingWeekdays=function(e){t.workingWeekdays=e},n.getHolidays=function(){return t.holidays||[]},n.setHolidays=function(e){t.holidays=e},n.getHolidayFormat=function(){return t.holidayFormat},n.setHolidayFormat=function(e){t.holidayFormat=e},n.getAdditionalWorkingDays=function(){return t.additionalWorkingDays||[]},n.setAdditionalWorkingDays=function(e){t.additionalWorkingDays=e},n.getAdditionalWorkingDayFormat=function(){return t.additionalWorkingDayFormat},n.setAdditionalWorkingDayFormat=function(e){t.additionalWorkingDayFormat=e},e.prototype.isHoliday=function(){return!!t.holidays&&!!t.holidays.includes(this.format(t.holidayFormat))},e.prototype.isBusinessDay=function(){const e=t.workingWeekdays||i;return!this.isHoliday()&&(!!this.isAdditionalWorkingDay()||!!e.includes(this.day()))},e.prototype.isAdditionalWorkingDay=function(){return!!t.additionalWorkingDays&&!!t.additionalWorkingDays.includes(this.format(t.additionalWorkingDayFormat))},e.prototype.businessDaysAdd=function(t){const e=t<0?-1:1;let n=this.clone(),i=Math.abs(t);for(;i>0;)n=n.add(e,"d"),n.isBusinessDay()&&(i-=1);return n},e.prototype.businessDaysSubtract=function(t){let e=this.clone();return e=e.businessDaysAdd(-1*t),e},e.prototype.businessDiff=function(t){const e=this.clone(),n=t.clone(),i=e>=n;let r=i?n:e;const s=i?e:n;let o=0;if(r.isSame(s))return o;for(;r<s;)r.isBusinessDay()&&(o+=1),r=r.add(1,"d");return i?o:-o},e.prototype.nextBusinessDay=function(){let t=this.clone(),e=1;for(;e<7&&(t=t.add(1,"day"),!t.isBusinessDay());)e+=1;return t},e.prototype.prevBusinessDay=function(){let t=this.clone(),e=1;for(;e<7&&(t=t.subtract(1,"day"),!t.isBusinessDay());)e+=1;return t},e.prototype.businessDaysInMonth=function(){if(!this.isValid())return[];let t=this.clone().startOf("month");const e=this.clone().endOf("month"),n=[];let i=!1;for(;!i;)t.isBusinessDay()&&n.push(t.clone()),t=t.add(1,"day"),t.isAfter(e)&&(i=!0);return n},e.prototype.lastBusinessDayOfMonth=function(){const t=this.businessDaysInMonth();return t[t.length-1]},e.prototype.businessWeeksInMonth=function(){if(!this.isValid())return[];let t=this.clone().startOf("month");const e=this.clone().endOf("month"),n=[];let i=[],r=!1;for(;!r;)t.isBusinessDay()&&i.push(t.clone()),(5===t.day()||t.isSame(e,"day"))&&(n.push(i),i=[]),t=t.add(1,"day"),t.isAfter(e)&&(r=!0);return n}}},484:function(t){t.exports=function(){"use strict";var t=1e3,e=6e4,n=36e5,i="millisecond",r="second",s="minute",o="hour",a="day",l="week",c="month",u="quarter",d="year",h="date",p="Invalid Date",f=/^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/,_=/\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g,m={name:"en",weekdays:"Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),months:"January_February_March_April_May_June_July_August_September_October_November_December".split("_"),ordinal:function(t){var e=["th","st","nd","rd"],n=t%100;return"["+t+(e[(n-20)%10]||e[n]||e[0])+"]"}},g=function(t,e,n){var i=String(t);return!i||i.length>=e?t:""+Array(e+1-i.length).join(n)+t},y={s:g,z:function(t){var e=-t.utcOffset(),n=Math.abs(e),i=Math.floor(n/60),r=n%60;return(e<=0?"+":"-")+g(i,2,"0")+":"+g(r,2,"0")},m:function t(e,n){if(e.date()<n.date())return-t(n,e);var i=12*(n.year()-e.year())+(n.month()-e.month()),r=e.clone().add(i,c),s=n-r<0,o=e.clone().add(i+(s?-1:1),c);return+(-(i+(n-r)/(s?r-o:o-r))||0)},a:function(t){return t<0?Math.ceil(t)||0:Math.floor(t)},p:function(t){return{M:c,y:d,w:l,d:a,D:h,h:o,m:s,s:r,ms:i,Q:u}[t]||String(t||"").toLowerCase().replace(/s$/,"")},u:function(t){return void 0===t}},v="en",b={};b[v]=m;var D="$isDayjsObject",w=function(t){return t instanceof x||!(!t||!t[D])},E=function t(e,n,i){var r;if(!e)return v;if("string"==typeof e){var s=e.toLowerCase();b[s]&&(r=s),n&&(b[s]=n,r=s);var o=e.split("-");if(!r&&o.length>1)return t(o[0])}else{var a=e.name;b[a]=e,r=a}return!i&&r&&(v=r),r||!i&&v},T=function(t,e){if(w(t))return t.clone();var n="object"==typeof e?e:{};return n.date=t,n.args=arguments,new x(n)},S=y;S.l=E,S.i=w,S.w=function(t,e){return T(t,{locale:e.$L,utc:e.$u,x:e.$x,$offset:e.$offset})};var x=function(){function m(t){this.$L=E(t.locale,null,!0),this.parse(t),this.$x=this.$x||t.x||{},this[D]=!0}var g=m.prototype;return g.parse=function(t){this.$d=function(t){var e=t.date,n=t.utc;if(null===e)return new Date(NaN);if(S.u(e))return new Date;if(e instanceof Date)return new Date(e);if("string"==typeof e&&!/Z$/i.test(e)){var i=e.match(f);if(i){var r=i[2]-1||0,s=(i[7]||"0").substring(0,3);return n?new Date(Date.UTC(i[1],r,i[3]||1,i[4]||0,i[5]||0,i[6]||0,s)):new Date(i[1],r,i[3]||1,i[4]||0,i[5]||0,i[6]||0,s)}}return new Date(e)}(t),this.init()},g.init=function(){var t=this.$d;this.$y=t.getFullYear(),this.$M=t.getMonth(),this.$D=t.getDate(),this.$W=t.getDay(),this.$H=t.getHours(),this.$m=t.getMinutes(),this.$s=t.getSeconds(),this.$ms=t.getMilliseconds()},g.$utils=function(){return S},g.isValid=function(){return!(this.$d.toString()===p)},g.isSame=function(t,e){var n=T(t);return this.startOf(e)<=n&&n<=this.endOf(e)},g.isAfter=function(t,e){return T(t)<this.startOf(e)},g.isBefore=function(t,e){return this.endOf(e)<T(t)},g.$g=function(t,e,n){return S.u(t)?this[e]:this.set(n,t)},g.unix=function(){return Math.floor(this.valueOf()/1e3)},g.valueOf=function(){return this.$d.getTime()},g.startOf=function(t,e){var n=this,i=!!S.u(e)||e,u=S.p(t),p=function(t,e){var r=S.w(n.$u?Date.UTC(n.$y,e,t):new Date(n.$y,e,t),n);return i?r:r.endOf(a)},f=function(t,e){return S.w(n.toDate()[t].apply(n.toDate("s"),(i?[0,0,0,0]:[23,59,59,999]).slice(e)),n)},_=this.$W,m=this.$M,g=this.$D,y="set"+(this.$u?"UTC":"");switch(u){case d:return i?p(1,0):p(31,11);case c:return i?p(1,m):p(0,m+1);case l:var v=this.$locale().weekStart||0,b=(_<v?_+7:_)-v;return p(i?g-b:g+(6-b),m);case a:case h:return f(y+"Hours",0);case o:return f(y+"Minutes",1);case s:return f(y+"Seconds",2);case r:return f(y+"Milliseconds",3);default:return this.clone()}},g.endOf=function(t){return this.startOf(t,!1)},g.$set=function(t,e){var n,l=S.p(t),u="set"+(this.$u?"UTC":""),p=(n={},n[a]=u+"Date",n[h]=u+"Date",n[c]=u+"Month",n[d]=u+"FullYear",n[o]=u+"Hours",n[s]=u+"Minutes",n[r]=u+"Seconds",n[i]=u+"Milliseconds",n)[l],f=l===a?this.$D+(e-this.$W):e;if(l===c||l===d){var _=this.clone().set(h,1);_.$d[p](f),_.init(),this.$d=_.set(h,Math.min(this.$D,_.daysInMonth())).$d}else p&&this.$d[p](f);return this.init(),this},g.set=function(t,e){return this.clone().$set(t,e)},g.get=function(t){return this[S.p(t)]()},g.add=function(i,u){var h,p=this;i=Number(i);var f=S.p(u),_=function(t){var e=T(p);return S.w(e.date(e.date()+Math.round(t*i)),p)};if(f===c)return this.set(c,this.$M+i);if(f===d)return this.set(d,this.$y+i);if(f===a)return _(1);if(f===l)return _(7);var m=(h={},h[s]=e,h[o]=n,h[r]=t,h)[f]||1,g=this.$d.getTime()+i*m;return S.w(g,this)},g.subtract=function(t,e){return this.add(-1*t,e)},g.format=function(t){var e=this,n=this.$locale();if(!this.isValid())return n.invalidDate||p;var i=t||"YYYY-MM-DDTHH:mm:ssZ",r=S.z(this),s=this.$H,o=this.$m,a=this.$M,l=n.weekdays,c=n.months,u=n.meridiem,d=function(t,n,r,s){return t&&(t[n]||t(e,i))||r[n].slice(0,s)},h=function(t){return S.s(s%12||12,t,"0")},f=u||function(t,e,n){var i=t<12?"AM":"PM";return n?i.toLowerCase():i};return i.replace(_,(function(t,i){return i||function(t){switch(t){case"YY":return String(e.$y).slice(-2);case"YYYY":return S.s(e.$y,4,"0");case"M":return a+1;case"MM":return S.s(a+1,2,"0");case"MMM":return d(n.monthsShort,a,c,3);case"MMMM":return d(c,a);case"D":return e.$D;case"DD":return S.s(e.$D,2,"0");case"d":return String(e.$W);case"dd":return d(n.weekdaysMin,e.$W,l,2);case"ddd":return d(n.weekdaysShort,e.$W,l,3);case"dddd":return l[e.$W];case"H":return String(s);case"HH":return S.s(s,2,"0");case"h":return h(1);case"hh":return h(2);case"a":return f(s,o,!0);case"A":return f(s,o,!1);case"m":return String(o);case"mm":return S.s(o,2,"0");case"s":return String(e.$s);case"ss":return S.s(e.$s,2,"0");case"SSS":return S.s(e.$ms,3,"0");case"Z":return r}return null}(t)||r.replace(":","")}))},g.utcOffset=function(){return 15*-Math.round(this.$d.getTimezoneOffset()/15)},g.diff=function(i,h,p){var f,_=this,m=S.p(h),g=T(i),y=(g.utcOffset()-this.utcOffset())*e,v=this-g,b=function(){return S.m(_,g)};switch(m){case d:f=b()/12;break;case c:f=b();break;case u:f=b()/3;break;case l:f=(v-y)/6048e5;break;case a:f=(v-y)/864e5;break;case o:f=v/n;break;case s:f=v/e;break;case r:f=v/t;break;default:f=v}return p?f:S.a(f)},g.daysInMonth=function(){return this.endOf(c).$D},g.$locale=function(){return b[this.$L]},g.locale=function(t,e){if(!t)return this.$L;var n=this.clone(),i=E(t,e,!0);return i&&(n.$L=i),n},g.clone=function(){return S.w(this.$d,this)},g.toDate=function(){return new Date(this.valueOf())},g.toJSON=function(){return this.isValid()?this.toISOString():null},g.toISOString=function(){return this.$d.toISOString()},g.toString=function(){return this.$d.toUTCString()},m}(),P=x.prototype;return T.prototype=P,[["$ms",i],["$s",r],["$m",s],["$H",o],["$W",a],["$M",c],["$y",d],["$D",h]].forEach((function(t){P[t[1]]=function(e){return this.$g(e,t[0],t[1])}})),T.extend=function(t,e){return t.$i||(t(e,x,T),t.$i=!0),T},T.locale=E,T.isDayjs=w,T.unix=function(t){return T(1e3*t)},T.en=b[v],T.Ls=b,T.p={},T}()},319:function(t,e){var n,i,r;"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self&&self,i=[e],n=function(t){"use strict";function e(t){return e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},e(t)}function n(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function i(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function r(t,e,n){return e&&i(t.prototype,e),n&&i(t,n),t}function s(t,e,n){return e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}if(Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0,"undefined"==typeof NodeList||NodeList.prototype.forEach||(NodeList.prototype.forEach=function(t,e){e=e||window;for(var n=0;n<this.length;n++)t.call(e,this[n],n,this)}),"undefined"!=typeof Element&&!Element.prototype.matches){var o=Element.prototype;Element.prototype.matches=o.msMatchesSelector||o.webkitMatchesSelector}"undefined"==typeof Element||Element.prototype.closest||(Element.prototype.closest=function(t){var e=this;if(!document.documentElement.contains(e))return null;do{if(e.matches(t))return e;e=e.parentElement||e.parentNode}while(null!==e&&1==e.nodeType);return null});var a=function(){function t(e){var i=arguments.length>1&&void 0!==arguments[1]?arguments[1]:null;if(n(this,t),s(this,"element",void 0),s(this,"options",void 0),s(this,"_startDate",void 0),s(this,"_dataSource",void 0),s(this,"_mouseDown",void 0),s(this,"_rangeStart",void 0),s(this,"_rangeEnd",void 0),s(this,"_responsiveInterval",void 0),s(this,"_nbCols",void 0),s(this,"clickDay",void 0),s(this,"dayContextMenu",void 0),s(this,"mouseOnDay",void 0),s(this,"mouseOutDay",void 0),s(this,"renderEnd",void 0),s(this,"selectRange",void 0),s(this,"yearChanged",void 0),s(this,"periodChanged",void 0),e instanceof HTMLElement)this.element=e;else{if("string"!=typeof e)throw new Error("The element parameter should be a DOM node or a selector");this.element=document.querySelector(e)}this.element.classList.add("calendar"),this._initializeEvents(i),this._initializeOptions(i);var r=(new Date).getFullYear(),o=0;this.options.startDate?(r=this.options.startDate.getFullYear(),o=this.options.startDate.getMonth()):this.options.startYear&&(r=this.options.startYear),this.setStartDate(new Date(r,o,1))}return r(t,[{key:"_initializeOptions",value:function(e){null==e&&(e={}),this.options={startYear:isNaN(parseInt(e.startYear))?null:parseInt(e.startYear),startDate:e.startDate instanceof Date?e.startDate:null,numberMonthsDisplayed:!isNaN(parseInt(e.numberMonthsDisplayed))&&e.numberMonthsDisplayed>0&&e.numberMonthsDisplayed<=12?parseInt(e.numberMonthsDisplayed):12,minDate:e.minDate instanceof Date?e.minDate:null,maxDate:e.maxDate instanceof Date?e.maxDate:null,language:null!=e.language&&null!=t.locales[e.language]?e.language:"en",allowOverlap:null==e.allowOverlap||e.allowOverlap,displayWeekNumber:null!=e.displayWeekNumber&&e.displayWeekNumber,displayDisabledDataSource:null!=e.displayDisabledDataSource&&e.displayDisabledDataSource,displayHeader:null==e.displayHeader||e.displayHeader,alwaysHalfDay:null!=e.alwaysHalfDay&&e.alwaysHalfDay,enableRangeSelection:null!=e.enableRangeSelection&&e.enableRangeSelection,disabledDays:e.disabledDays instanceof Array?e.disabledDays:[],disabledWeekDays:e.disabledWeekDays instanceof Array?e.disabledWeekDays:[],hiddenWeekDays:e.hiddenWeekDays instanceof Array?e.hiddenWeekDays:[],roundRangeLimits:null!=e.roundRangeLimits&&e.roundRangeLimits,dataSource:e.dataSource instanceof Array||"function"==typeof e.dataSource?e.dataSource:[],style:"background"==e.style||"border"==e.style||"custom"==e.style?e.style:"border",enableContextMenu:null!=e.enableContextMenu&&e.enableContextMenu,contextMenuItems:e.contextMenuItems instanceof Array?e.contextMenuItems:[],customDayRenderer:"function"==typeof e.customDayRenderer?e.customDayRenderer:null,customDataSourceRenderer:"function"==typeof e.customDataSourceRenderer?e.customDataSourceRenderer:null,weekStart:isNaN(parseInt(e.weekStart))?null:parseInt(e.weekStart),loadingTemplate:"string"==typeof e.loadingTemplate||e.loadingTemplate instanceof HTMLElement?e.loadingTemplate:null},this.options.dataSource instanceof Array&&(this._dataSource=this.options.dataSource,this._initializeDatasourceColors())}},{key:"_initializeEvents",value:function(t){null==t&&(t=[]),t.yearChanged&&this.element.addEventListener("yearChanged",t.yearChanged),t.periodChanged&&this.element.addEventListener("periodChanged",t.periodChanged),t.renderEnd&&this.element.addEventListener("renderEnd",t.renderEnd),t.clickDay&&this.element.addEventListener("clickDay",t.clickDay),t.dayContextMenu&&this.element.addEventListener("dayContextMenu",t.dayContextMenu),t.selectRange&&this.element.addEventListener("selectRange",t.selectRange),t.mouseOnDay&&this.element.addEventListener("mouseOnDay",t.mouseOnDay),t.mouseOutDay&&this.element.addEventListener("mouseOutDay",t.mouseOutDay)}},{key:"_fetchDataSource",value:function(t){if("function"==typeof this.options.dataSource){var e=this.options.dataSource,n=this.getCurrentPeriod(),i={year:n.startDate.getFullYear(),startDate:n.startDate,endDate:n.endDate};if(2==e.length)e(i,t);else{var r=e(i);r instanceof Array&&t(r),r&&r.then&&r.then(t)}}else t(this.options.dataSource)}},{key:"_initializeDatasourceColors",value:function(){for(var e=0;e<this._dataSource.length;e++)null==this._dataSource[e].color&&(this._dataSource[e].color=t.colors[e%t.colors.length])}},{key:"render",value:function(){for(var t=arguments.length>0&&void 0!==arguments[0]&&arguments[0];this.element.firstChild;)this.element.removeChild(this.element.firstChild);if(this.options.displayHeader&&this._renderHeader(),t)this._renderLoading();else{this._renderBody(),this._renderDataSource(),this._applyEvents();var e=this.element.querySelector(".months-container");e.style.opacity="0",e.style.display="flex",e.style.transition="opacity 0.5s",setTimeout((function(){e.style.opacity="1",setTimeout((function(){return e.style.transition=""}),500)}),0);var n=this.getCurrentPeriod();this._triggerEvent("renderEnd",{currentYear:n.startDate.getFullYear(),startDate:n.startDate,endDate:n.endDate})}}},{key:"_renderHeader",value:function(){var e=document.createElement("div");e.classList.add("calendar-header");var n=document.createElement("table"),i=this.getCurrentPeriod(),r=document.createElement("th");r.classList.add("prev"),null!=this.options.minDate&&this.options.minDate>=i.startDate&&r.classList.add("disabled");var s=document.createElement("span");if(s.innerHTML="&lsaquo;",r.appendChild(s),n.appendChild(r),this._isFullYearMode()){var o=document.createElement("th");o.classList.add("year-title"),o.classList.add("year-neighbor2"),o.textContent=(this._startDate.getFullYear()-2).toString(),null!=this.options.minDate&&this.options.minDate>new Date(this._startDate.getFullYear()-2,11,31)&&o.classList.add("disabled"),n.appendChild(o);var a=document.createElement("th");a.classList.add("year-title"),a.classList.add("year-neighbor"),a.textContent=(this._startDate.getFullYear()-1).toString(),null!=this.options.minDate&&this.options.minDate>new Date(this._startDate.getFullYear()-1,11,31)&&a.classList.add("disabled"),n.appendChild(a)}var l=document.createElement("th");if(l.classList.add("year-title"),this._isFullYearMode()?l.textContent=this._startDate.getFullYear().toString():12==this.options.numberMonthsDisplayed?l.textContent="".concat(i.startDate.getFullYear()," - ").concat(i.endDate.getFullYear()):this.options.numberMonthsDisplayed>1?l.textContent="".concat(t.locales[this.options.language].months[i.startDate.getMonth()]," ").concat(i.startDate.getFullYear()," - ").concat(t.locales[this.options.language].months[i.endDate.getMonth()]," ").concat(i.endDate.getFullYear()):l.textContent="".concat(t.locales[this.options.language].months[i.startDate.getMonth()]," ").concat(i.startDate.getFullYear()),n.appendChild(l),this._isFullYearMode()){var c=document.createElement("th");c.classList.add("year-title"),c.classList.add("year-neighbor"),c.textContent=(this._startDate.getFullYear()+1).toString(),null!=this.options.maxDate&&this.options.maxDate<new Date(this._startDate.getFullYear()+1,0,1)&&c.classList.add("disabled"),n.appendChild(c);var u=document.createElement("th");u.classList.add("year-title"),u.classList.add("year-neighbor2"),u.textContent=(this._startDate.getFullYear()+2).toString(),null!=this.options.maxDate&&this.options.maxDate<new Date(this._startDate.getFullYear()+2,0,1)&&u.classList.add("disabled"),n.appendChild(u)}var d=document.createElement("th");d.classList.add("next"),null!=this.options.maxDate&&this.options.maxDate<=i.endDate&&d.classList.add("disabled");var h=document.createElement("span");h.innerHTML="&rsaquo;",d.appendChild(h),n.appendChild(d),e.appendChild(n),this.element.appendChild(e)}},{key:"_renderBody",value:function(){var e=document.createElement("div");e.classList.add("months-container");for(var n=new Date(this._startDate.getTime()),i=0;i<this.options.numberMonthsDisplayed;i++){var r=document.createElement("div");r.classList.add("month-container"),r.dataset.monthId=i.toString(),this._nbCols&&r.classList.add("month-".concat(this._nbCols));var s=document.createElement("table");s.classList.add("month");var o=document.createElement("thead"),a=document.createElement("tr"),l=document.createElement("th");l.classList.add("month-title"),l.setAttribute("colspan",this.options.displayWeekNumber?"8":"7"),l.textContent=t.locales[this.options.language].months[n.getMonth()],a.appendChild(l),o.appendChild(a);var c=document.createElement("tr");this.options.displayWeekNumber&&((m=document.createElement("th")).classList.add("week-number"),m.textContent=t.locales[this.options.language].weekShort,c.appendChild(m));var u=this.getWeekStart(),d=u;do{var h=document.createElement("th");h.classList.add("day-header"),h.textContent=t.locales[this.options.language].daysMin[d],this._isHidden(d)&&h.classList.add("hidden"),c.appendChild(h),++d>=7&&(d=0)}while(d!=u);o.appendChild(c),s.appendChild(o);for(var p=new Date(n.getTime()),f=new Date(n.getFullYear(),n.getMonth()+1,0);p.getDay()!=u;)p.setDate(p.getDate()-1);for(;p<=f;){var _=document.createElement("tr");if(this.options.displayWeekNumber){var m=document.createElement("td"),g=new Date(p.getTime());g.setDate(g.getDate()-u+4),m.classList.add("week-number"),m.textContent=this.getWeekNumber(g).toString(),_.appendChild(m)}do{var y=document.createElement("td");if(y.classList.add("day"),this._isHidden(p.getDay())&&y.classList.add("hidden"),p<n)y.classList.add("old");else if(p>f)y.classList.add("new");else{this._isDisabled(p)&&y.classList.add("disabled");var v=document.createElement("div");v.classList.add("day-content"),v.textContent=p.getDate().toString(),y.appendChild(v),this.options.customDayRenderer&&this.options.customDayRenderer(v,p)}_.appendChild(y),p.setDate(p.getDate()+1)}while(p.getDay()!=u);s.appendChild(_)}r.appendChild(s),e.appendChild(r),n.setMonth(n.getMonth()+1)}this.element.appendChild(e)}},{key:"_renderLoading",value:function(){var t=document.createElement("div");t.classList.add("calendar-loading-container"),t.style.minHeight=200*this._nbCols+"px";var e=document.createElement("div");if(e.classList.add("calendar-loading"),this.options.loadingTemplate)"string"==typeof this.options.loadingTemplate?e.innerHTML=this.options.loadingTemplate:this.options.loadingTemplate instanceof HTMLElement&&e.appendChild(this.options.loadingTemplate);else{var n=document.createElement("div");n.classList.add("calendar-spinner");for(var i=1;i<=3;i++){var r=document.createElement("div");r.classList.add("bounce".concat(i)),n.appendChild(r)}e.appendChild(n)}t.appendChild(e),this.element.appendChild(t)}},{key:"_renderDataSource",value:function(){var t=this;null!=this._dataSource&&this._dataSource.length>0&&this.element.querySelectorAll(".month-container").forEach((function(e){var n=parseInt(e.dataset.monthId),i=t._startDate.getFullYear(),r=t._startDate.getMonth()+n,s=new Date(i,r,1),o=new Date(i,r+1,1);if((null==t.options.minDate||o>t.options.minDate)&&(null==t.options.maxDate||s<=t.options.maxDate)){for(var a=[],l=0;l<t._dataSource.length;l++)t._dataSource[l].startDate>=o&&!(t._dataSource[l].endDate<s)||a.push(t._dataSource[l]);a.length>0&&e.querySelectorAll(".day-content").forEach((function(e){var n=new Date(i,r,parseInt(e.textContent)),s=new Date(i,r,n.getDate()+1),o=[];if((null==t.options.minDate||n>=t.options.minDate)&&(null==t.options.maxDate||n<=t.options.maxDate)){for(var l=0;l<a.length;l++)a[l].startDate<s&&a[l].endDate>=n&&o.push(a[l]);o.length>0&&(t.options.displayDisabledDataSource||!t._isDisabled(n))&&t._renderDataSourceDay(e,n,o)}}))}}))}},{key:"_renderDataSourceDay",value:function(t,e,n){var i=t.parentElement;switch(this.options.style){case"border":var r=0;if(1==n.length?r=4:n.length<=3?r=2:i.style.boxShadow="inset 0 -4px 0 0 black",r>0){for(var s="",o=0;o<n.length;o++)""!=s&&(s+=","),s+="inset 0 -".concat((o+1)*r,"px 0 0 ").concat(n[o].color);i.style.boxShadow=s}break;case"background":i.style.backgroundColor=n[n.length-1].color;var a=e.getTime();if(n[n.length-1].startDate.getTime()==a)if(i.classList.add("day-start"),n[n.length-1].startHalfDay||this.options.alwaysHalfDay){i.classList.add("day-half");var l="transparent";for(o=n.length-2;o>=0;o--)if(n[o].startDate.getTime()!=a||!n[o].startHalfDay&&!this.options.alwaysHalfDay){l=n[o].color;break}i.style.background="linear-gradient(-45deg, ".concat(n[n.length-1].color,", ").concat(n[n.length-1].color," 49%, ").concat(l," 51%, ").concat(l,")")}else this.options.roundRangeLimits&&i.classList.add("round-left");else if(n[n.length-1].endDate.getTime()==a)if(i.classList.add("day-end"),n[n.length-1].endHalfDay||this.options.alwaysHalfDay){for(i.classList.add("day-half"),l="transparent",o=n.length-2;o>=0;o--)if(n[o].endDate.getTime()!=a||!n[o].endHalfDay&&!this.options.alwaysHalfDay){l=n[o].color;break}i.style.background="linear-gradient(135deg, ".concat(n[n.length-1].color,", ").concat(n[n.length-1].color," 49%, ").concat(l," 51%, ").concat(l,")")}else this.options.roundRangeLimits&&i.classList.add("round-right");break;case"custom":this.options.customDataSourceRenderer&&this.options.customDataSourceRenderer.call(this,t,e,n)}}},{key:"_applyEvents",value:function(){var t=this;this.options.displayHeader&&(this.element.querySelectorAll(".year-neighbor, .year-neighbor2").forEach((function(e){e.addEventListener("click",(function(e){e.currentTarget.classList.contains("disabled")||t.setYear(parseInt(e.currentTarget.textContent))}))})),this.element.querySelector(".calendar-header .prev").addEventListener("click",(function(e){if(!e.currentTarget.classList.contains("disabled")){var n=t.element.querySelector(".months-container");n.style.transition="margin-left 0.1s",n.style.marginLeft="100%",setTimeout((function(){n.style.visibility="hidden",n.style.transition="",n.style.marginLeft="0",setTimeout((function(){t.setStartDate(new Date(t._startDate.getFullYear(),t._startDate.getMonth()-t.options.numberMonthsDisplayed,1))}),50)}),100)}})),this.element.querySelector(".calendar-header .next").addEventListener("click",(function(e){if(!e.currentTarget.classList.contains("disabled")){var n=t.element.querySelector(".months-container");n.style.transition="margin-left 0.1s",n.style.marginLeft="-100%",setTimeout((function(){n.style.visibility="hidden",n.style.transition="",n.style.marginLeft="0",setTimeout((function(){t.setStartDate(new Date(t._startDate.getFullYear(),t._startDate.getMonth()+t.options.numberMonthsDisplayed,1))}),50)}),100)}}))),this.element.querySelectorAll(".day:not(.old):not(.new):not(.disabled)").forEach((function(e){e.addEventListener("click",(function(e){e.stopPropagation();var n=t._getDate(e.currentTarget);t._triggerEvent("clickDay",{element:e.currentTarget,date:n,events:t.getEvents(n)})})),e.addEventListener("contextmenu",(function(e){t.options.enableContextMenu&&(e.preventDefault(),t.options.contextMenuItems.length>0&&t._openContextMenu(e.currentTarget));var n=t._getDate(e.currentTarget);t._triggerEvent("dayContextMenu",{element:e.currentTarget,date:n,events:t.getEvents(n)})})),t.options.enableRangeSelection&&(e.addEventListener("mousedown",(function(e){if(1==e.which){var n=t._getDate(e.currentTarget);(t.options.allowOverlap||t.isThereFreeSlot(n))&&(t._mouseDown=!0,t._rangeStart=t._rangeEnd=n,t._refreshRange())}})),e.addEventListener("mouseenter",(function(e){if(t._mouseDown){var n=t._getDate(e.currentTarget);if(!t.options.allowOverlap){var i=new Date(t._rangeStart.getTime());if(i<n)for(var r=new Date(i.getFullYear(),i.getMonth(),i.getDate()+1);i<n&&t.isThereFreeSlot(r,!1);)i.setDate(i.getDate()+1),r.setDate(r.getDate()+1);else for(r=new Date(i.getFullYear(),i.getMonth(),i.getDate()-1);i>n&&t.isThereFreeSlot(r,!0);)i.setDate(i.getDate()-1),r.setDate(r.getDate()-1);n=i}var s=t._rangeEnd;t._rangeEnd=n,s.getTime()!=t._rangeEnd.getTime()&&t._refreshRange()}}))),e.addEventListener("mouseenter",(function(e){if(!t._mouseDown){var n=t._getDate(e.currentTarget);t._triggerEvent("mouseOnDay",{element:e.currentTarget,date:n,events:t.getEvents(n)})}})),e.addEventListener("mouseleave",(function(e){var n=t._getDate(e.currentTarget);t._triggerEvent("mouseOutDay",{element:e.currentTarget,date:n,events:t.getEvents(n)})}))})),this.options.enableRangeSelection&&window.addEventListener("mouseup",(function(e){if(t._mouseDown){t._mouseDown=!1,t._refreshRange();var n=t._rangeStart<t._rangeEnd?t._rangeStart:t._rangeEnd,i=t._rangeEnd>t._rangeStart?t._rangeEnd:t._rangeStart;t._triggerEvent("selectRange",{startDate:n,endDate:i,events:t.getEventsOnRange(n,new Date(i.getFullYear(),i.getMonth(),i.getDate()+1))})}})),this._responsiveInterval&&(clearInterval(this._responsiveInterval),this._responsiveInterval=null),this._responsiveInterval=setInterval((function(){if(null!=t.element.querySelector(".month")){var e=t.element.offsetWidth,n=t.element.querySelector(".month").offsetWidth+10;t._nbCols=null,6*n<e&&t.options.numberMonthsDisplayed>=6?t._nbCols=2:4*n<e&&t.options.numberMonthsDisplayed>=4?t._nbCols=3:3*n<e&&t.options.numberMonthsDisplayed>=3?t._nbCols=4:2*n<e&&t.options.numberMonthsDisplayed>=2?t._nbCols=6:t._nbCols=12,t.element.querySelectorAll(".month-container").forEach((function(e){e.classList.contains("month-".concat(t._nbCols))||(["month-2","month-3","month-4","month-6","month-12"].forEach((function(t){e.classList.remove(t)})),e.classList.add("month-".concat(t._nbCols)))}))}}),300)}},{key:"_refreshRange",value:function(){var t=this;if(this.element.querySelectorAll("td.day.range").forEach((function(t){return t.classList.remove("range")})),this.element.querySelectorAll("td.day.range-start").forEach((function(t){return t.classList.remove("range-start")})),this.element.querySelectorAll("td.day.range-end").forEach((function(t){return t.classList.remove("range-end")})),this._mouseDown){var e=this._rangeStart<this._rangeEnd?this._rangeStart:this._rangeEnd,n=this._rangeEnd>this._rangeStart?this._rangeEnd:this._rangeStart;this.element.querySelectorAll(".month-container").forEach((function(i){var r=parseInt(i.dataset.monthId),s=new Date(t._startDate.getFullYear(),t._startDate.getMonth()+r,1),o=new Date(t._startDate.getFullYear(),t._startDate.getMonth()+r+1,1);e.getTime()<o.getTime()&&n.getTime()>=s.getTime()&&i.querySelectorAll("td.day:not(.old):not(.new)").forEach((function(i){var r=t._getDate(i);r>=e&&r<=n&&(i.classList.add("range"),r.getTime()==e.getTime()&&i.classList.add("range-start"),r.getTime()==n.getTime()&&i.classList.add("range-end"))}))}))}}},{key:"_getElementPosition",value:function(t){var e=0,n=0;do{e+=t.offsetTop||0,n+=t.offsetLeft||0,t=t.offsetParent}while(t);return{top:e,left:n}}},{key:"_openContextMenu",value:function(t){var e=this,n=document.querySelector(".calendar-context-menu");if(null!==n)for(n.style.display="none";n.firstChild;)n.removeChild(n.firstChild);else(n=document.createElement("div")).classList.add("calendar-context-menu"),document.body.appendChild(n);for(var i=this._getDate(t),r=this.getEvents(i),s=0;s<r.length;s++){var o=document.createElement("div");o.classList.add("item"),o.style.paddingLeft="4px",o.style.boxShadow="inset 4px 0 0 0 ".concat(r[s].color);var a=document.createElement("div");a.classList.add("content");var l=document.createElement("span");l.classList.add("text"),l.textContent=r[s].name,a.appendChild(l);var c=document.createElement("span");c.classList.add("arrow"),c.innerHTML="&rsaquo;",a.appendChild(c),o.appendChild(a),this._renderContextMenuItems(o,this.options.contextMenuItems,r[s]),n.appendChild(o)}if(n.children.length>0){var u=this._getElementPosition(t);n.style.left=u.left+25+"px",n.style.right="",n.style.top=u.top+25+"px",n.style.display="block",n.getBoundingClientRect().right>document.body.offsetWidth&&(n.style.left="",n.style.right="0"),setTimeout((function(){return e._checkContextMenuItemsPosition()}),0);var d=function t(e){"click"===e.type&&n.contains(e.target)||(n.style.display="none",window.removeEventListener("click",t),window.removeEventListener("resize",t),window.removeEventListener("scroll",t))};window.addEventListener("click",d),window.addEventListener("resize",d),window.addEventListener("scroll",d)}}},{key:"_renderContextMenuItems",value:function(t,e,n){var i=document.createElement("div");i.classList.add("submenu");for(var r=0;r<e.length;r++)if(!1!==e[r].visible&&("function"!=typeof e[r].visible||e[r].visible(n))){var s=document.createElement("div");s.classList.add("item");var o=document.createElement("div");o.classList.add("content");var a=document.createElement("span");if(a.classList.add("text"),a.textContent=e[r].text,o.appendChild(a),e[r].click&&function(t){o.addEventListener("click",(function(){document.querySelector(".calendar-context-menu").style.display="none",e[t].click(n)}))}(r),s.appendChild(o),e[r].items&&e[r].items.length>0){var l=document.createElement("span");l.classList.add("arrow"),l.innerHTML="&rsaquo;",o.appendChild(l),this._renderContextMenuItems(s,e[r].items,n)}i.appendChild(s)}i.children.length>0&&t.appendChild(i)}},{key:"_checkContextMenuItemsPosition",value:function(){var t=document.querySelectorAll(".calendar-context-menu .submenu");t.forEach((function(t){var e=t;e.style.display="block",e.style.visibility="hidden"})),t.forEach((function(t){var e=t;e.getBoundingClientRect().right>document.body.offsetWidth?e.classList.add("open-left"):e.classList.remove("open-left")})),t.forEach((function(t){var e=t;e.style.display="",e.style.visibility=""}))}},{key:"_getDate",value:function(t){var e=t.querySelector(".day-content").textContent,n=parseInt(t.closest(".month-container").dataset.monthId);return new Date(this._startDate.getFullYear(),this._startDate.getMonth()+n,e)}},{key:"_triggerEvent",value:function(t,e){var n=null;for(var i in"function"==typeof Event?n=new Event(t):(n=document.createEvent("Event")).initEvent(t,!1,!1),n.calendar=this,e)n[i]=e[i];return this.element.dispatchEvent(n),n}},{key:"_isDisabled",value:function(t){if(null!=this.options.minDate&&t<this.options.minDate||null!=this.options.maxDate&&t>this.options.maxDate)return!0;if(this.options.disabledWeekDays.length>0)for(var e=0;e<this.options.disabledWeekDays.length;e++)if(t.getDay()==this.options.disabledWeekDays[e])return!0;if(this.options.disabledDays.length>0)for(e=0;e<this.options.disabledDays.length;e++)if(t.getTime()==this.options.disabledDays[e].getTime())return!0;return!1}},{key:"_isHidden",value:function(t){if(this.options.hiddenWeekDays.length>0)for(var e=0;e<this.options.hiddenWeekDays.length;e++)if(t==this.options.hiddenWeekDays[e])return!0;return!1}},{key:"_isFullYearMode",value:function(){return 0==this._startDate.getMonth()&&12==this.options.numberMonthsDisplayed}},{key:"getWeekNumber",value:function(t){var e=new Date(t.getTime());e.setHours(0,0,0,0),e.setDate(e.getDate()+3-(e.getDay()+6)%7);var n=new Date(e.getFullYear(),0,4);return 1+Math.round(((e.getTime()-n.getTime())/864e5-3+(n.getDay()+6)%7)/7)}},{key:"getEvents",value:function(t){return this.getEventsOnRange(t,new Date(t.getFullYear(),t.getMonth(),t.getDate()+1))}},{key:"getEventsOnRange",value:function(t,e){var n=[];if(this._dataSource&&t&&e)for(var i=0;i<this._dataSource.length;i++)this._dataSource[i].startDate<e&&this._dataSource[i].endDate>=t&&n.push(this._dataSource[i]);return n}},{key:"isThereFreeSlot",value:function(t){var e=this,n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:null,i=this.getEvents(t);return!0===n?!i.some((function(n){return!e.options.alwaysHalfDay&&!n.endHalfDay||n.endDate>t})):!1===n?!i.some((function(n){return!e.options.alwaysHalfDay&&!n.startHalfDay||n.startDate<t})):this.isThereFreeSlot(t,!1)||this.isThereFreeSlot(t,!0)}},{key:"getCurrentPeriod",value:function(){var t=new Date(this._startDate.getTime()),e=new Date(this._startDate.getTime());return e.setMonth(e.getMonth()+this.options.numberMonthsDisplayed),e.setTime(e.getTime()-1),{startDate:t,endDate:e}}},{key:"getYear",value:function(){return this._isFullYearMode()?this._startDate.getFullYear():null}},{key:"setYear",value:function(t){var e=parseInt(t);isNaN(e)||this.setStartDate(new Date(e,0,1))}},{key:"getStartDate",value:function(){return this._startDate}},{key:"setStartDate",value:function(t){var e=this;if(t instanceof Date){for(this.options.startDate=t,this._startDate=new Date(t.getFullYear(),t.getMonth(),1);this.element.firstChild;)this.element.removeChild(this.element.firstChild);this.options.displayHeader&&this._renderHeader();var n=this.getCurrentPeriod(),i=this._triggerEvent("periodChanged",{startDate:n.startDate,endDate:n.endDate,preventRendering:!1}),r=null;this._isFullYearMode()&&(r=this._triggerEvent("yearChanged",{currentYear:this._startDate.getFullYear(),preventRendering:!1})),"function"==typeof this.options.dataSource?(this.render(!0),this._fetchDataSource((function(t){e._dataSource=t,e._initializeDatasourceColors(),e.render(!1)}))):i.preventRendering||r&&r.preventRedering||this.render()}}},{key:"getNumberMonthsDisplayed",value:function(){return this.options.numberMonthsDisplayed}},{key:"setNumberMonthsDisplayed",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1],n=parseInt(t);!isNaN(n)&&n>0&&n<=12&&(this.options.numberMonthsDisplayed=n,e||this.render())}},{key:"getMinDate",value:function(){return this.options.minDate}},{key:"setMinDate",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];(t instanceof Date||null===t)&&(this.options.minDate=t,e||this.render())}},{key:"getMaxDate",value:function(){return this.options.maxDate}},{key:"setMaxDate",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];(t instanceof Date||null===t)&&(this.options.maxDate=t,e||this.render())}},{key:"getStyle",value:function(){return this.options.style}},{key:"setStyle",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.style="background"==t||"border"==t||"custom"==t?t:"border",e||this.render()}},{key:"getAllowOverlap",value:function(){return this.options.allowOverlap}},{key:"setAllowOverlap",value:function(t){this.options.allowOverlap=t}},{key:"getDisplayWeekNumber",value:function(){return this.options.displayWeekNumber}},{key:"setDisplayWeekNumber",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.displayWeekNumber=t,e||this.render()}},{key:"getDisplayHeader",value:function(){return this.options.displayHeader}},{key:"setDisplayHeader",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.displayHeader=t,e||this.render()}},{key:"getDisplayDisabledDataSource",value:function(){return this.options.displayDisabledDataSource}},{key:"setDisplayDisabledDataSource",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.displayDisabledDataSource=t,e||this.render()}},{key:"getAlwaysHalfDay",value:function(){return this.options.alwaysHalfDay}},{key:"setAlwaysHalfDay",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.alwaysHalfDay=t,e||this.render()}},{key:"getEnableRangeSelection",value:function(){return this.options.enableRangeSelection}},{key:"setEnableRangeSelection",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.enableRangeSelection=t,e||this.render()}},{key:"getDisabledDays",value:function(){return this.options.disabledDays}},{key:"setDisabledDays",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.disabledDays=t instanceof Array?t:[],e||this.render()}},{key:"getDisabledWeekDays",value:function(){return this.options.disabledWeekDays}},{key:"setDisabledWeekDays",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.disabledWeekDays=t instanceof Array?t:[],e||this.render()}},{key:"getHiddenWeekDays",value:function(){return this.options.hiddenWeekDays}},{key:"setHiddenWeekDays",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.hiddenWeekDays=t instanceof Array?t:[],e||this.render()}},{key:"getRoundRangeLimits",value:function(){return this.options.roundRangeLimits}},{key:"setRoundRangeLimits",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.roundRangeLimits=t,e||this.render()}},{key:"getEnableContextMenu",value:function(){return this.options.enableContextMenu}},{key:"setEnableContextMenu",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.enableContextMenu=t,e||this.render()}},{key:"getContextMenuItems",value:function(){return this.options.contextMenuItems}},{key:"setContextMenuItems",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.contextMenuItems=t instanceof Array?t:[],e||this.render()}},{key:"getCustomDayRenderer",value:function(){return this.options.customDayRenderer}},{key:"setCustomDayRenderer",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.customDayRenderer="function"==typeof t?t:null,e||this.render()}},{key:"getCustomDataSourceRenderer",value:function(){return this.options.customDataSourceRenderer}},{key:"setCustomDataSourceRenderer",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.customDataSourceRenderer="function"==typeof t?t:null,e||this.render()}},{key:"getLanguage",value:function(){return this.options.language}},{key:"setLanguage",value:function(e){var n=arguments.length>1&&void 0!==arguments[1]&&arguments[1];null!=e&&null!=t.locales[e]&&(this.options.language=e,n||this.render())}},{key:"getDataSource",value:function(){return this.options.dataSource}},{key:"setDataSource",value:function(t){var e=this,n=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.dataSource=t instanceof Array||"function"==typeof t?t:[],"function"==typeof this.options.dataSource?(this.render(!0),this._fetchDataSource((function(t){e._dataSource=t,e._initializeDatasourceColors(),e.render(!1)}))):(this._dataSource=this.options.dataSource,this._initializeDatasourceColors(),n||this.render())}},{key:"getWeekStart",value:function(){return null!==this.options.weekStart?this.options.weekStart:t.locales[this.options.language].weekStart}},{key:"setWeekStart",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.weekStart=isNaN(parseInt(t))?null:parseInt(t),e||this.render()}},{key:"getLoadingTemplate",value:function(){return this.options.loadingTemplate}},{key:"setLoadingTemplate",value:function(t){this.options.loadingTemplate="string"==typeof t||t instanceof HTMLElement?t:null}},{key:"addEvent",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this._dataSource.push(t),e||this.render()}}]),t}();t.default=a,s(a,"locales",{en:{days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],daysShort:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],daysMin:["Su","Mo","Tu","We","Th","Fr","Sa"],months:["January","February","March","April","May","June","July","August","September","October","November","December"],monthsShort:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],weekShort:"W",weekStart:0}}),s(a,"colors",["#2C8FC9","#9CB703","#F5BB00","#FF4A32","#B56CE2","#45A597"]),"object"===("undefined"==typeof window?"undefined":e(window))&&(window.Calendar=a,document.addEventListener("DOMContentLoaded",(function(){document.querySelectorAll('[data-provide="calendar"]').forEach((function(t){return new a(t)}))})))},void 0===(r="function"==typeof n?n.apply(e,i):n)||(t.exports=r)},363:()=>{Calendar.locales.es={days:["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"],daysShort:["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"],daysMin:["Do","Lu","Ma","Mi","Ju","Vi","Sa"],months:["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],monthsShort:["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],weekShort:"S",weekStart:1}},141:()=>{},850:()=>{},691:()=>{},379:(t,e,n)=>{"use strict";var i,r=function(){return void 0===i&&(i=Boolean(window&&document&&document.all&&!window.atob)),i},s=function(){var t={};return function(e){if(void 0===t[e]){var n=document.querySelector(e);if(window.HTMLIFrameElement&&n instanceof window.HTMLIFrameElement)try{n=n.contentDocument.head}catch(t){n=null}t[e]=n}return t[e]}}(),o=[];function a(t){for(var e=-1,n=0;n<o.length;n++)if(o[n].identifier===t){e=n;break}return e}function l(t,e){for(var n={},i=[],r=0;r<t.length;r++){var s=t[r],l=e.base?s[0]+e.base:s[0],c=n[l]||0,u="".concat(l," ").concat(c);n[l]=c+1;var d=a(u),h={css:s[1],media:s[2],sourceMap:s[3]};-1!==d?(o[d].references++,o[d].updater(h)):o.push({identifier:u,updater:m(h,e),references:1}),i.push(u)}return i}function c(t){var e=document.createElement("style"),i=t.attributes||{};if(void 0===i.nonce){var r=n.nc;r&&(i.nonce=r)}if(Object.keys(i).forEach((function(t){e.setAttribute(t,i[t])})),"function"==typeof t.insert)t.insert(e);else{var o=s(t.insert||"head");if(!o)throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");o.appendChild(e)}return e}var u,d=(u=[],function(t,e){return u[t]=e,u.filter(Boolean).join("\n")});function h(t,e,n,i){var r=n?"":i.media?"@media ".concat(i.media," {").concat(i.css,"}"):i.css;if(t.styleSheet)t.styleSheet.cssText=d(e,r);else{var s=document.createTextNode(r),o=t.childNodes;o[e]&&t.removeChild(o[e]),o.length?t.insertBefore(s,o[e]):t.appendChild(s)}}function p(t,e,n){var i=n.css,r=n.media,s=n.sourceMap;if(r?t.setAttribute("media",r):t.removeAttribute("media"),s&&"undefined"!=typeof btoa&&(i+="\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(s))))," */")),t.styleSheet)t.styleSheet.cssText=i;else{for(;t.firstChild;)t.removeChild(t.firstChild);t.appendChild(document.createTextNode(i))}}var f=null,_=0;function m(t,e){var n,i,r;if(e.singleton){var s=_++;n=f||(f=c(e)),i=h.bind(null,n,s,!1),r=h.bind(null,n,s,!0)}else n=c(e),i=p.bind(null,n,e),r=function(){!function(t){if(null===t.parentNode)return!1;t.parentNode.removeChild(t)}(n)};return i(t),function(e){if(e){if(e.css===t.css&&e.media===t.media&&e.sourceMap===t.sourceMap)return;i(t=e)}else r()}}t.exports=function(t,e){(e=e||{}).singleton||"boolean"==typeof e.singleton||(e.singleton=r());var n=l(t=t||[],e);return function(t){if(t=t||[],"[object Array]"===Object.prototype.toString.call(t)){for(var i=0;i<n.length;i++){var r=a(n[i]);o[r].references--}for(var s=l(t,e),c=0;c<n.length;c++){var u=a(n[c]);0===o[u].references&&(o[u].updater(),o.splice(u,1))}n=s}}}},995:(t,e,n)=>{"use strict";n.d(e,{V:()=>r});var i=n(183);function r(t={}){this._gappedScrollingEnabled=!1,this.easingValue=.025,this._currentSpeed=0,this.setSpeed=function(t){this.type===r.TYPE_HORIZONTAL?-1<Object.keys(r.SPEED_HORIZONTAL).indexOf(t)?this.speed=+r.SPEED_HORIZONTAL[t]:this.speed=+t>0?+t:+r.SPEED_HORIZONTAL[r.DEFAULT.speed]:-1<Object.keys(r.SPEED_VERTICAL).indexOf(t)?this.speed=+r.SPEED_VERTICAL[t]:this.speed=+t>0?+t:+r.SPEED_VERTICAL[r.DEFAULT.speed]},this.hasLicense=function(){return null!==this.license&&void 0!==this.license},this.getSpeedNoEasing=function(){return this.speed}.bind(this),this.getSpeedWithEasing=function(){return 1>this.easingValue&&(this._currentSpeed=(1-this.easingValue)*this._currentSpeed+this.easingValue*this.speed),this._currentSpeed}.bind(this),this.getSpeed=this.getSpeedNoEasing,this.setContent=function(t){t&&t.length>0?this.content=t:this.content="SuperMarquee by SuperPlug.in !!!",this.content=this.content.replaceAll("> ",">&nbsp;"),this.content=this.content.replaceAll(" <","&nbsp;<"),r.MODE_PINGPONG===this.mode&&r.TYPE_HORIZONTAL===this.type&&(this.content=this.spacer+this.content),this.content+=this.spacer},this.setPerspective=function(t=null){const e=Object.keys(r.PERSPECTIVE_DEFAULT);let n={};if(t)try{n=JSON.parse(t)}catch(t){n={}}for(let t=0;t<e.length;t++)n.hasOwnProperty(e[t])?this.perspective[e[t]]=n[e[t]]:this.perspective[e[t]]=r.PERSPECTIVE_DEFAULT[e[t]]},this.setPosition=function(t){-1<r.POSITIONS.indexOf(t)?this.position=t:this.position=r.DEFAULT.position},this.setPauseOnHover=function(t){this.pauseonhover=!(!t||"true"!==t&&"1"!==t&&!0!==t)};let e=t.hasOwnProperty("system")?t.system:null;-1<r.SYSTEMS.indexOf(e)?this.system=e:this.system=r.DEFAULT.system;let n=t.hasOwnProperty("license")?t.license:null;this.license=null,n&&n.length>=4&&(this.license=t.license);let s=t.hasOwnProperty("type")?t.type:null;-1<r.TYPES.indexOf(s)?this.type=s:this.type=r.DEFAULT.type,this.spacer=t.hasOwnProperty("spacer")?t.spacer:null,this.type===r.TYPE_HORIZONTAL?this.spacer?this.spacer=i.Z.forceNbspInHtml(this.spacer):this.spacer="&nbsp;":this.spacer||(this.spacer="<br />");let o=t.hasOwnProperty("direction")?t.direction:null;-1<r.DIRECTIONS.indexOf(o)?this.direction=o:this.direction=r.DEFAULT.direction;let a=t.hasOwnProperty("mode")?t.mode:null;-1<r.MODES.indexOf(a)?this.mode=a:this.mode=r.MODE_CONTINOUS,this.pingPongDelay=t.hasOwnProperty("pingpongdelay")?+t.pingpongdelay:r.PINGPONG_DELAY_DEFAULT;let l=t.hasOwnProperty("position")?t.position:null;this.setPosition(l),this.perspective={},this.setPerspective(t.hasOwnProperty("perspective")?t.perspective:null);let c=t.hasOwnProperty("speed")?t.speed:null;this.setSpeed(c),this._currentSpeed=this.speed,this.setContent(t.hasOwnProperty("content")?t.content:null);let u=t.hasOwnProperty("pauseonhover")?t.pauseonhover:null;this.setPauseOnHover(u);let d=t.hasOwnProperty("autostart")?t.autostart:null;this.autostart=!d||"false"!==d&&"0"!==d;let h=t.hasOwnProperty("easing")?t.easing:null;!h||"true"!==h&&"1"!==h&&!0!==h?(this.easing=!1,this.getSpeed=this.getSpeedNoEasing):(this.easing=!0,this.getSpeed=this.getSpeedWithEasing),this.rssFeedUrl=t.hasOwnProperty("rssFeedUrl")?t.rssFeedUrl:null,this.rssFeedTemplate=t.hasOwnProperty("rssFeedTemplate")?i.Z.forceNbspInHtml(t.rssFeedTemplate):this.rssFeedTemplate}r.SYSTEM_WEBCOMPONENT="webcomponent",r.SYSTEM_JQUERY="jquery",r.SYSTEM_VANILLA="vanilla",r.SYSTEMS=[r.SYSTEM_WEBCOMPONENT,r.SYSTEM_JQUERY,r.SYSTEM_VANILLA],r.TYPE_HORIZONTAL="horizontal",r.TYPE_VERTICAL="vertical",r.TYPES=[r.TYPE_HORIZONTAL,r.TYPE_VERTICAL],r.DIRECTION_LTR="ltr",r.DIRECTION_RTL="rtl",r.DIRECTION_BTT="btt",r.DIRECTION_TTB="ttb",r.DIRECTIONS=[r.DIRECTION_LTR,r.DIRECTION_RTL,r.DIRECTION_BTT,r.DIRECTION_TTB],r.POSITION_CUSTOM="custom",r.POSITION_FIXEDTOP="fixedTop",r.POSITION_FIXEDBOTTOM="fixedBottom",r.POSITIONS=[r.POSITION_CUSTOM,r.POSITION_FIXEDTOP,r.POSITION_FIXEDBOTTOM],r.MODE_CONTINOUS="continuous",r.MODE_GAPPED="gapped",r.MODE_PINGPONG="pingpong",r.MODES=[r.MODE_CONTINOUS,r.MODE_GAPPED,r.MODE_PINGPONG],r.SPEED_SUPERSLOW="superslow",r.SPEED_SLOW="slow",r.SPEED_MEDIUM="medium",r.SPEED_FAST="fast",r.SPEED_SUPERFAST="superfast",r.SPEED_HORIZONTAL={superslow:.0125,slow:.03,medium:.05,fast:.125,superfast:.2},r.SPEED_VERTICAL={superslow:.0125,slow:.03,medium:.05,fast:.125,superfast:.2},r.PERSPECTIVE_DEFAULT={z:"none",originX:50,originY:50,rotateX:0,rotateY:0,rotateZ:0},r.PINGPONG_DELAY_DEFAULT=2e3,r.DEFAULT={license:null,system:r.SYSTEM_VANILLA,type:r.TYPE_HORIZONTAL,speed:r.SPEED_MEDIUM,direction:r.DIRECTION_LTR,mode:r.MODE_CONTINOUS,position:r.POSITION_CUSTOM,perspective:r.PERSPECTIVE_DEFAULT,pauseonhover:!1,autostart:!0,easing:!1,content:"SuperMarquee By SuperPlug.in Is Super !!!",rssFeedUrl:null,rssFeedTemplate:'<a href="${link}" target="_blank">${title}</a>',pingPongDelay:r.PINGPONG_DELAY_DEFAULT,spacer:null}},177:(__unused_webpack___webpack_module__,__webpack_exports__,__webpack_require__)=>{"use strict";__webpack_require__.d(__webpack_exports__,{Q:()=>Core});var _Template_js__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(349),_Configuration_js__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(995),_Event_js__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(289),_TickLogic_js__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(687),_RssFeedReader_js__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(935),_Util_js__WEBPACK_IMPORTED_MODULE_5__=__webpack_require__(183);let hasLicenseTextBeenShown=!1;function Core(root,config){const self=this,events=new _Event_js__WEBPACK_IMPORTED_MODULE_2__.j(this);let fnTick=_TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.j.fnNoScroll.bind(this);this.elems={rootElement:root,shadowRoot:null,container:null,outerWrapper:null,innerContainer:null,scrollItem:null,scrollItemClone:null},this.config=config,this.dimensions={},this._time=Date.now(),this._rafId=null,this._shouldPlay=!1,this._wasPlaying=!1,this._isInView=!0,this._previousDimensions={width:this.elems.rootElement.offsetWidth,height:this.elems.rootElement.offsetHeight};const listenerWindowResize=()=>{if(this.elems.rootElement.offsetWidth===this._previousDimensions.width&&this.elems.rootElement.offsetHeight===this._previousDimensions.height)return!1;this._previousDimensions={width:this.elems.rootElement.offsetWidth,height:this.elems.rootElement.offsetHeight};let t=!1;this._rafId&&(t=!0,window.cancelAnimationFrame(this._rafId),this._rafId=null),this.init(),t&&this.tick()},listenerDocumentVisibilityChange=()=>{!0===document.hidden?this.onOutOfView():this.onIntoView()},listenerElemsContainerMouseEnter=()=>{!0===this.config.pauseonhover&&this.pause()},listenerElemsContainerMouseLeave=()=>{!0===this.config.pauseonhover&&this.play()},observer=new IntersectionObserver(((t,e)=>{let n=t.length?t[0]:null;n&&(!0===n.isIntersecting?this.onIntoView():this.onOutOfView())}),{rootMargin:"0px 0px 20px 0px"});function setup(){switch(self.config.system){case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.SYSTEM_JQUERY:case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.SYSTEM_VANILLA:case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.SYSTEM_WEBCOMPONENT:self.elems.shadowRoot=self.elems.rootElement,self.config.type===_Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.TYPE_VERTICAL?self.elems.shadowRoot.appendChild(_Template_js__WEBPACK_IMPORTED_MODULE_0__.E.content.cloneNode(!0)):self.elems.shadowRoot.appendChild(_Template_js__WEBPACK_IMPORTED_MODULE_0__.q.content.cloneNode(!0)),self.elems.container=self.elems.shadowRoot.querySelector("div.supermarquee-container"),self.elems.perspective=self.elems.shadowRoot.querySelector("div.supermarquee-perspective:first-child"),self.elems.outerWrapper=self.elems.shadowRoot.querySelector("div.supermarquee-outer-wrapper:first-child"),self.elems.innerContainer=self.elems.shadowRoot.querySelector("div.supermarquee-inner-container:first-child")}self.elems.scrollItem=self.elems.innerContainer.querySelector("div.supermarquee-item:first-child"),self.elems.scrollItemClone=self.elems.innerContainer.querySelector("div.supermarquee-item-clone"),window.addEventListener("resize",listenerWindowResize),document.addEventListener("visibilitychange",listenerDocumentVisibilityChange),self.elems.container.addEventListener("mouseenter",listenerElemsContainerMouseEnter),self.elems.container.addEventListener("mouseleave",listenerElemsContainerMouseLeave),observer.observe(self.elems.container)}setup(),this.init=function(){this.elems.container.style.visibility="hidden";let prevPosition=this.elems.rootElement.style.position;this.elems.rootElement.style.position="initial",this.elems.scrollItem.innerHTML="",this.elems.scrollItemClone.innerHTML="";let scrollContent=this.config.content;if(this.config.rssFeedUrl){const feedItemData=_RssFeedReader_js__WEBPACK_IMPORTED_MODULE_4__.m.getFeedItemData(this.config.rssFeedUrl);if(feedItemData&&feedItemData.length>0){let title,link,pubDate,description,content;for(let fi=0;fi<feedItemData.length;fi++)title=feedItemData[fi].hasOwnProperty("title")&&feedItemData[fi].title?feedItemData[fi].title:"",link=feedItemData[fi].hasOwnProperty("link")&&feedItemData[fi].link?feedItemData[fi].link:"#",pubDate=feedItemData[fi].hasOwnProperty("pubDate")&&feedItemData[fi].pubDate?feedItemData[fi].pubDate:new Date,description=feedItemData[fi].hasOwnProperty("description")&&feedItemData[fi].description?feedItemData[fi].description:"",content=feedItemData[fi].hasOwnProperty("content")&&feedItemData[fi].content?feedItemData[fi].content:"",scrollContent+=eval("`"+this.config.rssFeedTemplate+"`"),scrollContent+=this.config.spacer}}if(_Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.TYPE_HORIZONTAL===this.config.type){let t;switch(this.config.mode){case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.MODE_PINGPONG:this.elems.scrollItem.innerHTML+=scrollContent,this.elems.scrollItemClone.innerHTML="",t="fixed"===prevPosition?window.innerWidth:this.elems.container.clientWidth,this.config._gappedScrollingEnabled=t<this.elems.scrollItem.clientWidth;break;case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.MODE_GAPPED:this.elems.scrollItem.innerHTML+=scrollContent,this.elems.scrollItem.style.paddingLeft=this.elems.container.clientWidth+"px",this.elems.scrollItemClone.innerHTML="";break;default:case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.MODE_CONTINOUS:for(t="fixed"===prevPosition?window.innerWidth:this.elems.container.clientWidth;t>this.elems.scrollItem.clientWidth;)this.elems.scrollItem.innerHTML+=scrollContent;this.elems.scrollItemClone.innerHTML=this.elems.scrollItem.innerHTML}}else{0<=this.elems.scrollItem.getBoundingClientRect().height&&(this.elems.scrollItem.innerHTML="&nbsp;");let t="fixed"===prevPosition?window.innerHeight:this.elems.container.clientHeight;switch(this.elems.outerWrapper.style.maxHeight=t+"px",this.elems.scrollItem.innerHTML="",this.config.mode){case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.MODE_PINGPONG:this.elems.scrollItem.innerHTML+=scrollContent,this.elems.scrollItemClone.innerHTML="",t="fixed"===prevPosition?window.innerHeight:this.elems.container.clientHeight,this.config._gappedScrollingEnabled=t<this.elems.scrollItem.clientHeight;break;case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.MODE_GAPPED:this.elems.scrollItem.innerHTML+=scrollContent,this.elems.scrollItem.style.paddingTop=this.elems.container.clientHeight+"px",this.elems.scrollItemClone.innerHTML="";break;default:case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.MODE_CONTINOUS:for(t="fixed"===prevPosition?window.innerHeight:this.elems.container.clientHeight;t>this.elems.scrollItem.clientHeight;)this.elems.scrollItem.innerHTML+=scrollContent;this.elems.scrollItemClone.innerHTML=this.elems.scrollItem.innerHTML}}this.updatePerspective(),setTimeout((()=>{this.updateDimensions(),this.updateTickLogic(),this.elems.container.style.visibility="visible",this.onIntoView()}),100),this._currentXPos=0,this._currentYPos=0,this._pingPongCurrentDirection=0,this._pingPongNextDirection=-1,this._pingPongPauseDelay=self.config.pingPongDelay,this._time=Date.now(),this.elems.rootElement.style.position=prevPosition,!1===this.config.hasLicense()&&window.console&&!1===hasLicenseTextBeenShown&&(hasLicenseTextBeenShown=!0,console.log("%c»SuperMarquee« by SuperPlug.in. Unlicensed version for non commercial use only.","font-family: monospace sans-serif; background-color: #8089ff; color: white;"))}.bind(this),this.updatePerspective=function(){this.elems.perspective.style.perspective=this.config.perspective.z+"px",this.elems.perspective.style.perspectiveOrigin=this.config.perspective.originX+"% "+this.config.perspective.originY+"%",this.elems.outerWrapper.style.transform="rotateX("+this.config.perspective.rotateX+"deg) rotateY("+this.config.perspective.rotateY+"deg) rotateZ("+this.config.perspective.rotateZ+"deg)"}.bind(this),this.updateTickLogic=function(){if(_Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.MODE_PINGPONG===self.config.mode)if(!1===self.config._gappedScrollingEnabled)fnTick=_TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.j.fnNoScroll.bind(self);else if(_Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.TYPE_HORIZONTAL===self.config.type)switch(self.config.direction){case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.DIRECTION_RTL:this._currentXPos=this.dimensions.totalScrollItemWidth-this.dimensions.visibleWidth,this._pingPongCurrentDirection=0,this._pingPongNextDirection=-1,this._pingPongPauseDelay=self.config.pingPongDelay,fnTick=_TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.j.fnHorizontalRtlPingPong.bind(self);break;default:case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.DIRECTION_LTR:this._currentXPos=0,this._pingPongCurrentDirection=0,this._pingPongNextDirection=1,this._pingPongPauseDelay=self.config.pingPongDelay,fnTick=_TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.j.fnHorizontalLtrPingPong.bind(self)}else switch(self.config.direction){case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.DIRECTION_TTB:this._currentYPos=-(this.dimensions.totalScrollItemHeight-this.dimensions.visibleHeight),this._pingPongCurrentDirection=0,this._pingPongNextDirection=-1,this._pingPongPauseDelay=self.config.pingPongDelay,fnTick=_TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.j.fnHorizontalTtbPingPong.bind(self);break;case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.DIRECTION_BTT:this._currentYPos=0,this._pingPongCurrentDirection=0,this._pingPongNextDirection=-1,this._pingPongPauseDelay=self.config.pingPongDelay,fnTick=_TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.j.fnHorizontalBttPingPong.bind(self)}else if(_Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.TYPE_HORIZONTAL===self.config.type)switch(self.config.direction){case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.DIRECTION_RTL:fnTick=_TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.j.fnHorizontalRtl.bind(self);break;default:case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.DIRECTION_LTR:fnTick=_TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.j.fnHorizontalLtr.bind(self)}else switch(self.config.direction){case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.DIRECTION_TTB:fnTick=_TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.j.fnVerticalTtb.bind(self);break;default:case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.DIRECTION_BTT:fnTick=_TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.j.fnVerticalBtt.bind(self)}}.bind(this),this.updateDimensions=function(){this.dimensions.visibleWidth=this.elems.container.clientWidth,this.dimensions.visibleHeight=this.elems.container.clientHeight,this.dimensions.totalScrollItemWidth=this.elems.scrollItem.offsetWidth,this.dimensions.totalScrollItemHeight=this.elems.scrollItem.offsetHeight}.bind(this),this.tick=function(){const t=Date.now(),e=t-this._time;this._time=t,fnTick(e),this._rafId=window.requestAnimationFrame(this.tick)}.bind(this),this.getRootElement=function(){return this.elems.rootElement}.bind(this),this.getEvents=function(){return events},this.destroy=function(){this._rafId&&(window.cancelAnimationFrame(this._rafId),this._rafId=null),window.removeEventListener("resize",listenerWindowResize),document.removeEventListener("visibilitychange",listenerDocumentVisibilityChange),this.elems.container.removeEventListener("mouseenter",listenerElemsContainerMouseEnter),this.elems.container.removeEventListener("mouseleave",listenerElemsContainerMouseLeave),observer.unobserve(this.elems.container),this.elems.rootElement.innerHTML=""},this.getScrollContent=function(){return this.config.content}}Core.prototype.VERSION="2.0",Core.prototype.play=function(){this._shouldPlay=!0,!1!==this._isInView&&(this._rafId||(this._time=Date.now(),this.tick(),this._wasPlaying=!0))},Core.prototype.pause=function(){this._shouldPlay=!1,this._rafId?(window.cancelAnimationFrame(this._rafId),this._rafId=null,this._wasPlaying=!0):this._wasPlaying=!1},Core.prototype.setScrollContent=function(t){this.config.setContent(t),this.init()},Core.prototype.setScrollSpeed=function(t){this.config.setSpeed(t)},Core.prototype.setPosition=function(t){switch(this.config.setPosition(t),this.config.position){case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.POSITION_FIXEDTOP:this.elems.rootElement.style.position="fixed",this.elems.rootElement.style.removeProperty("left"),this.elems.rootElement.style.removeProperty("top"),this.elems.rootElement.style.removeProperty("bottom"),this.elems.rootElement.style.width="100%",this.elems.rootElement.style.top=0,this.elems.rootElement.style.left=0;break;case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.POSITION_FIXEDBOTTOM:this.elems.rootElement.style.position="fixed",this.elems.rootElement.style.removeProperty("left"),this.elems.rootElement.style.removeProperty("top"),this.elems.rootElement.style.removeProperty("bottom"),this.elems.rootElement.style.width="100%",this.elems.rootElement.style.bottom=0,this.elems.rootElement.style.left=0;break;default:case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.V.POSITION_CUSTOM:this.elems.rootElement.style.removeProperty("position"),this.elems.rootElement.style.removeProperty("left"),this.elems.rootElement.style.removeProperty("top"),this.elems.rootElement.style.removeProperty("bottom")}this.init()},Core.prototype.setPauseOnHover=function(t){this.config.setPauseOnHover(t)},Core.prototype.setPerspective=function(t){this.config.setPerspective(t),this.updatePerspective()},Core.prototype.onIntoView=function(){this._isInView=!0,this.play()},Core.prototype.onOutOfView=function(){this._isInView=!1,this.pause()},Core.prototype.destroy=function(){},Core.prototype.Log=function(t,e="info"){console[e](t)}},289:(t,e,n)=>{"use strict";function i(t){const e=t;this.getInstance=function(){return e}}n.d(e,{j:()=>i}),i.prototype.triggerInit=function(){this.getInstance().getRootElement().dispatchEvent(new i("init"))},i.prototype.triggerStart=function(){this.getInstance().getRootElement().dispatchEvent(new i("start"))},i.prototype.triggerLoop=function(){this.getInstance().getRootElement().dispatchEvent(new i("loop"))},i.prototype.triggerPause=function(){this.getInstance().getRootElement().dispatchEvent(new i("pause"))},i.prototype.triggerResume=function(){this.getInstance().getRootElement().dispatchEvent(new i("resume"))}},935:(t,e,n)=>{"use strict";n.d(e,{m:()=>i});const i={getFeed:function(t){let e=new XMLHttpRequest;try{e.open("GET",t,!1),e.send(null)}catch(t){console.error(t),e=null}return e?e.responseXML:null},getFeedItemData:function(t){const e=this.getFeed(t),n=e?e.getElementsByTagName("item"):null,i=[];if(n&&n.length>0)for(let t=0;t<n.length;t++)i.push({title:0<n[t].getElementsByTagName("title").length?n[t].getElementsByTagName("title")[0].innerHTML:null,link:0<n[t].getElementsByTagName("link").length?n[t].getElementsByTagName("link")[0].innerHTML:null,pubDate:0<n[t].getElementsByTagName("pubDate").length?new Date(n[t].getElementsByTagName("pubDate")[0].innerHTML):null,description:0<n[t].getElementsByTagName("description").length&&n[t].getElementsByTagName("description")[0].firstChild?n[t].getElementsByTagName("description")[0].firstChild.wholeText.trim():null,content:0<n[t].getElementsByTagName("content").length?n[t].getElementsByTagName("content")[0].innerHTML:null});return i},getScrollContentOfFeed:function(t,e="&nbsp;"){const n=this.getFeed(t),i=n?n.getElementsByTagName("item"):null;let r="";if(i&&i.length>0)for(let t=0;t<i.length;t++)r+='<a href="'+i[t].getElementsByTagName("link")[0].innerHTML+'" target="_blank">',r+=i[t].getElementsByTagName("title")[0].innerHTML+"</a>",r+=e;return r}}},349:(t,e,n)=>{"use strict";n.d(e,{E:()=>r,q:()=>i});const i=document.createElement("template"),r=document.createElement("template");i.innerHTML='\n    <style>\n        .supermarquee-container\n        {\n            width: 100%;\n            display: block;\n            pointer-events: all;\n            overflow: hidden;\n            visibility: hidden;\n        }\n\n        .supermarquee-perspective\n        {\n        }\n                \n        .supermarquee-outer-wrapper\n        {\n            transform-style: preserve-3d;\n            -webkit-transform-style: preserve-3d;\n            overflow: hidden;\n            box-sizing: content-box;\n        }\n        \n        .supermarquee-outer-wrapper .supermarquee-inner-container\n        {\n            display: flex;\n            flex: 0 0 auto;\n            white-space: nowrap;\n            height: inherit;\n        }\n        \n        .supermarquee-inner-container .supermarquee-item\n        {\n            display: flex;\n            flex: 0 0 auto;\n        }\n        \n        .supermarquee-inner-container .supermarquee-item-clone\n        {\n            display: flex;\n            flex: 0 0 auto;\n        }        \n    </style>\n    \n    <div class="supermarquee-container">\n        <div class="supermarquee-perspective">\n            <div class="supermarquee-outer-wrapper">\n                <div class="supermarquee-inner-container">\n                    <div class="supermarquee-item"></div>\n                    <div class="supermarquee-item-clone"></div>\n                </div>\n            </div>\n        </div>\n    </div>\n',r.innerHTML='\n    <style>\n        .supermarquee-container\n        {\n            width: 100%;\n            display: block;\n            pointer-events: all;\n            height: inherit;\n            overflow: hidden;\n            visibility: hidden;\n        }        \n       .supermarquee-perspective\n        {\n        }        \n        .supermarquee-outer-wrapper\n        {\n            transform-style: preserve-3d;\n            -webkit-transform-style: preserve-3d;\n            overflow: hidden;\n            box-sizing: content-box;\n            width: inherit;\n            height: inherit;\n        }\n        .supermarquee-outer-wrapper .supermarquee-inner-container\n        {\n            display: inline-block;\n            width: inherit;\n            max-height: 100%;\n            height: inherit;\n        }\n        \n        .supermarquee-inner-container .supermarquee-item\n        {        \n            display: block;\n        }\n        \n        .supermarquee-inner-container .supermarquee-item-clone\n        {\n            display: block;\n        }        \n    </style>\n    \n    <div class="supermarquee-container">\n        <div class="supermarquee-perspective">        \n            <div class="supermarquee-outer-wrapper">\n                <div class="supermarquee-inner-container">\n                    <div class="supermarquee-item"></div>\n                    <div class="supermarquee-item-clone"></div>\n                </div>\n            </div>\n        </div>\n    </div>\n'},687:(t,e,n)=>{"use strict";n.d(e,{j:()=>i});const i={fnNoScroll:function(t){},fnHorizontalLtrPingPong:function(t){1===this._pingPongCurrentDirection?(this._currentXPos+=t*this.config.getSpeed(),this._currentXPos+this.dimensions.visibleWidth>this.dimensions.totalScrollItemWidth&&(this._pingPongCurrentDirection=0,this._pingPongNextDirection=-1)):-1===this._pingPongCurrentDirection?(this._currentXPos-=t*this.config.getSpeed(),this._currentXPos<=0&&(this._pingPongCurrentDirection=0,this._pingPongNextDirection=1)):(this._pingPongPauseDelay-=t,this._pingPongPauseDelay<0&&(this._pingPongCurrentDirection=this._pingPongNextDirection,this._pingPongPauseDelay=this.config.pingPongDelay)),this.elems.innerContainer.style.transform="translate3d(-"+this._currentXPos+"px,0,0)"},fnHorizontalRtlPingPong:function(t){1===this._pingPongCurrentDirection?(this._currentXPos-=t*this.config.getSpeed(),this._currentXPos<0&&(this._currentXPos=0,this._pingPongCurrentDirection=0,i._pingPongNextDirection=-1)):-1===this._pingPongCurrentDirection?(this._currentXPos+=t*this.config.getSpeed(),this._currentXPos>this.dimensions.totalScrollItemWidth-this.dimensions.visibleWidth&&(this._currentXPos=this.dimensions.totalScrollItemWidth-this.dimensions.visibleWidth,this._pingPongCurrentDirection=0,this._pingPongNextDirection=1)):(this._pingPongPauseDelay-=t,this._pingPongPauseDelay<0&&(this._pingPongCurrentDirection=this._pingPongNextDirection,this._pingPongPauseDelay=this.config.pingPongDelay)),this.elems.innerContainer.style.transform="translate3d(-"+this._currentXPos+"px,0,0)"},fnHorizontalTtbPingPong:function(t){1===this._pingPongCurrentDirection?(this._currentYPos-=t*this.config.getSpeed(),this._currentYPos<-(this.dimensions.totalScrollItemHeight-this.dimensions.visibleHeight)&&(this._currentYPos=-(this.dimensions.totalScrollItemHeight-this.dimensions.visibleHeight),this._pingPongCurrentDirection=0,this._pingPongNextDirection=-1)):-1===this._pingPongCurrentDirection?(this._currentYPos+=t*this.config.getSpeed(),this._currentYPos>0&&(this._currentYPos=0,this._pingPongCurrentDirection=0,this._pingPongNextDirection=1)):(this._pingPongPauseDelay-=t,this._pingPongPauseDelay<0&&(this._pingPongCurrentDirection=this._pingPongNextDirection,this._pingPongPauseDelay=this.config.pingPongDelay)),this.elems.innerContainer.style.transform="translate3d(0,"+this._currentYPos+"px, 0)"},fnHorizontalBttPingPong:function(t){1===this._pingPongCurrentDirection?(this._currentYPos+=t*this.config.getSpeed(),this._currentYPos>0&&(this._currentYPos=0,this._pingPongCurrentDirection=0,this._pingPongNextDirection=-1)):-1===this._pingPongCurrentDirection?(this._currentYPos-=t*this.config.getSpeed(),this._currentYPos<-(this.dimensions.totalScrollItemHeight-this.dimensions.visibleHeight)&&(this._currentYPos=-(this.dimensions.totalScrollItemHeight-this.dimensions.visibleHeight),this._pingPongCurrentDirection=0,this._pingPongNextDirection=1)):(this._pingPongPauseDelay-=t,this._pingPongPauseDelay<0&&(this._pingPongCurrentDirection=this._pingPongNextDirection,this._pingPongPauseDelay=this.config.pingPongDelay)),this.elems.innerContainer.style.transform="translate3d(0,"+this._currentYPos+"px, 0)"},fnHorizontalLtr:function(t){this._currentXPos+=t*this.config.getSpeed(),this._currentXPos>this.dimensions.totalScrollItemWidth&&(this._currentXPos=this.dimensions.totalScrollItemWidth-this._currentXPos),this.elems.innerContainer.style.transform="translate3d(-"+this._currentXPos+"px,0,0)"},fnHorizontalRtl:function(t){this._currentXPos-=t*this.config.getSpeed(),this._currentXPos<this.dimensions.totalScrollItemWidth&&(this._currentXPos=this.dimensions.totalScrollItemWidth+this._currentXPos),this.elems.innerContainer.style.transform="translate3d(-"+(this._currentXPos-this.dimensions.totalScrollItemWidth)+"px,0,0)"},fnVerticalBtt:function(t){this._currentYPos+=t*this.config.getSpeed(),this._currentYPos>this.dimensions.totalScrollItemHeight&&(this._currentYPos=this.dimensions.totalScrollItemHeight-this._currentYPos),this.elems.innerContainer.style.transform="translate3d(0, -"+this._currentYPos+"px,0)"},fnVerticalTtb:function(t){this._currentYPos-=t*this.config.getSpeed(),this._currentYPos<this.dimensions.totalScrollItemHeight&&(this._currentYPos=this.dimensions.totalScrollItemHeight+this._currentYPos),this.elems.innerContainer.style.transform="translate3d(0, -"+(this._currentYPos-this.dimensions.totalScrollItemHeight)+"px,0)"}}},183:(t,e,n)=>{"use strict";n.d(e,{Z:()=>i});const i={forceNbspInHtml:function(t){var e=new RegExp("( )(?!([^<]+)?>)","gi");return t.replace(e,"&nbsp;")}}}},__webpack_module_cache__={},deferred;function __webpack_require__(t){var e=__webpack_module_cache__[t];if(void 0!==e)return e.exports;var n=__webpack_module_cache__[t]={id:t,exports:{}};return __webpack_modules__[t].call(n.exports,n,n.exports,__webpack_require__),n.exports}__webpack_require__.m=__webpack_modules__,deferred=[],__webpack_require__.O=(t,e,n,i)=>{if(!e){var r=1/0;for(l=0;l<deferred.length;l++){for(var[e,n,i]=deferred[l],s=!0,o=0;o<e.length;o++)(!1&i||r>=i)&&Object.keys(__webpack_require__.O).every((t=>__webpack_require__.O[t](e[o])))?e.splice(o--,1):(s=!1,i<r&&(r=i));if(s){deferred.splice(l--,1);var a=n();void 0!==a&&(t=a)}}return t}i=i||0;for(var l=deferred.length;l>0&&deferred[l-1][2]>i;l--)deferred[l]=deferred[l-1];deferred[l]=[e,n,i]},__webpack_require__.n=t=>{var e=t&&t.__esModule?()=>t.default:()=>t;return __webpack_require__.d(e,{a:e}),e},__webpack_require__.d=(t,e)=>{for(var n in e)__webpack_require__.o(e,n)&&!__webpack_require__.o(t,n)&&Object.defineProperty(t,n,{enumerable:!0,get:e[n]})},__webpack_require__.o=(t,e)=>Object.prototype.hasOwnProperty.call(t,e),(()=>{var t={683:0,206:0,58:0,671:0};__webpack_require__.O.j=e=>0===t[e];var e=(e,n)=>{var i,r,[s,o,a]=n,l=0;if(s.some((e=>0!==t[e]))){for(i in o)__webpack_require__.o(o,i)&&(__webpack_require__.m[i]=o[i]);if(a)var c=a(__webpack_require__)}for(e&&e(n);l<s.length;l++)r=s[l],__webpack_require__.o(t,r)&&t[r]&&t[r][0](),t[r]=0;return __webpack_require__.O(c)},n=self.webpackChunkasulado_mix_p=self.webpackChunkasulado_mix_p||[];n.forEach(e.bind(null,0)),n.push=e.bind(null,n.push.bind(n))})(),__webpack_require__.nc=void 0,__webpack_require__.O(void 0,[206,58,671],(()=>__webpack_require__(494))),__webpack_require__.O(void 0,[206,58,671],(()=>__webpack_require__(141))),__webpack_require__.O(void 0,[206,58,671],(()=>__webpack_require__(850)));var __webpack_exports__=__webpack_require__.O(void 0,[206,58,671],(()=>__webpack_require__(691)));__webpack_exports__=__webpack_require__.O(__webpack_exports__)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/js/app.js":
+/*!***********************!*\
+  !*** ./src/js/app.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _studio_freight_lenis__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @studio-freight/lenis */ "./node_modules/@studio-freight/lenis/dist/lenis.mjs");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home */ "./src/js/home.js");
+/* harmony import */ var _general__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./general */ "./src/js/general.js");
+/* harmony import */ var _empresa__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./empresa */ "./src/js/empresa.js");
+/* harmony import */ var _prods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./prods */ "./src/js/prods.js");
+/* harmony import */ var _calendar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./calendar */ "./src/js/calendar.js");
+/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+
+
+
+
+
+
+
+
+gsap__WEBPACK_IMPORTED_MODULE_5__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+var lenis = new _studio_freight_lenis__WEBPACK_IMPORTED_MODULE_7__["default"]();
+lenis.on("scroll", function (_ref) {
+  var scroll = _ref.scroll;
+  gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger.update();
+  if (scroll > 20) {
+    document.querySelector(".as__header").classList.add("as__header_scroll");
+  } else {
+    document.querySelector(".as__header").classList.remove("as__header_scroll");
+  }
+});
+if (document.getElementById("as__header")) {
+  document.getElementById("as__header").classList.add("init");
+}
+if (document.getElementById("documentos")) {
+  var as = document.querySelectorAll(".tabs_link");
+  document.getElementById("docs_tabs").selectedIndex = 0;
+  document.getElementById("docs_tabs").addEventListener("change", function (e) {
+    changeTab(e.target.value);
+    lenis.scrollTo("#documentos", {
+      offset: -60
+    });
+  });
+  as.forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var tab = e.target.dataset.tab;
+      var hash = e.target.dataset.hash;
+      history.replaceState({}, document.title, window.location.pathname + window.location.search);
+      var url = window.location.href;
+      url = url.split("#")[0];
+      url = url + "#" + hash;
+      history.replaceState({}, document.title, url);
+      console.log("hash", hash);
+      changeTab(tab);
+      lenis.scrollTo("#documentos", {
+        offset: -80
+      });
+    });
+  });
+  if (window.location.hash) {
+    var hast = window.location.hash.split("#")[1];
+    var elTag = document.querySelector(".tabs_link[data-hash='" + hast + "']");
+    if (elTag) elTag.click();
+  } else {}
+}
+if (document.getElementById("open_chat_btn")) {
+  document.getElementById("open_chat_btn").addEventListener("click", function (e) {
+    e.preventDefault();
+    document.getElementById("open_chat").classList.toggle("toopen");
+  });
+}
+if (document.getElementById("faqs")) {
+  var faq = document.querySelectorAll(".as__g_faqs_ls .fqs_list:first-child");
+  document.querySelectorAll(".as__g_faqs_ls .fqs_list").forEach(function (fq) {
+    fq.children[0].children[0].addEventListener("click", function (e) {
+      e.preventDefault();
+      if (!e.target.parentElement.parentElement.classList.contains("active")) {
+        var _iterator = _createForOfIteratorHelper(e.target.parentElement.parentElement.parentElement.children),
+          _step;
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var ep = _step.value;
+            ep.classList.remove("active");
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+        e.target.parentElement.parentElement.classList.add("active");
+      } else {
+        e.target.parentElement.parentElement.classList.remove("active");
+      }
+    });
+  });
+  faq.forEach(function (fq) {
+    fq.classList.add("active");
+  });
+  document.getElementById("docs_tabs").selectedIndex = 0;
+  document.getElementById("docs_tabs").addEventListener("change", function (e) {
+    changeTab2(e.target.value);
+    lenis.scrollTo("#faqs", {
+      offset: -60
+    });
+  });
+  var _as = document.querySelectorAll(".tabs_link");
+  _as.forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var tab = e.target.dataset.tab;
+      changeTab2(tab);
+      lenis.scrollTo("#faqs", {
+        offset: -80
+      });
+    });
+  });
+}
+function changeTab(tab) {
+  document.getElementById("docs_tabs").selectedIndex = parseInt(tab);
+  document.querySelectorAll(".tabs_link").forEach(function (tabe) {
+    if (tab !== tabe.dataset.tab) tabe.classList.remove("active");else tabe.classList.add("active");
+  });
+  document.querySelectorAll(".as__g_documentos_tcon_list_int").forEach(function (tabe) {
+    if (tab !== tabe.dataset.tab) tabe.classList.remove("active");else tabe.classList.add("active");
+  });
+  console.log(document.querySelectorAll(".as__g_documentos_tcon_list_int"));
+}
+function changeTab2(tab) {
+  document.getElementById("docs_tabs").selectedIndex = parseInt(tab);
+  document.querySelectorAll(".tabs_link").forEach(function (tabe) {
+    if (tab !== tabe.dataset.tab) tabe.classList.remove("active");else tabe.classList.add("active");
+  });
+  document.querySelectorAll(".as__g_faqs_tcon_list_int").forEach(function (tabe) {
+    if (tab !== tabe.dataset.tab) tabe.classList.remove("active");else tabe.classList.add("active");
+  });
+}
+gsap__WEBPACK_IMPORTED_MODULE_5__.gsap.ticker.add(function (time) {
+  lenis.raf(time * 1000);
+});
+gsap__WEBPACK_IMPORTED_MODULE_5__.gsap.ticker.lagSmoothing(0);
+
+/**
+ * MENU
+ */
+var open_menu = false;
+var menu_button = document.getElementById("open_menu");
+var menu_nav = document.getElementById("as__nav_links");
+var menu_wrap = document.getElementById("as__header");
+menu_button.addEventListener("click", handleMenu);
+function handleMenu() {
+  // lenis.scroll = window.scrollY;
+  // console.log(document.querySelector("body").classList);
+  if (!open_menu) {
+    document.querySelector("body").classList.add("overflow-hidden");
+    menu_nav.classList.add("nav_open");
+    menu_wrap.classList.add("open");
+    menu_button.classList.add("open");
+    menu_nav.classList.remove("nav_close");
+    lenis.stop();
+  } else {
+    document.querySelector("body").classList.remove("overflow-hidden");
+    menu_nav.classList.add("nav_close");
+    menu_button.classList.remove("open");
+    menu_nav.classList.remove("nav_open");
+    menu_wrap.classList.remove("open");
+    lenis.start();
+  }
+  open_menu = !open_menu;
+}
+
+//HOME
+if (document.getElementById("modal_sus")) {
+  var setCookie = function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  };
+  var getCookieValue = function getCookieValue(name) {
+    var regex = new RegExp("(^| )".concat(name, "=([^;]+)"));
+    var match = document.cookie.match(regex);
+    if (match) {
+      return match[2];
+    }
+  };
+  var deleteCookie = function deleteCookie(name) {
+    document.cookie = name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+  };
+  document.getElementById("modal_sus").checked = getCookieValue("modal_sus") ? false : true;
+  document.getElementById("showcheck").checked = false;
+  document.getElementById("modal_sus").addEventListener("change", function (e) {
+    if (e.target.checked) {} else {}
+  });
+  document.getElementById("showcheck").addEventListener("change", function (e) {
+    if (e.target.checked) {
+      setCookie("modal_sus", true, 30);
+    } else {
+      deleteCookie("modal_sus");
+      // setCookie("modal_sus", "false", 1);
+    }
+  });
+}
+if (document.getElementById("as__home")) {
+  (0,_home__WEBPACK_IMPORTED_MODULE_0__.setHomeBanners)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap);
+  (0,_home__WEBPACK_IMPORTED_MODULE_0__.setHomePropositios)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+  (0,_home__WEBPACK_IMPORTED_MODULE_0__.setHomeServicios)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+  (0,_home__WEBPACK_IMPORTED_MODULE_0__.setHomeCifras)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+  (0,_home__WEBPACK_IMPORTED_MODULE_0__.setHomeDocumentos)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+  (0,_home__WEBPACK_IMPORTED_MODULE_0__.setHomeBlog)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+}
+(0,_general__WEBPACK_IMPORTED_MODULE_1__.setTop)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+(0,_general__WEBPACK_IMPORTED_MODULE_1__.setQue)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+(0,_general__WEBPACK_IMPORTED_MODULE_1__.setGestion)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+(0,_general__WEBPACK_IMPORTED_MODULE_1__.setAyuda)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+(0,_general__WEBPACK_IMPORTED_MODULE_1__.setDocumentosInt)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+
+//EMPRESA
+if (document.getElementById("as__nuestra_empresa")) {
+  (0,_home__WEBPACK_IMPORTED_MODULE_0__.setHomeServicios)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+  (0,_empresa__WEBPACK_IMPORTED_MODULE_2__.setPropositios)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+  (0,_empresa__WEBPACK_IMPORTED_MODULE_2__.setComo)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+}
+//PRODS
+(0,_prods__WEBPACK_IMPORTED_MODULE_3__.set_destacados)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+(0,_prods__WEBPACK_IMPORTED_MODULE_3__.set_listado)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+if (document.getElementById("as__renta_vitalicia") || document.getElementById("as__seguro_previsional") || document.getElementById("as__rv_sobreviviencia") || document.getElementById("as__rv_invalidez")) {
+  (0,_prods__WEBPACK_IMPORTED_MODULE_3__.setRV_auxilio)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+  (0,_prods__WEBPACK_IMPORTED_MODULE_3__.setRV_destacados)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap, gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_6__.ScrollTrigger);
+}
+
+//CALENDAR
+
+(0,_calendar__WEBPACK_IMPORTED_MODULE_4__.setCalendar)(gsap__WEBPACK_IMPORTED_MODULE_5__.gsap);
+
+/** CHAT
+ *
+ */
+
+var initESW = function initESW(gslbBaseURL) {
+  embedded_svc.settings.displayHelpButton = false; //Or false
+  embedded_svc.settings.language = ""; //For example, enter 'en' or 'en-US'
+  embedded_svc.settings.chatbotAvatarImgURL = "https://www.asulado.com/resource/1693413698000/Avatar";
+  embedded_svc.settings.avatarImgURL = "https://www.asulado.com/resource/1693413698000/Avatar";
+  embedded_svc.settings.enabledFeatures = ["LiveAgent"];
+  embedded_svc.settings.entryFeature = "LiveAgent";
+  embedded_svc.init("https://asulado.my.salesforce.com", "https://www.asulado.com/", gslbBaseURL, "00D8a000003gPOw", "Chat_Web", {
+    baseLiveAgentContentURL: "https://c.la5-c2-ia5.salesforceliveagent.com/content",
+    deploymentId: "5728a000000Tmu9",
+    buttonId: "5738a000000Tn5E",
+    baseLiveAgentURL: "https://d.la5-c2-ia5.salesforceliveagent.com/chat",
+    eswLiveAgentDevName: "Chat_Web",
+    isOfflineSupportEnabled: false
+  });
+};
+if (!window.embedded_svc) {
+  var s = document.createElement("script");
+  s.setAttribute("src", "https://asulado.my.salesforce.com/embeddedservice/5.0/esw.min.js");
+  s.onload = function () {
+    initESW(null);
+  };
+  document.body.appendChild(s);
+} else {
+  initESW("https://service.force.com");
+}
+document.getElementById("start_chat").addEventListener("click", startChat);
+function startChat() {
+  console.log("Iniciando chat");
+  embedded_svc.liveAgentAPI.startChat({
+    directToAgentRouting: {
+      buttonId: "5738a000000Tn5E",
+      fallback: true
+    },
+    extraPrechatInfo: [{
+      entityName: "Contact",
+      saveToTranscript: ""
+    }],
+    extraPrechatFormDetails: []
+  });
+}
+
+/***/ }),
+
+/***/ "./src/js/calendar.js":
+/*!****************************!*\
+  !*** ./src/js/calendar.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setCalendar: () => (/* binding */ setCalendar)
+/* harmony export */ });
+/* harmony import */ var js_year_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-year-calendar */ "./node_modules/js-year-calendar/dist/js-year-calendar.js");
+/* harmony import */ var js_year_calendar__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(js_year_calendar__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var js_year_calendar_locales_js_year_calendar_es__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js-year-calendar/locales/js-year-calendar.es */ "./node_modules/js-year-calendar/locales/js-year-calendar.es.js");
+/* harmony import */ var js_year_calendar_locales_js_year_calendar_es__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(js_year_calendar_locales_js_year_calendar_es__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var js_year_calendar_dist_js_year_calendar_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js-year-calendar/dist/js-year-calendar.css */ "./node_modules/js-year-calendar/dist/js-year-calendar.css");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var dayjs_business_days2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! dayjs-business-days2 */ "./node_modules/dayjs-business-days2/dist/index.js");
+
+
+
+
+
+var options = {
+  holidays: ["2023-12-08", "2023-12-25", "2024-01-01", "2024-01-08", "2024-03-25", "2024-03-28", "2024-03-29", "2024-05-01", "2024-05-13", "2024-06-03", "2024-06-10", "2024-07-01", "2024-07-20", "2024-08-07", "2024-08-19", "2024-10-14", "2024-11-04", "2024-11-11", "2024-12-08", "2024-12-25"],
+  holidayFormat: "YYYY-MM-DD"
+};
+var novedades = ["2024-01-19", "2024-02-16", "2024-03-13", "2024-04-18", "2024-05-17", "2024-06-17", "2024-07-18", "2024-08-15", "2024-09-18", "2024-10-17", "2024-11-15", "2024-12-13"];
+dayjs__WEBPACK_IMPORTED_MODULE_3___default().extend(dayjs_business_days2__WEBPACK_IMPORTED_MODULE_4__["default"], options);
+function setCalendar(gsap) {
+  var today = new Date();
+  var lastday = dayjs__WEBPACK_IMPORTED_MODULE_3___default()(today).lastBusinessDayOfMonth().format("DD/MM/YYYY");
+  if (document.getElementById("as__calendario_pay")) {
+    document.getElementById("as__calendario_pay").innerHTML = lastday;
+    var _today = new Date();
+    var nextNovedad = novedades.find(function (date) {
+      return dayjs__WEBPACK_IMPORTED_MODULE_3___default()(date).isAfter(_today);
+    });
+    document.getElementById("as__calendario_next").innerHTML = nextNovedad.split("-").reverse().join("/");
+  }
+  if (document.getElementById("as__calendario")) {
+    document.getElementById("proximo_pago").innerHTML = lastday;
+    var calendar = new (js_year_calendar__WEBPACK_IMPORTED_MODULE_0___default())(".calendar", {
+      language: "es",
+      //   numberMonthsDisplayed: 16,
+      startDate: new Date(),
+      enableRangeSelection: false,
+      renderEnd: function renderEnd() {
+        gsap.fromTo(".month-container", {
+          opacity: 0
+        }, {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power4.inout",
+          stagger: 0.1,
+          dalay: 1
+        });
+      },
+      customDayRenderer: function customDayRenderer(element, date) {
+        var today = new Date();
+        var fdate = dayjs__WEBPACK_IMPORTED_MODULE_3___default()(date).format("YYYY-MM-DD");
+        if (dayjs__WEBPACK_IMPORTED_MODULE_3___default()(date).lastBusinessDayOfMonth().format("DD/MM/YYYY") == dayjs__WEBPACK_IMPORTED_MODULE_3___default()(date).format("DD/MM/YYYY")) {
+          element.classList.add("last_day");
+        }
+        if (dayjs__WEBPACK_IMPORTED_MODULE_3___default()(date).format("DD/MM/YYYY") == dayjs__WEBPACK_IMPORTED_MODULE_3___default()(today).format("DD/MM/YYYY")) {
+          element.classList.add("today");
+        }
+        if (!dayjs__WEBPACK_IMPORTED_MODULE_3___default()(date).isBusinessDay()) {
+          element.classList.add("weekend");
+        }
+        if (novedades.includes(fdate)) {
+          element.classList.add("novedad");
+        }
+      }
+    });
+    // console.log(calendar);
+  }
+}
+
+/***/ }),
+
+/***/ "./src/js/empresa.js":
+/*!***************************!*\
+  !*** ./src/js/empresa.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setComo: () => (/* binding */ setComo),
+/* harmony export */   setPropositios: () => (/* binding */ setPropositios)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+// import Flicking from "@egjs/flicking";
+// import { AutoPlay } from "@egjs/flicking-plugins";
+// import { Arrow } from "@egjs/flicking-plugins";
+
+function setPropositios(gsap, ScrollTrigger) {
+  var id = document.getElementById("am__proposito");
+  if (id) {
+    var tl = gsap.timeline({
+      paused: true
+    });
+    var toMarquee = -(document.querySelector(".as_em_proposito .as__marquee .as__marquee_to_left").offsetWidth - window.innerWidth);
+    tl.from(".as_em_proposito .as__title_section", {
+      y: -20,
+      duration: 4,
+      opacity: 0
+    }, 0).addLabel("startp", 0).fromTo(".as_em_proposito .as_proposito_content .prop_anim", {
+      opacity: 0,
+      y: 20
+    }, _defineProperty(_defineProperty({
+      opacity: 1,
+      y: 0,
+      duration: 4
+    }, "opacity", 1), "stagger", 0.4), "startp").fromTo(".as_em_proposito img", {
+      opacity: 0,
+      y: 20
+    }, {
+      y: 0,
+      opacity: 1,
+      duration: 4
+    }, "startp-=3").fromTo(".as_em_proposito .as__marquee .as__marquee_to_left", {
+      x: 0
+    }, {
+      x: toMarquee,
+      duration: 20,
+      opacity: 1,
+      ease: "linear"
+    }, "startp");
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: id,
+      start: "-10% center",
+      end: "30% center",
+      scrub: 3,
+      //   markers: true,
+      onUpdate: function onUpdate(_ref) {
+        var progress = _ref.progress;
+      } // console.log(progress);
+    });
+  }
+}
+function setComo(gsap, ScrollTrigger) {
+  var id = document.getElementById("am__como");
+  if (id) {
+    var tl = gsap.timeline({
+      paused: true
+    });
+    tl.from(".as__como .as__title_section", {
+      y: -20,
+      duration: 4,
+      opacity: 0
+    }, "=0");
+    tl.fromTo(".as__como .as__como_item .anim", {
+      opacity: 0,
+      xPercent: -20
+    }, _defineProperty(_defineProperty({
+      opacity: 1,
+      xPercent: 0,
+      duration: 1
+    }, "opacity", 1), "stagger", 0.4), "-=2");
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: id,
+      start: "-20% bottom",
+      end: "top center",
+      scrub: 3,
+      //   markers: true,
+      onUpdate: function onUpdate(_ref2) {
+        var progress = _ref2.progress;
+      } // console.log(progress);
+    });
+
+    // const flicking = new Flicking("#am__como_car", {
+    //   align: "center",
+    //   circular: true,
+    //   bound: true,
+    //   renderOnlyVisible: false,
+    // });
+
+    // flicking.addPlugins(
+    //   new AutoPlay({ duration: 8000, direction: "NEXT", stopOnHover: true })
+    // );
+    // flicking.addPlugins(new Arrow());
+  }
+}
+
+/***/ }),
+
+/***/ "./src/js/general.js":
+/*!***************************!*\
+  !*** ./src/js/general.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setAyuda: () => (/* binding */ setAyuda),
+/* harmony export */   setDocumentosInt: () => (/* binding */ setDocumentosInt),
+/* harmony export */   setGestion: () => (/* binding */ setGestion),
+/* harmony export */   setQue: () => (/* binding */ setQue),
+/* harmony export */   setTop: () => (/* binding */ setTop)
+/* harmony export */ });
+/* harmony import */ var sp_supermarquee__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sp-supermarquee */ "./node_modules/sp-supermarquee/src/core/SuperMarquee.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+function setTop(gsap, ScrollTrigger) {
+  var id = document.getElementById("as__top");
+  if (id) {
+    var tl_top = gsap.timeline({
+      paused: false
+    });
+    tl_top.from(".as__top_svg", {
+      scale: 1.1,
+      opacitiy: 0,
+      transformOrigin: "center",
+      duration: 1,
+      ease: "power4.inout"
+    }, "0");
+    tl_top.fromTo(".as__top_int img", {
+      yPercent: 150,
+      opacity: 0
+    }, {
+      opacity: 1,
+      yPercent: 0,
+      duration: 0.8,
+      ease: "power4.inout"
+    }, "-=1");
+    tl_top.fromTo(".as__top_title_item", {
+      xPercent: -10,
+      opacity: 0
+    }, {
+      opacity: 1,
+      xPercent: 0,
+      duration: 1,
+      stagger: 0.3,
+      ease: "power4.inout"
+    }, "-=0");
+  }
+  var marqEl = document.getElementById("as__top_marquee");
+  if (marqEl) {
+    var datap = document.getElementById("as__top_marquee").dataset["marquee"];
+    var marquee = new sp_supermarquee__WEBPACK_IMPORTED_MODULE_0__["default"](marqEl, {
+      content: datap,
+      easing: true,
+      speed: 0.1
+    });
+    var tl = gsap.timeline({
+      paused: true
+    });
+    tl.to("#as__top_marquee", {
+      yPercent: 60,
+      duration: 4,
+      opacitiy: 0
+    });
+    tl.to(".as__top_int", {
+      duration: 2,
+      opacitiy: 0.8
+    }, "-=4");
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: document.getElementById("as__top_marquee"),
+      start: "center center",
+      end: "150% center",
+      scrub: 3,
+      //   markers: true,
+      onUpdate: function onUpdate(_ref) {
+        var progress = _ref.progress;
+      } // console.log(progress);
+    });
+  }
+}
+function setQue(gsap, ScrollTrigger) {
+  var id = document.getElementById("que_es");
+  if (id) {
+    var tl = gsap.timeline({
+      paused: true
+    });
+    tl.from(".as__que_es .as__title_section", {
+      y: -20,
+      duration: 4,
+      opacity: 0
+    }, 0).addLabel("startp", 0).fromTo(".as__que_es .as__que_es_content .prop_anim", {
+      opacity: 0,
+      y: 20
+    }, _defineProperty(_defineProperty({
+      opacity: 1,
+      y: 0,
+      duration: 4
+    }, "opacity", 1), "stagger", 0.4), "startp").fromTo(".as__que_es img", {
+      opacity: 0,
+      y: 40
+    }, {
+      y: 0,
+      opacity: 1,
+      duration: 4
+    }, "startp-=3");
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: id,
+      start: "-20% center",
+      end: "20% center",
+      scrub: 3,
+      // markers: true,
+      onUpdate: function onUpdate(_ref2) {
+        var progress = _ref2.progress;
+      } // console.log(progress);
+    });
+  }
+}
+function setGestion(gsap, ScrollTrigger) {
+  var id = document.getElementById("gestion");
+  if (id) {
+    var tl = gsap.timeline({
+      paused: true
+    });
+    tl.addLabel("startp", 0).fromTo(".as__gestion h3", {
+      clipPath: "inset(0 100% 0 0)",
+      opacitiy: 0
+    }, {
+      clipPath: "inset(0 0% 0 0)",
+      opacity: 1,
+      duration: 4
+    }, "startp").fromTo(".as__gestion .as__gestion_content .prop_anim", {
+      opacity: 0,
+      y: 20
+    }, _defineProperty(_defineProperty({
+      opacity: 1,
+      y: 0,
+      duration: 4
+    }, "opacity", 1), "stagger", 0.4), "startp-=2").fromTo(".as__gestion img", {
+      opacity: 0,
+      y: 40
+    }, {
+      y: 0,
+      opacity: 1,
+      duration: 4
+    }, "startp-=3");
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: id,
+      start: "-20% center",
+      end: "20% center",
+      scrub: 3,
+      // markers: true,
+      onUpdate: function onUpdate(_ref3) {
+        var progress = _ref3.progress;
+      } // console.log(progress);
+    });
+  }
+}
+function setAyuda(gsap, ScrollTrigger) {
+  var id = document.getElementById("ayuda");
+  if (id) {
+    var tl_yoyo = gsap.timeline({
+      paused: false
+    });
+    tl_yoyo.to("#ayuda .na_nube", {
+      transformOrigin: "center",
+      duration: 1,
+      repeat: -1,
+      y: 15,
+      ease: "sine.inOut",
+      stagger: 0.2,
+      yoyo: true
+    }, "0").to("#ayuda .start", {
+      transformOrigin: "center",
+      duration: 1,
+      repeat: -1,
+      rotation: function rotation(index, target) {
+        return (index + 1) * 360;
+      },
+      y: -15,
+      ease: "sine.inOut",
+      stagger: 0.2,
+      yoyo: true
+    }, "0");
+    var tl = gsap.timeline({
+      paused: true
+    });
+    tl.addLabel("startp", 0).fromTo(".as__ayuda .as__ayuda_ilus", {
+      clipPath: "inset(0 100% 0 0)",
+      opacitiy: 0
+    }, {
+      clipPath: "inset(0 0% 0 0)",
+      opacity: 1,
+      duration: 4
+    }, "startp").fromTo(".as__ayuda .as__ayuda_content .prop_anim", {
+      opacity: 0,
+      y: 20
+    }, _defineProperty(_defineProperty({
+      opacity: 1,
+      y: 0,
+      duration: 4
+    }, "opacity", 1), "stagger", 0.4), "startp-=2").fromTo(".as__ayuda img", {
+      opacity: 0,
+      y: 40
+    }, {
+      y: 0,
+      opacity: 1,
+      duration: 4
+    }, "startp-=3");
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: id,
+      start: "-20% center",
+      end: "10% center",
+      scrub: 3,
+      // markers: true,
+      onUpdate: function onUpdate(_ref4) {
+        var progress = _ref4.progress;
+      } // console.log(progress);
+    });
+  }
+}
+function setDocumentosInt(gsap, ScrollTrigger) {
+  var id = document.getElementById("as__documentos_int");
+  if (id) {
+    var tl_yoyo = gsap.timeline({
+      paused: false
+    });
+    tl_yoyo.to(".idocs_float", {
+      transformOrigin: "center",
+      duration: 1,
+      repeat: -1,
+      y: 15,
+      ease: "sine.inOut",
+      stagger: 0.2,
+      yoyo: true
+    }, "0");
+    // .to(
+    //   "#ayuda .start",
+    //   {
+    //     transformOrigin: "center",
+    //     duration: 1,
+    //     repeat: -1,
+    //     rotation: function (index, target) {
+    //       return (index + 1) * 360;
+    //     },
+    //     y: -15,
+    //     ease: "sine.inOut",
+    //     stagger: 0.2,
+    //     yoyo: true,
+    //   },
+    //   "0"
+    // );
+
+    var tl = gsap.timeline({
+      paused: true
+    });
+    tl.addLabel("startp", 0).fromTo(".as__documentos_int .doc_img", {
+      yPercent: 20,
+      opacitiy: 0
+    }, {
+      yPercent: 0,
+      opacity: 1,
+      duration: 4
+    }, "startp").fromTo(".as__documentos_int .doc_ges", {
+      opacity: 0,
+      y: 20
+    }, _defineProperty({
+      opacity: 1,
+      y: 0,
+      duration: 4
+    }, "opacity", 1), "startp+=1").fromTo(".as__documentos_int .doc_cal", {
+      opacity: 0,
+      y: 20
+    }, _defineProperty({
+      opacity: 1,
+      y: 0,
+      duration: 4
+    }, "opacity", 1), "startp+=2");
+    // .fromTo(
+    //   ".as__ayuda img",
+    //   { opacity: 0, y: 40 },
+    //   {
+    //     y: 0,
+    //     opacity: 1,
+    //     duration: 4,
+    //   },
+    //   "startp-=3"
+    // );
+
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: id,
+      start: "-20% center",
+      end: "20% center",
+      scrub: 3,
+      // markers: true,
+      onUpdate: function onUpdate(_ref5) {
+        var progress = _ref5.progress;
+      } // console.log(progress);
+    });
+  }
+}
+
+/***/ }),
+
+/***/ "./src/js/home.js":
+/*!************************!*\
+  !*** ./src/js/home.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setHomeBanners: () => (/* binding */ setHomeBanners),
+/* harmony export */   setHomeBlog: () => (/* binding */ setHomeBlog),
+/* harmony export */   setHomeCifras: () => (/* binding */ setHomeCifras),
+/* harmony export */   setHomeDocumentos: () => (/* binding */ setHomeDocumentos),
+/* harmony export */   setHomePropositios: () => (/* binding */ setHomePropositios),
+/* harmony export */   setHomeServicios: () => (/* binding */ setHomeServicios)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var timerInterval = 12000;
+function setBanners(gsap) {
+  var tls = setTls(gsap);
+  var banners = document.querySelectorAll(".banner");
+  var btn_next = document.querySelector(".as__banner_controls_arrows .next");
+  btn_next.addEventListener("click", function () {
+    var active = document.querySelector(".banner.active");
+    var next = active.nextElementSibling;
+    if (next) {
+      active.classList.remove("active");
+      next.classList.add("active");
+    } else {
+      active.classList.remove("active");
+      banners[0].classList.add("active");
+    }
+    tls.tl.kill();
+    tls.tl_banner_anciana.kill();
+    tls.tl_banner_ninos.kill();
+    tls = setTls(gsap);
+    setDots();
+    clearInterval(interval);
+    interval = setInterval(function () {
+      btn_next.click();
+    }, timerInterval);
+  });
+  var btn_prev = document.querySelector(".as__banner_controls_arrows .prev");
+  btn_prev.addEventListener("click", function () {
+    var active = document.querySelector(".banner.active");
+    var prev = active.previousElementSibling;
+    if (prev) {
+      active.classList.remove("active");
+      prev.classList.add("active");
+    } else {
+      active.classList.remove("active");
+      banners[banners.length - 1].classList.add("active");
+    }
+    tls.tl.kill();
+    tls.tl_banner_anciana.kill();
+    tls.tl_banner_ninos.kill();
+    tls = setTls(gsap);
+    setDots();
+    clearInterval(interval);
+    interval = setInterval(function () {
+      btn_next.click();
+    }, timerInterval);
+  });
+  var interval = setInterval(function () {
+    btn_next.click();
+  }, timerInterval);
+  if (banners.length > 1) {
+    setDots(tls, interval);
+  } else if (banners.length == 1) {
+    document.querySelector(".as__banner_controls_arrows").style.display = "none";
+    document.querySelector(".as__banner_controls_dots").style.display = "none";
+  }
+}
+function setDots(gsap, tls) {
+  var banners = document.querySelectorAll(".banner");
+  var dots = document.querySelector(".as__banner_controls_dots");
+  var html = "";
+  banners.forEach(function (banner, i) {
+    if (banner.classList.contains("active")) html += "<li class=\"dot active\">".concat(i + 1, "</div>");else html += "<li class=\"dot\">".concat(i + 1, "</li>");
+  });
+  dots.innerHTML = html;
+  // const dots_btns = document.querySelectorAll(".as__banner_controls_dots .dot");
+  // dots_btns.forEach((dot, i) => {
+  //   dot.addEventListener("click", () => {
+  //     const active = document.querySelector(".banner.active");
+  //     active.classList.remove("active");
+  //     banners[i].classList.add("active");
+
+  //     setDots();
+  //   });
+  // });
+}
+function setTls(gsap) {
+  var tl = gsap.timeline({
+    paused: false
+  });
+  tl.to(".banner.active .as__banner_content h1 ", {
+    duration: 1,
+    opacity: 1,
+    ease: "power2.out"
+  }, "=0");
+  tl.from(".banner.active .as__banner_piso", {
+    yPercent: 100,
+    duration: 1,
+    opacity: 0,
+    ease: "power2.inout"
+  }, "-=1");
+  tl.from(".banner.active .as__banner_content .ban_anim1", {
+    scale: 0.8,
+    duration: 1,
+    opacity: 0,
+    stagger: 0.2,
+    ease: "power2.out"
+  }, "-=1");
+  tl.from(".banner.active  .as__banner_images img", {
+    duration: 1,
+    y: -10,
+    opacity: 0,
+    stagger: 0.2,
+    ease: "power2.out"
+  }, "-=1");
+  tl.fromTo(".banner.active .as__banner_left .as__banner_left_int", {
+    yPercent: 20,
+    opacity: 0,
+    scale: 0.8
+  }, {
+    opacity: 1,
+    yPercent: 0,
+    scale: 1,
+    duration: 1.2,
+    stagger: 0.1,
+    ease: "power2.out"
+  }, "-=1");
+  gsap.set(".banner.active .as__banner_right", {
+    opacity: 1
+  });
+  tl.fromTo(".banner.active .as__banner_right .as__banner_right_int", {
+    xPercent: 100,
+    opacity: 1
+  }, {
+    opacity: 1,
+    xPercent: 0,
+    duration: 1.2,
+    stagger: 0.1,
+    ease: "power2.out"
+  }, "-=1");
+  var tl_banner_anciana = gsap.timeline({
+    paused: false
+  });
+  tl_banner_anciana.to(".banner.active .as__banner_right_int #gafas", {
+    transformOrigin: "center",
+    duration: 1,
+    repeat: -1,
+    y: 256,
+    ease: "sine.inOut",
+    yoyo: true,
+    stagger: 0.2
+  }, "0");
+  tl_banner_anciana.to(".banner.active .as__banner_right_int #mano", {
+    scale: 1.1,
+    transformOrigin: "left top",
+    duration: 3,
+    rotate: 10,
+    y: 467,
+    repeat: -1,
+    ease: "power4.inout",
+    yoyo: true,
+    stagger: 0.2
+  }, "0");
+  var tl_banner_ninos = gsap.timeline({
+    paused: false
+  });
+  tl_banner_ninos.to(".banner.active .as__banner_left_int #cabeza", {
+    transformOrigin: "center bottom",
+    duration: 1,
+    repeat: -1,
+    rotate: 5,
+    ease: "sine.inOut",
+    yoyo: true,
+    stagger: 0.2
+  }, "0");
+  tl_banner_ninos.to(".banner.active .as__banner_left_int #mano", {
+    transformOrigin: "top left",
+    duration: 3,
+    rotate: 15,
+    y: 286,
+    repeat: -1,
+    ease: "power4.inout",
+    yoyo: true
+  }, "0");
+  tl_banner_ninos.to(".banner.active .as__banner_left_int #pierna", {
+    transformOrigin: "180px 0px 0px",
+    duration: 3,
+    rotate: -15,
+    repeat: -1,
+    ease: "power4.inout",
+    yoyo: true
+  }, "0");
+  return {
+    tl: tl,
+    tl_banner_anciana: tl_banner_anciana,
+    tl_banner_ninos: tl_banner_ninos
+  };
+}
+function setHomeBanners(gsap) {
+  if (document.getElementById("home_banners")) {
+    var tl_banner = gsap.timeline({
+      paused: false
+    });
+    tl_banner.to(".as__banner .ban_st_1", {
+      transformOrigin: "center",
+      duration: 4,
+      repeat: -1,
+      rotate: function rotate(i) {
+        return i % 2 == 0 ? 360 : -360;
+      },
+      ease: "power4.inout",
+      yoyo: true,
+      stagger: 0.2
+    }, "0");
+    tl_banner.to(".as__banner .ban_nube_1", {
+      scale: 1.1,
+      transformOrigin: "center",
+      duration: 4,
+      repeat: -1,
+      ease: "power4.inout",
+      yoyo: true,
+      stagger: 0.2
+    }, "0");
+    tl_banner.fromTo(".as__banner .ban_nube_it", {
+      x: "-40vw"
+    }, {
+      x: "180vw",
+      transformOrigin: "center",
+      duration: 19,
+      repeat: -1,
+      ease: "power4.inout",
+      // yoyo: true,
+      stagger: 0.2
+    }, "0");
+    tl_banner.fromTo(".as__banner .ban_nube_dt", {
+      x: "20vw"
+    }, {
+      x: "-120vw",
+      transformOrigin: "center",
+      duration: 15,
+      repeat: -1,
+      ease: "power4.inout",
+      // yoyo: true,
+      stagger: 0.2
+    }, "0");
+    setBanners(gsap);
+  }
+}
+function setHomePropositios(gsap, ScrollTrigger) {
+  if (document.getElementById("home_proposito")) {
+    var tl = gsap.timeline({
+      paused: true
+    });
+    var toMarquee = -(document.querySelector(".as_proposito .as__marquee .as__marquee_to_left").offsetWidth - window.innerWidth);
+    tl.from(".as_proposito .as__title_section", {
+      y: -20,
+      duration: 4,
+      opacity: 0
+    }, "=0").fromTo(".as_proposito .as__marquee .as__marquee_to_left", {
+      x: 0
+    }, {
+      x: toMarquee,
+      duration: 20,
+      opacity: 1,
+      ease: "linear"
+    }, "-=1").fromTo(".as_proposito .as_proposito_content .prop_anim", {
+      opacity: 0,
+      y: 20
+    }, _defineProperty(_defineProperty({
+      opacity: 1,
+      y: 0,
+      duration: 1
+    }, "opacity", 1), "stagger", 0.4), "-=8").from(".as__proposito_link .as__button", {
+      opacity: 0,
+      y: 20,
+      duration: 1
+    }, "-=10").from(".as__proposito_ilus img", {
+      opacity: 0.5,
+      y: 50,
+      duration: 4
+    }, "-=3");
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: document.getElementById("home_proposito"),
+      start: "-20% bottom",
+      end: "40% center",
+      scrub: 3,
+      // markers: true,
+      onUpdate: function onUpdate(_ref) {
+        var progress = _ref.progress;
+      } // console.log(progress);
+    });
+  }
+}
+function setHomeServicios(gsap, ScrollTrigger) {
+  if (document.getElementById("home_servicios")) {
+    var tl = gsap.timeline({
+      paused: true
+    });
+    tl.fromTo(".as__servicios_item", {
+      opacity: 0,
+      y: 50
+    }, {
+      duration: 1,
+      opacity: 1,
+      y: 0,
+      stagger: 1
+    }, "-=0");
+    tl.fromTo(".as__servicios_image img", {
+      y: 30,
+      scale: 1.1
+    }, {
+      y: 0,
+      scale: 1,
+      duration: 2,
+      stagger: 0.2
+    }, "-=1");
+    tl.from(".img_renta", {
+      backgroundColor: "transparent",
+      duration: 2
+    }, "-=3");
+    tl.from(".img_seguro", {
+      backgroundColor: "transparent",
+      duration: 2
+    }, "-=3");
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: document.getElementById("home_servicios"),
+      // start: "20% bottom",
+      // end: "center center",
+      start: "top bottom",
+      end: "center center",
+      scrub: 3,
+      //markers: true,
+      onUpdate: function onUpdate(_ref2) {
+        var progress = _ref2.progress;
+      } // console.log(progress);
+    });
+  }
+}
+function setHomeCifras(gsap, ScrollTrigger) {
+  if (document.getElementById("home_cifras")) {
+    var toCLiets = 27;
+    var toCobertura = 5;
+    var toColaboradores = 82;
+    var counters = {
+      clientes: 0,
+      cobertura: 0,
+      colaboradores: 0
+    };
+    var tl = gsap.timeline({
+      paused: true
+    });
+    tl.from(".as__cifras .as__title_section", {
+      y: -20,
+      duration: 4,
+      opacity: 0
+    }, "=0");
+    tl.fromTo(".as__cifras .as__cifras_content .as__cifras_content_cifra", {
+      opacity: 0,
+      y: 20
+    }, _defineProperty(_defineProperty({
+      opacity: 1,
+      y: 0,
+      duration: 1
+    }, "opacity", 1), "stagger", 0.4), "-=1");
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: document.getElementById("home_cifras"),
+      start: "-20% bottom",
+      end: "center center",
+      scrub: 3,
+      // markers: true,
+      onEnter: function onEnter() {
+        gsap.fromTo(counters, {
+          val: 0
+        }, {
+          val: toCLiets,
+          duration: 1,
+          roundProps: "clientes",
+          ease: "ease.out",
+          delay: 1,
+          onUpdate: function onUpdate() {
+            counters.clientes = Math.round(counters.val);
+            document.getElementById("home_cifras_clientes").innerHTML = counters.clientes;
+            //   setClientes(Math.round(counters.val));
+          }
+        });
+        gsap.fromTo(counters, {
+          val: 0
+        }, {
+          val: toCobertura,
+          duration: 1,
+          roundProps: "cobertura",
+          ease: "ease.out",
+          delay: 1.5,
+          onUpdate: function onUpdate() {
+            counters.cobertura = Math.round(counters.val);
+            document.getElementById("home_cifras_cobertura").innerHTML = counters.cobertura;
+            //   setCobertura(Math.round(counters.val));
+          }
+        });
+        gsap.fromTo(counters, {
+          val: 0
+        }, {
+          val: toColaboradores,
+          duration: 1,
+          roundProps: "colaboradores",
+          ease: "ease.out",
+          delay: 2,
+          onUpdate: function onUpdate() {
+            counters.colaboradores = Math.round(counters.val);
+            // console.log(counters.val);
+            var cols = counters.colaboradores / 10;
+            document.getElementById("home_cifras_colaboradores").innerHTML = cols.toFixed(1);
+            //   setColaboradores(Math.round(counters.val));
+          }
+        });
+      },
+      onUpdate: function onUpdate(_ref3) {
+        var progress = _ref3.progress;
+      } // console.log(progress);
+    });
+  }
+}
+function setHomeDocumentos(gsap, ScrollTrigger) {
+  if (document.getElementById("home_documentos")) {
+    var tl_yoyo = gsap.timeline({
+      paused: true
+    });
+    tl_yoyo.to(".as__documentos .img_doc_3", {
+      yPercent: -1,
+      duration: 1,
+      repeat: -1,
+      ease: "power4.inout",
+      yoyo: true
+    }, "0");
+    var tl = gsap.timeline({
+      paused: true
+    });
+    tl.from(".as__documentos .as__title_section", {
+      y: -20,
+      duration: 1,
+      opacity: 0
+    }, "=0");
+    tl.from(".as__documentos .as__documentos_img", _defineProperty(_defineProperty({
+      opacity: 0,
+      yPercent: 20,
+      duration: 8
+    }, "opacity", 1), "ease", "power4.out"), "+=2");
+    tl.fromTo(".as__documentos .as__documentos_content h4 span", {
+      opacity: 0,
+      y: 20
+    }, _defineProperty(_defineProperty({
+      opacity: 1,
+      y: 0,
+      duration: 1
+    }, "opacity", 1), "stagger", 0.4), "-=3");
+    tl.fromTo(".as__documentos .as__documentos_content_info", {
+      opacity: 0,
+      y: -20
+    }, _defineProperty({
+      opacity: 0,
+      y: 0,
+      duration: 2
+    }, "opacity", 1), "-=2");
+    tl.addLabel("end", "-=4");
+    tl.fromTo(".as__documentos .img_doc_1", {
+      opacity: 0,
+      scale: 0.6
+    }, {
+      opacity: 1,
+      scale: 1,
+      duration: 3
+    }, "end");
+    tl.fromTo(".as__documentos .img_doc_2", {
+      y: 100,
+      scale: 1.2
+    }, {
+      y: 0,
+      scale: 1,
+      duration: 3
+    }, "end");
+    tl.fromTo(".as__documentos .img_doc_3", {
+      opacity: 0,
+      scale: 0.8
+    }, {
+      opacity: 1,
+      scale: 1,
+      duration: 3
+    }, "end");
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: document.getElementById("home_documentos"),
+      start: "-20% bottom",
+      end: "30% center",
+      scrub: 3,
+      // markers: true,
+      onUpdate: function onUpdate(_ref4) {
+        var progress = _ref4.progress;
+        if (progress == 1) tl_yoyo.play();else tl_yoyo.pause();
+      }
+    });
+  }
+}
+function setHomeBlog(gsap, ScrollTrigger) {
+  if (document.getElementById("home_blog")) {
+    var tl = gsap.timeline({
+      paused: true
+    });
+    tl.from(".as__blog .as__title_section", {
+      y: -20,
+      duration: 4,
+      opacity: 0
+    }, "=0");
+    tl.fromTo(".as__blog .as__blog_posts .as__post_small a", {
+      opacity: 0,
+      xPercent: -20
+    }, _defineProperty(_defineProperty({
+      opacity: 1,
+      xPercent: 0,
+      duration: 1
+    }, "opacity", 1), "stagger", 0.4), "-=2");
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: document.getElementById("home_blog"),
+      start: "-20% bottom",
+      end: "top center",
+      scrub: 3,
+      // markers: true,
+      onUpdate: function onUpdate(_ref5) {
+        var progress = _ref5.progress;
+      } // console.log(progress);
+    });
+  }
+}
+
+/***/ }),
+
+/***/ "./src/js/prods.js":
+/*!*************************!*\
+  !*** ./src/js/prods.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setRV_auxilio: () => (/* binding */ setRV_auxilio),
+/* harmony export */   setRV_destacados: () => (/* binding */ setRV_destacados),
+/* harmony export */   set_destacados: () => (/* binding */ set_destacados),
+/* harmony export */   set_listado: () => (/* binding */ set_listado)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function setRV_auxilio(gsap, ScrollTrigger) {
+  var id = document.getElementById("rv_auxilio");
+  if (id) {
+    var tl_yoyo = gsap.timeline({
+      paused: false
+    });
+    tl_yoyo.to("#rv_auxilio #i_anim", {
+      transformOrigin: "center",
+      duration: 1,
+      repeat: -1,
+      y: -5,
+      ease: "sine.inOut",
+      yoyo: true
+    }, "0").to("#rv_auxilio #nube_2", {
+      transformOrigin: "center",
+      duration: 1,
+      repeat: -1,
+      y: 15,
+      ease: "sine.inOut",
+      yoyo: true
+    }, "0").to("#rv_auxilio #numbe_1", {
+      transformOrigin: "center",
+      duration: 1,
+      repeat: -1,
+      y: -15,
+      ease: "sine.inOut",
+      yoyo: true
+    }, "0").to("#rv_auxilio .start", {
+      transformOrigin: "center",
+      duration: 1,
+      repeat: -1,
+      rotation: function rotation(index, target) {
+        return (index + 1) * 360;
+      },
+      y: -15,
+      ease: "sine.inOut",
+      stagger: 0.2,
+      yoyo: true
+    }, "0");
+    var tl = gsap.timeline({
+      paused: true
+    });
+    tl.addLabel("startp", 0).fromTo(".as__rv_auxilio .as__rv_auxilio_content .prop_anim", {
+      opacity: 0,
+      y: -20
+    }, _defineProperty(_defineProperty({
+      opacity: 1,
+      y: 0,
+      duration: 4
+    }, "opacity", 1), "stagger", 0.4), "startp").fromTo(".as__rv_auxilio_ilustra svg", {
+      opacity: 0,
+      y: 40
+    }, {
+      y: 0,
+      opacity: 1,
+      duration: 4
+    }, "startp-=3");
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: id,
+      start: "-20% center",
+      end: "20% center",
+      scrub: 3,
+      // markers: true,
+      onUpdate: function onUpdate(_ref) {
+        var progress = _ref.progress;
+      } // console.log(progress);
+    });
+  }
+}
+function setRV_destacados(gsap, ScrollTrigger) {
+  if (document.getElementById("rv_destacados")) {
+    var tl = gsap.timeline({
+      paused: true
+    });
+    tl.fromTo(".as__rv_destacados_item", {
+      opacity: 0,
+      y: 50
+    }, {
+      duration: 1,
+      opacity: 1,
+      y: 0,
+      stagger: 1
+    }, "-=0").fromTo(".as__rv_destacados_item img", {
+      y: 30,
+      scale: 1.1
+    }, {
+      y: 0,
+      scale: 1,
+      duration: 2,
+      stagger: 0.2
+    }, "-=1").from(".as__rv_destacados_image", {
+      backgroundColor: "transparent",
+      duration: 2,
+      stagger: 0.3
+    }, "-=3");
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: document.getElementById("rv_destacados"),
+      // start: "20% bottom",
+      // end: "center center",
+      start: "top bottom",
+      end: "center center",
+      scrub: 3,
+      // markers: true,
+      onUpdate: function onUpdate(_ref2) {
+        var progress = _ref2.progress;
+      } // console.log(progress);
+    });
+  }
+}
+function set_destacados(gsap, ScrollTrigger) {
+  var id = document.getElementById("as__destacados");
+  if (id) {
+    var tl = gsap.timeline({
+      paused: true
+    });
+    tl.fromTo(".as__destacados_item", {
+      opacity: 0,
+      y: 50
+    }, {
+      duration: 1,
+      opacity: 1,
+      y: 0,
+      stagger: 1
+    }, "-=0").fromTo(".as__destacados_image img", {
+      y: 30,
+      scale: 1.1
+    }, {
+      y: 0,
+      scale: 1,
+      duration: 2,
+      stagger: 0.2
+    }, "-=1").from(".as__destacados_image", {
+      backgroundColor: "transparent",
+      duration: 2,
+      stagger: 0.3
+    }, "-=3");
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: id,
+      start: "top bottom",
+      end: "center center",
+      scrub: 3,
+      //markers: true,
+      onUpdate: function onUpdate(_ref3) {
+        var progress = _ref3.progress;
+      } // console.log(progress);
+    });
+  }
+}
+function set_listado(gsap, ScrollTrigger) {
+  var id = document.getElementById("as__listado");
+  if (id) {
+    var tl_yoyo = gsap.timeline({
+      paused: false
+    });
+    if (document.getElementsByClassName("ilus_rot_top_right")) tl_yoyo.to(".ilus_rot_top_right", {
+      transformOrigin: "right top",
+      duration: 1,
+      repeat: -1,
+      rotation: -5,
+      ease: "sine.inOut",
+      yoyo: true
+    }, "0");
+    if (document.getElementsByClassName("ilus_rot_top_left")) tl_yoyo.to(".ilus_rot_top_left", {
+      transformOrigin: "right left",
+      duration: 1,
+      repeat: -1,
+      rotation: -5,
+      ease: "sine.inOut",
+      yoyo: true
+    }, "0");
+    var tl = gsap.timeline({
+      paused: true
+    });
+    tl.addLabel("startp", 0).fromTo(".as__listado .as__listado_content .prop_anim", {
+      opacity: 0,
+      y: -20
+    }, _defineProperty(_defineProperty({
+      opacity: 1,
+      y: 0,
+      duration: 4
+    }, "opacity", 1), "stagger", 0.4), "startp").fromTo(".as__listado_ilustra svg", {
+      opacity: 0,
+      y: 40
+    }, {
+      y: 0,
+      opacity: 1,
+      duration: 4
+    }, "startp-=3");
+    var scroll = ScrollTrigger.create({
+      animation: tl,
+      trigger: id,
+      start: "-20% center",
+      end: "20% center",
+      scrub: 3,
+      // markers: true,
+      onUpdate: function onUpdate(_ref4) {
+        var progress = _ref4.progress;
+      } // console.log(progress);
+    });
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./node_modules/js-year-calendar/dist/js-year-calendar.css":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./node_modules/js-year-calendar/dist/js-year-calendar.css ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "/* =========================================================\n * JS year calendar v0.1.0\n * Repo: https://github.com/year-calendar/js-year-calendar\n * =========================================================\n * Created by Paul David-Sivelle\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n * ========================================================= */\n/* Main */\n.calendar {\n  padding: 4px;\n  border-radius: 4px;\n  direction: ltr;\n  overflow-x: hidden;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  user-select: none;\n  /* Header */\n  /* Months */\n  /* Loading */\n}\n.calendar:after {\n  /* Apply the right height on the calendar div, even if the months elements are floating  */\n  clear: both;\n  content: \"\";\n  display: block;\n}\n.calendar .calendar-rtl {\n  direction: rtl;\n}\n.calendar .calendar-rtl .calendar-rtl table tr td span {\n  float: right;\n}\n.calendar table {\n  margin: auto;\n  border-spacing: 0;\n}\n.calendar table td,\n.calendar table th {\n  text-align: center;\n  width: 20px;\n  height: 20px;\n  border: none;\n  padding: 4px 5px;\n  font-size: 12px;\n}\n.calendar .calendar-header {\n  width: 100%;\n  margin-bottom: 20px;\n  border: 1px solid #ddd;\n}\n.calendar .calendar-header table {\n  width: 100%;\n}\n.calendar .calendar-header table th {\n  font-size: 22px;\n  padding: 5px 10px;\n  cursor: pointer;\n}\n.calendar .calendar-header table th:hover {\n  background: #eeeeee;\n}\n.calendar .calendar-header table th.disabled,\n.calendar .calendar-header table th.disabled:hover {\n  background: none;\n  cursor: default;\n  color: white;\n}\n.calendar .calendar-header table th.prev,\n.calendar .calendar-header table th.next {\n  width: 20px;\n}\n.calendar .calendar-header .year-title {\n  font-weight: bold;\n  text-align: center;\n  height: 20px;\n  width: auto;\n}\n.calendar .calendar-header .year-neighbor {\n  opacity: 0.4;\n}\n@media (max-width: 991px) {\n  .calendar .calendar-header .year-neighbor {\n    display: none;\n  }\n}\n.calendar .calendar-header .year-neighbor2 {\n  opacity: 0.2;\n}\n@media (max-width: 767px) {\n  .calendar .calendar-header .year-neighbor2 {\n    display: none;\n  }\n}\n.calendar .months-container {\n  width: 100%;\n  display: none;\n  flex-wrap: wrap;\n}\n.calendar .months-container .month-container {\n  float: left;\n  text-align: center;\n  padding: 0;\n}\n.calendar .months-container .month-container.month-2 {\n  width: 16.66666667%;\n}\n.calendar .months-container .month-container.month-3 {\n  width: 25%;\n}\n.calendar .months-container .month-container.month-4 {\n  width: 33.33333333%;\n}\n.calendar .months-container .month-container.month-6 {\n  width: 50%;\n}\n.calendar .months-container .month-container.month-12 {\n  width: 100%;\n}\n.calendar table.month th.month-title {\n  font-size: 16px;\n  padding-bottom: 5px;\n}\n.calendar table.month th.day-header {\n  font-size: 14px;\n}\n.calendar table.month tr td,\n.calendar table.month tr th {\n  padding: 0;\n}\n.calendar table.month tr td.hidden,\n.calendar table.month tr th.hidden {\n  display: none;\n}\n.calendar table.month td.week-number {\n  cursor: default;\n  font-weight: bold;\n  border-right: 1px solid #eee;\n  padding: 5px;\n}\n.calendar table.month td.day.round-left {\n  border-radius: 8px 0 0 8px;\n}\n.calendar table.month td.day.round-right {\n  webkit-border-radius: 0 8px 8px 0 ;\n  border-radius: 0 8px 8px 0;\n}\n.calendar table.month td.day .day-content {\n  border-radius: 4px;\n  padding: 5px 6px;\n}\n.calendar table.month td.old,\n.calendar table.month td.new,\n.calendar table.month td.old:hover,\n.calendar table.month td.new:hover {\n  background: none;\n  cursor: default;\n}\n.calendar table.month td.disabled,\n.calendar table.month td.disabled:hover {\n  color: #dddddd;\n}\n.calendar table.month td.disabled .day-content:hover,\n.calendar table.month td.disabled:hover .day-content:hover {\n  background: none;\n  cursor: default;\n}\n.calendar table.month td.range .day-content {\n  background: rgba(0, 0, 0, 0.2);\n  border-radius: 0;\n}\n.calendar table.month td.range.range-start .day-content {\n  border-top-left-radius: 4px;\n  border-bottom-left-radius: 4px;\n}\n.calendar table.month td.range.range-end .day-content {\n  border-top-right-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\n.calendar .calendar-loading-container {\n  position: relative;\n  text-align: center;\n  min-height: 200px;\n}\n.calendar .calendar-loading-container .calendar-loading {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translateX(-50%) translateY(-50%);\n}\n.calendar .calendar-spinner {\n  margin: 20px auto;\n  width: 80px;\n  text-align: center;\n}\n.calendar .calendar-spinner > div {\n  width: 16px;\n  height: 16px;\n  margin: 5px;\n  background-color: #333;\n  border-radius: 100%;\n  display: inline-block;\n  animation: sk-bouncedelay 1s infinite ease-in-out both;\n}\n.calendar .calendar-spinner > div.bounce1 {\n  animation-delay: -0.32s;\n}\n.calendar .calendar-spinner > div.bounce2 {\n  animation-delay: -0.16s;\n}\n/* Context menu */\n.calendar-context-menu,\n.calendar-context-menu .submenu {\n  border: 1px solid #ddd;\n  background-color: white;\n  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);\n  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);\n  position: absolute;\n  display: none;\n}\n.calendar-context-menu .item {\n  position: relative;\n}\n.calendar-context-menu .item .content {\n  padding: 5px 10px;\n  cursor: pointer;\n  display: table;\n  width: 100%;\n  white-space: nowrap;\n  box-sizing: border-box;\n}\n.calendar-context-menu .item .content:hover {\n  background: #eee;\n}\n.calendar-context-menu .item .content .text {\n  display: table-cell;\n}\n.calendar-context-menu .item .content .arrow {\n  display: table-cell;\n  padding-left: 10px;\n  text-align: right;\n}\n.calendar-context-menu .item .submenu {\n  top: -1px;\n  /* Compensate for the border */\n}\n.calendar-context-menu .item .submenu:not(.open-left) {\n  left: 100%;\n}\n.calendar-context-menu .item .submenu.open-left {\n  right: 100%;\n}\n.calendar-context-menu .item:hover > .submenu {\n  display: block;\n}\n.table-striped .calendar table.month tr td,\n.table-striped .calendar table.month tr th {\n  background-color: transparent;\n}\ntable.month td.day .day-content:hover {\n  background: rgba(0, 0, 0, 0.2);\n  cursor: pointer;\n}\n@keyframes sk-bouncedelay {\n  0%,\n  80%,\n  100% {\n    transform: scale(0);\n  }\n  40% {\n    transform: scale(1);\n  }\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (cssWithMappingToString) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join("");
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === "string") {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, ""]];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
+
+/***/ }),
+
+/***/ "./node_modules/dayjs-business-days2/dist/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/dayjs-business-days2/dist/index.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const BusinessDaysPlugin = (options = {}, dayjsClass, dayjsFactory) => {
+    const defaultWorkingWeekdays = [1, 2, 3, 4, 5];
+    dayjsFactory.getWorkingWeekdays = function () {
+        return options.workingWeekdays || defaultWorkingWeekdays;
+    };
+    dayjsFactory.setWorkingWeekdays = function (workingWeekdays) {
+        options.workingWeekdays = workingWeekdays;
+    };
+    dayjsFactory.getHolidays = function () {
+        return options.holidays || [];
+    };
+    dayjsFactory.setHolidays = function (holidays) {
+        options.holidays = holidays;
+    };
+    dayjsFactory.getHolidayFormat = function () {
+        return options.holidayFormat;
+    };
+    dayjsFactory.setHolidayFormat = function (holidayFormat) {
+        options.holidayFormat = holidayFormat;
+    };
+    dayjsFactory.getAdditionalWorkingDays = function () {
+        return options.additionalWorkingDays || [];
+    };
+    dayjsFactory.setAdditionalWorkingDays = function (additionalWorkingDays) {
+        options.additionalWorkingDays = additionalWorkingDays;
+    };
+    dayjsFactory.getAdditionalWorkingDayFormat = function () {
+        return options.additionalWorkingDayFormat;
+    };
+    dayjsFactory.setAdditionalWorkingDayFormat = function (additionalWorkingDayFormat) {
+        options.additionalWorkingDayFormat = additionalWorkingDayFormat;
+    };
+    dayjsClass.prototype.isHoliday = function () {
+        if (!options.holidays) {
+            return false;
+        }
+        if (options.holidays.includes(this.format(options.holidayFormat))) {
+            return true;
+        }
+        return false;
+    };
+    dayjsClass.prototype.isBusinessDay = function () {
+        const workingWeekdays = options.workingWeekdays || defaultWorkingWeekdays;
+        if (this.isHoliday()) {
+            return false;
+        }
+        if (this.isAdditionalWorkingDay()) {
+            return true;
+        }
+        if (workingWeekdays.includes(this.day())) {
+            return true;
+        }
+        return false;
+    };
+    dayjsClass.prototype.isAdditionalWorkingDay = function () {
+        if (!options.additionalWorkingDays) {
+            return false;
+        }
+        if (options.additionalWorkingDays.includes(this.format(options.additionalWorkingDayFormat))) {
+            return true;
+        }
+        return false;
+    };
+    dayjsClass.prototype.businessDaysAdd = function (days) {
+        const numericDirection = days < 0 ? -1 : 1;
+        let currentDay = this.clone();
+        let daysRemaining = Math.abs(days);
+        while (daysRemaining > 0) {
+            currentDay = currentDay.add(numericDirection, `d`);
+            if (currentDay.isBusinessDay()) {
+                daysRemaining -= 1;
+            }
+        }
+        return currentDay;
+    };
+    dayjsClass.prototype.businessDaysSubtract = function (days) {
+        let currentDay = this.clone();
+        currentDay = currentDay.businessDaysAdd(days * -1);
+        return currentDay;
+    };
+    dayjsClass.prototype.businessDiff = function (date) {
+        const day1 = this.clone();
+        const day2 = date.clone();
+        const isPositiveDiff = day1 >= day2;
+        let start = isPositiveDiff ? day2 : day1;
+        const end = isPositiveDiff ? day1 : day2;
+        let daysBetween = 0;
+        if (start.isSame(end)) {
+            return daysBetween;
+        }
+        while (start < end) {
+            if (start.isBusinessDay()) {
+                daysBetween += 1;
+            }
+            start = start.add(1, `d`);
+        }
+        return isPositiveDiff ? daysBetween : -daysBetween;
+    };
+    dayjsClass.prototype.nextBusinessDay = function () {
+        const searchLimit = 7;
+        let currentDay = this.clone();
+        let loopIndex = 1;
+        while (loopIndex < searchLimit) {
+            currentDay = currentDay.add(1, `day`);
+            if (currentDay.isBusinessDay()) {
+                break;
+            }
+            loopIndex += 1;
+        }
+        return currentDay;
+    };
+    dayjsClass.prototype.prevBusinessDay = function () {
+        const searchLimit = 7;
+        let currentDay = this.clone();
+        let loopIndex = 1;
+        while (loopIndex < searchLimit) {
+            currentDay = currentDay.subtract(1, `day`);
+            if (currentDay.isBusinessDay()) {
+                break;
+            }
+            loopIndex += 1;
+        }
+        return currentDay;
+    };
+    dayjsClass.prototype.businessDaysInMonth = function () {
+        if (!this.isValid()) {
+            return [];
+        }
+        let currentDay = this.clone().startOf(`month`);
+        const monthEnd = this.clone().endOf(`month`);
+        const businessDays = [];
+        let monthComplete = false;
+        while (!monthComplete) {
+            if (currentDay.isBusinessDay()) {
+                businessDays.push(currentDay.clone());
+            }
+            currentDay = currentDay.add(1, `day`);
+            if (currentDay.isAfter(monthEnd)) {
+                monthComplete = true;
+            }
+        }
+        return businessDays;
+    };
+    dayjsClass.prototype.lastBusinessDayOfMonth = function () {
+        const businessDays = this.businessDaysInMonth();
+        const lastBusinessDay = businessDays[businessDays.length - 1];
+        return lastBusinessDay;
+    };
+    dayjsClass.prototype.businessWeeksInMonth = function () {
+        if (!this.isValid()) {
+            return [];
+        }
+        let currentDay = this.clone().startOf(`month`);
+        const monthEnd = this.clone().endOf(`month`);
+        const businessWeeks = [];
+        let businessDays = [];
+        let monthComplete = false;
+        while (!monthComplete) {
+            if (currentDay.isBusinessDay()) {
+                businessDays.push(currentDay.clone());
+            }
+            if (currentDay.day() === 5 || currentDay.isSame(monthEnd, `day`)) {
+                businessWeeks.push(businessDays);
+                businessDays = [];
+            }
+            currentDay = currentDay.add(1, `day`);
+            if (currentDay.isAfter(monthEnd)) {
+                monthComplete = true;
+            }
+        }
+        return businessWeeks;
+    };
+};
+exports["default"] = BusinessDaysPlugin;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/dayjs/dayjs.min.js":
+/*!*****************************************!*\
+  !*** ./node_modules/dayjs/dayjs.min.js ***!
+  \*****************************************/
+/***/ (function(module) {
+
+!function(t,e){ true?module.exports=e():0}(this,(function(){"use strict";var t=1e3,e=6e4,n=36e5,r="millisecond",i="second",s="minute",u="hour",a="day",o="week",c="month",f="quarter",h="year",d="date",l="Invalid Date",$=/^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/,y=/\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g,M={name:"en",weekdays:"Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),months:"January_February_March_April_May_June_July_August_September_October_November_December".split("_"),ordinal:function(t){var e=["th","st","nd","rd"],n=t%100;return"["+t+(e[(n-20)%10]||e[n]||e[0])+"]"}},m=function(t,e,n){var r=String(t);return!r||r.length>=e?t:""+Array(e+1-r.length).join(n)+t},v={s:m,z:function(t){var e=-t.utcOffset(),n=Math.abs(e),r=Math.floor(n/60),i=n%60;return(e<=0?"+":"-")+m(r,2,"0")+":"+m(i,2,"0")},m:function t(e,n){if(e.date()<n.date())return-t(n,e);var r=12*(n.year()-e.year())+(n.month()-e.month()),i=e.clone().add(r,c),s=n-i<0,u=e.clone().add(r+(s?-1:1),c);return+(-(r+(n-i)/(s?i-u:u-i))||0)},a:function(t){return t<0?Math.ceil(t)||0:Math.floor(t)},p:function(t){return{M:c,y:h,w:o,d:a,D:d,h:u,m:s,s:i,ms:r,Q:f}[t]||String(t||"").toLowerCase().replace(/s$/,"")},u:function(t){return void 0===t}},g="en",D={};D[g]=M;var p="$isDayjsObject",S=function(t){return t instanceof _||!(!t||!t[p])},w=function t(e,n,r){var i;if(!e)return g;if("string"==typeof e){var s=e.toLowerCase();D[s]&&(i=s),n&&(D[s]=n,i=s);var u=e.split("-");if(!i&&u.length>1)return t(u[0])}else{var a=e.name;D[a]=e,i=a}return!r&&i&&(g=i),i||!r&&g},O=function(t,e){if(S(t))return t.clone();var n="object"==typeof e?e:{};return n.date=t,n.args=arguments,new _(n)},b=v;b.l=w,b.i=S,b.w=function(t,e){return O(t,{locale:e.$L,utc:e.$u,x:e.$x,$offset:e.$offset})};var _=function(){function M(t){this.$L=w(t.locale,null,!0),this.parse(t),this.$x=this.$x||t.x||{},this[p]=!0}var m=M.prototype;return m.parse=function(t){this.$d=function(t){var e=t.date,n=t.utc;if(null===e)return new Date(NaN);if(b.u(e))return new Date;if(e instanceof Date)return new Date(e);if("string"==typeof e&&!/Z$/i.test(e)){var r=e.match($);if(r){var i=r[2]-1||0,s=(r[7]||"0").substring(0,3);return n?new Date(Date.UTC(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,s)):new Date(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,s)}}return new Date(e)}(t),this.init()},m.init=function(){var t=this.$d;this.$y=t.getFullYear(),this.$M=t.getMonth(),this.$D=t.getDate(),this.$W=t.getDay(),this.$H=t.getHours(),this.$m=t.getMinutes(),this.$s=t.getSeconds(),this.$ms=t.getMilliseconds()},m.$utils=function(){return b},m.isValid=function(){return!(this.$d.toString()===l)},m.isSame=function(t,e){var n=O(t);return this.startOf(e)<=n&&n<=this.endOf(e)},m.isAfter=function(t,e){return O(t)<this.startOf(e)},m.isBefore=function(t,e){return this.endOf(e)<O(t)},m.$g=function(t,e,n){return b.u(t)?this[e]:this.set(n,t)},m.unix=function(){return Math.floor(this.valueOf()/1e3)},m.valueOf=function(){return this.$d.getTime()},m.startOf=function(t,e){var n=this,r=!!b.u(e)||e,f=b.p(t),l=function(t,e){var i=b.w(n.$u?Date.UTC(n.$y,e,t):new Date(n.$y,e,t),n);return r?i:i.endOf(a)},$=function(t,e){return b.w(n.toDate()[t].apply(n.toDate("s"),(r?[0,0,0,0]:[23,59,59,999]).slice(e)),n)},y=this.$W,M=this.$M,m=this.$D,v="set"+(this.$u?"UTC":"");switch(f){case h:return r?l(1,0):l(31,11);case c:return r?l(1,M):l(0,M+1);case o:var g=this.$locale().weekStart||0,D=(y<g?y+7:y)-g;return l(r?m-D:m+(6-D),M);case a:case d:return $(v+"Hours",0);case u:return $(v+"Minutes",1);case s:return $(v+"Seconds",2);case i:return $(v+"Milliseconds",3);default:return this.clone()}},m.endOf=function(t){return this.startOf(t,!1)},m.$set=function(t,e){var n,o=b.p(t),f="set"+(this.$u?"UTC":""),l=(n={},n[a]=f+"Date",n[d]=f+"Date",n[c]=f+"Month",n[h]=f+"FullYear",n[u]=f+"Hours",n[s]=f+"Minutes",n[i]=f+"Seconds",n[r]=f+"Milliseconds",n)[o],$=o===a?this.$D+(e-this.$W):e;if(o===c||o===h){var y=this.clone().set(d,1);y.$d[l]($),y.init(),this.$d=y.set(d,Math.min(this.$D,y.daysInMonth())).$d}else l&&this.$d[l]($);return this.init(),this},m.set=function(t,e){return this.clone().$set(t,e)},m.get=function(t){return this[b.p(t)]()},m.add=function(r,f){var d,l=this;r=Number(r);var $=b.p(f),y=function(t){var e=O(l);return b.w(e.date(e.date()+Math.round(t*r)),l)};if($===c)return this.set(c,this.$M+r);if($===h)return this.set(h,this.$y+r);if($===a)return y(1);if($===o)return y(7);var M=(d={},d[s]=e,d[u]=n,d[i]=t,d)[$]||1,m=this.$d.getTime()+r*M;return b.w(m,this)},m.subtract=function(t,e){return this.add(-1*t,e)},m.format=function(t){var e=this,n=this.$locale();if(!this.isValid())return n.invalidDate||l;var r=t||"YYYY-MM-DDTHH:mm:ssZ",i=b.z(this),s=this.$H,u=this.$m,a=this.$M,o=n.weekdays,c=n.months,f=n.meridiem,h=function(t,n,i,s){return t&&(t[n]||t(e,r))||i[n].slice(0,s)},d=function(t){return b.s(s%12||12,t,"0")},$=f||function(t,e,n){var r=t<12?"AM":"PM";return n?r.toLowerCase():r};return r.replace(y,(function(t,r){return r||function(t){switch(t){case"YY":return String(e.$y).slice(-2);case"YYYY":return b.s(e.$y,4,"0");case"M":return a+1;case"MM":return b.s(a+1,2,"0");case"MMM":return h(n.monthsShort,a,c,3);case"MMMM":return h(c,a);case"D":return e.$D;case"DD":return b.s(e.$D,2,"0");case"d":return String(e.$W);case"dd":return h(n.weekdaysMin,e.$W,o,2);case"ddd":return h(n.weekdaysShort,e.$W,o,3);case"dddd":return o[e.$W];case"H":return String(s);case"HH":return b.s(s,2,"0");case"h":return d(1);case"hh":return d(2);case"a":return $(s,u,!0);case"A":return $(s,u,!1);case"m":return String(u);case"mm":return b.s(u,2,"0");case"s":return String(e.$s);case"ss":return b.s(e.$s,2,"0");case"SSS":return b.s(e.$ms,3,"0");case"Z":return i}return null}(t)||i.replace(":","")}))},m.utcOffset=function(){return 15*-Math.round(this.$d.getTimezoneOffset()/15)},m.diff=function(r,d,l){var $,y=this,M=b.p(d),m=O(r),v=(m.utcOffset()-this.utcOffset())*e,g=this-m,D=function(){return b.m(y,m)};switch(M){case h:$=D()/12;break;case c:$=D();break;case f:$=D()/3;break;case o:$=(g-v)/6048e5;break;case a:$=(g-v)/864e5;break;case u:$=g/n;break;case s:$=g/e;break;case i:$=g/t;break;default:$=g}return l?$:b.a($)},m.daysInMonth=function(){return this.endOf(c).$D},m.$locale=function(){return D[this.$L]},m.locale=function(t,e){if(!t)return this.$L;var n=this.clone(),r=w(t,e,!0);return r&&(n.$L=r),n},m.clone=function(){return b.w(this.$d,this)},m.toDate=function(){return new Date(this.valueOf())},m.toJSON=function(){return this.isValid()?this.toISOString():null},m.toISOString=function(){return this.$d.toISOString()},m.toString=function(){return this.$d.toUTCString()},M}(),k=_.prototype;return O.prototype=k,[["$ms",r],["$s",i],["$m",s],["$H",u],["$W",a],["$M",c],["$y",h],["$D",d]].forEach((function(t){k[t[1]]=function(e){return this.$g(e,t[0],t[1])}})),O.extend=function(t,e){return t.$i||(t(e,_,O),t.$i=!0),O},O.locale=w,O.isDayjs=S,O.unix=function(t){return O(1e3*t)},O.en=D[g],O.Ls=D,O.p={},O}));
+
+/***/ }),
+
+/***/ "./node_modules/gsap/CSSPlugin.js":
+/*!****************************************!*\
+  !*** ./node_modules/gsap/CSSPlugin.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CSSPlugin: () => (/* binding */ CSSPlugin),
+/* harmony export */   _createElement: () => (/* binding */ _createElement),
+/* harmony export */   _getBBox: () => (/* binding */ _getBBox),
+/* harmony export */   checkPrefix: () => (/* binding */ _checkPropPrefix),
+/* harmony export */   "default": () => (/* binding */ CSSPlugin)
+/* harmony export */ });
+/* harmony import */ var _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gsap-core.js */ "./node_modules/gsap/gsap-core.js");
+/*!
+ * CSSPlugin 3.12.5
+ * https://gsap.com
+ *
+ * Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+
+
+var _win,
+    _doc,
+    _docElement,
+    _pluginInitted,
+    _tempDiv,
+    _tempDivStyler,
+    _recentSetterPlugin,
+    _reverting,
+    _windowExists = function _windowExists() {
+  return typeof window !== "undefined";
+},
+    _transformProps = {},
+    _RAD2DEG = 180 / Math.PI,
+    _DEG2RAD = Math.PI / 180,
+    _atan2 = Math.atan2,
+    _bigNum = 1e8,
+    _capsExp = /([A-Z])/g,
+    _horizontalExp = /(left|right|width|margin|padding|x)/i,
+    _complexExp = /[\s,\(]\S/,
+    _propertyAliases = {
+  autoAlpha: "opacity,visibility",
+  scale: "scaleX,scaleY",
+  alpha: "opacity"
+},
+    _renderCSSProp = function _renderCSSProp(ratio, data) {
+  return data.set(data.t, data.p, Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u, data);
+},
+    _renderPropWithEnd = function _renderPropWithEnd(ratio, data) {
+  return data.set(data.t, data.p, ratio === 1 ? data.e : Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u, data);
+},
+    _renderCSSPropWithBeginning = function _renderCSSPropWithBeginning(ratio, data) {
+  return data.set(data.t, data.p, ratio ? Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u : data.b, data);
+},
+    //if units change, we need a way to render the original unit/value when the tween goes all the way back to the beginning (ratio:0)
+_renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
+  var value = data.s + data.c * ratio;
+  data.set(data.t, data.p, ~~(value + (value < 0 ? -.5 : .5)) + data.u, data);
+},
+    _renderNonTweeningValue = function _renderNonTweeningValue(ratio, data) {
+  return data.set(data.t, data.p, ratio ? data.e : data.b, data);
+},
+    _renderNonTweeningValueOnlyAtEnd = function _renderNonTweeningValueOnlyAtEnd(ratio, data) {
+  return data.set(data.t, data.p, ratio !== 1 ? data.b : data.e, data);
+},
+    _setterCSSStyle = function _setterCSSStyle(target, property, value) {
+  return target.style[property] = value;
+},
+    _setterCSSProp = function _setterCSSProp(target, property, value) {
+  return target.style.setProperty(property, value);
+},
+    _setterTransform = function _setterTransform(target, property, value) {
+  return target._gsap[property] = value;
+},
+    _setterScale = function _setterScale(target, property, value) {
+  return target._gsap.scaleX = target._gsap.scaleY = value;
+},
+    _setterScaleWithRender = function _setterScaleWithRender(target, property, value, data, ratio) {
+  var cache = target._gsap;
+  cache.scaleX = cache.scaleY = value;
+  cache.renderTransform(ratio, cache);
+},
+    _setterTransformWithRender = function _setterTransformWithRender(target, property, value, data, ratio) {
+  var cache = target._gsap;
+  cache[property] = value;
+  cache.renderTransform(ratio, cache);
+},
+    _transformProp = "transform",
+    _transformOriginProp = _transformProp + "Origin",
+    _saveStyle = function _saveStyle(property, isNotCSS) {
+  var _this = this;
+
+  var target = this.target,
+      style = target.style,
+      cache = target._gsap;
+
+  if (property in _transformProps && style) {
+    this.tfm = this.tfm || {};
+
+    if (property !== "transform") {
+      property = _propertyAliases[property] || property;
+      ~property.indexOf(",") ? property.split(",").forEach(function (a) {
+        return _this.tfm[a] = _get(target, a);
+      }) : this.tfm[property] = cache.x ? cache[property] : _get(target, property); // note: scale would map to "scaleX,scaleY", thus we loop and apply them both.
+
+      property === _transformOriginProp && (this.tfm.zOrigin = cache.zOrigin);
+    } else {
+      return _propertyAliases.transform.split(",").forEach(function (p) {
+        return _saveStyle.call(_this, p, isNotCSS);
+      });
+    }
+
+    if (this.props.indexOf(_transformProp) >= 0) {
+      return;
+    }
+
+    if (cache.svg) {
+      this.svgo = target.getAttribute("data-svg-origin");
+      this.props.push(_transformOriginProp, isNotCSS, "");
+    }
+
+    property = _transformProp;
+  }
+
+  (style || isNotCSS) && this.props.push(property, isNotCSS, style[property]);
+},
+    _removeIndependentTransforms = function _removeIndependentTransforms(style) {
+  if (style.translate) {
+    style.removeProperty("translate");
+    style.removeProperty("scale");
+    style.removeProperty("rotate");
+  }
+},
+    _revertStyle = function _revertStyle() {
+  var props = this.props,
+      target = this.target,
+      style = target.style,
+      cache = target._gsap,
+      i,
+      p;
+
+  for (i = 0; i < props.length; i += 3) {
+    // stored like this: property, isNotCSS, value
+    props[i + 1] ? target[props[i]] = props[i + 2] : props[i + 2] ? style[props[i]] = props[i + 2] : style.removeProperty(props[i].substr(0, 2) === "--" ? props[i] : props[i].replace(_capsExp, "-$1").toLowerCase());
+  }
+
+  if (this.tfm) {
+    for (p in this.tfm) {
+      cache[p] = this.tfm[p];
+    }
+
+    if (cache.svg) {
+      cache.renderTransform();
+      target.setAttribute("data-svg-origin", this.svgo || "");
+    }
+
+    i = _reverting();
+
+    if ((!i || !i.isStart) && !style[_transformProp]) {
+      _removeIndependentTransforms(style);
+
+      if (cache.zOrigin && style[_transformOriginProp]) {
+        style[_transformOriginProp] += " " + cache.zOrigin + "px"; // since we're uncaching, we must put the zOrigin back into the transformOrigin so that we can pull it out accurately when we parse again. Otherwise, we'd lose the z portion of the origin since we extract it to protect from Safari bugs.
+
+        cache.zOrigin = 0;
+        cache.renderTransform();
+      }
+
+      cache.uncache = 1; // if it's a startAt that's being reverted in the _initTween() of the core, we don't need to uncache transforms. This is purely a performance optimization.
+    }
+  }
+},
+    _getStyleSaver = function _getStyleSaver(target, properties) {
+  var saver = {
+    target: target,
+    props: [],
+    revert: _revertStyle,
+    save: _saveStyle
+  };
+  target._gsap || _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.core.getCache(target); // just make sure there's a _gsap cache defined because we read from it in _saveStyle() and it's more efficient to just check it here once.
+
+  properties && properties.split(",").forEach(function (p) {
+    return saver.save(p);
+  });
+  return saver;
+},
+    _supports3D,
+    _createElement = function _createElement(type, ns) {
+  var e = _doc.createElementNS ? _doc.createElementNS((ns || "http://www.w3.org/1999/xhtml").replace(/^https/, "http"), type) : _doc.createElement(type); //some servers swap in https for http in the namespace which can break things, making "style" inaccessible.
+
+  return e && e.style ? e : _doc.createElement(type); //some environments won't allow access to the element's style when created with a namespace in which case we default to the standard createElement() to work around the issue. Also note that when GSAP is embedded directly inside an SVG file, createElement() won't allow access to the style object in Firefox (see https://gsap.com/forums/topic/20215-problem-using-tweenmax-in-standalone-self-containing-svg-file-err-cannot-set-property-csstext-of-undefined/).
+},
+    _getComputedProperty = function _getComputedProperty(target, property, skipPrefixFallback) {
+  var cs = getComputedStyle(target);
+  return cs[property] || cs.getPropertyValue(property.replace(_capsExp, "-$1").toLowerCase()) || cs.getPropertyValue(property) || !skipPrefixFallback && _getComputedProperty(target, _checkPropPrefix(property) || property, 1) || ""; //css variables may not need caps swapped out for dashes and lowercase.
+},
+    _prefixes = "O,Moz,ms,Ms,Webkit".split(","),
+    _checkPropPrefix = function _checkPropPrefix(property, element, preferPrefix) {
+  var e = element || _tempDiv,
+      s = e.style,
+      i = 5;
+
+  if (property in s && !preferPrefix) {
+    return property;
+  }
+
+  property = property.charAt(0).toUpperCase() + property.substr(1);
+
+  while (i-- && !(_prefixes[i] + property in s)) {}
+
+  return i < 0 ? null : (i === 3 ? "ms" : i >= 0 ? _prefixes[i] : "") + property;
+},
+    _initCore = function _initCore() {
+  if (_windowExists() && window.document) {
+    _win = window;
+    _doc = _win.document;
+    _docElement = _doc.documentElement;
+    _tempDiv = _createElement("div") || {
+      style: {}
+    };
+    _tempDivStyler = _createElement("div");
+    _transformProp = _checkPropPrefix(_transformProp);
+    _transformOriginProp = _transformProp + "Origin";
+    _tempDiv.style.cssText = "border-width:0;line-height:0;position:absolute;padding:0"; //make sure to override certain properties that may contaminate measurements, in case the user has overreaching style sheets.
+
+    _supports3D = !!_checkPropPrefix("perspective");
+    _reverting = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.core.reverting;
+    _pluginInitted = 1;
+  }
+},
+    _getBBoxHack = function _getBBoxHack(swapIfPossible) {
+  //works around issues in some browsers (like Firefox) that don't correctly report getBBox() on SVG elements inside a <defs> element and/or <mask>. We try creating an SVG, adding it to the documentElement and toss the element in there so that it's definitely part of the rendering tree, then grab the bbox and if it works, we actually swap out the original getBBox() method for our own that does these extra steps whenever getBBox is needed. This helps ensure that performance is optimal (only do all these extra steps when absolutely necessary...most elements don't need it).
+  var svg = _createElement("svg", this.ownerSVGElement && this.ownerSVGElement.getAttribute("xmlns") || "http://www.w3.org/2000/svg"),
+      oldParent = this.parentNode,
+      oldSibling = this.nextSibling,
+      oldCSS = this.style.cssText,
+      bbox;
+
+  _docElement.appendChild(svg);
+
+  svg.appendChild(this);
+  this.style.display = "block";
+
+  if (swapIfPossible) {
+    try {
+      bbox = this.getBBox();
+      this._gsapBBox = this.getBBox; //store the original
+
+      this.getBBox = _getBBoxHack;
+    } catch (e) {}
+  } else if (this._gsapBBox) {
+    bbox = this._gsapBBox();
+  }
+
+  if (oldParent) {
+    if (oldSibling) {
+      oldParent.insertBefore(this, oldSibling);
+    } else {
+      oldParent.appendChild(this);
+    }
+  }
+
+  _docElement.removeChild(svg);
+
+  this.style.cssText = oldCSS;
+  return bbox;
+},
+    _getAttributeFallbacks = function _getAttributeFallbacks(target, attributesArray) {
+  var i = attributesArray.length;
+
+  while (i--) {
+    if (target.hasAttribute(attributesArray[i])) {
+      return target.getAttribute(attributesArray[i]);
+    }
+  }
+},
+    _getBBox = function _getBBox(target) {
+  var bounds;
+
+  try {
+    bounds = target.getBBox(); //Firefox throws errors if you try calling getBBox() on an SVG element that's not rendered (like in a <symbol> or <defs>). https://bugzilla.mozilla.org/show_bug.cgi?id=612118
+  } catch (error) {
+    bounds = _getBBoxHack.call(target, true);
+  }
+
+  bounds && (bounds.width || bounds.height) || target.getBBox === _getBBoxHack || (bounds = _getBBoxHack.call(target, true)); //some browsers (like Firefox) misreport the bounds if the element has zero width and height (it just assumes it's at x:0, y:0), thus we need to manually grab the position in that case.
+
+  return bounds && !bounds.width && !bounds.x && !bounds.y ? {
+    x: +_getAttributeFallbacks(target, ["x", "cx", "x1"]) || 0,
+    y: +_getAttributeFallbacks(target, ["y", "cy", "y1"]) || 0,
+    width: 0,
+    height: 0
+  } : bounds;
+},
+    _isSVG = function _isSVG(e) {
+  return !!(e.getCTM && (!e.parentNode || e.ownerSVGElement) && _getBBox(e));
+},
+    //reports if the element is an SVG on which getBBox() actually works
+_removeProperty = function _removeProperty(target, property) {
+  if (property) {
+    var style = target.style,
+        first2Chars;
+
+    if (property in _transformProps && property !== _transformOriginProp) {
+      property = _transformProp;
+    }
+
+    if (style.removeProperty) {
+      first2Chars = property.substr(0, 2);
+
+      if (first2Chars === "ms" || property.substr(0, 6) === "webkit") {
+        //Microsoft and some Webkit browsers don't conform to the standard of capitalizing the first prefix character, so we adjust so that when we prefix the caps with a dash, it's correct (otherwise it'd be "ms-transform" instead of "-ms-transform" for IE9, for example)
+        property = "-" + property;
+      }
+
+      style.removeProperty(first2Chars === "--" ? property : property.replace(_capsExp, "-$1").toLowerCase());
+    } else {
+      //note: old versions of IE use "removeAttribute()" instead of "removeProperty()"
+      style.removeAttribute(property);
+    }
+  }
+},
+    _addNonTweeningPT = function _addNonTweeningPT(plugin, target, property, beginning, end, onlySetAtEnd) {
+  var pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(plugin._pt, target, property, 0, 1, onlySetAtEnd ? _renderNonTweeningValueOnlyAtEnd : _renderNonTweeningValue);
+  plugin._pt = pt;
+  pt.b = beginning;
+  pt.e = end;
+
+  plugin._props.push(property);
+
+  return pt;
+},
+    _nonConvertibleUnits = {
+  deg: 1,
+  rad: 1,
+  turn: 1
+},
+    _nonStandardLayouts = {
+  grid: 1,
+  flex: 1
+},
+    //takes a single value like 20px and converts it to the unit specified, like "%", returning only the numeric amount.
+_convertToUnit = function _convertToUnit(target, property, value, unit) {
+  var curValue = parseFloat(value) || 0,
+      curUnit = (value + "").trim().substr((curValue + "").length) || "px",
+      // some browsers leave extra whitespace at the beginning of CSS variables, hence the need to trim()
+  style = _tempDiv.style,
+      horizontal = _horizontalExp.test(property),
+      isRootSVG = target.tagName.toLowerCase() === "svg",
+      measureProperty = (isRootSVG ? "client" : "offset") + (horizontal ? "Width" : "Height"),
+      amount = 100,
+      toPixels = unit === "px",
+      toPercent = unit === "%",
+      px,
+      parent,
+      cache,
+      isSVG;
+
+  if (unit === curUnit || !curValue || _nonConvertibleUnits[unit] || _nonConvertibleUnits[curUnit]) {
+    return curValue;
+  }
+
+  curUnit !== "px" && !toPixels && (curValue = _convertToUnit(target, property, value, "px"));
+  isSVG = target.getCTM && _isSVG(target);
+
+  if ((toPercent || curUnit === "%") && (_transformProps[property] || ~property.indexOf("adius"))) {
+    px = isSVG ? target.getBBox()[horizontal ? "width" : "height"] : target[measureProperty];
+    return (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(toPercent ? curValue / px * amount : curValue / 100 * px);
+  }
+
+  style[horizontal ? "width" : "height"] = amount + (toPixels ? curUnit : unit);
+  parent = ~property.indexOf("adius") || unit === "em" && target.appendChild && !isRootSVG ? target : target.parentNode;
+
+  if (isSVG) {
+    parent = (target.ownerSVGElement || {}).parentNode;
+  }
+
+  if (!parent || parent === _doc || !parent.appendChild) {
+    parent = _doc.body;
+  }
+
+  cache = parent._gsap;
+
+  if (cache && toPercent && cache.width && horizontal && cache.time === _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._ticker.time && !cache.uncache) {
+    return (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(curValue / cache.width * amount);
+  } else {
+    if (toPercent && (property === "height" || property === "width")) {
+      // if we're dealing with width/height that's inside a container with padding and/or it's a flexbox/grid container, we must apply it to the target itself rather than the _tempDiv in order to ensure complete accuracy, factoring in the parent's padding.
+      var v = target.style[property];
+      target.style[property] = amount + unit;
+      px = target[measureProperty];
+      v ? target.style[property] = v : _removeProperty(target, property);
+    } else {
+      (toPercent || curUnit === "%") && !_nonStandardLayouts[_getComputedProperty(parent, "display")] && (style.position = _getComputedProperty(target, "position"));
+      parent === target && (style.position = "static"); // like for borderRadius, if it's a % we must have it relative to the target itself but that may not have position: relative or position: absolute in which case it'd go up the chain until it finds its offsetParent (bad). position: static protects against that.
+
+      parent.appendChild(_tempDiv);
+      px = _tempDiv[measureProperty];
+      parent.removeChild(_tempDiv);
+      style.position = "absolute";
+    }
+
+    if (horizontal && toPercent) {
+      cache = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._getCache)(parent);
+      cache.time = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._ticker.time;
+      cache.width = parent[measureProperty];
+    }
+  }
+
+  return (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(toPixels ? px * curValue / amount : px && curValue ? amount / px * curValue : 0);
+},
+    _get = function _get(target, property, unit, uncache) {
+  var value;
+  _pluginInitted || _initCore();
+
+  if (property in _propertyAliases && property !== "transform") {
+    property = _propertyAliases[property];
+
+    if (~property.indexOf(",")) {
+      property = property.split(",")[0];
+    }
+  }
+
+  if (_transformProps[property] && property !== "transform") {
+    value = _parseTransform(target, uncache);
+    value = property !== "transformOrigin" ? value[property] : value.svg ? value.origin : _firstTwoOnly(_getComputedProperty(target, _transformOriginProp)) + " " + value.zOrigin + "px";
+  } else {
+    value = target.style[property];
+
+    if (!value || value === "auto" || uncache || ~(value + "").indexOf("calc(")) {
+      value = _specialProps[property] && _specialProps[property](target, property, unit) || _getComputedProperty(target, property) || (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._getProperty)(target, property) || (property === "opacity" ? 1 : 0); // note: some browsers, like Firefox, don't report borderRadius correctly! Instead, it only reports every corner like  borderTopLeftRadius
+    }
+  }
+
+  return unit && !~(value + "").trim().indexOf(" ") ? _convertToUnit(target, property, value, unit) + unit : value;
+},
+    _tweenComplexCSSString = function _tweenComplexCSSString(target, prop, start, end) {
+  // note: we call _tweenComplexCSSString.call(pluginInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
+  if (!start || start === "none") {
+    // some browsers like Safari actually PREFER the prefixed property and mis-report the unprefixed value like clipPath (BUG). In other words, even though clipPath exists in the style ("clipPath" in target.style) and it's set in the CSS properly (along with -webkit-clip-path), Safari reports clipPath as "none" whereas WebkitClipPath reports accurately like "ellipse(100% 0% at 50% 0%)", so in this case we must SWITCH to using the prefixed property instead. See https://gsap.com/forums/topic/18310-clippath-doesnt-work-on-ios/
+    var p = _checkPropPrefix(prop, target, 1),
+        s = p && _getComputedProperty(target, p, 1);
+
+    if (s && s !== start) {
+      prop = p;
+      start = s;
+    } else if (prop === "borderColor") {
+      start = _getComputedProperty(target, "borderTopColor"); // Firefox bug: always reports "borderColor" as "", so we must fall back to borderTopColor. See https://gsap.com/forums/topic/24583-how-to-return-colors-that-i-had-after-reverse/
+    }
+  }
+
+  var pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(this._pt, target.style, prop, 0, 1, _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._renderComplexString),
+      index = 0,
+      matchIndex = 0,
+      a,
+      result,
+      startValues,
+      startNum,
+      color,
+      startValue,
+      endValue,
+      endNum,
+      chunk,
+      endUnit,
+      startUnit,
+      endValues;
+  pt.b = start;
+  pt.e = end;
+  start += ""; // ensure values are strings
+
+  end += "";
+
+  if (end === "auto") {
+    startValue = target.style[prop];
+    target.style[prop] = end;
+    end = _getComputedProperty(target, prop) || end;
+    startValue ? target.style[prop] = startValue : _removeProperty(target, prop);
+  }
+
+  a = [start, end];
+
+  (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._colorStringFilter)(a); // pass an array with the starting and ending values and let the filter do whatever it needs to the values. If colors are found, it returns true and then we must match where the color shows up order-wise because for things like boxShadow, sometimes the browser provides the computed values with the color FIRST, but the user provides it with the color LAST, so flip them if necessary. Same for drop-shadow().
+
+
+  start = a[0];
+  end = a[1];
+  startValues = start.match(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._numWithUnitExp) || [];
+  endValues = end.match(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._numWithUnitExp) || [];
+
+  if (endValues.length) {
+    while (result = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._numWithUnitExp.exec(end)) {
+      endValue = result[0];
+      chunk = end.substring(index, result.index);
+
+      if (color) {
+        color = (color + 1) % 5;
+      } else if (chunk.substr(-5) === "rgba(" || chunk.substr(-5) === "hsla(") {
+        color = 1;
+      }
+
+      if (endValue !== (startValue = startValues[matchIndex++] || "")) {
+        startNum = parseFloat(startValue) || 0;
+        startUnit = startValue.substr((startNum + "").length);
+        endValue.charAt(1) === "=" && (endValue = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._parseRelative)(startNum, endValue) + startUnit);
+        endNum = parseFloat(endValue);
+        endUnit = endValue.substr((endNum + "").length);
+        index = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._numWithUnitExp.lastIndex - endUnit.length;
+
+        if (!endUnit) {
+          //if something like "perspective:300" is passed in and we must add a unit to the end
+          endUnit = endUnit || _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units[prop] || startUnit;
+
+          if (index === end.length) {
+            end += endUnit;
+            pt.e += endUnit;
+          }
+        }
+
+        if (startUnit !== endUnit) {
+          startNum = _convertToUnit(target, prop, startValue, endUnit) || 0;
+        } // these nested PropTweens are handled in a special way - we'll never actually call a render or setter method on them. We'll just loop through them in the parent complex string PropTween's render method.
+
+
+        pt._pt = {
+          _next: pt._pt,
+          p: chunk || matchIndex === 1 ? chunk : ",",
+          //note: SVG spec allows omission of comma/space when a negative sign is wedged between two numbers, like 2.5-5.3 instead of 2.5,-5.3 but when tweening, the negative value may switch to positive, so we insert the comma just in case.
+          s: startNum,
+          c: endNum - startNum,
+          m: color && color < 4 || prop === "zIndex" ? Math.round : 0
+        };
+      }
+    }
+
+    pt.c = index < end.length ? end.substring(index, end.length) : ""; //we use the "c" of the PropTween to store the final part of the string (after the last number)
+  } else {
+    pt.r = prop === "display" && end === "none" ? _renderNonTweeningValueOnlyAtEnd : _renderNonTweeningValue;
+  }
+
+  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._relExp.test(end) && (pt.e = 0); //if the end string contains relative values or dynamic random(...) values, delete the end it so that on the final render we don't actually set it to the string with += or -= characters (forces it to use the calculated value).
+
+  this._pt = pt; //start the linked list with this new PropTween. Remember, we call _tweenComplexCSSString.call(pluginInstance...) to ensure that it's scoped properly. We may call it from within another plugin too, thus "this" would refer to the plugin.
+
+  return pt;
+},
+    _keywordToPercent = {
+  top: "0%",
+  bottom: "100%",
+  left: "0%",
+  right: "100%",
+  center: "50%"
+},
+    _convertKeywordsToPercentages = function _convertKeywordsToPercentages(value) {
+  var split = value.split(" "),
+      x = split[0],
+      y = split[1] || "50%";
+
+  if (x === "top" || x === "bottom" || y === "left" || y === "right") {
+    //the user provided them in the wrong order, so flip them
+    value = x;
+    x = y;
+    y = value;
+  }
+
+  split[0] = _keywordToPercent[x] || x;
+  split[1] = _keywordToPercent[y] || y;
+  return split.join(" ");
+},
+    _renderClearProps = function _renderClearProps(ratio, data) {
+  if (data.tween && data.tween._time === data.tween._dur) {
+    var target = data.t,
+        style = target.style,
+        props = data.u,
+        cache = target._gsap,
+        prop,
+        clearTransforms,
+        i;
+
+    if (props === "all" || props === true) {
+      style.cssText = "";
+      clearTransforms = 1;
+    } else {
+      props = props.split(",");
+      i = props.length;
+
+      while (--i > -1) {
+        prop = props[i];
+
+        if (_transformProps[prop]) {
+          clearTransforms = 1;
+          prop = prop === "transformOrigin" ? _transformOriginProp : _transformProp;
+        }
+
+        _removeProperty(target, prop);
+      }
+    }
+
+    if (clearTransforms) {
+      _removeProperty(target, _transformProp);
+
+      if (cache) {
+        cache.svg && target.removeAttribute("transform");
+
+        _parseTransform(target, 1); // force all the cached values back to "normal"/identity, otherwise if there's another tween that's already set to render transforms on this element, it could display the wrong values.
+
+
+        cache.uncache = 1;
+
+        _removeIndependentTransforms(style);
+      }
+    }
+  }
+},
+    // note: specialProps should return 1 if (and only if) they have a non-zero priority. It indicates we need to sort the linked list.
+_specialProps = {
+  clearProps: function clearProps(plugin, target, property, endValue, tween) {
+    if (tween.data !== "isFromStart") {
+      var pt = plugin._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(plugin._pt, target, property, 0, 0, _renderClearProps);
+      pt.u = endValue;
+      pt.pr = -10;
+      pt.tween = tween;
+
+      plugin._props.push(property);
+
+      return 1;
+    }
+  }
+  /* className feature (about 0.4kb gzipped).
+  , className(plugin, target, property, endValue, tween) {
+  	let _renderClassName = (ratio, data) => {
+  			data.css.render(ratio, data.css);
+  			if (!ratio || ratio === 1) {
+  				let inline = data.rmv,
+  					target = data.t,
+  					p;
+  				target.setAttribute("class", ratio ? data.e : data.b);
+  				for (p in inline) {
+  					_removeProperty(target, p);
+  				}
+  			}
+  		},
+  		_getAllStyles = (target) => {
+  			let styles = {},
+  				computed = getComputedStyle(target),
+  				p;
+  			for (p in computed) {
+  				if (isNaN(p) && p !== "cssText" && p !== "length") {
+  					styles[p] = computed[p];
+  				}
+  			}
+  			_setDefaults(styles, _parseTransform(target, 1));
+  			return styles;
+  		},
+  		startClassList = target.getAttribute("class"),
+  		style = target.style,
+  		cssText = style.cssText,
+  		cache = target._gsap,
+  		classPT = cache.classPT,
+  		inlineToRemoveAtEnd = {},
+  		data = {t:target, plugin:plugin, rmv:inlineToRemoveAtEnd, b:startClassList, e:(endValue.charAt(1) !== "=") ? endValue : startClassList.replace(new RegExp("(?:\\s|^)" + endValue.substr(2) + "(?![\\w-])"), "") + ((endValue.charAt(0) === "+") ? " " + endValue.substr(2) : "")},
+  		changingVars = {},
+  		startVars = _getAllStyles(target),
+  		transformRelated = /(transform|perspective)/i,
+  		endVars, p;
+  	if (classPT) {
+  		classPT.r(1, classPT.d);
+  		_removeLinkedListItem(classPT.d.plugin, classPT, "_pt");
+  	}
+  	target.setAttribute("class", data.e);
+  	endVars = _getAllStyles(target, true);
+  	target.setAttribute("class", startClassList);
+  	for (p in endVars) {
+  		if (endVars[p] !== startVars[p] && !transformRelated.test(p)) {
+  			changingVars[p] = endVars[p];
+  			if (!style[p] && style[p] !== "0") {
+  				inlineToRemoveAtEnd[p] = 1;
+  			}
+  		}
+  	}
+  	cache.classPT = plugin._pt = new PropTween(plugin._pt, target, "className", 0, 0, _renderClassName, data, 0, -11);
+  	if (style.cssText !== cssText) { //only apply if things change. Otherwise, in cases like a background-image that's pulled dynamically, it could cause a refresh. See https://gsap.com/forums/topic/20368-possible-gsap-bug-switching-classnames-in-chrome/.
+  		style.cssText = cssText; //we recorded cssText before we swapped classes and ran _getAllStyles() because in cases when a className tween is overwritten, we remove all the related tweening properties from that class change (otherwise class-specific stuff can't override properties we've directly set on the target's style object due to specificity).
+  	}
+  	_parseTransform(target, true); //to clear the caching of transforms
+  	data.css = new gsap.plugins.css();
+  	data.css.init(target, changingVars, tween);
+  	plugin._props.push(...data.css._props);
+  	return 1;
+  }
+  */
+
+},
+
+/*
+ * --------------------------------------------------------------------------------------
+ * TRANSFORMS
+ * --------------------------------------------------------------------------------------
+ */
+_identity2DMatrix = [1, 0, 0, 1, 0, 0],
+    _rotationalProperties = {},
+    _isNullTransform = function _isNullTransform(value) {
+  return value === "matrix(1, 0, 0, 1, 0, 0)" || value === "none" || !value;
+},
+    _getComputedTransformMatrixAsArray = function _getComputedTransformMatrixAsArray(target) {
+  var matrixString = _getComputedProperty(target, _transformProp);
+
+  return _isNullTransform(matrixString) ? _identity2DMatrix : matrixString.substr(7).match(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._numExp).map(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round);
+},
+    _getMatrix = function _getMatrix(target, force2D) {
+  var cache = target._gsap || (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._getCache)(target),
+      style = target.style,
+      matrix = _getComputedTransformMatrixAsArray(target),
+      parent,
+      nextSibling,
+      temp,
+      addedToDOM;
+
+  if (cache.svg && target.getAttribute("transform")) {
+    temp = target.transform.baseVal.consolidate().matrix; //ensures that even complex values like "translate(50,60) rotate(135,0,0)" are parsed because it mashes it into a matrix.
+
+    matrix = [temp.a, temp.b, temp.c, temp.d, temp.e, temp.f];
+    return matrix.join(",") === "1,0,0,1,0,0" ? _identity2DMatrix : matrix;
+  } else if (matrix === _identity2DMatrix && !target.offsetParent && target !== _docElement && !cache.svg) {
+    //note: if offsetParent is null, that means the element isn't in the normal document flow, like if it has display:none or one of its ancestors has display:none). Firefox returns null for getComputedStyle() if the element is in an iframe that has display:none. https://bugzilla.mozilla.org/show_bug.cgi?id=548397
+    //browsers don't report transforms accurately unless the element is in the DOM and has a display value that's not "none". Firefox and Microsoft browsers have a partial bug where they'll report transforms even if display:none BUT not any percentage-based values like translate(-50%, 8px) will be reported as if it's translate(0, 8px).
+    temp = style.display;
+    style.display = "block";
+    parent = target.parentNode;
+
+    if (!parent || !target.offsetParent) {
+      // note: in 3.3.0 we switched target.offsetParent to _doc.body.contains(target) to avoid [sometimes unnecessary] MutationObserver calls but that wasn't adequate because there are edge cases where nested position: fixed elements need to get reparented to accurately sense transforms. See https://github.com/greensock/GSAP/issues/388 and https://github.com/greensock/GSAP/issues/375
+      addedToDOM = 1; //flag
+
+      nextSibling = target.nextElementSibling;
+
+      _docElement.appendChild(target); //we must add it to the DOM in order to get values properly
+
+    }
+
+    matrix = _getComputedTransformMatrixAsArray(target);
+    temp ? style.display = temp : _removeProperty(target, "display");
+
+    if (addedToDOM) {
+      nextSibling ? parent.insertBefore(target, nextSibling) : parent ? parent.appendChild(target) : _docElement.removeChild(target);
+    }
+  }
+
+  return force2D && matrix.length > 6 ? [matrix[0], matrix[1], matrix[4], matrix[5], matrix[12], matrix[13]] : matrix;
+},
+    _applySVGOrigin = function _applySVGOrigin(target, origin, originIsAbsolute, smooth, matrixArray, pluginToAddPropTweensTo) {
+  var cache = target._gsap,
+      matrix = matrixArray || _getMatrix(target, true),
+      xOriginOld = cache.xOrigin || 0,
+      yOriginOld = cache.yOrigin || 0,
+      xOffsetOld = cache.xOffset || 0,
+      yOffsetOld = cache.yOffset || 0,
+      a = matrix[0],
+      b = matrix[1],
+      c = matrix[2],
+      d = matrix[3],
+      tx = matrix[4],
+      ty = matrix[5],
+      originSplit = origin.split(" "),
+      xOrigin = parseFloat(originSplit[0]) || 0,
+      yOrigin = parseFloat(originSplit[1]) || 0,
+      bounds,
+      determinant,
+      x,
+      y;
+
+  if (!originIsAbsolute) {
+    bounds = _getBBox(target);
+    xOrigin = bounds.x + (~originSplit[0].indexOf("%") ? xOrigin / 100 * bounds.width : xOrigin);
+    yOrigin = bounds.y + (~(originSplit[1] || originSplit[0]).indexOf("%") ? yOrigin / 100 * bounds.height : yOrigin); // if (!("xOrigin" in cache) && (xOrigin || yOrigin)) { // added in 3.12.3, reverted in 3.12.4; requires more exploration
+    // 	xOrigin -= bounds.x;
+    // 	yOrigin -= bounds.y;
+    // }
+  } else if (matrix !== _identity2DMatrix && (determinant = a * d - b * c)) {
+    //if it's zero (like if scaleX and scaleY are zero), skip it to avoid errors with dividing by zero.
+    x = xOrigin * (d / determinant) + yOrigin * (-c / determinant) + (c * ty - d * tx) / determinant;
+    y = xOrigin * (-b / determinant) + yOrigin * (a / determinant) - (a * ty - b * tx) / determinant;
+    xOrigin = x;
+    yOrigin = y; // theory: we only had to do this for smoothing and it assumes that the previous one was not originIsAbsolute.
+  }
+
+  if (smooth || smooth !== false && cache.smooth) {
+    tx = xOrigin - xOriginOld;
+    ty = yOrigin - yOriginOld;
+    cache.xOffset = xOffsetOld + (tx * a + ty * c) - tx;
+    cache.yOffset = yOffsetOld + (tx * b + ty * d) - ty;
+  } else {
+    cache.xOffset = cache.yOffset = 0;
+  }
+
+  cache.xOrigin = xOrigin;
+  cache.yOrigin = yOrigin;
+  cache.smooth = !!smooth;
+  cache.origin = origin;
+  cache.originIsAbsolute = !!originIsAbsolute;
+  target.style[_transformOriginProp] = "0px 0px"; //otherwise, if someone sets  an origin via CSS, it will likely interfere with the SVG transform attribute ones (because remember, we're baking the origin into the matrix() value).
+
+  if (pluginToAddPropTweensTo) {
+    _addNonTweeningPT(pluginToAddPropTweensTo, cache, "xOrigin", xOriginOld, xOrigin);
+
+    _addNonTweeningPT(pluginToAddPropTweensTo, cache, "yOrigin", yOriginOld, yOrigin);
+
+    _addNonTweeningPT(pluginToAddPropTweensTo, cache, "xOffset", xOffsetOld, cache.xOffset);
+
+    _addNonTweeningPT(pluginToAddPropTweensTo, cache, "yOffset", yOffsetOld, cache.yOffset);
+  }
+
+  target.setAttribute("data-svg-origin", xOrigin + " " + yOrigin);
+},
+    _parseTransform = function _parseTransform(target, uncache) {
+  var cache = target._gsap || new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.GSCache(target);
+
+  if ("x" in cache && !uncache && !cache.uncache) {
+    return cache;
+  }
+
+  var style = target.style,
+      invertedScaleX = cache.scaleX < 0,
+      px = "px",
+      deg = "deg",
+      cs = getComputedStyle(target),
+      origin = _getComputedProperty(target, _transformOriginProp) || "0",
+      x,
+      y,
+      z,
+      scaleX,
+      scaleY,
+      rotation,
+      rotationX,
+      rotationY,
+      skewX,
+      skewY,
+      perspective,
+      xOrigin,
+      yOrigin,
+      matrix,
+      angle,
+      cos,
+      sin,
+      a,
+      b,
+      c,
+      d,
+      a12,
+      a22,
+      t1,
+      t2,
+      t3,
+      a13,
+      a23,
+      a33,
+      a42,
+      a43,
+      a32;
+  x = y = z = rotation = rotationX = rotationY = skewX = skewY = perspective = 0;
+  scaleX = scaleY = 1;
+  cache.svg = !!(target.getCTM && _isSVG(target));
+
+  if (cs.translate) {
+    // accommodate independent transforms by combining them into normal ones.
+    if (cs.translate !== "none" || cs.scale !== "none" || cs.rotate !== "none") {
+      style[_transformProp] = (cs.translate !== "none" ? "translate3d(" + (cs.translate + " 0 0").split(" ").slice(0, 3).join(", ") + ") " : "") + (cs.rotate !== "none" ? "rotate(" + cs.rotate + ") " : "") + (cs.scale !== "none" ? "scale(" + cs.scale.split(" ").join(",") + ") " : "") + (cs[_transformProp] !== "none" ? cs[_transformProp] : "");
+    }
+
+    style.scale = style.rotate = style.translate = "none";
+  }
+
+  matrix = _getMatrix(target, cache.svg);
+
+  if (cache.svg) {
+    if (cache.uncache) {
+      // if cache.uncache is true (and maybe if origin is 0,0), we need to set element.style.transformOrigin = (cache.xOrigin - bbox.x) + "px " + (cache.yOrigin - bbox.y) + "px". Previously we let the data-svg-origin stay instead, but when introducing revert(), it complicated things.
+      t2 = target.getBBox();
+      origin = cache.xOrigin - t2.x + "px " + (cache.yOrigin - t2.y) + "px";
+      t1 = "";
+    } else {
+      t1 = !uncache && target.getAttribute("data-svg-origin"); //  Remember, to work around browser inconsistencies we always force SVG elements' transformOrigin to 0,0 and offset the translation accordingly.
+    }
+
+    _applySVGOrigin(target, t1 || origin, !!t1 || cache.originIsAbsolute, cache.smooth !== false, matrix);
+  }
+
+  xOrigin = cache.xOrigin || 0;
+  yOrigin = cache.yOrigin || 0;
+
+  if (matrix !== _identity2DMatrix) {
+    a = matrix[0]; //a11
+
+    b = matrix[1]; //a21
+
+    c = matrix[2]; //a31
+
+    d = matrix[3]; //a41
+
+    x = a12 = matrix[4];
+    y = a22 = matrix[5]; //2D matrix
+
+    if (matrix.length === 6) {
+      scaleX = Math.sqrt(a * a + b * b);
+      scaleY = Math.sqrt(d * d + c * c);
+      rotation = a || b ? _atan2(b, a) * _RAD2DEG : 0; //note: if scaleX is 0, we cannot accurately measure rotation. Same for skewX with a scaleY of 0. Therefore, we default to the previously recorded value (or zero if that doesn't exist).
+
+      skewX = c || d ? _atan2(c, d) * _RAD2DEG + rotation : 0;
+      skewX && (scaleY *= Math.abs(Math.cos(skewX * _DEG2RAD)));
+
+      if (cache.svg) {
+        x -= xOrigin - (xOrigin * a + yOrigin * c);
+        y -= yOrigin - (xOrigin * b + yOrigin * d);
+      } //3D matrix
+
+    } else {
+      a32 = matrix[6];
+      a42 = matrix[7];
+      a13 = matrix[8];
+      a23 = matrix[9];
+      a33 = matrix[10];
+      a43 = matrix[11];
+      x = matrix[12];
+      y = matrix[13];
+      z = matrix[14];
+      angle = _atan2(a32, a33);
+      rotationX = angle * _RAD2DEG; //rotationX
+
+      if (angle) {
+        cos = Math.cos(-angle);
+        sin = Math.sin(-angle);
+        t1 = a12 * cos + a13 * sin;
+        t2 = a22 * cos + a23 * sin;
+        t3 = a32 * cos + a33 * sin;
+        a13 = a12 * -sin + a13 * cos;
+        a23 = a22 * -sin + a23 * cos;
+        a33 = a32 * -sin + a33 * cos;
+        a43 = a42 * -sin + a43 * cos;
+        a12 = t1;
+        a22 = t2;
+        a32 = t3;
+      } //rotationY
+
+
+      angle = _atan2(-c, a33);
+      rotationY = angle * _RAD2DEG;
+
+      if (angle) {
+        cos = Math.cos(-angle);
+        sin = Math.sin(-angle);
+        t1 = a * cos - a13 * sin;
+        t2 = b * cos - a23 * sin;
+        t3 = c * cos - a33 * sin;
+        a43 = d * sin + a43 * cos;
+        a = t1;
+        b = t2;
+        c = t3;
+      } //rotationZ
+
+
+      angle = _atan2(b, a);
+      rotation = angle * _RAD2DEG;
+
+      if (angle) {
+        cos = Math.cos(angle);
+        sin = Math.sin(angle);
+        t1 = a * cos + b * sin;
+        t2 = a12 * cos + a22 * sin;
+        b = b * cos - a * sin;
+        a22 = a22 * cos - a12 * sin;
+        a = t1;
+        a12 = t2;
+      }
+
+      if (rotationX && Math.abs(rotationX) + Math.abs(rotation) > 359.9) {
+        //when rotationY is set, it will often be parsed as 180 degrees different than it should be, and rotationX and rotation both being 180 (it looks the same), so we adjust for that here.
+        rotationX = rotation = 0;
+        rotationY = 180 - rotationY;
+      }
+
+      scaleX = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(Math.sqrt(a * a + b * b + c * c));
+      scaleY = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(Math.sqrt(a22 * a22 + a32 * a32));
+      angle = _atan2(a12, a22);
+      skewX = Math.abs(angle) > 0.0002 ? angle * _RAD2DEG : 0;
+      perspective = a43 ? 1 / (a43 < 0 ? -a43 : a43) : 0;
+    }
+
+    if (cache.svg) {
+      //sense if there are CSS transforms applied on an SVG element in which case we must overwrite them when rendering. The transform attribute is more reliable cross-browser, but we can't just remove the CSS ones because they may be applied in a CSS rule somewhere (not just inline).
+      t1 = target.getAttribute("transform");
+      cache.forceCSS = target.setAttribute("transform", "") || !_isNullTransform(_getComputedProperty(target, _transformProp));
+      t1 && target.setAttribute("transform", t1);
+    }
+  }
+
+  if (Math.abs(skewX) > 90 && Math.abs(skewX) < 270) {
+    if (invertedScaleX) {
+      scaleX *= -1;
+      skewX += rotation <= 0 ? 180 : -180;
+      rotation += rotation <= 0 ? 180 : -180;
+    } else {
+      scaleY *= -1;
+      skewX += skewX <= 0 ? 180 : -180;
+    }
+  }
+
+  uncache = uncache || cache.uncache;
+  cache.x = x - ((cache.xPercent = x && (!uncache && cache.xPercent || (Math.round(target.offsetWidth / 2) === Math.round(-x) ? -50 : 0))) ? target.offsetWidth * cache.xPercent / 100 : 0) + px;
+  cache.y = y - ((cache.yPercent = y && (!uncache && cache.yPercent || (Math.round(target.offsetHeight / 2) === Math.round(-y) ? -50 : 0))) ? target.offsetHeight * cache.yPercent / 100 : 0) + px;
+  cache.z = z + px;
+  cache.scaleX = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(scaleX);
+  cache.scaleY = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(scaleY);
+  cache.rotation = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(rotation) + deg;
+  cache.rotationX = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(rotationX) + deg;
+  cache.rotationY = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(rotationY) + deg;
+  cache.skewX = skewX + deg;
+  cache.skewY = skewY + deg;
+  cache.transformPerspective = perspective + px;
+
+  if (cache.zOrigin = parseFloat(origin.split(" ")[2]) || !uncache && cache.zOrigin || 0) {
+    style[_transformOriginProp] = _firstTwoOnly(origin);
+  }
+
+  cache.xOffset = cache.yOffset = 0;
+  cache.force3D = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.force3D;
+  cache.renderTransform = cache.svg ? _renderSVGTransforms : _supports3D ? _renderCSSTransforms : _renderNon3DTransforms;
+  cache.uncache = 0;
+  return cache;
+},
+    _firstTwoOnly = function _firstTwoOnly(value) {
+  return (value = value.split(" "))[0] + " " + value[1];
+},
+    //for handling transformOrigin values, stripping out the 3rd dimension
+_addPxTranslate = function _addPxTranslate(target, start, value) {
+  var unit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(start);
+  return (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(parseFloat(start) + parseFloat(_convertToUnit(target, "x", value + "px", unit))) + unit;
+},
+    _renderNon3DTransforms = function _renderNon3DTransforms(ratio, cache) {
+  cache.z = "0px";
+  cache.rotationY = cache.rotationX = "0deg";
+  cache.force3D = 0;
+
+  _renderCSSTransforms(ratio, cache);
+},
+    _zeroDeg = "0deg",
+    _zeroPx = "0px",
+    _endParenthesis = ") ",
+    _renderCSSTransforms = function _renderCSSTransforms(ratio, cache) {
+  var _ref = cache || this,
+      xPercent = _ref.xPercent,
+      yPercent = _ref.yPercent,
+      x = _ref.x,
+      y = _ref.y,
+      z = _ref.z,
+      rotation = _ref.rotation,
+      rotationY = _ref.rotationY,
+      rotationX = _ref.rotationX,
+      skewX = _ref.skewX,
+      skewY = _ref.skewY,
+      scaleX = _ref.scaleX,
+      scaleY = _ref.scaleY,
+      transformPerspective = _ref.transformPerspective,
+      force3D = _ref.force3D,
+      target = _ref.target,
+      zOrigin = _ref.zOrigin,
+      transforms = "",
+      use3D = force3D === "auto" && ratio && ratio !== 1 || force3D === true; // Safari has a bug that causes it not to render 3D transform-origin values properly, so we force the z origin to 0, record it in the cache, and then do the math here to offset the translate values accordingly (basically do the 3D transform-origin part manually)
+
+
+  if (zOrigin && (rotationX !== _zeroDeg || rotationY !== _zeroDeg)) {
+    var angle = parseFloat(rotationY) * _DEG2RAD,
+        a13 = Math.sin(angle),
+        a33 = Math.cos(angle),
+        cos;
+
+    angle = parseFloat(rotationX) * _DEG2RAD;
+    cos = Math.cos(angle);
+    x = _addPxTranslate(target, x, a13 * cos * -zOrigin);
+    y = _addPxTranslate(target, y, -Math.sin(angle) * -zOrigin);
+    z = _addPxTranslate(target, z, a33 * cos * -zOrigin + zOrigin);
+  }
+
+  if (transformPerspective !== _zeroPx) {
+    transforms += "perspective(" + transformPerspective + _endParenthesis;
+  }
+
+  if (xPercent || yPercent) {
+    transforms += "translate(" + xPercent + "%, " + yPercent + "%) ";
+  }
+
+  if (use3D || x !== _zeroPx || y !== _zeroPx || z !== _zeroPx) {
+    transforms += z !== _zeroPx || use3D ? "translate3d(" + x + ", " + y + ", " + z + ") " : "translate(" + x + ", " + y + _endParenthesis;
+  }
+
+  if (rotation !== _zeroDeg) {
+    transforms += "rotate(" + rotation + _endParenthesis;
+  }
+
+  if (rotationY !== _zeroDeg) {
+    transforms += "rotateY(" + rotationY + _endParenthesis;
+  }
+
+  if (rotationX !== _zeroDeg) {
+    transforms += "rotateX(" + rotationX + _endParenthesis;
+  }
+
+  if (skewX !== _zeroDeg || skewY !== _zeroDeg) {
+    transforms += "skew(" + skewX + ", " + skewY + _endParenthesis;
+  }
+
+  if (scaleX !== 1 || scaleY !== 1) {
+    transforms += "scale(" + scaleX + ", " + scaleY + _endParenthesis;
+  }
+
+  target.style[_transformProp] = transforms || "translate(0, 0)";
+},
+    _renderSVGTransforms = function _renderSVGTransforms(ratio, cache) {
+  var _ref2 = cache || this,
+      xPercent = _ref2.xPercent,
+      yPercent = _ref2.yPercent,
+      x = _ref2.x,
+      y = _ref2.y,
+      rotation = _ref2.rotation,
+      skewX = _ref2.skewX,
+      skewY = _ref2.skewY,
+      scaleX = _ref2.scaleX,
+      scaleY = _ref2.scaleY,
+      target = _ref2.target,
+      xOrigin = _ref2.xOrigin,
+      yOrigin = _ref2.yOrigin,
+      xOffset = _ref2.xOffset,
+      yOffset = _ref2.yOffset,
+      forceCSS = _ref2.forceCSS,
+      tx = parseFloat(x),
+      ty = parseFloat(y),
+      a11,
+      a21,
+      a12,
+      a22,
+      temp;
+
+  rotation = parseFloat(rotation);
+  skewX = parseFloat(skewX);
+  skewY = parseFloat(skewY);
+
+  if (skewY) {
+    //for performance reasons, we combine all skewing into the skewX and rotation values. Remember, a skewY of 10 degrees looks the same as a rotation of 10 degrees plus a skewX of 10 degrees.
+    skewY = parseFloat(skewY);
+    skewX += skewY;
+    rotation += skewY;
+  }
+
+  if (rotation || skewX) {
+    rotation *= _DEG2RAD;
+    skewX *= _DEG2RAD;
+    a11 = Math.cos(rotation) * scaleX;
+    a21 = Math.sin(rotation) * scaleX;
+    a12 = Math.sin(rotation - skewX) * -scaleY;
+    a22 = Math.cos(rotation - skewX) * scaleY;
+
+    if (skewX) {
+      skewY *= _DEG2RAD;
+      temp = Math.tan(skewX - skewY);
+      temp = Math.sqrt(1 + temp * temp);
+      a12 *= temp;
+      a22 *= temp;
+
+      if (skewY) {
+        temp = Math.tan(skewY);
+        temp = Math.sqrt(1 + temp * temp);
+        a11 *= temp;
+        a21 *= temp;
+      }
+    }
+
+    a11 = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(a11);
+    a21 = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(a21);
+    a12 = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(a12);
+    a22 = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(a22);
+  } else {
+    a11 = scaleX;
+    a22 = scaleY;
+    a21 = a12 = 0;
+  }
+
+  if (tx && !~(x + "").indexOf("px") || ty && !~(y + "").indexOf("px")) {
+    tx = _convertToUnit(target, "x", x, "px");
+    ty = _convertToUnit(target, "y", y, "px");
+  }
+
+  if (xOrigin || yOrigin || xOffset || yOffset) {
+    tx = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(tx + xOrigin - (xOrigin * a11 + yOrigin * a12) + xOffset);
+    ty = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(ty + yOrigin - (xOrigin * a21 + yOrigin * a22) + yOffset);
+  }
+
+  if (xPercent || yPercent) {
+    //The SVG spec doesn't support percentage-based translation in the "transform" attribute, so we merge it into the translation to simulate it.
+    temp = target.getBBox();
+    tx = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(tx + xPercent / 100 * temp.width);
+    ty = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(ty + yPercent / 100 * temp.height);
+  }
+
+  temp = "matrix(" + a11 + "," + a21 + "," + a12 + "," + a22 + "," + tx + "," + ty + ")";
+  target.setAttribute("transform", temp);
+  forceCSS && (target.style[_transformProp] = temp); //some browsers prioritize CSS transforms over the transform attribute. When we sense that the user has CSS transforms applied, we must overwrite them this way (otherwise some browser simply won't render the transform attribute changes!)
+},
+    _addRotationalPropTween = function _addRotationalPropTween(plugin, target, property, startNum, endValue) {
+  var cap = 360,
+      isString = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._isString)(endValue),
+      endNum = parseFloat(endValue) * (isString && ~endValue.indexOf("rad") ? _RAD2DEG : 1),
+      change = endNum - startNum,
+      finalValue = startNum + change + "deg",
+      direction,
+      pt;
+
+  if (isString) {
+    direction = endValue.split("_")[1];
+
+    if (direction === "short") {
+      change %= cap;
+
+      if (change !== change % (cap / 2)) {
+        change += change < 0 ? cap : -cap;
+      }
+    }
+
+    if (direction === "cw" && change < 0) {
+      change = (change + cap * _bigNum) % cap - ~~(change / cap) * cap;
+    } else if (direction === "ccw" && change > 0) {
+      change = (change - cap * _bigNum) % cap - ~~(change / cap) * cap;
+    }
+  }
+
+  plugin._pt = pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(plugin._pt, target, property, startNum, change, _renderPropWithEnd);
+  pt.e = finalValue;
+  pt.u = "deg";
+
+  plugin._props.push(property);
+
+  return pt;
+},
+    _assign = function _assign(target, source) {
+  // Internet Explorer doesn't have Object.assign(), so we recreate it here.
+  for (var p in source) {
+    target[p] = source[p];
+  }
+
+  return target;
+},
+    _addRawTransformPTs = function _addRawTransformPTs(plugin, transforms, target) {
+  //for handling cases where someone passes in a whole transform string, like transform: "scale(2, 3) rotate(20deg) translateY(30em)"
+  var startCache = _assign({}, target._gsap),
+      exclude = "perspective,force3D,transformOrigin,svgOrigin",
+      style = target.style,
+      endCache,
+      p,
+      startValue,
+      endValue,
+      startNum,
+      endNum,
+      startUnit,
+      endUnit;
+
+  if (startCache.svg) {
+    startValue = target.getAttribute("transform");
+    target.setAttribute("transform", "");
+    style[_transformProp] = transforms;
+    endCache = _parseTransform(target, 1);
+
+    _removeProperty(target, _transformProp);
+
+    target.setAttribute("transform", startValue);
+  } else {
+    startValue = getComputedStyle(target)[_transformProp];
+    style[_transformProp] = transforms;
+    endCache = _parseTransform(target, 1);
+    style[_transformProp] = startValue;
+  }
+
+  for (p in _transformProps) {
+    startValue = startCache[p];
+    endValue = endCache[p];
+
+    if (startValue !== endValue && exclude.indexOf(p) < 0) {
+      //tweening to no perspective gives very unintuitive results - just keep the same perspective in that case.
+      startUnit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(startValue);
+      endUnit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(endValue);
+      startNum = startUnit !== endUnit ? _convertToUnit(target, p, startValue, endUnit) : parseFloat(startValue);
+      endNum = parseFloat(endValue);
+      plugin._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(plugin._pt, endCache, p, startNum, endNum - startNum, _renderCSSProp);
+      plugin._pt.u = endUnit || 0;
+
+      plugin._props.push(p);
+    }
+  }
+
+  _assign(endCache, startCache);
+}; // handle splitting apart padding, margin, borderWidth, and borderRadius into their 4 components. Firefox, for example, won't report borderRadius correctly - it will only do borderTopLeftRadius and the other corners. We also want to handle paddingTop, marginLeft, borderRightWidth, etc.
+
+
+(0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._forEachName)("padding,margin,Width,Radius", function (name, index) {
+  var t = "Top",
+      r = "Right",
+      b = "Bottom",
+      l = "Left",
+      props = (index < 3 ? [t, r, b, l] : [t + l, t + r, b + r, b + l]).map(function (side) {
+    return index < 2 ? name + side : "border" + side + name;
+  });
+
+  _specialProps[index > 1 ? "border" + name : name] = function (plugin, target, property, endValue, tween) {
+    var a, vars;
+
+    if (arguments.length < 4) {
+      // getter, passed target, property, and unit (from _get())
+      a = props.map(function (prop) {
+        return _get(plugin, prop, property);
+      });
+      vars = a.join(" ");
+      return vars.split(a[0]).length === 5 ? a[0] : vars;
+    }
+
+    a = (endValue + "").split(" ");
+    vars = {};
+    props.forEach(function (prop, i) {
+      return vars[prop] = a[i] = a[i] || a[(i - 1) / 2 | 0];
+    });
+    plugin.init(target, vars, tween);
+  };
+});
+
+var CSSPlugin = {
+  name: "css",
+  register: _initCore,
+  targetTest: function targetTest(target) {
+    return target.style && target.nodeType;
+  },
+  init: function init(target, vars, tween, index, targets) {
+    var props = this._props,
+        style = target.style,
+        startAt = tween.vars.startAt,
+        startValue,
+        endValue,
+        endNum,
+        startNum,
+        type,
+        specialProp,
+        p,
+        startUnit,
+        endUnit,
+        relative,
+        isTransformRelated,
+        transformPropTween,
+        cache,
+        smooth,
+        hasPriority,
+        inlineProps;
+    _pluginInitted || _initCore(); // we may call init() multiple times on the same plugin instance, like when adding special properties, so make sure we don't overwrite the revert data or inlineProps
+
+    this.styles = this.styles || _getStyleSaver(target);
+    inlineProps = this.styles.props;
+    this.tween = tween;
+
+    for (p in vars) {
+      if (p === "autoRound") {
+        continue;
+      }
+
+      endValue = vars[p];
+
+      if (_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._plugins[p] && (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._checkPlugin)(p, vars, tween, index, target, targets)) {
+        // plugins
+        continue;
+      }
+
+      type = typeof endValue;
+      specialProp = _specialProps[p];
+
+      if (type === "function") {
+        endValue = endValue.call(tween, index, target, targets);
+        type = typeof endValue;
+      }
+
+      if (type === "string" && ~endValue.indexOf("random(")) {
+        endValue = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._replaceRandom)(endValue);
+      }
+
+      if (specialProp) {
+        specialProp(this, target, p, endValue, tween) && (hasPriority = 1);
+      } else if (p.substr(0, 2) === "--") {
+        //CSS variable
+        startValue = (getComputedStyle(target).getPropertyValue(p) + "").trim();
+        endValue += "";
+        _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._colorExp.lastIndex = 0;
+
+        if (!_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._colorExp.test(startValue)) {
+          // colors don't have units
+          startUnit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(startValue);
+          endUnit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(endValue);
+        }
+
+        endUnit ? startUnit !== endUnit && (startValue = _convertToUnit(target, p, startValue, endUnit) + endUnit) : startUnit && (endValue += startUnit);
+        this.add(style, "setProperty", startValue, endValue, index, targets, 0, 0, p);
+        props.push(p);
+        inlineProps.push(p, 0, style[p]);
+      } else if (type !== "undefined") {
+        if (startAt && p in startAt) {
+          // in case someone hard-codes a complex value as the start, like top: "calc(2vh / 2)". Without this, it'd use the computed value (always in px)
+          startValue = typeof startAt[p] === "function" ? startAt[p].call(tween, index, target, targets) : startAt[p];
+          (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._isString)(startValue) && ~startValue.indexOf("random(") && (startValue = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._replaceRandom)(startValue));
+          (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(startValue + "") || startValue === "auto" || (startValue += _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units[p] || (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(_get(target, p)) || ""); // for cases when someone passes in a unitless value like {x: 100}; if we try setting translate(100, 0px) it won't work.
+
+          (startValue + "").charAt(1) === "=" && (startValue = _get(target, p)); // can't work with relative values
+        } else {
+          startValue = _get(target, p);
+        }
+
+        startNum = parseFloat(startValue);
+        relative = type === "string" && endValue.charAt(1) === "=" && endValue.substr(0, 2);
+        relative && (endValue = endValue.substr(2));
+        endNum = parseFloat(endValue);
+
+        if (p in _propertyAliases) {
+          if (p === "autoAlpha") {
+            //special case where we control the visibility along with opacity. We still allow the opacity value to pass through and get tweened.
+            if (startNum === 1 && _get(target, "visibility") === "hidden" && endNum) {
+              //if visibility is initially set to "hidden", we should interpret that as intent to make opacity 0 (a convenience)
+              startNum = 0;
+            }
+
+            inlineProps.push("visibility", 0, style.visibility);
+
+            _addNonTweeningPT(this, style, "visibility", startNum ? "inherit" : "hidden", endNum ? "inherit" : "hidden", !endNum);
+          }
+
+          if (p !== "scale" && p !== "transform") {
+            p = _propertyAliases[p];
+            ~p.indexOf(",") && (p = p.split(",")[0]);
+          }
+        }
+
+        isTransformRelated = p in _transformProps; //--- TRANSFORM-RELATED ---
+
+        if (isTransformRelated) {
+          this.styles.save(p);
+
+          if (!transformPropTween) {
+            cache = target._gsap;
+            cache.renderTransform && !vars.parseTransform || _parseTransform(target, vars.parseTransform); // if, for example, gsap.set(... {transform:"translateX(50vw)"}), the _get() call doesn't parse the transform, thus cache.renderTransform won't be set yet so force the parsing of the transform here.
+
+            smooth = vars.smoothOrigin !== false && cache.smooth;
+            transformPropTween = this._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(this._pt, style, _transformProp, 0, 1, cache.renderTransform, cache, 0, -1); //the first time through, create the rendering PropTween so that it runs LAST (in the linked list, we keep adding to the beginning)
+
+            transformPropTween.dep = 1; //flag it as dependent so that if things get killed/overwritten and this is the only PropTween left, we can safely kill the whole tween.
+          }
+
+          if (p === "scale") {
+            this._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(this._pt, cache, "scaleY", cache.scaleY, (relative ? (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._parseRelative)(cache.scaleY, relative + endNum) : endNum) - cache.scaleY || 0, _renderCSSProp);
+            this._pt.u = 0;
+            props.push("scaleY", p);
+            p += "X";
+          } else if (p === "transformOrigin") {
+            inlineProps.push(_transformOriginProp, 0, style[_transformOriginProp]);
+            endValue = _convertKeywordsToPercentages(endValue); //in case something like "left top" or "bottom right" is passed in. Convert to percentages.
+
+            if (cache.svg) {
+              _applySVGOrigin(target, endValue, 0, smooth, 0, this);
+            } else {
+              endUnit = parseFloat(endValue.split(" ")[2]) || 0; //handle the zOrigin separately!
+
+              endUnit !== cache.zOrigin && _addNonTweeningPT(this, cache, "zOrigin", cache.zOrigin, endUnit);
+
+              _addNonTweeningPT(this, style, p, _firstTwoOnly(startValue), _firstTwoOnly(endValue));
+            }
+
+            continue;
+          } else if (p === "svgOrigin") {
+            _applySVGOrigin(target, endValue, 1, smooth, 0, this);
+
+            continue;
+          } else if (p in _rotationalProperties) {
+            _addRotationalPropTween(this, cache, p, startNum, relative ? (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._parseRelative)(startNum, relative + endValue) : endValue);
+
+            continue;
+          } else if (p === "smoothOrigin") {
+            _addNonTweeningPT(this, cache, "smooth", cache.smooth, endValue);
+
+            continue;
+          } else if (p === "force3D") {
+            cache[p] = endValue;
+            continue;
+          } else if (p === "transform") {
+            _addRawTransformPTs(this, endValue, target);
+
+            continue;
+          }
+        } else if (!(p in style)) {
+          p = _checkPropPrefix(p) || p;
+        }
+
+        if (isTransformRelated || (endNum || endNum === 0) && (startNum || startNum === 0) && !_complexExp.test(endValue) && p in style) {
+          startUnit = (startValue + "").substr((startNum + "").length);
+          endNum || (endNum = 0); // protect against NaN
+
+          endUnit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(endValue) || (p in _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units ? _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units[p] : startUnit);
+          startUnit !== endUnit && (startNum = _convertToUnit(target, p, startValue, endUnit));
+          this._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(this._pt, isTransformRelated ? cache : style, p, startNum, (relative ? (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._parseRelative)(startNum, relative + endNum) : endNum) - startNum, !isTransformRelated && (endUnit === "px" || p === "zIndex") && vars.autoRound !== false ? _renderRoundedCSSProp : _renderCSSProp);
+          this._pt.u = endUnit || 0;
+
+          if (startUnit !== endUnit && endUnit !== "%") {
+            //when the tween goes all the way back to the beginning, we need to revert it to the OLD/ORIGINAL value (with those units). We record that as a "b" (beginning) property and point to a render method that handles that. (performance optimization)
+            this._pt.b = startValue;
+            this._pt.r = _renderCSSPropWithBeginning;
+          }
+        } else if (!(p in style)) {
+          if (p in target) {
+            //maybe it's not a style - it could be a property added directly to an element in which case we'll try to animate that.
+            this.add(target, p, startValue || target[p], relative ? relative + endValue : endValue, index, targets);
+          } else if (p !== "parseTransform") {
+            (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._missingPlugin)(p, endValue);
+
+            continue;
+          }
+        } else {
+          _tweenComplexCSSString.call(this, target, p, startValue, relative ? relative + endValue : endValue);
+        }
+
+        isTransformRelated || (p in style ? inlineProps.push(p, 0, style[p]) : inlineProps.push(p, 1, startValue || target[p]));
+        props.push(p);
+      }
+    }
+
+    hasPriority && (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._sortPropTweensByPriority)(this);
+  },
+  render: function render(ratio, data) {
+    if (data.tween._time || !_reverting()) {
+      var pt = data._pt;
+
+      while (pt) {
+        pt.r(ratio, pt.d);
+        pt = pt._next;
+      }
+    } else {
+      data.styles.revert();
+    }
+  },
+  get: _get,
+  aliases: _propertyAliases,
+  getSetter: function getSetter(target, property, plugin) {
+    //returns a setter function that accepts target, property, value and applies it accordingly. Remember, properties like "x" aren't as simple as target.style.property = value because they've got to be applied to a proxy object and then merged into a transform string in a renderer.
+    var p = _propertyAliases[property];
+    p && p.indexOf(",") < 0 && (property = p);
+    return property in _transformProps && property !== _transformOriginProp && (target._gsap.x || _get(target, "x")) ? plugin && _recentSetterPlugin === plugin ? property === "scale" ? _setterScale : _setterTransform : (_recentSetterPlugin = plugin || {}) && (property === "scale" ? _setterScaleWithRender : _setterTransformWithRender) : target.style && !(0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._isUndefined)(target.style[property]) ? _setterCSSStyle : ~property.indexOf("-") ? _setterCSSProp : (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._getSetter)(target, property);
+  },
+  core: {
+    _removeProperty: _removeProperty,
+    _getMatrix: _getMatrix
+  }
+};
+_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.checkPrefix = _checkPropPrefix;
+_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.core.getStyleSaver = _getStyleSaver;
+
+(function (positionAndScale, rotation, others, aliases) {
+  var all = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._forEachName)(positionAndScale + "," + rotation + "," + others, function (name) {
+    _transformProps[name] = 1;
+  });
+
+  (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._forEachName)(rotation, function (name) {
+    _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units[name] = "deg";
+    _rotationalProperties[name] = 1;
+  });
+
+  _propertyAliases[all[13]] = positionAndScale + "," + rotation;
+
+  (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._forEachName)(aliases, function (name) {
+    var split = name.split(":");
+    _propertyAliases[split[1]] = all[split[0]];
+  });
+})("x,y,z,scale,scaleX,scaleY,xPercent,yPercent", "rotation,rotationX,rotationY,skewX,skewY", "transform,transformOrigin,svgOrigin,force3D,smoothOrigin,transformPerspective", "0:translateX,1:translateY,2:translateZ,8:rotate,8:rotationZ,8:rotateZ,9:rotateX,10:rotateY");
+
+(0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._forEachName)("x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective", function (name) {
+  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units[name] = "px";
+});
+
+_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(CSSPlugin);
+
+
+/***/ }),
+
+/***/ "./node_modules/gsap/Observer.js":
+/*!***************************************!*\
+  !*** ./node_modules/gsap/Observer.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Observer: () => (/* binding */ Observer),
+/* harmony export */   _getProxyProp: () => (/* binding */ _getProxyProp),
+/* harmony export */   _getScrollFunc: () => (/* binding */ _getScrollFunc),
+/* harmony export */   _getTarget: () => (/* binding */ _getTarget),
+/* harmony export */   _getVelocityProp: () => (/* binding */ _getVelocityProp),
+/* harmony export */   _horizontal: () => (/* binding */ _horizontal),
+/* harmony export */   _isViewport: () => (/* binding */ _isViewport),
+/* harmony export */   _proxies: () => (/* binding */ _proxies),
+/* harmony export */   _scrollers: () => (/* binding */ _scrollers),
+/* harmony export */   _vertical: () => (/* binding */ _vertical),
+/* harmony export */   "default": () => (/* binding */ Observer)
+/* harmony export */ });
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+/*!
+ * Observer 3.12.5
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+var gsap,
+    _coreInitted,
+    _clamp,
+    _win,
+    _doc,
+    _docEl,
+    _body,
+    _isTouch,
+    _pointerType,
+    ScrollTrigger,
+    _root,
+    _normalizer,
+    _eventTypes,
+    _context,
+    _getGSAP = function _getGSAP() {
+  return gsap || typeof window !== "undefined" && (gsap = window.gsap) && gsap.registerPlugin && gsap;
+},
+    _startup = 1,
+    _observers = [],
+    _scrollers = [],
+    _proxies = [],
+    _getTime = Date.now,
+    _bridge = function _bridge(name, value) {
+  return value;
+},
+    _integrate = function _integrate() {
+  var core = ScrollTrigger.core,
+      data = core.bridge || {},
+      scrollers = core._scrollers,
+      proxies = core._proxies;
+  scrollers.push.apply(scrollers, _scrollers);
+  proxies.push.apply(proxies, _proxies);
+  _scrollers = scrollers;
+  _proxies = proxies;
+
+  _bridge = function _bridge(name, value) {
+    return data[name](value);
+  };
+},
+    _getProxyProp = function _getProxyProp(element, property) {
+  return ~_proxies.indexOf(element) && _proxies[_proxies.indexOf(element) + 1][property];
+},
+    _isViewport = function _isViewport(el) {
+  return !!~_root.indexOf(el);
+},
+    _addListener = function _addListener(element, type, func, passive, capture) {
+  return element.addEventListener(type, func, {
+    passive: passive !== false,
+    capture: !!capture
+  });
+},
+    _removeListener = function _removeListener(element, type, func, capture) {
+  return element.removeEventListener(type, func, !!capture);
+},
+    _scrollLeft = "scrollLeft",
+    _scrollTop = "scrollTop",
+    _onScroll = function _onScroll() {
+  return _normalizer && _normalizer.isPressed || _scrollers.cache++;
+},
+    _scrollCacheFunc = function _scrollCacheFunc(f, doNotCache) {
+  var cachingFunc = function cachingFunc(value) {
+    // since reading the scrollTop/scrollLeft/pageOffsetY/pageOffsetX can trigger a layout, this function allows us to cache the value so it only gets read fresh after a "scroll" event fires (or while we're refreshing because that can lengthen the page and alter the scroll position). when "soft" is true, that means don't actually set the scroll, but cache the new value instead (useful in ScrollSmoother)
+    if (value || value === 0) {
+      _startup && (_win.history.scrollRestoration = "manual"); // otherwise the new position will get overwritten by the browser onload.
+
+      var isNormalizing = _normalizer && _normalizer.isPressed;
+      value = cachingFunc.v = Math.round(value) || (_normalizer && _normalizer.iOS ? 1 : 0); //TODO: iOS Bug: if you allow it to go to 0, Safari can start to report super strange (wildly inaccurate) touch positions!
+
+      f(value);
+      cachingFunc.cacheID = _scrollers.cache;
+      isNormalizing && _bridge("ss", value); // set scroll (notify ScrollTrigger so it can dispatch a "scrollStart" event if necessary
+    } else if (doNotCache || _scrollers.cache !== cachingFunc.cacheID || _bridge("ref")) {
+      cachingFunc.cacheID = _scrollers.cache;
+      cachingFunc.v = f();
+    }
+
+    return cachingFunc.v + cachingFunc.offset;
+  };
+
+  cachingFunc.offset = 0;
+  return f && cachingFunc;
+},
+    _horizontal = {
+  s: _scrollLeft,
+  p: "left",
+  p2: "Left",
+  os: "right",
+  os2: "Right",
+  d: "width",
+  d2: "Width",
+  a: "x",
+  sc: _scrollCacheFunc(function (value) {
+    return arguments.length ? _win.scrollTo(value, _vertical.sc()) : _win.pageXOffset || _doc[_scrollLeft] || _docEl[_scrollLeft] || _body[_scrollLeft] || 0;
+  })
+},
+    _vertical = {
+  s: _scrollTop,
+  p: "top",
+  p2: "Top",
+  os: "bottom",
+  os2: "Bottom",
+  d: "height",
+  d2: "Height",
+  a: "y",
+  op: _horizontal,
+  sc: _scrollCacheFunc(function (value) {
+    return arguments.length ? _win.scrollTo(_horizontal.sc(), value) : _win.pageYOffset || _doc[_scrollTop] || _docEl[_scrollTop] || _body[_scrollTop] || 0;
+  })
+},
+    _getTarget = function _getTarget(t, self) {
+  return (self && self._ctx && self._ctx.selector || gsap.utils.toArray)(t)[0] || (typeof t === "string" && gsap.config().nullTargetWarn !== false ? console.warn("Element not found:", t) : null);
+},
+    _getScrollFunc = function _getScrollFunc(element, _ref) {
+  var s = _ref.s,
+      sc = _ref.sc;
+  // we store the scroller functions in an alternating sequenced Array like [element, verticalScrollFunc, horizontalScrollFunc, ...] so that we can minimize memory, maximize performance, and we also record the last position as a ".rec" property in order to revert to that after refreshing to ensure things don't shift around.
+  _isViewport(element) && (element = _doc.scrollingElement || _docEl);
+
+  var i = _scrollers.indexOf(element),
+      offset = sc === _vertical.sc ? 1 : 2;
+
+  !~i && (i = _scrollers.push(element) - 1);
+  _scrollers[i + offset] || _addListener(element, "scroll", _onScroll); // clear the cache when a scroll occurs
+
+  var prev = _scrollers[i + offset],
+      func = prev || (_scrollers[i + offset] = _scrollCacheFunc(_getProxyProp(element, s), true) || (_isViewport(element) ? sc : _scrollCacheFunc(function (value) {
+    return arguments.length ? element[s] = value : element[s];
+  })));
+  func.target = element;
+  prev || (func.smooth = gsap.getProperty(element, "scrollBehavior") === "smooth"); // only set it the first time (don't reset every time a scrollFunc is requested because perhaps it happens during a refresh() when it's disabled in ScrollTrigger.
+
+  return func;
+},
+    _getVelocityProp = function _getVelocityProp(value, minTimeRefresh, useDelta) {
+  var v1 = value,
+      v2 = value,
+      t1 = _getTime(),
+      t2 = t1,
+      min = minTimeRefresh || 50,
+      dropToZeroTime = Math.max(500, min * 3),
+      update = function update(value, force) {
+    var t = _getTime();
+
+    if (force || t - t1 > min) {
+      v2 = v1;
+      v1 = value;
+      t2 = t1;
+      t1 = t;
+    } else if (useDelta) {
+      v1 += value;
+    } else {
+      // not totally necessary, but makes it a bit more accurate by adjusting the v1 value according to the new slope. This way we're not just ignoring the incoming data. Removing for now because it doesn't seem to make much practical difference and it's probably not worth the kb.
+      v1 = v2 + (value - v2) / (t - t2) * (t1 - t2);
+    }
+  },
+      reset = function reset() {
+    v2 = v1 = useDelta ? 0 : v1;
+    t2 = t1 = 0;
+  },
+      getVelocity = function getVelocity(latestValue) {
+    var tOld = t2,
+        vOld = v2,
+        t = _getTime();
+
+    (latestValue || latestValue === 0) && latestValue !== v1 && update(latestValue);
+    return t1 === t2 || t - t2 > dropToZeroTime ? 0 : (v1 + (useDelta ? vOld : -vOld)) / ((useDelta ? t : t1) - tOld) * 1000;
+  };
+
+  return {
+    update: update,
+    reset: reset,
+    getVelocity: getVelocity
+  };
+},
+    _getEvent = function _getEvent(e, preventDefault) {
+  preventDefault && !e._gsapAllow && e.preventDefault();
+  return e.changedTouches ? e.changedTouches[0] : e;
+},
+    _getAbsoluteMax = function _getAbsoluteMax(a) {
+  var max = Math.max.apply(Math, a),
+      min = Math.min.apply(Math, a);
+  return Math.abs(max) >= Math.abs(min) ? max : min;
+},
+    _setScrollTrigger = function _setScrollTrigger() {
+  ScrollTrigger = gsap.core.globals().ScrollTrigger;
+  ScrollTrigger && ScrollTrigger.core && _integrate();
+},
+    _initCore = function _initCore(core) {
+  gsap = core || _getGSAP();
+
+  if (!_coreInitted && gsap && typeof document !== "undefined" && document.body) {
+    _win = window;
+    _doc = document;
+    _docEl = _doc.documentElement;
+    _body = _doc.body;
+    _root = [_win, _doc, _docEl, _body];
+    _clamp = gsap.utils.clamp;
+
+    _context = gsap.core.context || function () {};
+
+    _pointerType = "onpointerenter" in _body ? "pointer" : "mouse"; // isTouch is 0 if no touch, 1 if ONLY touch, and 2 if it can accommodate touch but also other types like mouse/pointer.
+
+    _isTouch = Observer.isTouch = _win.matchMedia && _win.matchMedia("(hover: none), (pointer: coarse)").matches ? 1 : "ontouchstart" in _win || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0 ? 2 : 0;
+    _eventTypes = Observer.eventTypes = ("ontouchstart" in _docEl ? "touchstart,touchmove,touchcancel,touchend" : !("onpointerdown" in _docEl) ? "mousedown,mousemove,mouseup,mouseup" : "pointerdown,pointermove,pointercancel,pointerup").split(",");
+    setTimeout(function () {
+      return _startup = 0;
+    }, 500);
+
+    _setScrollTrigger();
+
+    _coreInitted = 1;
+  }
+
+  return _coreInitted;
+};
+
+_horizontal.op = _vertical;
+_scrollers.cache = 0;
+var Observer = /*#__PURE__*/function () {
+  function Observer(vars) {
+    this.init(vars);
+  }
+
+  var _proto = Observer.prototype;
+
+  _proto.init = function init(vars) {
+    _coreInitted || _initCore(gsap) || console.warn("Please gsap.registerPlugin(Observer)");
+    ScrollTrigger || _setScrollTrigger();
+    var tolerance = vars.tolerance,
+        dragMinimum = vars.dragMinimum,
+        type = vars.type,
+        target = vars.target,
+        lineHeight = vars.lineHeight,
+        debounce = vars.debounce,
+        preventDefault = vars.preventDefault,
+        onStop = vars.onStop,
+        onStopDelay = vars.onStopDelay,
+        ignore = vars.ignore,
+        wheelSpeed = vars.wheelSpeed,
+        event = vars.event,
+        onDragStart = vars.onDragStart,
+        onDragEnd = vars.onDragEnd,
+        onDrag = vars.onDrag,
+        onPress = vars.onPress,
+        onRelease = vars.onRelease,
+        onRight = vars.onRight,
+        onLeft = vars.onLeft,
+        onUp = vars.onUp,
+        onDown = vars.onDown,
+        onChangeX = vars.onChangeX,
+        onChangeY = vars.onChangeY,
+        onChange = vars.onChange,
+        onToggleX = vars.onToggleX,
+        onToggleY = vars.onToggleY,
+        onHover = vars.onHover,
+        onHoverEnd = vars.onHoverEnd,
+        onMove = vars.onMove,
+        ignoreCheck = vars.ignoreCheck,
+        isNormalizer = vars.isNormalizer,
+        onGestureStart = vars.onGestureStart,
+        onGestureEnd = vars.onGestureEnd,
+        onWheel = vars.onWheel,
+        onEnable = vars.onEnable,
+        onDisable = vars.onDisable,
+        onClick = vars.onClick,
+        scrollSpeed = vars.scrollSpeed,
+        capture = vars.capture,
+        allowClicks = vars.allowClicks,
+        lockAxis = vars.lockAxis,
+        onLockAxis = vars.onLockAxis;
+    this.target = target = _getTarget(target) || _docEl;
+    this.vars = vars;
+    ignore && (ignore = gsap.utils.toArray(ignore));
+    tolerance = tolerance || 1e-9;
+    dragMinimum = dragMinimum || 0;
+    wheelSpeed = wheelSpeed || 1;
+    scrollSpeed = scrollSpeed || 1;
+    type = type || "wheel,touch,pointer";
+    debounce = debounce !== false;
+    lineHeight || (lineHeight = parseFloat(_win.getComputedStyle(_body).lineHeight) || 22); // note: browser may report "normal", so default to 22.
+
+    var id,
+        onStopDelayedCall,
+        dragged,
+        moved,
+        wheeled,
+        locked,
+        axis,
+        self = this,
+        prevDeltaX = 0,
+        prevDeltaY = 0,
+        passive = vars.passive || !preventDefault,
+        scrollFuncX = _getScrollFunc(target, _horizontal),
+        scrollFuncY = _getScrollFunc(target, _vertical),
+        scrollX = scrollFuncX(),
+        scrollY = scrollFuncY(),
+        limitToTouch = ~type.indexOf("touch") && !~type.indexOf("pointer") && _eventTypes[0] === "pointerdown",
+        // for devices that accommodate mouse events and touch events, we need to distinguish.
+    isViewport = _isViewport(target),
+        ownerDoc = target.ownerDocument || _doc,
+        deltaX = [0, 0, 0],
+        // wheel, scroll, pointer/touch
+    deltaY = [0, 0, 0],
+        onClickTime = 0,
+        clickCapture = function clickCapture() {
+      return onClickTime = _getTime();
+    },
+        _ignoreCheck = function _ignoreCheck(e, isPointerOrTouch) {
+      return (self.event = e) && ignore && ~ignore.indexOf(e.target) || isPointerOrTouch && limitToTouch && e.pointerType !== "touch" || ignoreCheck && ignoreCheck(e, isPointerOrTouch);
+    },
+        onStopFunc = function onStopFunc() {
+      self._vx.reset();
+
+      self._vy.reset();
+
+      onStopDelayedCall.pause();
+      onStop && onStop(self);
+    },
+        update = function update() {
+      var dx = self.deltaX = _getAbsoluteMax(deltaX),
+          dy = self.deltaY = _getAbsoluteMax(deltaY),
+          changedX = Math.abs(dx) >= tolerance,
+          changedY = Math.abs(dy) >= tolerance;
+
+      onChange && (changedX || changedY) && onChange(self, dx, dy, deltaX, deltaY); // in ScrollTrigger.normalizeScroll(), we need to know if it was touch/pointer so we need access to the deltaX/deltaY Arrays before we clear them out.
+
+      if (changedX) {
+        onRight && self.deltaX > 0 && onRight(self);
+        onLeft && self.deltaX < 0 && onLeft(self);
+        onChangeX && onChangeX(self);
+        onToggleX && self.deltaX < 0 !== prevDeltaX < 0 && onToggleX(self);
+        prevDeltaX = self.deltaX;
+        deltaX[0] = deltaX[1] = deltaX[2] = 0;
+      }
+
+      if (changedY) {
+        onDown && self.deltaY > 0 && onDown(self);
+        onUp && self.deltaY < 0 && onUp(self);
+        onChangeY && onChangeY(self);
+        onToggleY && self.deltaY < 0 !== prevDeltaY < 0 && onToggleY(self);
+        prevDeltaY = self.deltaY;
+        deltaY[0] = deltaY[1] = deltaY[2] = 0;
+      }
+
+      if (moved || dragged) {
+        onMove && onMove(self);
+
+        if (dragged) {
+          onDrag(self);
+          dragged = false;
+        }
+
+        moved = false;
+      }
+
+      locked && !(locked = false) && onLockAxis && onLockAxis(self);
+
+      if (wheeled) {
+        onWheel(self);
+        wheeled = false;
+      }
+
+      id = 0;
+    },
+        onDelta = function onDelta(x, y, index) {
+      deltaX[index] += x;
+      deltaY[index] += y;
+
+      self._vx.update(x);
+
+      self._vy.update(y);
+
+      debounce ? id || (id = requestAnimationFrame(update)) : update();
+    },
+        onTouchOrPointerDelta = function onTouchOrPointerDelta(x, y) {
+      if (lockAxis && !axis) {
+        self.axis = axis = Math.abs(x) > Math.abs(y) ? "x" : "y";
+        locked = true;
+      }
+
+      if (axis !== "y") {
+        deltaX[2] += x;
+
+        self._vx.update(x, true); // update the velocity as frequently as possible instead of in the debounced function so that very quick touch-scrolls (flicks) feel natural. If it's the mouse/touch/pointer, force it so that we get snappy/accurate momentum scroll.
+
+      }
+
+      if (axis !== "x") {
+        deltaY[2] += y;
+
+        self._vy.update(y, true);
+      }
+
+      debounce ? id || (id = requestAnimationFrame(update)) : update();
+    },
+        _onDrag = function _onDrag(e) {
+      if (_ignoreCheck(e, 1)) {
+        return;
+      }
+
+      e = _getEvent(e, preventDefault);
+      var x = e.clientX,
+          y = e.clientY,
+          dx = x - self.x,
+          dy = y - self.y,
+          isDragging = self.isDragging;
+      self.x = x;
+      self.y = y;
+
+      if (isDragging || Math.abs(self.startX - x) >= dragMinimum || Math.abs(self.startY - y) >= dragMinimum) {
+        onDrag && (dragged = true);
+        isDragging || (self.isDragging = true);
+        onTouchOrPointerDelta(dx, dy);
+        isDragging || onDragStart && onDragStart(self);
+      }
+    },
+        _onPress = self.onPress = function (e) {
+      if (_ignoreCheck(e, 1) || e && e.button) {
+        return;
+      }
+
+      self.axis = axis = null;
+      onStopDelayedCall.pause();
+      self.isPressed = true;
+      e = _getEvent(e); // note: may need to preventDefault(?) Won't side-scroll on iOS Safari if we do, though.
+
+      prevDeltaX = prevDeltaY = 0;
+      self.startX = self.x = e.clientX;
+      self.startY = self.y = e.clientY;
+
+      self._vx.reset(); // otherwise the t2 may be stale if the user touches and flicks super fast and releases in less than 2 requestAnimationFrame ticks, causing velocity to be 0.
+
+
+      self._vy.reset();
+
+      _addListener(isNormalizer ? target : ownerDoc, _eventTypes[1], _onDrag, passive, true);
+
+      self.deltaX = self.deltaY = 0;
+      onPress && onPress(self);
+    },
+        _onRelease = self.onRelease = function (e) {
+      if (_ignoreCheck(e, 1)) {
+        return;
+      }
+
+      _removeListener(isNormalizer ? target : ownerDoc, _eventTypes[1], _onDrag, true);
+
+      var isTrackingDrag = !isNaN(self.y - self.startY),
+          wasDragging = self.isDragging,
+          isDragNotClick = wasDragging && (Math.abs(self.x - self.startX) > 3 || Math.abs(self.y - self.startY) > 3),
+          // some touch devices need some wiggle room in terms of sensing clicks - the finger may move a few pixels.
+      eventData = _getEvent(e);
+
+      if (!isDragNotClick && isTrackingDrag) {
+        self._vx.reset();
+
+        self._vy.reset(); //if (preventDefault && allowClicks && self.isPressed) { // check isPressed because in a rare edge case, the inputObserver in ScrollTrigger may stopPropagation() on the press/drag, so the onRelease may get fired without the onPress/onDrag ever getting called, thus it could trigger a click to occur on a link after scroll-dragging it.
+
+
+        if (preventDefault && allowClicks) {
+          gsap.delayedCall(0.08, function () {
+            // some browsers (like Firefox) won't trust script-generated clicks, so if the user tries to click on a video to play it, for example, it simply won't work. Since a regular "click" event will most likely be generated anyway (one that has its isTrusted flag set to true), we must slightly delay our script-generated click so that the "real"/trusted one is prioritized. Remember, when there are duplicate events in quick succession, we suppress all but the first one. Some browsers don't even trigger the "real" one at all, so our synthetic one is a safety valve that ensures that no matter what, a click event does get dispatched.
+            if (_getTime() - onClickTime > 300 && !e.defaultPrevented) {
+              if (e.target.click) {
+                //some browsers (like mobile Safari) don't properly trigger the click event
+                e.target.click();
+              } else if (ownerDoc.createEvent) {
+                var syntheticEvent = ownerDoc.createEvent("MouseEvents");
+                syntheticEvent.initMouseEvent("click", true, true, _win, 1, eventData.screenX, eventData.screenY, eventData.clientX, eventData.clientY, false, false, false, false, 0, null);
+                e.target.dispatchEvent(syntheticEvent);
+              }
+            }
+          });
+        }
+      }
+
+      self.isDragging = self.isGesturing = self.isPressed = false;
+      onStop && wasDragging && !isNormalizer && onStopDelayedCall.restart(true);
+      onDragEnd && wasDragging && onDragEnd(self);
+      onRelease && onRelease(self, isDragNotClick);
+    },
+        _onGestureStart = function _onGestureStart(e) {
+      return e.touches && e.touches.length > 1 && (self.isGesturing = true) && onGestureStart(e, self.isDragging);
+    },
+        _onGestureEnd = function _onGestureEnd() {
+      return (self.isGesturing = false) || onGestureEnd(self);
+    },
+        onScroll = function onScroll(e) {
+      if (_ignoreCheck(e)) {
+        return;
+      }
+
+      var x = scrollFuncX(),
+          y = scrollFuncY();
+      onDelta((x - scrollX) * scrollSpeed, (y - scrollY) * scrollSpeed, 1);
+      scrollX = x;
+      scrollY = y;
+      onStop && onStopDelayedCall.restart(true);
+    },
+        _onWheel = function _onWheel(e) {
+      if (_ignoreCheck(e)) {
+        return;
+      }
+
+      e = _getEvent(e, preventDefault);
+      onWheel && (wheeled = true);
+      var multiplier = (e.deltaMode === 1 ? lineHeight : e.deltaMode === 2 ? _win.innerHeight : 1) * wheelSpeed;
+      onDelta(e.deltaX * multiplier, e.deltaY * multiplier, 0);
+      onStop && !isNormalizer && onStopDelayedCall.restart(true);
+    },
+        _onMove = function _onMove(e) {
+      if (_ignoreCheck(e)) {
+        return;
+      }
+
+      var x = e.clientX,
+          y = e.clientY,
+          dx = x - self.x,
+          dy = y - self.y;
+      self.x = x;
+      self.y = y;
+      moved = true;
+      onStop && onStopDelayedCall.restart(true);
+      (dx || dy) && onTouchOrPointerDelta(dx, dy);
+    },
+        _onHover = function _onHover(e) {
+      self.event = e;
+      onHover(self);
+    },
+        _onHoverEnd = function _onHoverEnd(e) {
+      self.event = e;
+      onHoverEnd(self);
+    },
+        _onClick = function _onClick(e) {
+      return _ignoreCheck(e) || _getEvent(e, preventDefault) && onClick(self);
+    };
+
+    onStopDelayedCall = self._dc = gsap.delayedCall(onStopDelay || 0.25, onStopFunc).pause();
+    self.deltaX = self.deltaY = 0;
+    self._vx = _getVelocityProp(0, 50, true);
+    self._vy = _getVelocityProp(0, 50, true);
+    self.scrollX = scrollFuncX;
+    self.scrollY = scrollFuncY;
+    self.isDragging = self.isGesturing = self.isPressed = false;
+
+    _context(this);
+
+    self.enable = function (e) {
+      if (!self.isEnabled) {
+        _addListener(isViewport ? ownerDoc : target, "scroll", _onScroll);
+
+        type.indexOf("scroll") >= 0 && _addListener(isViewport ? ownerDoc : target, "scroll", onScroll, passive, capture);
+        type.indexOf("wheel") >= 0 && _addListener(target, "wheel", _onWheel, passive, capture);
+
+        if (type.indexOf("touch") >= 0 && _isTouch || type.indexOf("pointer") >= 0) {
+          _addListener(target, _eventTypes[0], _onPress, passive, capture);
+
+          _addListener(ownerDoc, _eventTypes[2], _onRelease);
+
+          _addListener(ownerDoc, _eventTypes[3], _onRelease);
+
+          allowClicks && _addListener(target, "click", clickCapture, true, true);
+          onClick && _addListener(target, "click", _onClick);
+          onGestureStart && _addListener(ownerDoc, "gesturestart", _onGestureStart);
+          onGestureEnd && _addListener(ownerDoc, "gestureend", _onGestureEnd);
+          onHover && _addListener(target, _pointerType + "enter", _onHover);
+          onHoverEnd && _addListener(target, _pointerType + "leave", _onHoverEnd);
+          onMove && _addListener(target, _pointerType + "move", _onMove);
+        }
+
+        self.isEnabled = true;
+        e && e.type && _onPress(e);
+        onEnable && onEnable(self);
+      }
+
+      return self;
+    };
+
+    self.disable = function () {
+      if (self.isEnabled) {
+        // only remove the _onScroll listener if there aren't any others that rely on the functionality.
+        _observers.filter(function (o) {
+          return o !== self && _isViewport(o.target);
+        }).length || _removeListener(isViewport ? ownerDoc : target, "scroll", _onScroll);
+
+        if (self.isPressed) {
+          self._vx.reset();
+
+          self._vy.reset();
+
+          _removeListener(isNormalizer ? target : ownerDoc, _eventTypes[1], _onDrag, true);
+        }
+
+        _removeListener(isViewport ? ownerDoc : target, "scroll", onScroll, capture);
+
+        _removeListener(target, "wheel", _onWheel, capture);
+
+        _removeListener(target, _eventTypes[0], _onPress, capture);
+
+        _removeListener(ownerDoc, _eventTypes[2], _onRelease);
+
+        _removeListener(ownerDoc, _eventTypes[3], _onRelease);
+
+        _removeListener(target, "click", clickCapture, true);
+
+        _removeListener(target, "click", _onClick);
+
+        _removeListener(ownerDoc, "gesturestart", _onGestureStart);
+
+        _removeListener(ownerDoc, "gestureend", _onGestureEnd);
+
+        _removeListener(target, _pointerType + "enter", _onHover);
+
+        _removeListener(target, _pointerType + "leave", _onHoverEnd);
+
+        _removeListener(target, _pointerType + "move", _onMove);
+
+        self.isEnabled = self.isPressed = self.isDragging = false;
+        onDisable && onDisable(self);
+      }
+    };
+
+    self.kill = self.revert = function () {
+      self.disable();
+
+      var i = _observers.indexOf(self);
+
+      i >= 0 && _observers.splice(i, 1);
+      _normalizer === self && (_normalizer = 0);
+    };
+
+    _observers.push(self);
+
+    isNormalizer && _isViewport(target) && (_normalizer = self);
+    self.enable(event);
+  };
+
+  _createClass(Observer, [{
+    key: "velocityX",
+    get: function get() {
+      return this._vx.getVelocity();
+    }
+  }, {
+    key: "velocityY",
+    get: function get() {
+      return this._vy.getVelocity();
+    }
+  }]);
+
+  return Observer;
+}();
+Observer.version = "3.12.5";
+
+Observer.create = function (vars) {
+  return new Observer(vars);
+};
+
+Observer.register = _initCore;
+
+Observer.getAll = function () {
+  return _observers.slice();
+};
+
+Observer.getById = function (id) {
+  return _observers.filter(function (o) {
+    return o.vars.id === id;
+  })[0];
+};
+
+_getGSAP() && gsap.registerPlugin(Observer);
+
+
+/***/ }),
+
+/***/ "./node_modules/gsap/ScrollTrigger.js":
+/*!********************************************!*\
+  !*** ./node_modules/gsap/ScrollTrigger.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ScrollTrigger: () => (/* binding */ ScrollTrigger),
+/* harmony export */   "default": () => (/* binding */ ScrollTrigger)
+/* harmony export */ });
+/* harmony import */ var _Observer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Observer.js */ "./node_modules/gsap/Observer.js");
+/*!
+ * ScrollTrigger 3.12.5
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+
+
+var gsap,
+    _coreInitted,
+    _win,
+    _doc,
+    _docEl,
+    _body,
+    _root,
+    _resizeDelay,
+    _toArray,
+    _clamp,
+    _time2,
+    _syncInterval,
+    _refreshing,
+    _pointerIsDown,
+    _transformProp,
+    _i,
+    _prevWidth,
+    _prevHeight,
+    _autoRefresh,
+    _sort,
+    _suppressOverwrites,
+    _ignoreResize,
+    _normalizer,
+    _ignoreMobileResize,
+    _baseScreenHeight,
+    _baseScreenWidth,
+    _fixIOSBug,
+    _context,
+    _scrollRestoration,
+    _div100vh,
+    _100vh,
+    _isReverted,
+    _clampingMax,
+    _limitCallbacks,
+    // if true, we'll only trigger callbacks if the active state toggles, so if you scroll immediately past both the start and end positions of a ScrollTrigger (thus inactive to inactive), neither its onEnter nor onLeave will be called. This is useful during startup.
+_startup = 1,
+    _getTime = Date.now,
+    _time1 = _getTime(),
+    _lastScrollTime = 0,
+    _enabled = 0,
+    _parseClamp = function _parseClamp(value, type, self) {
+  var clamp = _isString(value) && (value.substr(0, 6) === "clamp(" || value.indexOf("max") > -1);
+  self["_" + type + "Clamp"] = clamp;
+  return clamp ? value.substr(6, value.length - 7) : value;
+},
+    _keepClamp = function _keepClamp(value, clamp) {
+  return clamp && (!_isString(value) || value.substr(0, 6) !== "clamp(") ? "clamp(" + value + ")" : value;
+},
+    _rafBugFix = function _rafBugFix() {
+  return _enabled && requestAnimationFrame(_rafBugFix);
+},
+    // in some browsers (like Firefox), screen repaints weren't consistent unless we had SOMETHING queued up in requestAnimationFrame()! So this just creates a super simple loop to keep it alive and smooth out repaints.
+_pointerDownHandler = function _pointerDownHandler() {
+  return _pointerIsDown = 1;
+},
+    _pointerUpHandler = function _pointerUpHandler() {
+  return _pointerIsDown = 0;
+},
+    _passThrough = function _passThrough(v) {
+  return v;
+},
+    _round = function _round(value) {
+  return Math.round(value * 100000) / 100000 || 0;
+},
+    _windowExists = function _windowExists() {
+  return typeof window !== "undefined";
+},
+    _getGSAP = function _getGSAP() {
+  return gsap || _windowExists() && (gsap = window.gsap) && gsap.registerPlugin && gsap;
+},
+    _isViewport = function _isViewport(e) {
+  return !!~_root.indexOf(e);
+},
+    _getViewportDimension = function _getViewportDimension(dimensionProperty) {
+  return (dimensionProperty === "Height" ? _100vh : _win["inner" + dimensionProperty]) || _docEl["client" + dimensionProperty] || _body["client" + dimensionProperty];
+},
+    _getBoundsFunc = function _getBoundsFunc(element) {
+  return (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getProxyProp)(element, "getBoundingClientRect") || (_isViewport(element) ? function () {
+    _winOffsets.width = _win.innerWidth;
+    _winOffsets.height = _100vh;
+    return _winOffsets;
+  } : function () {
+    return _getBounds(element);
+  });
+},
+    _getSizeFunc = function _getSizeFunc(scroller, isViewport, _ref) {
+  var d = _ref.d,
+      d2 = _ref.d2,
+      a = _ref.a;
+  return (a = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getProxyProp)(scroller, "getBoundingClientRect")) ? function () {
+    return a()[d];
+  } : function () {
+    return (isViewport ? _getViewportDimension(d2) : scroller["client" + d2]) || 0;
+  };
+},
+    _getOffsetsFunc = function _getOffsetsFunc(element, isViewport) {
+  return !isViewport || ~_Observer_js__WEBPACK_IMPORTED_MODULE_0__._proxies.indexOf(element) ? _getBoundsFunc(element) : function () {
+    return _winOffsets;
+  };
+},
+    _maxScroll = function _maxScroll(element, _ref2) {
+  var s = _ref2.s,
+      d2 = _ref2.d2,
+      d = _ref2.d,
+      a = _ref2.a;
+  return Math.max(0, (s = "scroll" + d2) && (a = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getProxyProp)(element, s)) ? a() - _getBoundsFunc(element)()[d] : _isViewport(element) ? (_docEl[s] || _body[s]) - _getViewportDimension(d2) : element[s] - element["offset" + d2]);
+},
+    _iterateAutoRefresh = function _iterateAutoRefresh(func, events) {
+  for (var i = 0; i < _autoRefresh.length; i += 3) {
+    (!events || ~events.indexOf(_autoRefresh[i + 1])) && func(_autoRefresh[i], _autoRefresh[i + 1], _autoRefresh[i + 2]);
+  }
+},
+    _isString = function _isString(value) {
+  return typeof value === "string";
+},
+    _isFunction = function _isFunction(value) {
+  return typeof value === "function";
+},
+    _isNumber = function _isNumber(value) {
+  return typeof value === "number";
+},
+    _isObject = function _isObject(value) {
+  return typeof value === "object";
+},
+    _endAnimation = function _endAnimation(animation, reversed, pause) {
+  return animation && animation.progress(reversed ? 0 : 1) && pause && animation.pause();
+},
+    _callback = function _callback(self, func) {
+  if (self.enabled) {
+    var result = self._ctx ? self._ctx.add(function () {
+      return func(self);
+    }) : func(self);
+    result && result.totalTime && (self.callbackAnimation = result);
+  }
+},
+    _abs = Math.abs,
+    _left = "left",
+    _top = "top",
+    _right = "right",
+    _bottom = "bottom",
+    _width = "width",
+    _height = "height",
+    _Right = "Right",
+    _Left = "Left",
+    _Top = "Top",
+    _Bottom = "Bottom",
+    _padding = "padding",
+    _margin = "margin",
+    _Width = "Width",
+    _Height = "Height",
+    _px = "px",
+    _getComputedStyle = function _getComputedStyle(element) {
+  return _win.getComputedStyle(element);
+},
+    _makePositionable = function _makePositionable(element) {
+  // if the element already has position: absolute or fixed, leave that, otherwise make it position: relative
+  var position = _getComputedStyle(element).position;
+
+  element.style.position = position === "absolute" || position === "fixed" ? position : "relative";
+},
+    _setDefaults = function _setDefaults(obj, defaults) {
+  for (var p in defaults) {
+    p in obj || (obj[p] = defaults[p]);
+  }
+
+  return obj;
+},
+    _getBounds = function _getBounds(element, withoutTransforms) {
+  var tween = withoutTransforms && _getComputedStyle(element)[_transformProp] !== "matrix(1, 0, 0, 1, 0, 0)" && gsap.to(element, {
+    x: 0,
+    y: 0,
+    xPercent: 0,
+    yPercent: 0,
+    rotation: 0,
+    rotationX: 0,
+    rotationY: 0,
+    scale: 1,
+    skewX: 0,
+    skewY: 0
+  }).progress(1),
+      bounds = element.getBoundingClientRect();
+  tween && tween.progress(0).kill();
+  return bounds;
+},
+    _getSize = function _getSize(element, _ref3) {
+  var d2 = _ref3.d2;
+  return element["offset" + d2] || element["client" + d2] || 0;
+},
+    _getLabelRatioArray = function _getLabelRatioArray(timeline) {
+  var a = [],
+      labels = timeline.labels,
+      duration = timeline.duration(),
+      p;
+
+  for (p in labels) {
+    a.push(labels[p] / duration);
+  }
+
+  return a;
+},
+    _getClosestLabel = function _getClosestLabel(animation) {
+  return function (value) {
+    return gsap.utils.snap(_getLabelRatioArray(animation), value);
+  };
+},
+    _snapDirectional = function _snapDirectional(snapIncrementOrArray) {
+  var snap = gsap.utils.snap(snapIncrementOrArray),
+      a = Array.isArray(snapIncrementOrArray) && snapIncrementOrArray.slice(0).sort(function (a, b) {
+    return a - b;
+  });
+  return a ? function (value, direction, threshold) {
+    if (threshold === void 0) {
+      threshold = 1e-3;
+    }
+
+    var i;
+
+    if (!direction) {
+      return snap(value);
+    }
+
+    if (direction > 0) {
+      value -= threshold; // to avoid rounding errors. If we're too strict, it might snap forward, then immediately again, and again.
+
+      for (i = 0; i < a.length; i++) {
+        if (a[i] >= value) {
+          return a[i];
+        }
+      }
+
+      return a[i - 1];
+    } else {
+      i = a.length;
+      value += threshold;
+
+      while (i--) {
+        if (a[i] <= value) {
+          return a[i];
+        }
+      }
+    }
+
+    return a[0];
+  } : function (value, direction, threshold) {
+    if (threshold === void 0) {
+      threshold = 1e-3;
+    }
+
+    var snapped = snap(value);
+    return !direction || Math.abs(snapped - value) < threshold || snapped - value < 0 === direction < 0 ? snapped : snap(direction < 0 ? value - snapIncrementOrArray : value + snapIncrementOrArray);
+  };
+},
+    _getLabelAtDirection = function _getLabelAtDirection(timeline) {
+  return function (value, st) {
+    return _snapDirectional(_getLabelRatioArray(timeline))(value, st.direction);
+  };
+},
+    _multiListener = function _multiListener(func, element, types, callback) {
+  return types.split(",").forEach(function (type) {
+    return func(element, type, callback);
+  });
+},
+    _addListener = function _addListener(element, type, func, nonPassive, capture) {
+  return element.addEventListener(type, func, {
+    passive: !nonPassive,
+    capture: !!capture
+  });
+},
+    _removeListener = function _removeListener(element, type, func, capture) {
+  return element.removeEventListener(type, func, !!capture);
+},
+    _wheelListener = function _wheelListener(func, el, scrollFunc) {
+  scrollFunc = scrollFunc && scrollFunc.wheelHandler;
+
+  if (scrollFunc) {
+    func(el, "wheel", scrollFunc);
+    func(el, "touchmove", scrollFunc);
+  }
+},
+    _markerDefaults = {
+  startColor: "green",
+  endColor: "red",
+  indent: 0,
+  fontSize: "16px",
+  fontWeight: "normal"
+},
+    _defaults = {
+  toggleActions: "play",
+  anticipatePin: 0
+},
+    _keywords = {
+  top: 0,
+  left: 0,
+  center: 0.5,
+  bottom: 1,
+  right: 1
+},
+    _offsetToPx = function _offsetToPx(value, size) {
+  if (_isString(value)) {
+    var eqIndex = value.indexOf("="),
+        relative = ~eqIndex ? +(value.charAt(eqIndex - 1) + 1) * parseFloat(value.substr(eqIndex + 1)) : 0;
+
+    if (~eqIndex) {
+      value.indexOf("%") > eqIndex && (relative *= size / 100);
+      value = value.substr(0, eqIndex - 1);
+    }
+
+    value = relative + (value in _keywords ? _keywords[value] * size : ~value.indexOf("%") ? parseFloat(value) * size / 100 : parseFloat(value) || 0);
+  }
+
+  return value;
+},
+    _createMarker = function _createMarker(type, name, container, direction, _ref4, offset, matchWidthEl, containerAnimation) {
+  var startColor = _ref4.startColor,
+      endColor = _ref4.endColor,
+      fontSize = _ref4.fontSize,
+      indent = _ref4.indent,
+      fontWeight = _ref4.fontWeight;
+
+  var e = _doc.createElement("div"),
+      useFixedPosition = _isViewport(container) || (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getProxyProp)(container, "pinType") === "fixed",
+      isScroller = type.indexOf("scroller") !== -1,
+      parent = useFixedPosition ? _body : container,
+      isStart = type.indexOf("start") !== -1,
+      color = isStart ? startColor : endColor,
+      css = "border-color:" + color + ";font-size:" + fontSize + ";color:" + color + ";font-weight:" + fontWeight + ";pointer-events:none;white-space:nowrap;font-family:sans-serif,Arial;z-index:1000;padding:4px 8px;border-width:0;border-style:solid;";
+
+  css += "position:" + ((isScroller || containerAnimation) && useFixedPosition ? "fixed;" : "absolute;");
+  (isScroller || containerAnimation || !useFixedPosition) && (css += (direction === _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical ? _right : _bottom) + ":" + (offset + parseFloat(indent)) + "px;");
+  matchWidthEl && (css += "box-sizing:border-box;text-align:left;width:" + matchWidthEl.offsetWidth + "px;");
+  e._isStart = isStart;
+  e.setAttribute("class", "gsap-marker-" + type + (name ? " marker-" + name : ""));
+  e.style.cssText = css;
+  e.innerText = name || name === 0 ? type + "-" + name : type;
+  parent.children[0] ? parent.insertBefore(e, parent.children[0]) : parent.appendChild(e);
+  e._offset = e["offset" + direction.op.d2];
+
+  _positionMarker(e, 0, direction, isStart);
+
+  return e;
+},
+    _positionMarker = function _positionMarker(marker, start, direction, flipped) {
+  var vars = {
+    display: "block"
+  },
+      side = direction[flipped ? "os2" : "p2"],
+      oppositeSide = direction[flipped ? "p2" : "os2"];
+  marker._isFlipped = flipped;
+  vars[direction.a + "Percent"] = flipped ? -100 : 0;
+  vars[direction.a] = flipped ? "1px" : 0;
+  vars["border" + side + _Width] = 1;
+  vars["border" + oppositeSide + _Width] = 0;
+  vars[direction.p] = start + "px";
+  gsap.set(marker, vars);
+},
+    _triggers = [],
+    _ids = {},
+    _rafID,
+    _sync = function _sync() {
+  return _getTime() - _lastScrollTime > 34 && (_rafID || (_rafID = requestAnimationFrame(_updateAll)));
+},
+    _onScroll = function _onScroll() {
+  // previously, we tried to optimize performance by batching/deferring to the next requestAnimationFrame(), but discovered that Safari has a few bugs that make this unworkable (especially on iOS). See https://codepen.io/GreenSock/pen/16c435b12ef09c38125204818e7b45fc?editors=0010 and https://codepen.io/GreenSock/pen/JjOxYpQ/3dd65ccec5a60f1d862c355d84d14562?editors=0010 and https://codepen.io/GreenSock/pen/ExbrPNa/087cef197dc35445a0951e8935c41503?editors=0010
+  if (!_normalizer || !_normalizer.isPressed || _normalizer.startX > _body.clientWidth) {
+    // if the user is dragging the scrollbar, allow it.
+    _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.cache++;
+
+    if (_normalizer) {
+      _rafID || (_rafID = requestAnimationFrame(_updateAll));
+    } else {
+      _updateAll(); // Safari in particular (on desktop) NEEDS the immediate update rather than waiting for a requestAnimationFrame() whereas iOS seems to benefit from waiting for the requestAnimationFrame() tick, at least when normalizing. See https://codepen.io/GreenSock/pen/qBYozqO?editors=0110
+
+    }
+
+    _lastScrollTime || _dispatch("scrollStart");
+    _lastScrollTime = _getTime();
+  }
+},
+    _setBaseDimensions = function _setBaseDimensions() {
+  _baseScreenWidth = _win.innerWidth;
+  _baseScreenHeight = _win.innerHeight;
+},
+    _onResize = function _onResize() {
+  _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.cache++;
+  !_refreshing && !_ignoreResize && !_doc.fullscreenElement && !_doc.webkitFullscreenElement && (!_ignoreMobileResize || _baseScreenWidth !== _win.innerWidth || Math.abs(_win.innerHeight - _baseScreenHeight) > _win.innerHeight * 0.25) && _resizeDelay.restart(true);
+},
+    // ignore resizes triggered by refresh()
+_listeners = {},
+    _emptyArray = [],
+    _softRefresh = function _softRefresh() {
+  return _removeListener(ScrollTrigger, "scrollEnd", _softRefresh) || _refreshAll(true);
+},
+    _dispatch = function _dispatch(type) {
+  return _listeners[type] && _listeners[type].map(function (f) {
+    return f();
+  }) || _emptyArray;
+},
+    _savedStyles = [],
+    // when ScrollTrigger.saveStyles() is called, the inline styles are recorded in this Array in a sequential format like [element, cssText, gsCache, media]. This keeps it very memory-efficient and fast to iterate through.
+_revertRecorded = function _revertRecorded(media) {
+  for (var i = 0; i < _savedStyles.length; i += 5) {
+    if (!media || _savedStyles[i + 4] && _savedStyles[i + 4].query === media) {
+      _savedStyles[i].style.cssText = _savedStyles[i + 1];
+      _savedStyles[i].getBBox && _savedStyles[i].setAttribute("transform", _savedStyles[i + 2] || "");
+      _savedStyles[i + 3].uncache = 1;
+    }
+  }
+},
+    _revertAll = function _revertAll(kill, media) {
+  var trigger;
+
+  for (_i = 0; _i < _triggers.length; _i++) {
+    trigger = _triggers[_i];
+
+    if (trigger && (!media || trigger._ctx === media)) {
+      if (kill) {
+        trigger.kill(1);
+      } else {
+        trigger.revert(true, true);
+      }
+    }
+  }
+
+  _isReverted = true;
+  media && _revertRecorded(media);
+  media || _dispatch("revert");
+},
+    _clearScrollMemory = function _clearScrollMemory(scrollRestoration, force) {
+  // zero-out all the recorded scroll positions. Don't use _triggers because if, for example, .matchMedia() is used to create some ScrollTriggers and then the user resizes and it removes ALL ScrollTriggers, and then go back to a size where there are ScrollTriggers, it would have kept the position(s) saved from the initial state.
+  _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.cache++;
+  (force || !_refreshingAll) && _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.forEach(function (obj) {
+    return _isFunction(obj) && obj.cacheID++ && (obj.rec = 0);
+  });
+  _isString(scrollRestoration) && (_win.history.scrollRestoration = _scrollRestoration = scrollRestoration);
+},
+    _refreshingAll,
+    _refreshID = 0,
+    _queueRefreshID,
+    _queueRefreshAll = function _queueRefreshAll() {
+  // we don't want to call _refreshAll() every time we create a new ScrollTrigger (for performance reasons) - it's better to batch them. Some frameworks dynamically load content and we can't rely on the window's "load" or "DOMContentLoaded" events to trigger it.
+  if (_queueRefreshID !== _refreshID) {
+    var id = _queueRefreshID = _refreshID;
+    requestAnimationFrame(function () {
+      return id === _refreshID && _refreshAll(true);
+    });
+  }
+},
+    _refresh100vh = function _refresh100vh() {
+  _body.appendChild(_div100vh);
+
+  _100vh = !_normalizer && _div100vh.offsetHeight || _win.innerHeight;
+
+  _body.removeChild(_div100vh);
+},
+    _hideAllMarkers = function _hideAllMarkers(hide) {
+  return _toArray(".gsap-marker-start, .gsap-marker-end, .gsap-marker-scroller-start, .gsap-marker-scroller-end").forEach(function (el) {
+    return el.style.display = hide ? "none" : "block";
+  });
+},
+    _refreshAll = function _refreshAll(force, skipRevert) {
+  if (_lastScrollTime && !force && !_isReverted) {
+    _addListener(ScrollTrigger, "scrollEnd", _softRefresh);
+
+    return;
+  }
+
+  _refresh100vh();
+
+  _refreshingAll = ScrollTrigger.isRefreshing = true;
+
+  _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.forEach(function (obj) {
+    return _isFunction(obj) && ++obj.cacheID && (obj.rec = obj());
+  }); // force the clearing of the cache because some browsers take a little while to dispatch the "scroll" event and the user may have changed the scroll position and then called ScrollTrigger.refresh() right away
+
+
+  var refreshInits = _dispatch("refreshInit");
+
+  _sort && ScrollTrigger.sort();
+  skipRevert || _revertAll();
+
+  _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.forEach(function (obj) {
+    if (_isFunction(obj)) {
+      obj.smooth && (obj.target.style.scrollBehavior = "auto"); // smooth scrolling interferes
+
+      obj(0);
+    }
+  });
+
+  _triggers.slice(0).forEach(function (t) {
+    return t.refresh();
+  }); // don't loop with _i because during a refresh() someone could call ScrollTrigger.update() which would iterate through _i resulting in a skip.
+
+
+  _isReverted = false;
+
+  _triggers.forEach(function (t) {
+    // nested pins (pinnedContainer) with pinSpacing may expand the container, so we must accommodate that here.
+    if (t._subPinOffset && t.pin) {
+      var prop = t.vars.horizontal ? "offsetWidth" : "offsetHeight",
+          original = t.pin[prop];
+      t.revert(true, 1);
+      t.adjustPinSpacing(t.pin[prop] - original);
+      t.refresh();
+    }
+  });
+
+  _clampingMax = 1; // pinSpacing might be propping a page open, thus when we .setPositions() to clamp a ScrollTrigger's end we should leave the pinSpacing alone. That's what this flag is for.
+
+  _hideAllMarkers(true);
+
+  _triggers.forEach(function (t) {
+    // the scroller's max scroll position may change after all the ScrollTriggers refreshed (like pinning could push it down), so we need to loop back and correct any with end: "max". Same for anything with a clamped end
+    var max = _maxScroll(t.scroller, t._dir),
+        endClamp = t.vars.end === "max" || t._endClamp && t.end > max,
+        startClamp = t._startClamp && t.start >= max;
+
+    (endClamp || startClamp) && t.setPositions(startClamp ? max - 1 : t.start, endClamp ? Math.max(startClamp ? max : t.start + 1, max) : t.end, true);
+  });
+
+  _hideAllMarkers(false);
+
+  _clampingMax = 0;
+  refreshInits.forEach(function (result) {
+    return result && result.render && result.render(-1);
+  }); // if the onRefreshInit() returns an animation (typically a gsap.set()), revert it. This makes it easy to put things in a certain spot before refreshing for measurement purposes, and then put things back.
+
+  _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.forEach(function (obj) {
+    if (_isFunction(obj)) {
+      obj.smooth && requestAnimationFrame(function () {
+        return obj.target.style.scrollBehavior = "smooth";
+      });
+      obj.rec && obj(obj.rec);
+    }
+  });
+
+  _clearScrollMemory(_scrollRestoration, 1);
+
+  _resizeDelay.pause();
+
+  _refreshID++;
+  _refreshingAll = 2;
+
+  _updateAll(2);
+
+  _triggers.forEach(function (t) {
+    return _isFunction(t.vars.onRefresh) && t.vars.onRefresh(t);
+  });
+
+  _refreshingAll = ScrollTrigger.isRefreshing = false;
+
+  _dispatch("refresh");
+},
+    _lastScroll = 0,
+    _direction = 1,
+    _primary,
+    _updateAll = function _updateAll(force) {
+  if (force === 2 || !_refreshingAll && !_isReverted) {
+    // _isReverted could be true if, for example, a matchMedia() is in the process of executing. We don't want to update during the time everything is reverted.
+    ScrollTrigger.isUpdating = true;
+    _primary && _primary.update(0); // ScrollSmoother uses refreshPriority -9999 to become the primary that gets updated before all others because it affects the scroll position.
+
+    var l = _triggers.length,
+        time = _getTime(),
+        recordVelocity = time - _time1 >= 50,
+        scroll = l && _triggers[0].scroll();
+
+    _direction = _lastScroll > scroll ? -1 : 1;
+    _refreshingAll || (_lastScroll = scroll);
+
+    if (recordVelocity) {
+      if (_lastScrollTime && !_pointerIsDown && time - _lastScrollTime > 200) {
+        _lastScrollTime = 0;
+
+        _dispatch("scrollEnd");
+      }
+
+      _time2 = _time1;
+      _time1 = time;
+    }
+
+    if (_direction < 0) {
+      _i = l;
+
+      while (_i-- > 0) {
+        _triggers[_i] && _triggers[_i].update(0, recordVelocity);
+      }
+
+      _direction = 1;
+    } else {
+      for (_i = 0; _i < l; _i++) {
+        _triggers[_i] && _triggers[_i].update(0, recordVelocity);
+      }
+    }
+
+    ScrollTrigger.isUpdating = false;
+  }
+
+  _rafID = 0;
+},
+    _propNamesToCopy = [_left, _top, _bottom, _right, _margin + _Bottom, _margin + _Right, _margin + _Top, _margin + _Left, "display", "flexShrink", "float", "zIndex", "gridColumnStart", "gridColumnEnd", "gridRowStart", "gridRowEnd", "gridArea", "justifySelf", "alignSelf", "placeSelf", "order"],
+    _stateProps = _propNamesToCopy.concat([_width, _height, "boxSizing", "max" + _Width, "max" + _Height, "position", _margin, _padding, _padding + _Top, _padding + _Right, _padding + _Bottom, _padding + _Left]),
+    _swapPinOut = function _swapPinOut(pin, spacer, state) {
+  _setState(state);
+
+  var cache = pin._gsap;
+
+  if (cache.spacerIsNative) {
+    _setState(cache.spacerState);
+  } else if (pin._gsap.swappedIn) {
+    var parent = spacer.parentNode;
+
+    if (parent) {
+      parent.insertBefore(pin, spacer);
+      parent.removeChild(spacer);
+    }
+  }
+
+  pin._gsap.swappedIn = false;
+},
+    _swapPinIn = function _swapPinIn(pin, spacer, cs, spacerState) {
+  if (!pin._gsap.swappedIn) {
+    var i = _propNamesToCopy.length,
+        spacerStyle = spacer.style,
+        pinStyle = pin.style,
+        p;
+
+    while (i--) {
+      p = _propNamesToCopy[i];
+      spacerStyle[p] = cs[p];
+    }
+
+    spacerStyle.position = cs.position === "absolute" ? "absolute" : "relative";
+    cs.display === "inline" && (spacerStyle.display = "inline-block");
+    pinStyle[_bottom] = pinStyle[_right] = "auto";
+    spacerStyle.flexBasis = cs.flexBasis || "auto";
+    spacerStyle.overflow = "visible";
+    spacerStyle.boxSizing = "border-box";
+    spacerStyle[_width] = _getSize(pin, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal) + _px;
+    spacerStyle[_height] = _getSize(pin, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical) + _px;
+    spacerStyle[_padding] = pinStyle[_margin] = pinStyle[_top] = pinStyle[_left] = "0";
+
+    _setState(spacerState);
+
+    pinStyle[_width] = pinStyle["max" + _Width] = cs[_width];
+    pinStyle[_height] = pinStyle["max" + _Height] = cs[_height];
+    pinStyle[_padding] = cs[_padding];
+
+    if (pin.parentNode !== spacer) {
+      pin.parentNode.insertBefore(spacer, pin);
+      spacer.appendChild(pin);
+    }
+
+    pin._gsap.swappedIn = true;
+  }
+},
+    _capsExp = /([A-Z])/g,
+    _setState = function _setState(state) {
+  if (state) {
+    var style = state.t.style,
+        l = state.length,
+        i = 0,
+        p,
+        value;
+    (state.t._gsap || gsap.core.getCache(state.t)).uncache = 1; // otherwise transforms may be off
+
+    for (; i < l; i += 2) {
+      value = state[i + 1];
+      p = state[i];
+
+      if (value) {
+        style[p] = value;
+      } else if (style[p]) {
+        style.removeProperty(p.replace(_capsExp, "-$1").toLowerCase());
+      }
+    }
+  }
+},
+    _getState = function _getState(element) {
+  // returns an Array with alternating values like [property, value, property, value] and a "t" property pointing to the target (element). Makes it fast and cheap.
+  var l = _stateProps.length,
+      style = element.style,
+      state = [],
+      i = 0;
+
+  for (; i < l; i++) {
+    state.push(_stateProps[i], style[_stateProps[i]]);
+  }
+
+  state.t = element;
+  return state;
+},
+    _copyState = function _copyState(state, override, omitOffsets) {
+  var result = [],
+      l = state.length,
+      i = omitOffsets ? 8 : 0,
+      // skip top, left, right, bottom if omitOffsets is true
+  p;
+
+  for (; i < l; i += 2) {
+    p = state[i];
+    result.push(p, p in override ? override[p] : state[i + 1]);
+  }
+
+  result.t = state.t;
+  return result;
+},
+    _winOffsets = {
+  left: 0,
+  top: 0
+},
+    // // potential future feature (?) Allow users to calculate where a trigger hits (scroll position) like getScrollPosition("#id", "top bottom")
+// _getScrollPosition = (trigger, position, {scroller, containerAnimation, horizontal}) => {
+// 	scroller = _getTarget(scroller || _win);
+// 	let direction = horizontal ? _horizontal : _vertical,
+// 		isViewport = _isViewport(scroller);
+// 	_getSizeFunc(scroller, isViewport, direction);
+// 	return _parsePosition(position, _getTarget(trigger), _getSizeFunc(scroller, isViewport, direction)(), direction, _getScrollFunc(scroller, direction)(), 0, 0, 0, _getOffsetsFunc(scroller, isViewport)(), isViewport ? 0 : parseFloat(_getComputedStyle(scroller)["border" + direction.p2 + _Width]) || 0, 0, containerAnimation ? containerAnimation.duration() : _maxScroll(scroller), containerAnimation);
+// },
+_parsePosition = function _parsePosition(value, trigger, scrollerSize, direction, scroll, marker, markerScroller, self, scrollerBounds, borderWidth, useFixedPosition, scrollerMax, containerAnimation, clampZeroProp) {
+  _isFunction(value) && (value = value(self));
+
+  if (_isString(value) && value.substr(0, 3) === "max") {
+    value = scrollerMax + (value.charAt(4) === "=" ? _offsetToPx("0" + value.substr(3), scrollerSize) : 0);
+  }
+
+  var time = containerAnimation ? containerAnimation.time() : 0,
+      p1,
+      p2,
+      element;
+  containerAnimation && containerAnimation.seek(0);
+  isNaN(value) || (value = +value); // convert a string number like "45" to an actual number
+
+  if (!_isNumber(value)) {
+    _isFunction(trigger) && (trigger = trigger(self));
+    var offsets = (value || "0").split(" "),
+        bounds,
+        localOffset,
+        globalOffset,
+        display;
+    element = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(trigger, self) || _body;
+    bounds = _getBounds(element) || {};
+
+    if ((!bounds || !bounds.left && !bounds.top) && _getComputedStyle(element).display === "none") {
+      // if display is "none", it won't report getBoundingClientRect() properly
+      display = element.style.display;
+      element.style.display = "block";
+      bounds = _getBounds(element);
+      display ? element.style.display = display : element.style.removeProperty("display");
+    }
+
+    localOffset = _offsetToPx(offsets[0], bounds[direction.d]);
+    globalOffset = _offsetToPx(offsets[1] || "0", scrollerSize);
+    value = bounds[direction.p] - scrollerBounds[direction.p] - borderWidth + localOffset + scroll - globalOffset;
+    markerScroller && _positionMarker(markerScroller, globalOffset, direction, scrollerSize - globalOffset < 20 || markerScroller._isStart && globalOffset > 20);
+    scrollerSize -= scrollerSize - globalOffset; // adjust for the marker
+  } else {
+    containerAnimation && (value = gsap.utils.mapRange(containerAnimation.scrollTrigger.start, containerAnimation.scrollTrigger.end, 0, scrollerMax, value));
+    markerScroller && _positionMarker(markerScroller, scrollerSize, direction, true);
+  }
+
+  if (clampZeroProp) {
+    self[clampZeroProp] = value || -0.001;
+    value < 0 && (value = 0);
+  }
+
+  if (marker) {
+    var position = value + scrollerSize,
+        isStart = marker._isStart;
+    p1 = "scroll" + direction.d2;
+
+    _positionMarker(marker, position, direction, isStart && position > 20 || !isStart && (useFixedPosition ? Math.max(_body[p1], _docEl[p1]) : marker.parentNode[p1]) <= position + 1);
+
+    if (useFixedPosition) {
+      scrollerBounds = _getBounds(markerScroller);
+      useFixedPosition && (marker.style[direction.op.p] = scrollerBounds[direction.op.p] - direction.op.m - marker._offset + _px);
+    }
+  }
+
+  if (containerAnimation && element) {
+    p1 = _getBounds(element);
+    containerAnimation.seek(scrollerMax);
+    p2 = _getBounds(element);
+    containerAnimation._caScrollDist = p1[direction.p] - p2[direction.p];
+    value = value / containerAnimation._caScrollDist * scrollerMax;
+  }
+
+  containerAnimation && containerAnimation.seek(time);
+  return containerAnimation ? value : Math.round(value);
+},
+    _prefixExp = /(webkit|moz|length|cssText|inset)/i,
+    _reparent = function _reparent(element, parent, top, left) {
+  if (element.parentNode !== parent) {
+    var style = element.style,
+        p,
+        cs;
+
+    if (parent === _body) {
+      element._stOrig = style.cssText; // record original inline styles so we can revert them later
+
+      cs = _getComputedStyle(element);
+
+      for (p in cs) {
+        // must copy all relevant styles to ensure that nothing changes visually when we reparent to the <body>. Skip the vendor prefixed ones.
+        if (!+p && !_prefixExp.test(p) && cs[p] && typeof style[p] === "string" && p !== "0") {
+          style[p] = cs[p];
+        }
+      }
+
+      style.top = top;
+      style.left = left;
+    } else {
+      style.cssText = element._stOrig;
+    }
+
+    gsap.core.getCache(element).uncache = 1;
+    parent.appendChild(element);
+  }
+},
+    _interruptionTracker = function _interruptionTracker(getValueFunc, initialValue, onInterrupt) {
+  var last1 = initialValue,
+      last2 = last1;
+  return function (value) {
+    var current = Math.round(getValueFunc()); // round because in some [very uncommon] Windows environments, scroll can get reported with decimals even though it was set without.
+
+    if (current !== last1 && current !== last2 && Math.abs(current - last1) > 3 && Math.abs(current - last2) > 3) {
+      // if the user scrolls, kill the tween. iOS Safari intermittently misreports the scroll position, it may be the most recently-set one or the one before that! When Safari is zoomed (CMD-+), it often misreports as 1 pixel off too! So if we set the scroll position to 125, for example, it'll actually report it as 124.
+      value = current;
+      onInterrupt && onInterrupt();
+    }
+
+    last2 = last1;
+    last1 = value;
+    return value;
+  };
+},
+    _shiftMarker = function _shiftMarker(marker, direction, value) {
+  var vars = {};
+  vars[direction.p] = "+=" + value;
+  gsap.set(marker, vars);
+},
+    // _mergeAnimations = animations => {
+// 	let tl = gsap.timeline({smoothChildTiming: true}).startTime(Math.min(...animations.map(a => a.globalTime(0))));
+// 	animations.forEach(a => {let time = a.totalTime(); tl.add(a); a.totalTime(time); });
+// 	tl.smoothChildTiming = false;
+// 	return tl;
+// },
+// returns a function that can be used to tween the scroll position in the direction provided, and when doing so it'll add a .tween property to the FUNCTION itself, and remove it when the tween completes or gets killed. This gives us a way to have multiple ScrollTriggers use a central function for any given scroller and see if there's a scroll tween running (which would affect if/how things get updated)
+_getTweenCreator = function _getTweenCreator(scroller, direction) {
+  var getScroll = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getScrollFunc)(scroller, direction),
+      prop = "_scroll" + direction.p2,
+      // add a tweenable property to the scroller that's a getter/setter function, like _scrollTop or _scrollLeft. This way, if someone does gsap.killTweensOf(scroller) it'll kill the scroll tween.
+  getTween = function getTween(scrollTo, vars, initialValue, change1, change2) {
+    var tween = getTween.tween,
+        onComplete = vars.onComplete,
+        modifiers = {};
+    initialValue = initialValue || getScroll();
+
+    var checkForInterruption = _interruptionTracker(getScroll, initialValue, function () {
+      tween.kill();
+      getTween.tween = 0;
+    });
+
+    change2 = change1 && change2 || 0; // if change1 is 0, we set that to the difference and ignore change2. Otherwise, there would be a compound effect.
+
+    change1 = change1 || scrollTo - initialValue;
+    tween && tween.kill();
+    vars[prop] = scrollTo;
+    vars.inherit = false;
+    vars.modifiers = modifiers;
+
+    modifiers[prop] = function () {
+      return checkForInterruption(initialValue + change1 * tween.ratio + change2 * tween.ratio * tween.ratio);
+    };
+
+    vars.onUpdate = function () {
+      _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.cache++;
+      getTween.tween && _updateAll(); // if it was interrupted/killed, like in a context.revert(), don't force an updateAll()
+    };
+
+    vars.onComplete = function () {
+      getTween.tween = 0;
+      onComplete && onComplete.call(tween);
+    };
+
+    tween = getTween.tween = gsap.to(scroller, vars);
+    return tween;
+  };
+
+  scroller[prop] = getScroll;
+
+  getScroll.wheelHandler = function () {
+    return getTween.tween && getTween.tween.kill() && (getTween.tween = 0);
+  };
+
+  _addListener(scroller, "wheel", getScroll.wheelHandler); // Windows machines handle mousewheel scrolling in chunks (like "3 lines per scroll") meaning the typical strategy for cancelling the scroll isn't as sensitive. It's much more likely to match one of the previous 2 scroll event positions. So we kill any snapping as soon as there's a wheel event.
+
+
+  ScrollTrigger.isTouch && _addListener(scroller, "touchmove", getScroll.wheelHandler);
+  return getTween;
+};
+
+var ScrollTrigger = /*#__PURE__*/function () {
+  function ScrollTrigger(vars, animation) {
+    _coreInitted || ScrollTrigger.register(gsap) || console.warn("Please gsap.registerPlugin(ScrollTrigger)");
+
+    _context(this);
+
+    this.init(vars, animation);
+  }
+
+  var _proto = ScrollTrigger.prototype;
+
+  _proto.init = function init(vars, animation) {
+    this.progress = this.start = 0;
+    this.vars && this.kill(true, true); // in case it's being initted again
+
+    if (!_enabled) {
+      this.update = this.refresh = this.kill = _passThrough;
+      return;
+    }
+
+    vars = _setDefaults(_isString(vars) || _isNumber(vars) || vars.nodeType ? {
+      trigger: vars
+    } : vars, _defaults);
+
+    var _vars = vars,
+        onUpdate = _vars.onUpdate,
+        toggleClass = _vars.toggleClass,
+        id = _vars.id,
+        onToggle = _vars.onToggle,
+        onRefresh = _vars.onRefresh,
+        scrub = _vars.scrub,
+        trigger = _vars.trigger,
+        pin = _vars.pin,
+        pinSpacing = _vars.pinSpacing,
+        invalidateOnRefresh = _vars.invalidateOnRefresh,
+        anticipatePin = _vars.anticipatePin,
+        onScrubComplete = _vars.onScrubComplete,
+        onSnapComplete = _vars.onSnapComplete,
+        once = _vars.once,
+        snap = _vars.snap,
+        pinReparent = _vars.pinReparent,
+        pinSpacer = _vars.pinSpacer,
+        containerAnimation = _vars.containerAnimation,
+        fastScrollEnd = _vars.fastScrollEnd,
+        preventOverlaps = _vars.preventOverlaps,
+        direction = vars.horizontal || vars.containerAnimation && vars.horizontal !== false ? _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal : _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical,
+        isToggle = !scrub && scrub !== 0,
+        scroller = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(vars.scroller || _win),
+        scrollerCache = gsap.core.getCache(scroller),
+        isViewport = _isViewport(scroller),
+        useFixedPosition = ("pinType" in vars ? vars.pinType : (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getProxyProp)(scroller, "pinType") || isViewport && "fixed") === "fixed",
+        callbacks = [vars.onEnter, vars.onLeave, vars.onEnterBack, vars.onLeaveBack],
+        toggleActions = isToggle && vars.toggleActions.split(" "),
+        markers = "markers" in vars ? vars.markers : _defaults.markers,
+        borderWidth = isViewport ? 0 : parseFloat(_getComputedStyle(scroller)["border" + direction.p2 + _Width]) || 0,
+        self = this,
+        onRefreshInit = vars.onRefreshInit && function () {
+      return vars.onRefreshInit(self);
+    },
+        getScrollerSize = _getSizeFunc(scroller, isViewport, direction),
+        getScrollerOffsets = _getOffsetsFunc(scroller, isViewport),
+        lastSnap = 0,
+        lastRefresh = 0,
+        prevProgress = 0,
+        scrollFunc = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getScrollFunc)(scroller, direction),
+        tweenTo,
+        pinCache,
+        snapFunc,
+        scroll1,
+        scroll2,
+        start,
+        end,
+        markerStart,
+        markerEnd,
+        markerStartTrigger,
+        markerEndTrigger,
+        markerVars,
+        executingOnRefresh,
+        change,
+        pinOriginalState,
+        pinActiveState,
+        pinState,
+        spacer,
+        offset,
+        pinGetter,
+        pinSetter,
+        pinStart,
+        pinChange,
+        spacingStart,
+        spacerState,
+        markerStartSetter,
+        pinMoves,
+        markerEndSetter,
+        cs,
+        snap1,
+        snap2,
+        scrubTween,
+        scrubSmooth,
+        snapDurClamp,
+        snapDelayedCall,
+        prevScroll,
+        prevAnimProgress,
+        caMarkerSetter,
+        customRevertReturn; // for the sake of efficiency, _startClamp/_endClamp serve like a truthy value indicating that clamping was enabled on the start/end, and ALSO store the actual pre-clamped numeric value. We tap into that in ScrollSmoother for speed effects. So for example, if start="clamp(top bottom)" results in a start of -100 naturally, it would get clamped to 0 but -100 would be stored in _startClamp.
+
+
+    self._startClamp = self._endClamp = false;
+    self._dir = direction;
+    anticipatePin *= 45;
+    self.scroller = scroller;
+    self.scroll = containerAnimation ? containerAnimation.time.bind(containerAnimation) : scrollFunc;
+    scroll1 = scrollFunc();
+    self.vars = vars;
+    animation = animation || vars.animation;
+
+    if ("refreshPriority" in vars) {
+      _sort = 1;
+      vars.refreshPriority === -9999 && (_primary = self); // used by ScrollSmoother
+    }
+
+    scrollerCache.tweenScroll = scrollerCache.tweenScroll || {
+      top: _getTweenCreator(scroller, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical),
+      left: _getTweenCreator(scroller, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal)
+    };
+    self.tweenTo = tweenTo = scrollerCache.tweenScroll[direction.p];
+
+    self.scrubDuration = function (value) {
+      scrubSmooth = _isNumber(value) && value;
+
+      if (!scrubSmooth) {
+        scrubTween && scrubTween.progress(1).kill();
+        scrubTween = 0;
+      } else {
+        scrubTween ? scrubTween.duration(value) : scrubTween = gsap.to(animation, {
+          ease: "expo",
+          totalProgress: "+=0",
+          inherit: false,
+          duration: scrubSmooth,
+          paused: true,
+          onComplete: function onComplete() {
+            return onScrubComplete && onScrubComplete(self);
+          }
+        });
+      }
+    };
+
+    if (animation) {
+      animation.vars.lazy = false;
+      animation._initted && !self.isReverted || animation.vars.immediateRender !== false && vars.immediateRender !== false && animation.duration() && animation.render(0, true, true); // special case: if this ScrollTrigger gets re-initted, a from() tween with a stagger could get initted initially and then reverted on the re-init which means it'll need to get rendered again here to properly display things. Otherwise, See https://gsap.com/forums/topic/36777-scrollsmoother-splittext-nextjs/ and https://codepen.io/GreenSock/pen/eYPyPpd?editors=0010
+
+      self.animation = animation.pause();
+      animation.scrollTrigger = self;
+      self.scrubDuration(scrub);
+      snap1 = 0;
+      id || (id = animation.vars.id);
+    }
+
+    if (snap) {
+      // TODO: potential idea: use legitimate CSS scroll snapping by pushing invisible elements into the DOM that serve as snap positions, and toggle the document.scrollingElement.style.scrollSnapType onToggle. See https://codepen.io/GreenSock/pen/JjLrgWM for a quick proof of concept.
+      if (!_isObject(snap) || snap.push) {
+        snap = {
+          snapTo: snap
+        };
+      }
+
+      "scrollBehavior" in _body.style && gsap.set(isViewport ? [_body, _docEl] : scroller, {
+        scrollBehavior: "auto"
+      }); // smooth scrolling doesn't work with snap.
+
+      _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.forEach(function (o) {
+        return _isFunction(o) && o.target === (isViewport ? _doc.scrollingElement || _docEl : scroller) && (o.smooth = false);
+      }); // note: set smooth to false on both the vertical and horizontal scroll getters/setters
+
+
+      snapFunc = _isFunction(snap.snapTo) ? snap.snapTo : snap.snapTo === "labels" ? _getClosestLabel(animation) : snap.snapTo === "labelsDirectional" ? _getLabelAtDirection(animation) : snap.directional !== false ? function (value, st) {
+        return _snapDirectional(snap.snapTo)(value, _getTime() - lastRefresh < 500 ? 0 : st.direction);
+      } : gsap.utils.snap(snap.snapTo);
+      snapDurClamp = snap.duration || {
+        min: 0.1,
+        max: 2
+      };
+      snapDurClamp = _isObject(snapDurClamp) ? _clamp(snapDurClamp.min, snapDurClamp.max) : _clamp(snapDurClamp, snapDurClamp);
+      snapDelayedCall = gsap.delayedCall(snap.delay || scrubSmooth / 2 || 0.1, function () {
+        var scroll = scrollFunc(),
+            refreshedRecently = _getTime() - lastRefresh < 500,
+            tween = tweenTo.tween;
+
+        if ((refreshedRecently || Math.abs(self.getVelocity()) < 10) && !tween && !_pointerIsDown && lastSnap !== scroll) {
+          var progress = (scroll - start) / change,
+              totalProgress = animation && !isToggle ? animation.totalProgress() : progress,
+              velocity = refreshedRecently ? 0 : (totalProgress - snap2) / (_getTime() - _time2) * 1000 || 0,
+              change1 = gsap.utils.clamp(-progress, 1 - progress, _abs(velocity / 2) * velocity / 0.185),
+              naturalEnd = progress + (snap.inertia === false ? 0 : change1),
+              endValue,
+              endScroll,
+              _snap = snap,
+              onStart = _snap.onStart,
+              _onInterrupt = _snap.onInterrupt,
+              _onComplete = _snap.onComplete;
+          endValue = snapFunc(naturalEnd, self);
+          _isNumber(endValue) || (endValue = naturalEnd); // in case the function didn't return a number, fall back to using the naturalEnd
+
+          endScroll = Math.round(start + endValue * change);
+
+          if (scroll <= end && scroll >= start && endScroll !== scroll) {
+            if (tween && !tween._initted && tween.data <= _abs(endScroll - scroll)) {
+              // there's an overlapping snap! So we must figure out which one is closer and let that tween live.
+              return;
+            }
+
+            if (snap.inertia === false) {
+              change1 = endValue - progress;
+            }
+
+            tweenTo(endScroll, {
+              duration: snapDurClamp(_abs(Math.max(_abs(naturalEnd - totalProgress), _abs(endValue - totalProgress)) * 0.185 / velocity / 0.05 || 0)),
+              ease: snap.ease || "power3",
+              data: _abs(endScroll - scroll),
+              // record the distance so that if another snap tween occurs (conflict) we can prioritize the closest snap.
+              onInterrupt: function onInterrupt() {
+                return snapDelayedCall.restart(true) && _onInterrupt && _onInterrupt(self);
+              },
+              onComplete: function onComplete() {
+                self.update();
+                lastSnap = scrollFunc();
+
+                if (animation) {
+                  // the resolution of the scrollbar is limited, so we should correct the scrubbed animation's playhead at the end to match EXACTLY where it was supposed to snap
+                  scrubTween ? scrubTween.resetTo("totalProgress", endValue, animation._tTime / animation._tDur) : animation.progress(endValue);
+                }
+
+                snap1 = snap2 = animation && !isToggle ? animation.totalProgress() : self.progress;
+                onSnapComplete && onSnapComplete(self);
+                _onComplete && _onComplete(self);
+              }
+            }, scroll, change1 * change, endScroll - scroll - change1 * change);
+            onStart && onStart(self, tweenTo.tween);
+          }
+        } else if (self.isActive && lastSnap !== scroll) {
+          snapDelayedCall.restart(true);
+        }
+      }).pause();
+    }
+
+    id && (_ids[id] = self);
+    trigger = self.trigger = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(trigger || pin !== true && pin); // if a trigger has some kind of scroll-related effect applied that could contaminate the "y" or "x" position (like a ScrollSmoother effect), we needed a way to temporarily revert it, so we use the stRevert property of the gsCache. It can return another function that we'll call at the end so it can return to its normal state.
+
+    customRevertReturn = trigger && trigger._gsap && trigger._gsap.stRevert;
+    customRevertReturn && (customRevertReturn = customRevertReturn(self));
+    pin = pin === true ? trigger : (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(pin);
+    _isString(toggleClass) && (toggleClass = {
+      targets: trigger,
+      className: toggleClass
+    });
+
+    if (pin) {
+      pinSpacing === false || pinSpacing === _margin || (pinSpacing = !pinSpacing && pin.parentNode && pin.parentNode.style && _getComputedStyle(pin.parentNode).display === "flex" ? false : _padding); // if the parent is display: flex, don't apply pinSpacing by default. We should check that pin.parentNode is an element (not shadow dom window)
+
+      self.pin = pin;
+      pinCache = gsap.core.getCache(pin);
+
+      if (!pinCache.spacer) {
+        // record the spacer and pinOriginalState on the cache in case someone tries pinning the same element with MULTIPLE ScrollTriggers - we don't want to have multiple spacers or record the "original" pin state after it has already been affected by another ScrollTrigger.
+        if (pinSpacer) {
+          pinSpacer = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(pinSpacer);
+          pinSpacer && !pinSpacer.nodeType && (pinSpacer = pinSpacer.current || pinSpacer.nativeElement); // for React & Angular
+
+          pinCache.spacerIsNative = !!pinSpacer;
+          pinSpacer && (pinCache.spacerState = _getState(pinSpacer));
+        }
+
+        pinCache.spacer = spacer = pinSpacer || _doc.createElement("div");
+        spacer.classList.add("pin-spacer");
+        id && spacer.classList.add("pin-spacer-" + id);
+        pinCache.pinState = pinOriginalState = _getState(pin);
+      } else {
+        pinOriginalState = pinCache.pinState;
+      }
+
+      vars.force3D !== false && gsap.set(pin, {
+        force3D: true
+      });
+      self.spacer = spacer = pinCache.spacer;
+      cs = _getComputedStyle(pin);
+      spacingStart = cs[pinSpacing + direction.os2];
+      pinGetter = gsap.getProperty(pin);
+      pinSetter = gsap.quickSetter(pin, direction.a, _px); // pin.firstChild && !_maxScroll(pin, direction) && (pin.style.overflow = "hidden"); // protects from collapsing margins, but can have unintended consequences as demonstrated here: https://codepen.io/GreenSock/pen/1e42c7a73bfa409d2cf1e184e7a4248d so it was removed in favor of just telling people to set up their CSS to avoid the collapsing margins (overflow: hidden | auto is just one option. Another is border-top: 1px solid transparent).
+
+      _swapPinIn(pin, spacer, cs);
+
+      pinState = _getState(pin);
+    }
+
+    if (markers) {
+      markerVars = _isObject(markers) ? _setDefaults(markers, _markerDefaults) : _markerDefaults;
+      markerStartTrigger = _createMarker("scroller-start", id, scroller, direction, markerVars, 0);
+      markerEndTrigger = _createMarker("scroller-end", id, scroller, direction, markerVars, 0, markerStartTrigger);
+      offset = markerStartTrigger["offset" + direction.op.d2];
+
+      var content = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)((0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getProxyProp)(scroller, "content") || scroller);
+
+      markerStart = this.markerStart = _createMarker("start", id, content, direction, markerVars, offset, 0, containerAnimation);
+      markerEnd = this.markerEnd = _createMarker("end", id, content, direction, markerVars, offset, 0, containerAnimation);
+      containerAnimation && (caMarkerSetter = gsap.quickSetter([markerStart, markerEnd], direction.a, _px));
+
+      if (!useFixedPosition && !(_Observer_js__WEBPACK_IMPORTED_MODULE_0__._proxies.length && (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getProxyProp)(scroller, "fixedMarkers") === true)) {
+        _makePositionable(isViewport ? _body : scroller);
+
+        gsap.set([markerStartTrigger, markerEndTrigger], {
+          force3D: true
+        });
+        markerStartSetter = gsap.quickSetter(markerStartTrigger, direction.a, _px);
+        markerEndSetter = gsap.quickSetter(markerEndTrigger, direction.a, _px);
+      }
+    }
+
+    if (containerAnimation) {
+      var oldOnUpdate = containerAnimation.vars.onUpdate,
+          oldParams = containerAnimation.vars.onUpdateParams;
+      containerAnimation.eventCallback("onUpdate", function () {
+        self.update(0, 0, 1);
+        oldOnUpdate && oldOnUpdate.apply(containerAnimation, oldParams || []);
+      });
+    }
+
+    self.previous = function () {
+      return _triggers[_triggers.indexOf(self) - 1];
+    };
+
+    self.next = function () {
+      return _triggers[_triggers.indexOf(self) + 1];
+    };
+
+    self.revert = function (revert, temp) {
+      if (!temp) {
+        return self.kill(true);
+      } // for compatibility with gsap.context() and gsap.matchMedia() which call revert()
+
+
+      var r = revert !== false || !self.enabled,
+          prevRefreshing = _refreshing;
+
+      if (r !== self.isReverted) {
+        if (r) {
+          prevScroll = Math.max(scrollFunc(), self.scroll.rec || 0); // record the scroll so we can revert later (repositioning/pinning things can affect scroll position). In the static refresh() method, we first record all the scroll positions as a reference.
+
+          prevProgress = self.progress;
+          prevAnimProgress = animation && animation.progress();
+        }
+
+        markerStart && [markerStart, markerEnd, markerStartTrigger, markerEndTrigger].forEach(function (m) {
+          return m.style.display = r ? "none" : "block";
+        });
+
+        if (r) {
+          _refreshing = self;
+          self.update(r); // make sure the pin is back in its original position so that all the measurements are correct. do this BEFORE swapping the pin out
+        }
+
+        if (pin && (!pinReparent || !self.isActive)) {
+          if (r) {
+            _swapPinOut(pin, spacer, pinOriginalState);
+          } else {
+            _swapPinIn(pin, spacer, _getComputedStyle(pin), spacerState);
+          }
+        }
+
+        r || self.update(r); // when we're restoring, the update should run AFTER swapping the pin into its pin-spacer.
+
+        _refreshing = prevRefreshing; // restore. We set it to true during the update() so that things fire properly in there.
+
+        self.isReverted = r;
+      }
+    };
+
+    self.refresh = function (soft, force, position, pinOffset) {
+      // position is typically only defined if it's coming from setPositions() - it's a way to skip the normal parsing. pinOffset is also only from setPositions() and is mostly related to fancy stuff we need to do in ScrollSmoother with effects
+      if ((_refreshing || !self.enabled) && !force) {
+        return;
+      }
+
+      if (pin && soft && _lastScrollTime) {
+        _addListener(ScrollTrigger, "scrollEnd", _softRefresh);
+
+        return;
+      }
+
+      !_refreshingAll && onRefreshInit && onRefreshInit(self);
+      _refreshing = self;
+
+      if (tweenTo.tween && !position) {
+        // we skip this if a position is passed in because typically that's from .setPositions() and it's best to allow in-progress snapping to continue.
+        tweenTo.tween.kill();
+        tweenTo.tween = 0;
+      }
+
+      scrubTween && scrubTween.pause();
+      invalidateOnRefresh && animation && animation.revert({
+        kill: false
+      }).invalidate();
+      self.isReverted || self.revert(true, true);
+      self._subPinOffset = false; // we'll set this to true in the sub-pins if we find any
+
+      var size = getScrollerSize(),
+          scrollerBounds = getScrollerOffsets(),
+          max = containerAnimation ? containerAnimation.duration() : _maxScroll(scroller, direction),
+          isFirstRefresh = change <= 0.01,
+          offset = 0,
+          otherPinOffset = pinOffset || 0,
+          parsedEnd = _isObject(position) ? position.end : vars.end,
+          parsedEndTrigger = vars.endTrigger || trigger,
+          parsedStart = _isObject(position) ? position.start : vars.start || (vars.start === 0 || !trigger ? 0 : pin ? "0 0" : "0 100%"),
+          pinnedContainer = self.pinnedContainer = vars.pinnedContainer && (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(vars.pinnedContainer, self),
+          triggerIndex = trigger && Math.max(0, _triggers.indexOf(self)) || 0,
+          i = triggerIndex,
+          cs,
+          bounds,
+          scroll,
+          isVertical,
+          override,
+          curTrigger,
+          curPin,
+          oppositeScroll,
+          initted,
+          revertedPins,
+          forcedOverflow,
+          markerStartOffset,
+          markerEndOffset;
+
+      if (markers && _isObject(position)) {
+        // if we alter the start/end positions with .setPositions(), it generally feeds in absolute NUMBERS which don't convey information about where to line up the markers, so to keep it intuitive, we record how far the trigger positions shift after applying the new numbers and then offset by that much in the opposite direction. We do the same to the associated trigger markers too of course.
+        markerStartOffset = gsap.getProperty(markerStartTrigger, direction.p);
+        markerEndOffset = gsap.getProperty(markerEndTrigger, direction.p);
+      }
+
+      while (i--) {
+        // user might try to pin the same element more than once, so we must find any prior triggers with the same pin, revert them, and determine how long they're pinning so that we can offset things appropriately. Make sure we revert from last to first so that things "rewind" properly.
+        curTrigger = _triggers[i];
+        curTrigger.end || curTrigger.refresh(0, 1) || (_refreshing = self); // if it's a timeline-based trigger that hasn't been fully initialized yet because it's waiting for 1 tick, just force the refresh() here, otherwise if it contains a pin that's supposed to affect other ScrollTriggers further down the page, they won't be adjusted properly.
+
+        curPin = curTrigger.pin;
+
+        if (curPin && (curPin === trigger || curPin === pin || curPin === pinnedContainer) && !curTrigger.isReverted) {
+          revertedPins || (revertedPins = []);
+          revertedPins.unshift(curTrigger); // we'll revert from first to last to make sure things reach their end state properly
+
+          curTrigger.revert(true, true);
+        }
+
+        if (curTrigger !== _triggers[i]) {
+          // in case it got removed.
+          triggerIndex--;
+          i--;
+        }
+      }
+
+      _isFunction(parsedStart) && (parsedStart = parsedStart(self));
+      parsedStart = _parseClamp(parsedStart, "start", self);
+      start = _parsePosition(parsedStart, trigger, size, direction, scrollFunc(), markerStart, markerStartTrigger, self, scrollerBounds, borderWidth, useFixedPosition, max, containerAnimation, self._startClamp && "_startClamp") || (pin ? -0.001 : 0);
+      _isFunction(parsedEnd) && (parsedEnd = parsedEnd(self));
+
+      if (_isString(parsedEnd) && !parsedEnd.indexOf("+=")) {
+        if (~parsedEnd.indexOf(" ")) {
+          parsedEnd = (_isString(parsedStart) ? parsedStart.split(" ")[0] : "") + parsedEnd;
+        } else {
+          offset = _offsetToPx(parsedEnd.substr(2), size);
+          parsedEnd = _isString(parsedStart) ? parsedStart : (containerAnimation ? gsap.utils.mapRange(0, containerAnimation.duration(), containerAnimation.scrollTrigger.start, containerAnimation.scrollTrigger.end, start) : start) + offset; // _parsePosition won't factor in the offset if the start is a number, so do it here.
+
+          parsedEndTrigger = trigger;
+        }
+      }
+
+      parsedEnd = _parseClamp(parsedEnd, "end", self);
+      end = Math.max(start, _parsePosition(parsedEnd || (parsedEndTrigger ? "100% 0" : max), parsedEndTrigger, size, direction, scrollFunc() + offset, markerEnd, markerEndTrigger, self, scrollerBounds, borderWidth, useFixedPosition, max, containerAnimation, self._endClamp && "_endClamp")) || -0.001;
+      offset = 0;
+      i = triggerIndex;
+
+      while (i--) {
+        curTrigger = _triggers[i];
+        curPin = curTrigger.pin;
+
+        if (curPin && curTrigger.start - curTrigger._pinPush <= start && !containerAnimation && curTrigger.end > 0) {
+          cs = curTrigger.end - (self._startClamp ? Math.max(0, curTrigger.start) : curTrigger.start);
+
+          if ((curPin === trigger && curTrigger.start - curTrigger._pinPush < start || curPin === pinnedContainer) && isNaN(parsedStart)) {
+            // numeric start values shouldn't be offset at all - treat them as absolute
+            offset += cs * (1 - curTrigger.progress);
+          }
+
+          curPin === pin && (otherPinOffset += cs);
+        }
+      }
+
+      start += offset;
+      end += offset;
+      self._startClamp && (self._startClamp += offset);
+
+      if (self._endClamp && !_refreshingAll) {
+        self._endClamp = end || -0.001;
+        end = Math.min(end, _maxScroll(scroller, direction));
+      }
+
+      change = end - start || (start -= 0.01) && 0.001;
+
+      if (isFirstRefresh) {
+        // on the very first refresh(), the prevProgress couldn't have been accurate yet because the start/end were never calculated, so we set it here. Before 3.11.5, it could lead to an inaccurate scroll position restoration with snapping.
+        prevProgress = gsap.utils.clamp(0, 1, gsap.utils.normalize(start, end, prevScroll));
+      }
+
+      self._pinPush = otherPinOffset;
+
+      if (markerStart && offset) {
+        // offset the markers if necessary
+        cs = {};
+        cs[direction.a] = "+=" + offset;
+        pinnedContainer && (cs[direction.p] = "-=" + scrollFunc());
+        gsap.set([markerStart, markerEnd], cs);
+      }
+
+      if (pin && !(_clampingMax && self.end >= _maxScroll(scroller, direction))) {
+        cs = _getComputedStyle(pin);
+        isVertical = direction === _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical;
+        scroll = scrollFunc(); // recalculate because the triggers can affect the scroll
+
+        pinStart = parseFloat(pinGetter(direction.a)) + otherPinOffset;
+
+        if (!max && end > 1) {
+          // makes sure the scroller has a scrollbar, otherwise if something has width: 100%, for example, it would be too big (exclude the scrollbar). See https://gsap.com/forums/topic/25182-scrolltrigger-width-of-page-increase-where-markers-are-set-to-false/
+          forcedOverflow = (isViewport ? _doc.scrollingElement || _docEl : scroller).style;
+          forcedOverflow = {
+            style: forcedOverflow,
+            value: forcedOverflow["overflow" + direction.a.toUpperCase()]
+          };
+
+          if (isViewport && _getComputedStyle(_body)["overflow" + direction.a.toUpperCase()] !== "scroll") {
+            // avoid an extra scrollbar if BOTH <html> and <body> have overflow set to "scroll"
+            forcedOverflow.style["overflow" + direction.a.toUpperCase()] = "scroll";
+          }
+        }
+
+        _swapPinIn(pin, spacer, cs);
+
+        pinState = _getState(pin); // transforms will interfere with the top/left/right/bottom placement, so remove them temporarily. getBoundingClientRect() factors in transforms.
+
+        bounds = _getBounds(pin, true);
+        oppositeScroll = useFixedPosition && (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getScrollFunc)(scroller, isVertical ? _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal : _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical)();
+
+        if (pinSpacing) {
+          spacerState = [pinSpacing + direction.os2, change + otherPinOffset + _px];
+          spacerState.t = spacer;
+          i = pinSpacing === _padding ? _getSize(pin, direction) + change + otherPinOffset : 0;
+
+          if (i) {
+            spacerState.push(direction.d, i + _px); // for box-sizing: border-box (must include padding).
+
+            spacer.style.flexBasis !== "auto" && (spacer.style.flexBasis = i + _px);
+          }
+
+          _setState(spacerState);
+
+          if (pinnedContainer) {
+            // in ScrollTrigger.refresh(), we need to re-evaluate the pinContainer's size because this pinSpacing may stretch it out, but we can't just add the exact distance because depending on layout, it may not push things down or it may only do so partially.
+            _triggers.forEach(function (t) {
+              if (t.pin === pinnedContainer && t.vars.pinSpacing !== false) {
+                t._subPinOffset = true;
+              }
+            });
+          }
+
+          useFixedPosition && scrollFunc(prevScroll);
+        } else {
+          i = _getSize(pin, direction);
+          i && spacer.style.flexBasis !== "auto" && (spacer.style.flexBasis = i + _px);
+        }
+
+        if (useFixedPosition) {
+          override = {
+            top: bounds.top + (isVertical ? scroll - start : oppositeScroll) + _px,
+            left: bounds.left + (isVertical ? oppositeScroll : scroll - start) + _px,
+            boxSizing: "border-box",
+            position: "fixed"
+          };
+          override[_width] = override["max" + _Width] = Math.ceil(bounds.width) + _px;
+          override[_height] = override["max" + _Height] = Math.ceil(bounds.height) + _px;
+          override[_margin] = override[_margin + _Top] = override[_margin + _Right] = override[_margin + _Bottom] = override[_margin + _Left] = "0";
+          override[_padding] = cs[_padding];
+          override[_padding + _Top] = cs[_padding + _Top];
+          override[_padding + _Right] = cs[_padding + _Right];
+          override[_padding + _Bottom] = cs[_padding + _Bottom];
+          override[_padding + _Left] = cs[_padding + _Left];
+          pinActiveState = _copyState(pinOriginalState, override, pinReparent);
+          _refreshingAll && scrollFunc(0);
+        }
+
+        if (animation) {
+          // the animation might be affecting the transform, so we must jump to the end, check the value, and compensate accordingly. Otherwise, when it becomes unpinned, the pinSetter() will get set to a value that doesn't include whatever the animation did.
+          initted = animation._initted; // if not, we must invalidate() after this step, otherwise it could lock in starting values prematurely.
+
+          _suppressOverwrites(1);
+
+          animation.render(animation.duration(), true, true);
+          pinChange = pinGetter(direction.a) - pinStart + change + otherPinOffset;
+          pinMoves = Math.abs(change - pinChange) > 1;
+          useFixedPosition && pinMoves && pinActiveState.splice(pinActiveState.length - 2, 2); // transform is the last property/value set in the state Array. Since the animation is controlling that, we should omit it.
+
+          animation.render(0, true, true);
+          initted || animation.invalidate(true);
+          animation.parent || animation.totalTime(animation.totalTime()); // if, for example, a toggleAction called play() and then refresh() happens and when we render(1) above, it would cause the animation to complete and get removed from its parent, so this makes sure it gets put back in.
+
+          _suppressOverwrites(0);
+        } else {
+          pinChange = change;
+        }
+
+        forcedOverflow && (forcedOverflow.value ? forcedOverflow.style["overflow" + direction.a.toUpperCase()] = forcedOverflow.value : forcedOverflow.style.removeProperty("overflow-" + direction.a));
+      } else if (trigger && scrollFunc() && !containerAnimation) {
+        // it may be INSIDE a pinned element, so walk up the tree and look for any elements with _pinOffset to compensate because anything with pinSpacing that's already scrolled would throw off the measurements in getBoundingClientRect()
+        bounds = trigger.parentNode;
+
+        while (bounds && bounds !== _body) {
+          if (bounds._pinOffset) {
+            start -= bounds._pinOffset;
+            end -= bounds._pinOffset;
+          }
+
+          bounds = bounds.parentNode;
+        }
+      }
+
+      revertedPins && revertedPins.forEach(function (t) {
+        return t.revert(false, true);
+      });
+      self.start = start;
+      self.end = end;
+      scroll1 = scroll2 = _refreshingAll ? prevScroll : scrollFunc(); // reset velocity
+
+      if (!containerAnimation && !_refreshingAll) {
+        scroll1 < prevScroll && scrollFunc(prevScroll);
+        self.scroll.rec = 0;
+      }
+
+      self.revert(false, true);
+      lastRefresh = _getTime();
+
+      if (snapDelayedCall) {
+        lastSnap = -1; // just so snapping gets re-enabled, clear out any recorded last value
+        // self.isActive && scrollFunc(start + change * prevProgress); // previously this line was here to ensure that when snapping kicks in, it's from the previous progress but in some cases that's not desirable, like an all-page ScrollTrigger when new content gets added to the page, that'd totally change the progress.
+
+        snapDelayedCall.restart(true);
+      }
+
+      _refreshing = 0;
+      animation && isToggle && (animation._initted || prevAnimProgress) && animation.progress() !== prevAnimProgress && animation.progress(prevAnimProgress || 0, true).render(animation.time(), true, true); // must force a re-render because if saveStyles() was used on the target(s), the styles could have been wiped out during the refresh().
+
+      if (isFirstRefresh || prevProgress !== self.progress || containerAnimation || invalidateOnRefresh) {
+        // ensures that the direction is set properly (when refreshing, progress is set back to 0 initially, then back again to wherever it needs to be) and that callbacks are triggered.
+        animation && !isToggle && animation.totalProgress(containerAnimation && start < -0.001 && !prevProgress ? gsap.utils.normalize(start, end, 0) : prevProgress, true); // to avoid issues where animation callbacks like onStart aren't triggered.
+
+        self.progress = isFirstRefresh || (scroll1 - start) / change === prevProgress ? 0 : prevProgress;
+      }
+
+      pin && pinSpacing && (spacer._pinOffset = Math.round(self.progress * pinChange));
+      scrubTween && scrubTween.invalidate();
+
+      if (!isNaN(markerStartOffset)) {
+        // numbers were passed in for the position which are absolute, so instead of just putting the markers at the very bottom of the viewport, we figure out how far they shifted down (it's safe to assume they were originally positioned in closer relation to the trigger element with values like "top", "center", a percentage or whatever, so we offset that much in the opposite direction to basically revert them to the relative position thy were at previously.
+        markerStartOffset -= gsap.getProperty(markerStartTrigger, direction.p);
+        markerEndOffset -= gsap.getProperty(markerEndTrigger, direction.p);
+
+        _shiftMarker(markerStartTrigger, direction, markerStartOffset);
+
+        _shiftMarker(markerStart, direction, markerStartOffset - (pinOffset || 0));
+
+        _shiftMarker(markerEndTrigger, direction, markerEndOffset);
+
+        _shiftMarker(markerEnd, direction, markerEndOffset - (pinOffset || 0));
+      }
+
+      isFirstRefresh && !_refreshingAll && self.update(); // edge case - when you reload a page when it's already scrolled down, some browsers fire a "scroll" event before DOMContentLoaded, triggering an updateAll(). If we don't update the self.progress as part of refresh(), then when it happens next, it may record prevProgress as 0 when it really shouldn't, potentially causing a callback in an animation to fire again.
+
+      if (onRefresh && !_refreshingAll && !executingOnRefresh) {
+        // when refreshing all, we do extra work to correct pinnedContainer sizes and ensure things don't exceed the maxScroll, so we should do all the refreshes at the end after all that work so that the start/end values are corrected.
+        executingOnRefresh = true;
+        onRefresh(self);
+        executingOnRefresh = false;
+      }
+    };
+
+    self.getVelocity = function () {
+      return (scrollFunc() - scroll2) / (_getTime() - _time2) * 1000 || 0;
+    };
+
+    self.endAnimation = function () {
+      _endAnimation(self.callbackAnimation);
+
+      if (animation) {
+        scrubTween ? scrubTween.progress(1) : !animation.paused() ? _endAnimation(animation, animation.reversed()) : isToggle || _endAnimation(animation, self.direction < 0, 1);
+      }
+    };
+
+    self.labelToScroll = function (label) {
+      return animation && animation.labels && (start || self.refresh() || start) + animation.labels[label] / animation.duration() * change || 0;
+    };
+
+    self.getTrailing = function (name) {
+      var i = _triggers.indexOf(self),
+          a = self.direction > 0 ? _triggers.slice(0, i).reverse() : _triggers.slice(i + 1);
+
+      return (_isString(name) ? a.filter(function (t) {
+        return t.vars.preventOverlaps === name;
+      }) : a).filter(function (t) {
+        return self.direction > 0 ? t.end <= start : t.start >= end;
+      });
+    };
+
+    self.update = function (reset, recordVelocity, forceFake) {
+      if (containerAnimation && !forceFake && !reset) {
+        return;
+      }
+
+      var scroll = _refreshingAll === true ? prevScroll : self.scroll(),
+          p = reset ? 0 : (scroll - start) / change,
+          clipped = p < 0 ? 0 : p > 1 ? 1 : p || 0,
+          prevProgress = self.progress,
+          isActive,
+          wasActive,
+          toggleState,
+          action,
+          stateChanged,
+          toggled,
+          isAtMax,
+          isTakingAction;
+
+      if (recordVelocity) {
+        scroll2 = scroll1;
+        scroll1 = containerAnimation ? scrollFunc() : scroll;
+
+        if (snap) {
+          snap2 = snap1;
+          snap1 = animation && !isToggle ? animation.totalProgress() : clipped;
+        }
+      } // anticipate the pinning a few ticks ahead of time based on velocity to avoid a visual glitch due to the fact that most browsers do scrolling on a separate thread (not synced with requestAnimationFrame).
+
+
+      if (anticipatePin && pin && !_refreshing && !_startup && _lastScrollTime) {
+        if (!clipped && start < scroll + (scroll - scroll2) / (_getTime() - _time2) * anticipatePin) {
+          clipped = 0.0001;
+        } else if (clipped === 1 && end > scroll + (scroll - scroll2) / (_getTime() - _time2) * anticipatePin) {
+          clipped = 0.9999;
+        }
+      }
+
+      if (clipped !== prevProgress && self.enabled) {
+        isActive = self.isActive = !!clipped && clipped < 1;
+        wasActive = !!prevProgress && prevProgress < 1;
+        toggled = isActive !== wasActive;
+        stateChanged = toggled || !!clipped !== !!prevProgress; // could go from start all the way to end, thus it didn't toggle but it did change state in a sense (may need to fire a callback)
+
+        self.direction = clipped > prevProgress ? 1 : -1;
+        self.progress = clipped;
+
+        if (stateChanged && !_refreshing) {
+          toggleState = clipped && !prevProgress ? 0 : clipped === 1 ? 1 : prevProgress === 1 ? 2 : 3; // 0 = enter, 1 = leave, 2 = enterBack, 3 = leaveBack (we prioritize the FIRST encounter, thus if you scroll really fast past the onEnter and onLeave in one tick, it'd prioritize onEnter.
+
+          if (isToggle) {
+            action = !toggled && toggleActions[toggleState + 1] !== "none" && toggleActions[toggleState + 1] || toggleActions[toggleState]; // if it didn't toggle, that means it shot right past and since we prioritize the "enter" action, we should switch to the "leave" in this case (but only if one is defined)
+
+            isTakingAction = animation && (action === "complete" || action === "reset" || action in animation);
+          }
+        }
+
+        preventOverlaps && (toggled || isTakingAction) && (isTakingAction || scrub || !animation) && (_isFunction(preventOverlaps) ? preventOverlaps(self) : self.getTrailing(preventOverlaps).forEach(function (t) {
+          return t.endAnimation();
+        }));
+
+        if (!isToggle) {
+          if (scrubTween && !_refreshing && !_startup) {
+            scrubTween._dp._time - scrubTween._start !== scrubTween._time && scrubTween.render(scrubTween._dp._time - scrubTween._start); // if there's a scrub on both the container animation and this one (or a ScrollSmoother), the update order would cause this one not to have rendered yet, so it wouldn't make any progress before we .restart() it heading toward the new progress so it'd appear stuck thus we force a render here.
+
+            if (scrubTween.resetTo) {
+              scrubTween.resetTo("totalProgress", clipped, animation._tTime / animation._tDur);
+            } else {
+              // legacy support (courtesy), before 3.10.0
+              scrubTween.vars.totalProgress = clipped;
+              scrubTween.invalidate().restart();
+            }
+          } else if (animation) {
+            animation.totalProgress(clipped, !!(_refreshing && (lastRefresh || reset)));
+          }
+        }
+
+        if (pin) {
+          reset && pinSpacing && (spacer.style[pinSpacing + direction.os2] = spacingStart);
+
+          if (!useFixedPosition) {
+            pinSetter(_round(pinStart + pinChange * clipped));
+          } else if (stateChanged) {
+            isAtMax = !reset && clipped > prevProgress && end + 1 > scroll && scroll + 1 >= _maxScroll(scroller, direction); // if it's at the VERY end of the page, don't switch away from position: fixed because it's pointless and it could cause a brief flash when the user scrolls back up (when it gets pinned again)
+
+            if (pinReparent) {
+              if (!reset && (isActive || isAtMax)) {
+                var bounds = _getBounds(pin, true),
+                    _offset = scroll - start;
+
+                _reparent(pin, _body, bounds.top + (direction === _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical ? _offset : 0) + _px, bounds.left + (direction === _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical ? 0 : _offset) + _px);
+              } else {
+                _reparent(pin, spacer);
+              }
+            }
+
+            _setState(isActive || isAtMax ? pinActiveState : pinState);
+
+            pinMoves && clipped < 1 && isActive || pinSetter(pinStart + (clipped === 1 && !isAtMax ? pinChange : 0));
+          }
+        }
+
+        snap && !tweenTo.tween && !_refreshing && !_startup && snapDelayedCall.restart(true);
+        toggleClass && (toggled || once && clipped && (clipped < 1 || !_limitCallbacks)) && _toArray(toggleClass.targets).forEach(function (el) {
+          return el.classList[isActive || once ? "add" : "remove"](toggleClass.className);
+        }); // classes could affect positioning, so do it even if reset or refreshing is true.
+
+        onUpdate && !isToggle && !reset && onUpdate(self);
+
+        if (stateChanged && !_refreshing) {
+          if (isToggle) {
+            if (isTakingAction) {
+              if (action === "complete") {
+                animation.pause().totalProgress(1);
+              } else if (action === "reset") {
+                animation.restart(true).pause();
+              } else if (action === "restart") {
+                animation.restart(true);
+              } else {
+                animation[action]();
+              }
+            }
+
+            onUpdate && onUpdate(self);
+          }
+
+          if (toggled || !_limitCallbacks) {
+            // on startup, the page could be scrolled and we don't want to fire callbacks that didn't toggle. For example onEnter shouldn't fire if the ScrollTrigger isn't actually entered.
+            onToggle && toggled && _callback(self, onToggle);
+            callbacks[toggleState] && _callback(self, callbacks[toggleState]);
+            once && (clipped === 1 ? self.kill(false, 1) : callbacks[toggleState] = 0); // a callback shouldn't be called again if once is true.
+
+            if (!toggled) {
+              // it's possible to go completely past, like from before the start to after the end (or vice-versa) in which case BOTH callbacks should be fired in that order
+              toggleState = clipped === 1 ? 1 : 3;
+              callbacks[toggleState] && _callback(self, callbacks[toggleState]);
+            }
+          }
+
+          if (fastScrollEnd && !isActive && Math.abs(self.getVelocity()) > (_isNumber(fastScrollEnd) ? fastScrollEnd : 2500)) {
+            _endAnimation(self.callbackAnimation);
+
+            scrubTween ? scrubTween.progress(1) : _endAnimation(animation, action === "reverse" ? 1 : !clipped, 1);
+          }
+        } else if (isToggle && onUpdate && !_refreshing) {
+          onUpdate(self);
+        }
+      } // update absolutely-positioned markers (only if the scroller isn't the viewport)
+
+
+      if (markerEndSetter) {
+        var n = containerAnimation ? scroll / containerAnimation.duration() * (containerAnimation._caScrollDist || 0) : scroll;
+        markerStartSetter(n + (markerStartTrigger._isFlipped ? 1 : 0));
+        markerEndSetter(n);
+      }
+
+      caMarkerSetter && caMarkerSetter(-scroll / containerAnimation.duration() * (containerAnimation._caScrollDist || 0));
+    };
+
+    self.enable = function (reset, refresh) {
+      if (!self.enabled) {
+        self.enabled = true;
+
+        _addListener(scroller, "resize", _onResize);
+
+        isViewport || _addListener(scroller, "scroll", _onScroll);
+        onRefreshInit && _addListener(ScrollTrigger, "refreshInit", onRefreshInit);
+
+        if (reset !== false) {
+          self.progress = prevProgress = 0;
+          scroll1 = scroll2 = lastSnap = scrollFunc();
+        }
+
+        refresh !== false && self.refresh();
+      }
+    };
+
+    self.getTween = function (snap) {
+      return snap && tweenTo ? tweenTo.tween : scrubTween;
+    };
+
+    self.setPositions = function (newStart, newEnd, keepClamp, pinOffset) {
+      // doesn't persist after refresh()! Intended to be a way to override values that were set during refresh(), like you could set it in onRefresh()
+      if (containerAnimation) {
+        // convert ratios into scroll positions. Remember, start/end values on ScrollTriggers that have a containerAnimation refer to the time (in seconds), NOT scroll positions.
+        var st = containerAnimation.scrollTrigger,
+            duration = containerAnimation.duration(),
+            _change = st.end - st.start;
+
+        newStart = st.start + _change * newStart / duration;
+        newEnd = st.start + _change * newEnd / duration;
+      }
+
+      self.refresh(false, false, {
+        start: _keepClamp(newStart, keepClamp && !!self._startClamp),
+        end: _keepClamp(newEnd, keepClamp && !!self._endClamp)
+      }, pinOffset);
+      self.update();
+    };
+
+    self.adjustPinSpacing = function (amount) {
+      if (spacerState && amount) {
+        var i = spacerState.indexOf(direction.d) + 1;
+        spacerState[i] = parseFloat(spacerState[i]) + amount + _px;
+        spacerState[1] = parseFloat(spacerState[1]) + amount + _px;
+
+        _setState(spacerState);
+      }
+    };
+
+    self.disable = function (reset, allowAnimation) {
+      if (self.enabled) {
+        reset !== false && self.revert(true, true);
+        self.enabled = self.isActive = false;
+        allowAnimation || scrubTween && scrubTween.pause();
+        prevScroll = 0;
+        pinCache && (pinCache.uncache = 1);
+        onRefreshInit && _removeListener(ScrollTrigger, "refreshInit", onRefreshInit);
+
+        if (snapDelayedCall) {
+          snapDelayedCall.pause();
+          tweenTo.tween && tweenTo.tween.kill() && (tweenTo.tween = 0);
+        }
+
+        if (!isViewport) {
+          var i = _triggers.length;
+
+          while (i--) {
+            if (_triggers[i].scroller === scroller && _triggers[i] !== self) {
+              return; //don't remove the listeners if there are still other triggers referencing it.
+            }
+          }
+
+          _removeListener(scroller, "resize", _onResize);
+
+          isViewport || _removeListener(scroller, "scroll", _onScroll);
+        }
+      }
+    };
+
+    self.kill = function (revert, allowAnimation) {
+      self.disable(revert, allowAnimation);
+      scrubTween && !allowAnimation && scrubTween.kill();
+      id && delete _ids[id];
+
+      var i = _triggers.indexOf(self);
+
+      i >= 0 && _triggers.splice(i, 1);
+      i === _i && _direction > 0 && _i--; // if we're in the middle of a refresh() or update(), splicing would cause skips in the index, so adjust...
+      // if no other ScrollTrigger instances of the same scroller are found, wipe out any recorded scroll position. Otherwise, in a single page application, for example, it could maintain scroll position when it really shouldn't.
+
+      i = 0;
+
+      _triggers.forEach(function (t) {
+        return t.scroller === self.scroller && (i = 1);
+      });
+
+      i || _refreshingAll || (self.scroll.rec = 0);
+
+      if (animation) {
+        animation.scrollTrigger = null;
+        revert && animation.revert({
+          kill: false
+        });
+        allowAnimation || animation.kill();
+      }
+
+      markerStart && [markerStart, markerEnd, markerStartTrigger, markerEndTrigger].forEach(function (m) {
+        return m.parentNode && m.parentNode.removeChild(m);
+      });
+      _primary === self && (_primary = 0);
+
+      if (pin) {
+        pinCache && (pinCache.uncache = 1);
+        i = 0;
+
+        _triggers.forEach(function (t) {
+          return t.pin === pin && i++;
+        });
+
+        i || (pinCache.spacer = 0); // if there aren't any more ScrollTriggers with the same pin, remove the spacer, otherwise it could be contaminated with old/stale values if the user re-creates a ScrollTrigger for the same element.
+      }
+
+      vars.onKill && vars.onKill(self);
+    };
+
+    _triggers.push(self);
+
+    self.enable(false, false);
+    customRevertReturn && customRevertReturn(self);
+
+    if (animation && animation.add && !change) {
+      // if the animation is a timeline, it may not have been populated yet, so it wouldn't render at the proper place on the first refresh(), thus we should schedule one for the next tick. If "change" is defined, we know it must be re-enabling, thus we can refresh() right away.
+      var updateFunc = self.update; // some browsers may fire a scroll event BEFORE a tick elapses and/or the DOMContentLoaded fires. So there's a chance update() will be called BEFORE a refresh() has happened on a Timeline-attached ScrollTrigger which means the start/end won't be calculated yet. We don't want to add conditional logic inside the update() method (like check to see if end is defined and if not, force a refresh()) because that's a function that gets hit a LOT (performance). So we swap out the real update() method for this one that'll re-attach it the first time it gets called and of course forces a refresh().
+
+      self.update = function () {
+        self.update = updateFunc;
+        start || end || self.refresh();
+      };
+
+      gsap.delayedCall(0.01, self.update);
+      change = 0.01;
+      start = end = 0;
+    } else {
+      self.refresh();
+    }
+
+    pin && _queueRefreshAll(); // pinning could affect the positions of other things, so make sure we queue a full refresh()
+  };
+
+  ScrollTrigger.register = function register(core) {
+    if (!_coreInitted) {
+      gsap = core || _getGSAP();
+      _windowExists() && window.document && ScrollTrigger.enable();
+      _coreInitted = _enabled;
+    }
+
+    return _coreInitted;
+  };
+
+  ScrollTrigger.defaults = function defaults(config) {
+    if (config) {
+      for (var p in config) {
+        _defaults[p] = config[p];
+      }
+    }
+
+    return _defaults;
+  };
+
+  ScrollTrigger.disable = function disable(reset, kill) {
+    _enabled = 0;
+
+    _triggers.forEach(function (trigger) {
+      return trigger[kill ? "kill" : "disable"](reset);
+    });
+
+    _removeListener(_win, "wheel", _onScroll);
+
+    _removeListener(_doc, "scroll", _onScroll);
+
+    clearInterval(_syncInterval);
+
+    _removeListener(_doc, "touchcancel", _passThrough);
+
+    _removeListener(_body, "touchstart", _passThrough);
+
+    _multiListener(_removeListener, _doc, "pointerdown,touchstart,mousedown", _pointerDownHandler);
+
+    _multiListener(_removeListener, _doc, "pointerup,touchend,mouseup", _pointerUpHandler);
+
+    _resizeDelay.kill();
+
+    _iterateAutoRefresh(_removeListener);
+
+    for (var i = 0; i < _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.length; i += 3) {
+      _wheelListener(_removeListener, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i], _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i + 1]);
+
+      _wheelListener(_removeListener, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i], _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i + 2]);
+    }
+  };
+
+  ScrollTrigger.enable = function enable() {
+    _win = window;
+    _doc = document;
+    _docEl = _doc.documentElement;
+    _body = _doc.body;
+
+    if (gsap) {
+      _toArray = gsap.utils.toArray;
+      _clamp = gsap.utils.clamp;
+      _context = gsap.core.context || _passThrough;
+      _suppressOverwrites = gsap.core.suppressOverwrites || _passThrough;
+      _scrollRestoration = _win.history.scrollRestoration || "auto";
+      _lastScroll = _win.pageYOffset;
+      gsap.core.globals("ScrollTrigger", ScrollTrigger); // must register the global manually because in Internet Explorer, functions (classes) don't have a "name" property.
+
+      if (_body) {
+        _enabled = 1;
+        _div100vh = document.createElement("div"); // to solve mobile browser address bar show/hide resizing, we shouldn't rely on window.innerHeight. Instead, use a <div> with its height set to 100vh and measure that since that's what the scrolling is based on anyway and it's not affected by address bar showing/hiding.
+
+        _div100vh.style.height = "100vh";
+        _div100vh.style.position = "absolute";
+
+        _refresh100vh();
+
+        _rafBugFix();
+
+        _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.register(gsap); // isTouch is 0 if no touch, 1 if ONLY touch, and 2 if it can accommodate touch but also other types like mouse/pointer.
+
+        ScrollTrigger.isTouch = _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.isTouch;
+        _fixIOSBug = _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.isTouch && /(iPad|iPhone|iPod|Mac)/g.test(navigator.userAgent); // since 2017, iOS has had a bug that causes event.clientX/Y to be inaccurate when a scroll occurs, thus we must alternate ignoring every other touchmove event to work around it. See https://bugs.webkit.org/show_bug.cgi?id=181954 and https://codepen.io/GreenSock/pen/ExbrPNa/087cef197dc35445a0951e8935c41503
+
+        _ignoreMobileResize = _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.isTouch === 1;
+
+        _addListener(_win, "wheel", _onScroll); // mostly for 3rd party smooth scrolling libraries.
+
+
+        _root = [_win, _doc, _docEl, _body];
+
+        if (gsap.matchMedia) {
+          ScrollTrigger.matchMedia = function (vars) {
+            var mm = gsap.matchMedia(),
+                p;
+
+            for (p in vars) {
+              mm.add(p, vars[p]);
+            }
+
+            return mm;
+          };
+
+          gsap.addEventListener("matchMediaInit", function () {
+            return _revertAll();
+          });
+          gsap.addEventListener("matchMediaRevert", function () {
+            return _revertRecorded();
+          });
+          gsap.addEventListener("matchMedia", function () {
+            _refreshAll(0, 1);
+
+            _dispatch("matchMedia");
+          });
+          gsap.matchMedia("(orientation: portrait)", function () {
+            // when orientation changes, we should take new base measurements for the ignoreMobileResize feature.
+            _setBaseDimensions();
+
+            return _setBaseDimensions;
+          });
+        } else {
+          console.warn("Requires GSAP 3.11.0 or later");
+        }
+
+        _setBaseDimensions();
+
+        _addListener(_doc, "scroll", _onScroll); // some browsers (like Chrome), the window stops dispatching scroll events on the window if you scroll really fast, but it's consistent on the document!
+
+
+        var bodyStyle = _body.style,
+            border = bodyStyle.borderTopStyle,
+            AnimationProto = gsap.core.Animation.prototype,
+            bounds,
+            i;
+        AnimationProto.revert || Object.defineProperty(AnimationProto, "revert", {
+          value: function value() {
+            return this.time(-0.01, true);
+          }
+        }); // only for backwards compatibility (Animation.revert() was added after 3.10.4)
+
+        bodyStyle.borderTopStyle = "solid"; // works around an issue where a margin of a child element could throw off the bounds of the _body, making it seem like there's a margin when there actually isn't. The border ensures that the bounds are accurate.
+
+        bounds = _getBounds(_body);
+        _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical.m = Math.round(bounds.top + _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical.sc()) || 0; // accommodate the offset of the <body> caused by margins and/or padding
+
+        _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal.m = Math.round(bounds.left + _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal.sc()) || 0;
+        border ? bodyStyle.borderTopStyle = border : bodyStyle.removeProperty("border-top-style"); // TODO: (?) maybe move to leveraging the velocity mechanism in Observer and skip intervals.
+
+        _syncInterval = setInterval(_sync, 250);
+        gsap.delayedCall(0.5, function () {
+          return _startup = 0;
+        });
+
+        _addListener(_doc, "touchcancel", _passThrough); // some older Android devices intermittently stop dispatching "touchmove" events if we don't listen for "touchcancel" on the document.
+
+
+        _addListener(_body, "touchstart", _passThrough); //works around Safari bug: https://gsap.com/forums/topic/21450-draggable-in-iframe-on-mobile-is-buggy/
+
+
+        _multiListener(_addListener, _doc, "pointerdown,touchstart,mousedown", _pointerDownHandler);
+
+        _multiListener(_addListener, _doc, "pointerup,touchend,mouseup", _pointerUpHandler);
+
+        _transformProp = gsap.utils.checkPrefix("transform");
+
+        _stateProps.push(_transformProp);
+
+        _coreInitted = _getTime();
+        _resizeDelay = gsap.delayedCall(0.2, _refreshAll).pause();
+        _autoRefresh = [_doc, "visibilitychange", function () {
+          var w = _win.innerWidth,
+              h = _win.innerHeight;
+
+          if (_doc.hidden) {
+            _prevWidth = w;
+            _prevHeight = h;
+          } else if (_prevWidth !== w || _prevHeight !== h) {
+            _onResize();
+          }
+        }, _doc, "DOMContentLoaded", _refreshAll, _win, "load", _refreshAll, _win, "resize", _onResize];
+
+        _iterateAutoRefresh(_addListener);
+
+        _triggers.forEach(function (trigger) {
+          return trigger.enable(0, 1);
+        });
+
+        for (i = 0; i < _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.length; i += 3) {
+          _wheelListener(_removeListener, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i], _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i + 1]);
+
+          _wheelListener(_removeListener, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i], _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers[i + 2]);
+        }
+      }
+    }
+  };
+
+  ScrollTrigger.config = function config(vars) {
+    "limitCallbacks" in vars && (_limitCallbacks = !!vars.limitCallbacks);
+    var ms = vars.syncInterval;
+    ms && clearInterval(_syncInterval) || (_syncInterval = ms) && setInterval(_sync, ms);
+    "ignoreMobileResize" in vars && (_ignoreMobileResize = ScrollTrigger.isTouch === 1 && vars.ignoreMobileResize);
+
+    if ("autoRefreshEvents" in vars) {
+      _iterateAutoRefresh(_removeListener) || _iterateAutoRefresh(_addListener, vars.autoRefreshEvents || "none");
+      _ignoreResize = (vars.autoRefreshEvents + "").indexOf("resize") === -1;
+    }
+  };
+
+  ScrollTrigger.scrollerProxy = function scrollerProxy(target, vars) {
+    var t = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(target),
+        i = _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.indexOf(t),
+        isViewport = _isViewport(t);
+
+    if (~i) {
+      _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.splice(i, isViewport ? 6 : 2);
+    }
+
+    if (vars) {
+      isViewport ? _Observer_js__WEBPACK_IMPORTED_MODULE_0__._proxies.unshift(_win, vars, _body, vars, _docEl, vars) : _Observer_js__WEBPACK_IMPORTED_MODULE_0__._proxies.unshift(t, vars);
+    }
+  };
+
+  ScrollTrigger.clearMatchMedia = function clearMatchMedia(query) {
+    _triggers.forEach(function (t) {
+      return t._ctx && t._ctx.query === query && t._ctx.kill(true, true);
+    });
+  };
+
+  ScrollTrigger.isInViewport = function isInViewport(element, ratio, horizontal) {
+    var bounds = (_isString(element) ? (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(element) : element).getBoundingClientRect(),
+        offset = bounds[horizontal ? _width : _height] * ratio || 0;
+    return horizontal ? bounds.right - offset > 0 && bounds.left + offset < _win.innerWidth : bounds.bottom - offset > 0 && bounds.top + offset < _win.innerHeight;
+  };
+
+  ScrollTrigger.positionInViewport = function positionInViewport(element, referencePoint, horizontal) {
+    _isString(element) && (element = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(element));
+    var bounds = element.getBoundingClientRect(),
+        size = bounds[horizontal ? _width : _height],
+        offset = referencePoint == null ? size / 2 : referencePoint in _keywords ? _keywords[referencePoint] * size : ~referencePoint.indexOf("%") ? parseFloat(referencePoint) * size / 100 : parseFloat(referencePoint) || 0;
+    return horizontal ? (bounds.left + offset) / _win.innerWidth : (bounds.top + offset) / _win.innerHeight;
+  };
+
+  ScrollTrigger.killAll = function killAll(allowListeners) {
+    _triggers.slice(0).forEach(function (t) {
+      return t.vars.id !== "ScrollSmoother" && t.kill();
+    });
+
+    if (allowListeners !== true) {
+      var listeners = _listeners.killAll || [];
+      _listeners = {};
+      listeners.forEach(function (f) {
+        return f();
+      });
+    }
+  };
+
+  return ScrollTrigger;
+}();
+ScrollTrigger.version = "3.12.5";
+
+ScrollTrigger.saveStyles = function (targets) {
+  return targets ? _toArray(targets).forEach(function (target) {
+    // saved styles are recorded in a consecutive alternating Array, like [element, cssText, transform attribute, cache, matchMedia, ...]
+    if (target && target.style) {
+      var i = _savedStyles.indexOf(target);
+
+      i >= 0 && _savedStyles.splice(i, 5);
+
+      _savedStyles.push(target, target.style.cssText, target.getBBox && target.getAttribute("transform"), gsap.core.getCache(target), _context());
+    }
+  }) : _savedStyles;
+};
+
+ScrollTrigger.revert = function (soft, media) {
+  return _revertAll(!soft, media);
+};
+
+ScrollTrigger.create = function (vars, animation) {
+  return new ScrollTrigger(vars, animation);
+};
+
+ScrollTrigger.refresh = function (safe) {
+  return safe ? _onResize() : (_coreInitted || ScrollTrigger.register()) && _refreshAll(true);
+};
+
+ScrollTrigger.update = function (force) {
+  return ++_Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.cache && _updateAll(force === true ? 2 : 0);
+};
+
+ScrollTrigger.clearScrollMemory = _clearScrollMemory;
+
+ScrollTrigger.maxScroll = function (element, horizontal) {
+  return _maxScroll(element, horizontal ? _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal : _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical);
+};
+
+ScrollTrigger.getScrollFunc = function (element, horizontal) {
+  return (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getScrollFunc)((0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(element), horizontal ? _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal : _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical);
+};
+
+ScrollTrigger.getById = function (id) {
+  return _ids[id];
+};
+
+ScrollTrigger.getAll = function () {
+  return _triggers.filter(function (t) {
+    return t.vars.id !== "ScrollSmoother";
+  });
+}; // it's common for people to ScrollTrigger.getAll(t => t.kill()) on page routes, for example, and we don't want it to ruin smooth scrolling by killing the main ScrollSmoother one.
+
+
+ScrollTrigger.isScrolling = function () {
+  return !!_lastScrollTime;
+};
+
+ScrollTrigger.snapDirectional = _snapDirectional;
+
+ScrollTrigger.addEventListener = function (type, callback) {
+  var a = _listeners[type] || (_listeners[type] = []);
+  ~a.indexOf(callback) || a.push(callback);
+};
+
+ScrollTrigger.removeEventListener = function (type, callback) {
+  var a = _listeners[type],
+      i = a && a.indexOf(callback);
+  i >= 0 && a.splice(i, 1);
+};
+
+ScrollTrigger.batch = function (targets, vars) {
+  var result = [],
+      varsCopy = {},
+      interval = vars.interval || 0.016,
+      batchMax = vars.batchMax || 1e9,
+      proxyCallback = function proxyCallback(type, callback) {
+    var elements = [],
+        triggers = [],
+        delay = gsap.delayedCall(interval, function () {
+      callback(elements, triggers);
+      elements = [];
+      triggers = [];
+    }).pause();
+    return function (self) {
+      elements.length || delay.restart(true);
+      elements.push(self.trigger);
+      triggers.push(self);
+      batchMax <= elements.length && delay.progress(1);
+    };
+  },
+      p;
+
+  for (p in vars) {
+    varsCopy[p] = p.substr(0, 2) === "on" && _isFunction(vars[p]) && p !== "onRefreshInit" ? proxyCallback(p, vars[p]) : vars[p];
+  }
+
+  if (_isFunction(batchMax)) {
+    batchMax = batchMax();
+
+    _addListener(ScrollTrigger, "refresh", function () {
+      return batchMax = vars.batchMax();
+    });
+  }
+
+  _toArray(targets).forEach(function (target) {
+    var config = {};
+
+    for (p in varsCopy) {
+      config[p] = varsCopy[p];
+    }
+
+    config.trigger = target;
+    result.push(ScrollTrigger.create(config));
+  });
+
+  return result;
+}; // to reduce file size. clamps the scroll and also returns a duration multiplier so that if the scroll gets chopped shorter, the duration gets curtailed as well (otherwise if you're very close to the top of the page, for example, and swipe up really fast, it'll suddenly slow down and take a long time to reach the top).
+
+
+var _clampScrollAndGetDurationMultiplier = function _clampScrollAndGetDurationMultiplier(scrollFunc, current, end, max) {
+  current > max ? scrollFunc(max) : current < 0 && scrollFunc(0);
+  return end > max ? (max - current) / (end - current) : end < 0 ? current / (current - end) : 1;
+},
+    _allowNativePanning = function _allowNativePanning(target, direction) {
+  if (direction === true) {
+    target.style.removeProperty("touch-action");
+  } else {
+    target.style.touchAction = direction === true ? "auto" : direction ? "pan-" + direction + (_Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.isTouch ? " pinch-zoom" : "") : "none"; // note: Firefox doesn't support it pinch-zoom properly, at least in addition to a pan-x or pan-y.
+  }
+
+  target === _docEl && _allowNativePanning(_body, direction);
+},
+    _overflow = {
+  auto: 1,
+  scroll: 1
+},
+    _nestedScroll = function _nestedScroll(_ref5) {
+  var event = _ref5.event,
+      target = _ref5.target,
+      axis = _ref5.axis;
+
+  var node = (event.changedTouches ? event.changedTouches[0] : event).target,
+      cache = node._gsap || gsap.core.getCache(node),
+      time = _getTime(),
+      cs;
+
+  if (!cache._isScrollT || time - cache._isScrollT > 2000) {
+    // cache for 2 seconds to improve performance.
+    while (node && node !== _body && (node.scrollHeight <= node.clientHeight && node.scrollWidth <= node.clientWidth || !(_overflow[(cs = _getComputedStyle(node)).overflowY] || _overflow[cs.overflowX]))) {
+      node = node.parentNode;
+    }
+
+    cache._isScroll = node && node !== target && !_isViewport(node) && (_overflow[(cs = _getComputedStyle(node)).overflowY] || _overflow[cs.overflowX]);
+    cache._isScrollT = time;
+  }
+
+  if (cache._isScroll || axis === "x") {
+    event.stopPropagation();
+    event._gsapAllow = true;
+  }
+},
+    // capture events on scrollable elements INSIDE the <body> and allow those by calling stopPropagation() when we find a scrollable ancestor
+_inputObserver = function _inputObserver(target, type, inputs, nested) {
+  return _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.create({
+    target: target,
+    capture: true,
+    debounce: false,
+    lockAxis: true,
+    type: type,
+    onWheel: nested = nested && _nestedScroll,
+    onPress: nested,
+    onDrag: nested,
+    onScroll: nested,
+    onEnable: function onEnable() {
+      return inputs && _addListener(_doc, _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.eventTypes[0], _captureInputs, false, true);
+    },
+    onDisable: function onDisable() {
+      return _removeListener(_doc, _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.eventTypes[0], _captureInputs, true);
+    }
+  });
+},
+    _inputExp = /(input|label|select|textarea)/i,
+    _inputIsFocused,
+    _captureInputs = function _captureInputs(e) {
+  var isInput = _inputExp.test(e.target.tagName);
+
+  if (isInput || _inputIsFocused) {
+    e._gsapAllow = true;
+    _inputIsFocused = isInput;
+  }
+},
+    _getScrollNormalizer = function _getScrollNormalizer(vars) {
+  _isObject(vars) || (vars = {});
+  vars.preventDefault = vars.isNormalizer = vars.allowClicks = true;
+  vars.type || (vars.type = "wheel,touch");
+  vars.debounce = !!vars.debounce;
+  vars.id = vars.id || "normalizer";
+
+  var _vars2 = vars,
+      normalizeScrollX = _vars2.normalizeScrollX,
+      momentum = _vars2.momentum,
+      allowNestedScroll = _vars2.allowNestedScroll,
+      onRelease = _vars2.onRelease,
+      self,
+      maxY,
+      target = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(vars.target) || _docEl,
+      smoother = gsap.core.globals().ScrollSmoother,
+      smootherInstance = smoother && smoother.get(),
+      content = _fixIOSBug && (vars.content && (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getTarget)(vars.content) || smootherInstance && vars.content !== false && !smootherInstance.smooth() && smootherInstance.content()),
+      scrollFuncY = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getScrollFunc)(target, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical),
+      scrollFuncX = (0,_Observer_js__WEBPACK_IMPORTED_MODULE_0__._getScrollFunc)(target, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal),
+      scale = 1,
+      initialScale = (_Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer.isTouch && _win.visualViewport ? _win.visualViewport.scale * _win.visualViewport.width : _win.outerWidth) / _win.innerWidth,
+      wheelRefresh = 0,
+      resolveMomentumDuration = _isFunction(momentum) ? function () {
+    return momentum(self);
+  } : function () {
+    return momentum || 2.8;
+  },
+      lastRefreshID,
+      skipTouchMove,
+      inputObserver = _inputObserver(target, vars.type, true, allowNestedScroll),
+      resumeTouchMove = function resumeTouchMove() {
+    return skipTouchMove = false;
+  },
+      scrollClampX = _passThrough,
+      scrollClampY = _passThrough,
+      updateClamps = function updateClamps() {
+    maxY = _maxScroll(target, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical);
+    scrollClampY = _clamp(_fixIOSBug ? 1 : 0, maxY);
+    normalizeScrollX && (scrollClampX = _clamp(0, _maxScroll(target, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal)));
+    lastRefreshID = _refreshID;
+  },
+      removeContentOffset = function removeContentOffset() {
+    content._gsap.y = _round(parseFloat(content._gsap.y) + scrollFuncY.offset) + "px";
+    content.style.transform = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, " + parseFloat(content._gsap.y) + ", 0, 1)";
+    scrollFuncY.offset = scrollFuncY.cacheID = 0;
+  },
+      ignoreDrag = function ignoreDrag() {
+    if (skipTouchMove) {
+      requestAnimationFrame(resumeTouchMove);
+
+      var offset = _round(self.deltaY / 2),
+          scroll = scrollClampY(scrollFuncY.v - offset);
+
+      if (content && scroll !== scrollFuncY.v + scrollFuncY.offset) {
+        scrollFuncY.offset = scroll - scrollFuncY.v;
+
+        var y = _round((parseFloat(content && content._gsap.y) || 0) - scrollFuncY.offset);
+
+        content.style.transform = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, " + y + ", 0, 1)";
+        content._gsap.y = y + "px";
+        scrollFuncY.cacheID = _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.cache;
+
+        _updateAll();
+      }
+
+      return true;
+    }
+
+    scrollFuncY.offset && removeContentOffset();
+    skipTouchMove = true;
+  },
+      tween,
+      startScrollX,
+      startScrollY,
+      onStopDelayedCall,
+      onResize = function onResize() {
+    // if the window resizes, like on an iPhone which Apple FORCES the address bar to show/hide even if we event.preventDefault(), it may be scrolling too far now that the address bar is showing, so we must dynamically adjust the momentum tween.
+    updateClamps();
+
+    if (tween.isActive() && tween.vars.scrollY > maxY) {
+      scrollFuncY() > maxY ? tween.progress(1) && scrollFuncY(maxY) : tween.resetTo("scrollY", maxY);
+    }
+  };
+
+  content && gsap.set(content, {
+    y: "+=0"
+  }); // to ensure there's a cache (element._gsap)
+
+  vars.ignoreCheck = function (e) {
+    return _fixIOSBug && e.type === "touchmove" && ignoreDrag(e) || scale > 1.05 && e.type !== "touchstart" || self.isGesturing || e.touches && e.touches.length > 1;
+  };
+
+  vars.onPress = function () {
+    skipTouchMove = false;
+    var prevScale = scale;
+    scale = _round((_win.visualViewport && _win.visualViewport.scale || 1) / initialScale);
+    tween.pause();
+    prevScale !== scale && _allowNativePanning(target, scale > 1.01 ? true : normalizeScrollX ? false : "x");
+    startScrollX = scrollFuncX();
+    startScrollY = scrollFuncY();
+    updateClamps();
+    lastRefreshID = _refreshID;
+  };
+
+  vars.onRelease = vars.onGestureStart = function (self, wasDragging) {
+    scrollFuncY.offset && removeContentOffset();
+
+    if (!wasDragging) {
+      onStopDelayedCall.restart(true);
+    } else {
+      _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers.cache++; // make sure we're pulling the non-cached value
+      // alternate algorithm: durX = Math.min(6, Math.abs(self.velocityX / 800)),	dur = Math.max(durX, Math.min(6, Math.abs(self.velocityY / 800))); dur = dur * (0.4 + (1 - _power4In(dur / 6)) * 0.6)) * (momentumSpeed || 1)
+
+      var dur = resolveMomentumDuration(),
+          currentScroll,
+          endScroll;
+
+      if (normalizeScrollX) {
+        currentScroll = scrollFuncX();
+        endScroll = currentScroll + dur * 0.05 * -self.velocityX / 0.227; // the constant .227 is from power4(0.05). velocity is inverted because scrolling goes in the opposite direction.
+
+        dur *= _clampScrollAndGetDurationMultiplier(scrollFuncX, currentScroll, endScroll, _maxScroll(target, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._horizontal));
+        tween.vars.scrollX = scrollClampX(endScroll);
+      }
+
+      currentScroll = scrollFuncY();
+      endScroll = currentScroll + dur * 0.05 * -self.velocityY / 0.227; // the constant .227 is from power4(0.05)
+
+      dur *= _clampScrollAndGetDurationMultiplier(scrollFuncY, currentScroll, endScroll, _maxScroll(target, _Observer_js__WEBPACK_IMPORTED_MODULE_0__._vertical));
+      tween.vars.scrollY = scrollClampY(endScroll);
+      tween.invalidate().duration(dur).play(0.01);
+
+      if (_fixIOSBug && tween.vars.scrollY >= maxY || currentScroll >= maxY - 1) {
+        // iOS bug: it'll show the address bar but NOT fire the window "resize" event until the animation is done but we must protect against overshoot so we leverage an onUpdate to do so.
+        gsap.to({}, {
+          onUpdate: onResize,
+          duration: dur
+        });
+      }
+    }
+
+    onRelease && onRelease(self);
+  };
+
+  vars.onWheel = function () {
+    tween._ts && tween.pause();
+
+    if (_getTime() - wheelRefresh > 1000) {
+      // after 1 second, refresh the clamps otherwise that'll only happen when ScrollTrigger.refresh() is called or for touch-scrolling.
+      lastRefreshID = 0;
+      wheelRefresh = _getTime();
+    }
+  };
+
+  vars.onChange = function (self, dx, dy, xArray, yArray) {
+    _refreshID !== lastRefreshID && updateClamps();
+    dx && normalizeScrollX && scrollFuncX(scrollClampX(xArray[2] === dx ? startScrollX + (self.startX - self.x) : scrollFuncX() + dx - xArray[1])); // for more precision, we track pointer/touch movement from the start, otherwise it'll drift.
+
+    if (dy) {
+      scrollFuncY.offset && removeContentOffset();
+      var isTouch = yArray[2] === dy,
+          y = isTouch ? startScrollY + self.startY - self.y : scrollFuncY() + dy - yArray[1],
+          yClamped = scrollClampY(y);
+      isTouch && y !== yClamped && (startScrollY += yClamped - y);
+      scrollFuncY(yClamped);
+    }
+
+    (dy || dx) && _updateAll();
+  };
+
+  vars.onEnable = function () {
+    _allowNativePanning(target, normalizeScrollX ? false : "x");
+
+    ScrollTrigger.addEventListener("refresh", onResize);
+
+    _addListener(_win, "resize", onResize);
+
+    if (scrollFuncY.smooth) {
+      scrollFuncY.target.style.scrollBehavior = "auto";
+      scrollFuncY.smooth = scrollFuncX.smooth = false;
+    }
+
+    inputObserver.enable();
+  };
+
+  vars.onDisable = function () {
+    _allowNativePanning(target, true);
+
+    _removeListener(_win, "resize", onResize);
+
+    ScrollTrigger.removeEventListener("refresh", onResize);
+    inputObserver.kill();
+  };
+
+  vars.lockAxis = vars.lockAxis !== false;
+  self = new _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer(vars);
+  self.iOS = _fixIOSBug; // used in the Observer getCachedScroll() function to work around an iOS bug that wreaks havoc with TouchEvent.clientY if we allow scroll to go all the way back to 0.
+
+  _fixIOSBug && !scrollFuncY() && scrollFuncY(1); // iOS bug causes event.clientY values to freak out (wildly inaccurate) if the scroll position is exactly 0.
+
+  _fixIOSBug && gsap.ticker.add(_passThrough); // prevent the ticker from sleeping
+
+  onStopDelayedCall = self._dc;
+  tween = gsap.to(self, {
+    ease: "power4",
+    paused: true,
+    inherit: false,
+    scrollX: normalizeScrollX ? "+=0.1" : "+=0",
+    scrollY: "+=0.1",
+    modifiers: {
+      scrollY: _interruptionTracker(scrollFuncY, scrollFuncY(), function () {
+        return tween.pause();
+      })
+    },
+    onUpdate: _updateAll,
+    onComplete: onStopDelayedCall.vars.onComplete
+  }); // we need the modifier to sense if the scroll position is altered outside of the momentum tween (like with a scrollTo tween) so we can pause() it to prevent conflicts.
+
+  return self;
+};
+
+ScrollTrigger.sort = function (func) {
+  return _triggers.sort(func || function (a, b) {
+    return (a.vars.refreshPriority || 0) * -1e6 + a.start - (b.start + (b.vars.refreshPriority || 0) * -1e6);
+  });
+};
+
+ScrollTrigger.observe = function (vars) {
+  return new _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer(vars);
+};
+
+ScrollTrigger.normalizeScroll = function (vars) {
+  if (typeof vars === "undefined") {
+    return _normalizer;
+  }
+
+  if (vars === true && _normalizer) {
+    return _normalizer.enable();
+  }
+
+  if (vars === false) {
+    _normalizer && _normalizer.kill();
+    _normalizer = vars;
+    return;
+  }
+
+  var normalizer = vars instanceof _Observer_js__WEBPACK_IMPORTED_MODULE_0__.Observer ? vars : _getScrollNormalizer(vars);
+  _normalizer && _normalizer.target === normalizer.target && _normalizer.kill();
+  _isViewport(normalizer.target) && (_normalizer = normalizer);
+  return normalizer;
+};
+
+ScrollTrigger.core = {
+  // smaller file size way to leverage in ScrollSmoother and Observer
+  _getVelocityProp: _Observer_js__WEBPACK_IMPORTED_MODULE_0__._getVelocityProp,
+  _inputObserver: _inputObserver,
+  _scrollers: _Observer_js__WEBPACK_IMPORTED_MODULE_0__._scrollers,
+  _proxies: _Observer_js__WEBPACK_IMPORTED_MODULE_0__._proxies,
+  bridge: {
+    // when normalizeScroll sets the scroll position (ss = setScroll)
+    ss: function ss() {
+      _lastScrollTime || _dispatch("scrollStart");
+      _lastScrollTime = _getTime();
+    },
+    // a way to get the _refreshing value in Observer
+    ref: function ref() {
+      return _refreshing;
+    }
+  }
+};
+_getGSAP() && gsap.registerPlugin(ScrollTrigger);
+
+
+/***/ }),
+
+/***/ "./node_modules/gsap/gsap-core.js":
+/*!****************************************!*\
+  !*** ./node_modules/gsap/gsap-core.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Animation: () => (/* binding */ Animation),
+/* harmony export */   Back: () => (/* binding */ Back),
+/* harmony export */   Bounce: () => (/* binding */ Bounce),
+/* harmony export */   Circ: () => (/* binding */ Circ),
+/* harmony export */   Cubic: () => (/* binding */ Cubic),
+/* harmony export */   Elastic: () => (/* binding */ Elastic),
+/* harmony export */   Expo: () => (/* binding */ Expo),
+/* harmony export */   GSCache: () => (/* binding */ GSCache),
+/* harmony export */   Linear: () => (/* binding */ Linear),
+/* harmony export */   Power0: () => (/* binding */ Power0),
+/* harmony export */   Power1: () => (/* binding */ Power1),
+/* harmony export */   Power2: () => (/* binding */ Power2),
+/* harmony export */   Power3: () => (/* binding */ Power3),
+/* harmony export */   Power4: () => (/* binding */ Power4),
+/* harmony export */   PropTween: () => (/* binding */ PropTween),
+/* harmony export */   Quad: () => (/* binding */ Quad),
+/* harmony export */   Quart: () => (/* binding */ Quart),
+/* harmony export */   Quint: () => (/* binding */ Quint),
+/* harmony export */   Sine: () => (/* binding */ Sine),
+/* harmony export */   SteppedEase: () => (/* binding */ SteppedEase),
+/* harmony export */   Strong: () => (/* binding */ Strong),
+/* harmony export */   Timeline: () => (/* binding */ Timeline),
+/* harmony export */   TimelineLite: () => (/* binding */ Timeline),
+/* harmony export */   TimelineMax: () => (/* binding */ Timeline),
+/* harmony export */   Tween: () => (/* binding */ Tween),
+/* harmony export */   TweenLite: () => (/* binding */ Tween),
+/* harmony export */   TweenMax: () => (/* binding */ Tween),
+/* harmony export */   _checkPlugin: () => (/* binding */ _checkPlugin),
+/* harmony export */   _colorExp: () => (/* binding */ _colorExp),
+/* harmony export */   _colorStringFilter: () => (/* binding */ _colorStringFilter),
+/* harmony export */   _config: () => (/* binding */ _config),
+/* harmony export */   _forEachName: () => (/* binding */ _forEachName),
+/* harmony export */   _getCache: () => (/* binding */ _getCache),
+/* harmony export */   _getProperty: () => (/* binding */ _getProperty),
+/* harmony export */   _getSetter: () => (/* binding */ _getSetter),
+/* harmony export */   _isString: () => (/* binding */ _isString),
+/* harmony export */   _isUndefined: () => (/* binding */ _isUndefined),
+/* harmony export */   _missingPlugin: () => (/* binding */ _missingPlugin),
+/* harmony export */   _numExp: () => (/* binding */ _numExp),
+/* harmony export */   _numWithUnitExp: () => (/* binding */ _numWithUnitExp),
+/* harmony export */   _parseRelative: () => (/* binding */ _parseRelative),
+/* harmony export */   _plugins: () => (/* binding */ _plugins),
+/* harmony export */   _relExp: () => (/* binding */ _relExp),
+/* harmony export */   _removeLinkedListItem: () => (/* binding */ _removeLinkedListItem),
+/* harmony export */   _renderComplexString: () => (/* binding */ _renderComplexString),
+/* harmony export */   _replaceRandom: () => (/* binding */ _replaceRandom),
+/* harmony export */   _round: () => (/* binding */ _round),
+/* harmony export */   _roundModifier: () => (/* binding */ _roundModifier),
+/* harmony export */   _setDefaults: () => (/* binding */ _setDefaults),
+/* harmony export */   _sortPropTweensByPriority: () => (/* binding */ _sortPropTweensByPriority),
+/* harmony export */   _ticker: () => (/* binding */ _ticker),
+/* harmony export */   clamp: () => (/* binding */ clamp),
+/* harmony export */   "default": () => (/* binding */ gsap),
+/* harmony export */   distribute: () => (/* binding */ distribute),
+/* harmony export */   getUnit: () => (/* binding */ getUnit),
+/* harmony export */   gsap: () => (/* binding */ gsap),
+/* harmony export */   interpolate: () => (/* binding */ interpolate),
+/* harmony export */   mapRange: () => (/* binding */ mapRange),
+/* harmony export */   normalize: () => (/* binding */ normalize),
+/* harmony export */   pipe: () => (/* binding */ pipe),
+/* harmony export */   random: () => (/* binding */ random),
+/* harmony export */   selector: () => (/* binding */ selector),
+/* harmony export */   shuffle: () => (/* binding */ shuffle),
+/* harmony export */   snap: () => (/* binding */ snap),
+/* harmony export */   splitColor: () => (/* binding */ splitColor),
+/* harmony export */   toArray: () => (/* binding */ toArray),
+/* harmony export */   unitize: () => (/* binding */ unitize),
+/* harmony export */   wrap: () => (/* binding */ wrap),
+/* harmony export */   wrapYoyo: () => (/* binding */ wrapYoyo)
+/* harmony export */ });
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+
+/*!
+ * GSAP 3.12.5
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+var _config = {
+  autoSleep: 120,
+  force3D: "auto",
+  nullTargetWarn: 1,
+  units: {
+    lineHeight: ""
+  }
+},
+    _defaults = {
+  duration: .5,
+  overwrite: false,
+  delay: 0
+},
+    _suppressOverwrites,
+    _reverting,
+    _context,
+    _bigNum = 1e8,
+    _tinyNum = 1 / _bigNum,
+    _2PI = Math.PI * 2,
+    _HALF_PI = _2PI / 4,
+    _gsID = 0,
+    _sqrt = Math.sqrt,
+    _cos = Math.cos,
+    _sin = Math.sin,
+    _isString = function _isString(value) {
+  return typeof value === "string";
+},
+    _isFunction = function _isFunction(value) {
+  return typeof value === "function";
+},
+    _isNumber = function _isNumber(value) {
+  return typeof value === "number";
+},
+    _isUndefined = function _isUndefined(value) {
+  return typeof value === "undefined";
+},
+    _isObject = function _isObject(value) {
+  return typeof value === "object";
+},
+    _isNotFalse = function _isNotFalse(value) {
+  return value !== false;
+},
+    _windowExists = function _windowExists() {
+  return typeof window !== "undefined";
+},
+    _isFuncOrString = function _isFuncOrString(value) {
+  return _isFunction(value) || _isString(value);
+},
+    _isTypedArray = typeof ArrayBuffer === "function" && ArrayBuffer.isView || function () {},
+    // note: IE10 has ArrayBuffer, but NOT ArrayBuffer.isView().
+_isArray = Array.isArray,
+    _strictNumExp = /(?:-?\.?\d|\.)+/gi,
+    //only numbers (including negatives and decimals) but NOT relative values.
+_numExp = /[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g,
+    //finds any numbers, including ones that start with += or -=, negative numbers, and ones in scientific notation like 1e-8.
+_numWithUnitExp = /[-+=.]*\d+[.e-]*\d*[a-z%]*/g,
+    _complexStringNumExp = /[-+=.]*\d+\.?\d*(?:e-|e\+)?\d*/gi,
+    //duplicate so that while we're looping through matches from exec(), it doesn't contaminate the lastIndex of _numExp which we use to search for colors too.
+_relExp = /[+-]=-?[.\d]+/,
+    _delimitedValueExp = /[^,'"\[\]\s]+/gi,
+    // previously /[#\-+.]*\b[a-z\d\-=+%.]+/gi but didn't catch special characters.
+_unitExp = /^[+\-=e\s\d]*\d+[.\d]*([a-z]*|%)\s*$/i,
+    _globalTimeline,
+    _win,
+    _coreInitted,
+    _doc,
+    _globals = {},
+    _installScope = {},
+    _coreReady,
+    _install = function _install(scope) {
+  return (_installScope = _merge(scope, _globals)) && gsap;
+},
+    _missingPlugin = function _missingPlugin(property, value) {
+  return console.warn("Invalid property", property, "set to", value, "Missing plugin? gsap.registerPlugin()");
+},
+    _warn = function _warn(message, suppress) {
+  return !suppress && console.warn(message);
+},
+    _addGlobal = function _addGlobal(name, obj) {
+  return name && (_globals[name] = obj) && _installScope && (_installScope[name] = obj) || _globals;
+},
+    _emptyFunc = function _emptyFunc() {
+  return 0;
+},
+    _startAtRevertConfig = {
+  suppressEvents: true,
+  isStart: true,
+  kill: false
+},
+    _revertConfigNoKill = {
+  suppressEvents: true,
+  kill: false
+},
+    _revertConfig = {
+  suppressEvents: true
+},
+    _reservedProps = {},
+    _lazyTweens = [],
+    _lazyLookup = {},
+    _lastRenderedFrame,
+    _plugins = {},
+    _effects = {},
+    _nextGCFrame = 30,
+    _harnessPlugins = [],
+    _callbackNames = "",
+    _harness = function _harness(targets) {
+  var target = targets[0],
+      harnessPlugin,
+      i;
+  _isObject(target) || _isFunction(target) || (targets = [targets]);
+
+  if (!(harnessPlugin = (target._gsap || {}).harness)) {
+    // find the first target with a harness. We assume targets passed into an animation will be of similar type, meaning the same kind of harness can be used for them all (performance optimization)
+    i = _harnessPlugins.length;
+
+    while (i-- && !_harnessPlugins[i].targetTest(target)) {}
+
+    harnessPlugin = _harnessPlugins[i];
+  }
+
+  i = targets.length;
+
+  while (i--) {
+    targets[i] && (targets[i]._gsap || (targets[i]._gsap = new GSCache(targets[i], harnessPlugin))) || targets.splice(i, 1);
+  }
+
+  return targets;
+},
+    _getCache = function _getCache(target) {
+  return target._gsap || _harness(toArray(target))[0]._gsap;
+},
+    _getProperty = function _getProperty(target, property, v) {
+  return (v = target[property]) && _isFunction(v) ? target[property]() : _isUndefined(v) && target.getAttribute && target.getAttribute(property) || v;
+},
+    _forEachName = function _forEachName(names, func) {
+  return (names = names.split(",")).forEach(func) || names;
+},
+    //split a comma-delimited list of names into an array, then run a forEach() function and return the split array (this is just a way to consolidate/shorten some code).
+_round = function _round(value) {
+  return Math.round(value * 100000) / 100000 || 0;
+},
+    _roundPrecise = function _roundPrecise(value) {
+  return Math.round(value * 10000000) / 10000000 || 0;
+},
+    // increased precision mostly for timing values.
+_parseRelative = function _parseRelative(start, value) {
+  var operator = value.charAt(0),
+      end = parseFloat(value.substr(2));
+  start = parseFloat(start);
+  return operator === "+" ? start + end : operator === "-" ? start - end : operator === "*" ? start * end : start / end;
+},
+    _arrayContainsAny = function _arrayContainsAny(toSearch, toFind) {
+  //searches one array to find matches for any of the items in the toFind array. As soon as one is found, it returns true. It does NOT return all the matches; it's simply a boolean search.
+  var l = toFind.length,
+      i = 0;
+
+  for (; toSearch.indexOf(toFind[i]) < 0 && ++i < l;) {}
+
+  return i < l;
+},
+    _lazyRender = function _lazyRender() {
+  var l = _lazyTweens.length,
+      a = _lazyTweens.slice(0),
+      i,
+      tween;
+
+  _lazyLookup = {};
+  _lazyTweens.length = 0;
+
+  for (i = 0; i < l; i++) {
+    tween = a[i];
+    tween && tween._lazy && (tween.render(tween._lazy[0], tween._lazy[1], true)._lazy = 0);
+  }
+},
+    _lazySafeRender = function _lazySafeRender(animation, time, suppressEvents, force) {
+  _lazyTweens.length && !_reverting && _lazyRender();
+  animation.render(time, suppressEvents, force || _reverting && time < 0 && (animation._initted || animation._startAt));
+  _lazyTweens.length && !_reverting && _lazyRender(); //in case rendering caused any tweens to lazy-init, we should render them because typically when someone calls seek() or time() or progress(), they expect an immediate render.
+},
+    _numericIfPossible = function _numericIfPossible(value) {
+  var n = parseFloat(value);
+  return (n || n === 0) && (value + "").match(_delimitedValueExp).length < 2 ? n : _isString(value) ? value.trim() : value;
+},
+    _passThrough = function _passThrough(p) {
+  return p;
+},
+    _setDefaults = function _setDefaults(obj, defaults) {
+  for (var p in defaults) {
+    p in obj || (obj[p] = defaults[p]);
+  }
+
+  return obj;
+},
+    _setKeyframeDefaults = function _setKeyframeDefaults(excludeDuration) {
+  return function (obj, defaults) {
+    for (var p in defaults) {
+      p in obj || p === "duration" && excludeDuration || p === "ease" || (obj[p] = defaults[p]);
+    }
+  };
+},
+    _merge = function _merge(base, toMerge) {
+  for (var p in toMerge) {
+    base[p] = toMerge[p];
+  }
+
+  return base;
+},
+    _mergeDeep = function _mergeDeep(base, toMerge) {
+  for (var p in toMerge) {
+    p !== "__proto__" && p !== "constructor" && p !== "prototype" && (base[p] = _isObject(toMerge[p]) ? _mergeDeep(base[p] || (base[p] = {}), toMerge[p]) : toMerge[p]);
+  }
+
+  return base;
+},
+    _copyExcluding = function _copyExcluding(obj, excluding) {
+  var copy = {},
+      p;
+
+  for (p in obj) {
+    p in excluding || (copy[p] = obj[p]);
+  }
+
+  return copy;
+},
+    _inheritDefaults = function _inheritDefaults(vars) {
+  var parent = vars.parent || _globalTimeline,
+      func = vars.keyframes ? _setKeyframeDefaults(_isArray(vars.keyframes)) : _setDefaults;
+
+  if (_isNotFalse(vars.inherit)) {
+    while (parent) {
+      func(vars, parent.vars.defaults);
+      parent = parent.parent || parent._dp;
+    }
+  }
+
+  return vars;
+},
+    _arraysMatch = function _arraysMatch(a1, a2) {
+  var i = a1.length,
+      match = i === a2.length;
+
+  while (match && i-- && a1[i] === a2[i]) {}
+
+  return i < 0;
+},
+    _addLinkedListItem = function _addLinkedListItem(parent, child, firstProp, lastProp, sortBy) {
+  if (firstProp === void 0) {
+    firstProp = "_first";
+  }
+
+  if (lastProp === void 0) {
+    lastProp = "_last";
+  }
+
+  var prev = parent[lastProp],
+      t;
+
+  if (sortBy) {
+    t = child[sortBy];
+
+    while (prev && prev[sortBy] > t) {
+      prev = prev._prev;
+    }
+  }
+
+  if (prev) {
+    child._next = prev._next;
+    prev._next = child;
+  } else {
+    child._next = parent[firstProp];
+    parent[firstProp] = child;
+  }
+
+  if (child._next) {
+    child._next._prev = child;
+  } else {
+    parent[lastProp] = child;
+  }
+
+  child._prev = prev;
+  child.parent = child._dp = parent;
+  return child;
+},
+    _removeLinkedListItem = function _removeLinkedListItem(parent, child, firstProp, lastProp) {
+  if (firstProp === void 0) {
+    firstProp = "_first";
+  }
+
+  if (lastProp === void 0) {
+    lastProp = "_last";
+  }
+
+  var prev = child._prev,
+      next = child._next;
+
+  if (prev) {
+    prev._next = next;
+  } else if (parent[firstProp] === child) {
+    parent[firstProp] = next;
+  }
+
+  if (next) {
+    next._prev = prev;
+  } else if (parent[lastProp] === child) {
+    parent[lastProp] = prev;
+  }
+
+  child._next = child._prev = child.parent = null; // don't delete the _dp just so we can revert if necessary. But parent should be null to indicate the item isn't in a linked list.
+},
+    _removeFromParent = function _removeFromParent(child, onlyIfParentHasAutoRemove) {
+  child.parent && (!onlyIfParentHasAutoRemove || child.parent.autoRemoveChildren) && child.parent.remove && child.parent.remove(child);
+  child._act = 0;
+},
+    _uncache = function _uncache(animation, child) {
+  if (animation && (!child || child._end > animation._dur || child._start < 0)) {
+    // performance optimization: if a child animation is passed in we should only uncache if that child EXTENDS the animation (its end time is beyond the end)
+    var a = animation;
+
+    while (a) {
+      a._dirty = 1;
+      a = a.parent;
+    }
+  }
+
+  return animation;
+},
+    _recacheAncestors = function _recacheAncestors(animation) {
+  var parent = animation.parent;
+
+  while (parent && parent.parent) {
+    //sometimes we must force a re-sort of all children and update the duration/totalDuration of all ancestor timelines immediately in case, for example, in the middle of a render loop, one tween alters another tween's timeScale which shoves its startTime before 0, forcing the parent timeline to shift around and shiftChildren() which could affect that next tween's render (startTime). Doesn't matter for the root timeline though.
+    parent._dirty = 1;
+    parent.totalDuration();
+    parent = parent.parent;
+  }
+
+  return animation;
+},
+    _rewindStartAt = function _rewindStartAt(tween, totalTime, suppressEvents, force) {
+  return tween._startAt && (_reverting ? tween._startAt.revert(_revertConfigNoKill) : tween.vars.immediateRender && !tween.vars.autoRevert || tween._startAt.render(totalTime, true, force));
+},
+    _hasNoPausedAncestors = function _hasNoPausedAncestors(animation) {
+  return !animation || animation._ts && _hasNoPausedAncestors(animation.parent);
+},
+    _elapsedCycleDuration = function _elapsedCycleDuration(animation) {
+  return animation._repeat ? _animationCycle(animation._tTime, animation = animation.duration() + animation._rDelay) * animation : 0;
+},
+    // feed in the totalTime and cycleDuration and it'll return the cycle (iteration minus 1) and if the playhead is exactly at the very END, it will NOT bump up to the next cycle.
+_animationCycle = function _animationCycle(tTime, cycleDuration) {
+  var whole = Math.floor(tTime /= cycleDuration);
+  return tTime && whole === tTime ? whole - 1 : whole;
+},
+    _parentToChildTotalTime = function _parentToChildTotalTime(parentTime, child) {
+  return (parentTime - child._start) * child._ts + (child._ts >= 0 ? 0 : child._dirty ? child.totalDuration() : child._tDur);
+},
+    _setEnd = function _setEnd(animation) {
+  return animation._end = _roundPrecise(animation._start + (animation._tDur / Math.abs(animation._ts || animation._rts || _tinyNum) || 0));
+},
+    _alignPlayhead = function _alignPlayhead(animation, totalTime) {
+  // adjusts the animation's _start and _end according to the provided totalTime (only if the parent's smoothChildTiming is true and the animation isn't paused). It doesn't do any rendering or forcing things back into parent timelines, etc. - that's what totalTime() is for.
+  var parent = animation._dp;
+
+  if (parent && parent.smoothChildTiming && animation._ts) {
+    animation._start = _roundPrecise(parent._time - (animation._ts > 0 ? totalTime / animation._ts : ((animation._dirty ? animation.totalDuration() : animation._tDur) - totalTime) / -animation._ts));
+
+    _setEnd(animation);
+
+    parent._dirty || _uncache(parent, animation); //for performance improvement. If the parent's cache is already dirty, it already took care of marking the ancestors as dirty too, so skip the function call here.
+  }
+
+  return animation;
+},
+
+/*
+_totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
+	let cycleDuration = duration + repeatDelay,
+		time = _round(clampedTotalTime % cycleDuration);
+	if (time > duration) {
+		time = duration;
+	}
+	return (yoyo && (~~(clampedTotalTime / cycleDuration) & 1)) ? duration - time : time;
+},
+*/
+_postAddChecks = function _postAddChecks(timeline, child) {
+  var t;
+
+  if (child._time || !child._dur && child._initted || child._start < timeline._time && (child._dur || !child.add)) {
+    // in case, for example, the _start is moved on a tween that has already rendered, or if it's being inserted into a timeline BEFORE where the playhead is currently. Imagine it's at its end state, then the startTime is moved WAY later (after the end of this timeline), it should render at its beginning. Special case: if it's a timeline (has .add() method) and no duration, we can skip rendering because the user may be populating it AFTER adding it to a parent timeline (unconventional, but possible, and we wouldn't want it to get removed if the parent's autoRemoveChildren is true).
+    t = _parentToChildTotalTime(timeline.rawTime(), child);
+
+    if (!child._dur || _clamp(0, child.totalDuration(), t) - child._tTime > _tinyNum) {
+      child.render(t, true);
+    }
+  } //if the timeline has already ended but the inserted tween/timeline extends the duration, we should enable this timeline again so that it renders properly. We should also align the playhead with the parent timeline's when appropriate.
+
+
+  if (_uncache(timeline, child)._dp && timeline._initted && timeline._time >= timeline._dur && timeline._ts) {
+    //in case any of the ancestors had completed but should now be enabled...
+    if (timeline._dur < timeline.duration()) {
+      t = timeline;
+
+      while (t._dp) {
+        t.rawTime() >= 0 && t.totalTime(t._tTime); //moves the timeline (shifts its startTime) if necessary, and also enables it. If it's currently zero, though, it may not be scheduled to render until later so there's no need to force it to align with the current playhead position. Only move to catch up with the playhead.
+
+        t = t._dp;
+      }
+    }
+
+    timeline._zTime = -_tinyNum; // helps ensure that the next render() will be forced (crossingStart = true in render()), even if the duration hasn't changed (we're adding a child which would need to get rendered). Definitely an edge case. Note: we MUST do this AFTER the loop above where the totalTime() might trigger a render() because this _addToTimeline() method gets called from the Animation constructor, BEFORE tweens even record their targets, etc. so we wouldn't want things to get triggered in the wrong order.
+  }
+},
+    _addToTimeline = function _addToTimeline(timeline, child, position, skipChecks) {
+  child.parent && _removeFromParent(child);
+  child._start = _roundPrecise((_isNumber(position) ? position : position || timeline !== _globalTimeline ? _parsePosition(timeline, position, child) : timeline._time) + child._delay);
+  child._end = _roundPrecise(child._start + (child.totalDuration() / Math.abs(child.timeScale()) || 0));
+
+  _addLinkedListItem(timeline, child, "_first", "_last", timeline._sort ? "_start" : 0);
+
+  _isFromOrFromStart(child) || (timeline._recent = child);
+  skipChecks || _postAddChecks(timeline, child);
+  timeline._ts < 0 && _alignPlayhead(timeline, timeline._tTime); // if the timeline is reversed and the new child makes it longer, we may need to adjust the parent's _start (push it back)
+
+  return timeline;
+},
+    _scrollTrigger = function _scrollTrigger(animation, trigger) {
+  return (_globals.ScrollTrigger || _missingPlugin("scrollTrigger", trigger)) && _globals.ScrollTrigger.create(trigger, animation);
+},
+    _attemptInitTween = function _attemptInitTween(tween, time, force, suppressEvents, tTime) {
+  _initTween(tween, time, tTime);
+
+  if (!tween._initted) {
+    return 1;
+  }
+
+  if (!force && tween._pt && !_reverting && (tween._dur && tween.vars.lazy !== false || !tween._dur && tween.vars.lazy) && _lastRenderedFrame !== _ticker.frame) {
+    _lazyTweens.push(tween);
+
+    tween._lazy = [tTime, suppressEvents];
+    return 1;
+  }
+},
+    _parentPlayheadIsBeforeStart = function _parentPlayheadIsBeforeStart(_ref) {
+  var parent = _ref.parent;
+  return parent && parent._ts && parent._initted && !parent._lock && (parent.rawTime() < 0 || _parentPlayheadIsBeforeStart(parent));
+},
+    // check parent's _lock because when a timeline repeats/yoyos and does its artificial wrapping, we shouldn't force the ratio back to 0
+_isFromOrFromStart = function _isFromOrFromStart(_ref2) {
+  var data = _ref2.data;
+  return data === "isFromStart" || data === "isStart";
+},
+    _renderZeroDurationTween = function _renderZeroDurationTween(tween, totalTime, suppressEvents, force) {
+  var prevRatio = tween.ratio,
+      ratio = totalTime < 0 || !totalTime && (!tween._start && _parentPlayheadIsBeforeStart(tween) && !(!tween._initted && _isFromOrFromStart(tween)) || (tween._ts < 0 || tween._dp._ts < 0) && !_isFromOrFromStart(tween)) ? 0 : 1,
+      // if the tween or its parent is reversed and the totalTime is 0, we should go to a ratio of 0. Edge case: if a from() or fromTo() stagger tween is placed later in a timeline, the "startAt" zero-duration tween could initially render at a time when the parent timeline's playhead is technically BEFORE where this tween is, so make sure that any "from" and "fromTo" startAt tweens are rendered the first time at a ratio of 1.
+  repeatDelay = tween._rDelay,
+      tTime = 0,
+      pt,
+      iteration,
+      prevIteration;
+
+  if (repeatDelay && tween._repeat) {
+    // in case there's a zero-duration tween that has a repeat with a repeatDelay
+    tTime = _clamp(0, tween._tDur, totalTime);
+    iteration = _animationCycle(tTime, repeatDelay);
+    tween._yoyo && iteration & 1 && (ratio = 1 - ratio);
+
+    if (iteration !== _animationCycle(tween._tTime, repeatDelay)) {
+      // if iteration changed
+      prevRatio = 1 - ratio;
+      tween.vars.repeatRefresh && tween._initted && tween.invalidate();
+    }
+  }
+
+  if (ratio !== prevRatio || _reverting || force || tween._zTime === _tinyNum || !totalTime && tween._zTime) {
+    if (!tween._initted && _attemptInitTween(tween, totalTime, force, suppressEvents, tTime)) {
+      // if we render the very beginning (time == 0) of a fromTo(), we must force the render (normal tweens wouldn't need to render at a time of 0 when the prevTime was also 0). This is also mandatory to make sure overwriting kicks in immediately.
+      return;
+    }
+
+    prevIteration = tween._zTime;
+    tween._zTime = totalTime || (suppressEvents ? _tinyNum : 0); // when the playhead arrives at EXACTLY time 0 (right on top) of a zero-duration tween, we need to discern if events are suppressed so that when the playhead moves again (next time), it'll trigger the callback. If events are NOT suppressed, obviously the callback would be triggered in this render. Basically, the callback should fire either when the playhead ARRIVES or LEAVES this exact spot, not both. Imagine doing a timeline.seek(0) and there's a callback that sits at 0. Since events are suppressed on that seek() by default, nothing will fire, but when the playhead moves off of that position, the callback should fire. This behavior is what people intuitively expect.
+
+    suppressEvents || (suppressEvents = totalTime && !prevIteration); // if it was rendered previously at exactly 0 (_zTime) and now the playhead is moving away, DON'T fire callbacks otherwise they'll seem like duplicates.
+
+    tween.ratio = ratio;
+    tween._from && (ratio = 1 - ratio);
+    tween._time = 0;
+    tween._tTime = tTime;
+    pt = tween._pt;
+
+    while (pt) {
+      pt.r(ratio, pt.d);
+      pt = pt._next;
+    }
+
+    totalTime < 0 && _rewindStartAt(tween, totalTime, suppressEvents, true);
+    tween._onUpdate && !suppressEvents && _callback(tween, "onUpdate");
+    tTime && tween._repeat && !suppressEvents && tween.parent && _callback(tween, "onRepeat");
+
+    if ((totalTime >= tween._tDur || totalTime < 0) && tween.ratio === ratio) {
+      ratio && _removeFromParent(tween, 1);
+
+      if (!suppressEvents && !_reverting) {
+        _callback(tween, ratio ? "onComplete" : "onReverseComplete", true);
+
+        tween._prom && tween._prom();
+      }
+    }
+  } else if (!tween._zTime) {
+    tween._zTime = totalTime;
+  }
+},
+    _findNextPauseTween = function _findNextPauseTween(animation, prevTime, time) {
+  var child;
+
+  if (time > prevTime) {
+    child = animation._first;
+
+    while (child && child._start <= time) {
+      if (child.data === "isPause" && child._start > prevTime) {
+        return child;
+      }
+
+      child = child._next;
+    }
+  } else {
+    child = animation._last;
+
+    while (child && child._start >= time) {
+      if (child.data === "isPause" && child._start < prevTime) {
+        return child;
+      }
+
+      child = child._prev;
+    }
+  }
+},
+    _setDuration = function _setDuration(animation, duration, skipUncache, leavePlayhead) {
+  var repeat = animation._repeat,
+      dur = _roundPrecise(duration) || 0,
+      totalProgress = animation._tTime / animation._tDur;
+  totalProgress && !leavePlayhead && (animation._time *= dur / animation._dur);
+  animation._dur = dur;
+  animation._tDur = !repeat ? dur : repeat < 0 ? 1e10 : _roundPrecise(dur * (repeat + 1) + animation._rDelay * repeat);
+  totalProgress > 0 && !leavePlayhead && _alignPlayhead(animation, animation._tTime = animation._tDur * totalProgress);
+  animation.parent && _setEnd(animation);
+  skipUncache || _uncache(animation.parent, animation);
+  return animation;
+},
+    _onUpdateTotalDuration = function _onUpdateTotalDuration(animation) {
+  return animation instanceof Timeline ? _uncache(animation) : _setDuration(animation, animation._dur);
+},
+    _zeroPosition = {
+  _start: 0,
+  endTime: _emptyFunc,
+  totalDuration: _emptyFunc
+},
+    _parsePosition = function _parsePosition(animation, position, percentAnimation) {
+  var labels = animation.labels,
+      recent = animation._recent || _zeroPosition,
+      clippedDuration = animation.duration() >= _bigNum ? recent.endTime(false) : animation._dur,
+      //in case there's a child that infinitely repeats, users almost never intend for the insertion point of a new child to be based on a SUPER long value like that so we clip it and assume the most recently-added child's endTime should be used instead.
+  i,
+      offset,
+      isPercent;
+
+  if (_isString(position) && (isNaN(position) || position in labels)) {
+    //if the string is a number like "1", check to see if there's a label with that name, otherwise interpret it as a number (absolute value).
+    offset = position.charAt(0);
+    isPercent = position.substr(-1) === "%";
+    i = position.indexOf("=");
+
+    if (offset === "<" || offset === ">") {
+      i >= 0 && (position = position.replace(/=/, ""));
+      return (offset === "<" ? recent._start : recent.endTime(recent._repeat >= 0)) + (parseFloat(position.substr(1)) || 0) * (isPercent ? (i < 0 ? recent : percentAnimation).totalDuration() / 100 : 1);
+    }
+
+    if (i < 0) {
+      position in labels || (labels[position] = clippedDuration);
+      return labels[position];
+    }
+
+    offset = parseFloat(position.charAt(i - 1) + position.substr(i + 1));
+
+    if (isPercent && percentAnimation) {
+      offset = offset / 100 * (_isArray(percentAnimation) ? percentAnimation[0] : percentAnimation).totalDuration();
+    }
+
+    return i > 1 ? _parsePosition(animation, position.substr(0, i - 1), percentAnimation) + offset : clippedDuration + offset;
+  }
+
+  return position == null ? clippedDuration : +position;
+},
+    _createTweenType = function _createTweenType(type, params, timeline) {
+  var isLegacy = _isNumber(params[1]),
+      varsIndex = (isLegacy ? 2 : 1) + (type < 2 ? 0 : 1),
+      vars = params[varsIndex],
+      irVars,
+      parent;
+
+  isLegacy && (vars.duration = params[1]);
+  vars.parent = timeline;
+
+  if (type) {
+    irVars = vars;
+    parent = timeline;
+
+    while (parent && !("immediateRender" in irVars)) {
+      // inheritance hasn't happened yet, but someone may have set a default in an ancestor timeline. We could do vars.immediateRender = _isNotFalse(_inheritDefaults(vars).immediateRender) but that'd exact a slight performance penalty because _inheritDefaults() also runs in the Tween constructor. We're paying a small kb price here to gain speed.
+      irVars = parent.vars.defaults || {};
+      parent = _isNotFalse(parent.vars.inherit) && parent.parent;
+    }
+
+    vars.immediateRender = _isNotFalse(irVars.immediateRender);
+    type < 2 ? vars.runBackwards = 1 : vars.startAt = params[varsIndex - 1]; // "from" vars
+  }
+
+  return new Tween(params[0], vars, params[varsIndex + 1]);
+},
+    _conditionalReturn = function _conditionalReturn(value, func) {
+  return value || value === 0 ? func(value) : func;
+},
+    _clamp = function _clamp(min, max, value) {
+  return value < min ? min : value > max ? max : value;
+},
+    getUnit = function getUnit(value, v) {
+  return !_isString(value) || !(v = _unitExp.exec(value)) ? "" : v[1];
+},
+    // note: protect against padded numbers as strings, like "100.100". That shouldn't return "00" as the unit. If it's numeric, return no unit.
+clamp = function clamp(min, max, value) {
+  return _conditionalReturn(value, function (v) {
+    return _clamp(min, max, v);
+  });
+},
+    _slice = [].slice,
+    _isArrayLike = function _isArrayLike(value, nonEmpty) {
+  return value && _isObject(value) && "length" in value && (!nonEmpty && !value.length || value.length - 1 in value && _isObject(value[0])) && !value.nodeType && value !== _win;
+},
+    _flatten = function _flatten(ar, leaveStrings, accumulator) {
+  if (accumulator === void 0) {
+    accumulator = [];
+  }
+
+  return ar.forEach(function (value) {
+    var _accumulator;
+
+    return _isString(value) && !leaveStrings || _isArrayLike(value, 1) ? (_accumulator = accumulator).push.apply(_accumulator, toArray(value)) : accumulator.push(value);
+  }) || accumulator;
+},
+    //takes any value and returns an array. If it's a string (and leaveStrings isn't true), it'll use document.querySelectorAll() and convert that to an array. It'll also accept iterables like jQuery objects.
+toArray = function toArray(value, scope, leaveStrings) {
+  return _context && !scope && _context.selector ? _context.selector(value) : _isString(value) && !leaveStrings && (_coreInitted || !_wake()) ? _slice.call((scope || _doc).querySelectorAll(value), 0) : _isArray(value) ? _flatten(value, leaveStrings) : _isArrayLike(value) ? _slice.call(value, 0) : value ? [value] : [];
+},
+    selector = function selector(value) {
+  value = toArray(value)[0] || _warn("Invalid scope") || {};
+  return function (v) {
+    var el = value.current || value.nativeElement || value;
+    return toArray(v, el.querySelectorAll ? el : el === value ? _warn("Invalid scope") || _doc.createElement("div") : value);
+  };
+},
+    shuffle = function shuffle(a) {
+  return a.sort(function () {
+    return .5 - Math.random();
+  });
+},
+    // alternative that's a bit faster and more reliably diverse but bigger:   for (let j, v, i = a.length; i; j = Math.floor(Math.random() * i), v = a[--i], a[i] = a[j], a[j] = v); return a;
+//for distributing values across an array. Can accept a number, a function or (most commonly) a function which can contain the following properties: {base, amount, from, ease, grid, axis, length, each}. Returns a function that expects the following parameters: index, target, array. Recognizes the following
+distribute = function distribute(v) {
+  if (_isFunction(v)) {
+    return v;
+  }
+
+  var vars = _isObject(v) ? v : {
+    each: v
+  },
+      //n:1 is just to indicate v was a number; we leverage that later to set v according to the length we get. If a number is passed in, we treat it like the old stagger value where 0.1, for example, would mean that things would be distributed with 0.1 between each element in the array rather than a total "amount" that's chunked out among them all.
+  ease = _parseEase(vars.ease),
+      from = vars.from || 0,
+      base = parseFloat(vars.base) || 0,
+      cache = {},
+      isDecimal = from > 0 && from < 1,
+      ratios = isNaN(from) || isDecimal,
+      axis = vars.axis,
+      ratioX = from,
+      ratioY = from;
+
+  if (_isString(from)) {
+    ratioX = ratioY = {
+      center: .5,
+      edges: .5,
+      end: 1
+    }[from] || 0;
+  } else if (!isDecimal && ratios) {
+    ratioX = from[0];
+    ratioY = from[1];
+  }
+
+  return function (i, target, a) {
+    var l = (a || vars).length,
+        distances = cache[l],
+        originX,
+        originY,
+        x,
+        y,
+        d,
+        j,
+        max,
+        min,
+        wrapAt;
+
+    if (!distances) {
+      wrapAt = vars.grid === "auto" ? 0 : (vars.grid || [1, _bigNum])[1];
+
+      if (!wrapAt) {
+        max = -_bigNum;
+
+        while (max < (max = a[wrapAt++].getBoundingClientRect().left) && wrapAt < l) {}
+
+        wrapAt < l && wrapAt--;
+      }
+
+      distances = cache[l] = [];
+      originX = ratios ? Math.min(wrapAt, l) * ratioX - .5 : from % wrapAt;
+      originY = wrapAt === _bigNum ? 0 : ratios ? l * ratioY / wrapAt - .5 : from / wrapAt | 0;
+      max = 0;
+      min = _bigNum;
+
+      for (j = 0; j < l; j++) {
+        x = j % wrapAt - originX;
+        y = originY - (j / wrapAt | 0);
+        distances[j] = d = !axis ? _sqrt(x * x + y * y) : Math.abs(axis === "y" ? y : x);
+        d > max && (max = d);
+        d < min && (min = d);
+      }
+
+      from === "random" && shuffle(distances);
+      distances.max = max - min;
+      distances.min = min;
+      distances.v = l = (parseFloat(vars.amount) || parseFloat(vars.each) * (wrapAt > l ? l - 1 : !axis ? Math.max(wrapAt, l / wrapAt) : axis === "y" ? l / wrapAt : wrapAt) || 0) * (from === "edges" ? -1 : 1);
+      distances.b = l < 0 ? base - l : base;
+      distances.u = getUnit(vars.amount || vars.each) || 0; //unit
+
+      ease = ease && l < 0 ? _invertEase(ease) : ease;
+    }
+
+    l = (distances[i] - distances.min) / distances.max || 0;
+    return _roundPrecise(distances.b + (ease ? ease(l) : l) * distances.v) + distances.u; //round in order to work around floating point errors
+  };
+},
+    _roundModifier = function _roundModifier(v) {
+  //pass in 0.1 get a function that'll round to the nearest tenth, or 5 to round to the closest 5, or 0.001 to the closest 1000th, etc.
+  var p = Math.pow(10, ((v + "").split(".")[1] || "").length); //to avoid floating point math errors (like 24 * 0.1 == 2.4000000000000004), we chop off at a specific number of decimal places (much faster than toFixed())
+
+  return function (raw) {
+    var n = _roundPrecise(Math.round(parseFloat(raw) / v) * v * p);
+
+    return (n - n % 1) / p + (_isNumber(raw) ? 0 : getUnit(raw)); // n - n % 1 replaces Math.floor() in order to handle negative values properly. For example, Math.floor(-150.00000000000003) is 151!
+  };
+},
+    snap = function snap(snapTo, value) {
+  var isArray = _isArray(snapTo),
+      radius,
+      is2D;
+
+  if (!isArray && _isObject(snapTo)) {
+    radius = isArray = snapTo.radius || _bigNum;
+
+    if (snapTo.values) {
+      snapTo = toArray(snapTo.values);
+
+      if (is2D = !_isNumber(snapTo[0])) {
+        radius *= radius; //performance optimization so we don't have to Math.sqrt() in the loop.
+      }
+    } else {
+      snapTo = _roundModifier(snapTo.increment);
+    }
+  }
+
+  return _conditionalReturn(value, !isArray ? _roundModifier(snapTo) : _isFunction(snapTo) ? function (raw) {
+    is2D = snapTo(raw);
+    return Math.abs(is2D - raw) <= radius ? is2D : raw;
+  } : function (raw) {
+    var x = parseFloat(is2D ? raw.x : raw),
+        y = parseFloat(is2D ? raw.y : 0),
+        min = _bigNum,
+        closest = 0,
+        i = snapTo.length,
+        dx,
+        dy;
+
+    while (i--) {
+      if (is2D) {
+        dx = snapTo[i].x - x;
+        dy = snapTo[i].y - y;
+        dx = dx * dx + dy * dy;
+      } else {
+        dx = Math.abs(snapTo[i] - x);
+      }
+
+      if (dx < min) {
+        min = dx;
+        closest = i;
+      }
+    }
+
+    closest = !radius || min <= radius ? snapTo[closest] : raw;
+    return is2D || closest === raw || _isNumber(raw) ? closest : closest + getUnit(raw);
+  });
+},
+    random = function random(min, max, roundingIncrement, returnFunction) {
+  return _conditionalReturn(_isArray(min) ? !max : roundingIncrement === true ? !!(roundingIncrement = 0) : !returnFunction, function () {
+    return _isArray(min) ? min[~~(Math.random() * min.length)] : (roundingIncrement = roundingIncrement || 1e-5) && (returnFunction = roundingIncrement < 1 ? Math.pow(10, (roundingIncrement + "").length - 2) : 1) && Math.floor(Math.round((min - roundingIncrement / 2 + Math.random() * (max - min + roundingIncrement * .99)) / roundingIncrement) * roundingIncrement * returnFunction) / returnFunction;
+  });
+},
+    pipe = function pipe() {
+  for (var _len = arguments.length, functions = new Array(_len), _key = 0; _key < _len; _key++) {
+    functions[_key] = arguments[_key];
+  }
+
+  return function (value) {
+    return functions.reduce(function (v, f) {
+      return f(v);
+    }, value);
+  };
+},
+    unitize = function unitize(func, unit) {
+  return function (value) {
+    return func(parseFloat(value)) + (unit || getUnit(value));
+  };
+},
+    normalize = function normalize(min, max, value) {
+  return mapRange(min, max, 0, 1, value);
+},
+    _wrapArray = function _wrapArray(a, wrapper, value) {
+  return _conditionalReturn(value, function (index) {
+    return a[~~wrapper(index)];
+  });
+},
+    wrap = function wrap(min, max, value) {
+  // NOTE: wrap() CANNOT be an arrow function! A very odd compiling bug causes problems (unrelated to GSAP).
+  var range = max - min;
+  return _isArray(min) ? _wrapArray(min, wrap(0, min.length), max) : _conditionalReturn(value, function (value) {
+    return (range + (value - min) % range) % range + min;
+  });
+},
+    wrapYoyo = function wrapYoyo(min, max, value) {
+  var range = max - min,
+      total = range * 2;
+  return _isArray(min) ? _wrapArray(min, wrapYoyo(0, min.length - 1), max) : _conditionalReturn(value, function (value) {
+    value = (total + (value - min) % total) % total || 0;
+    return min + (value > range ? total - value : value);
+  });
+},
+    _replaceRandom = function _replaceRandom(value) {
+  //replaces all occurrences of random(...) in a string with the calculated random value. can be a range like random(-100, 100, 5) or an array like random([0, 100, 500])
+  var prev = 0,
+      s = "",
+      i,
+      nums,
+      end,
+      isArray;
+
+  while (~(i = value.indexOf("random(", prev))) {
+    end = value.indexOf(")", i);
+    isArray = value.charAt(i + 7) === "[";
+    nums = value.substr(i + 7, end - i - 7).match(isArray ? _delimitedValueExp : _strictNumExp);
+    s += value.substr(prev, i - prev) + random(isArray ? nums : +nums[0], isArray ? 0 : +nums[1], +nums[2] || 1e-5);
+    prev = end + 1;
+  }
+
+  return s + value.substr(prev, value.length - prev);
+},
+    mapRange = function mapRange(inMin, inMax, outMin, outMax, value) {
+  var inRange = inMax - inMin,
+      outRange = outMax - outMin;
+  return _conditionalReturn(value, function (value) {
+    return outMin + ((value - inMin) / inRange * outRange || 0);
+  });
+},
+    interpolate = function interpolate(start, end, progress, mutate) {
+  var func = isNaN(start + end) ? 0 : function (p) {
+    return (1 - p) * start + p * end;
+  };
+
+  if (!func) {
+    var isString = _isString(start),
+        master = {},
+        p,
+        i,
+        interpolators,
+        l,
+        il;
+
+    progress === true && (mutate = 1) && (progress = null);
+
+    if (isString) {
+      start = {
+        p: start
+      };
+      end = {
+        p: end
+      };
+    } else if (_isArray(start) && !_isArray(end)) {
+      interpolators = [];
+      l = start.length;
+      il = l - 2;
+
+      for (i = 1; i < l; i++) {
+        interpolators.push(interpolate(start[i - 1], start[i])); //build the interpolators up front as a performance optimization so that when the function is called many times, it can just reuse them.
+      }
+
+      l--;
+
+      func = function func(p) {
+        p *= l;
+        var i = Math.min(il, ~~p);
+        return interpolators[i](p - i);
+      };
+
+      progress = end;
+    } else if (!mutate) {
+      start = _merge(_isArray(start) ? [] : {}, start);
+    }
+
+    if (!interpolators) {
+      for (p in end) {
+        _addPropTween.call(master, start, p, "get", end[p]);
+      }
+
+      func = function func(p) {
+        return _renderPropTweens(p, master) || (isString ? start.p : start);
+      };
+    }
+  }
+
+  return _conditionalReturn(progress, func);
+},
+    _getLabelInDirection = function _getLabelInDirection(timeline, fromTime, backward) {
+  //used for nextLabel() and previousLabel()
+  var labels = timeline.labels,
+      min = _bigNum,
+      p,
+      distance,
+      label;
+
+  for (p in labels) {
+    distance = labels[p] - fromTime;
+
+    if (distance < 0 === !!backward && distance && min > (distance = Math.abs(distance))) {
+      label = p;
+      min = distance;
+    }
+  }
+
+  return label;
+},
+    _callback = function _callback(animation, type, executeLazyFirst) {
+  var v = animation.vars,
+      callback = v[type],
+      prevContext = _context,
+      context = animation._ctx,
+      params,
+      scope,
+      result;
+
+  if (!callback) {
+    return;
+  }
+
+  params = v[type + "Params"];
+  scope = v.callbackScope || animation;
+  executeLazyFirst && _lazyTweens.length && _lazyRender(); //in case rendering caused any tweens to lazy-init, we should render them because typically when a timeline finishes, users expect things to have rendered fully. Imagine an onUpdate on a timeline that reports/checks tweened values.
+
+  context && (_context = context);
+  result = params ? callback.apply(scope, params) : callback.call(scope);
+  _context = prevContext;
+  return result;
+},
+    _interrupt = function _interrupt(animation) {
+  _removeFromParent(animation);
+
+  animation.scrollTrigger && animation.scrollTrigger.kill(!!_reverting);
+  animation.progress() < 1 && _callback(animation, "onInterrupt");
+  return animation;
+},
+    _quickTween,
+    _registerPluginQueue = [],
+    _createPlugin = function _createPlugin(config) {
+  if (!config) return;
+  config = !config.name && config["default"] || config; // UMD packaging wraps things oddly, so for example MotionPathHelper becomes {MotionPathHelper:MotionPathHelper, default:MotionPathHelper}.
+
+  if (_windowExists() || config.headless) {
+    // edge case: some build tools may pass in a null/undefined value
+    var name = config.name,
+        isFunc = _isFunction(config),
+        Plugin = name && !isFunc && config.init ? function () {
+      this._props = [];
+    } : config,
+        //in case someone passes in an object that's not a plugin, like CustomEase
+    instanceDefaults = {
+      init: _emptyFunc,
+      render: _renderPropTweens,
+      add: _addPropTween,
+      kill: _killPropTweensOf,
+      modifier: _addPluginModifier,
+      rawVars: 0
+    },
+        statics = {
+      targetTest: 0,
+      get: 0,
+      getSetter: _getSetter,
+      aliases: {},
+      register: 0
+    };
+
+    _wake();
+
+    if (config !== Plugin) {
+      if (_plugins[name]) {
+        return;
+      }
+
+      _setDefaults(Plugin, _setDefaults(_copyExcluding(config, instanceDefaults), statics)); //static methods
+
+
+      _merge(Plugin.prototype, _merge(instanceDefaults, _copyExcluding(config, statics))); //instance methods
+
+
+      _plugins[Plugin.prop = name] = Plugin;
+
+      if (config.targetTest) {
+        _harnessPlugins.push(Plugin);
+
+        _reservedProps[name] = 1;
+      }
+
+      name = (name === "css" ? "CSS" : name.charAt(0).toUpperCase() + name.substr(1)) + "Plugin"; //for the global name. "motionPath" should become MotionPathPlugin
+    }
+
+    _addGlobal(name, Plugin);
+
+    config.register && config.register(gsap, Plugin, PropTween);
+  } else {
+    _registerPluginQueue.push(config);
+  }
+},
+
+/*
+ * --------------------------------------------------------------------------------------
+ * COLORS
+ * --------------------------------------------------------------------------------------
+ */
+_255 = 255,
+    _colorLookup = {
+  aqua: [0, _255, _255],
+  lime: [0, _255, 0],
+  silver: [192, 192, 192],
+  black: [0, 0, 0],
+  maroon: [128, 0, 0],
+  teal: [0, 128, 128],
+  blue: [0, 0, _255],
+  navy: [0, 0, 128],
+  white: [_255, _255, _255],
+  olive: [128, 128, 0],
+  yellow: [_255, _255, 0],
+  orange: [_255, 165, 0],
+  gray: [128, 128, 128],
+  purple: [128, 0, 128],
+  green: [0, 128, 0],
+  red: [_255, 0, 0],
+  pink: [_255, 192, 203],
+  cyan: [0, _255, _255],
+  transparent: [_255, _255, _255, 0]
+},
+    // possible future idea to replace the hard-coded color name values - put this in the ticker.wake() where we set the _doc:
+// let ctx = _doc.createElement("canvas").getContext("2d");
+// _forEachName("aqua,lime,silver,black,maroon,teal,blue,navy,white,olive,yellow,orange,gray,purple,green,red,pink,cyan", color => {ctx.fillStyle = color; _colorLookup[color] = splitColor(ctx.fillStyle)});
+_hue = function _hue(h, m1, m2) {
+  h += h < 0 ? 1 : h > 1 ? -1 : 0;
+  return (h * 6 < 1 ? m1 + (m2 - m1) * h * 6 : h < .5 ? m2 : h * 3 < 2 ? m1 + (m2 - m1) * (2 / 3 - h) * 6 : m1) * _255 + .5 | 0;
+},
+    splitColor = function splitColor(v, toHSL, forceAlpha) {
+  var a = !v ? _colorLookup.black : _isNumber(v) ? [v >> 16, v >> 8 & _255, v & _255] : 0,
+      r,
+      g,
+      b,
+      h,
+      s,
+      l,
+      max,
+      min,
+      d,
+      wasHSL;
+
+  if (!a) {
+    if (v.substr(-1) === ",") {
+      //sometimes a trailing comma is included and we should chop it off (typically from a comma-delimited list of values like a textShadow:"2px 2px 2px blue, 5px 5px 5px rgb(255,0,0)" - in this example "blue," has a trailing comma. We could strip it out inside parseComplex() but we'd need to do it to the beginning and ending values plus it wouldn't provide protection from other potential scenarios like if the user passes in a similar value.
+      v = v.substr(0, v.length - 1);
+    }
+
+    if (_colorLookup[v]) {
+      a = _colorLookup[v];
+    } else if (v.charAt(0) === "#") {
+      if (v.length < 6) {
+        //for shorthand like #9F0 or #9F0F (could have alpha)
+        r = v.charAt(1);
+        g = v.charAt(2);
+        b = v.charAt(3);
+        v = "#" + r + r + g + g + b + b + (v.length === 5 ? v.charAt(4) + v.charAt(4) : "");
+      }
+
+      if (v.length === 9) {
+        // hex with alpha, like #fd5e53ff
+        a = parseInt(v.substr(1, 6), 16);
+        return [a >> 16, a >> 8 & _255, a & _255, parseInt(v.substr(7), 16) / 255];
+      }
+
+      v = parseInt(v.substr(1), 16);
+      a = [v >> 16, v >> 8 & _255, v & _255];
+    } else if (v.substr(0, 3) === "hsl") {
+      a = wasHSL = v.match(_strictNumExp);
+
+      if (!toHSL) {
+        h = +a[0] % 360 / 360;
+        s = +a[1] / 100;
+        l = +a[2] / 100;
+        g = l <= .5 ? l * (s + 1) : l + s - l * s;
+        r = l * 2 - g;
+        a.length > 3 && (a[3] *= 1); //cast as number
+
+        a[0] = _hue(h + 1 / 3, r, g);
+        a[1] = _hue(h, r, g);
+        a[2] = _hue(h - 1 / 3, r, g);
+      } else if (~v.indexOf("=")) {
+        //if relative values are found, just return the raw strings with the relative prefixes in place.
+        a = v.match(_numExp);
+        forceAlpha && a.length < 4 && (a[3] = 1);
+        return a;
+      }
+    } else {
+      a = v.match(_strictNumExp) || _colorLookup.transparent;
+    }
+
+    a = a.map(Number);
+  }
+
+  if (toHSL && !wasHSL) {
+    r = a[0] / _255;
+    g = a[1] / _255;
+    b = a[2] / _255;
+    max = Math.max(r, g, b);
+    min = Math.min(r, g, b);
+    l = (max + min) / 2;
+
+    if (max === min) {
+      h = s = 0;
+    } else {
+      d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      h = max === r ? (g - b) / d + (g < b ? 6 : 0) : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+      h *= 60;
+    }
+
+    a[0] = ~~(h + .5);
+    a[1] = ~~(s * 100 + .5);
+    a[2] = ~~(l * 100 + .5);
+  }
+
+  forceAlpha && a.length < 4 && (a[3] = 1);
+  return a;
+},
+    _colorOrderData = function _colorOrderData(v) {
+  // strips out the colors from the string, finds all the numeric slots (with units) and returns an array of those. The Array also has a "c" property which is an Array of the index values where the colors belong. This is to help work around issues where there's a mis-matched order of color/numeric data like drop-shadow(#f00 0px 1px 2px) and drop-shadow(0x 1px 2px #f00). This is basically a helper function used in _formatColors()
+  var values = [],
+      c = [],
+      i = -1;
+  v.split(_colorExp).forEach(function (v) {
+    var a = v.match(_numWithUnitExp) || [];
+    values.push.apply(values, a);
+    c.push(i += a.length + 1);
+  });
+  values.c = c;
+  return values;
+},
+    _formatColors = function _formatColors(s, toHSL, orderMatchData) {
+  var result = "",
+      colors = (s + result).match(_colorExp),
+      type = toHSL ? "hsla(" : "rgba(",
+      i = 0,
+      c,
+      shell,
+      d,
+      l;
+
+  if (!colors) {
+    return s;
+  }
+
+  colors = colors.map(function (color) {
+    return (color = splitColor(color, toHSL, 1)) && type + (toHSL ? color[0] + "," + color[1] + "%," + color[2] + "%," + color[3] : color.join(",")) + ")";
+  });
+
+  if (orderMatchData) {
+    d = _colorOrderData(s);
+    c = orderMatchData.c;
+
+    if (c.join(result) !== d.c.join(result)) {
+      shell = s.replace(_colorExp, "1").split(_numWithUnitExp);
+      l = shell.length - 1;
+
+      for (; i < l; i++) {
+        result += shell[i] + (~c.indexOf(i) ? colors.shift() || type + "0,0,0,0)" : (d.length ? d : colors.length ? colors : orderMatchData).shift());
+      }
+    }
+  }
+
+  if (!shell) {
+    shell = s.split(_colorExp);
+    l = shell.length - 1;
+
+    for (; i < l; i++) {
+      result += shell[i] + colors[i];
+    }
+  }
+
+  return result + shell[l];
+},
+    _colorExp = function () {
+  var s = "(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3,4}){1,2}\\b",
+      //we'll dynamically build this Regular Expression to conserve file size. After building it, it will be able to find rgb(), rgba(), # (hexadecimal), and named color values like red, blue, purple, etc.,
+  p;
+
+  for (p in _colorLookup) {
+    s += "|" + p + "\\b";
+  }
+
+  return new RegExp(s + ")", "gi");
+}(),
+    _hslExp = /hsl[a]?\(/,
+    _colorStringFilter = function _colorStringFilter(a) {
+  var combined = a.join(" "),
+      toHSL;
+  _colorExp.lastIndex = 0;
+
+  if (_colorExp.test(combined)) {
+    toHSL = _hslExp.test(combined);
+    a[1] = _formatColors(a[1], toHSL);
+    a[0] = _formatColors(a[0], toHSL, _colorOrderData(a[1])); // make sure the order of numbers/colors match with the END value.
+
+    return true;
+  }
+},
+
+/*
+ * --------------------------------------------------------------------------------------
+ * TICKER
+ * --------------------------------------------------------------------------------------
+ */
+_tickerActive,
+    _ticker = function () {
+  var _getTime = Date.now,
+      _lagThreshold = 500,
+      _adjustedLag = 33,
+      _startTime = _getTime(),
+      _lastUpdate = _startTime,
+      _gap = 1000 / 240,
+      _nextTime = _gap,
+      _listeners = [],
+      _id,
+      _req,
+      _raf,
+      _self,
+      _delta,
+      _i,
+      _tick = function _tick(v) {
+    var elapsed = _getTime() - _lastUpdate,
+        manual = v === true,
+        overlap,
+        dispatch,
+        time,
+        frame;
+
+    (elapsed > _lagThreshold || elapsed < 0) && (_startTime += elapsed - _adjustedLag);
+    _lastUpdate += elapsed;
+    time = _lastUpdate - _startTime;
+    overlap = time - _nextTime;
+
+    if (overlap > 0 || manual) {
+      frame = ++_self.frame;
+      _delta = time - _self.time * 1000;
+      _self.time = time = time / 1000;
+      _nextTime += overlap + (overlap >= _gap ? 4 : _gap - overlap);
+      dispatch = 1;
+    }
+
+    manual || (_id = _req(_tick)); //make sure the request is made before we dispatch the "tick" event so that timing is maintained. Otherwise, if processing the "tick" requires a bunch of time (like 15ms) and we're using a setTimeout() that's based on 16.7ms, it'd technically take 31.7ms between frames otherwise.
+
+    if (dispatch) {
+      for (_i = 0; _i < _listeners.length; _i++) {
+        // use _i and check _listeners.length instead of a variable because a listener could get removed during the loop, and if that happens to an element less than the current index, it'd throw things off in the loop.
+        _listeners[_i](time, _delta, frame, v);
+      }
+    }
+  };
+
+  _self = {
+    time: 0,
+    frame: 0,
+    tick: function tick() {
+      _tick(true);
+    },
+    deltaRatio: function deltaRatio(fps) {
+      return _delta / (1000 / (fps || 60));
+    },
+    wake: function wake() {
+      if (_coreReady) {
+        if (!_coreInitted && _windowExists()) {
+          _win = _coreInitted = window;
+          _doc = _win.document || {};
+          _globals.gsap = gsap;
+          (_win.gsapVersions || (_win.gsapVersions = [])).push(gsap.version);
+
+          _install(_installScope || _win.GreenSockGlobals || !_win.gsap && _win || {});
+
+          _registerPluginQueue.forEach(_createPlugin);
+        }
+
+        _raf = typeof requestAnimationFrame !== "undefined" && requestAnimationFrame;
+        _id && _self.sleep();
+
+        _req = _raf || function (f) {
+          return setTimeout(f, _nextTime - _self.time * 1000 + 1 | 0);
+        };
+
+        _tickerActive = 1;
+
+        _tick(2);
+      }
+    },
+    sleep: function sleep() {
+      (_raf ? cancelAnimationFrame : clearTimeout)(_id);
+      _tickerActive = 0;
+      _req = _emptyFunc;
+    },
+    lagSmoothing: function lagSmoothing(threshold, adjustedLag) {
+      _lagThreshold = threshold || Infinity; // zero should be interpreted as basically unlimited
+
+      _adjustedLag = Math.min(adjustedLag || 33, _lagThreshold);
+    },
+    fps: function fps(_fps) {
+      _gap = 1000 / (_fps || 240);
+      _nextTime = _self.time * 1000 + _gap;
+    },
+    add: function add(callback, once, prioritize) {
+      var func = once ? function (t, d, f, v) {
+        callback(t, d, f, v);
+
+        _self.remove(func);
+      } : callback;
+
+      _self.remove(callback);
+
+      _listeners[prioritize ? "unshift" : "push"](func);
+
+      _wake();
+
+      return func;
+    },
+    remove: function remove(callback, i) {
+      ~(i = _listeners.indexOf(callback)) && _listeners.splice(i, 1) && _i >= i && _i--;
+    },
+    _listeners: _listeners
+  };
+  return _self;
+}(),
+    _wake = function _wake() {
+  return !_tickerActive && _ticker.wake();
+},
+    //also ensures the core classes are initialized.
+
+/*
+* -------------------------------------------------
+* EASING
+* -------------------------------------------------
+*/
+_easeMap = {},
+    _customEaseExp = /^[\d.\-M][\d.\-,\s]/,
+    _quotesExp = /["']/g,
+    _parseObjectInString = function _parseObjectInString(value) {
+  //takes a string like "{wiggles:10, type:anticipate})" and turns it into a real object. Notice it ends in ")" and includes the {} wrappers. This is because we only use this function for parsing ease configs and prioritized optimization rather than reusability.
+  var obj = {},
+      split = value.substr(1, value.length - 3).split(":"),
+      key = split[0],
+      i = 1,
+      l = split.length,
+      index,
+      val,
+      parsedVal;
+
+  for (; i < l; i++) {
+    val = split[i];
+    index = i !== l - 1 ? val.lastIndexOf(",") : val.length;
+    parsedVal = val.substr(0, index);
+    obj[key] = isNaN(parsedVal) ? parsedVal.replace(_quotesExp, "").trim() : +parsedVal;
+    key = val.substr(index + 1).trim();
+  }
+
+  return obj;
+},
+    _valueInParentheses = function _valueInParentheses(value) {
+  var open = value.indexOf("(") + 1,
+      close = value.indexOf(")"),
+      nested = value.indexOf("(", open);
+  return value.substring(open, ~nested && nested < close ? value.indexOf(")", close + 1) : close);
+},
+    _configEaseFromString = function _configEaseFromString(name) {
+  //name can be a string like "elastic.out(1,0.5)", and pass in _easeMap as obj and it'll parse it out and call the actual function like _easeMap.Elastic.easeOut.config(1,0.5). It will also parse custom ease strings as long as CustomEase is loaded and registered (internally as _easeMap._CE).
+  var split = (name + "").split("("),
+      ease = _easeMap[split[0]];
+  return ease && split.length > 1 && ease.config ? ease.config.apply(null, ~name.indexOf("{") ? [_parseObjectInString(split[1])] : _valueInParentheses(name).split(",").map(_numericIfPossible)) : _easeMap._CE && _customEaseExp.test(name) ? _easeMap._CE("", name) : ease;
+},
+    _invertEase = function _invertEase(ease) {
+  return function (p) {
+    return 1 - ease(1 - p);
+  };
+},
+    // allow yoyoEase to be set in children and have those affected when the parent/ancestor timeline yoyos.
+_propagateYoyoEase = function _propagateYoyoEase(timeline, isYoyo) {
+  var child = timeline._first,
+      ease;
+
+  while (child) {
+    if (child instanceof Timeline) {
+      _propagateYoyoEase(child, isYoyo);
+    } else if (child.vars.yoyoEase && (!child._yoyo || !child._repeat) && child._yoyo !== isYoyo) {
+      if (child.timeline) {
+        _propagateYoyoEase(child.timeline, isYoyo);
+      } else {
+        ease = child._ease;
+        child._ease = child._yEase;
+        child._yEase = ease;
+        child._yoyo = isYoyo;
+      }
+    }
+
+    child = child._next;
+  }
+},
+    _parseEase = function _parseEase(ease, defaultEase) {
+  return !ease ? defaultEase : (_isFunction(ease) ? ease : _easeMap[ease] || _configEaseFromString(ease)) || defaultEase;
+},
+    _insertEase = function _insertEase(names, easeIn, easeOut, easeInOut) {
+  if (easeOut === void 0) {
+    easeOut = function easeOut(p) {
+      return 1 - easeIn(1 - p);
+    };
+  }
+
+  if (easeInOut === void 0) {
+    easeInOut = function easeInOut(p) {
+      return p < .5 ? easeIn(p * 2) / 2 : 1 - easeIn((1 - p) * 2) / 2;
+    };
+  }
+
+  var ease = {
+    easeIn: easeIn,
+    easeOut: easeOut,
+    easeInOut: easeInOut
+  },
+      lowercaseName;
+
+  _forEachName(names, function (name) {
+    _easeMap[name] = _globals[name] = ease;
+    _easeMap[lowercaseName = name.toLowerCase()] = easeOut;
+
+    for (var p in ease) {
+      _easeMap[lowercaseName + (p === "easeIn" ? ".in" : p === "easeOut" ? ".out" : ".inOut")] = _easeMap[name + "." + p] = ease[p];
+    }
+  });
+
+  return ease;
+},
+    _easeInOutFromOut = function _easeInOutFromOut(easeOut) {
+  return function (p) {
+    return p < .5 ? (1 - easeOut(1 - p * 2)) / 2 : .5 + easeOut((p - .5) * 2) / 2;
+  };
+},
+    _configElastic = function _configElastic(type, amplitude, period) {
+  var p1 = amplitude >= 1 ? amplitude : 1,
+      //note: if amplitude is < 1, we simply adjust the period for a more natural feel. Otherwise the math doesn't work right and the curve starts at 1.
+  p2 = (period || (type ? .3 : .45)) / (amplitude < 1 ? amplitude : 1),
+      p3 = p2 / _2PI * (Math.asin(1 / p1) || 0),
+      easeOut = function easeOut(p) {
+    return p === 1 ? 1 : p1 * Math.pow(2, -10 * p) * _sin((p - p3) * p2) + 1;
+  },
+      ease = type === "out" ? easeOut : type === "in" ? function (p) {
+    return 1 - easeOut(1 - p);
+  } : _easeInOutFromOut(easeOut);
+
+  p2 = _2PI / p2; //precalculate to optimize
+
+  ease.config = function (amplitude, period) {
+    return _configElastic(type, amplitude, period);
+  };
+
+  return ease;
+},
+    _configBack = function _configBack(type, overshoot) {
+  if (overshoot === void 0) {
+    overshoot = 1.70158;
+  }
+
+  var easeOut = function easeOut(p) {
+    return p ? --p * p * ((overshoot + 1) * p + overshoot) + 1 : 0;
+  },
+      ease = type === "out" ? easeOut : type === "in" ? function (p) {
+    return 1 - easeOut(1 - p);
+  } : _easeInOutFromOut(easeOut);
+
+  ease.config = function (overshoot) {
+    return _configBack(type, overshoot);
+  };
+
+  return ease;
+}; // a cheaper (kb and cpu) but more mild way to get a parameterized weighted ease by feeding in a value between -1 (easeIn) and 1 (easeOut) where 0 is linear.
+// _weightedEase = ratio => {
+// 	let y = 0.5 + ratio / 2;
+// 	return p => (2 * (1 - p) * p * y + p * p);
+// },
+// a stronger (but more expensive kb/cpu) parameterized weighted ease that lets you feed in a value between -1 (easeIn) and 1 (easeOut) where 0 is linear.
+// _weightedEaseStrong = ratio => {
+// 	ratio = .5 + ratio / 2;
+// 	let o = 1 / 3 * (ratio < .5 ? ratio : 1 - ratio),
+// 		b = ratio - o,
+// 		c = ratio + o;
+// 	return p => p === 1 ? p : 3 * b * (1 - p) * (1 - p) * p + 3 * c * (1 - p) * p * p + p * p * p;
+// };
+
+
+_forEachName("Linear,Quad,Cubic,Quart,Quint,Strong", function (name, i) {
+  var power = i < 5 ? i + 1 : i;
+
+  _insertEase(name + ",Power" + (power - 1), i ? function (p) {
+    return Math.pow(p, power);
+  } : function (p) {
+    return p;
+  }, function (p) {
+    return 1 - Math.pow(1 - p, power);
+  }, function (p) {
+    return p < .5 ? Math.pow(p * 2, power) / 2 : 1 - Math.pow((1 - p) * 2, power) / 2;
+  });
+});
+
+_easeMap.Linear.easeNone = _easeMap.none = _easeMap.Linear.easeIn;
+
+_insertEase("Elastic", _configElastic("in"), _configElastic("out"), _configElastic());
+
+(function (n, c) {
+  var n1 = 1 / c,
+      n2 = 2 * n1,
+      n3 = 2.5 * n1,
+      easeOut = function easeOut(p) {
+    return p < n1 ? n * p * p : p < n2 ? n * Math.pow(p - 1.5 / c, 2) + .75 : p < n3 ? n * (p -= 2.25 / c) * p + .9375 : n * Math.pow(p - 2.625 / c, 2) + .984375;
+  };
+
+  _insertEase("Bounce", function (p) {
+    return 1 - easeOut(1 - p);
+  }, easeOut);
+})(7.5625, 2.75);
+
+_insertEase("Expo", function (p) {
+  return p ? Math.pow(2, 10 * (p - 1)) : 0;
+});
+
+_insertEase("Circ", function (p) {
+  return -(_sqrt(1 - p * p) - 1);
+});
+
+_insertEase("Sine", function (p) {
+  return p === 1 ? 1 : -_cos(p * _HALF_PI) + 1;
+});
+
+_insertEase("Back", _configBack("in"), _configBack("out"), _configBack());
+
+_easeMap.SteppedEase = _easeMap.steps = _globals.SteppedEase = {
+  config: function config(steps, immediateStart) {
+    if (steps === void 0) {
+      steps = 1;
+    }
+
+    var p1 = 1 / steps,
+        p2 = steps + (immediateStart ? 0 : 1),
+        p3 = immediateStart ? 1 : 0,
+        max = 1 - _tinyNum;
+    return function (p) {
+      return ((p2 * _clamp(0, max, p) | 0) + p3) * p1;
+    };
+  }
+};
+_defaults.ease = _easeMap["quad.out"];
+
+_forEachName("onComplete,onUpdate,onStart,onRepeat,onReverseComplete,onInterrupt", function (name) {
+  return _callbackNames += name + "," + name + "Params,";
+});
+/*
+ * --------------------------------------------------------------------------------------
+ * CACHE
+ * --------------------------------------------------------------------------------------
+ */
+
+
+var GSCache = function GSCache(target, harness) {
+  this.id = _gsID++;
+  target._gsap = this;
+  this.target = target;
+  this.harness = harness;
+  this.get = harness ? harness.get : _getProperty;
+  this.set = harness ? harness.getSetter : _getSetter;
+};
+/*
+ * --------------------------------------------------------------------------------------
+ * ANIMATION
+ * --------------------------------------------------------------------------------------
+ */
+
+var Animation = /*#__PURE__*/function () {
+  function Animation(vars) {
+    this.vars = vars;
+    this._delay = +vars.delay || 0;
+
+    if (this._repeat = vars.repeat === Infinity ? -2 : vars.repeat || 0) {
+      // TODO: repeat: Infinity on a timeline's children must flag that timeline internally and affect its totalDuration, otherwise it'll stop in the negative direction when reaching the start.
+      this._rDelay = vars.repeatDelay || 0;
+      this._yoyo = !!vars.yoyo || !!vars.yoyoEase;
+    }
+
+    this._ts = 1;
+
+    _setDuration(this, +vars.duration, 1, 1);
+
+    this.data = vars.data;
+
+    if (_context) {
+      this._ctx = _context;
+
+      _context.data.push(this);
+    }
+
+    _tickerActive || _ticker.wake();
+  }
+
+  var _proto = Animation.prototype;
+
+  _proto.delay = function delay(value) {
+    if (value || value === 0) {
+      this.parent && this.parent.smoothChildTiming && this.startTime(this._start + value - this._delay);
+      this._delay = value;
+      return this;
+    }
+
+    return this._delay;
+  };
+
+  _proto.duration = function duration(value) {
+    return arguments.length ? this.totalDuration(this._repeat > 0 ? value + (value + this._rDelay) * this._repeat : value) : this.totalDuration() && this._dur;
+  };
+
+  _proto.totalDuration = function totalDuration(value) {
+    if (!arguments.length) {
+      return this._tDur;
+    }
+
+    this._dirty = 0;
+    return _setDuration(this, this._repeat < 0 ? value : (value - this._repeat * this._rDelay) / (this._repeat + 1));
+  };
+
+  _proto.totalTime = function totalTime(_totalTime, suppressEvents) {
+    _wake();
+
+    if (!arguments.length) {
+      return this._tTime;
+    }
+
+    var parent = this._dp;
+
+    if (parent && parent.smoothChildTiming && this._ts) {
+      _alignPlayhead(this, _totalTime);
+
+      !parent._dp || parent.parent || _postAddChecks(parent, this); // edge case: if this is a child of a timeline that already completed, for example, we must re-activate the parent.
+      //in case any of the ancestor timelines had completed but should now be enabled, we should reset their totalTime() which will also ensure that they're lined up properly and enabled. Skip for animations that are on the root (wasteful). Example: a TimelineLite.exportRoot() is performed when there's a paused tween on the root, the export will not complete until that tween is unpaused, but imagine a child gets restarted later, after all [unpaused] tweens have completed. The start of that child would get pushed out, but one of the ancestors may have completed.
+
+      while (parent && parent.parent) {
+        if (parent.parent._time !== parent._start + (parent._ts >= 0 ? parent._tTime / parent._ts : (parent.totalDuration() - parent._tTime) / -parent._ts)) {
+          parent.totalTime(parent._tTime, true);
+        }
+
+        parent = parent.parent;
+      }
+
+      if (!this.parent && this._dp.autoRemoveChildren && (this._ts > 0 && _totalTime < this._tDur || this._ts < 0 && _totalTime > 0 || !this._tDur && !_totalTime)) {
+        //if the animation doesn't have a parent, put it back into its last parent (recorded as _dp for exactly cases like this). Limit to parents with autoRemoveChildren (like globalTimeline) so that if the user manually removes an animation from a timeline and then alters its playhead, it doesn't get added back in.
+        _addToTimeline(this._dp, this, this._start - this._delay);
+      }
+    }
+
+    if (this._tTime !== _totalTime || !this._dur && !suppressEvents || this._initted && Math.abs(this._zTime) === _tinyNum || !_totalTime && !this._initted && (this.add || this._ptLookup)) {
+      // check for _ptLookup on a Tween instance to ensure it has actually finished being instantiated, otherwise if this.reverse() gets called in the Animation constructor, it could trigger a render() here even though the _targets weren't populated, thus when _init() is called there won't be any PropTweens (it'll act like the tween is non-functional)
+      this._ts || (this._pTime = _totalTime); // otherwise, if an animation is paused, then the playhead is moved back to zero, then resumed, it'd revert back to the original time at the pause
+      //if (!this._lock) { // avoid endless recursion (not sure we need this yet or if it's worth the performance hit)
+      //   this._lock = 1;
+
+      _lazySafeRender(this, _totalTime, suppressEvents); //   this._lock = 0;
+      //}
+
+    }
+
+    return this;
+  };
+
+  _proto.time = function time(value, suppressEvents) {
+    return arguments.length ? this.totalTime(Math.min(this.totalDuration(), value + _elapsedCycleDuration(this)) % (this._dur + this._rDelay) || (value ? this._dur : 0), suppressEvents) : this._time; // note: if the modulus results in 0, the playhead could be exactly at the end or the beginning, and we always defer to the END with a non-zero value, otherwise if you set the time() to the very end (duration()), it would render at the START!
+  };
+
+  _proto.totalProgress = function totalProgress(value, suppressEvents) {
+    return arguments.length ? this.totalTime(this.totalDuration() * value, suppressEvents) : this.totalDuration() ? Math.min(1, this._tTime / this._tDur) : this.rawTime() > 0 ? 1 : 0;
+  };
+
+  _proto.progress = function progress(value, suppressEvents) {
+    return arguments.length ? this.totalTime(this.duration() * (this._yoyo && !(this.iteration() & 1) ? 1 - value : value) + _elapsedCycleDuration(this), suppressEvents) : this.duration() ? Math.min(1, this._time / this._dur) : this.rawTime() > 0 ? 1 : 0;
+  };
+
+  _proto.iteration = function iteration(value, suppressEvents) {
+    var cycleDuration = this.duration() + this._rDelay;
+
+    return arguments.length ? this.totalTime(this._time + (value - 1) * cycleDuration, suppressEvents) : this._repeat ? _animationCycle(this._tTime, cycleDuration) + 1 : 1;
+  } // potential future addition:
+  // isPlayingBackwards() {
+  // 	let animation = this,
+  // 		orientation = 1; // 1 = forward, -1 = backward
+  // 	while (animation) {
+  // 		orientation *= animation.reversed() || (animation.repeat() && !(animation.iteration() & 1)) ? -1 : 1;
+  // 		animation = animation.parent;
+  // 	}
+  // 	return orientation < 0;
+  // }
+  ;
+
+  _proto.timeScale = function timeScale(value, suppressEvents) {
+    if (!arguments.length) {
+      return this._rts === -_tinyNum ? 0 : this._rts; // recorded timeScale. Special case: if someone calls reverse() on an animation with timeScale of 0, we assign it -_tinyNum to remember it's reversed.
+    }
+
+    if (this._rts === value) {
+      return this;
+    }
+
+    var tTime = this.parent && this._ts ? _parentToChildTotalTime(this.parent._time, this) : this._tTime; // make sure to do the parentToChildTotalTime() BEFORE setting the new _ts because the old one must be used in that calculation.
+    // future addition? Up side: fast and minimal file size. Down side: only works on this animation; if a timeline is reversed, for example, its childrens' onReverse wouldn't get called.
+    //(+value < 0 && this._rts >= 0) && _callback(this, "onReverse", true);
+    // prioritize rendering where the parent's playhead lines up instead of this._tTime because there could be a tween that's animating another tween's timeScale in the same rendering loop (same parent), thus if the timeScale tween renders first, it would alter _start BEFORE _tTime was set on that tick (in the rendering loop), effectively freezing it until the timeScale tween finishes.
+
+    this._rts = +value || 0;
+    this._ts = this._ps || value === -_tinyNum ? 0 : this._rts; // _ts is the functional timeScale which would be 0 if the animation is paused.
+
+    this.totalTime(_clamp(-Math.abs(this._delay), this._tDur, tTime), suppressEvents !== false);
+
+    _setEnd(this); // if parent.smoothChildTiming was false, the end time didn't get updated in the _alignPlayhead() method, so do it here.
+
+
+    return _recacheAncestors(this);
+  };
+
+  _proto.paused = function paused(value) {
+    if (!arguments.length) {
+      return this._ps;
+    }
+
+    if (this._ps !== value) {
+      this._ps = value;
+
+      if (value) {
+        this._pTime = this._tTime || Math.max(-this._delay, this.rawTime()); // if the pause occurs during the delay phase, make sure that's factored in when resuming.
+
+        this._ts = this._act = 0; // _ts is the functional timeScale, so a paused tween would effectively have a timeScale of 0. We record the "real" timeScale as _rts (recorded time scale)
+      } else {
+        _wake();
+
+        this._ts = this._rts; //only defer to _pTime (pauseTime) if tTime is zero. Remember, someone could pause() an animation, then scrub the playhead and resume(). If the parent doesn't have smoothChildTiming, we render at the rawTime() because the startTime won't get updated.
+
+        this.totalTime(this.parent && !this.parent.smoothChildTiming ? this.rawTime() : this._tTime || this._pTime, this.progress() === 1 && Math.abs(this._zTime) !== _tinyNum && (this._tTime -= _tinyNum)); // edge case: animation.progress(1).pause().play() wouldn't render again because the playhead is already at the end, but the call to totalTime() below will add it back to its parent...and not remove it again (since removing only happens upon rendering at a new time). Offsetting the _tTime slightly is done simply to cause the final render in totalTime() that'll pop it off its timeline (if autoRemoveChildren is true, of course). Check to make sure _zTime isn't -_tinyNum to avoid an edge case where the playhead is pushed to the end but INSIDE a tween/callback, the timeline itself is paused thus halting rendering and leaving a few unrendered. When resuming, it wouldn't render those otherwise.
+      }
+    }
+
+    return this;
+  };
+
+  _proto.startTime = function startTime(value) {
+    if (arguments.length) {
+      this._start = value;
+      var parent = this.parent || this._dp;
+      parent && (parent._sort || !this.parent) && _addToTimeline(parent, this, value - this._delay);
+      return this;
+    }
+
+    return this._start;
+  };
+
+  _proto.endTime = function endTime(includeRepeats) {
+    return this._start + (_isNotFalse(includeRepeats) ? this.totalDuration() : this.duration()) / Math.abs(this._ts || 1);
+  };
+
+  _proto.rawTime = function rawTime(wrapRepeats) {
+    var parent = this.parent || this._dp; // _dp = detached parent
+
+    return !parent ? this._tTime : wrapRepeats && (!this._ts || this._repeat && this._time && this.totalProgress() < 1) ? this._tTime % (this._dur + this._rDelay) : !this._ts ? this._tTime : _parentToChildTotalTime(parent.rawTime(wrapRepeats), this);
+  };
+
+  _proto.revert = function revert(config) {
+    if (config === void 0) {
+      config = _revertConfig;
+    }
+
+    var prevIsReverting = _reverting;
+    _reverting = config;
+
+    if (this._initted || this._startAt) {
+      this.timeline && this.timeline.revert(config);
+      this.totalTime(-0.01, config.suppressEvents);
+    }
+
+    this.data !== "nested" && config.kill !== false && this.kill();
+    _reverting = prevIsReverting;
+    return this;
+  };
+
+  _proto.globalTime = function globalTime(rawTime) {
+    var animation = this,
+        time = arguments.length ? rawTime : animation.rawTime();
+
+    while (animation) {
+      time = animation._start + time / (Math.abs(animation._ts) || 1);
+      animation = animation._dp;
+    }
+
+    return !this.parent && this._sat ? this._sat.globalTime(rawTime) : time; // the _startAt tweens for .fromTo() and .from() that have immediateRender should always be FIRST in the timeline (important for context.revert()). "_sat" stands for _startAtTween, referring to the parent tween that created the _startAt. We must discern if that tween had immediateRender so that we can know whether or not to prioritize it in revert().
+  };
+
+  _proto.repeat = function repeat(value) {
+    if (arguments.length) {
+      this._repeat = value === Infinity ? -2 : value;
+      return _onUpdateTotalDuration(this);
+    }
+
+    return this._repeat === -2 ? Infinity : this._repeat;
+  };
+
+  _proto.repeatDelay = function repeatDelay(value) {
+    if (arguments.length) {
+      var time = this._time;
+      this._rDelay = value;
+
+      _onUpdateTotalDuration(this);
+
+      return time ? this.time(time) : this;
+    }
+
+    return this._rDelay;
+  };
+
+  _proto.yoyo = function yoyo(value) {
+    if (arguments.length) {
+      this._yoyo = value;
+      return this;
+    }
+
+    return this._yoyo;
+  };
+
+  _proto.seek = function seek(position, suppressEvents) {
+    return this.totalTime(_parsePosition(this, position), _isNotFalse(suppressEvents));
+  };
+
+  _proto.restart = function restart(includeDelay, suppressEvents) {
+    return this.play().totalTime(includeDelay ? -this._delay : 0, _isNotFalse(suppressEvents));
+  };
+
+  _proto.play = function play(from, suppressEvents) {
+    from != null && this.seek(from, suppressEvents);
+    return this.reversed(false).paused(false);
+  };
+
+  _proto.reverse = function reverse(from, suppressEvents) {
+    from != null && this.seek(from || this.totalDuration(), suppressEvents);
+    return this.reversed(true).paused(false);
+  };
+
+  _proto.pause = function pause(atTime, suppressEvents) {
+    atTime != null && this.seek(atTime, suppressEvents);
+    return this.paused(true);
+  };
+
+  _proto.resume = function resume() {
+    return this.paused(false);
+  };
+
+  _proto.reversed = function reversed(value) {
+    if (arguments.length) {
+      !!value !== this.reversed() && this.timeScale(-this._rts || (value ? -_tinyNum : 0)); // in case timeScale is zero, reversing would have no effect so we use _tinyNum.
+
+      return this;
+    }
+
+    return this._rts < 0;
+  };
+
+  _proto.invalidate = function invalidate() {
+    this._initted = this._act = 0;
+    this._zTime = -_tinyNum;
+    return this;
+  };
+
+  _proto.isActive = function isActive() {
+    var parent = this.parent || this._dp,
+        start = this._start,
+        rawTime;
+    return !!(!parent || this._ts && this._initted && parent.isActive() && (rawTime = parent.rawTime(true)) >= start && rawTime < this.endTime(true) - _tinyNum);
+  };
+
+  _proto.eventCallback = function eventCallback(type, callback, params) {
+    var vars = this.vars;
+
+    if (arguments.length > 1) {
+      if (!callback) {
+        delete vars[type];
+      } else {
+        vars[type] = callback;
+        params && (vars[type + "Params"] = params);
+        type === "onUpdate" && (this._onUpdate = callback);
+      }
+
+      return this;
+    }
+
+    return vars[type];
+  };
+
+  _proto.then = function then(onFulfilled) {
+    var self = this;
+    return new Promise(function (resolve) {
+      var f = _isFunction(onFulfilled) ? onFulfilled : _passThrough,
+          _resolve = function _resolve() {
+        var _then = self.then;
+        self.then = null; // temporarily null the then() method to avoid an infinite loop (see https://github.com/greensock/GSAP/issues/322)
+
+        _isFunction(f) && (f = f(self)) && (f.then || f === self) && (self.then = _then);
+        resolve(f);
+        self.then = _then;
+      };
+
+      if (self._initted && self.totalProgress() === 1 && self._ts >= 0 || !self._tTime && self._ts < 0) {
+        _resolve();
+      } else {
+        self._prom = _resolve;
+      }
+    });
+  };
+
+  _proto.kill = function kill() {
+    _interrupt(this);
+  };
+
+  return Animation;
+}();
+
+_setDefaults(Animation.prototype, {
+  _time: 0,
+  _start: 0,
+  _end: 0,
+  _tTime: 0,
+  _tDur: 0,
+  _dirty: 0,
+  _repeat: 0,
+  _yoyo: false,
+  parent: null,
+  _initted: false,
+  _rDelay: 0,
+  _ts: 1,
+  _dp: 0,
+  ratio: 0,
+  _zTime: -_tinyNum,
+  _prom: 0,
+  _ps: false,
+  _rts: 1
+});
+/*
+ * -------------------------------------------------
+ * TIMELINE
+ * -------------------------------------------------
+ */
+
+
+var Timeline = /*#__PURE__*/function (_Animation) {
+  _inheritsLoose(Timeline, _Animation);
+
+  function Timeline(vars, position) {
+    var _this;
+
+    if (vars === void 0) {
+      vars = {};
+    }
+
+    _this = _Animation.call(this, vars) || this;
+    _this.labels = {};
+    _this.smoothChildTiming = !!vars.smoothChildTiming;
+    _this.autoRemoveChildren = !!vars.autoRemoveChildren;
+    _this._sort = _isNotFalse(vars.sortChildren);
+    _globalTimeline && _addToTimeline(vars.parent || _globalTimeline, _assertThisInitialized(_this), position);
+    vars.reversed && _this.reverse();
+    vars.paused && _this.paused(true);
+    vars.scrollTrigger && _scrollTrigger(_assertThisInitialized(_this), vars.scrollTrigger);
+    return _this;
+  }
+
+  var _proto2 = Timeline.prototype;
+
+  _proto2.to = function to(targets, vars, position) {
+    _createTweenType(0, arguments, this);
+
+    return this;
+  };
+
+  _proto2.from = function from(targets, vars, position) {
+    _createTweenType(1, arguments, this);
+
+    return this;
+  };
+
+  _proto2.fromTo = function fromTo(targets, fromVars, toVars, position) {
+    _createTweenType(2, arguments, this);
+
+    return this;
+  };
+
+  _proto2.set = function set(targets, vars, position) {
+    vars.duration = 0;
+    vars.parent = this;
+    _inheritDefaults(vars).repeatDelay || (vars.repeat = 0);
+    vars.immediateRender = !!vars.immediateRender;
+    new Tween(targets, vars, _parsePosition(this, position), 1);
+    return this;
+  };
+
+  _proto2.call = function call(callback, params, position) {
+    return _addToTimeline(this, Tween.delayedCall(0, callback, params), position);
+  } //ONLY for backward compatibility! Maybe delete?
+  ;
+
+  _proto2.staggerTo = function staggerTo(targets, duration, vars, stagger, position, onCompleteAll, onCompleteAllParams) {
+    vars.duration = duration;
+    vars.stagger = vars.stagger || stagger;
+    vars.onComplete = onCompleteAll;
+    vars.onCompleteParams = onCompleteAllParams;
+    vars.parent = this;
+    new Tween(targets, vars, _parsePosition(this, position));
+    return this;
+  };
+
+  _proto2.staggerFrom = function staggerFrom(targets, duration, vars, stagger, position, onCompleteAll, onCompleteAllParams) {
+    vars.runBackwards = 1;
+    _inheritDefaults(vars).immediateRender = _isNotFalse(vars.immediateRender);
+    return this.staggerTo(targets, duration, vars, stagger, position, onCompleteAll, onCompleteAllParams);
+  };
+
+  _proto2.staggerFromTo = function staggerFromTo(targets, duration, fromVars, toVars, stagger, position, onCompleteAll, onCompleteAllParams) {
+    toVars.startAt = fromVars;
+    _inheritDefaults(toVars).immediateRender = _isNotFalse(toVars.immediateRender);
+    return this.staggerTo(targets, duration, toVars, stagger, position, onCompleteAll, onCompleteAllParams);
+  };
+
+  _proto2.render = function render(totalTime, suppressEvents, force) {
+    var prevTime = this._time,
+        tDur = this._dirty ? this.totalDuration() : this._tDur,
+        dur = this._dur,
+        tTime = totalTime <= 0 ? 0 : _roundPrecise(totalTime),
+        // if a paused timeline is resumed (or its _start is updated for another reason...which rounds it), that could result in the playhead shifting a **tiny** amount and a zero-duration child at that spot may get rendered at a different ratio, like its totalTime in render() may be 1e-17 instead of 0, for example.
+    crossingStart = this._zTime < 0 !== totalTime < 0 && (this._initted || !dur),
+        time,
+        child,
+        next,
+        iteration,
+        cycleDuration,
+        prevPaused,
+        pauseTween,
+        timeScale,
+        prevStart,
+        prevIteration,
+        yoyo,
+        isYoyo;
+    this !== _globalTimeline && tTime > tDur && totalTime >= 0 && (tTime = tDur);
+
+    if (tTime !== this._tTime || force || crossingStart) {
+      if (prevTime !== this._time && dur) {
+        //if totalDuration() finds a child with a negative startTime and smoothChildTiming is true, things get shifted around internally so we need to adjust the time accordingly. For example, if a tween starts at -30 we must shift EVERYTHING forward 30 seconds and move this timeline's startTime backward by 30 seconds so that things align with the playhead (no jump).
+        tTime += this._time - prevTime;
+        totalTime += this._time - prevTime;
+      }
+
+      time = tTime;
+      prevStart = this._start;
+      timeScale = this._ts;
+      prevPaused = !timeScale;
+
+      if (crossingStart) {
+        dur || (prevTime = this._zTime); //when the playhead arrives at EXACTLY time 0 (right on top) of a zero-duration timeline, we need to discern if events are suppressed so that when the playhead moves again (next time), it'll trigger the callback. If events are NOT suppressed, obviously the callback would be triggered in this render. Basically, the callback should fire either when the playhead ARRIVES or LEAVES this exact spot, not both. Imagine doing a timeline.seek(0) and there's a callback that sits at 0. Since events are suppressed on that seek() by default, nothing will fire, but when the playhead moves off of that position, the callback should fire. This behavior is what people intuitively expect.
+
+        (totalTime || !suppressEvents) && (this._zTime = totalTime);
+      }
+
+      if (this._repeat) {
+        //adjust the time for repeats and yoyos
+        yoyo = this._yoyo;
+        cycleDuration = dur + this._rDelay;
+
+        if (this._repeat < -1 && totalTime < 0) {
+          return this.totalTime(cycleDuration * 100 + totalTime, suppressEvents, force);
+        }
+
+        time = _roundPrecise(tTime % cycleDuration); //round to avoid floating point errors. (4 % 0.8 should be 0 but some browsers report it as 0.79999999!)
+
+        if (tTime === tDur) {
+          // the tDur === tTime is for edge cases where there's a lengthy decimal on the duration and it may reach the very end but the time is rendered as not-quite-there (remember, tDur is rounded to 4 decimals whereas dur isn't)
+          iteration = this._repeat;
+          time = dur;
+        } else {
+          iteration = ~~(tTime / cycleDuration);
+
+          if (iteration && iteration === tTime / cycleDuration) {
+            time = dur;
+            iteration--;
+          }
+
+          time > dur && (time = dur);
+        }
+
+        prevIteration = _animationCycle(this._tTime, cycleDuration);
+        !prevTime && this._tTime && prevIteration !== iteration && this._tTime - prevIteration * cycleDuration - this._dur <= 0 && (prevIteration = iteration); // edge case - if someone does addPause() at the very beginning of a repeating timeline, that pause is technically at the same spot as the end which causes this._time to get set to 0 when the totalTime would normally place the playhead at the end. See https://gsap.com/forums/topic/23823-closing-nav-animation-not-working-on-ie-and-iphone-6-maybe-other-older-browser/?tab=comments#comment-113005 also, this._tTime - prevIteration * cycleDuration - this._dur <= 0 just checks to make sure it wasn't previously in the "repeatDelay" portion
+
+        if (yoyo && iteration & 1) {
+          time = dur - time;
+          isYoyo = 1;
+        }
+        /*
+        make sure children at the end/beginning of the timeline are rendered properly. If, for example,
+        a 3-second long timeline rendered at 2.9 seconds previously, and now renders at 3.2 seconds (which
+        would get translated to 2.8 seconds if the timeline yoyos or 0.2 seconds if it just repeats), there
+        could be a callback or a short tween that's at 2.95 or 3 seconds in which wouldn't render. So
+        we need to push the timeline to the end (and/or beginning depending on its yoyo value). Also we must
+        ensure that zero-duration tweens at the very beginning or end of the Timeline work.
+        */
+
+
+        if (iteration !== prevIteration && !this._lock) {
+          var rewinding = yoyo && prevIteration & 1,
+              doesWrap = rewinding === (yoyo && iteration & 1);
+          iteration < prevIteration && (rewinding = !rewinding);
+          prevTime = rewinding ? 0 : tTime % dur ? dur : tTime; // if the playhead is landing exactly at the end of an iteration, use that totalTime rather than only the duration, otherwise it'll skip the 2nd render since it's effectively at the same time.
+
+          this._lock = 1;
+          this.render(prevTime || (isYoyo ? 0 : _roundPrecise(iteration * cycleDuration)), suppressEvents, !dur)._lock = 0;
+          this._tTime = tTime; // if a user gets the iteration() inside the onRepeat, for example, it should be accurate.
+
+          !suppressEvents && this.parent && _callback(this, "onRepeat");
+          this.vars.repeatRefresh && !isYoyo && (this.invalidate()._lock = 1);
+
+          if (prevTime && prevTime !== this._time || prevPaused !== !this._ts || this.vars.onRepeat && !this.parent && !this._act) {
+            // if prevTime is 0 and we render at the very end, _time will be the end, thus won't match. So in this edge case, prevTime won't match _time but that's okay. If it gets killed in the onRepeat, eject as well.
+            return this;
+          }
+
+          dur = this._dur; // in case the duration changed in the onRepeat
+
+          tDur = this._tDur;
+
+          if (doesWrap) {
+            this._lock = 2;
+            prevTime = rewinding ? dur : -0.0001;
+            this.render(prevTime, true);
+            this.vars.repeatRefresh && !isYoyo && this.invalidate();
+          }
+
+          this._lock = 0;
+
+          if (!this._ts && !prevPaused) {
+            return this;
+          } //in order for yoyoEase to work properly when there's a stagger, we must swap out the ease in each sub-tween.
+
+
+          _propagateYoyoEase(this, isYoyo);
+        }
+      }
+
+      if (this._hasPause && !this._forcing && this._lock < 2) {
+        pauseTween = _findNextPauseTween(this, _roundPrecise(prevTime), _roundPrecise(time));
+
+        if (pauseTween) {
+          tTime -= time - (time = pauseTween._start);
+        }
+      }
+
+      this._tTime = tTime;
+      this._time = time;
+      this._act = !timeScale; //as long as it's not paused, force it to be active so that if the user renders independent of the parent timeline, it'll be forced to re-render on the next tick.
+
+      if (!this._initted) {
+        this._onUpdate = this.vars.onUpdate;
+        this._initted = 1;
+        this._zTime = totalTime;
+        prevTime = 0; // upon init, the playhead should always go forward; someone could invalidate() a completed timeline and then if they restart(), that would make child tweens render in reverse order which could lock in the wrong starting values if they build on each other, like tl.to(obj, {x: 100}).to(obj, {x: 0}).
+      }
+
+      if (!prevTime && time && !suppressEvents && !iteration) {
+        _callback(this, "onStart");
+
+        if (this._tTime !== tTime) {
+          // in case the onStart triggered a render at a different spot, eject. Like if someone did animation.pause(0.5) or something inside the onStart.
+          return this;
+        }
+      }
+
+      if (time >= prevTime && totalTime >= 0) {
+        child = this._first;
+
+        while (child) {
+          next = child._next;
+
+          if ((child._act || time >= child._start) && child._ts && pauseTween !== child) {
+            if (child.parent !== this) {
+              // an extreme edge case - the child's render could do something like kill() the "next" one in the linked list, or reparent it. In that case we must re-initiate the whole render to be safe.
+              return this.render(totalTime, suppressEvents, force);
+            }
+
+            child.render(child._ts > 0 ? (time - child._start) * child._ts : (child._dirty ? child.totalDuration() : child._tDur) + (time - child._start) * child._ts, suppressEvents, force);
+
+            if (time !== this._time || !this._ts && !prevPaused) {
+              //in case a tween pauses or seeks the timeline when rendering, like inside of an onUpdate/onComplete
+              pauseTween = 0;
+              next && (tTime += this._zTime = -_tinyNum); // it didn't finish rendering, so flag zTime as negative so that so that the next time render() is called it'll be forced (to render any remaining children)
+
+              break;
+            }
+          }
+
+          child = next;
+        }
+      } else {
+        child = this._last;
+        var adjustedTime = totalTime < 0 ? totalTime : time; //when the playhead goes backward beyond the start of this timeline, we must pass that information down to the child animations so that zero-duration tweens know whether to render their starting or ending values.
+
+        while (child) {
+          next = child._prev;
+
+          if ((child._act || adjustedTime <= child._end) && child._ts && pauseTween !== child) {
+            if (child.parent !== this) {
+              // an extreme edge case - the child's render could do something like kill() the "next" one in the linked list, or reparent it. In that case we must re-initiate the whole render to be safe.
+              return this.render(totalTime, suppressEvents, force);
+            }
+
+            child.render(child._ts > 0 ? (adjustedTime - child._start) * child._ts : (child._dirty ? child.totalDuration() : child._tDur) + (adjustedTime - child._start) * child._ts, suppressEvents, force || _reverting && (child._initted || child._startAt)); // if reverting, we should always force renders of initted tweens (but remember that .fromTo() or .from() may have a _startAt but not _initted yet). If, for example, a .fromTo() tween with a stagger (which creates an internal timeline) gets reverted BEFORE some of its child tweens render for the first time, it may not properly trigger them to revert.
+
+            if (time !== this._time || !this._ts && !prevPaused) {
+              //in case a tween pauses or seeks the timeline when rendering, like inside of an onUpdate/onComplete
+              pauseTween = 0;
+              next && (tTime += this._zTime = adjustedTime ? -_tinyNum : _tinyNum); // it didn't finish rendering, so adjust zTime so that so that the next time render() is called it'll be forced (to render any remaining children)
+
+              break;
+            }
+          }
+
+          child = next;
+        }
+      }
+
+      if (pauseTween && !suppressEvents) {
+        this.pause();
+        pauseTween.render(time >= prevTime ? 0 : -_tinyNum)._zTime = time >= prevTime ? 1 : -1;
+
+        if (this._ts) {
+          //the callback resumed playback! So since we may have held back the playhead due to where the pause is positioned, go ahead and jump to where it's SUPPOSED to be (if no pause happened).
+          this._start = prevStart; //if the pause was at an earlier time and the user resumed in the callback, it could reposition the timeline (changing its startTime), throwing things off slightly, so we make sure the _start doesn't shift.
+
+          _setEnd(this);
+
+          return this.render(totalTime, suppressEvents, force);
+        }
+      }
+
+      this._onUpdate && !suppressEvents && _callback(this, "onUpdate", true);
+      if (tTime === tDur && this._tTime >= this.totalDuration() || !tTime && prevTime) if (prevStart === this._start || Math.abs(timeScale) !== Math.abs(this._ts)) if (!this._lock) {
+        // remember, a child's callback may alter this timeline's playhead or timeScale which is why we need to add some of these checks.
+        (totalTime || !dur) && (tTime === tDur && this._ts > 0 || !tTime && this._ts < 0) && _removeFromParent(this, 1); // don't remove if the timeline is reversed and the playhead isn't at 0, otherwise tl.progress(1).reverse() won't work. Only remove if the playhead is at the end and timeScale is positive, or if the playhead is at 0 and the timeScale is negative.
+
+        if (!suppressEvents && !(totalTime < 0 && !prevTime) && (tTime || prevTime || !tDur)) {
+          _callback(this, tTime === tDur && totalTime >= 0 ? "onComplete" : "onReverseComplete", true);
+
+          this._prom && !(tTime < tDur && this.timeScale() > 0) && this._prom();
+        }
+      }
+    }
+
+    return this;
+  };
+
+  _proto2.add = function add(child, position) {
+    var _this2 = this;
+
+    _isNumber(position) || (position = _parsePosition(this, position, child));
+
+    if (!(child instanceof Animation)) {
+      if (_isArray(child)) {
+        child.forEach(function (obj) {
+          return _this2.add(obj, position);
+        });
+        return this;
+      }
+
+      if (_isString(child)) {
+        return this.addLabel(child, position);
+      }
+
+      if (_isFunction(child)) {
+        child = Tween.delayedCall(0, child);
+      } else {
+        return this;
+      }
+    }
+
+    return this !== child ? _addToTimeline(this, child, position) : this; //don't allow a timeline to be added to itself as a child!
+  };
+
+  _proto2.getChildren = function getChildren(nested, tweens, timelines, ignoreBeforeTime) {
+    if (nested === void 0) {
+      nested = true;
+    }
+
+    if (tweens === void 0) {
+      tweens = true;
+    }
+
+    if (timelines === void 0) {
+      timelines = true;
+    }
+
+    if (ignoreBeforeTime === void 0) {
+      ignoreBeforeTime = -_bigNum;
+    }
+
+    var a = [],
+        child = this._first;
+
+    while (child) {
+      if (child._start >= ignoreBeforeTime) {
+        if (child instanceof Tween) {
+          tweens && a.push(child);
+        } else {
+          timelines && a.push(child);
+          nested && a.push.apply(a, child.getChildren(true, tweens, timelines));
+        }
+      }
+
+      child = child._next;
+    }
+
+    return a;
+  };
+
+  _proto2.getById = function getById(id) {
+    var animations = this.getChildren(1, 1, 1),
+        i = animations.length;
+
+    while (i--) {
+      if (animations[i].vars.id === id) {
+        return animations[i];
+      }
+    }
+  };
+
+  _proto2.remove = function remove(child) {
+    if (_isString(child)) {
+      return this.removeLabel(child);
+    }
+
+    if (_isFunction(child)) {
+      return this.killTweensOf(child);
+    }
+
+    _removeLinkedListItem(this, child);
+
+    if (child === this._recent) {
+      this._recent = this._last;
+    }
+
+    return _uncache(this);
+  };
+
+  _proto2.totalTime = function totalTime(_totalTime2, suppressEvents) {
+    if (!arguments.length) {
+      return this._tTime;
+    }
+
+    this._forcing = 1;
+
+    if (!this._dp && this._ts) {
+      //special case for the global timeline (or any other that has no parent or detached parent).
+      this._start = _roundPrecise(_ticker.time - (this._ts > 0 ? _totalTime2 / this._ts : (this.totalDuration() - _totalTime2) / -this._ts));
+    }
+
+    _Animation.prototype.totalTime.call(this, _totalTime2, suppressEvents);
+
+    this._forcing = 0;
+    return this;
+  };
+
+  _proto2.addLabel = function addLabel(label, position) {
+    this.labels[label] = _parsePosition(this, position);
+    return this;
+  };
+
+  _proto2.removeLabel = function removeLabel(label) {
+    delete this.labels[label];
+    return this;
+  };
+
+  _proto2.addPause = function addPause(position, callback, params) {
+    var t = Tween.delayedCall(0, callback || _emptyFunc, params);
+    t.data = "isPause";
+    this._hasPause = 1;
+    return _addToTimeline(this, t, _parsePosition(this, position));
+  };
+
+  _proto2.removePause = function removePause(position) {
+    var child = this._first;
+    position = _parsePosition(this, position);
+
+    while (child) {
+      if (child._start === position && child.data === "isPause") {
+        _removeFromParent(child);
+      }
+
+      child = child._next;
+    }
+  };
+
+  _proto2.killTweensOf = function killTweensOf(targets, props, onlyActive) {
+    var tweens = this.getTweensOf(targets, onlyActive),
+        i = tweens.length;
+
+    while (i--) {
+      _overwritingTween !== tweens[i] && tweens[i].kill(targets, props);
+    }
+
+    return this;
+  };
+
+  _proto2.getTweensOf = function getTweensOf(targets, onlyActive) {
+    var a = [],
+        parsedTargets = toArray(targets),
+        child = this._first,
+        isGlobalTime = _isNumber(onlyActive),
+        // a number is interpreted as a global time. If the animation spans
+    children;
+
+    while (child) {
+      if (child instanceof Tween) {
+        if (_arrayContainsAny(child._targets, parsedTargets) && (isGlobalTime ? (!_overwritingTween || child._initted && child._ts) && child.globalTime(0) <= onlyActive && child.globalTime(child.totalDuration()) > onlyActive : !onlyActive || child.isActive())) {
+          // note: if this is for overwriting, it should only be for tweens that aren't paused and are initted.
+          a.push(child);
+        }
+      } else if ((children = child.getTweensOf(parsedTargets, onlyActive)).length) {
+        a.push.apply(a, children);
+      }
+
+      child = child._next;
+    }
+
+    return a;
+  } // potential future feature - targets() on timelines
+  // targets() {
+  // 	let result = [];
+  // 	this.getChildren(true, true, false).forEach(t => result.push(...t.targets()));
+  // 	return result.filter((v, i) => result.indexOf(v) === i);
+  // }
+  ;
+
+  _proto2.tweenTo = function tweenTo(position, vars) {
+    vars = vars || {};
+
+    var tl = this,
+        endTime = _parsePosition(tl, position),
+        _vars = vars,
+        startAt = _vars.startAt,
+        _onStart = _vars.onStart,
+        onStartParams = _vars.onStartParams,
+        immediateRender = _vars.immediateRender,
+        initted,
+        tween = Tween.to(tl, _setDefaults({
+      ease: vars.ease || "none",
+      lazy: false,
+      immediateRender: false,
+      time: endTime,
+      overwrite: "auto",
+      duration: vars.duration || Math.abs((endTime - (startAt && "time" in startAt ? startAt.time : tl._time)) / tl.timeScale()) || _tinyNum,
+      onStart: function onStart() {
+        tl.pause();
+
+        if (!initted) {
+          var duration = vars.duration || Math.abs((endTime - (startAt && "time" in startAt ? startAt.time : tl._time)) / tl.timeScale());
+          tween._dur !== duration && _setDuration(tween, duration, 0, 1).render(tween._time, true, true);
+          initted = 1;
+        }
+
+        _onStart && _onStart.apply(tween, onStartParams || []); //in case the user had an onStart in the vars - we don't want to overwrite it.
+      }
+    }, vars));
+
+    return immediateRender ? tween.render(0) : tween;
+  };
+
+  _proto2.tweenFromTo = function tweenFromTo(fromPosition, toPosition, vars) {
+    return this.tweenTo(toPosition, _setDefaults({
+      startAt: {
+        time: _parsePosition(this, fromPosition)
+      }
+    }, vars));
+  };
+
+  _proto2.recent = function recent() {
+    return this._recent;
+  };
+
+  _proto2.nextLabel = function nextLabel(afterTime) {
+    if (afterTime === void 0) {
+      afterTime = this._time;
+    }
+
+    return _getLabelInDirection(this, _parsePosition(this, afterTime));
+  };
+
+  _proto2.previousLabel = function previousLabel(beforeTime) {
+    if (beforeTime === void 0) {
+      beforeTime = this._time;
+    }
+
+    return _getLabelInDirection(this, _parsePosition(this, beforeTime), 1);
+  };
+
+  _proto2.currentLabel = function currentLabel(value) {
+    return arguments.length ? this.seek(value, true) : this.previousLabel(this._time + _tinyNum);
+  };
+
+  _proto2.shiftChildren = function shiftChildren(amount, adjustLabels, ignoreBeforeTime) {
+    if (ignoreBeforeTime === void 0) {
+      ignoreBeforeTime = 0;
+    }
+
+    var child = this._first,
+        labels = this.labels,
+        p;
+
+    while (child) {
+      if (child._start >= ignoreBeforeTime) {
+        child._start += amount;
+        child._end += amount;
+      }
+
+      child = child._next;
+    }
+
+    if (adjustLabels) {
+      for (p in labels) {
+        if (labels[p] >= ignoreBeforeTime) {
+          labels[p] += amount;
+        }
+      }
+    }
+
+    return _uncache(this);
+  };
+
+  _proto2.invalidate = function invalidate(soft) {
+    var child = this._first;
+    this._lock = 0;
+
+    while (child) {
+      child.invalidate(soft);
+      child = child._next;
+    }
+
+    return _Animation.prototype.invalidate.call(this, soft);
+  };
+
+  _proto2.clear = function clear(includeLabels) {
+    if (includeLabels === void 0) {
+      includeLabels = true;
+    }
+
+    var child = this._first,
+        next;
+
+    while (child) {
+      next = child._next;
+      this.remove(child);
+      child = next;
+    }
+
+    this._dp && (this._time = this._tTime = this._pTime = 0);
+    includeLabels && (this.labels = {});
+    return _uncache(this);
+  };
+
+  _proto2.totalDuration = function totalDuration(value) {
+    var max = 0,
+        self = this,
+        child = self._last,
+        prevStart = _bigNum,
+        prev,
+        start,
+        parent;
+
+    if (arguments.length) {
+      return self.timeScale((self._repeat < 0 ? self.duration() : self.totalDuration()) / (self.reversed() ? -value : value));
+    }
+
+    if (self._dirty) {
+      parent = self.parent;
+
+      while (child) {
+        prev = child._prev; //record it here in case the tween changes position in the sequence...
+
+        child._dirty && child.totalDuration(); //could change the tween._startTime, so make sure the animation's cache is clean before analyzing it.
+
+        start = child._start;
+
+        if (start > prevStart && self._sort && child._ts && !self._lock) {
+          //in case one of the tweens shifted out of order, it needs to be re-inserted into the correct position in the sequence
+          self._lock = 1; //prevent endless recursive calls - there are methods that get triggered that check duration/totalDuration when we add().
+
+          _addToTimeline(self, child, start - child._delay, 1)._lock = 0;
+        } else {
+          prevStart = start;
+        }
+
+        if (start < 0 && child._ts) {
+          //children aren't allowed to have negative startTimes unless smoothChildTiming is true, so adjust here if one is found.
+          max -= start;
+
+          if (!parent && !self._dp || parent && parent.smoothChildTiming) {
+            self._start += start / self._ts;
+            self._time -= start;
+            self._tTime -= start;
+          }
+
+          self.shiftChildren(-start, false, -1e999);
+          prevStart = 0;
+        }
+
+        child._end > max && child._ts && (max = child._end);
+        child = prev;
+      }
+
+      _setDuration(self, self === _globalTimeline && self._time > max ? self._time : max, 1, 1);
+
+      self._dirty = 0;
+    }
+
+    return self._tDur;
+  };
+
+  Timeline.updateRoot = function updateRoot(time) {
+    if (_globalTimeline._ts) {
+      _lazySafeRender(_globalTimeline, _parentToChildTotalTime(time, _globalTimeline));
+
+      _lastRenderedFrame = _ticker.frame;
+    }
+
+    if (_ticker.frame >= _nextGCFrame) {
+      _nextGCFrame += _config.autoSleep || 120;
+      var child = _globalTimeline._first;
+      if (!child || !child._ts) if (_config.autoSleep && _ticker._listeners.length < 2) {
+        while (child && !child._ts) {
+          child = child._next;
+        }
+
+        child || _ticker.sleep();
+      }
+    }
+  };
+
+  return Timeline;
+}(Animation);
+
+_setDefaults(Timeline.prototype, {
+  _lock: 0,
+  _hasPause: 0,
+  _forcing: 0
+});
+
+var _addComplexStringPropTween = function _addComplexStringPropTween(target, prop, start, end, setter, stringFilter, funcParam) {
+  //note: we call _addComplexStringPropTween.call(tweenInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
+  var pt = new PropTween(this._pt, target, prop, 0, 1, _renderComplexString, null, setter),
+      index = 0,
+      matchIndex = 0,
+      result,
+      startNums,
+      color,
+      endNum,
+      chunk,
+      startNum,
+      hasRandom,
+      a;
+  pt.b = start;
+  pt.e = end;
+  start += ""; //ensure values are strings
+
+  end += "";
+
+  if (hasRandom = ~end.indexOf("random(")) {
+    end = _replaceRandom(end);
+  }
+
+  if (stringFilter) {
+    a = [start, end];
+    stringFilter(a, target, prop); //pass an array with the starting and ending values and let the filter do whatever it needs to the values.
+
+    start = a[0];
+    end = a[1];
+  }
+
+  startNums = start.match(_complexStringNumExp) || [];
+
+  while (result = _complexStringNumExp.exec(end)) {
+    endNum = result[0];
+    chunk = end.substring(index, result.index);
+
+    if (color) {
+      color = (color + 1) % 5;
+    } else if (chunk.substr(-5) === "rgba(") {
+      color = 1;
+    }
+
+    if (endNum !== startNums[matchIndex++]) {
+      startNum = parseFloat(startNums[matchIndex - 1]) || 0; //these nested PropTweens are handled in a special way - we'll never actually call a render or setter method on them. We'll just loop through them in the parent complex string PropTween's render method.
+
+      pt._pt = {
+        _next: pt._pt,
+        p: chunk || matchIndex === 1 ? chunk : ",",
+        //note: SVG spec allows omission of comma/space when a negative sign is wedged between two numbers, like 2.5-5.3 instead of 2.5,-5.3 but when tweening, the negative value may switch to positive, so we insert the comma just in case.
+        s: startNum,
+        c: endNum.charAt(1) === "=" ? _parseRelative(startNum, endNum) - startNum : parseFloat(endNum) - startNum,
+        m: color && color < 4 ? Math.round : 0
+      };
+      index = _complexStringNumExp.lastIndex;
+    }
+  }
+
+  pt.c = index < end.length ? end.substring(index, end.length) : ""; //we use the "c" of the PropTween to store the final part of the string (after the last number)
+
+  pt.fp = funcParam;
+
+  if (_relExp.test(end) || hasRandom) {
+    pt.e = 0; //if the end string contains relative values or dynamic random(...) values, delete the end it so that on the final render we don't actually set it to the string with += or -= characters (forces it to use the calculated value).
+  }
+
+  this._pt = pt; //start the linked list with this new PropTween. Remember, we call _addComplexStringPropTween.call(tweenInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
+
+  return pt;
+},
+    _addPropTween = function _addPropTween(target, prop, start, end, index, targets, modifier, stringFilter, funcParam, optional) {
+  _isFunction(end) && (end = end(index || 0, target, targets));
+  var currentValue = target[prop],
+      parsedStart = start !== "get" ? start : !_isFunction(currentValue) ? currentValue : funcParam ? target[prop.indexOf("set") || !_isFunction(target["get" + prop.substr(3)]) ? prop : "get" + prop.substr(3)](funcParam) : target[prop](),
+      setter = !_isFunction(currentValue) ? _setterPlain : funcParam ? _setterFuncWithParam : _setterFunc,
+      pt;
+
+  if (_isString(end)) {
+    if (~end.indexOf("random(")) {
+      end = _replaceRandom(end);
+    }
+
+    if (end.charAt(1) === "=") {
+      pt = _parseRelative(parsedStart, end) + (getUnit(parsedStart) || 0);
+
+      if (pt || pt === 0) {
+        // to avoid isNaN, like if someone passes in a value like "!= whatever"
+        end = pt;
+      }
+    }
+  }
+
+  if (!optional || parsedStart !== end || _forceAllPropTweens) {
+    if (!isNaN(parsedStart * end) && end !== "") {
+      // fun fact: any number multiplied by "" is evaluated as the number 0!
+      pt = new PropTween(this._pt, target, prop, +parsedStart || 0, end - (parsedStart || 0), typeof currentValue === "boolean" ? _renderBoolean : _renderPlain, 0, setter);
+      funcParam && (pt.fp = funcParam);
+      modifier && pt.modifier(modifier, this, target);
+      return this._pt = pt;
+    }
+
+    !currentValue && !(prop in target) && _missingPlugin(prop, end);
+    return _addComplexStringPropTween.call(this, target, prop, parsedStart, end, setter, stringFilter || _config.stringFilter, funcParam);
+  }
+},
+    //creates a copy of the vars object and processes any function-based values (putting the resulting values directly into the copy) as well as strings with "random()" in them. It does NOT process relative values.
+_processVars = function _processVars(vars, index, target, targets, tween) {
+  _isFunction(vars) && (vars = _parseFuncOrString(vars, tween, index, target, targets));
+
+  if (!_isObject(vars) || vars.style && vars.nodeType || _isArray(vars) || _isTypedArray(vars)) {
+    return _isString(vars) ? _parseFuncOrString(vars, tween, index, target, targets) : vars;
+  }
+
+  var copy = {},
+      p;
+
+  for (p in vars) {
+    copy[p] = _parseFuncOrString(vars[p], tween, index, target, targets);
+  }
+
+  return copy;
+},
+    _checkPlugin = function _checkPlugin(property, vars, tween, index, target, targets) {
+  var plugin, pt, ptLookup, i;
+
+  if (_plugins[property] && (plugin = new _plugins[property]()).init(target, plugin.rawVars ? vars[property] : _processVars(vars[property], index, target, targets, tween), tween, index, targets) !== false) {
+    tween._pt = pt = new PropTween(tween._pt, target, property, 0, 1, plugin.render, plugin, 0, plugin.priority);
+
+    if (tween !== _quickTween) {
+      ptLookup = tween._ptLookup[tween._targets.indexOf(target)]; //note: we can't use tween._ptLookup[index] because for staggered tweens, the index from the fullTargets array won't match what it is in each individual tween that spawns from the stagger.
+
+      i = plugin._props.length;
+
+      while (i--) {
+        ptLookup[plugin._props[i]] = pt;
+      }
+    }
+  }
+
+  return plugin;
+},
+    _overwritingTween,
+    //store a reference temporarily so we can avoid overwriting itself.
+_forceAllPropTweens,
+    _initTween = function _initTween(tween, time, tTime) {
+  var vars = tween.vars,
+      ease = vars.ease,
+      startAt = vars.startAt,
+      immediateRender = vars.immediateRender,
+      lazy = vars.lazy,
+      onUpdate = vars.onUpdate,
+      runBackwards = vars.runBackwards,
+      yoyoEase = vars.yoyoEase,
+      keyframes = vars.keyframes,
+      autoRevert = vars.autoRevert,
+      dur = tween._dur,
+      prevStartAt = tween._startAt,
+      targets = tween._targets,
+      parent = tween.parent,
+      fullTargets = parent && parent.data === "nested" ? parent.vars.targets : targets,
+      autoOverwrite = tween._overwrite === "auto" && !_suppressOverwrites,
+      tl = tween.timeline,
+      cleanVars,
+      i,
+      p,
+      pt,
+      target,
+      hasPriority,
+      gsData,
+      harness,
+      plugin,
+      ptLookup,
+      index,
+      harnessVars,
+      overwritten;
+  tl && (!keyframes || !ease) && (ease = "none");
+  tween._ease = _parseEase(ease, _defaults.ease);
+  tween._yEase = yoyoEase ? _invertEase(_parseEase(yoyoEase === true ? ease : yoyoEase, _defaults.ease)) : 0;
+
+  if (yoyoEase && tween._yoyo && !tween._repeat) {
+    //there must have been a parent timeline with yoyo:true that is currently in its yoyo phase, so flip the eases.
+    yoyoEase = tween._yEase;
+    tween._yEase = tween._ease;
+    tween._ease = yoyoEase;
+  }
+
+  tween._from = !tl && !!vars.runBackwards; //nested timelines should never run backwards - the backwards-ness is in the child tweens.
+
+  if (!tl || keyframes && !vars.stagger) {
+    //if there's an internal timeline, skip all the parsing because we passed that task down the chain.
+    harness = targets[0] ? _getCache(targets[0]).harness : 0;
+    harnessVars = harness && vars[harness.prop]; //someone may need to specify CSS-specific values AND non-CSS values, like if the element has an "x" property plus it's a standard DOM element. We allow people to distinguish by wrapping plugin-specific stuff in a css:{} object for example.
+
+    cleanVars = _copyExcluding(vars, _reservedProps);
+
+    if (prevStartAt) {
+      prevStartAt._zTime < 0 && prevStartAt.progress(1); // in case it's a lazy startAt that hasn't rendered yet.
+
+      time < 0 && runBackwards && immediateRender && !autoRevert ? prevStartAt.render(-1, true) : prevStartAt.revert(runBackwards && dur ? _revertConfigNoKill : _startAtRevertConfig); // if it's a "startAt" (not "from()" or runBackwards: true), we only need to do a shallow revert (keep transforms cached in CSSPlugin)
+      // don't just _removeFromParent(prevStartAt.render(-1, true)) because that'll leave inline styles. We're creating a new _startAt for "startAt" tweens that re-capture things to ensure that if the pre-tween values changed since the tween was created, they're recorded.
+
+      prevStartAt._lazy = 0;
+    }
+
+    if (startAt) {
+      _removeFromParent(tween._startAt = Tween.set(targets, _setDefaults({
+        data: "isStart",
+        overwrite: false,
+        parent: parent,
+        immediateRender: true,
+        lazy: !prevStartAt && _isNotFalse(lazy),
+        startAt: null,
+        delay: 0,
+        onUpdate: onUpdate && function () {
+          return _callback(tween, "onUpdate");
+        },
+        stagger: 0
+      }, startAt))); //copy the properties/values into a new object to avoid collisions, like var to = {x:0}, from = {x:500}; timeline.fromTo(e, from, to).fromTo(e, to, from);
+
+
+      tween._startAt._dp = 0; // don't allow it to get put back into root timeline! Like when revert() is called and totalTime() gets set.
+
+      tween._startAt._sat = tween; // used in globalTime(). _sat stands for _startAtTween
+
+      time < 0 && (_reverting || !immediateRender && !autoRevert) && tween._startAt.revert(_revertConfigNoKill); // rare edge case, like if a render is forced in the negative direction of a non-initted tween.
+
+      if (immediateRender) {
+        if (dur && time <= 0 && tTime <= 0) {
+          // check tTime here because in the case of a yoyo tween whose playhead gets pushed to the end like tween.progress(1), we should allow it through so that the onComplete gets fired properly.
+          time && (tween._zTime = time);
+          return; //we skip initialization here so that overwriting doesn't occur until the tween actually begins. Otherwise, if you create several immediateRender:true tweens of the same target/properties to drop into a Timeline, the last one created would overwrite the first ones because they didn't get placed into the timeline yet before the first render occurs and kicks in overwriting.
+        }
+      }
+    } else if (runBackwards && dur) {
+      //from() tweens must be handled uniquely: their beginning values must be rendered but we don't want overwriting to occur yet (when time is still 0). Wait until the tween actually begins before doing all the routines like overwriting. At that time, we should render at the END of the tween to ensure that things initialize correctly (remember, from() tweens go backwards)
+      if (!prevStartAt) {
+        time && (immediateRender = false); //in rare cases (like if a from() tween runs and then is invalidate()-ed), immediateRender could be true but the initial forced-render gets skipped, so there's no need to force the render in this context when the _time is greater than 0
+
+        p = _setDefaults({
+          overwrite: false,
+          data: "isFromStart",
+          //we tag the tween with as "isFromStart" so that if [inside a plugin] we need to only do something at the very END of a tween, we have a way of identifying this tween as merely the one that's setting the beginning values for a "from()" tween. For example, clearProps in CSSPlugin should only get applied at the very END of a tween and without this tag, from(...{height:100, clearProps:"height", delay:1}) would wipe the height at the beginning of the tween and after 1 second, it'd kick back in.
+          lazy: immediateRender && !prevStartAt && _isNotFalse(lazy),
+          immediateRender: immediateRender,
+          //zero-duration tweens render immediately by default, but if we're not specifically instructed to render this tween immediately, we should skip this and merely _init() to record the starting values (rendering them immediately would push them to completion which is wasteful in that case - we'd have to render(-1) immediately after)
+          stagger: 0,
+          parent: parent //ensures that nested tweens that had a stagger are handled properly, like gsap.from(".class", {y: gsap.utils.wrap([-100,100]), stagger: 0.5})
+
+        }, cleanVars);
+        harnessVars && (p[harness.prop] = harnessVars); // in case someone does something like .from(..., {css:{}})
+
+        _removeFromParent(tween._startAt = Tween.set(targets, p));
+
+        tween._startAt._dp = 0; // don't allow it to get put back into root timeline!
+
+        tween._startAt._sat = tween; // used in globalTime()
+
+        time < 0 && (_reverting ? tween._startAt.revert(_revertConfigNoKill) : tween._startAt.render(-1, true));
+        tween._zTime = time;
+
+        if (!immediateRender) {
+          _initTween(tween._startAt, _tinyNum, _tinyNum); //ensures that the initial values are recorded
+
+        } else if (!time) {
+          return;
+        }
+      }
+    }
+
+    tween._pt = tween._ptCache = 0;
+    lazy = dur && _isNotFalse(lazy) || lazy && !dur;
+
+    for (i = 0; i < targets.length; i++) {
+      target = targets[i];
+      gsData = target._gsap || _harness(targets)[i]._gsap;
+      tween._ptLookup[i] = ptLookup = {};
+      _lazyLookup[gsData.id] && _lazyTweens.length && _lazyRender(); //if other tweens of the same target have recently initted but haven't rendered yet, we've got to force the render so that the starting values are correct (imagine populating a timeline with a bunch of sequential tweens and then jumping to the end)
+
+      index = fullTargets === targets ? i : fullTargets.indexOf(target);
+
+      if (harness && (plugin = new harness()).init(target, harnessVars || cleanVars, tween, index, fullTargets) !== false) {
+        tween._pt = pt = new PropTween(tween._pt, target, plugin.name, 0, 1, plugin.render, plugin, 0, plugin.priority);
+
+        plugin._props.forEach(function (name) {
+          ptLookup[name] = pt;
+        });
+
+        plugin.priority && (hasPriority = 1);
+      }
+
+      if (!harness || harnessVars) {
+        for (p in cleanVars) {
+          if (_plugins[p] && (plugin = _checkPlugin(p, cleanVars, tween, index, target, fullTargets))) {
+            plugin.priority && (hasPriority = 1);
+          } else {
+            ptLookup[p] = pt = _addPropTween.call(tween, target, p, "get", cleanVars[p], index, fullTargets, 0, vars.stringFilter);
+          }
+        }
+      }
+
+      tween._op && tween._op[i] && tween.kill(target, tween._op[i]);
+
+      if (autoOverwrite && tween._pt) {
+        _overwritingTween = tween;
+
+        _globalTimeline.killTweensOf(target, ptLookup, tween.globalTime(time)); // make sure the overwriting doesn't overwrite THIS tween!!!
+
+
+        overwritten = !tween.parent;
+        _overwritingTween = 0;
+      }
+
+      tween._pt && lazy && (_lazyLookup[gsData.id] = 1);
+    }
+
+    hasPriority && _sortPropTweensByPriority(tween);
+    tween._onInit && tween._onInit(tween); //plugins like RoundProps must wait until ALL of the PropTweens are instantiated. In the plugin's init() function, it sets the _onInit on the tween instance. May not be pretty/intuitive, but it's fast and keeps file size down.
+  }
+
+  tween._onUpdate = onUpdate;
+  tween._initted = (!tween._op || tween._pt) && !overwritten; // if overwrittenProps resulted in the entire tween being killed, do NOT flag it as initted or else it may render for one tick.
+
+  keyframes && time <= 0 && tl.render(_bigNum, true, true); // if there's a 0% keyframe, it'll render in the "before" state for any staggered/delayed animations thus when the following tween initializes, it'll use the "before" state instead of the "after" state as the initial values.
+},
+    _updatePropTweens = function _updatePropTweens(tween, property, value, start, startIsRelative, ratio, time, skipRecursion) {
+  var ptCache = (tween._pt && tween._ptCache || (tween._ptCache = {}))[property],
+      pt,
+      rootPT,
+      lookup,
+      i;
+
+  if (!ptCache) {
+    ptCache = tween._ptCache[property] = [];
+    lookup = tween._ptLookup;
+    i = tween._targets.length;
+
+    while (i--) {
+      pt = lookup[i][property];
+
+      if (pt && pt.d && pt.d._pt) {
+        // it's a plugin, so find the nested PropTween
+        pt = pt.d._pt;
+
+        while (pt && pt.p !== property && pt.fp !== property) {
+          // "fp" is functionParam for things like setting CSS variables which require .setProperty("--var-name", value)
+          pt = pt._next;
+        }
+      }
+
+      if (!pt) {
+        // there is no PropTween associated with that property, so we must FORCE one to be created and ditch out of this
+        // if the tween has other properties that already rendered at new positions, we'd normally have to rewind to put them back like tween.render(0, true) before forcing an _initTween(), but that can create another edge case like tweening a timeline's progress would trigger onUpdates to fire which could move other things around. It's better to just inform users that .resetTo() should ONLY be used for tweens that already have that property. For example, you can't gsap.to(...{ y: 0 }) and then tween.restTo("x", 200) for example.
+        _forceAllPropTweens = 1; // otherwise, when we _addPropTween() and it finds no change between the start and end values, it skips creating a PropTween (for efficiency...why tween when there's no difference?) but in this case we NEED that PropTween created so we can edit it.
+
+        tween.vars[property] = "+=0";
+
+        _initTween(tween, time);
+
+        _forceAllPropTweens = 0;
+        return skipRecursion ? _warn(property + " not eligible for reset") : 1; // if someone tries to do a quickTo() on a special property like borderRadius which must get split into 4 different properties, that's not eligible for .resetTo().
+      }
+
+      ptCache.push(pt);
+    }
+  }
+
+  i = ptCache.length;
+
+  while (i--) {
+    rootPT = ptCache[i];
+    pt = rootPT._pt || rootPT; // complex values may have nested PropTweens. We only accommodate the FIRST value.
+
+    pt.s = (start || start === 0) && !startIsRelative ? start : pt.s + (start || 0) + ratio * pt.c;
+    pt.c = value - pt.s;
+    rootPT.e && (rootPT.e = _round(value) + getUnit(rootPT.e)); // mainly for CSSPlugin (end value)
+
+    rootPT.b && (rootPT.b = pt.s + getUnit(rootPT.b)); // (beginning value)
+  }
+},
+    _addAliasesToVars = function _addAliasesToVars(targets, vars) {
+  var harness = targets[0] ? _getCache(targets[0]).harness : 0,
+      propertyAliases = harness && harness.aliases,
+      copy,
+      p,
+      i,
+      aliases;
+
+  if (!propertyAliases) {
+    return vars;
+  }
+
+  copy = _merge({}, vars);
+
+  for (p in propertyAliases) {
+    if (p in copy) {
+      aliases = propertyAliases[p].split(",");
+      i = aliases.length;
+
+      while (i--) {
+        copy[aliases[i]] = copy[p];
+      }
+    }
+  }
+
+  return copy;
+},
+    // parses multiple formats, like {"0%": {x: 100}, {"50%": {x: -20}} and { x: {"0%": 100, "50%": -20} }, and an "ease" can be set on any object. We populate an "allProps" object with an Array for each property, like {x: [{}, {}], y:[{}, {}]} with data for each property tween. The objects have a "t" (time), "v", (value), and "e" (ease) property. This allows us to piece together a timeline later.
+_parseKeyframe = function _parseKeyframe(prop, obj, allProps, easeEach) {
+  var ease = obj.ease || easeEach || "power1.inOut",
+      p,
+      a;
+
+  if (_isArray(obj)) {
+    a = allProps[prop] || (allProps[prop] = []); // t = time (out of 100), v = value, e = ease
+
+    obj.forEach(function (value, i) {
+      return a.push({
+        t: i / (obj.length - 1) * 100,
+        v: value,
+        e: ease
+      });
+    });
+  } else {
+    for (p in obj) {
+      a = allProps[p] || (allProps[p] = []);
+      p === "ease" || a.push({
+        t: parseFloat(prop),
+        v: obj[p],
+        e: ease
+      });
+    }
+  }
+},
+    _parseFuncOrString = function _parseFuncOrString(value, tween, i, target, targets) {
+  return _isFunction(value) ? value.call(tween, i, target, targets) : _isString(value) && ~value.indexOf("random(") ? _replaceRandom(value) : value;
+},
+    _staggerTweenProps = _callbackNames + "repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase,autoRevert",
+    _staggerPropsToSkip = {};
+
+_forEachName(_staggerTweenProps + ",id,stagger,delay,duration,paused,scrollTrigger", function (name) {
+  return _staggerPropsToSkip[name] = 1;
+});
+/*
+ * --------------------------------------------------------------------------------------
+ * TWEEN
+ * --------------------------------------------------------------------------------------
+ */
+
+
+var Tween = /*#__PURE__*/function (_Animation2) {
+  _inheritsLoose(Tween, _Animation2);
+
+  function Tween(targets, vars, position, skipInherit) {
+    var _this3;
+
+    if (typeof vars === "number") {
+      position.duration = vars;
+      vars = position;
+      position = null;
+    }
+
+    _this3 = _Animation2.call(this, skipInherit ? vars : _inheritDefaults(vars)) || this;
+    var _this3$vars = _this3.vars,
+        duration = _this3$vars.duration,
+        delay = _this3$vars.delay,
+        immediateRender = _this3$vars.immediateRender,
+        stagger = _this3$vars.stagger,
+        overwrite = _this3$vars.overwrite,
+        keyframes = _this3$vars.keyframes,
+        defaults = _this3$vars.defaults,
+        scrollTrigger = _this3$vars.scrollTrigger,
+        yoyoEase = _this3$vars.yoyoEase,
+        parent = vars.parent || _globalTimeline,
+        parsedTargets = (_isArray(targets) || _isTypedArray(targets) ? _isNumber(targets[0]) : "length" in vars) ? [targets] : toArray(targets),
+        tl,
+        i,
+        copy,
+        l,
+        p,
+        curTarget,
+        staggerFunc,
+        staggerVarsToMerge;
+    _this3._targets = parsedTargets.length ? _harness(parsedTargets) : _warn("GSAP target " + targets + " not found. https://gsap.com", !_config.nullTargetWarn) || [];
+    _this3._ptLookup = []; //PropTween lookup. An array containing an object for each target, having keys for each tweening property
+
+    _this3._overwrite = overwrite;
+
+    if (keyframes || stagger || _isFuncOrString(duration) || _isFuncOrString(delay)) {
+      vars = _this3.vars;
+      tl = _this3.timeline = new Timeline({
+        data: "nested",
+        defaults: defaults || {},
+        targets: parent && parent.data === "nested" ? parent.vars.targets : parsedTargets
+      }); // we need to store the targets because for staggers and keyframes, we end up creating an individual tween for each but function-based values need to know the index and the whole Array of targets.
+
+      tl.kill();
+      tl.parent = tl._dp = _assertThisInitialized(_this3);
+      tl._start = 0;
+
+      if (stagger || _isFuncOrString(duration) || _isFuncOrString(delay)) {
+        l = parsedTargets.length;
+        staggerFunc = stagger && distribute(stagger);
+
+        if (_isObject(stagger)) {
+          //users can pass in callbacks like onStart/onComplete in the stagger object. These should fire with each individual tween.
+          for (p in stagger) {
+            if (~_staggerTweenProps.indexOf(p)) {
+              staggerVarsToMerge || (staggerVarsToMerge = {});
+              staggerVarsToMerge[p] = stagger[p];
+            }
+          }
+        }
+
+        for (i = 0; i < l; i++) {
+          copy = _copyExcluding(vars, _staggerPropsToSkip);
+          copy.stagger = 0;
+          yoyoEase && (copy.yoyoEase = yoyoEase);
+          staggerVarsToMerge && _merge(copy, staggerVarsToMerge);
+          curTarget = parsedTargets[i]; //don't just copy duration or delay because if they're a string or function, we'd end up in an infinite loop because _isFuncOrString() would evaluate as true in the child tweens, entering this loop, etc. So we parse the value straight from vars and default to 0.
+
+          copy.duration = +_parseFuncOrString(duration, _assertThisInitialized(_this3), i, curTarget, parsedTargets);
+          copy.delay = (+_parseFuncOrString(delay, _assertThisInitialized(_this3), i, curTarget, parsedTargets) || 0) - _this3._delay;
+
+          if (!stagger && l === 1 && copy.delay) {
+            // if someone does delay:"random(1, 5)", repeat:-1, for example, the delay shouldn't be inside the repeat.
+            _this3._delay = delay = copy.delay;
+            _this3._start += delay;
+            copy.delay = 0;
+          }
+
+          tl.to(curTarget, copy, staggerFunc ? staggerFunc(i, curTarget, parsedTargets) : 0);
+          tl._ease = _easeMap.none;
+        }
+
+        tl.duration() ? duration = delay = 0 : _this3.timeline = 0; // if the timeline's duration is 0, we don't need a timeline internally!
+      } else if (keyframes) {
+        _inheritDefaults(_setDefaults(tl.vars.defaults, {
+          ease: "none"
+        }));
+
+        tl._ease = _parseEase(keyframes.ease || vars.ease || "none");
+        var time = 0,
+            a,
+            kf,
+            v;
+
+        if (_isArray(keyframes)) {
+          keyframes.forEach(function (frame) {
+            return tl.to(parsedTargets, frame, ">");
+          });
+          tl.duration(); // to ensure tl._dur is cached because we tap into it for performance purposes in the render() method.
+        } else {
+          copy = {};
+
+          for (p in keyframes) {
+            p === "ease" || p === "easeEach" || _parseKeyframe(p, keyframes[p], copy, keyframes.easeEach);
+          }
+
+          for (p in copy) {
+            a = copy[p].sort(function (a, b) {
+              return a.t - b.t;
+            });
+            time = 0;
+
+            for (i = 0; i < a.length; i++) {
+              kf = a[i];
+              v = {
+                ease: kf.e,
+                duration: (kf.t - (i ? a[i - 1].t : 0)) / 100 * duration
+              };
+              v[p] = kf.v;
+              tl.to(parsedTargets, v, time);
+              time += v.duration;
+            }
+          }
+
+          tl.duration() < duration && tl.to({}, {
+            duration: duration - tl.duration()
+          }); // in case keyframes didn't go to 100%
+        }
+      }
+
+      duration || _this3.duration(duration = tl.duration());
+    } else {
+      _this3.timeline = 0; //speed optimization, faster lookups (no going up the prototype chain)
+    }
+
+    if (overwrite === true && !_suppressOverwrites) {
+      _overwritingTween = _assertThisInitialized(_this3);
+
+      _globalTimeline.killTweensOf(parsedTargets);
+
+      _overwritingTween = 0;
+    }
+
+    _addToTimeline(parent, _assertThisInitialized(_this3), position);
+
+    vars.reversed && _this3.reverse();
+    vars.paused && _this3.paused(true);
+
+    if (immediateRender || !duration && !keyframes && _this3._start === _roundPrecise(parent._time) && _isNotFalse(immediateRender) && _hasNoPausedAncestors(_assertThisInitialized(_this3)) && parent.data !== "nested") {
+      _this3._tTime = -_tinyNum; //forces a render without having to set the render() "force" parameter to true because we want to allow lazying by default (using the "force" parameter always forces an immediate full render)
+
+      _this3.render(Math.max(0, -delay) || 0); //in case delay is negative
+
+    }
+
+    scrollTrigger && _scrollTrigger(_assertThisInitialized(_this3), scrollTrigger);
+    return _this3;
+  }
+
+  var _proto3 = Tween.prototype;
+
+  _proto3.render = function render(totalTime, suppressEvents, force) {
+    var prevTime = this._time,
+        tDur = this._tDur,
+        dur = this._dur,
+        isNegative = totalTime < 0,
+        tTime = totalTime > tDur - _tinyNum && !isNegative ? tDur : totalTime < _tinyNum ? 0 : totalTime,
+        time,
+        pt,
+        iteration,
+        cycleDuration,
+        prevIteration,
+        isYoyo,
+        ratio,
+        timeline,
+        yoyoEase;
+
+    if (!dur) {
+      _renderZeroDurationTween(this, totalTime, suppressEvents, force);
+    } else if (tTime !== this._tTime || !totalTime || force || !this._initted && this._tTime || this._startAt && this._zTime < 0 !== isNegative) {
+      //this senses if we're crossing over the start time, in which case we must record _zTime and force the render, but we do it in this lengthy conditional way for performance reasons (usually we can skip the calculations): this._initted && (this._zTime < 0) !== (totalTime < 0)
+      time = tTime;
+      timeline = this.timeline;
+
+      if (this._repeat) {
+        //adjust the time for repeats and yoyos
+        cycleDuration = dur + this._rDelay;
+
+        if (this._repeat < -1 && isNegative) {
+          return this.totalTime(cycleDuration * 100 + totalTime, suppressEvents, force);
+        }
+
+        time = _roundPrecise(tTime % cycleDuration); //round to avoid floating point errors. (4 % 0.8 should be 0 but some browsers report it as 0.79999999!)
+
+        if (tTime === tDur) {
+          // the tDur === tTime is for edge cases where there's a lengthy decimal on the duration and it may reach the very end but the time is rendered as not-quite-there (remember, tDur is rounded to 4 decimals whereas dur isn't)
+          iteration = this._repeat;
+          time = dur;
+        } else {
+          iteration = ~~(tTime / cycleDuration);
+
+          if (iteration && iteration === _roundPrecise(tTime / cycleDuration)) {
+            time = dur;
+            iteration--;
+          }
+
+          time > dur && (time = dur);
+        }
+
+        isYoyo = this._yoyo && iteration & 1;
+
+        if (isYoyo) {
+          yoyoEase = this._yEase;
+          time = dur - time;
+        }
+
+        prevIteration = _animationCycle(this._tTime, cycleDuration);
+
+        if (time === prevTime && !force && this._initted && iteration === prevIteration) {
+          //could be during the repeatDelay part. No need to render and fire callbacks.
+          this._tTime = tTime;
+          return this;
+        }
+
+        if (iteration !== prevIteration) {
+          timeline && this._yEase && _propagateYoyoEase(timeline, isYoyo); //repeatRefresh functionality
+
+          if (this.vars.repeatRefresh && !isYoyo && !this._lock && this._time !== cycleDuration && this._initted) {
+            // this._time will === cycleDuration when we render at EXACTLY the end of an iteration. Without this condition, it'd often do the repeatRefresh render TWICE (again on the very next tick).
+            this._lock = force = 1; //force, otherwise if lazy is true, the _attemptInitTween() will return and we'll jump out and get caught bouncing on each tick.
+
+            this.render(_roundPrecise(cycleDuration * iteration), true).invalidate()._lock = 0;
+          }
+        }
+      }
+
+      if (!this._initted) {
+        if (_attemptInitTween(this, isNegative ? totalTime : time, force, suppressEvents, tTime)) {
+          this._tTime = 0; // in constructor if immediateRender is true, we set _tTime to -_tinyNum to have the playhead cross the starting point but we can't leave _tTime as a negative number.
+
+          return this;
+        }
+
+        if (prevTime !== this._time && !(force && this.vars.repeatRefresh && iteration !== prevIteration)) {
+          // rare edge case - during initialization, an onUpdate in the _startAt (.fromTo()) might force this tween to render at a different spot in which case we should ditch this render() call so that it doesn't revert the values. But we also don't want to dump if we're doing a repeatRefresh render!
+          return this;
+        }
+
+        if (dur !== this._dur) {
+          // while initting, a plugin like InertiaPlugin might alter the duration, so rerun from the start to ensure everything renders as it should.
+          return this.render(totalTime, suppressEvents, force);
+        }
+      }
+
+      this._tTime = tTime;
+      this._time = time;
+
+      if (!this._act && this._ts) {
+        this._act = 1; //as long as it's not paused, force it to be active so that if the user renders independent of the parent timeline, it'll be forced to re-render on the next tick.
+
+        this._lazy = 0;
+      }
+
+      this.ratio = ratio = (yoyoEase || this._ease)(time / dur);
+
+      if (this._from) {
+        this.ratio = ratio = 1 - ratio;
+      }
+
+      if (time && !prevTime && !suppressEvents && !iteration) {
+        _callback(this, "onStart");
+
+        if (this._tTime !== tTime) {
+          // in case the onStart triggered a render at a different spot, eject. Like if someone did animation.pause(0.5) or something inside the onStart.
+          return this;
+        }
+      }
+
+      pt = this._pt;
+
+      while (pt) {
+        pt.r(ratio, pt.d);
+        pt = pt._next;
+      }
+
+      timeline && timeline.render(totalTime < 0 ? totalTime : timeline._dur * timeline._ease(time / this._dur), suppressEvents, force) || this._startAt && (this._zTime = totalTime);
+
+      if (this._onUpdate && !suppressEvents) {
+        isNegative && _rewindStartAt(this, totalTime, suppressEvents, force); //note: for performance reasons, we tuck this conditional logic inside less traveled areas (most tweens don't have an onUpdate). We'd just have it at the end before the onComplete, but the values should be updated before any onUpdate is called, so we ALSO put it here and then if it's not called, we do so later near the onComplete.
+
+        _callback(this, "onUpdate");
+      }
+
+      this._repeat && iteration !== prevIteration && this.vars.onRepeat && !suppressEvents && this.parent && _callback(this, "onRepeat");
+
+      if ((tTime === this._tDur || !tTime) && this._tTime === tTime) {
+        isNegative && !this._onUpdate && _rewindStartAt(this, totalTime, true, true);
+        (totalTime || !dur) && (tTime === this._tDur && this._ts > 0 || !tTime && this._ts < 0) && _removeFromParent(this, 1); // don't remove if we're rendering at exactly a time of 0, as there could be autoRevert values that should get set on the next tick (if the playhead goes backward beyond the startTime, negative totalTime). Don't remove if the timeline is reversed and the playhead isn't at 0, otherwise tl.progress(1).reverse() won't work. Only remove if the playhead is at the end and timeScale is positive, or if the playhead is at 0 and the timeScale is negative.
+
+        if (!suppressEvents && !(isNegative && !prevTime) && (tTime || prevTime || isYoyo)) {
+          // if prevTime and tTime are zero, we shouldn't fire the onReverseComplete. This could happen if you gsap.to(... {paused:true}).play();
+          _callback(this, tTime === tDur ? "onComplete" : "onReverseComplete", true);
+
+          this._prom && !(tTime < tDur && this.timeScale() > 0) && this._prom();
+        }
+      }
+    }
+
+    return this;
+  };
+
+  _proto3.targets = function targets() {
+    return this._targets;
+  };
+
+  _proto3.invalidate = function invalidate(soft) {
+    // "soft" gives us a way to clear out everything EXCEPT the recorded pre-"from" portion of from() tweens. Otherwise, for example, if you tween.progress(1).render(0, true true).invalidate(), the "from" values would persist and then on the next render, the from() tweens would initialize and the current value would match the "from" values, thus animate from the same value to the same value (no animation). We tap into this in ScrollTrigger's refresh() where we must push a tween to completion and then back again but honor its init state in case the tween is dependent on another tween further up on the page.
+    (!soft || !this.vars.runBackwards) && (this._startAt = 0);
+    this._pt = this._op = this._onUpdate = this._lazy = this.ratio = 0;
+    this._ptLookup = [];
+    this.timeline && this.timeline.invalidate(soft);
+    return _Animation2.prototype.invalidate.call(this, soft);
+  };
+
+  _proto3.resetTo = function resetTo(property, value, start, startIsRelative, skipRecursion) {
+    _tickerActive || _ticker.wake();
+    this._ts || this.play();
+    var time = Math.min(this._dur, (this._dp._time - this._start) * this._ts),
+        ratio;
+    this._initted || _initTween(this, time);
+    ratio = this._ease(time / this._dur); // don't just get tween.ratio because it may not have rendered yet.
+    // possible future addition to allow an object with multiple values to update, like tween.resetTo({x: 100, y: 200}); At this point, it doesn't seem worth the added kb given the fact that most users will likely opt for the convenient gsap.quickTo() way of interacting with this method.
+    // if (_isObject(property)) { // performance optimization
+    // 	for (p in property) {
+    // 		if (_updatePropTweens(this, p, property[p], value ? value[p] : null, start, ratio, time)) {
+    // 			return this.resetTo(property, value, start, startIsRelative); // if a PropTween wasn't found for the property, it'll get forced with a re-initialization so we need to jump out and start over again.
+    // 		}
+    // 	}
+    // } else {
+
+    if (_updatePropTweens(this, property, value, start, startIsRelative, ratio, time, skipRecursion)) {
+      return this.resetTo(property, value, start, startIsRelative, 1); // if a PropTween wasn't found for the property, it'll get forced with a re-initialization so we need to jump out and start over again.
+    } //}
+
+
+    _alignPlayhead(this, 0);
+
+    this.parent || _addLinkedListItem(this._dp, this, "_first", "_last", this._dp._sort ? "_start" : 0);
+    return this.render(0);
+  };
+
+  _proto3.kill = function kill(targets, vars) {
+    if (vars === void 0) {
+      vars = "all";
+    }
+
+    if (!targets && (!vars || vars === "all")) {
+      this._lazy = this._pt = 0;
+      return this.parent ? _interrupt(this) : this;
+    }
+
+    if (this.timeline) {
+      var tDur = this.timeline.totalDuration();
+      this.timeline.killTweensOf(targets, vars, _overwritingTween && _overwritingTween.vars.overwrite !== true)._first || _interrupt(this); // if nothing is left tweening, interrupt.
+
+      this.parent && tDur !== this.timeline.totalDuration() && _setDuration(this, this._dur * this.timeline._tDur / tDur, 0, 1); // if a nested tween is killed that changes the duration, it should affect this tween's duration. We must use the ratio, though, because sometimes the internal timeline is stretched like for keyframes where they don't all add up to whatever the parent tween's duration was set to.
+
+      return this;
+    }
+
+    var parsedTargets = this._targets,
+        killingTargets = targets ? toArray(targets) : parsedTargets,
+        propTweenLookup = this._ptLookup,
+        firstPT = this._pt,
+        overwrittenProps,
+        curLookup,
+        curOverwriteProps,
+        props,
+        p,
+        pt,
+        i;
+
+    if ((!vars || vars === "all") && _arraysMatch(parsedTargets, killingTargets)) {
+      vars === "all" && (this._pt = 0);
+      return _interrupt(this);
+    }
+
+    overwrittenProps = this._op = this._op || [];
+
+    if (vars !== "all") {
+      //so people can pass in a comma-delimited list of property names
+      if (_isString(vars)) {
+        p = {};
+
+        _forEachName(vars, function (name) {
+          return p[name] = 1;
+        });
+
+        vars = p;
+      }
+
+      vars = _addAliasesToVars(parsedTargets, vars);
+    }
+
+    i = parsedTargets.length;
+
+    while (i--) {
+      if (~killingTargets.indexOf(parsedTargets[i])) {
+        curLookup = propTweenLookup[i];
+
+        if (vars === "all") {
+          overwrittenProps[i] = vars;
+          props = curLookup;
+          curOverwriteProps = {};
+        } else {
+          curOverwriteProps = overwrittenProps[i] = overwrittenProps[i] || {};
+          props = vars;
+        }
+
+        for (p in props) {
+          pt = curLookup && curLookup[p];
+
+          if (pt) {
+            if (!("kill" in pt.d) || pt.d.kill(p) === true) {
+              _removeLinkedListItem(this, pt, "_pt");
+            }
+
+            delete curLookup[p];
+          }
+
+          if (curOverwriteProps !== "all") {
+            curOverwriteProps[p] = 1;
+          }
+        }
+      }
+    }
+
+    this._initted && !this._pt && firstPT && _interrupt(this); //if all tweening properties are killed, kill the tween. Without this line, if there's a tween with multiple targets and then you killTweensOf() each target individually, the tween would technically still remain active and fire its onComplete even though there aren't any more properties tweening.
+
+    return this;
+  };
+
+  Tween.to = function to(targets, vars) {
+    return new Tween(targets, vars, arguments[2]);
+  };
+
+  Tween.from = function from(targets, vars) {
+    return _createTweenType(1, arguments);
+  };
+
+  Tween.delayedCall = function delayedCall(delay, callback, params, scope) {
+    return new Tween(callback, 0, {
+      immediateRender: false,
+      lazy: false,
+      overwrite: false,
+      delay: delay,
+      onComplete: callback,
+      onReverseComplete: callback,
+      onCompleteParams: params,
+      onReverseCompleteParams: params,
+      callbackScope: scope
+    }); // we must use onReverseComplete too for things like timeline.add(() => {...}) which should be triggered in BOTH directions (forward and reverse)
+  };
+
+  Tween.fromTo = function fromTo(targets, fromVars, toVars) {
+    return _createTweenType(2, arguments);
+  };
+
+  Tween.set = function set(targets, vars) {
+    vars.duration = 0;
+    vars.repeatDelay || (vars.repeat = 0);
+    return new Tween(targets, vars);
+  };
+
+  Tween.killTweensOf = function killTweensOf(targets, props, onlyActive) {
+    return _globalTimeline.killTweensOf(targets, props, onlyActive);
+  };
+
+  return Tween;
+}(Animation);
+
+_setDefaults(Tween.prototype, {
+  _targets: [],
+  _lazy: 0,
+  _startAt: 0,
+  _op: 0,
+  _onInit: 0
+}); //add the pertinent timeline methods to Tween instances so that users can chain conveniently and create a timeline automatically. (removed due to concerns that it'd ultimately add to more confusion especially for beginners)
+// _forEachName("to,from,fromTo,set,call,add,addLabel,addPause", name => {
+// 	Tween.prototype[name] = function() {
+// 		let tl = new Timeline();
+// 		return _addToTimeline(tl, this)[name].apply(tl, toArray(arguments));
+// 	}
+// });
+//for backward compatibility. Leverage the timeline calls.
+
+
+_forEachName("staggerTo,staggerFrom,staggerFromTo", function (name) {
+  Tween[name] = function () {
+    var tl = new Timeline(),
+        params = _slice.call(arguments, 0);
+
+    params.splice(name === "staggerFromTo" ? 5 : 4, 0, 0);
+    return tl[name].apply(tl, params);
+  };
+});
+/*
+ * --------------------------------------------------------------------------------------
+ * PROPTWEEN
+ * --------------------------------------------------------------------------------------
+ */
+
+
+var _setterPlain = function _setterPlain(target, property, value) {
+  return target[property] = value;
+},
+    _setterFunc = function _setterFunc(target, property, value) {
+  return target[property](value);
+},
+    _setterFuncWithParam = function _setterFuncWithParam(target, property, value, data) {
+  return target[property](data.fp, value);
+},
+    _setterAttribute = function _setterAttribute(target, property, value) {
+  return target.setAttribute(property, value);
+},
+    _getSetter = function _getSetter(target, property) {
+  return _isFunction(target[property]) ? _setterFunc : _isUndefined(target[property]) && target.setAttribute ? _setterAttribute : _setterPlain;
+},
+    _renderPlain = function _renderPlain(ratio, data) {
+  return data.set(data.t, data.p, Math.round((data.s + data.c * ratio) * 1000000) / 1000000, data);
+},
+    _renderBoolean = function _renderBoolean(ratio, data) {
+  return data.set(data.t, data.p, !!(data.s + data.c * ratio), data);
+},
+    _renderComplexString = function _renderComplexString(ratio, data) {
+  var pt = data._pt,
+      s = "";
+
+  if (!ratio && data.b) {
+    //b = beginning string
+    s = data.b;
+  } else if (ratio === 1 && data.e) {
+    //e = ending string
+    s = data.e;
+  } else {
+    while (pt) {
+      s = pt.p + (pt.m ? pt.m(pt.s + pt.c * ratio) : Math.round((pt.s + pt.c * ratio) * 10000) / 10000) + s; //we use the "p" property for the text inbetween (like a suffix). And in the context of a complex string, the modifier (m) is typically just Math.round(), like for RGB colors.
+
+      pt = pt._next;
+    }
+
+    s += data.c; //we use the "c" of the PropTween to store the final chunk of non-numeric text.
+  }
+
+  data.set(data.t, data.p, s, data);
+},
+    _renderPropTweens = function _renderPropTweens(ratio, data) {
+  var pt = data._pt;
+
+  while (pt) {
+    pt.r(ratio, pt.d);
+    pt = pt._next;
+  }
+},
+    _addPluginModifier = function _addPluginModifier(modifier, tween, target, property) {
+  var pt = this._pt,
+      next;
+
+  while (pt) {
+    next = pt._next;
+    pt.p === property && pt.modifier(modifier, tween, target);
+    pt = next;
+  }
+},
+    _killPropTweensOf = function _killPropTweensOf(property) {
+  var pt = this._pt,
+      hasNonDependentRemaining,
+      next;
+
+  while (pt) {
+    next = pt._next;
+
+    if (pt.p === property && !pt.op || pt.op === property) {
+      _removeLinkedListItem(this, pt, "_pt");
+    } else if (!pt.dep) {
+      hasNonDependentRemaining = 1;
+    }
+
+    pt = next;
+  }
+
+  return !hasNonDependentRemaining;
+},
+    _setterWithModifier = function _setterWithModifier(target, property, value, data) {
+  data.mSet(target, property, data.m.call(data.tween, value, data.mt), data);
+},
+    _sortPropTweensByPriority = function _sortPropTweensByPriority(parent) {
+  var pt = parent._pt,
+      next,
+      pt2,
+      first,
+      last; //sorts the PropTween linked list in order of priority because some plugins need to do their work after ALL of the PropTweens were created (like RoundPropsPlugin and ModifiersPlugin)
+
+  while (pt) {
+    next = pt._next;
+    pt2 = first;
+
+    while (pt2 && pt2.pr > pt.pr) {
+      pt2 = pt2._next;
+    }
+
+    if (pt._prev = pt2 ? pt2._prev : last) {
+      pt._prev._next = pt;
+    } else {
+      first = pt;
+    }
+
+    if (pt._next = pt2) {
+      pt2._prev = pt;
+    } else {
+      last = pt;
+    }
+
+    pt = next;
+  }
+
+  parent._pt = first;
+}; //PropTween key: t = target, p = prop, r = renderer, d = data, s = start, c = change, op = overwriteProperty (ONLY populated when it's different than p), pr = priority, _next/_prev for the linked list siblings, set = setter, m = modifier, mSet = modifierSetter (the original setter, before a modifier was added)
+
+
+var PropTween = /*#__PURE__*/function () {
+  function PropTween(next, target, prop, start, change, renderer, data, setter, priority) {
+    this.t = target;
+    this.s = start;
+    this.c = change;
+    this.p = prop;
+    this.r = renderer || _renderPlain;
+    this.d = data || this;
+    this.set = setter || _setterPlain;
+    this.pr = priority || 0;
+    this._next = next;
+
+    if (next) {
+      next._prev = this;
+    }
+  }
+
+  var _proto4 = PropTween.prototype;
+
+  _proto4.modifier = function modifier(func, tween, target) {
+    this.mSet = this.mSet || this.set; //in case it was already set (a PropTween can only have one modifier)
+
+    this.set = _setterWithModifier;
+    this.m = func;
+    this.mt = target; //modifier target
+
+    this.tween = tween;
+  };
+
+  return PropTween;
+}(); //Initialization tasks
+
+_forEachName(_callbackNames + "parent,duration,ease,delay,overwrite,runBackwards,startAt,yoyo,immediateRender,repeat,repeatDelay,data,paused,reversed,lazy,callbackScope,stringFilter,id,yoyoEase,stagger,inherit,repeatRefresh,keyframes,autoRevert,scrollTrigger", function (name) {
+  return _reservedProps[name] = 1;
+});
+
+_globals.TweenMax = _globals.TweenLite = Tween;
+_globals.TimelineLite = _globals.TimelineMax = Timeline;
+_globalTimeline = new Timeline({
+  sortChildren: false,
+  defaults: _defaults,
+  autoRemoveChildren: true,
+  id: "root",
+  smoothChildTiming: true
+});
+_config.stringFilter = _colorStringFilter;
+
+var _media = [],
+    _listeners = {},
+    _emptyArray = [],
+    _lastMediaTime = 0,
+    _contextID = 0,
+    _dispatch = function _dispatch(type) {
+  return (_listeners[type] || _emptyArray).map(function (f) {
+    return f();
+  });
+},
+    _onMediaChange = function _onMediaChange() {
+  var time = Date.now(),
+      matches = [];
+
+  if (time - _lastMediaTime > 2) {
+    _dispatch("matchMediaInit");
+
+    _media.forEach(function (c) {
+      var queries = c.queries,
+          conditions = c.conditions,
+          match,
+          p,
+          anyMatch,
+          toggled;
+
+      for (p in queries) {
+        match = _win.matchMedia(queries[p]).matches; // Firefox doesn't update the "matches" property of the MediaQueryList object correctly - it only does so as it calls its change handler - so we must re-create a media query here to ensure it's accurate.
+
+        match && (anyMatch = 1);
+
+        if (match !== conditions[p]) {
+          conditions[p] = match;
+          toggled = 1;
+        }
+      }
+
+      if (toggled) {
+        c.revert();
+        anyMatch && matches.push(c);
+      }
+    });
+
+    _dispatch("matchMediaRevert");
+
+    matches.forEach(function (c) {
+      return c.onMatch(c, function (func) {
+        return c.add(null, func);
+      });
+    });
+    _lastMediaTime = time;
+
+    _dispatch("matchMedia");
+  }
+};
+
+var Context = /*#__PURE__*/function () {
+  function Context(func, scope) {
+    this.selector = scope && selector(scope);
+    this.data = [];
+    this._r = []; // returned/cleanup functions
+
+    this.isReverted = false;
+    this.id = _contextID++; // to work around issues that frameworks like Vue cause by making things into Proxies which make it impossible to do something like _media.indexOf(this) because "this" would no longer refer to the Context instance itself - it'd refer to a Proxy! We needed a way to identify the context uniquely
+
+    func && this.add(func);
+  }
+
+  var _proto5 = Context.prototype;
+
+  _proto5.add = function add(name, func, scope) {
+    // possible future addition if we need the ability to add() an animation to a context and for whatever reason cannot create that animation inside of a context.add(() => {...}) function.
+    // if (name && _isFunction(name.revert)) {
+    // 	this.data.push(name);
+    // 	return (name._ctx = this);
+    // }
+    if (_isFunction(name)) {
+      scope = func;
+      func = name;
+      name = _isFunction;
+    }
+
+    var self = this,
+        f = function f() {
+      var prev = _context,
+          prevSelector = self.selector,
+          result;
+      prev && prev !== self && prev.data.push(self);
+      scope && (self.selector = selector(scope));
+      _context = self;
+      result = func.apply(self, arguments);
+      _isFunction(result) && self._r.push(result);
+      _context = prev;
+      self.selector = prevSelector;
+      self.isReverted = false;
+      return result;
+    };
+
+    self.last = f;
+    return name === _isFunction ? f(self, function (func) {
+      return self.add(null, func);
+    }) : name ? self[name] = f : f;
+  };
+
+  _proto5.ignore = function ignore(func) {
+    var prev = _context;
+    _context = null;
+    func(this);
+    _context = prev;
+  };
+
+  _proto5.getTweens = function getTweens() {
+    var a = [];
+    this.data.forEach(function (e) {
+      return e instanceof Context ? a.push.apply(a, e.getTweens()) : e instanceof Tween && !(e.parent && e.parent.data === "nested") && a.push(e);
+    });
+    return a;
+  };
+
+  _proto5.clear = function clear() {
+    this._r.length = this.data.length = 0;
+  };
+
+  _proto5.kill = function kill(revert, matchMedia) {
+    var _this4 = this;
+
+    if (revert) {
+      (function () {
+        var tweens = _this4.getTweens(),
+            i = _this4.data.length,
+            t;
+
+        while (i--) {
+          // Flip plugin tweens are very different in that they should actually be pushed to their end. The plugin replaces the timeline's .revert() method to do exactly that. But we also need to remove any of those nested tweens inside the flip timeline so that they don't get individually reverted.
+          t = _this4.data[i];
+
+          if (t.data === "isFlip") {
+            t.revert();
+            t.getChildren(true, true, false).forEach(function (tween) {
+              return tweens.splice(tweens.indexOf(tween), 1);
+            });
+          }
+        } // save as an object so that we can cache the globalTime for each tween to optimize performance during the sort
+
+
+        tweens.map(function (t) {
+          return {
+            g: t._dur || t._delay || t._sat && !t._sat.vars.immediateRender ? t.globalTime(0) : -Infinity,
+            t: t
+          };
+        }).sort(function (a, b) {
+          return b.g - a.g || -Infinity;
+        }).forEach(function (o) {
+          return o.t.revert(revert);
+        }); // note: all of the _startAt tweens should be reverted in reverse order that they were created, and they'll all have the same globalTime (-1) so the " || -1" in the sort keeps the order properly.
+
+        i = _this4.data.length;
+
+        while (i--) {
+          // make sure we loop backwards so that, for example, SplitTexts that were created later on the same element get reverted first
+          t = _this4.data[i];
+
+          if (t instanceof Timeline) {
+            if (t.data !== "nested") {
+              t.scrollTrigger && t.scrollTrigger.revert();
+              t.kill(); // don't revert() the timeline because that's duplicating efforts since we already reverted all the tweens
+            }
+          } else {
+            !(t instanceof Tween) && t.revert && t.revert(revert);
+          }
+        }
+
+        _this4._r.forEach(function (f) {
+          return f(revert, _this4);
+        });
+
+        _this4.isReverted = true;
+      })();
+    } else {
+      this.data.forEach(function (e) {
+        return e.kill && e.kill();
+      });
+    }
+
+    this.clear();
+
+    if (matchMedia) {
+      var i = _media.length;
+
+      while (i--) {
+        // previously, we checked _media.indexOf(this), but some frameworks like Vue enforce Proxy objects that make it impossible to get the proper result that way, so we must use a unique ID number instead.
+        _media[i].id === this.id && _media.splice(i, 1);
+      }
+    }
+  };
+
+  _proto5.revert = function revert(config) {
+    this.kill(config || {});
+  };
+
+  return Context;
+}();
+
+var MatchMedia = /*#__PURE__*/function () {
+  function MatchMedia(scope) {
+    this.contexts = [];
+    this.scope = scope;
+    _context && _context.data.push(this);
+  }
+
+  var _proto6 = MatchMedia.prototype;
+
+  _proto6.add = function add(conditions, func, scope) {
+    _isObject(conditions) || (conditions = {
+      matches: conditions
+    });
+    var context = new Context(0, scope || this.scope),
+        cond = context.conditions = {},
+        mq,
+        p,
+        active;
+    _context && !context.selector && (context.selector = _context.selector); // in case a context is created inside a context. Like a gsap.matchMedia() that's inside a scoped gsap.context()
+
+    this.contexts.push(context);
+    func = context.add("onMatch", func);
+    context.queries = conditions;
+
+    for (p in conditions) {
+      if (p === "all") {
+        active = 1;
+      } else {
+        mq = _win.matchMedia(conditions[p]);
+
+        if (mq) {
+          _media.indexOf(context) < 0 && _media.push(context);
+          (cond[p] = mq.matches) && (active = 1);
+          mq.addListener ? mq.addListener(_onMediaChange) : mq.addEventListener("change", _onMediaChange);
+        }
+      }
+    }
+
+    active && func(context, function (f) {
+      return context.add(null, f);
+    });
+    return this;
+  } // refresh() {
+  // 	let time = _lastMediaTime,
+  // 		media = _media;
+  // 	_lastMediaTime = -1;
+  // 	_media = this.contexts;
+  // 	_onMediaChange();
+  // 	_lastMediaTime = time;
+  // 	_media = media;
+  // }
+  ;
+
+  _proto6.revert = function revert(config) {
+    this.kill(config || {});
+  };
+
+  _proto6.kill = function kill(revert) {
+    this.contexts.forEach(function (c) {
+      return c.kill(revert, true);
+    });
+  };
+
+  return MatchMedia;
+}();
+/*
+ * --------------------------------------------------------------------------------------
+ * GSAP
+ * --------------------------------------------------------------------------------------
+ */
+
+
+var _gsap = {
+  registerPlugin: function registerPlugin() {
+    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    args.forEach(function (config) {
+      return _createPlugin(config);
+    });
+  },
+  timeline: function timeline(vars) {
+    return new Timeline(vars);
+  },
+  getTweensOf: function getTweensOf(targets, onlyActive) {
+    return _globalTimeline.getTweensOf(targets, onlyActive);
+  },
+  getProperty: function getProperty(target, property, unit, uncache) {
+    _isString(target) && (target = toArray(target)[0]); //in case selector text or an array is passed in
+
+    var getter = _getCache(target || {}).get,
+        format = unit ? _passThrough : _numericIfPossible;
+
+    unit === "native" && (unit = "");
+    return !target ? target : !property ? function (property, unit, uncache) {
+      return format((_plugins[property] && _plugins[property].get || getter)(target, property, unit, uncache));
+    } : format((_plugins[property] && _plugins[property].get || getter)(target, property, unit, uncache));
+  },
+  quickSetter: function quickSetter(target, property, unit) {
+    target = toArray(target);
+
+    if (target.length > 1) {
+      var setters = target.map(function (t) {
+        return gsap.quickSetter(t, property, unit);
+      }),
+          l = setters.length;
+      return function (value) {
+        var i = l;
+
+        while (i--) {
+          setters[i](value);
+        }
+      };
+    }
+
+    target = target[0] || {};
+
+    var Plugin = _plugins[property],
+        cache = _getCache(target),
+        p = cache.harness && (cache.harness.aliases || {})[property] || property,
+        // in case it's an alias, like "rotate" for "rotation".
+    setter = Plugin ? function (value) {
+      var p = new Plugin();
+      _quickTween._pt = 0;
+      p.init(target, unit ? value + unit : value, _quickTween, 0, [target]);
+      p.render(1, p);
+      _quickTween._pt && _renderPropTweens(1, _quickTween);
+    } : cache.set(target, p);
+
+    return Plugin ? setter : function (value) {
+      return setter(target, p, unit ? value + unit : value, cache, 1);
+    };
+  },
+  quickTo: function quickTo(target, property, vars) {
+    var _merge2;
+
+    var tween = gsap.to(target, _merge((_merge2 = {}, _merge2[property] = "+=0.1", _merge2.paused = true, _merge2), vars || {})),
+        func = function func(value, start, startIsRelative) {
+      return tween.resetTo(property, value, start, startIsRelative);
+    };
+
+    func.tween = tween;
+    return func;
+  },
+  isTweening: function isTweening(targets) {
+    return _globalTimeline.getTweensOf(targets, true).length > 0;
+  },
+  defaults: function defaults(value) {
+    value && value.ease && (value.ease = _parseEase(value.ease, _defaults.ease));
+    return _mergeDeep(_defaults, value || {});
+  },
+  config: function config(value) {
+    return _mergeDeep(_config, value || {});
+  },
+  registerEffect: function registerEffect(_ref3) {
+    var name = _ref3.name,
+        effect = _ref3.effect,
+        plugins = _ref3.plugins,
+        defaults = _ref3.defaults,
+        extendTimeline = _ref3.extendTimeline;
+    (plugins || "").split(",").forEach(function (pluginName) {
+      return pluginName && !_plugins[pluginName] && !_globals[pluginName] && _warn(name + " effect requires " + pluginName + " plugin.");
+    });
+
+    _effects[name] = function (targets, vars, tl) {
+      return effect(toArray(targets), _setDefaults(vars || {}, defaults), tl);
+    };
+
+    if (extendTimeline) {
+      Timeline.prototype[name] = function (targets, vars, position) {
+        return this.add(_effects[name](targets, _isObject(vars) ? vars : (position = vars) && {}, this), position);
+      };
+    }
+  },
+  registerEase: function registerEase(name, ease) {
+    _easeMap[name] = _parseEase(ease);
+  },
+  parseEase: function parseEase(ease, defaultEase) {
+    return arguments.length ? _parseEase(ease, defaultEase) : _easeMap;
+  },
+  getById: function getById(id) {
+    return _globalTimeline.getById(id);
+  },
+  exportRoot: function exportRoot(vars, includeDelayedCalls) {
+    if (vars === void 0) {
+      vars = {};
+    }
+
+    var tl = new Timeline(vars),
+        child,
+        next;
+    tl.smoothChildTiming = _isNotFalse(vars.smoothChildTiming);
+
+    _globalTimeline.remove(tl);
+
+    tl._dp = 0; //otherwise it'll get re-activated when adding children and be re-introduced into _globalTimeline's linked list (then added to itself).
+
+    tl._time = tl._tTime = _globalTimeline._time;
+    child = _globalTimeline._first;
+
+    while (child) {
+      next = child._next;
+
+      if (includeDelayedCalls || !(!child._dur && child instanceof Tween && child.vars.onComplete === child._targets[0])) {
+        _addToTimeline(tl, child, child._start - child._delay);
+      }
+
+      child = next;
+    }
+
+    _addToTimeline(_globalTimeline, tl, 0);
+
+    return tl;
+  },
+  context: function context(func, scope) {
+    return func ? new Context(func, scope) : _context;
+  },
+  matchMedia: function matchMedia(scope) {
+    return new MatchMedia(scope);
+  },
+  matchMediaRefresh: function matchMediaRefresh() {
+    return _media.forEach(function (c) {
+      var cond = c.conditions,
+          found,
+          p;
+
+      for (p in cond) {
+        if (cond[p]) {
+          cond[p] = false;
+          found = 1;
+        }
+      }
+
+      found && c.revert();
+    }) || _onMediaChange();
+  },
+  addEventListener: function addEventListener(type, callback) {
+    var a = _listeners[type] || (_listeners[type] = []);
+    ~a.indexOf(callback) || a.push(callback);
+  },
+  removeEventListener: function removeEventListener(type, callback) {
+    var a = _listeners[type],
+        i = a && a.indexOf(callback);
+    i >= 0 && a.splice(i, 1);
+  },
+  utils: {
+    wrap: wrap,
+    wrapYoyo: wrapYoyo,
+    distribute: distribute,
+    random: random,
+    snap: snap,
+    normalize: normalize,
+    getUnit: getUnit,
+    clamp: clamp,
+    splitColor: splitColor,
+    toArray: toArray,
+    selector: selector,
+    mapRange: mapRange,
+    pipe: pipe,
+    unitize: unitize,
+    interpolate: interpolate,
+    shuffle: shuffle
+  },
+  install: _install,
+  effects: _effects,
+  ticker: _ticker,
+  updateRoot: Timeline.updateRoot,
+  plugins: _plugins,
+  globalTimeline: _globalTimeline,
+  core: {
+    PropTween: PropTween,
+    globals: _addGlobal,
+    Tween: Tween,
+    Timeline: Timeline,
+    Animation: Animation,
+    getCache: _getCache,
+    _removeLinkedListItem: _removeLinkedListItem,
+    reverting: function reverting() {
+      return _reverting;
+    },
+    context: function context(toAdd) {
+      if (toAdd && _context) {
+        _context.data.push(toAdd);
+
+        toAdd._ctx = _context;
+      }
+
+      return _context;
+    },
+    suppressOverwrites: function suppressOverwrites(value) {
+      return _suppressOverwrites = value;
+    }
+  }
+};
+
+_forEachName("to,from,fromTo,delayedCall,set,killTweensOf", function (name) {
+  return _gsap[name] = Tween[name];
+});
+
+_ticker.add(Timeline.updateRoot);
+
+_quickTween = _gsap.to({}, {
+  duration: 0
+}); // ---- EXTRA PLUGINS --------------------------------------------------------
+
+var _getPluginPropTween = function _getPluginPropTween(plugin, prop) {
+  var pt = plugin._pt;
+
+  while (pt && pt.p !== prop && pt.op !== prop && pt.fp !== prop) {
+    pt = pt._next;
+  }
+
+  return pt;
+},
+    _addModifiers = function _addModifiers(tween, modifiers) {
+  var targets = tween._targets,
+      p,
+      i,
+      pt;
+
+  for (p in modifiers) {
+    i = targets.length;
+
+    while (i--) {
+      pt = tween._ptLookup[i][p];
+
+      if (pt && (pt = pt.d)) {
+        if (pt._pt) {
+          // is a plugin
+          pt = _getPluginPropTween(pt, p);
+        }
+
+        pt && pt.modifier && pt.modifier(modifiers[p], tween, targets[i], p);
+      }
+    }
+  }
+},
+    _buildModifierPlugin = function _buildModifierPlugin(name, modifier) {
+  return {
+    name: name,
+    rawVars: 1,
+    //don't pre-process function-based values or "random()" strings.
+    init: function init(target, vars, tween) {
+      tween._onInit = function (tween) {
+        var temp, p;
+
+        if (_isString(vars)) {
+          temp = {};
+
+          _forEachName(vars, function (name) {
+            return temp[name] = 1;
+          }); //if the user passes in a comma-delimited list of property names to roundProps, like "x,y", we round to whole numbers.
+
+
+          vars = temp;
+        }
+
+        if (modifier) {
+          temp = {};
+
+          for (p in vars) {
+            temp[p] = modifier(vars[p]);
+          }
+
+          vars = temp;
+        }
+
+        _addModifiers(tween, vars);
+      };
+    }
+  };
+}; //register core plugins
+
+
+var gsap = _gsap.registerPlugin({
+  name: "attr",
+  init: function init(target, vars, tween, index, targets) {
+    var p, pt, v;
+    this.tween = tween;
+
+    for (p in vars) {
+      v = target.getAttribute(p) || "";
+      pt = this.add(target, "setAttribute", (v || 0) + "", vars[p], index, targets, 0, 0, p);
+      pt.op = p;
+      pt.b = v; // record the beginning value so we can revert()
+
+      this._props.push(p);
+    }
+  },
+  render: function render(ratio, data) {
+    var pt = data._pt;
+
+    while (pt) {
+      _reverting ? pt.set(pt.t, pt.p, pt.b, pt) : pt.r(ratio, pt.d); // if reverting, go back to the original (pt.b)
+
+      pt = pt._next;
+    }
+  }
+}, {
+  name: "endArray",
+  init: function init(target, value) {
+    var i = value.length;
+
+    while (i--) {
+      this.add(target, i, target[i] || 0, value[i], 0, 0, 0, 0, 0, 1);
+    }
+  }
+}, _buildModifierPlugin("roundProps", _roundModifier), _buildModifierPlugin("modifiers"), _buildModifierPlugin("snap", snap)) || _gsap; //to prevent the core plugins from being dropped via aggressive tree shaking, we must include them in the variable declaration in this way.
+
+Tween.version = Timeline.version = gsap.version = "3.12.5";
+_coreReady = 1;
+_windowExists() && _wake();
+var Power0 = _easeMap.Power0,
+    Power1 = _easeMap.Power1,
+    Power2 = _easeMap.Power2,
+    Power3 = _easeMap.Power3,
+    Power4 = _easeMap.Power4,
+    Linear = _easeMap.Linear,
+    Quad = _easeMap.Quad,
+    Cubic = _easeMap.Cubic,
+    Quart = _easeMap.Quart,
+    Quint = _easeMap.Quint,
+    Strong = _easeMap.Strong,
+    Elastic = _easeMap.Elastic,
+    Back = _easeMap.Back,
+    SteppedEase = _easeMap.SteppedEase,
+    Bounce = _easeMap.Bounce,
+    Sine = _easeMap.Sine,
+    Expo = _easeMap.Expo,
+    Circ = _easeMap.Circ;
+
+ //export some internal methods/orojects for use in CSSPlugin so that we can externalize that file and allow custom builds that exclude it.
+
+
+
+/***/ }),
+
+/***/ "./node_modules/gsap/index.js":
+/*!************************************!*\
+  !*** ./node_modules/gsap/index.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Back: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Back),
+/* harmony export */   Bounce: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Bounce),
+/* harmony export */   CSSPlugin: () => (/* reexport safe */ _CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__.CSSPlugin),
+/* harmony export */   Circ: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Circ),
+/* harmony export */   Cubic: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Cubic),
+/* harmony export */   Elastic: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Elastic),
+/* harmony export */   Expo: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Expo),
+/* harmony export */   Linear: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Linear),
+/* harmony export */   Power0: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Power0),
+/* harmony export */   Power1: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Power1),
+/* harmony export */   Power2: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Power2),
+/* harmony export */   Power3: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Power3),
+/* harmony export */   Power4: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Power4),
+/* harmony export */   Quad: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Quad),
+/* harmony export */   Quart: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Quart),
+/* harmony export */   Quint: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Quint),
+/* harmony export */   Sine: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Sine),
+/* harmony export */   SteppedEase: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.SteppedEase),
+/* harmony export */   Strong: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Strong),
+/* harmony export */   TimelineLite: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.TimelineLite),
+/* harmony export */   TimelineMax: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.TimelineMax),
+/* harmony export */   TweenLite: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.TweenLite),
+/* harmony export */   TweenMax: () => (/* binding */ TweenMaxWithCSS),
+/* harmony export */   "default": () => (/* binding */ gsapWithCSS),
+/* harmony export */   gsap: () => (/* binding */ gsapWithCSS)
+/* harmony export */ });
+/* harmony import */ var _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gsap-core.js */ "./node_modules/gsap/gsap-core.js");
+/* harmony import */ var _CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CSSPlugin.js */ "./node_modules/gsap/CSSPlugin.js");
+
+
+var gsapWithCSS = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(_CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__.CSSPlugin) || _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap,
+    // to protect from tree shaking
+TweenMaxWithCSS = gsapWithCSS.core.Tween;
+
+
+/***/ }),
+
+/***/ "./node_modules/js-year-calendar/dist/js-year-calendar.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/js-year-calendar/dist/js-year-calendar.js ***!
+  \****************************************************************/
+/***/ (function(module, exports) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : this, function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports["default"] = void 0;
+
+  function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+  /* =========================================================
+   * JS year calendar v1.0.0
+   * Repo: https://github.com/year-calendar/js-year-calendar
+   * =========================================================
+   * Created by Paul David-Sivelle
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   * http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   * ========================================================= */
+  // NodeList forEach() polyfill
+  if (typeof NodeList !== "undefined" && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = function (callback, thisArg) {
+      thisArg = thisArg || window;
+
+      for (var i = 0; i < this.length; i++) {
+        callback.call(thisArg, this[i], i, this);
+      }
+    };
+  } // Element closest() polyfill
+
+
+  if (typeof Element !== "undefined" && !Element.prototype.matches) {
+    var prototype = Element.prototype;
+    Element.prototype.matches = prototype.msMatchesSelector || prototype.webkitMatchesSelector;
+  }
+
+  if (typeof Element !== "undefined" && !Element.prototype.closest) {
+    Element.prototype.closest = function (s) {
+      var el = this;
+      if (!document.documentElement.contains(el)) return null;
+
+      do {
+        if (el.matches(s)) return el;
+        el = el.parentElement || el.parentNode;
+      } while (el !== null && el.nodeType == 1);
+
+      return null;
+    };
+  }
+  /**
+   * Calendar instance.
+   */
+
+
+  var Calendar = /*#__PURE__*/function () {
+    /**
+     * Fired when a day is clicked.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('clickDay', function(e) {
+     *   console.log("Click on day: " + e.date + " (" + e.events.length + " events)");
+     * })
+     * ```
+     */
+
+    /**
+     * Fired when a day is right clicked.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('clickDay', function(e) {
+     *   console.log("Right click on day: " + e.date + " (" + e.events.length + " events)");
+     * })
+     * ```
+     */
+
+    /**
+     * Fired when the mouse enter in a day.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('mouseOnDay', function(e) {
+     *   console.log("Mouse enter in a day: " + e.date + " (" + e.events.length + " events)");
+     * })
+     * ```
+     */
+
+    /**
+     * Fired when the mouse leave a day.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('mouseOutDay', function(e) {
+     *   console.log("Mouse leave a day: " + e.date + " (" + e.events.length + " events)");
+     * })
+     * ```
+     */
+
+    /**
+     * Fired when the calendar rendering is ended.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('renderEnd', function(e) {
+     *   console.log("Render end for year: " + e.currentYear);
+     * })
+     * ```
+     */
+
+    /**
+     * Fired when a date range is selected.
+     * 
+     * Don't forget to enable the `enableRangeSelection` option to be able to use the range selection functionality.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('selectRange', function(e) {
+     *   console.log("Select the range: " + e.startDate + " - " + e.endDate);
+     * })
+     * ```
+     */
+
+    /**
+     * Triggered after the changing the current year.
+     * Works only if the calendar is used in a full year mode. Otherwise, use `periodChanged` event.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('yearChanged', function(e) {
+     *   console.log("New year selected: " + e.currentYear);
+     * })
+     * ```
+     */
+
+    /**
+     * Triggered after the changing the visible period.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('periodChanged', function(e) {
+     *   console.log(`New period selected: ${e.startDate} ${e.endDate}`);
+     * })
+     * ```
+     */
+
+    /**
+     * Create a new calendar.
+     * @param element The element (or the selector to an element) in which the calendar should be created.
+     * @param options [Optional] The options used to customize the calendar
+     */
+    function Calendar(element) {
+      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+      _classCallCheck(this, Calendar);
+
+      _defineProperty(this, "element", void 0);
+
+      _defineProperty(this, "options", void 0);
+
+      _defineProperty(this, "_startDate", void 0);
+
+      _defineProperty(this, "_dataSource", void 0);
+
+      _defineProperty(this, "_mouseDown", void 0);
+
+      _defineProperty(this, "_rangeStart", void 0);
+
+      _defineProperty(this, "_rangeEnd", void 0);
+
+      _defineProperty(this, "_responsiveInterval", void 0);
+
+      _defineProperty(this, "_nbCols", void 0);
+
+      _defineProperty(this, "clickDay", void 0);
+
+      _defineProperty(this, "dayContextMenu", void 0);
+
+      _defineProperty(this, "mouseOnDay", void 0);
+
+      _defineProperty(this, "mouseOutDay", void 0);
+
+      _defineProperty(this, "renderEnd", void 0);
+
+      _defineProperty(this, "selectRange", void 0);
+
+      _defineProperty(this, "yearChanged", void 0);
+
+      _defineProperty(this, "periodChanged", void 0);
+
+      if (element instanceof HTMLElement) {
+        this.element = element;
+      } else if (typeof element === "string") {
+        this.element = document.querySelector(element);
+      } else {
+        throw new Error("The element parameter should be a DOM node or a selector");
+      }
+
+      this.element.classList.add('calendar');
+
+      this._initializeEvents(options);
+
+      this._initializeOptions(options);
+
+      var startYear = new Date().getFullYear();
+      var startMonth = 0;
+
+      if (this.options.startDate) {
+        startYear = this.options.startDate.getFullYear();
+        startMonth = this.options.startDate.getMonth();
+      } else if (this.options.startYear) {
+        startYear = this.options.startYear;
+      }
+
+      this.setStartDate(new Date(startYear, startMonth, 1));
+    }
+
+    _createClass(Calendar, [{
+      key: "_initializeOptions",
+      value: function _initializeOptions(opt) {
+        if (opt == null) {
+          opt = {};
+        }
+
+        this.options = {
+          startYear: !isNaN(parseInt(opt.startYear)) ? parseInt(opt.startYear) : null,
+          startDate: opt.startDate instanceof Date ? opt.startDate : null,
+          numberMonthsDisplayed: !isNaN(parseInt(opt.numberMonthsDisplayed)) && opt.numberMonthsDisplayed > 0 && opt.numberMonthsDisplayed <= 12 ? parseInt(opt.numberMonthsDisplayed) : 12,
+          minDate: opt.minDate instanceof Date ? opt.minDate : null,
+          maxDate: opt.maxDate instanceof Date ? opt.maxDate : null,
+          language: opt.language != null && Calendar.locales[opt.language] != null ? opt.language : 'en',
+          allowOverlap: opt.allowOverlap != null ? opt.allowOverlap : true,
+          displayWeekNumber: opt.displayWeekNumber != null ? opt.displayWeekNumber : false,
+          displayDisabledDataSource: opt.displayDisabledDataSource != null ? opt.displayDisabledDataSource : false,
+          displayHeader: opt.displayHeader != null ? opt.displayHeader : true,
+          alwaysHalfDay: opt.alwaysHalfDay != null ? opt.alwaysHalfDay : false,
+          enableRangeSelection: opt.enableRangeSelection != null ? opt.enableRangeSelection : false,
+          disabledDays: opt.disabledDays instanceof Array ? opt.disabledDays : [],
+          disabledWeekDays: opt.disabledWeekDays instanceof Array ? opt.disabledWeekDays : [],
+          hiddenWeekDays: opt.hiddenWeekDays instanceof Array ? opt.hiddenWeekDays : [],
+          roundRangeLimits: opt.roundRangeLimits != null ? opt.roundRangeLimits : false,
+          dataSource: opt.dataSource instanceof Array || typeof opt.dataSource === "function" ? opt.dataSource : [],
+          style: opt.style == 'background' || opt.style == 'border' || opt.style == 'custom' ? opt.style : 'border',
+          enableContextMenu: opt.enableContextMenu != null ? opt.enableContextMenu : false,
+          contextMenuItems: opt.contextMenuItems instanceof Array ? opt.contextMenuItems : [],
+          customDayRenderer: typeof opt.customDayRenderer === "function" ? opt.customDayRenderer : null,
+          customDataSourceRenderer: typeof opt.customDataSourceRenderer === "function" ? opt.customDataSourceRenderer : null,
+          weekStart: !isNaN(parseInt(opt.weekStart)) ? parseInt(opt.weekStart) : null,
+          loadingTemplate: typeof opt.loadingTemplate === "string" || opt.loadingTemplate instanceof HTMLElement ? opt.loadingTemplate : null
+        };
+
+        if (this.options.dataSource instanceof Array) {
+          this._dataSource = this.options.dataSource;
+
+          this._initializeDatasourceColors();
+        }
+      }
+    }, {
+      key: "_initializeEvents",
+      value: function _initializeEvents(opt) {
+        if (opt == null) {
+          opt = [];
+        }
+
+        if (opt.yearChanged) {
+          this.element.addEventListener('yearChanged', opt.yearChanged);
+        }
+
+        if (opt.periodChanged) {
+          this.element.addEventListener('periodChanged', opt.periodChanged);
+        }
+
+        if (opt.renderEnd) {
+          this.element.addEventListener('renderEnd', opt.renderEnd);
+        }
+
+        if (opt.clickDay) {
+          this.element.addEventListener('clickDay', opt.clickDay);
+        }
+
+        if (opt.dayContextMenu) {
+          this.element.addEventListener('dayContextMenu', opt.dayContextMenu);
+        }
+
+        if (opt.selectRange) {
+          this.element.addEventListener('selectRange', opt.selectRange);
+        }
+
+        if (opt.mouseOnDay) {
+          this.element.addEventListener('mouseOnDay', opt.mouseOnDay);
+        }
+
+        if (opt.mouseOutDay) {
+          this.element.addEventListener('mouseOutDay', opt.mouseOutDay);
+        }
+      }
+    }, {
+      key: "_fetchDataSource",
+      value: function _fetchDataSource(callback) {
+        if (typeof this.options.dataSource === "function") {
+          var getDataSource = this.options.dataSource;
+          var currentPeriod = this.getCurrentPeriod();
+          var fetchParameters = {
+            year: currentPeriod.startDate.getFullYear(),
+            startDate: currentPeriod.startDate,
+            endDate: currentPeriod.endDate
+          };
+
+          if (getDataSource.length == 2) {
+            // 2 parameters, means callback method
+            getDataSource(fetchParameters, callback);
+          } else {
+            // 1 parameter, means synchronous or promise method
+            var result = getDataSource(fetchParameters);
+
+            if (result instanceof Array) {
+              callback(result);
+            }
+
+            if (result && result.then) {
+              result.then(callback);
+            }
+          }
+        } else {
+          callback(this.options.dataSource);
+        }
+      }
+    }, {
+      key: "_initializeDatasourceColors",
+      value: function _initializeDatasourceColors() {
+        for (var i = 0; i < this._dataSource.length; i++) {
+          if (this._dataSource[i].color == null) {
+            this._dataSource[i].color = Calendar.colors[i % Calendar.colors.length];
+          }
+        }
+      }
+      /**
+          * Renders the calendar.
+          */
+
+    }, {
+      key: "render",
+      value: function render() {
+        var isLoading = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+        // Clear the calendar (faster method)
+        while (this.element.firstChild) {
+          this.element.removeChild(this.element.firstChild);
+        }
+
+        if (this.options.displayHeader) {
+          this._renderHeader();
+        }
+
+        if (isLoading) {
+          this._renderLoading();
+        } else {
+          this._renderBody();
+
+          this._renderDataSource();
+
+          this._applyEvents(); // Fade animation
+
+
+          var months = this.element.querySelector('.months-container');
+          months.style.opacity = '0';
+          months.style.display = 'flex';
+          months.style.transition = 'opacity 0.5s';
+          setTimeout(function () {
+            months.style.opacity = '1';
+            setTimeout(function () {
+              return months.style.transition = '';
+            }, 500);
+          }, 0);
+          var currentPeriod = this.getCurrentPeriod();
+
+          this._triggerEvent('renderEnd', {
+            currentYear: currentPeriod.startDate.getFullYear(),
+            startDate: currentPeriod.startDate,
+            endDate: currentPeriod.endDate
+          });
+        }
+      }
+    }, {
+      key: "_renderHeader",
+      value: function _renderHeader() {
+        var header = document.createElement('div');
+        header.classList.add('calendar-header');
+        var headerTable = document.createElement('table');
+        var period = this.getCurrentPeriod(); // Left arrow
+
+        var prevDiv = document.createElement('th');
+        prevDiv.classList.add('prev');
+
+        if (this.options.minDate != null && this.options.minDate >= period.startDate) {
+          prevDiv.classList.add('disabled');
+        }
+
+        var prevIcon = document.createElement('span');
+        prevIcon.innerHTML = "&lsaquo;";
+        prevDiv.appendChild(prevIcon);
+        headerTable.appendChild(prevDiv);
+
+        if (this._isFullYearMode()) {
+          // Year N-2
+          var prev2YearDiv = document.createElement('th');
+          prev2YearDiv.classList.add('year-title');
+          prev2YearDiv.classList.add('year-neighbor2');
+          prev2YearDiv.textContent = (this._startDate.getFullYear() - 2).toString();
+
+          if (this.options.minDate != null && this.options.minDate > new Date(this._startDate.getFullYear() - 2, 11, 31)) {
+            prev2YearDiv.classList.add('disabled');
+          }
+
+          headerTable.appendChild(prev2YearDiv); // Year N-1
+
+          var prevYearDiv = document.createElement('th');
+          prevYearDiv.classList.add('year-title');
+          prevYearDiv.classList.add('year-neighbor');
+          prevYearDiv.textContent = (this._startDate.getFullYear() - 1).toString();
+
+          if (this.options.minDate != null && this.options.minDate > new Date(this._startDate.getFullYear() - 1, 11, 31)) {
+            prevYearDiv.classList.add('disabled');
+          }
+
+          headerTable.appendChild(prevYearDiv);
+        } // Current year
+
+
+        var yearDiv = document.createElement('th');
+        yearDiv.classList.add('year-title');
+
+        if (this._isFullYearMode()) {
+          yearDiv.textContent = this._startDate.getFullYear().toString();
+        } else if (this.options.numberMonthsDisplayed == 12) {
+          yearDiv.textContent = "".concat(period.startDate.getFullYear(), " - ").concat(period.endDate.getFullYear());
+        } else if (this.options.numberMonthsDisplayed > 1) {
+          yearDiv.textContent = "".concat(Calendar.locales[this.options.language].months[period.startDate.getMonth()], " ").concat(period.startDate.getFullYear(), " - ").concat(Calendar.locales[this.options.language].months[period.endDate.getMonth()], " ").concat(period.endDate.getFullYear());
+        } else {
+          yearDiv.textContent = "".concat(Calendar.locales[this.options.language].months[period.startDate.getMonth()], " ").concat(period.startDate.getFullYear());
+        }
+
+        headerTable.appendChild(yearDiv);
+
+        if (this._isFullYearMode()) {
+          // Year N+1
+          var nextYearDiv = document.createElement('th');
+          nextYearDiv.classList.add('year-title');
+          nextYearDiv.classList.add('year-neighbor');
+          nextYearDiv.textContent = (this._startDate.getFullYear() + 1).toString();
+
+          if (this.options.maxDate != null && this.options.maxDate < new Date(this._startDate.getFullYear() + 1, 0, 1)) {
+            nextYearDiv.classList.add('disabled');
+          }
+
+          headerTable.appendChild(nextYearDiv); // Year N+2
+
+          var next2YearDiv = document.createElement('th');
+          next2YearDiv.classList.add('year-title');
+          next2YearDiv.classList.add('year-neighbor2');
+          next2YearDiv.textContent = (this._startDate.getFullYear() + 2).toString();
+
+          if (this.options.maxDate != null && this.options.maxDate < new Date(this._startDate.getFullYear() + 2, 0, 1)) {
+            next2YearDiv.classList.add('disabled');
+          }
+
+          headerTable.appendChild(next2YearDiv);
+        } // Right arrow
+
+
+        var nextDiv = document.createElement('th');
+        nextDiv.classList.add('next');
+
+        if (this.options.maxDate != null && this.options.maxDate <= period.endDate) {
+          nextDiv.classList.add('disabled');
+        }
+
+        var nextIcon = document.createElement('span');
+        nextIcon.innerHTML = "&rsaquo;";
+        nextDiv.appendChild(nextIcon);
+        headerTable.appendChild(nextDiv);
+        header.appendChild(headerTable);
+        this.element.appendChild(header);
+      }
+    }, {
+      key: "_renderBody",
+      value: function _renderBody() {
+        var monthsDiv = document.createElement('div');
+        monthsDiv.classList.add('months-container');
+        var monthStartDate = new Date(this._startDate.getTime());
+
+        for (var m = 0; m < this.options.numberMonthsDisplayed; m++) {
+          /* Container */
+          var monthDiv = document.createElement('div');
+          monthDiv.classList.add('month-container');
+          monthDiv.dataset.monthId = m.toString();
+
+          if (this._nbCols) {
+            monthDiv.classList.add("month-".concat(this._nbCols));
+          }
+
+          var table = document.createElement('table');
+          table.classList.add('month');
+          /* Month header */
+
+          var thead = document.createElement('thead');
+          var titleRow = document.createElement('tr');
+          var titleCell = document.createElement('th');
+          titleCell.classList.add('month-title');
+          titleCell.setAttribute('colspan', this.options.displayWeekNumber ? '8' : '7');
+          titleCell.textContent = Calendar.locales[this.options.language].months[monthStartDate.getMonth()];
+          titleRow.appendChild(titleCell);
+          thead.appendChild(titleRow);
+          var headerRow = document.createElement('tr');
+
+          if (this.options.displayWeekNumber) {
+            var weekNumberCell = document.createElement('th');
+            weekNumberCell.classList.add('week-number');
+            weekNumberCell.textContent = Calendar.locales[this.options.language].weekShort;
+            headerRow.appendChild(weekNumberCell);
+          }
+
+          var weekStart = this.getWeekStart();
+          var d = weekStart;
+
+          do {
+            var headerCell = document.createElement('th');
+            headerCell.classList.add('day-header');
+            headerCell.textContent = Calendar.locales[this.options.language].daysMin[d];
+
+            if (this._isHidden(d)) {
+              headerCell.classList.add('hidden');
+            }
+
+            headerRow.appendChild(headerCell);
+            d++;
+            if (d >= 7) d = 0;
+          } while (d != weekStart);
+
+          thead.appendChild(headerRow);
+          table.appendChild(thead);
+          /* Days */
+
+          var currentDate = new Date(monthStartDate.getTime());
+          var lastDate = new Date(monthStartDate.getFullYear(), monthStartDate.getMonth() + 1, 0);
+
+          while (currentDate.getDay() != weekStart) {
+            currentDate.setDate(currentDate.getDate() - 1);
+          }
+
+          while (currentDate <= lastDate) {
+            var row = document.createElement('tr');
+
+            if (this.options.displayWeekNumber) {
+              var weekNumberCell = document.createElement('td');
+              var currentThursday = new Date(currentDate.getTime()); // Week number is computed based on the thursday
+
+              currentThursday.setDate(currentThursday.getDate() - weekStart + 4);
+              weekNumberCell.classList.add('week-number');
+              weekNumberCell.textContent = this.getWeekNumber(currentThursday).toString();
+              row.appendChild(weekNumberCell);
+            }
+
+            do {
+              var cell = document.createElement('td');
+              cell.classList.add('day');
+
+              if (this._isHidden(currentDate.getDay())) {
+                cell.classList.add('hidden');
+              }
+
+              if (currentDate < monthStartDate) {
+                cell.classList.add('old');
+              } else if (currentDate > lastDate) {
+                cell.classList.add('new');
+              } else {
+                if (this._isDisabled(currentDate)) {
+                  cell.classList.add('disabled');
+                }
+
+                var cellContent = document.createElement('div');
+                cellContent.classList.add('day-content');
+                cellContent.textContent = currentDate.getDate().toString();
+                cell.appendChild(cellContent);
+
+                if (this.options.customDayRenderer) {
+                  this.options.customDayRenderer(cellContent, currentDate);
+                }
+              }
+
+              row.appendChild(cell);
+              currentDate.setDate(currentDate.getDate() + 1);
+            } while (currentDate.getDay() != weekStart);
+
+            table.appendChild(row);
+          }
+
+          monthDiv.appendChild(table);
+          monthsDiv.appendChild(monthDiv);
+          monthStartDate.setMonth(monthStartDate.getMonth() + 1);
+        }
+
+        this.element.appendChild(monthsDiv);
+      }
+    }, {
+      key: "_renderLoading",
+      value: function _renderLoading() {
+        var container = document.createElement('div');
+        container.classList.add('calendar-loading-container');
+        container.style.minHeight = this._nbCols * 200 + 'px';
+        var loading = document.createElement('div');
+        loading.classList.add('calendar-loading');
+
+        if (this.options.loadingTemplate) {
+          if (typeof this.options.loadingTemplate === "string") {
+            loading.innerHTML = this.options.loadingTemplate;
+          } else if (this.options.loadingTemplate instanceof HTMLElement) {
+            loading.appendChild(this.options.loadingTemplate);
+          }
+        } else {
+          var spinner = document.createElement('div');
+          spinner.classList.add('calendar-spinner');
+
+          for (var i = 1; i <= 3; i++) {
+            var bounce = document.createElement('div');
+            bounce.classList.add("bounce".concat(i));
+            spinner.appendChild(bounce);
+          }
+
+          loading.appendChild(spinner);
+        }
+
+        container.appendChild(loading);
+        this.element.appendChild(container);
+      }
+    }, {
+      key: "_renderDataSource",
+      value: function _renderDataSource() {
+        var _this = this;
+
+        if (this._dataSource != null && this._dataSource.length > 0) {
+          this.element.querySelectorAll('.month-container').forEach(function (month) {
+            var monthId = parseInt(month.dataset.monthId);
+
+            var currentYear = _this._startDate.getFullYear();
+
+            var currentMonth = _this._startDate.getMonth() + monthId;
+            var firstDate = new Date(currentYear, currentMonth, 1);
+            var lastDate = new Date(currentYear, currentMonth + 1, 1);
+
+            if ((_this.options.minDate == null || lastDate > _this.options.minDate) && (_this.options.maxDate == null || firstDate <= _this.options.maxDate)) {
+              var monthData = [];
+
+              for (var i = 0; i < _this._dataSource.length; i++) {
+                if (!(_this._dataSource[i].startDate >= lastDate) || _this._dataSource[i].endDate < firstDate) {
+                  monthData.push(_this._dataSource[i]);
+                }
+              }
+
+              if (monthData.length > 0) {
+                month.querySelectorAll('.day-content').forEach(function (day) {
+                  var currentDate = new Date(currentYear, currentMonth, parseInt(day.textContent));
+                  var nextDate = new Date(currentYear, currentMonth, currentDate.getDate() + 1);
+                  var dayData = [];
+
+                  if ((_this.options.minDate == null || currentDate >= _this.options.minDate) && (_this.options.maxDate == null || currentDate <= _this.options.maxDate)) {
+                    for (var i = 0; i < monthData.length; i++) {
+                      if (monthData[i].startDate < nextDate && monthData[i].endDate >= currentDate) {
+                        dayData.push(monthData[i]);
+                      }
+                    }
+
+                    if (dayData.length > 0 && (_this.options.displayDisabledDataSource || !_this._isDisabled(currentDate))) {
+                      _this._renderDataSourceDay(day, currentDate, dayData);
+                    }
+                  }
+                });
+              }
+            }
+          });
+        }
+      }
+    }, {
+      key: "_renderDataSourceDay",
+      value: function _renderDataSourceDay(elt, currentDate, events) {
+        var parent = elt.parentElement;
+
+        switch (this.options.style) {
+          case 'border':
+            var weight = 0;
+
+            if (events.length == 1) {
+              weight = 4;
+            } else if (events.length <= 3) {
+              weight = 2;
+            } else {
+              parent.style.boxShadow = 'inset 0 -4px 0 0 black';
+            }
+
+            if (weight > 0) {
+              var boxShadow = '';
+
+              for (var i = 0; i < events.length; i++) {
+                if (boxShadow != '') {
+                  boxShadow += ",";
+                }
+
+                boxShadow += "inset 0 -".concat((i + 1) * weight, "px 0 0 ").concat(events[i].color);
+              }
+
+              parent.style.boxShadow = boxShadow;
+            }
+
+            break;
+
+          case 'background':
+            parent.style.backgroundColor = events[events.length - 1].color;
+            var currentTime = currentDate.getTime();
+
+            if (events[events.length - 1].startDate.getTime() == currentTime) {
+              parent.classList.add('day-start');
+
+              if (events[events.length - 1].startHalfDay || this.options.alwaysHalfDay) {
+                parent.classList.add('day-half'); // Find color for other half
+
+                var otherColor = 'transparent';
+
+                for (var i = events.length - 2; i >= 0; i--) {
+                  if (events[i].startDate.getTime() != currentTime || !events[i].startHalfDay && !this.options.alwaysHalfDay) {
+                    otherColor = events[i].color;
+                    break;
+                  }
+                }
+
+                parent.style.background = "linear-gradient(-45deg, ".concat(events[events.length - 1].color, ", ").concat(events[events.length - 1].color, " 49%, ").concat(otherColor, " 51%, ").concat(otherColor, ")");
+              } else if (this.options.roundRangeLimits) {
+                parent.classList.add('round-left');
+              }
+            } else if (events[events.length - 1].endDate.getTime() == currentTime) {
+              parent.classList.add('day-end');
+
+              if (events[events.length - 1].endHalfDay || this.options.alwaysHalfDay) {
+                parent.classList.add('day-half'); // Find color for other half
+
+                var otherColor = 'transparent';
+
+                for (var i = events.length - 2; i >= 0; i--) {
+                  if (events[i].endDate.getTime() != currentTime || !events[i].endHalfDay && !this.options.alwaysHalfDay) {
+                    otherColor = events[i].color;
+                    break;
+                  }
+                }
+
+                parent.style.background = "linear-gradient(135deg, ".concat(events[events.length - 1].color, ", ").concat(events[events.length - 1].color, " 49%, ").concat(otherColor, " 51%, ").concat(otherColor, ")");
+              } else if (this.options.roundRangeLimits) {
+                parent.classList.add('round-right');
+              }
+            }
+
+            break;
+
+          case 'custom':
+            if (this.options.customDataSourceRenderer) {
+              this.options.customDataSourceRenderer.call(this, elt, currentDate, events);
+            }
+
+            break;
+        }
+      }
+    }, {
+      key: "_applyEvents",
+      value: function _applyEvents() {
+        var _this2 = this;
+
+        if (this.options.displayHeader) {
+          /* Header buttons */
+          this.element.querySelectorAll('.year-neighbor, .year-neighbor2').forEach(function (element) {
+            element.addEventListener('click', function (e) {
+              if (!e.currentTarget.classList.contains('disabled')) {
+                _this2.setYear(parseInt(e.currentTarget.textContent));
+              }
+            });
+          });
+          this.element.querySelector('.calendar-header .prev').addEventListener('click', function (e) {
+            if (!e.currentTarget.classList.contains('disabled')) {
+              var months = _this2.element.querySelector('.months-container');
+
+              months.style.transition = 'margin-left 0.1s';
+              months.style.marginLeft = '100%';
+              setTimeout(function () {
+                months.style.visibility = 'hidden';
+                months.style.transition = '';
+                months.style.marginLeft = '0';
+                setTimeout(function () {
+                  _this2.setStartDate(new Date(_this2._startDate.getFullYear(), _this2._startDate.getMonth() - _this2.options.numberMonthsDisplayed, 1));
+                }, 50);
+              }, 100);
+            }
+          });
+          this.element.querySelector('.calendar-header .next').addEventListener('click', function (e) {
+            if (!e.currentTarget.classList.contains('disabled')) {
+              var months = _this2.element.querySelector('.months-container');
+
+              months.style.transition = 'margin-left 0.1s';
+              months.style.marginLeft = '-100%';
+              setTimeout(function () {
+                months.style.visibility = 'hidden';
+                months.style.transition = '';
+                months.style.marginLeft = '0';
+                setTimeout(function () {
+                  _this2.setStartDate(new Date(_this2._startDate.getFullYear(), _this2._startDate.getMonth() + _this2.options.numberMonthsDisplayed, 1));
+                }, 50);
+              }, 100);
+            }
+          });
+        }
+
+        var cells = this.element.querySelectorAll('.day:not(.old):not(.new):not(.disabled)');
+        cells.forEach(function (cell) {
+          /* Click on date */
+          cell.addEventListener('click', function (e) {
+            e.stopPropagation();
+
+            var date = _this2._getDate(e.currentTarget);
+
+            _this2._triggerEvent('clickDay', {
+              element: e.currentTarget,
+              date: date,
+              events: _this2.getEvents(date)
+            });
+          });
+          /* Click right on date */
+
+          cell.addEventListener('contextmenu', function (e) {
+            if (_this2.options.enableContextMenu) {
+              e.preventDefault();
+
+              if (_this2.options.contextMenuItems.length > 0) {
+                _this2._openContextMenu(e.currentTarget);
+              }
+            }
+
+            var date = _this2._getDate(e.currentTarget);
+
+            _this2._triggerEvent('dayContextMenu', {
+              element: e.currentTarget,
+              date: date,
+              events: _this2.getEvents(date)
+            });
+          });
+          /* Range selection */
+
+          if (_this2.options.enableRangeSelection) {
+            cell.addEventListener('mousedown', function (e) {
+              if (e.which == 1) {
+                var currentDate = _this2._getDate(e.currentTarget);
+
+                if (_this2.options.allowOverlap || _this2.isThereFreeSlot(currentDate)) {
+                  _this2._mouseDown = true;
+                  _this2._rangeStart = _this2._rangeEnd = currentDate;
+
+                  _this2._refreshRange();
+                }
+              }
+            });
+            cell.addEventListener('mouseenter', function (e) {
+              if (_this2._mouseDown) {
+                var currentDate = _this2._getDate(e.currentTarget);
+
+                if (!_this2.options.allowOverlap) {
+                  var newDate = new Date(_this2._rangeStart.getTime());
+
+                  if (newDate < currentDate) {
+                    var nextDate = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);
+
+                    while (newDate < currentDate) {
+                      if (!_this2.isThereFreeSlot(nextDate, false)) {
+                        break;
+                      }
+
+                      newDate.setDate(newDate.getDate() + 1);
+                      nextDate.setDate(nextDate.getDate() + 1);
+                    }
+                  } else {
+                    var nextDate = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() - 1);
+
+                    while (newDate > currentDate) {
+                      if (!_this2.isThereFreeSlot(nextDate, true)) {
+                        break;
+                      }
+
+                      newDate.setDate(newDate.getDate() - 1);
+                      nextDate.setDate(nextDate.getDate() - 1);
+                    }
+                  }
+
+                  currentDate = newDate;
+                }
+
+                var oldValue = _this2._rangeEnd;
+                _this2._rangeEnd = currentDate;
+
+                if (oldValue.getTime() != _this2._rangeEnd.getTime()) {
+                  _this2._refreshRange();
+                }
+              }
+            });
+          }
+          /* Hover date */
+
+
+          cell.addEventListener('mouseenter', function (e) {
+            if (!_this2._mouseDown) {
+              var date = _this2._getDate(e.currentTarget);
+
+              _this2._triggerEvent('mouseOnDay', {
+                element: e.currentTarget,
+                date: date,
+                events: _this2.getEvents(date)
+              });
+            }
+          });
+          cell.addEventListener('mouseleave', function (e) {
+            var date = _this2._getDate(e.currentTarget);
+
+            _this2._triggerEvent('mouseOutDay', {
+              element: e.currentTarget,
+              date: date,
+              events: _this2.getEvents(date)
+            });
+          });
+        });
+
+        if (this.options.enableRangeSelection) {
+          // Release range selection
+          window.addEventListener('mouseup', function (e) {
+            if (_this2._mouseDown) {
+              _this2._mouseDown = false;
+
+              _this2._refreshRange();
+
+              var minDate = _this2._rangeStart < _this2._rangeEnd ? _this2._rangeStart : _this2._rangeEnd;
+              var maxDate = _this2._rangeEnd > _this2._rangeStart ? _this2._rangeEnd : _this2._rangeStart;
+
+              _this2._triggerEvent('selectRange', {
+                startDate: minDate,
+                endDate: maxDate,
+                events: _this2.getEventsOnRange(minDate, new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate() + 1))
+              });
+            }
+          });
+        }
+        /* Responsive management */
+
+
+        if (this._responsiveInterval) {
+          clearInterval(this._responsiveInterval);
+          this._responsiveInterval = null;
+        }
+
+        this._responsiveInterval = setInterval(function () {
+          if (_this2.element.querySelector('.month') == null) {
+            return;
+          }
+
+          var calendarSize = _this2.element.offsetWidth;
+          var monthSize = _this2.element.querySelector('.month').offsetWidth + 10;
+          _this2._nbCols = null;
+
+          if (monthSize * 6 < calendarSize && _this2.options.numberMonthsDisplayed >= 6) {
+            _this2._nbCols = 2;
+          } else if (monthSize * 4 < calendarSize && _this2.options.numberMonthsDisplayed >= 4) {
+            _this2._nbCols = 3;
+          } else if (monthSize * 3 < calendarSize && _this2.options.numberMonthsDisplayed >= 3) {
+            _this2._nbCols = 4;
+          } else if (monthSize * 2 < calendarSize && _this2.options.numberMonthsDisplayed >= 2) {
+            _this2._nbCols = 6;
+          } else {
+            _this2._nbCols = 12;
+          }
+
+          _this2.element.querySelectorAll('.month-container').forEach(function (month) {
+            if (!month.classList.contains("month-".concat(_this2._nbCols))) {
+              ['month-2', 'month-3', 'month-4', 'month-6', 'month-12'].forEach(function (className) {
+                month.classList.remove(className);
+              });
+              month.classList.add("month-".concat(_this2._nbCols));
+            }
+          });
+        }, 300);
+      }
+    }, {
+      key: "_refreshRange",
+      value: function _refreshRange() {
+        var _this3 = this;
+
+        this.element.querySelectorAll('td.day.range').forEach(function (day) {
+          return day.classList.remove('range');
+        });
+        this.element.querySelectorAll('td.day.range-start').forEach(function (day) {
+          return day.classList.remove('range-start');
+        });
+        this.element.querySelectorAll('td.day.range-end').forEach(function (day) {
+          return day.classList.remove('range-end');
+        });
+
+        if (this._mouseDown) {
+          var minDate = this._rangeStart < this._rangeEnd ? this._rangeStart : this._rangeEnd;
+          var maxDate = this._rangeEnd > this._rangeStart ? this._rangeEnd : this._rangeStart;
+          this.element.querySelectorAll('.month-container').forEach(function (month) {
+            var monthId = parseInt(month.dataset.monthId);
+            var monthStartDate = new Date(_this3._startDate.getFullYear(), _this3._startDate.getMonth() + monthId, 1);
+            var monthEndDate = new Date(_this3._startDate.getFullYear(), _this3._startDate.getMonth() + monthId + 1, 1);
+
+            if (minDate.getTime() < monthEndDate.getTime() && maxDate.getTime() >= monthStartDate.getTime()) {
+              month.querySelectorAll('td.day:not(.old):not(.new)').forEach(function (day) {
+                var date = _this3._getDate(day);
+
+                if (date >= minDate && date <= maxDate) {
+                  day.classList.add('range');
+
+                  if (date.getTime() == minDate.getTime()) {
+                    day.classList.add('range-start');
+                  }
+
+                  if (date.getTime() == maxDate.getTime()) {
+                    day.classList.add('range-end');
+                  }
+                }
+              });
+            }
+          });
+        }
+      }
+    }, {
+      key: "_getElementPosition",
+      value: function _getElementPosition(element) {
+        var top = 0,
+            left = 0;
+
+        do {
+          top += element.offsetTop || 0;
+          left += element.offsetLeft || 0;
+          element = element.offsetParent;
+        } while (element);
+
+        return {
+          top: top,
+          left: left
+        };
+      }
+    }, {
+      key: "_openContextMenu",
+      value: function _openContextMenu(elt) {
+        var _this4 = this;
+
+        var contextMenu = document.querySelector('.calendar-context-menu');
+
+        if (contextMenu !== null) {
+          contextMenu.style.display = 'none'; // Clear the context menu (faster method)
+
+          while (contextMenu.firstChild) {
+            contextMenu.removeChild(contextMenu.firstChild);
+          }
+        } else {
+          contextMenu = document.createElement('div');
+          contextMenu.classList.add('calendar-context-menu');
+          document.body.appendChild(contextMenu);
+        }
+
+        var date = this._getDate(elt);
+
+        var events = this.getEvents(date);
+
+        for (var i = 0; i < events.length; i++) {
+          var eventItem = document.createElement('div');
+          eventItem.classList.add('item');
+          eventItem.style.paddingLeft = '4px';
+          eventItem.style.boxShadow = "inset 4px 0 0 0 ".concat(events[i].color);
+          var eventItemContent = document.createElement('div');
+          eventItemContent.classList.add('content');
+          var text = document.createElement('span');
+          text.classList.add('text');
+          text.textContent = events[i].name;
+          eventItemContent.appendChild(text);
+          var icon = document.createElement('span');
+          icon.classList.add('arrow');
+          icon.innerHTML = "&rsaquo;";
+          eventItemContent.appendChild(icon);
+          eventItem.appendChild(eventItemContent);
+
+          this._renderContextMenuItems(eventItem, this.options.contextMenuItems, events[i]);
+
+          contextMenu.appendChild(eventItem);
+        }
+
+        if (contextMenu.children.length > 0) {
+          var position = this._getElementPosition(elt);
+
+          contextMenu.style.left = position.left + 25 + 'px';
+          contextMenu.style.right = '';
+          contextMenu.style.top = position.top + 25 + 'px';
+          contextMenu.style.display = 'block';
+
+          if (contextMenu.getBoundingClientRect().right > document.body.offsetWidth) {
+            contextMenu.style.left = '';
+            contextMenu.style.right = '0';
+          } // Launch the position check once the whole context menu tree will be rendered
+
+
+          setTimeout(function () {
+            return _this4._checkContextMenuItemsPosition();
+          }, 0);
+
+          var closeContextMenu = function closeContextMenu(event) {
+            if (event.type !== 'click' || !contextMenu.contains(event.target)) {
+              contextMenu.style.display = 'none';
+              window.removeEventListener('click', closeContextMenu);
+              window.removeEventListener('resize', closeContextMenu);
+              window.removeEventListener('scroll', closeContextMenu);
+            }
+          };
+
+          window.addEventListener('click', closeContextMenu);
+          window.addEventListener('resize', closeContextMenu);
+          window.addEventListener('scroll', closeContextMenu);
+        }
+      }
+    }, {
+      key: "_renderContextMenuItems",
+      value: function _renderContextMenuItems(parent, items, evt) {
+        var subMenu = document.createElement('div');
+        subMenu.classList.add('submenu');
+
+        for (var i = 0; i < items.length; i++) {
+          if (items[i].visible === false || typeof items[i].visible === "function" && !items[i].visible(evt)) {
+            continue;
+          }
+
+          var menuItem = document.createElement('div');
+          menuItem.classList.add('item');
+          var menuItemContent = document.createElement('div');
+          menuItemContent.classList.add('content');
+          var text = document.createElement('span');
+          text.classList.add('text');
+          text.textContent = items[i].text;
+          menuItemContent.appendChild(text);
+
+          if (items[i].click) {
+            (function (index) {
+              menuItemContent.addEventListener('click', function () {
+                document.querySelector('.calendar-context-menu').style.display = 'none';
+                items[index].click(evt);
+              });
+            })(i);
+          }
+
+          menuItem.appendChild(menuItemContent);
+
+          if (items[i].items && items[i].items.length > 0) {
+            var icon = document.createElement('span');
+            icon.classList.add('arrow');
+            icon.innerHTML = "&rsaquo;";
+            menuItemContent.appendChild(icon);
+
+            this._renderContextMenuItems(menuItem, items[i].items, evt);
+          }
+
+          subMenu.appendChild(menuItem);
+        }
+
+        if (subMenu.children.length > 0) {
+          parent.appendChild(subMenu);
+        }
+      }
+    }, {
+      key: "_checkContextMenuItemsPosition",
+      value: function _checkContextMenuItemsPosition() {
+        var menus = document.querySelectorAll('.calendar-context-menu .submenu');
+        menus.forEach(function (menu) {
+          var htmlMenu = menu;
+          htmlMenu.style.display = 'block';
+          htmlMenu.style.visibility = 'hidden';
+        });
+        menus.forEach(function (menu) {
+          var htmlMenu = menu;
+
+          if (htmlMenu.getBoundingClientRect().right > document.body.offsetWidth) {
+            htmlMenu.classList.add('open-left');
+          } else {
+            htmlMenu.classList.remove('open-left');
+          }
+        });
+        menus.forEach(function (menu) {
+          var htmlMenu = menu;
+          htmlMenu.style.display = '';
+          htmlMenu.style.visibility = '';
+        });
+      }
+    }, {
+      key: "_getDate",
+      value: function _getDate(elt) {
+        var day = elt.querySelector('.day-content').textContent;
+        var monthId = parseInt(elt.closest('.month-container').dataset.monthId);
+        return new Date(this._startDate.getFullYear(), this._startDate.getMonth() + monthId, day);
+      }
+    }, {
+      key: "_triggerEvent",
+      value: function _triggerEvent(eventName, parameters) {
+        var event = null;
+
+        if (typeof Event === "function") {
+          event = new Event(eventName);
+        } else {
+          event = document.createEvent('Event');
+          event.initEvent(eventName, false, false);
+        }
+
+        event.calendar = this;
+
+        for (var i in parameters) {
+          event[i] = parameters[i];
+        }
+
+        this.element.dispatchEvent(event);
+        return event;
+      }
+    }, {
+      key: "_isDisabled",
+      value: function _isDisabled(date) {
+        if (this.options.minDate != null && date < this.options.minDate || this.options.maxDate != null && date > this.options.maxDate) {
+          return true;
+        }
+
+        if (this.options.disabledWeekDays.length > 0) {
+          for (var d = 0; d < this.options.disabledWeekDays.length; d++) {
+            if (date.getDay() == this.options.disabledWeekDays[d]) {
+              return true;
+            }
+          }
+        }
+
+        if (this.options.disabledDays.length > 0) {
+          for (var d = 0; d < this.options.disabledDays.length; d++) {
+            if (date.getTime() == this.options.disabledDays[d].getTime()) {
+              return true;
+            }
+          }
+        }
+
+        return false;
+      }
+    }, {
+      key: "_isHidden",
+      value: function _isHidden(day) {
+        if (this.options.hiddenWeekDays.length > 0) {
+          for (var d = 0; d < this.options.hiddenWeekDays.length; d++) {
+            if (day == this.options.hiddenWeekDays[d]) {
+              return true;
+            }
+          }
+        }
+
+        return false;
+      }
+    }, {
+      key: "_isFullYearMode",
+      value: function _isFullYearMode() {
+        return this._startDate.getMonth() == 0 && this.options.numberMonthsDisplayed == 12;
+      }
+      /**
+          * Gets the week number for a specified date.
+          *
+          * @param date The specified date.
+          */
+
+    }, {
+      key: "getWeekNumber",
+      value: function getWeekNumber(date) {
+        // Algorithm from https://weeknumber.net/how-to/javascript
+        var workingDate = new Date(date.getTime());
+        workingDate.setHours(0, 0, 0, 0); // Thursday in current week decides the year.
+
+        workingDate.setDate(workingDate.getDate() + 3 - (workingDate.getDay() + 6) % 7); // January 4 is always in week 1.
+
+        var week1 = new Date(workingDate.getFullYear(), 0, 4); // Adjust to Thursday in week 1 and count number of weeks from date to week1.
+
+        return 1 + Math.round(((workingDate.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
+      }
+      /**
+          * Gets the data source elements for a specified day.
+          *
+          * @param date The specified day.
+          */
+
+    }, {
+      key: "getEvents",
+      value: function getEvents(date) {
+        return this.getEventsOnRange(date, new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1));
+      }
+      /**
+          * Gets the data source elements for a specified range of days.
+          *
+          * @param startDate The beginning of the day range (inclusive).
+       * @param endDate The end of the day range (non inclusive).
+          */
+
+    }, {
+      key: "getEventsOnRange",
+      value: function getEventsOnRange(startDate, endDate) {
+        var events = [];
+
+        if (this._dataSource && startDate && endDate) {
+          for (var i = 0; i < this._dataSource.length; i++) {
+            if (this._dataSource[i].startDate < endDate && this._dataSource[i].endDate >= startDate) {
+              events.push(this._dataSource[i]);
+            }
+          }
+        }
+
+        return events;
+      }
+      /**
+          * Check if there is no event on the first part, last part or on the whole specified day.
+          *
+          * @param date The specified day.
+          * @param after Whether to check for a free slot on the first part (if `false`) or the last part (if `true`) of the day. If `null`, this will check on the whole day.
+       * 
+       * Usefull only if using the `alwaysHalfDay` option of the calendar, or the `startHalfDay` or `endHalfDay` option of the datasource.
+          */
+
+    }, {
+      key: "isThereFreeSlot",
+      value: function isThereFreeSlot(date) {
+        var _this5 = this;
+
+        var after = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+        var events = this.getEvents(date);
+
+        if (after === true) {
+          return !events.some(function (evt) {
+            return !_this5.options.alwaysHalfDay && !evt.endHalfDay || evt.endDate > date;
+          });
+        } else if (after === false) {
+          return !events.some(function (evt) {
+            return !_this5.options.alwaysHalfDay && !evt.startHalfDay || evt.startDate < date;
+          });
+        } else {
+          return this.isThereFreeSlot(date, false) || this.isThereFreeSlot(date, true);
+        }
+      }
+      /**
+          * Gets the period displayed on the calendar.
+          */
+
+    }, {
+      key: "getCurrentPeriod",
+      value: function getCurrentPeriod() {
+        var startDate = new Date(this._startDate.getTime());
+        var endDate = new Date(this._startDate.getTime());
+        endDate.setMonth(endDate.getMonth() + this.options.numberMonthsDisplayed);
+        endDate.setTime(endDate.getTime() - 1);
+        return {
+          startDate: startDate,
+          endDate: endDate
+        };
+      }
+      /**
+          * Gets the year displayed on the calendar.
+       * If the calendar is not used in a full year configuration, this will return the year of the first date displayed in the calendar.
+          */
+
+    }, {
+      key: "getYear",
+      value: function getYear() {
+        return this._isFullYearMode() ? this._startDate.getFullYear() : null;
+      }
+      /**
+          * Sets the year displayed on the calendar.
+       * If the calendar is not used in a full year configuration, this will set the start date to January 1st of the given year.
+          *
+          * @param year The year to displayed on the calendar.
+          */
+
+    }, {
+      key: "setYear",
+      value: function setYear(year) {
+        var parsedYear = parseInt(year);
+
+        if (!isNaN(parsedYear)) {
+          this.setStartDate(new Date(parsedYear, 0, 1));
+        }
+      }
+      /**
+          * Gets the first date displayed on the calendar.
+          */
+
+    }, {
+      key: "getStartDate",
+      value: function getStartDate() {
+        return this._startDate;
+      }
+      /**
+          * Sets the first date that should be displayed on the calendar.
+          *
+          * @param startDate The first date that should be displayed on the calendar.
+          */
+
+    }, {
+      key: "setStartDate",
+      value: function setStartDate(startDate) {
+        var _this6 = this;
+
+        if (startDate instanceof Date) {
+          this.options.startDate = startDate;
+          this._startDate = new Date(startDate.getFullYear(), startDate.getMonth(), 1); // Clear the calendar (faster method)
+
+          while (this.element.firstChild) {
+            this.element.removeChild(this.element.firstChild);
+          }
+
+          if (this.options.displayHeader) {
+            this._renderHeader();
+          }
+
+          var newPeriod = this.getCurrentPeriod();
+
+          var periodEventResult = this._triggerEvent('periodChanged', {
+            startDate: newPeriod.startDate,
+            endDate: newPeriod.endDate,
+            preventRendering: false
+          });
+
+          var yearEventResult = null;
+
+          if (this._isFullYearMode()) {
+            yearEventResult = this._triggerEvent('yearChanged', {
+              currentYear: this._startDate.getFullYear(),
+              preventRendering: false
+            });
+          }
+
+          if (typeof this.options.dataSource === "function") {
+            this.render(true);
+
+            this._fetchDataSource(function (dataSource) {
+              _this6._dataSource = dataSource;
+
+              _this6._initializeDatasourceColors();
+
+              _this6.render(false);
+            });
+          } else {
+            if (!periodEventResult.preventRendering && (!yearEventResult || !yearEventResult.preventRedering)) {
+              this.render();
+            }
+          }
+        }
+      }
+      /**
+          * Gets the number of months displayed by the calendar.
+          */
+
+    }, {
+      key: "getNumberMonthsDisplayed",
+      value: function getNumberMonthsDisplayed() {
+        return this.options.numberMonthsDisplayed;
+      }
+      /**
+          * Sets the number of months displayed that should be displayed by the calendar.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param numberMonthsDisplayed Number of months that should be displayed by the calendar.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setNumberMonthsDisplayed",
+      value: function setNumberMonthsDisplayed(numberMonthsDisplayed) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        var parsedNumber = parseInt(numberMonthsDisplayed);
+
+        if (!isNaN(parsedNumber) && parsedNumber > 0 && parsedNumber <= 12) {
+          this.options.numberMonthsDisplayed = parsedNumber;
+
+          if (!preventRendering) {
+            this.render();
+          }
+        }
+      }
+      /**
+          * Gets the minimum date of the calendar.
+          */
+
+    }, {
+      key: "getMinDate",
+      value: function getMinDate() {
+        return this.options.minDate;
+      }
+      /**
+          * Sets the minimum date of the calendar.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param minDate The minimum date to set.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setMinDate",
+      value: function setMinDate(date) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+        if (date instanceof Date || date === null) {
+          this.options.minDate = date;
+
+          if (!preventRendering) {
+            this.render();
+          }
+        }
+      }
+      /**
+          * Gets the maximum date of the calendar.
+          */
+
+    }, {
+      key: "getMaxDate",
+      value: function getMaxDate() {
+        return this.options.maxDate;
+      }
+      /**
+          * Sets the maximum date of the calendar. 
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param maxDate The maximum date to set.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setMaxDate",
+      value: function setMaxDate(date) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+        if (date instanceof Date || date === null) {
+          this.options.maxDate = date;
+
+          if (!preventRendering) {
+            this.render();
+          }
+        }
+      }
+      /**
+          * Gets the current style used for displaying data source.
+          */
+
+    }, {
+      key: "getStyle",
+      value: function getStyle() {
+        return this.options.style;
+      }
+      /**
+          * Sets the style to use for displaying data source. 
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param style The style to use for displaying data source ("background", "border" or "custom").
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setStyle",
+      value: function setStyle(style) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.style = style == 'background' || style == 'border' || style == 'custom' ? style : 'border';
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets a value indicating whether the user can select a range which overlapping an other element present in the datasource.
+          */
+
+    }, {
+      key: "getAllowOverlap",
+      value: function getAllowOverlap() {
+        return this.options.allowOverlap;
+      }
+      /**
+          * Sets a value indicating whether the user can select a range which overlapping an other element present in the datasource.
+          *
+          * @param allowOverlap Indicates whether the user can select a range which overlapping an other element present in the datasource.
+          */
+
+    }, {
+      key: "setAllowOverlap",
+      value: function setAllowOverlap(allowOverlap) {
+        this.options.allowOverlap = allowOverlap;
+      }
+      /**
+          * Gets a value indicating whether the weeks number are displayed.
+          */
+
+    }, {
+      key: "getDisplayWeekNumber",
+      value: function getDisplayWeekNumber() {
+        return this.options.displayWeekNumber;
+      }
+      /**
+          * Sets a value indicating whether the weeks number are displayed.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param  displayWeekNumber Indicates whether the weeks number are displayed.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setDisplayWeekNumber",
+      value: function setDisplayWeekNumber(displayWeekNumber) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.displayWeekNumber = displayWeekNumber;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets a value indicating whether the calendar header is displayed.
+          */
+
+    }, {
+      key: "getDisplayHeader",
+      value: function getDisplayHeader() {
+        return this.options.displayHeader;
+      }
+      /**
+          * Sets a value indicating whether the calendar header is displayed.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param displayHeader Indicates whether the calendar header is displayed.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setDisplayHeader",
+      value: function setDisplayHeader(displayHeader) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.displayHeader = displayHeader;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets a value indicating whether the data source must be rendered on disabled days.
+          */
+
+    }, {
+      key: "getDisplayDisabledDataSource",
+      value: function getDisplayDisabledDataSource() {
+        return this.options.displayDisabledDataSource;
+      }
+      /**
+          * Sets a value indicating whether the data source must be rendered on disabled days.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param displayDisabledDataSource Indicates whether the data source must be rendered on disabled days.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setDisplayDisabledDataSource",
+      value: function setDisplayDisabledDataSource(displayDisabledDataSource) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.displayDisabledDataSource = displayDisabledDataSource;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets a value indicating whether the beginning and the end of each range should be displayed as half selected day.
+          */
+
+    }, {
+      key: "getAlwaysHalfDay",
+      value: function getAlwaysHalfDay() {
+        return this.options.alwaysHalfDay;
+      }
+      /**
+          * Sets a value indicating whether the beginning and the end of each range should be displayed as half selected day.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param alwaysHalfDay Indicates whether the beginning and the end of each range should be displayed as half selected day.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setAlwaysHalfDay",
+      value: function setAlwaysHalfDay(alwaysHalfDay) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.alwaysHalfDay = alwaysHalfDay;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets a value indicating whether the user can make range selection.
+          */
+
+    }, {
+      key: "getEnableRangeSelection",
+      value: function getEnableRangeSelection() {
+        return this.options.enableRangeSelection;
+      }
+      /**
+          * Sets a value indicating whether the user can make range selection.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param enableRangeSelection Indicates whether the user can make range selection.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setEnableRangeSelection",
+      value: function setEnableRangeSelection(enableRangeSelection) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.enableRangeSelection = enableRangeSelection;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the disabled days.
+          */
+
+    }, {
+      key: "getDisabledDays",
+      value: function getDisabledDays() {
+        return this.options.disabledDays;
+      }
+      /**
+          * Sets the disabled days.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param disableDays The disabled days to set.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setDisabledDays",
+      value: function setDisabledDays(disabledDays) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.disabledDays = disabledDays instanceof Array ? disabledDays : [];
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the disabled days of the week.
+          */
+
+    }, {
+      key: "getDisabledWeekDays",
+      value: function getDisabledWeekDays() {
+        return this.options.disabledWeekDays;
+      }
+      /**
+          * Sets the disabled days of the week.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param disabledWeekDays The disabled days of the week to set.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setDisabledWeekDays",
+      value: function setDisabledWeekDays(disabledWeekDays) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.disabledWeekDays = disabledWeekDays instanceof Array ? disabledWeekDays : [];
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the hidden days of the week.
+          */
+
+    }, {
+      key: "getHiddenWeekDays",
+      value: function getHiddenWeekDays() {
+        return this.options.hiddenWeekDays;
+      }
+      /**
+          * Sets the hidden days of the week.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param hiddenWeekDays The hidden days of the week to set.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setHiddenWeekDays",
+      value: function setHiddenWeekDays(hiddenWeekDays) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.hiddenWeekDays = hiddenWeekDays instanceof Array ? hiddenWeekDays : [];
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets a value indicating whether the beginning and the end of each range should be displayed as rounded cells.
+          */
+
+    }, {
+      key: "getRoundRangeLimits",
+      value: function getRoundRangeLimits() {
+        return this.options.roundRangeLimits;
+      }
+      /**
+          * Sets a value indicating whether the beginning and the end of each range should be displayed as rounded cells.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param roundRangeLimits Indicates whether the beginning and the end of each range should be displayed as rounded cells. 
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setRoundRangeLimits",
+      value: function setRoundRangeLimits(roundRangeLimits) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.roundRangeLimits = roundRangeLimits;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets a value indicating whether the default context menu must be displayed when right clicking on a day.
+          */
+
+    }, {
+      key: "getEnableContextMenu",
+      value: function getEnableContextMenu() {
+        return this.options.enableContextMenu;
+      }
+      /**
+          * Sets a value indicating whether the default context menu must be displayed when right clicking on a day. 
+          * 
+       * This method causes a refresh of the calendar.
+          * 
+          * @param enableContextMenu Indicates whether the default context menu must be displayed when right clicking on a day.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setEnableContextMenu",
+      value: function setEnableContextMenu(enableContextMenu) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.enableContextMenu = enableContextMenu;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the context menu items.
+          */
+
+    }, {
+      key: "getContextMenuItems",
+      value: function getContextMenuItems() {
+        return this.options.contextMenuItems;
+      }
+      /**
+          * Sets new context menu items.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param contextMenuItems The new context menu items.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setContextMenuItems",
+      value: function setContextMenuItems(contextMenuItems) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.contextMenuItems = contextMenuItems instanceof Array ? contextMenuItems : [];
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the custom day renderer.
+          */
+
+    }, {
+      key: "getCustomDayRenderer",
+      value: function getCustomDayRenderer() {
+        return this.options.customDayRenderer;
+      }
+      /**
+          * Sets the custom day renderer.
+       * 
+       * This method causes a refresh of the calendar.
+       *
+       * @param handler The function used to render the days. This function is called during render for each day.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setCustomDayRenderer",
+      value: function setCustomDayRenderer(customDayRenderer) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.customDayRenderer = typeof customDayRenderer === "function" ? customDayRenderer : null;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the custom data source renderer.
+          */
+
+    }, {
+      key: "getCustomDataSourceRenderer",
+      value: function getCustomDataSourceRenderer() {
+        return this.options.customDataSourceRenderer;
+      }
+      /**
+          * Sets the custom data source renderer. Works only with the style set to "custom".
+       * 
+       * This method causes a refresh of the calendar.
+       *
+       * @param handler The function used to render the data source. This function is called during render for each day containing at least one event.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setCustomDataSourceRenderer",
+      value: function setCustomDataSourceRenderer(customDataSourceRenderer) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.customDataSourceRenderer = typeof customDataSourceRenderer === "function" ? customDataSourceRenderer : null;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the language used for calendar rendering.
+          */
+
+    }, {
+      key: "getLanguage",
+      value: function getLanguage() {
+        return this.options.language;
+      }
+      /**
+          * Sets the language used for calendar rendering.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param language The language to use for calendar redering.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setLanguage",
+      value: function setLanguage(language) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+        if (language != null && Calendar.locales[language] != null) {
+          this.options.language = language;
+
+          if (!preventRendering) {
+            this.render();
+          }
+        }
+      }
+      /**
+          * Gets the current data source.
+          */
+
+    }, {
+      key: "getDataSource",
+      value: function getDataSource() {
+        return this.options.dataSource;
+      }
+      /**
+          * Sets a new data source.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param dataSource The new data source.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setDataSource",
+      value: function setDataSource(dataSource) {
+        var _this7 = this;
+
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.dataSource = dataSource instanceof Array || typeof dataSource === "function" ? dataSource : [];
+
+        if (typeof this.options.dataSource === "function") {
+          this.render(true);
+
+          this._fetchDataSource(function (dataSource) {
+            _this7._dataSource = dataSource;
+
+            _this7._initializeDatasourceColors();
+
+            _this7.render(false);
+          });
+        } else {
+          this._dataSource = this.options.dataSource;
+
+          this._initializeDatasourceColors();
+
+          if (!preventRendering) {
+            this.render();
+          }
+        }
+      }
+      /**
+          * Gets the starting day of the week.
+          */
+
+    }, {
+      key: "getWeekStart",
+      value: function getWeekStart() {
+        return this.options.weekStart !== null ? this.options.weekStart : Calendar.locales[this.options.language].weekStart;
+      }
+      /**
+          * Sets the starting day of the week.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param weekStart The starting day of the week. This option overrides the parameter define in the language file.
+          * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setWeekStart",
+      value: function setWeekStart(weekStart) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.weekStart = !isNaN(parseInt(weekStart)) ? parseInt(weekStart) : null;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the loading template.
+          */
+
+    }, {
+      key: "getLoadingTemplate",
+      value: function getLoadingTemplate() {
+        return this.options.loadingTemplate;
+      }
+      /**
+          * Sets the loading template.
+          *
+          * @param loadingTemplate The loading template.
+          */
+
+    }, {
+      key: "setLoadingTemplate",
+      value: function setLoadingTemplate(loadingTemplate) {
+        this.options.loadingTemplate = typeof loadingTemplate === "string" || loadingTemplate instanceof HTMLElement ? loadingTemplate : null;
+      }
+      /**
+       * 
+          * Add a new element to the data source.
+       * 
+       * This method causes a refresh of the calendar.
+          * 
+          * @param element The element to add.
+       * @param preventRendering Indicates whether the calendar shouldn't be refreshed once the event added.
+          */
+
+    }, {
+      key: "addEvent",
+      value: function addEvent(evt) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+        this._dataSource.push(evt);
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+    }]);
+
+    return Calendar;
+  }();
+
+  _exports["default"] = Calendar;
+
+  _defineProperty(Calendar, "locales", {
+    en: {
+      days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+      months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      weekShort: 'W',
+      weekStart: 0
+    }
+  });
+
+  _defineProperty(Calendar, "colors", ['#2C8FC9', '#9CB703', '#F5BB00', '#FF4A32', '#B56CE2', '#45A597']);
+
+  if ((typeof window === "undefined" ? "undefined" : _typeof(window)) === "object") {
+    window.Calendar = Calendar;
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('[data-provide="calendar"]').forEach(function (element) {
+        return new Calendar(element);
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/js-year-calendar/locales/js-year-calendar.es.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/js-year-calendar/locales/js-year-calendar.es.js ***!
+  \**********************************************************************/
+/***/ (() => {
+
+/**
+ * Spanish translation for js-year-calendar
+ * Paul DAVID-SIVELLE
+ * Based on 
+ * Spanish translation for bootstrap-datepicker
+ * Bruno Bonamin <bruno.bonamin@gmail.com>
+ */
+ 
+Calendar.locales['es'] = {
+	days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+	daysShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
+	daysMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+	months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+	monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+	weekShort: 'S',
+	weekStart: 1
+};
+
+/***/ }),
+
+/***/ "./src/css/app.css":
+/*!*************************!*\
+  !*** ./src/css/app.css ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/css/portal.css":
+/*!****************************!*\
+  !*** ./src/css/portal.css ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/css/forms.css":
+/*!***************************!*\
+  !*** ./src/css/forms.css ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./node_modules/js-year-calendar/dist/js-year-calendar.css":
+/*!*****************************************************************!*\
+  !*** ./node_modules/js-year-calendar/dist/js-year-calendar.css ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_2_js_year_calendar_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!../../postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./js-year-calendar.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./node_modules/js-year-calendar/dist/js-year-calendar.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_2_js_year_calendar_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_2_js_year_calendar_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
+
+    return memo;
+  };
+}();
+
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : 0;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && typeof btoa !== 'undefined') {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var singleton = null;
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
+
+/***/ }),
+
+/***/ "./node_modules/@studio-freight/lenis/dist/lenis.mjs":
+/*!***********************************************************!*\
+  !*** ./node_modules/@studio-freight/lenis/dist/lenis.mjs ***!
+  \***********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Lenis)
+/* harmony export */ });
+function t(t,e,i){return Math.max(t,Math.min(e,i))}class Animate{advance(e){if(!this.isRunning)return;let i=!1;if(this.lerp)this.value=(s=this.value,o=this.to,n=60*this.lerp,r=e,function(t,e,i){return(1-i)*t+i*e}(s,o,1-Math.exp(-n*r))),Math.round(this.value)===this.to&&(this.value=this.to,i=!0);else{this.currentTime+=e;const s=t(0,this.currentTime/this.duration,1);i=s>=1;const o=i?1:this.easing(s);this.value=this.from+(this.to-this.from)*o}var s,o,n,r;this.onUpdate?.(this.value,i),i&&this.stop()}stop(){this.isRunning=!1}fromTo(t,e,{lerp:i=.1,duration:s=1,easing:o=(t=>t),onStart:n,onUpdate:r}){this.from=this.value=t,this.to=e,this.lerp=i,this.duration=s,this.easing=o,this.currentTime=0,this.isRunning=!0,n?.(),this.onUpdate=r}}class Dimensions{constructor({wrapper:t,content:e,autoResize:i=!0}={}){if(this.wrapper=t,this.content=e,i){const t=function(t,e){let i;return function(){let s=arguments,o=this;clearTimeout(i),i=setTimeout((function(){t.apply(o,s)}),e)}}(this.resize,250);this.wrapper!==window&&(this.wrapperResizeObserver=new ResizeObserver(t),this.wrapperResizeObserver.observe(this.wrapper)),this.contentResizeObserver=new ResizeObserver(t),this.contentResizeObserver.observe(this.content)}this.resize()}destroy(){this.wrapperResizeObserver?.disconnect(),this.contentResizeObserver?.disconnect()}resize=()=>{this.onWrapperResize(),this.onContentResize()};onWrapperResize=()=>{this.wrapper===window?(this.width=window.innerWidth,this.height=window.innerHeight):(this.width=this.wrapper.clientWidth,this.height=this.wrapper.clientHeight)};onContentResize=()=>{this.scrollHeight=this.content.scrollHeight,this.scrollWidth=this.content.scrollWidth};get limit(){return{x:this.scrollWidth-this.width,y:this.scrollHeight-this.height}}}class Emitter{constructor(){this.events={}}emit(t,...e){let i=this.events[t]||[];for(let t=0,s=i.length;t<s;t++)i[t](...e)}on(t,e){return this.events[t]?.push(e)||(this.events[t]=[e]),()=>{this.events[t]=this.events[t]?.filter((t=>e!==t))}}off(t,e){this.events[t]=this.events[t]?.filter((t=>e!==t))}destroy(){this.events={}}}class VirtualScroll{constructor(t,{wheelMultiplier:e=1,touchMultiplier:i=2,normalizeWheel:s=!1}){this.element=t,this.wheelMultiplier=e,this.touchMultiplier=i,this.normalizeWheel=s,this.touchStart={x:null,y:null},this.emitter=new Emitter,this.element.addEventListener("wheel",this.onWheel,{passive:!1}),this.element.addEventListener("touchstart",this.onTouchStart,{passive:!1}),this.element.addEventListener("touchmove",this.onTouchMove,{passive:!1}),this.element.addEventListener("touchend",this.onTouchEnd,{passive:!1})}on(t,e){return this.emitter.on(t,e)}destroy(){this.emitter.destroy(),this.element.removeEventListener("wheel",this.onWheel,{passive:!1}),this.element.removeEventListener("touchstart",this.onTouchStart,{passive:!1}),this.element.removeEventListener("touchmove",this.onTouchMove,{passive:!1}),this.element.removeEventListener("touchend",this.onTouchEnd,{passive:!1})}onTouchStart=t=>{const{clientX:e,clientY:i}=t.targetTouches?t.targetTouches[0]:t;this.touchStart.x=e,this.touchStart.y=i,this.lastDelta={x:0,y:0},this.emitter.emit("scroll",{deltaX:0,deltaY:0,event:t})};onTouchMove=t=>{const{clientX:e,clientY:i}=t.targetTouches?t.targetTouches[0]:t,s=-(e-this.touchStart.x)*this.touchMultiplier,o=-(i-this.touchStart.y)*this.touchMultiplier;this.touchStart.x=e,this.touchStart.y=i,this.lastDelta={x:s,y:o},this.emitter.emit("scroll",{deltaX:s,deltaY:o,event:t})};onTouchEnd=t=>{this.emitter.emit("scroll",{deltaX:this.lastDelta.x,deltaY:this.lastDelta.y,event:t})};onWheel=e=>{let{deltaX:i,deltaY:s}=e;this.normalizeWheel&&(i=t(-100,i,100),s=t(-100,s,100)),i*=this.wheelMultiplier,s*=this.wheelMultiplier,this.emitter.emit("scroll",{deltaX:i,deltaY:s,event:e})}}class Lenis{constructor({wrapper:t=window,content:e=document.documentElement,wheelEventsTarget:i=t,eventsTarget:s=i,smoothWheel:o=!0,syncTouch:n=!1,syncTouchLerp:r=.075,touchInertiaMultiplier:l=35,duration:h,easing:a=(t=>Math.min(1,1.001-Math.pow(2,-10*t))),lerp:c=!h&&.1,infinite:p=!1,orientation:u="vertical",gestureOrientation:d="vertical",touchMultiplier:m=1,wheelMultiplier:g=1,normalizeWheel:v=!1,autoResize:S=!0}={}){window.lenisVersion="1.0.34",t!==document.documentElement&&t!==document.body||(t=window),this.options={wrapper:t,content:e,wheelEventsTarget:i,eventsTarget:s,smoothWheel:o,syncTouch:n,syncTouchLerp:r,touchInertiaMultiplier:l,duration:h,easing:a,lerp:c,infinite:p,gestureOrientation:d,orientation:u,touchMultiplier:m,wheelMultiplier:g,normalizeWheel:v,autoResize:S},this.animate=new Animate,this.emitter=new Emitter,this.dimensions=new Dimensions({wrapper:t,content:e,autoResize:S}),this.toggleClass("lenis",!0),this.velocity=0,this.isLocked=!1,this.isStopped=!1,this.isSmooth=n||o,this.isScrolling=!1,this.targetScroll=this.animatedScroll=this.actualScroll,this.options.wrapper.addEventListener("scroll",this.onNativeScroll,{passive:!1}),this.virtualScroll=new VirtualScroll(s,{touchMultiplier:m,wheelMultiplier:g,normalizeWheel:v}),this.virtualScroll.on("scroll",this.onVirtualScroll)}destroy(){this.emitter.destroy(),this.options.wrapper.removeEventListener("scroll",this.onNativeScroll,{passive:!1}),this.virtualScroll.destroy(),this.dimensions.destroy(),this.toggleClass("lenis",!1),this.toggleClass("lenis-smooth",!1),this.toggleClass("lenis-scrolling",!1),this.toggleClass("lenis-stopped",!1),this.toggleClass("lenis-locked",!1)}on(t,e){return this.emitter.on(t,e)}off(t,e){return this.emitter.off(t,e)}setScroll(t){this.isHorizontal?this.rootElement.scrollLeft=t:this.rootElement.scrollTop=t}onVirtualScroll=({deltaX:t,deltaY:e,event:i})=>{if(i.ctrlKey)return;const s=i.type.includes("touch"),o=i.type.includes("wheel");if(this.options.syncTouch&&s&&"touchstart"===i.type)return void this.reset();const n=0===t&&0===e,r="vertical"===this.options.gestureOrientation&&0===e||"horizontal"===this.options.gestureOrientation&&0===t;if(n||r)return;let l=i.composedPath();if(l=l.slice(0,l.indexOf(this.rootElement)),l.find((t=>t.hasAttribute?.("data-lenis-prevent")||s&&t.hasAttribute?.("data-lenis-prevent-touch")||o&&t.hasAttribute?.("data-lenis-prevent-wheel")||t.classList?.contains("lenis"))))return;if(this.isStopped||this.isLocked)return void i.preventDefault();if(this.isSmooth=this.options.syncTouch&&s||this.options.smoothWheel&&o,!this.isSmooth)return this.isScrolling=!1,void this.animate.stop();i.preventDefault();let h=e;"both"===this.options.gestureOrientation?h=Math.abs(e)>Math.abs(t)?e:t:"horizontal"===this.options.gestureOrientation&&(h=t);const a=s&&this.options.syncTouch,c=s&&"touchend"===i.type&&Math.abs(h)>5;c&&(h=this.velocity*this.options.touchInertiaMultiplier),this.scrollTo(this.targetScroll+h,{programmatic:!1,...a?{lerp:c?this.options.syncTouchLerp:1}:{lerp:this.options.lerp,duration:this.options.duration,easing:this.options.easing}})};resize(){this.dimensions.resize()}emit(){this.emitter.emit("scroll",this)}onNativeScroll=()=>{if(!this.__preventNextScrollEvent&&!this.isScrolling){const t=this.animatedScroll;this.animatedScroll=this.targetScroll=this.actualScroll,this.velocity=0,this.direction=Math.sign(this.animatedScroll-t),this.emit()}};reset(){this.isLocked=!1,this.isScrolling=!1,this.animatedScroll=this.targetScroll=this.actualScroll,this.velocity=0,this.animate.stop()}start(){this.isStopped=!1,this.reset()}stop(){this.isStopped=!0,this.animate.stop(),this.reset()}raf(t){const e=t-(this.time||t);this.time=t,this.animate.advance(.001*e)}scrollTo(e,{offset:i=0,immediate:s=!1,lock:o=!1,duration:n=this.options.duration,easing:r=this.options.easing,lerp:l=!n&&this.options.lerp,onComplete:h=null,force:a=!1,programmatic:c=!0}={}){if(!this.isStopped&&!this.isLocked||a){if(["top","left","start"].includes(e))e=0;else if(["bottom","right","end"].includes(e))e=this.limit;else{let t;if("string"==typeof e?t=document.querySelector(e):e?.nodeType&&(t=e),t){if(this.options.wrapper!==window){const t=this.options.wrapper.getBoundingClientRect();i-=this.isHorizontal?t.left:t.top}const s=t.getBoundingClientRect();e=(this.isHorizontal?s.left:s.top)+this.animatedScroll}}if("number"==typeof e){if(e+=i,e=Math.round(e),this.options.infinite?c&&(this.targetScroll=this.animatedScroll=this.scroll):e=t(0,e,this.limit),s)return this.animatedScroll=this.targetScroll=e,this.setScroll(this.scroll),this.reset(),void h?.(this);if(!c){if(e===this.targetScroll)return;this.targetScroll=e}this.animate.fromTo(this.animatedScroll,e,{duration:n,easing:r,lerp:l,onStart:()=>{o&&(this.isLocked=!0),this.isScrolling=!0},onUpdate:(t,e)=>{this.isScrolling=!0,this.velocity=t-this.animatedScroll,this.direction=Math.sign(this.velocity),this.animatedScroll=t,this.setScroll(this.scroll),c&&(this.targetScroll=t),e||this.emit(),e&&(this.reset(),this.emit(),h?.(this),this.__preventNextScrollEvent=!0,requestAnimationFrame((()=>{delete this.__preventNextScrollEvent})))}})}}}get rootElement(){return this.options.wrapper===window?document.documentElement:this.options.wrapper}get limit(){return this.dimensions.limit[this.isHorizontal?"x":"y"]}get isHorizontal(){return"horizontal"===this.options.orientation}get actualScroll(){return this.isHorizontal?this.rootElement.scrollLeft:this.rootElement.scrollTop}get scroll(){return this.options.infinite?(t=this.animatedScroll,e=this.limit,(t%e+e)%e):this.animatedScroll;var t,e}get progress(){return 0===this.limit?1:this.scroll/this.limit}get isSmooth(){return this.__isSmooth}set isSmooth(t){this.__isSmooth!==t&&(this.__isSmooth=t,this.toggleClass("lenis-smooth",t))}get isScrolling(){return this.__isScrolling}set isScrolling(t){this.__isScrolling!==t&&(this.__isScrolling=t,this.toggleClass("lenis-scrolling",t))}get isStopped(){return this.__isStopped}set isStopped(t){this.__isStopped!==t&&(this.__isStopped=t,this.toggleClass("lenis-stopped",t))}get isLocked(){return this.__isLocked}set isLocked(t){this.__isLocked!==t&&(this.__isLocked=t,this.toggleClass("lenis-locked",t))}get className(){let t="lenis";return this.isStopped&&(t+=" lenis-stopped"),this.isLocked&&(t+=" lenis-locked"),this.isScrolling&&(t+=" lenis-scrolling"),this.isSmooth&&(t+=" lenis-smooth"),t}toggleClass(t,e){this.rootElement.classList.toggle(t,e),this.emitter.emit("className change",this)}}
+//# sourceMappingURL=lenis.mjs.map
+
+
+/***/ }),
+
+/***/ "./node_modules/sp-supermarquee/src/core/Configuration.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/sp-supermarquee/src/core/Configuration.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Configuration: () => (/* binding */ Configuration)
+/* harmony export */ });
+/* harmony import */ var _Util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Util.js */ "./node_modules/sp-supermarquee/src/core/Util.js");
+
+
+function Configuration( cd = {} )
+{
+    // Helper flag for gapped mode
+    this._gappedScrollingEnabled = false;
+
+    this.easingValue = 0.025;
+    this._currentSpeed = 0;
+    this.setSpeed = function( speed )
+    {
+        if ( this.type === Configuration.TYPE_HORIZONTAL )
+        {
+            if ( -1 < Object.keys( Configuration.SPEED_HORIZONTAL ).indexOf( speed ) )
+            {
+                this.speed = +Configuration.SPEED_HORIZONTAL[ speed ]
+            }
+            else if ( +speed > 0 )
+            {
+                this.speed = +speed;
+            }
+            else
+            {
+                this.speed = +Configuration.SPEED_HORIZONTAL[ Configuration.DEFAULT.speed ];
+            }
+        }
+        else
+        {
+            if ( -1 < Object.keys( Configuration.SPEED_VERTICAL ).indexOf( speed ) )
+            {
+                this.speed = +Configuration.SPEED_VERTICAL[ speed ]
+            }
+            else if ( +speed > 0 )
+            {
+                this.speed = +speed;
+            }
+            else
+            {
+                this.speed = +Configuration.SPEED_VERTICAL[ Configuration.DEFAULT.speed ];
+            }
+        }
+    };
+
+    this.hasLicense = function()
+    {
+        return ( this.license !== null && this.license !== undefined );
+    };
+
+    this.getSpeedNoEasing = function()
+    {
+        return this.speed;
+    }.bind( this );
+
+    this.getSpeedWithEasing = function()
+    {
+        if ( 1 > this.easingValue )
+        {
+            this._currentSpeed = ( 1 - this.easingValue ) * this._currentSpeed + this.easingValue * this.speed;
+        }
+        return this._currentSpeed;
+
+    }.bind( this );
+
+    // Default
+    this.getSpeed = this.getSpeedNoEasing;
+
+    this.setContent = function( content )
+    {
+        if ( content && content.length > 0 )
+        {
+            this.content = content;
+        }
+        else
+        {
+            this.content = "SuperMarquee by SuperPlug.in !!!";
+        }
+
+        this.content = this.content.replaceAll( "> ", ">&nbsp;" );
+        this.content = this.content.replaceAll( " <", "&nbsp;<" );
+        if ( Configuration.MODE_PINGPONG === this.mode && Configuration.TYPE_HORIZONTAL === this.type )
+        {
+            this.content = this.spacer + this.content;
+        }
+        this.content += this.spacer;
+    };
+
+    this.setPerspective = function( perspectiveSettings = null )
+    {
+        const props = Object.keys( Configuration.PERSPECTIVE_DEFAULT );
+
+        let userSettings = {};
+        if ( perspectiveSettings )
+        {
+            try
+            {
+                userSettings = JSON.parse( perspectiveSettings );
+            }
+            catch( e )
+            {
+                userSettings = {};
+            }
+        }
+
+        for ( let pi = 0; pi < props.length; pi++ )
+        {
+            if ( userSettings.hasOwnProperty( props[ pi ] ) )
+            {
+                this.perspective[ props[ pi ] ] = userSettings[ props[ pi ] ];
+            }
+            else
+            {
+                this.perspective[ props[ pi ] ] = Configuration.PERSPECTIVE_DEFAULT[ props[ pi ] ];
+            }
+        }
+    };
+
+    this.setPosition = function( position )
+    {
+        if ( -1 < Configuration.POSITIONS.indexOf( position ) )
+        {
+            this.position = position;
+        }
+        else
+        {
+            this.position = Configuration.DEFAULT.position;
+        }
+    };
+
+    this.setPauseOnHover = function( pauseonhover )
+    {
+        if ( pauseonhover && ( 'true' === pauseonhover || '1' === pauseonhover || true === pauseonhover ) )
+        {
+            this.pauseonhover = true;
+        }
+        else
+        {
+            // Default
+            this.pauseonhover = false;
+        }
+    };
+
+    // Resolve system
+    let system = cd.hasOwnProperty( 'system' ) ? cd.system : null;
+    if ( -1 < Configuration.SYSTEMS.indexOf( system ) )
+    {
+        this.system = system;
+    }
+    else
+    {
+        this.system = Configuration.DEFAULT.system;
+    }
+
+    // Resolve license
+    let license = cd.hasOwnProperty( 'license' ) ? cd.license : null;
+    this.license = null;
+    if ( license && license.length >= 4 )
+    {
+        this.license = cd.license;
+    }
+
+    // Resolve type
+    let type = cd.hasOwnProperty( 'type' ) ? cd.type : null;
+    if ( -1 < Configuration.TYPES.indexOf( type ) )
+    {
+        this.type = type;
+    }
+    else
+    {
+        this.type = Configuration.DEFAULT.type;
+    }
+
+    // Resolve spacer
+    this.spacer = cd.hasOwnProperty( 'spacer' ) ? cd.spacer : null;
+    if ( this.type === Configuration.TYPE_HORIZONTAL )
+    {
+        if ( !this.spacer )
+        {
+            this.spacer = '&nbsp;';
+        }
+        else
+        {
+            this.spacer = _Util_js__WEBPACK_IMPORTED_MODULE_0__.Util.forceNbspInHtml( this.spacer );
+        }
+    }
+    else
+    {
+        if ( !this.spacer )
+        {
+            this.spacer = '<br />';
+        }
+    }
+
+    // Resolve direction
+    let direction = cd.hasOwnProperty( 'direction' ) ? cd.direction : null;
+    if ( -1 < Configuration.DIRECTIONS.indexOf( direction ) )
+    {
+        this.direction = direction;
+    }
+    else
+    {
+        this.direction = Configuration.DEFAULT.direction;
+    }
+
+    // Resolve mode
+    let mode = cd.hasOwnProperty( 'mode' ) ? cd.mode : null;
+    if ( -1 < Configuration.MODES.indexOf( mode ) )
+    {
+        this.mode = mode;
+    }
+    else
+    {
+        this.mode = Configuration.MODE_CONTINOUS;
+    }
+
+    // Set pingpongdelay
+    this.pingPongDelay = cd.hasOwnProperty( 'pingpongdelay' ) ? +cd.pingpongdelay : Configuration.PINGPONG_DELAY_DEFAULT;
+
+    // Resolve position
+    let position = cd.hasOwnProperty( 'position' ) ? cd.position : null;
+    this.setPosition( position );
+
+    // Resolve perspective
+    this.perspective = {};
+    this.setPerspective( cd.hasOwnProperty( 'perspective' ) ? cd.perspective : null );
+
+    // Resolve speed
+    let speed = cd.hasOwnProperty( 'speed' ) ? cd.speed : null;
+    this.setSpeed( speed );
+    this._currentSpeed = this.speed;
+
+    // Resolve content
+    this.setContent( cd.hasOwnProperty( 'content' ) ? cd.content : null );
+
+    // Resolve continuous mode
+    let pauseonhover = cd.hasOwnProperty( 'pauseonhover' ) ? cd.pauseonhover : null;
+    this.setPauseOnHover( pauseonhover );
+
+    // Resolve autostart
+    let autostart = cd.hasOwnProperty( 'autostart' ) ? cd.autostart : null;
+    if ( autostart && ( 'false' === autostart || '0' === autostart ) )
+    {
+        this.autostart = false;
+    }
+    else
+    {
+        // Default
+        this.autostart = true;
+    }
+
+    // Resolve easing
+    let easing = cd.hasOwnProperty( 'easing' ) ? cd.easing : null;
+    if ( easing && ( 'true' === easing || '1' === easing || true === easing ) )
+    {
+        this.easing = true;
+        this.getSpeed = this.getSpeedWithEasing;
+    }
+    else
+    {
+        // Default
+        this.easing = false;
+        this.getSpeed = this.getSpeedNoEasing;
+    }
+
+    // Resolve rssFeedUrl
+    this.rssFeedUrl = cd.hasOwnProperty( 'rssFeedUrl' ) ? cd.rssFeedUrl : null;
+    this.rssFeedTemplate = cd.hasOwnProperty( 'rssFeedTemplate' ) ? _Util_js__WEBPACK_IMPORTED_MODULE_0__.Util.forceNbspInHtml( cd.rssFeedTemplate ) : this.rssFeedTemplate;
+}
+
+Configuration.SYSTEM_WEBCOMPONENT = 'webcomponent';
+Configuration.SYSTEM_JQUERY = 'jquery';
+Configuration.SYSTEM_VANILLA = 'vanilla';
+Configuration.SYSTEMS = [ Configuration.SYSTEM_WEBCOMPONENT, Configuration.SYSTEM_JQUERY, Configuration.SYSTEM_VANILLA ];
+
+Configuration.TYPE_HORIZONTAL = 'horizontal';
+Configuration.TYPE_VERTICAL = 'vertical';
+Configuration.TYPES = [ Configuration.TYPE_HORIZONTAL, Configuration.TYPE_VERTICAL ];
+
+Configuration.DIRECTION_LTR = 'ltr';
+Configuration.DIRECTION_RTL = 'rtl';
+Configuration.DIRECTION_BTT = 'btt';
+Configuration.DIRECTION_TTB = 'ttb';
+Configuration.DIRECTIONS = [ Configuration.DIRECTION_LTR, Configuration.DIRECTION_RTL, Configuration.DIRECTION_BTT, Configuration.DIRECTION_TTB ];
+
+Configuration.POSITION_CUSTOM = 'custom';
+Configuration.POSITION_FIXEDTOP = 'fixedTop';
+Configuration.POSITION_FIXEDBOTTOM = 'fixedBottom';
+Configuration.POSITIONS = [ Configuration.POSITION_CUSTOM, Configuration.POSITION_FIXEDTOP, Configuration.POSITION_FIXEDBOTTOM ];
+
+Configuration.MODE_CONTINOUS = 'continuous';
+Configuration.MODE_GAPPED = 'gapped';
+Configuration.MODE_PINGPONG = 'pingpong';
+Configuration.MODES = [ Configuration.MODE_CONTINOUS, Configuration.MODE_GAPPED, Configuration.MODE_PINGPONG ];
+
+Configuration.SPEED_SUPERSLOW = "superslow";
+Configuration.SPEED_SLOW = "slow";
+Configuration.SPEED_MEDIUM = "medium";
+Configuration.SPEED_FAST = "fast";
+Configuration.SPEED_SUPERFAST = "superfast";
+
+Configuration.SPEED_HORIZONTAL = {
+    "superslow" : 0.0125,
+    "slow"      : 0.03,
+    "medium"    : 0.05,
+    "fast"      : 0.125,
+    "superfast" : 0.2
+};
+
+Configuration.SPEED_VERTICAL = {
+    "superslow" : 0.0125,
+    "slow"      : 0.03,
+    "medium"    : 0.05,
+    "fast"      : 0.125,
+    "superfast" : 0.2
+};
+
+Configuration.PERSPECTIVE_DEFAULT =  {
+    "z" : "none",       // "none" or integer in pixels
+    "originX" : 50,
+    "originY" : 50,
+    "rotateX" : 0,
+    "rotateY" : 0,
+    "rotateZ" : 0
+};
+
+Configuration.PINGPONG_DELAY_DEFAULT = 2000;
+
+Configuration.DEFAULT = {
+    "license" : null,
+    "system" : Configuration.SYSTEM_VANILLA,
+    "type" : Configuration.TYPE_HORIZONTAL,
+    "speed" : Configuration.SPEED_MEDIUM,
+    "direction" : Configuration.DIRECTION_LTR,
+    "mode" : Configuration.MODE_CONTINOUS,
+    "position" : Configuration.POSITION_CUSTOM,
+    "perspective" : Configuration.PERSPECTIVE_DEFAULT,
+    "pauseonhover" : false,
+    "autostart" : true,
+    "easing" : false,
+    "content" : "SuperMarquee By SuperPlug.in Is Super !!!",
+    "rssFeedUrl" : null,
+    "rssFeedTemplate" : '<a href="${link}" target="_blank">${title}</a>',
+    "pingPongDelay" : Configuration.PINGPONG_DELAY_DEFAULT,
+    "spacer" : null
+};
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/sp-supermarquee/src/core/Core.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/sp-supermarquee/src/core/Core.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Core: () => (/* binding */ Core)
+/* harmony export */ });
+/* harmony import */ var _Template_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Template.js */ "./node_modules/sp-supermarquee/src/core/Template.js");
+/* harmony import */ var _Configuration_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Configuration.js */ "./node_modules/sp-supermarquee/src/core/Configuration.js");
+/* harmony import */ var _Event_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Event.js */ "./node_modules/sp-supermarquee/src/core/Event.js");
+/* harmony import */ var _TickLogic_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TickLogic.js */ "./node_modules/sp-supermarquee/src/core/TickLogic.js");
+/* harmony import */ var _RssFeedReader_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RssFeedReader.js */ "./node_modules/sp-supermarquee/src/core/RssFeedReader.js");
+/* harmony import */ var _Util_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Util.js */ "./node_modules/sp-supermarquee/src/core/Util.js");
+
+
+
+
+
+
+
+let hasLicenseTextBeenShown = false;
+
+function Core( root, config )
+{
+    const self = this,
+          events = new _Event_js__WEBPACK_IMPORTED_MODULE_2__.Event( this );
+
+    let fnTick = _TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.TickLogic.fnNoScroll.bind( this );
+    this.elems = {
+        rootElement : root,
+        shadowRoot : null,
+        container : null,
+        outerWrapper : null,
+        innerContainer : null,
+        scrollItem : null,
+        scrollItemClone : null
+    };
+    this.config = config;
+    this.dimensions = {};
+
+    this._time = Date.now();
+    this._rafId = null;
+    this._shouldPlay = false;
+    this._wasPlaying = false;
+    this._isInView = true;
+
+    this._previousDimensions = { width: this.elems.rootElement.offsetWidth, height: this.elems.rootElement.offsetHeight };
+
+    const listenerWindowResize = () =>
+        {
+            if ( this.elems.rootElement.offsetWidth === this._previousDimensions.width &&
+                 this.elems.rootElement.offsetHeight === this._previousDimensions.height )
+            {
+                // Do nothing
+                return false;
+            }
+            else
+            {
+                this._previousDimensions = { width: this.elems.rootElement.offsetWidth, height: this.elems.rootElement.offsetHeight };
+            }
+
+            let wasRunning = false;
+            if ( this._rafId )
+            {
+                wasRunning = true;
+                window.cancelAnimationFrame( this._rafId );
+                this._rafId = null;
+            }
+            this.init();
+            if ( wasRunning )
+            {
+                this.tick();
+            }
+        },
+        listenerDocumentVisibilityChange = () =>
+        {
+            if ( true === document.hidden )
+            {
+                this.onOutOfView();
+            }
+            else
+            {
+                this.onIntoView();
+            }
+        },
+        listenerElemsContainerMouseEnter = () =>
+        {
+            if ( true === this.config.pauseonhover )
+            {
+                this.pause();
+            }
+        },
+        listenerElemsContainerMouseLeave = () =>
+        {
+            if ( true === this.config.pauseonhover )
+            {
+                this.play();
+            }
+        };
+
+    // Make sure scrolling is inly active, if element is in viewport
+    const observer = new IntersectionObserver((entries, observer) => {
+        let entry = entries.length ? entries[ 0 ] : null;
+        if ( entry )
+        {
+            if ( true === entry.isIntersecting )
+            {
+                this.onIntoView();
+            }
+            else
+            {
+                this.onOutOfView();
+            }
+        }
+
+    }, {rootMargin: "0px 0px 20px 0px"});
+
+    setup();
+
+    this.init = function()
+    {
+        this.elems.container.style.visibility = 'hidden';
+        let prevPosition = this.elems.rootElement.style.position;
+        this.elems.rootElement.style.position = 'initial';
+
+        this.elems.scrollItem.innerHTML = "";
+        this.elems.scrollItemClone.innerHTML = "";
+
+        let scrollContent = this.config.content;
+
+        if ( this.config.rssFeedUrl )
+        {
+            const feedItemData = _RssFeedReader_js__WEBPACK_IMPORTED_MODULE_4__.RssFeedReader.getFeedItemData( this.config.rssFeedUrl );
+            if ( feedItemData && feedItemData.length > 0 )
+            {
+
+                let title, link, pubDate, description, content;
+                for ( let fi = 0; fi < feedItemData.length; fi++ )
+                {
+                    title = feedItemData[ fi ].hasOwnProperty( 'title' ) && feedItemData[ fi ].title ? feedItemData[ fi ].title : '';
+                    link = feedItemData[ fi ].hasOwnProperty( 'link' ) && feedItemData[ fi ][ 'link' ] ? feedItemData[ fi ][ 'link' ] : '#';
+                    pubDate = feedItemData[ fi ].hasOwnProperty( 'pubDate' ) && feedItemData[ fi ].pubDate ? feedItemData[ fi ].pubDate : new Date();
+                    description = feedItemData[ fi ].hasOwnProperty( 'description' ) && feedItemData[ fi ].description ? feedItemData[ fi ].description : '';
+                    content = feedItemData[ fi ].hasOwnProperty( 'content' ) && feedItemData[ fi ].content ? feedItemData[ fi ].content : '';
+
+                    scrollContent += eval( "`" + this.config.rssFeedTemplate + "`" );
+                    scrollContent += this.config.spacer;
+                }
+            }
+        }
+
+        if ( _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.TYPE_HORIZONTAL === this.config.type )
+        {
+            let maxWidth;
+            // Add same content to clone item
+            switch ( this.config.mode  )
+            {
+                case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.MODE_PINGPONG:
+                    this.elems.scrollItem.innerHTML += scrollContent;
+                    this.elems.scrollItemClone.innerHTML = "";
+                    maxWidth = ( prevPosition === 'fixed' ) ? window.innerWidth : this.elems.container.clientWidth;
+                    this.config._gappedScrollingEnabled = ( maxWidth < this.elems.scrollItem.clientWidth );
+                break;
+
+                case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.MODE_GAPPED:
+                    this.elems.scrollItem.innerHTML += scrollContent;
+                    this.elems.scrollItem.style.paddingLeft = this.elems.container.clientWidth + 'px';
+                    this.elems.scrollItemClone.innerHTML = "";
+                break;
+
+                default:
+                case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.MODE_CONTINOUS:
+                    // Fill up the space of complete window
+                    maxWidth = ( prevPosition === 'fixed' ) ? window.innerWidth : this.elems.container.clientWidth;
+                    while ( maxWidth > this.elems.scrollItem.clientWidth )
+                    {
+                        this.elems.scrollItem.innerHTML += scrollContent;
+                    }
+                    this.elems.scrollItemClone.innerHTML = this.elems.scrollItem.innerHTML;
+                break;
+            }
+        }
+        // Vertical
+        else
+        {
+            if ( 0 <= this.elems.scrollItem.getBoundingClientRect().height )
+            {
+                this.elems.scrollItem.innerHTML = "&nbsp;";
+            }
+
+            let maxHeight = ( prevPosition === 'fixed' ) ? window.innerHeight : this.elems.container.clientHeight;
+            this.elems.outerWrapper.style.maxHeight = maxHeight + 'px';
+            this.elems.scrollItem.innerHTML = "";
+
+            switch ( this.config.mode )
+            {
+                case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.MODE_PINGPONG:
+                    this.elems.scrollItem.innerHTML += scrollContent;
+                    this.elems.scrollItemClone.innerHTML = "";
+                    maxHeight = ( prevPosition === 'fixed' ) ? window.innerHeight : this.elems.container.clientHeight;
+                    this.config._gappedScrollingEnabled = ( maxHeight < this.elems.scrollItem.clientHeight );
+                break;
+
+                case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.MODE_GAPPED:
+                    this.elems.scrollItem.innerHTML += scrollContent;
+                    this.elems.scrollItem.style.paddingTop = this.elems.container.clientHeight + 'px';
+                    this.elems.scrollItemClone.innerHTML = "";
+                break;
+
+                default:
+                case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.MODE_CONTINOUS:
+                    maxHeight = ( prevPosition === 'fixed' ) ? window.innerHeight : this.elems.container.clientHeight;
+                    // Fill up the space of scroll container
+                    while ( maxHeight > this.elems.scrollItem.clientHeight )
+                    {
+                        this.elems.scrollItem.innerHTML += scrollContent;
+                    }
+                    this.elems.scrollItemClone.innerHTML = this.elems.scrollItem.innerHTML;
+                break;
+            }
+        }
+
+        this.updatePerspective();
+
+        // Set dimensions
+        // Note:
+        // Timeout is required to make sure that dimensions calculations work as expected.
+        // Timeout delay needs to be in sync with SuperMarquee.setup timeout.
+        setTimeout( () =>
+        {
+            this.updateDimensions();
+            this.updateTickLogic();
+            this.elems.container.style.visibility = 'visible';
+            this.onIntoView();
+        }, 100 );
+
+        // Init
+        this._currentXPos = 0;
+        this._currentYPos = 0;
+        this._pingPongCurrentDirection = 0;
+        this._pingPongNextDirection = -1;
+        this._pingPongPauseDelay = self.config.pingPongDelay;
+        this._time = Date.now();
+
+        //this.elems.container.style.visibility = 'visible';
+        this.elems.rootElement.style.position = prevPosition;
+
+        // Hello
+        if ( false === this.config.hasLicense() && window.console && false === hasLicenseTextBeenShown )
+        {
+            hasLicenseTextBeenShown = true;
+            console.log( "%c»SuperMarquee« by SuperPlug.in. Unlicensed version for non commercial use only.", "font-family: monospace sans-serif; background-color: #8089ff; color: white;" );
+        }
+    }.bind ( this );
+
+    this.updatePerspective = function()
+    {
+        this.elems.perspective.style.perspective = this.config.perspective.z + 'px';
+        this.elems.perspective.style.perspectiveOrigin = this.config.perspective.originX + '% ' + this.config.perspective.originY + '%';
+        this.elems.outerWrapper.style.transform = 'rotateX(' + this.config.perspective.rotateX + 'deg) rotateY(' + this.config.perspective.rotateY + 'deg) rotateZ(' + this.config.perspective.rotateZ + 'deg)';
+
+    }.bind( this );
+
+    this.updateTickLogic = function()
+    {
+        if ( _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.MODE_PINGPONG === self.config.mode )
+        {
+            if ( false === self.config._gappedScrollingEnabled )
+            {
+                fnTick = _TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.TickLogic.fnNoScroll.bind( self );
+            }
+            else
+            {
+                if ( _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.TYPE_HORIZONTAL === self.config.type )
+                {
+                    switch ( self.config.direction )
+                    {
+                        case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.DIRECTION_RTL:
+                            this._currentXPos = this.dimensions.totalScrollItemWidth - this.dimensions.visibleWidth;
+                            this._pingPongCurrentDirection = 0;
+                            this._pingPongNextDirection = -1;
+                            this._pingPongPauseDelay = self.config.pingPongDelay;
+                            fnTick = _TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.TickLogic.fnHorizontalRtlPingPong.bind( self );
+                        break;
+
+                        default:
+                        case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.DIRECTION_LTR:
+                            this._currentXPos = 0;
+                            this._pingPongCurrentDirection = 0;
+                            this._pingPongNextDirection = 1;
+                            this._pingPongPauseDelay = self.config.pingPongDelay;
+                            fnTick = _TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.TickLogic.fnHorizontalLtrPingPong.bind( self );
+                        break;
+                    }
+                }
+                else
+                {
+                    switch ( self.config.direction )
+                    {
+                        case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.DIRECTION_TTB:
+                            this._currentYPos = -(this.dimensions.totalScrollItemHeight - this.dimensions.visibleHeight);
+                            this._pingPongCurrentDirection = 0;
+                            this._pingPongNextDirection = -1;
+                            this._pingPongPauseDelay = self.config.pingPongDelay;
+                            fnTick = _TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.TickLogic.fnHorizontalTtbPingPong.bind( self );
+                        break;
+
+                        case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.DIRECTION_BTT:
+                            this._currentYPos = 0;
+                            this._pingPongCurrentDirection = 0;
+                            this._pingPongNextDirection = -1;
+                            this._pingPongPauseDelay = self.config.pingPongDelay;
+                            fnTick = _TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.TickLogic.fnHorizontalBttPingPong.bind( self );
+                        break;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if ( _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.TYPE_HORIZONTAL === self.config.type )
+            {
+
+                switch ( self.config.direction )
+                {
+                    case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.DIRECTION_RTL:
+                        fnTick = _TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.TickLogic.fnHorizontalRtl.bind( self );
+                        break;
+
+                    default:
+                    case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.DIRECTION_LTR:
+                        fnTick = _TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.TickLogic.fnHorizontalLtr.bind( self );
+                        break;
+                }
+            }
+            else
+            {
+                switch ( self.config.direction )
+                {
+                    case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.DIRECTION_TTB:
+                        fnTick = _TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.TickLogic.fnVerticalTtb.bind( self );
+                        break;
+
+                    default:
+                    case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.DIRECTION_BTT:
+                        fnTick = _TickLogic_js__WEBPACK_IMPORTED_MODULE_3__.TickLogic.fnVerticalBtt.bind( self );
+                        break;
+                }
+            }
+        }
+    }.bind( this );
+
+    this.updateDimensions = function()
+    {
+        // Set dimensions
+        this.dimensions.visibleWidth = this.elems.container.clientWidth;
+        this.dimensions.visibleHeight = this.elems.container.clientHeight;
+        this.dimensions.totalScrollItemWidth = this.elems.scrollItem.offsetWidth;
+        this.dimensions.totalScrollItemHeight = this.elems.scrollItem.offsetHeight;
+    }.bind( this );
+
+    this.tick = function()
+    {
+        const currentTime = Date.now();
+        const deltaTime = currentTime - this._time;
+        this._time = currentTime;
+
+        fnTick( deltaTime );
+
+        this._rafId = window.requestAnimationFrame( this.tick );
+    }.bind ( this );
+
+    this.getRootElement = function()
+    {
+        return this.elems.rootElement;
+    }.bind( this );
+
+
+    this.getEvents = function()
+    {
+        return events;
+    };
+
+    this.destroy = function()
+    {
+        if ( this._rafId )
+        {
+            window.cancelAnimationFrame( this._rafId );
+            this._rafId = null;
+        }
+
+        window.removeEventListener( 'resize', listenerWindowResize );
+        document.removeEventListener( 'visibilitychange', listenerDocumentVisibilityChange );
+        this.elems.container.removeEventListener( 'mouseenter', listenerElemsContainerMouseEnter );
+        this.elems.container.removeEventListener( 'mouseleave', listenerElemsContainerMouseLeave );
+
+        observer.unobserve( this.elems.container );
+
+        this.elems.rootElement.innerHTML = "";
+
+    };
+
+    this.getScrollContent = function()
+    {
+        return this.config.content;
+    };
+
+    function setup()
+    {
+        switch ( self.config.system )
+        {
+            case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.SYSTEM_JQUERY:
+            case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.SYSTEM_VANILLA:
+            case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.SYSTEM_WEBCOMPONENT:
+                self.elems.shadowRoot = self.elems.rootElement;//self.elems.rootElement.attachShadow( { mode : 'open' } );
+                if ( self.config.type === _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.TYPE_VERTICAL )
+                {
+                    self.elems.shadowRoot.appendChild( _Template_js__WEBPACK_IMPORTED_MODULE_0__.templateVertical.content.cloneNode( true ) );
+                }
+                else
+                {
+                    self.elems.shadowRoot.appendChild( _Template_js__WEBPACK_IMPORTED_MODULE_0__.templateHorizontal.content.cloneNode( true ) );
+                }
+                self.elems.container = self.elems.shadowRoot.querySelector( 'div.supermarquee-container' );
+                self.elems.perspective = self.elems.shadowRoot.querySelector( 'div.supermarquee-perspective:first-child' );
+                self.elems.outerWrapper = self.elems.shadowRoot.querySelector( 'div.supermarquee-outer-wrapper:first-child' );
+                self.elems.innerContainer = self.elems.shadowRoot.querySelector( 'div.supermarquee-inner-container:first-child' );
+            break;
+        }
+
+        self.elems.scrollItem = self.elems.innerContainer.querySelector( 'div.supermarquee-item:first-child' );
+        self.elems.scrollItemClone = self.elems.innerContainer.querySelector( 'div.supermarquee-item-clone' );
+
+        window.addEventListener( 'resize', listenerWindowResize );
+        document.addEventListener( 'visibilitychange', listenerDocumentVisibilityChange );
+        self.elems.container.addEventListener( 'mouseenter', listenerElemsContainerMouseEnter );
+        self.elems.container.addEventListener( 'mouseleave', listenerElemsContainerMouseLeave );
+        observer.observe( self.elems.container );
+    }
+}
+
+Core.prototype.VERSION = "2.0";
+
+Core.prototype.play = function()
+{
+    this._shouldPlay = true;
+    if ( false === this._isInView ) return;
+
+    if ( !this._rafId )
+    {
+        this._time = Date.now();
+        this.tick();
+        this._wasPlaying = true;
+    }
+};
+
+Core.prototype.pause = function()
+{
+    this._shouldPlay = false;
+    if ( this._rafId )
+    {
+        window.cancelAnimationFrame( this._rafId );
+        this._rafId = null;
+        this._wasPlaying = true;
+    }
+    else
+    {
+        this._wasPlaying = false;
+    }
+};
+
+Core.prototype.setScrollContent = function( content )
+{
+    this.config.setContent( content );
+    this.init();
+};
+
+Core.prototype.setScrollSpeed = function( speed )
+{
+    this.config.setSpeed( speed );
+};
+
+Core.prototype.setPosition = function( position )
+{
+    this.config.setPosition( position );
+    switch( this.config.position )
+    {
+        case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.POSITION_FIXEDTOP:
+            this.elems.rootElement.style.position = 'fixed';
+            this.elems.rootElement.style.removeProperty( 'left' );
+            this.elems.rootElement.style.removeProperty( 'top' );
+            this.elems.rootElement.style.removeProperty( 'bottom' );
+            this.elems.rootElement.style.width = "100%";
+            this.elems.rootElement.style.top = 0;
+            this.elems.rootElement.style.left = 0;
+            break;
+
+        case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.POSITION_FIXEDBOTTOM:
+            this.elems.rootElement.style.position = 'fixed';
+            this.elems.rootElement.style.removeProperty( 'left' );
+            this.elems.rootElement.style.removeProperty( 'top' );
+            this.elems.rootElement.style.removeProperty( 'bottom' );
+            this.elems.rootElement.style.width = "100%";
+            this.elems.rootElement.style.bottom = 0;
+            this.elems.rootElement.style.left = 0;
+            break;
+
+        default:
+        case _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.POSITION_CUSTOM:
+            this.elems.rootElement.style.removeProperty( 'position' );
+            this.elems.rootElement.style.removeProperty( 'left' );
+            this.elems.rootElement.style.removeProperty( 'top' );
+            this.elems.rootElement.style.removeProperty( 'bottom' );
+        break;
+    }
+    this.init();
+};
+
+Core.prototype.setPauseOnHover = function( pauseonhover )
+{
+    this.config.setPauseOnHover( pauseonhover );
+};
+
+Core.prototype.setPerspective  = function( perspective )
+{
+    this.config.setPerspective( perspective );
+    this.updatePerspective();
+};
+
+Core.prototype.onIntoView = function()
+{
+    this._isInView = true;
+    // @todo Fix this
+    //if ( true === this._wasPlaying || true === this._shouldPlay )
+    {
+        this.play();
+    }
+};
+
+Core.prototype.onOutOfView = function()
+{
+    this._isInView = false;
+    this.pause();
+};
+
+Core.prototype.destroy = function(){};
+
+Core.prototype.Log = function( message, level = 'info' )
+{
+    console[ level ]( message );
+};
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/sp-supermarquee/src/core/Event.js":
+/*!********************************************************!*\
+  !*** ./node_modules/sp-supermarquee/src/core/Event.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Event: () => (/* binding */ Event)
+/* harmony export */ });
+function Event( i )
+{
+    const inst = i;
+
+    this.getInstance = function()
+    {
+        return inst;
+    };
+}
+
+Event.prototype.triggerInit = function()
+{
+    let elem = this.getInstance().getRootElement();
+    elem.dispatchEvent( new Event( "init" ) );
+};
+
+Event.prototype.triggerStart = function()
+{
+    let elem = this.getInstance().getRootElement();
+    elem.dispatchEvent( new Event( "start" ) );
+};
+
+Event.prototype.triggerLoop = function()
+{
+    let elem = this.getInstance().getRootElement();
+    elem.dispatchEvent( new Event( "loop" ) );
+};
+
+Event.prototype.triggerPause = function()
+{
+    let elem = this.getInstance().getRootElement();
+    elem.dispatchEvent( new Event( "pause" ) );
+};
+
+Event.prototype.triggerResume = function()
+{
+    let elem = this.getInstance().getRootElement();
+    elem.dispatchEvent( new Event( "resume" ) );
+};
+
+
+
+/***/ }),
+
+/***/ "./node_modules/sp-supermarquee/src/core/RssFeedReader.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/sp-supermarquee/src/core/RssFeedReader.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   RssFeedReader: () => (/* binding */ RssFeedReader)
+/* harmony export */ });
+const RssFeedReader =
+{
+    getFeed : function getFeed( url )
+    {
+        let xmlHttp = new XMLHttpRequest();
+        try
+        {
+            xmlHttp.open( "GET", url, false ); // in sync mode
+            xmlHttp.send( null );
+        }
+        catch (e )
+        {
+            console.error( e );
+            xmlHttp = null;
+        }
+        return xmlHttp ? xmlHttp.responseXML : null;
+    },
+
+    getFeedItemData : function( url )
+    {
+        const feedXml = this.getFeed( url ),
+              items = feedXml ? feedXml.getElementsByTagName( 'item' ) : null,
+              feedData = [];
+
+        if ( items && items.length > 0 )
+        {
+            for ( let i = 0; i < items.length; i++ )
+            {
+                feedData.push(
+                    {
+                        "title" : 0 < items[ i ].getElementsByTagName( 'title' ).length ? items[ i ].getElementsByTagName( 'title' )[ 0 ].innerHTML : null,
+                        "link" : 0 < items[ i ].getElementsByTagName( 'link' ).length ? items[ i ].getElementsByTagName( 'link' )[ 0 ].innerHTML : null,
+                        "pubDate" : 0 < items[ i ].getElementsByTagName( 'pubDate' ).length ? new Date( items[ i ].getElementsByTagName( 'pubDate' )[ 0 ].innerHTML ) : null,
+                        "description" : 0 < items[ i ].getElementsByTagName( 'description' ).length && items[ i ].getElementsByTagName( 'description' )[ 0 ].firstChild ? items[ i ].getElementsByTagName( 'description' )[ 0 ].firstChild.wholeText.trim() : null,
+                        "content" : 0 < items[ i ].getElementsByTagName( 'content' ).length ? items[ i ].getElementsByTagName( 'content' )[ 0 ].innerHTML : null
+                    }
+                )
+            }
+        }
+
+        return feedData;
+    },
+
+    getScrollContentOfFeed : function( url, spacer = '&nbsp;' )
+    {
+        const feedXml = this.getFeed( url ),
+              items = feedXml ? feedXml.getElementsByTagName( 'item' ) : null;
+
+        let feedContent = '';
+
+        if ( items && items.length > 0 )
+        {
+            for ( let i = 0; i < items.length; i++ )
+            {
+                feedContent += '<a href="' + items[ i ].getElementsByTagName( 'link' )[ 0 ].innerHTML + '" target="_blank">';
+                feedContent += items[ i ].getElementsByTagName( 'title' )[ 0 ].innerHTML + '</a>';
+                feedContent += spacer;
+            }
+        }
+
+        return feedContent;
+    }
+};
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/sp-supermarquee/src/core/SuperMarquee.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/sp-supermarquee/src/core/SuperMarquee.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Core.js */ "./node_modules/sp-supermarquee/src/core/Core.js");
+/* harmony import */ var _Configuration_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Configuration.js */ "./node_modules/sp-supermarquee/src/core/Configuration.js");
+
+
+
+function SuperMarquee( rootElement, cfg = {} )
+{
+    if ( !rootElement || false === ( rootElement instanceof HTMLElement ) )
+    {
+        throw new Error( 'Missing/invalid rootElement: ', rootElement );
+    }
+
+    const configData = JSON.parse( JSON.stringify( _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.DEFAULT ) );
+    let config;
+
+    for ( let k in configData )
+    {
+        if ( cfg.hasOwnProperty( k ) )
+        {
+            configData[ k ] = cfg[ k ];
+        }
+        else if ( rootElement.hasAttribute( 'data-' + k ) )
+        {
+            configData[ k ] = rootElement.getAttribute( 'data-' + k );
+        }
+    }
+
+    configData.system = _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.SYSTEM_VANILLA;
+    config = new _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration( configData );
+    this._core = new _Core_js__WEBPACK_IMPORTED_MODULE_0__.Core( rootElement, config );
+    this._core.init();
+    setTimeout( () =>
+    {
+        if ( this._core.config.autostart )
+        {
+            this._core.tick();
+        }
+    }, 150 );
+
+    return this;
+}
+
+SuperMarquee.getDefaultConfiguration = function()
+{
+    return JSON.parse( JSON.stringify( _Configuration_js__WEBPACK_IMPORTED_MODULE_1__.Configuration.DEFAULT ) );
+};
+
+// Public core methods
+SuperMarquee.prototype.play = function()
+{
+    this._core.play();
+};
+
+SuperMarquee.prototype.pause = function()
+{
+    this._core.pause();
+};
+
+SuperMarquee.prototype.setScrollContent = function( content )
+{
+    this._core.setScrollContent( content );
+};
+
+SuperMarquee.prototype.setScrollSpeed = function( speed )
+{
+    this._core.setScrollSpeed( speed);
+};
+
+SuperMarquee.prototype.getScrollSpeed = function()
+{
+    return +this._core.config.speed;
+};
+
+SuperMarquee.prototype.setPosition = function( position )
+{
+    this._core.setPosition( position );
+};
+
+SuperMarquee.prototype.setPauseOnHover = function( pauseonhover )
+{
+    this._core.setPauseOnHover( pauseonhover );
+};
+
+SuperMarquee.prototype.setPerspective = function( perspective )
+{
+    this._core.setPerspective( perspective );
+};
+
+SuperMarquee.prototype.destroy = function()
+{
+    this._core.destroy();
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SuperMarquee);
+
+
+/***/ }),
+
+/***/ "./node_modules/sp-supermarquee/src/core/Template.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/sp-supermarquee/src/core/Template.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   templateHorizontal: () => (/* binding */ templateHorizontal),
+/* harmony export */   templateVertical: () => (/* binding */ templateVertical)
+/* harmony export */ });
+const templateHorizontal = document.createElement( 'template' );
+const templateVertical = document.createElement( 'template' );
+
+templateHorizontal.innerHTML = `
+    <style>
+        .supermarquee-container
+        {
+            width: 100%;
+            display: block;
+            pointer-events: all;
+            overflow: hidden;
+            visibility: hidden;
+        }
+
+        .supermarquee-perspective
+        {
+        }
+                
+        .supermarquee-outer-wrapper
+        {
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            overflow: hidden;
+            box-sizing: content-box;
+        }
+        
+        .supermarquee-outer-wrapper .supermarquee-inner-container
+        {
+            display: flex;
+            flex: 0 0 auto;
+            white-space: nowrap;
+            height: inherit;
+        }
+        
+        .supermarquee-inner-container .supermarquee-item
+        {
+            display: flex;
+            flex: 0 0 auto;
+        }
+        
+        .supermarquee-inner-container .supermarquee-item-clone
+        {
+            display: flex;
+            flex: 0 0 auto;
+        }        
+    </style>
+    
+    <div class="supermarquee-container">
+        <div class="supermarquee-perspective">
+            <div class="supermarquee-outer-wrapper">
+                <div class="supermarquee-inner-container">
+                    <div class="supermarquee-item"></div>
+                    <div class="supermarquee-item-clone"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+
+templateVertical.innerHTML = `
+    <style>
+        .supermarquee-container
+        {
+            width: 100%;
+            display: block;
+            pointer-events: all;
+            height: inherit;
+            overflow: hidden;
+            visibility: hidden;
+        }        
+       .supermarquee-perspective
+        {
+        }        
+        .supermarquee-outer-wrapper
+        {
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            overflow: hidden;
+            box-sizing: content-box;
+            width: inherit;
+            height: inherit;
+        }
+        .supermarquee-outer-wrapper .supermarquee-inner-container
+        {
+            display: inline-block;
+            width: inherit;
+            max-height: 100%;
+            height: inherit;
+        }
+        
+        .supermarquee-inner-container .supermarquee-item
+        {        
+            display: block;
+        }
+        
+        .supermarquee-inner-container .supermarquee-item-clone
+        {
+            display: block;
+        }        
+    </style>
+    
+    <div class="supermarquee-container">
+        <div class="supermarquee-perspective">        
+            <div class="supermarquee-outer-wrapper">
+                <div class="supermarquee-inner-container">
+                    <div class="supermarquee-item"></div>
+                    <div class="supermarquee-item-clone"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/sp-supermarquee/src/core/TickLogic.js":
+/*!************************************************************!*\
+  !*** ./node_modules/sp-supermarquee/src/core/TickLogic.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   TickLogic: () => (/* binding */ TickLogic)
+/* harmony export */ });
+const TickLogic = {
+
+    fnNoScroll : function( dt )
+    {
+        // Nothing to do
+    },
+
+    /*
+    // Gets set during ticker initialisation
+    _pingPongCurrentDirection : null,
+    _pingPongNextDirection : null,
+    _pingPongPauseDelay : null,
+*/
+    fnHorizontalLtrPingPong : function( dt )
+    {
+        if ( +1 === this._pingPongCurrentDirection )
+        {
+            this._currentXPos += ( dt * this.config.getSpeed() );
+
+            if ( ( this._currentXPos + this.dimensions.visibleWidth ) > this.dimensions.totalScrollItemWidth )
+            {
+                this._pingPongCurrentDirection = 0;
+                this._pingPongNextDirection = -1;
+            }
+        }
+        else if ( -1 === this._pingPongCurrentDirection )
+        {
+            this._currentXPos -= ( dt * this.config.getSpeed() );
+
+            if ( this._currentXPos <= 0 )
+            {
+                this._pingPongCurrentDirection = 0;
+                this._pingPongNextDirection = 1;
+            }
+        }
+        else
+        {
+            this._pingPongPauseDelay -= dt;
+            if ( this._pingPongPauseDelay < 0 )
+            {
+                this._pingPongCurrentDirection = this._pingPongNextDirection;
+                this._pingPongPauseDelay = this.config.pingPongDelay;
+            }
+        }
+
+        this.elems.innerContainer.style.transform = 'translate3d(-' + this._currentXPos + 'px,0,0)';
+    },
+
+    fnHorizontalRtlPingPong : function( dt )
+    {
+        if ( +1 === this._pingPongCurrentDirection )
+        {
+            this._currentXPos -= ( dt * this.config.getSpeed() );
+
+            if ( this._currentXPos < 0 )
+            {
+                this._currentXPos = 0;
+                this._pingPongCurrentDirection = 0;
+                TickLogic._pingPongNextDirection = -1;
+            }
+        }
+        else if ( -1 === this._pingPongCurrentDirection )
+        {
+            this._currentXPos += ( dt * this.config.getSpeed() );
+
+            if ( this._currentXPos > ( this.dimensions.totalScrollItemWidth - this.dimensions.visibleWidth ) )
+            {
+                this._currentXPos = ( this.dimensions.totalScrollItemWidth - this.dimensions.visibleWidth );
+                this._pingPongCurrentDirection = 0;
+                this._pingPongNextDirection = 1;
+            }
+        }
+        else
+        {
+            this._pingPongPauseDelay -= dt;
+            if ( this._pingPongPauseDelay < 0 )
+            {
+                this._pingPongCurrentDirection = this._pingPongNextDirection;
+                this._pingPongPauseDelay = this.config.pingPongDelay;
+            }
+        }
+
+        this.elems.innerContainer.style.transform = 'translate3d(-' + this._currentXPos + 'px,0,0)';
+    },
+
+    fnHorizontalTtbPingPong : function( dt )
+    {
+
+        if ( +1 === this._pingPongCurrentDirection )
+        {
+            this._currentYPos -= ( dt * this.config.getSpeed() );
+            if ( this._currentYPos < -(this.dimensions.totalScrollItemHeight - this.dimensions.visibleHeight) )
+            {
+                this._currentYPos = -(this.dimensions.totalScrollItemHeight - this.dimensions.visibleHeight);
+                this._pingPongCurrentDirection = 0;
+                this._pingPongNextDirection = -1;
+            }
+        }
+        else if ( -1 === this._pingPongCurrentDirection )
+        {
+            this._currentYPos += ( dt * this.config.getSpeed() );
+            if ( this._currentYPos > 0 )
+            {
+                this._currentYPos = 0;
+                this._pingPongCurrentDirection = 0;
+                this._pingPongNextDirection = 1;
+            }
+        }
+        else
+        {
+            this._pingPongPauseDelay -= dt;
+            if ( this._pingPongPauseDelay < 0 )
+            {
+                this._pingPongCurrentDirection = this._pingPongNextDirection;
+                this._pingPongPauseDelay = this.config.pingPongDelay;
+            }
+        }
+
+        this.elems.innerContainer.style.transform = 'translate3d(0,' +  this._currentYPos + 'px, 0)';
+    },
+
+
+    fnHorizontalBttPingPong : function( dt )
+    {
+
+        if ( +1 === this._pingPongCurrentDirection )
+        {
+            this._currentYPos += ( dt * this.config.getSpeed() );
+            if ( this._currentYPos > 0 )
+            {
+                this._currentYPos = 0;
+                this._pingPongCurrentDirection = 0;
+                this._pingPongNextDirection = -1;
+            }
+        }
+        else if ( -1 === this._pingPongCurrentDirection )
+        {
+            this._currentYPos -= ( dt * this.config.getSpeed() );
+            if ( this._currentYPos < -(this.dimensions.totalScrollItemHeight - this.dimensions.visibleHeight) )
+            {
+                this._currentYPos = -(this.dimensions.totalScrollItemHeight - this.dimensions.visibleHeight);
+                this._pingPongCurrentDirection = 0;
+                this._pingPongNextDirection = 1;
+            }
+        }
+        else
+        {
+            this._pingPongPauseDelay -= dt;
+            if ( this._pingPongPauseDelay < 0 )
+            {
+                this._pingPongCurrentDirection = this._pingPongNextDirection;
+                this._pingPongPauseDelay = this.config.pingPongDelay;
+            }
+        }
+
+        this.elems.innerContainer.style.transform = 'translate3d(0,' +  this._currentYPos + 'px, 0)';
+    },
+
+    /**
+     * Horizontal scroll logic, left to right
+     * @param dt
+     */
+    fnHorizontalLtr : function( dt )
+    {
+        this._currentXPos += ( dt * this.config.getSpeed() );
+
+        if ( this._currentXPos > this.dimensions.totalScrollItemWidth )
+        {
+            this._currentXPos = this.dimensions.totalScrollItemWidth - this._currentXPos;
+        }
+        this.elems.innerContainer.style.transform = 'translate3d(-' + this._currentXPos + 'px,0,0)';
+    },
+
+    /**
+     * Horizontal scroll logic, right to left
+     * @param dt
+     */
+    fnHorizontalRtl : function( dt )
+    {
+        this._currentXPos -= ( dt * this.config.getSpeed() );
+
+        if ( this._currentXPos < this.dimensions.totalScrollItemWidth )
+        {
+            this._currentXPos = this.dimensions.totalScrollItemWidth + this._currentXPos;
+        }
+        this.elems.innerContainer.style.transform = 'translate3d(-' + ( this._currentXPos -  this.dimensions.totalScrollItemWidth ) + 'px,0,0)';
+    },
+
+    /**
+     * Vertical scroll logic, bottom to top
+     * @param dt
+     */
+    fnVerticalBtt: function( dt )
+    {
+        this._currentYPos += ( dt * this.config.getSpeed() );
+
+        if ( this._currentYPos > this.dimensions.totalScrollItemHeight )
+        {
+            this._currentYPos = this.dimensions.totalScrollItemHeight - this._currentYPos;
+        }
+        this.elems.innerContainer.style.transform = 'translate3d(0, -' + this._currentYPos + 'px,0)';
+    },
+
+    /**
+     * Vertical scroll logic, top to bottom
+     * @param dt
+     */
+    fnVerticalTtb : function( dt )
+    {
+        this._currentYPos -= ( dt * this.config.getSpeed() );
+
+        if ( this._currentYPos < this.dimensions.totalScrollItemHeight )
+        {
+            this._currentYPos = this.dimensions.totalScrollItemHeight + this._currentYPos;
+        }
+        this.elems.innerContainer.style.transform = 'translate3d(0, -' + ( this._currentYPos - this.dimensions.totalScrollItemHeight ) + 'px,0)';
+    }
+};
+
+
+
+/***/ }),
+
+/***/ "./node_modules/sp-supermarquee/src/core/Util.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/sp-supermarquee/src/core/Util.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Util: () => (/* binding */ Util)
+/* harmony export */ });
+const Util = {
+    forceNbspInHtml : function( htmlString )
+    {
+        var searchWord = ' ';
+        var regEx = new RegExp("(" + searchWord + ")(?!([^<]+)?>)", "gi");
+        var output = htmlString.replace(regEx, "&nbsp;");
+        return output;
+    }
+};
+
+
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			id: moduleId,
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/dist/assets/js/app": 0,
+/******/ 			"dist/assets/css/portal": 0,
+/******/ 			"dist/assets/css/app": 0,
+/******/ 			"dist/assets/css/forms": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkasulado_mix_p"] = self["webpackChunkasulado_mix_p"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	__webpack_require__.O(undefined, ["dist/assets/css/portal","dist/assets/css/app","dist/assets/css/forms"], () => (__webpack_require__("./src/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["dist/assets/css/portal","dist/assets/css/app","dist/assets/css/forms"], () => (__webpack_require__("./src/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["dist/assets/css/portal","dist/assets/css/app","dist/assets/css/forms"], () => (__webpack_require__("./src/css/portal.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["dist/assets/css/portal","dist/assets/css/app","dist/assets/css/forms"], () => (__webpack_require__("./src/css/forms.css")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;

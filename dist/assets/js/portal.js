@@ -1,2 +1,9516 @@
-/*! For license information please see portal.js.LICENSE.txt */
-(()=>{var t={77:(t,e,n)=>{"use strict";n.d(e,{Z:()=>a});var r=n(645),i=n.n(r)()((function(t){return t[1]}));i.push([t.id,'.calendar{-webkit-touch-callout:none;border-radius:4px;direction:ltr;overflow-x:hidden;padding:4px;-webkit-user-select:none;-moz-user-select:none;user-select:none}.calendar:after{clear:both;content:"";display:block}.calendar .calendar-rtl{direction:rtl}.calendar .calendar-rtl .calendar-rtl table tr td span{float:right}.calendar table{border-spacing:0;margin:auto}.calendar table td,.calendar table th{border:none;font-size:12px;height:20px;padding:4px 5px;text-align:center;width:20px}.calendar .calendar-header{border:1px solid #ddd;margin-bottom:20px;width:100%}.calendar .calendar-header table{width:100%}.calendar .calendar-header table th{cursor:pointer;font-size:22px;padding:5px 10px}.calendar .calendar-header table th:hover{background:#eee}.calendar .calendar-header table th.disabled,.calendar .calendar-header table th.disabled:hover{background:none;color:#fff;cursor:default}.calendar .calendar-header table th.next,.calendar .calendar-header table th.prev{width:20px}.calendar .calendar-header .year-title{font-weight:700;height:20px;text-align:center;width:auto}.calendar .calendar-header .year-neighbor{opacity:.4}@media (max-width:991px){.calendar .calendar-header .year-neighbor{display:none}}.calendar .calendar-header .year-neighbor2{opacity:.2}@media (max-width:767px){.calendar .calendar-header .year-neighbor2{display:none}}.calendar .months-container{display:none;flex-wrap:wrap;width:100%}.calendar .months-container .month-container{float:left;padding:0;text-align:center}.calendar .months-container .month-container.month-2{width:16.66666667%}.calendar .months-container .month-container.month-3{width:25%}.calendar .months-container .month-container.month-4{width:33.33333333%}.calendar .months-container .month-container.month-6{width:50%}.calendar .months-container .month-container.month-12{width:100%}.calendar table.month th.month-title{font-size:16px;padding-bottom:5px}.calendar table.month th.day-header{font-size:14px}.calendar table.month tr td,.calendar table.month tr th{padding:0}.calendar table.month tr td.hidden,.calendar table.month tr th.hidden{display:none}.calendar table.month td.week-number{border-right:1px solid #eee;cursor:default;font-weight:700;padding:5px}.calendar table.month td.day.round-left{border-radius:8px 0 0 8px}.calendar table.month td.day.round-right{webkit-border-radius:0 8px 8px 0;border-radius:0 8px 8px 0}.calendar table.month td.day .day-content{border-radius:4px;padding:5px 6px}.calendar table.month td.new,.calendar table.month td.new:hover,.calendar table.month td.old,.calendar table.month td.old:hover{background:none;cursor:default}.calendar table.month td.disabled,.calendar table.month td.disabled:hover{color:#ddd}.calendar table.month td.disabled .day-content:hover,.calendar table.month td.disabled:hover .day-content:hover{background:none;cursor:default}.calendar table.month td.range .day-content{background:rgba(0,0,0,.2);border-radius:0}.calendar table.month td.range.range-start .day-content{border-bottom-left-radius:4px;border-top-left-radius:4px}.calendar table.month td.range.range-end .day-content{border-bottom-right-radius:4px;border-top-right-radius:4px}.calendar .calendar-loading-container{min-height:200px;position:relative;text-align:center}.calendar .calendar-loading-container .calendar-loading{left:50%;position:absolute;top:50%;transform:translateX(-50%) translateY(-50%)}.calendar .calendar-spinner{margin:20px auto;text-align:center;width:80px}.calendar .calendar-spinner>div{animation:sk-bouncedelay 1s ease-in-out infinite both;background-color:#333;border-radius:100%;display:inline-block;height:16px;margin:5px;width:16px}.calendar .calendar-spinner>div.bounce1{animation-delay:-.32s}.calendar .calendar-spinner>div.bounce2{animation-delay:-.16s}.calendar-context-menu,.calendar-context-menu .submenu{background-color:#fff;border:1px solid #ddd;box-shadow:2px 2px 5px rgba(0,0,0,.2);-webkit-box-shadow:2px 2px 5px rgba(0,0,0,.2);display:none;position:absolute}.calendar-context-menu .item{position:relative}.calendar-context-menu .item .content{box-sizing:border-box;cursor:pointer;display:table;padding:5px 10px;white-space:nowrap;width:100%}.calendar-context-menu .item .content:hover{background:#eee}.calendar-context-menu .item .content .text{display:table-cell}.calendar-context-menu .item .content .arrow{display:table-cell;padding-left:10px;text-align:right}.calendar-context-menu .item .submenu{top:-1px}.calendar-context-menu .item .submenu:not(.open-left){left:100%}.calendar-context-menu .item .submenu.open-left{right:100%}.calendar-context-menu .item:hover>.submenu{display:block}.table-striped .calendar table.month tr td,.table-striped .calendar table.month tr th{background-color:transparent}table.month td.day .day-content:hover{background:rgba(0,0,0,.2);cursor:pointer}@keyframes sk-bouncedelay{0%,80%,to{transform:scale(0)}40%{transform:scale(1)}}',""]);const a=i},645:t=>{"use strict";t.exports=function(t){var e=[];return e.toString=function(){return this.map((function(e){var n=t(e);return e[2]?"@media ".concat(e[2]," {").concat(n,"}"):n})).join("")},e.i=function(t,n,r){"string"==typeof t&&(t=[[null,t,""]]);var i={};if(r)for(var a=0;a<this.length;a++){var s=this[a][0];null!=s&&(i[s]=!0)}for(var o=0;o<t.length;o++){var l=[].concat(t[o]);r&&i[l[0]]||(n&&(l[2]?l[2]="".concat(n," and ").concat(l[2]):l[2]=n),e.push(l))}},e}},215:(t,e)=>{"use strict";e.Z=(t={},e,n)=>{const r=[1,2,3,4,5];n.getWorkingWeekdays=function(){return t.workingWeekdays||r},n.setWorkingWeekdays=function(e){t.workingWeekdays=e},n.getHolidays=function(){return t.holidays||[]},n.setHolidays=function(e){t.holidays=e},n.getHolidayFormat=function(){return t.holidayFormat},n.setHolidayFormat=function(e){t.holidayFormat=e},n.getAdditionalWorkingDays=function(){return t.additionalWorkingDays||[]},n.setAdditionalWorkingDays=function(e){t.additionalWorkingDays=e},n.getAdditionalWorkingDayFormat=function(){return t.additionalWorkingDayFormat},n.setAdditionalWorkingDayFormat=function(e){t.additionalWorkingDayFormat=e},e.prototype.isHoliday=function(){return!!t.holidays&&!!t.holidays.includes(this.format(t.holidayFormat))},e.prototype.isBusinessDay=function(){const e=t.workingWeekdays||r;return!this.isHoliday()&&(!!this.isAdditionalWorkingDay()||!!e.includes(this.day()))},e.prototype.isAdditionalWorkingDay=function(){return!!t.additionalWorkingDays&&!!t.additionalWorkingDays.includes(this.format(t.additionalWorkingDayFormat))},e.prototype.businessDaysAdd=function(t){const e=t<0?-1:1;let n=this.clone(),r=Math.abs(t);for(;r>0;)n=n.add(e,"d"),n.isBusinessDay()&&(r-=1);return n},e.prototype.businessDaysSubtract=function(t){let e=this.clone();return e=e.businessDaysAdd(-1*t),e},e.prototype.businessDiff=function(t){const e=this.clone(),n=t.clone(),r=e>=n;let i=r?n:e;const a=r?e:n;let s=0;if(i.isSame(a))return s;for(;i<a;)i.isBusinessDay()&&(s+=1),i=i.add(1,"d");return r?s:-s},e.prototype.nextBusinessDay=function(){let t=this.clone(),e=1;for(;e<7&&(t=t.add(1,"day"),!t.isBusinessDay());)e+=1;return t},e.prototype.prevBusinessDay=function(){let t=this.clone(),e=1;for(;e<7&&(t=t.subtract(1,"day"),!t.isBusinessDay());)e+=1;return t},e.prototype.businessDaysInMonth=function(){if(!this.isValid())return[];let t=this.clone().startOf("month");const e=this.clone().endOf("month"),n=[];let r=!1;for(;!r;)t.isBusinessDay()&&n.push(t.clone()),t=t.add(1,"day"),t.isAfter(e)&&(r=!0);return n},e.prototype.lastBusinessDayOfMonth=function(){const t=this.businessDaysInMonth();return t[t.length-1]},e.prototype.businessWeeksInMonth=function(){if(!this.isValid())return[];let t=this.clone().startOf("month");const e=this.clone().endOf("month"),n=[];let r=[],i=!1;for(;!i;)t.isBusinessDay()&&r.push(t.clone()),(5===t.day()||t.isSame(e,"day"))&&(n.push(r),r=[]),t=t.add(1,"day"),t.isAfter(e)&&(i=!0);return n}}},484:function(t){t.exports=function(){"use strict";var t=1e3,e=6e4,n=36e5,r="millisecond",i="second",a="minute",s="hour",o="day",l="week",u="month",d="quarter",c="year",h="date",f="Invalid Date",p=/^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/,m=/\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g,g={name:"en",weekdays:"Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),months:"January_February_March_April_May_June_July_August_September_October_November_December".split("_"),ordinal:function(t){var e=["th","st","nd","rd"],n=t%100;return"["+t+(e[(n-20)%10]||e[n]||e[0])+"]"}},_=function(t,e,n){var r=String(t);return!r||r.length>=e?t:""+Array(e+1-r.length).join(n)+t},v={s:_,z:function(t){var e=-t.utcOffset(),n=Math.abs(e),r=Math.floor(n/60),i=n%60;return(e<=0?"+":"-")+_(r,2,"0")+":"+_(i,2,"0")},m:function t(e,n){if(e.date()<n.date())return-t(n,e);var r=12*(n.year()-e.year())+(n.month()-e.month()),i=e.clone().add(r,u),a=n-i<0,s=e.clone().add(r+(a?-1:1),u);return+(-(r+(n-i)/(a?i-s:s-i))||0)},a:function(t){return t<0?Math.ceil(t)||0:Math.floor(t)},p:function(t){return{M:u,y:c,w:l,d:o,D:h,h:s,m:a,s:i,ms:r,Q:d}[t]||String(t||"").toLowerCase().replace(/s$/,"")},u:function(t){return void 0===t}},y="en",b={};b[y]=g;var D="$isDayjsObject",w=function(t){return t instanceof S||!(!t||!t[D])},x=function t(e,n,r){var i;if(!e)return y;if("string"==typeof e){var a=e.toLowerCase();b[a]&&(i=a),n&&(b[a]=n,i=a);var s=e.split("-");if(!i&&s.length>1)return t(s[0])}else{var o=e.name;b[o]=e,i=o}return!r&&i&&(y=i),i||!r&&y},k=function(t,e){if(w(t))return t.clone();var n="object"==typeof e?e:{};return n.date=t,n.args=arguments,new S(n)},T=v;T.l=x,T.i=w,T.w=function(t,e){return k(t,{locale:e.$L,utc:e.$u,x:e.$x,$offset:e.$offset})};var S=function(){function g(t){this.$L=x(t.locale,null,!0),this.parse(t),this.$x=this.$x||t.x||{},this[D]=!0}var _=g.prototype;return _.parse=function(t){this.$d=function(t){var e=t.date,n=t.utc;if(null===e)return new Date(NaN);if(T.u(e))return new Date;if(e instanceof Date)return new Date(e);if("string"==typeof e&&!/Z$/i.test(e)){var r=e.match(p);if(r){var i=r[2]-1||0,a=(r[7]||"0").substring(0,3);return n?new Date(Date.UTC(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,a)):new Date(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,a)}}return new Date(e)}(t),this.init()},_.init=function(){var t=this.$d;this.$y=t.getFullYear(),this.$M=t.getMonth(),this.$D=t.getDate(),this.$W=t.getDay(),this.$H=t.getHours(),this.$m=t.getMinutes(),this.$s=t.getSeconds(),this.$ms=t.getMilliseconds()},_.$utils=function(){return T},_.isValid=function(){return!(this.$d.toString()===f)},_.isSame=function(t,e){var n=k(t);return this.startOf(e)<=n&&n<=this.endOf(e)},_.isAfter=function(t,e){return k(t)<this.startOf(e)},_.isBefore=function(t,e){return this.endOf(e)<k(t)},_.$g=function(t,e,n){return T.u(t)?this[e]:this.set(n,t)},_.unix=function(){return Math.floor(this.valueOf()/1e3)},_.valueOf=function(){return this.$d.getTime()},_.startOf=function(t,e){var n=this,r=!!T.u(e)||e,d=T.p(t),f=function(t,e){var i=T.w(n.$u?Date.UTC(n.$y,e,t):new Date(n.$y,e,t),n);return r?i:i.endOf(o)},p=function(t,e){return T.w(n.toDate()[t].apply(n.toDate("s"),(r?[0,0,0,0]:[23,59,59,999]).slice(e)),n)},m=this.$W,g=this.$M,_=this.$D,v="set"+(this.$u?"UTC":"");switch(d){case c:return r?f(1,0):f(31,11);case u:return r?f(1,g):f(0,g+1);case l:var y=this.$locale().weekStart||0,b=(m<y?m+7:m)-y;return f(r?_-b:_+(6-b),g);case o:case h:return p(v+"Hours",0);case s:return p(v+"Minutes",1);case a:return p(v+"Seconds",2);case i:return p(v+"Milliseconds",3);default:return this.clone()}},_.endOf=function(t){return this.startOf(t,!1)},_.$set=function(t,e){var n,l=T.p(t),d="set"+(this.$u?"UTC":""),f=(n={},n[o]=d+"Date",n[h]=d+"Date",n[u]=d+"Month",n[c]=d+"FullYear",n[s]=d+"Hours",n[a]=d+"Minutes",n[i]=d+"Seconds",n[r]=d+"Milliseconds",n)[l],p=l===o?this.$D+(e-this.$W):e;if(l===u||l===c){var m=this.clone().set(h,1);m.$d[f](p),m.init(),this.$d=m.set(h,Math.min(this.$D,m.daysInMonth())).$d}else f&&this.$d[f](p);return this.init(),this},_.set=function(t,e){return this.clone().$set(t,e)},_.get=function(t){return this[T.p(t)]()},_.add=function(r,d){var h,f=this;r=Number(r);var p=T.p(d),m=function(t){var e=k(f);return T.w(e.date(e.date()+Math.round(t*r)),f)};if(p===u)return this.set(u,this.$M+r);if(p===c)return this.set(c,this.$y+r);if(p===o)return m(1);if(p===l)return m(7);var g=(h={},h[a]=e,h[s]=n,h[i]=t,h)[p]||1,_=this.$d.getTime()+r*g;return T.w(_,this)},_.subtract=function(t,e){return this.add(-1*t,e)},_.format=function(t){var e=this,n=this.$locale();if(!this.isValid())return n.invalidDate||f;var r=t||"YYYY-MM-DDTHH:mm:ssZ",i=T.z(this),a=this.$H,s=this.$m,o=this.$M,l=n.weekdays,u=n.months,d=n.meridiem,c=function(t,n,i,a){return t&&(t[n]||t(e,r))||i[n].slice(0,a)},h=function(t){return T.s(a%12||12,t,"0")},p=d||function(t,e,n){var r=t<12?"AM":"PM";return n?r.toLowerCase():r};return r.replace(m,(function(t,r){return r||function(t){switch(t){case"YY":return String(e.$y).slice(-2);case"YYYY":return T.s(e.$y,4,"0");case"M":return o+1;case"MM":return T.s(o+1,2,"0");case"MMM":return c(n.monthsShort,o,u,3);case"MMMM":return c(u,o);case"D":return e.$D;case"DD":return T.s(e.$D,2,"0");case"d":return String(e.$W);case"dd":return c(n.weekdaysMin,e.$W,l,2);case"ddd":return c(n.weekdaysShort,e.$W,l,3);case"dddd":return l[e.$W];case"H":return String(a);case"HH":return T.s(a,2,"0");case"h":return h(1);case"hh":return h(2);case"a":return p(a,s,!0);case"A":return p(a,s,!1);case"m":return String(s);case"mm":return T.s(s,2,"0");case"s":return String(e.$s);case"ss":return T.s(e.$s,2,"0");case"SSS":return T.s(e.$ms,3,"0");case"Z":return i}return null}(t)||i.replace(":","")}))},_.utcOffset=function(){return 15*-Math.round(this.$d.getTimezoneOffset()/15)},_.diff=function(r,h,f){var p,m=this,g=T.p(h),_=k(r),v=(_.utcOffset()-this.utcOffset())*e,y=this-_,b=function(){return T.m(m,_)};switch(g){case c:p=b()/12;break;case u:p=b();break;case d:p=b()/3;break;case l:p=(y-v)/6048e5;break;case o:p=(y-v)/864e5;break;case s:p=y/n;break;case a:p=y/e;break;case i:p=y/t;break;default:p=y}return f?p:T.a(p)},_.daysInMonth=function(){return this.endOf(u).$D},_.$locale=function(){return b[this.$L]},_.locale=function(t,e){if(!t)return this.$L;var n=this.clone(),r=x(t,e,!0);return r&&(n.$L=r),n},_.clone=function(){return T.w(this.$d,this)},_.toDate=function(){return new Date(this.valueOf())},_.toJSON=function(){return this.isValid()?this.toISOString():null},_.toISOString=function(){return this.$d.toISOString()},_.toString=function(){return this.$d.toUTCString()},g}(),M=S.prototype;return k.prototype=M,[["$ms",r],["$s",i],["$m",a],["$H",s],["$W",o],["$M",u],["$y",c],["$D",h]].forEach((function(t){M[t[1]]=function(e){return this.$g(e,t[0],t[1])}})),k.extend=function(t,e){return t.$i||(t(e,S,k),t.$i=!0),k},k.locale=x,k.isDayjs=w,k.unix=function(t){return k(1e3*t)},k.en=b[y],k.Ls=b,k.p={},k}()},319:function(t,e){var n,r,i;"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self&&self,r=[e],n=function(t){"use strict";function e(t){return e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},e(t)}function n(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function r(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}function i(t,e,n){return e&&r(t.prototype,e),n&&r(t,n),t}function a(t,e,n){return e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}if(Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0,"undefined"==typeof NodeList||NodeList.prototype.forEach||(NodeList.prototype.forEach=function(t,e){e=e||window;for(var n=0;n<this.length;n++)t.call(e,this[n],n,this)}),"undefined"!=typeof Element&&!Element.prototype.matches){var s=Element.prototype;Element.prototype.matches=s.msMatchesSelector||s.webkitMatchesSelector}"undefined"==typeof Element||Element.prototype.closest||(Element.prototype.closest=function(t){var e=this;if(!document.documentElement.contains(e))return null;do{if(e.matches(t))return e;e=e.parentElement||e.parentNode}while(null!==e&&1==e.nodeType);return null});var o=function(){function t(e){var r=arguments.length>1&&void 0!==arguments[1]?arguments[1]:null;if(n(this,t),a(this,"element",void 0),a(this,"options",void 0),a(this,"_startDate",void 0),a(this,"_dataSource",void 0),a(this,"_mouseDown",void 0),a(this,"_rangeStart",void 0),a(this,"_rangeEnd",void 0),a(this,"_responsiveInterval",void 0),a(this,"_nbCols",void 0),a(this,"clickDay",void 0),a(this,"dayContextMenu",void 0),a(this,"mouseOnDay",void 0),a(this,"mouseOutDay",void 0),a(this,"renderEnd",void 0),a(this,"selectRange",void 0),a(this,"yearChanged",void 0),a(this,"periodChanged",void 0),e instanceof HTMLElement)this.element=e;else{if("string"!=typeof e)throw new Error("The element parameter should be a DOM node or a selector");this.element=document.querySelector(e)}this.element.classList.add("calendar"),this._initializeEvents(r),this._initializeOptions(r);var i=(new Date).getFullYear(),s=0;this.options.startDate?(i=this.options.startDate.getFullYear(),s=this.options.startDate.getMonth()):this.options.startYear&&(i=this.options.startYear),this.setStartDate(new Date(i,s,1))}return i(t,[{key:"_initializeOptions",value:function(e){null==e&&(e={}),this.options={startYear:isNaN(parseInt(e.startYear))?null:parseInt(e.startYear),startDate:e.startDate instanceof Date?e.startDate:null,numberMonthsDisplayed:!isNaN(parseInt(e.numberMonthsDisplayed))&&e.numberMonthsDisplayed>0&&e.numberMonthsDisplayed<=12?parseInt(e.numberMonthsDisplayed):12,minDate:e.minDate instanceof Date?e.minDate:null,maxDate:e.maxDate instanceof Date?e.maxDate:null,language:null!=e.language&&null!=t.locales[e.language]?e.language:"en",allowOverlap:null==e.allowOverlap||e.allowOverlap,displayWeekNumber:null!=e.displayWeekNumber&&e.displayWeekNumber,displayDisabledDataSource:null!=e.displayDisabledDataSource&&e.displayDisabledDataSource,displayHeader:null==e.displayHeader||e.displayHeader,alwaysHalfDay:null!=e.alwaysHalfDay&&e.alwaysHalfDay,enableRangeSelection:null!=e.enableRangeSelection&&e.enableRangeSelection,disabledDays:e.disabledDays instanceof Array?e.disabledDays:[],disabledWeekDays:e.disabledWeekDays instanceof Array?e.disabledWeekDays:[],hiddenWeekDays:e.hiddenWeekDays instanceof Array?e.hiddenWeekDays:[],roundRangeLimits:null!=e.roundRangeLimits&&e.roundRangeLimits,dataSource:e.dataSource instanceof Array||"function"==typeof e.dataSource?e.dataSource:[],style:"background"==e.style||"border"==e.style||"custom"==e.style?e.style:"border",enableContextMenu:null!=e.enableContextMenu&&e.enableContextMenu,contextMenuItems:e.contextMenuItems instanceof Array?e.contextMenuItems:[],customDayRenderer:"function"==typeof e.customDayRenderer?e.customDayRenderer:null,customDataSourceRenderer:"function"==typeof e.customDataSourceRenderer?e.customDataSourceRenderer:null,weekStart:isNaN(parseInt(e.weekStart))?null:parseInt(e.weekStart),loadingTemplate:"string"==typeof e.loadingTemplate||e.loadingTemplate instanceof HTMLElement?e.loadingTemplate:null},this.options.dataSource instanceof Array&&(this._dataSource=this.options.dataSource,this._initializeDatasourceColors())}},{key:"_initializeEvents",value:function(t){null==t&&(t=[]),t.yearChanged&&this.element.addEventListener("yearChanged",t.yearChanged),t.periodChanged&&this.element.addEventListener("periodChanged",t.periodChanged),t.renderEnd&&this.element.addEventListener("renderEnd",t.renderEnd),t.clickDay&&this.element.addEventListener("clickDay",t.clickDay),t.dayContextMenu&&this.element.addEventListener("dayContextMenu",t.dayContextMenu),t.selectRange&&this.element.addEventListener("selectRange",t.selectRange),t.mouseOnDay&&this.element.addEventListener("mouseOnDay",t.mouseOnDay),t.mouseOutDay&&this.element.addEventListener("mouseOutDay",t.mouseOutDay)}},{key:"_fetchDataSource",value:function(t){if("function"==typeof this.options.dataSource){var e=this.options.dataSource,n=this.getCurrentPeriod(),r={year:n.startDate.getFullYear(),startDate:n.startDate,endDate:n.endDate};if(2==e.length)e(r,t);else{var i=e(r);i instanceof Array&&t(i),i&&i.then&&i.then(t)}}else t(this.options.dataSource)}},{key:"_initializeDatasourceColors",value:function(){for(var e=0;e<this._dataSource.length;e++)null==this._dataSource[e].color&&(this._dataSource[e].color=t.colors[e%t.colors.length])}},{key:"render",value:function(){for(var t=arguments.length>0&&void 0!==arguments[0]&&arguments[0];this.element.firstChild;)this.element.removeChild(this.element.firstChild);if(this.options.displayHeader&&this._renderHeader(),t)this._renderLoading();else{this._renderBody(),this._renderDataSource(),this._applyEvents();var e=this.element.querySelector(".months-container");e.style.opacity="0",e.style.display="flex",e.style.transition="opacity 0.5s",setTimeout((function(){e.style.opacity="1",setTimeout((function(){return e.style.transition=""}),500)}),0);var n=this.getCurrentPeriod();this._triggerEvent("renderEnd",{currentYear:n.startDate.getFullYear(),startDate:n.startDate,endDate:n.endDate})}}},{key:"_renderHeader",value:function(){var e=document.createElement("div");e.classList.add("calendar-header");var n=document.createElement("table"),r=this.getCurrentPeriod(),i=document.createElement("th");i.classList.add("prev"),null!=this.options.minDate&&this.options.minDate>=r.startDate&&i.classList.add("disabled");var a=document.createElement("span");if(a.innerHTML="&lsaquo;",i.appendChild(a),n.appendChild(i),this._isFullYearMode()){var s=document.createElement("th");s.classList.add("year-title"),s.classList.add("year-neighbor2"),s.textContent=(this._startDate.getFullYear()-2).toString(),null!=this.options.minDate&&this.options.minDate>new Date(this._startDate.getFullYear()-2,11,31)&&s.classList.add("disabled"),n.appendChild(s);var o=document.createElement("th");o.classList.add("year-title"),o.classList.add("year-neighbor"),o.textContent=(this._startDate.getFullYear()-1).toString(),null!=this.options.minDate&&this.options.minDate>new Date(this._startDate.getFullYear()-1,11,31)&&o.classList.add("disabled"),n.appendChild(o)}var l=document.createElement("th");if(l.classList.add("year-title"),this._isFullYearMode()?l.textContent=this._startDate.getFullYear().toString():12==this.options.numberMonthsDisplayed?l.textContent="".concat(r.startDate.getFullYear()," - ").concat(r.endDate.getFullYear()):this.options.numberMonthsDisplayed>1?l.textContent="".concat(t.locales[this.options.language].months[r.startDate.getMonth()]," ").concat(r.startDate.getFullYear()," - ").concat(t.locales[this.options.language].months[r.endDate.getMonth()]," ").concat(r.endDate.getFullYear()):l.textContent="".concat(t.locales[this.options.language].months[r.startDate.getMonth()]," ").concat(r.startDate.getFullYear()),n.appendChild(l),this._isFullYearMode()){var u=document.createElement("th");u.classList.add("year-title"),u.classList.add("year-neighbor"),u.textContent=(this._startDate.getFullYear()+1).toString(),null!=this.options.maxDate&&this.options.maxDate<new Date(this._startDate.getFullYear()+1,0,1)&&u.classList.add("disabled"),n.appendChild(u);var d=document.createElement("th");d.classList.add("year-title"),d.classList.add("year-neighbor2"),d.textContent=(this._startDate.getFullYear()+2).toString(),null!=this.options.maxDate&&this.options.maxDate<new Date(this._startDate.getFullYear()+2,0,1)&&d.classList.add("disabled"),n.appendChild(d)}var c=document.createElement("th");c.classList.add("next"),null!=this.options.maxDate&&this.options.maxDate<=r.endDate&&c.classList.add("disabled");var h=document.createElement("span");h.innerHTML="&rsaquo;",c.appendChild(h),n.appendChild(c),e.appendChild(n),this.element.appendChild(e)}},{key:"_renderBody",value:function(){var e=document.createElement("div");e.classList.add("months-container");for(var n=new Date(this._startDate.getTime()),r=0;r<this.options.numberMonthsDisplayed;r++){var i=document.createElement("div");i.classList.add("month-container"),i.dataset.monthId=r.toString(),this._nbCols&&i.classList.add("month-".concat(this._nbCols));var a=document.createElement("table");a.classList.add("month");var s=document.createElement("thead"),o=document.createElement("tr"),l=document.createElement("th");l.classList.add("month-title"),l.setAttribute("colspan",this.options.displayWeekNumber?"8":"7"),l.textContent=t.locales[this.options.language].months[n.getMonth()],o.appendChild(l),s.appendChild(o);var u=document.createElement("tr");this.options.displayWeekNumber&&((g=document.createElement("th")).classList.add("week-number"),g.textContent=t.locales[this.options.language].weekShort,u.appendChild(g));var d=this.getWeekStart(),c=d;do{var h=document.createElement("th");h.classList.add("day-header"),h.textContent=t.locales[this.options.language].daysMin[c],this._isHidden(c)&&h.classList.add("hidden"),u.appendChild(h),++c>=7&&(c=0)}while(c!=d);s.appendChild(u),a.appendChild(s);for(var f=new Date(n.getTime()),p=new Date(n.getFullYear(),n.getMonth()+1,0);f.getDay()!=d;)f.setDate(f.getDate()-1);for(;f<=p;){var m=document.createElement("tr");if(this.options.displayWeekNumber){var g=document.createElement("td"),_=new Date(f.getTime());_.setDate(_.getDate()-d+4),g.classList.add("week-number"),g.textContent=this.getWeekNumber(_).toString(),m.appendChild(g)}do{var v=document.createElement("td");if(v.classList.add("day"),this._isHidden(f.getDay())&&v.classList.add("hidden"),f<n)v.classList.add("old");else if(f>p)v.classList.add("new");else{this._isDisabled(f)&&v.classList.add("disabled");var y=document.createElement("div");y.classList.add("day-content"),y.textContent=f.getDate().toString(),v.appendChild(y),this.options.customDayRenderer&&this.options.customDayRenderer(y,f)}m.appendChild(v),f.setDate(f.getDate()+1)}while(f.getDay()!=d);a.appendChild(m)}i.appendChild(a),e.appendChild(i),n.setMonth(n.getMonth()+1)}this.element.appendChild(e)}},{key:"_renderLoading",value:function(){var t=document.createElement("div");t.classList.add("calendar-loading-container"),t.style.minHeight=200*this._nbCols+"px";var e=document.createElement("div");if(e.classList.add("calendar-loading"),this.options.loadingTemplate)"string"==typeof this.options.loadingTemplate?e.innerHTML=this.options.loadingTemplate:this.options.loadingTemplate instanceof HTMLElement&&e.appendChild(this.options.loadingTemplate);else{var n=document.createElement("div");n.classList.add("calendar-spinner");for(var r=1;r<=3;r++){var i=document.createElement("div");i.classList.add("bounce".concat(r)),n.appendChild(i)}e.appendChild(n)}t.appendChild(e),this.element.appendChild(t)}},{key:"_renderDataSource",value:function(){var t=this;null!=this._dataSource&&this._dataSource.length>0&&this.element.querySelectorAll(".month-container").forEach((function(e){var n=parseInt(e.dataset.monthId),r=t._startDate.getFullYear(),i=t._startDate.getMonth()+n,a=new Date(r,i,1),s=new Date(r,i+1,1);if((null==t.options.minDate||s>t.options.minDate)&&(null==t.options.maxDate||a<=t.options.maxDate)){for(var o=[],l=0;l<t._dataSource.length;l++)t._dataSource[l].startDate>=s&&!(t._dataSource[l].endDate<a)||o.push(t._dataSource[l]);o.length>0&&e.querySelectorAll(".day-content").forEach((function(e){var n=new Date(r,i,parseInt(e.textContent)),a=new Date(r,i,n.getDate()+1),s=[];if((null==t.options.minDate||n>=t.options.minDate)&&(null==t.options.maxDate||n<=t.options.maxDate)){for(var l=0;l<o.length;l++)o[l].startDate<a&&o[l].endDate>=n&&s.push(o[l]);s.length>0&&(t.options.displayDisabledDataSource||!t._isDisabled(n))&&t._renderDataSourceDay(e,n,s)}}))}}))}},{key:"_renderDataSourceDay",value:function(t,e,n){var r=t.parentElement;switch(this.options.style){case"border":var i=0;if(1==n.length?i=4:n.length<=3?i=2:r.style.boxShadow="inset 0 -4px 0 0 black",i>0){for(var a="",s=0;s<n.length;s++)""!=a&&(a+=","),a+="inset 0 -".concat((s+1)*i,"px 0 0 ").concat(n[s].color);r.style.boxShadow=a}break;case"background":r.style.backgroundColor=n[n.length-1].color;var o=e.getTime();if(n[n.length-1].startDate.getTime()==o)if(r.classList.add("day-start"),n[n.length-1].startHalfDay||this.options.alwaysHalfDay){r.classList.add("day-half");var l="transparent";for(s=n.length-2;s>=0;s--)if(n[s].startDate.getTime()!=o||!n[s].startHalfDay&&!this.options.alwaysHalfDay){l=n[s].color;break}r.style.background="linear-gradient(-45deg, ".concat(n[n.length-1].color,", ").concat(n[n.length-1].color," 49%, ").concat(l," 51%, ").concat(l,")")}else this.options.roundRangeLimits&&r.classList.add("round-left");else if(n[n.length-1].endDate.getTime()==o)if(r.classList.add("day-end"),n[n.length-1].endHalfDay||this.options.alwaysHalfDay){for(r.classList.add("day-half"),l="transparent",s=n.length-2;s>=0;s--)if(n[s].endDate.getTime()!=o||!n[s].endHalfDay&&!this.options.alwaysHalfDay){l=n[s].color;break}r.style.background="linear-gradient(135deg, ".concat(n[n.length-1].color,", ").concat(n[n.length-1].color," 49%, ").concat(l," 51%, ").concat(l,")")}else this.options.roundRangeLimits&&r.classList.add("round-right");break;case"custom":this.options.customDataSourceRenderer&&this.options.customDataSourceRenderer.call(this,t,e,n)}}},{key:"_applyEvents",value:function(){var t=this;this.options.displayHeader&&(this.element.querySelectorAll(".year-neighbor, .year-neighbor2").forEach((function(e){e.addEventListener("click",(function(e){e.currentTarget.classList.contains("disabled")||t.setYear(parseInt(e.currentTarget.textContent))}))})),this.element.querySelector(".calendar-header .prev").addEventListener("click",(function(e){if(!e.currentTarget.classList.contains("disabled")){var n=t.element.querySelector(".months-container");n.style.transition="margin-left 0.1s",n.style.marginLeft="100%",setTimeout((function(){n.style.visibility="hidden",n.style.transition="",n.style.marginLeft="0",setTimeout((function(){t.setStartDate(new Date(t._startDate.getFullYear(),t._startDate.getMonth()-t.options.numberMonthsDisplayed,1))}),50)}),100)}})),this.element.querySelector(".calendar-header .next").addEventListener("click",(function(e){if(!e.currentTarget.classList.contains("disabled")){var n=t.element.querySelector(".months-container");n.style.transition="margin-left 0.1s",n.style.marginLeft="-100%",setTimeout((function(){n.style.visibility="hidden",n.style.transition="",n.style.marginLeft="0",setTimeout((function(){t.setStartDate(new Date(t._startDate.getFullYear(),t._startDate.getMonth()+t.options.numberMonthsDisplayed,1))}),50)}),100)}}))),this.element.querySelectorAll(".day:not(.old):not(.new):not(.disabled)").forEach((function(e){e.addEventListener("click",(function(e){e.stopPropagation();var n=t._getDate(e.currentTarget);t._triggerEvent("clickDay",{element:e.currentTarget,date:n,events:t.getEvents(n)})})),e.addEventListener("contextmenu",(function(e){t.options.enableContextMenu&&(e.preventDefault(),t.options.contextMenuItems.length>0&&t._openContextMenu(e.currentTarget));var n=t._getDate(e.currentTarget);t._triggerEvent("dayContextMenu",{element:e.currentTarget,date:n,events:t.getEvents(n)})})),t.options.enableRangeSelection&&(e.addEventListener("mousedown",(function(e){if(1==e.which){var n=t._getDate(e.currentTarget);(t.options.allowOverlap||t.isThereFreeSlot(n))&&(t._mouseDown=!0,t._rangeStart=t._rangeEnd=n,t._refreshRange())}})),e.addEventListener("mouseenter",(function(e){if(t._mouseDown){var n=t._getDate(e.currentTarget);if(!t.options.allowOverlap){var r=new Date(t._rangeStart.getTime());if(r<n)for(var i=new Date(r.getFullYear(),r.getMonth(),r.getDate()+1);r<n&&t.isThereFreeSlot(i,!1);)r.setDate(r.getDate()+1),i.setDate(i.getDate()+1);else for(i=new Date(r.getFullYear(),r.getMonth(),r.getDate()-1);r>n&&t.isThereFreeSlot(i,!0);)r.setDate(r.getDate()-1),i.setDate(i.getDate()-1);n=r}var a=t._rangeEnd;t._rangeEnd=n,a.getTime()!=t._rangeEnd.getTime()&&t._refreshRange()}}))),e.addEventListener("mouseenter",(function(e){if(!t._mouseDown){var n=t._getDate(e.currentTarget);t._triggerEvent("mouseOnDay",{element:e.currentTarget,date:n,events:t.getEvents(n)})}})),e.addEventListener("mouseleave",(function(e){var n=t._getDate(e.currentTarget);t._triggerEvent("mouseOutDay",{element:e.currentTarget,date:n,events:t.getEvents(n)})}))})),this.options.enableRangeSelection&&window.addEventListener("mouseup",(function(e){if(t._mouseDown){t._mouseDown=!1,t._refreshRange();var n=t._rangeStart<t._rangeEnd?t._rangeStart:t._rangeEnd,r=t._rangeEnd>t._rangeStart?t._rangeEnd:t._rangeStart;t._triggerEvent("selectRange",{startDate:n,endDate:r,events:t.getEventsOnRange(n,new Date(r.getFullYear(),r.getMonth(),r.getDate()+1))})}})),this._responsiveInterval&&(clearInterval(this._responsiveInterval),this._responsiveInterval=null),this._responsiveInterval=setInterval((function(){if(null!=t.element.querySelector(".month")){var e=t.element.offsetWidth,n=t.element.querySelector(".month").offsetWidth+10;t._nbCols=null,6*n<e&&t.options.numberMonthsDisplayed>=6?t._nbCols=2:4*n<e&&t.options.numberMonthsDisplayed>=4?t._nbCols=3:3*n<e&&t.options.numberMonthsDisplayed>=3?t._nbCols=4:2*n<e&&t.options.numberMonthsDisplayed>=2?t._nbCols=6:t._nbCols=12,t.element.querySelectorAll(".month-container").forEach((function(e){e.classList.contains("month-".concat(t._nbCols))||(["month-2","month-3","month-4","month-6","month-12"].forEach((function(t){e.classList.remove(t)})),e.classList.add("month-".concat(t._nbCols)))}))}}),300)}},{key:"_refreshRange",value:function(){var t=this;if(this.element.querySelectorAll("td.day.range").forEach((function(t){return t.classList.remove("range")})),this.element.querySelectorAll("td.day.range-start").forEach((function(t){return t.classList.remove("range-start")})),this.element.querySelectorAll("td.day.range-end").forEach((function(t){return t.classList.remove("range-end")})),this._mouseDown){var e=this._rangeStart<this._rangeEnd?this._rangeStart:this._rangeEnd,n=this._rangeEnd>this._rangeStart?this._rangeEnd:this._rangeStart;this.element.querySelectorAll(".month-container").forEach((function(r){var i=parseInt(r.dataset.monthId),a=new Date(t._startDate.getFullYear(),t._startDate.getMonth()+i,1),s=new Date(t._startDate.getFullYear(),t._startDate.getMonth()+i+1,1);e.getTime()<s.getTime()&&n.getTime()>=a.getTime()&&r.querySelectorAll("td.day:not(.old):not(.new)").forEach((function(r){var i=t._getDate(r);i>=e&&i<=n&&(r.classList.add("range"),i.getTime()==e.getTime()&&r.classList.add("range-start"),i.getTime()==n.getTime()&&r.classList.add("range-end"))}))}))}}},{key:"_getElementPosition",value:function(t){var e=0,n=0;do{e+=t.offsetTop||0,n+=t.offsetLeft||0,t=t.offsetParent}while(t);return{top:e,left:n}}},{key:"_openContextMenu",value:function(t){var e=this,n=document.querySelector(".calendar-context-menu");if(null!==n)for(n.style.display="none";n.firstChild;)n.removeChild(n.firstChild);else(n=document.createElement("div")).classList.add("calendar-context-menu"),document.body.appendChild(n);for(var r=this._getDate(t),i=this.getEvents(r),a=0;a<i.length;a++){var s=document.createElement("div");s.classList.add("item"),s.style.paddingLeft="4px",s.style.boxShadow="inset 4px 0 0 0 ".concat(i[a].color);var o=document.createElement("div");o.classList.add("content");var l=document.createElement("span");l.classList.add("text"),l.textContent=i[a].name,o.appendChild(l);var u=document.createElement("span");u.classList.add("arrow"),u.innerHTML="&rsaquo;",o.appendChild(u),s.appendChild(o),this._renderContextMenuItems(s,this.options.contextMenuItems,i[a]),n.appendChild(s)}if(n.children.length>0){var d=this._getElementPosition(t);n.style.left=d.left+25+"px",n.style.right="",n.style.top=d.top+25+"px",n.style.display="block",n.getBoundingClientRect().right>document.body.offsetWidth&&(n.style.left="",n.style.right="0"),setTimeout((function(){return e._checkContextMenuItemsPosition()}),0);var c=function t(e){"click"===e.type&&n.contains(e.target)||(n.style.display="none",window.removeEventListener("click",t),window.removeEventListener("resize",t),window.removeEventListener("scroll",t))};window.addEventListener("click",c),window.addEventListener("resize",c),window.addEventListener("scroll",c)}}},{key:"_renderContextMenuItems",value:function(t,e,n){var r=document.createElement("div");r.classList.add("submenu");for(var i=0;i<e.length;i++)if(!1!==e[i].visible&&("function"!=typeof e[i].visible||e[i].visible(n))){var a=document.createElement("div");a.classList.add("item");var s=document.createElement("div");s.classList.add("content");var o=document.createElement("span");if(o.classList.add("text"),o.textContent=e[i].text,s.appendChild(o),e[i].click&&function(t){s.addEventListener("click",(function(){document.querySelector(".calendar-context-menu").style.display="none",e[t].click(n)}))}(i),a.appendChild(s),e[i].items&&e[i].items.length>0){var l=document.createElement("span");l.classList.add("arrow"),l.innerHTML="&rsaquo;",s.appendChild(l),this._renderContextMenuItems(a,e[i].items,n)}r.appendChild(a)}r.children.length>0&&t.appendChild(r)}},{key:"_checkContextMenuItemsPosition",value:function(){var t=document.querySelectorAll(".calendar-context-menu .submenu");t.forEach((function(t){var e=t;e.style.display="block",e.style.visibility="hidden"})),t.forEach((function(t){var e=t;e.getBoundingClientRect().right>document.body.offsetWidth?e.classList.add("open-left"):e.classList.remove("open-left")})),t.forEach((function(t){var e=t;e.style.display="",e.style.visibility=""}))}},{key:"_getDate",value:function(t){var e=t.querySelector(".day-content").textContent,n=parseInt(t.closest(".month-container").dataset.monthId);return new Date(this._startDate.getFullYear(),this._startDate.getMonth()+n,e)}},{key:"_triggerEvent",value:function(t,e){var n=null;for(var r in"function"==typeof Event?n=new Event(t):(n=document.createEvent("Event")).initEvent(t,!1,!1),n.calendar=this,e)n[r]=e[r];return this.element.dispatchEvent(n),n}},{key:"_isDisabled",value:function(t){if(null!=this.options.minDate&&t<this.options.minDate||null!=this.options.maxDate&&t>this.options.maxDate)return!0;if(this.options.disabledWeekDays.length>0)for(var e=0;e<this.options.disabledWeekDays.length;e++)if(t.getDay()==this.options.disabledWeekDays[e])return!0;if(this.options.disabledDays.length>0)for(e=0;e<this.options.disabledDays.length;e++)if(t.getTime()==this.options.disabledDays[e].getTime())return!0;return!1}},{key:"_isHidden",value:function(t){if(this.options.hiddenWeekDays.length>0)for(var e=0;e<this.options.hiddenWeekDays.length;e++)if(t==this.options.hiddenWeekDays[e])return!0;return!1}},{key:"_isFullYearMode",value:function(){return 0==this._startDate.getMonth()&&12==this.options.numberMonthsDisplayed}},{key:"getWeekNumber",value:function(t){var e=new Date(t.getTime());e.setHours(0,0,0,0),e.setDate(e.getDate()+3-(e.getDay()+6)%7);var n=new Date(e.getFullYear(),0,4);return 1+Math.round(((e.getTime()-n.getTime())/864e5-3+(n.getDay()+6)%7)/7)}},{key:"getEvents",value:function(t){return this.getEventsOnRange(t,new Date(t.getFullYear(),t.getMonth(),t.getDate()+1))}},{key:"getEventsOnRange",value:function(t,e){var n=[];if(this._dataSource&&t&&e)for(var r=0;r<this._dataSource.length;r++)this._dataSource[r].startDate<e&&this._dataSource[r].endDate>=t&&n.push(this._dataSource[r]);return n}},{key:"isThereFreeSlot",value:function(t){var e=this,n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:null,r=this.getEvents(t);return!0===n?!r.some((function(n){return!e.options.alwaysHalfDay&&!n.endHalfDay||n.endDate>t})):!1===n?!r.some((function(n){return!e.options.alwaysHalfDay&&!n.startHalfDay||n.startDate<t})):this.isThereFreeSlot(t,!1)||this.isThereFreeSlot(t,!0)}},{key:"getCurrentPeriod",value:function(){var t=new Date(this._startDate.getTime()),e=new Date(this._startDate.getTime());return e.setMonth(e.getMonth()+this.options.numberMonthsDisplayed),e.setTime(e.getTime()-1),{startDate:t,endDate:e}}},{key:"getYear",value:function(){return this._isFullYearMode()?this._startDate.getFullYear():null}},{key:"setYear",value:function(t){var e=parseInt(t);isNaN(e)||this.setStartDate(new Date(e,0,1))}},{key:"getStartDate",value:function(){return this._startDate}},{key:"setStartDate",value:function(t){var e=this;if(t instanceof Date){for(this.options.startDate=t,this._startDate=new Date(t.getFullYear(),t.getMonth(),1);this.element.firstChild;)this.element.removeChild(this.element.firstChild);this.options.displayHeader&&this._renderHeader();var n=this.getCurrentPeriod(),r=this._triggerEvent("periodChanged",{startDate:n.startDate,endDate:n.endDate,preventRendering:!1}),i=null;this._isFullYearMode()&&(i=this._triggerEvent("yearChanged",{currentYear:this._startDate.getFullYear(),preventRendering:!1})),"function"==typeof this.options.dataSource?(this.render(!0),this._fetchDataSource((function(t){e._dataSource=t,e._initializeDatasourceColors(),e.render(!1)}))):r.preventRendering||i&&i.preventRedering||this.render()}}},{key:"getNumberMonthsDisplayed",value:function(){return this.options.numberMonthsDisplayed}},{key:"setNumberMonthsDisplayed",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1],n=parseInt(t);!isNaN(n)&&n>0&&n<=12&&(this.options.numberMonthsDisplayed=n,e||this.render())}},{key:"getMinDate",value:function(){return this.options.minDate}},{key:"setMinDate",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];(t instanceof Date||null===t)&&(this.options.minDate=t,e||this.render())}},{key:"getMaxDate",value:function(){return this.options.maxDate}},{key:"setMaxDate",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];(t instanceof Date||null===t)&&(this.options.maxDate=t,e||this.render())}},{key:"getStyle",value:function(){return this.options.style}},{key:"setStyle",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.style="background"==t||"border"==t||"custom"==t?t:"border",e||this.render()}},{key:"getAllowOverlap",value:function(){return this.options.allowOverlap}},{key:"setAllowOverlap",value:function(t){this.options.allowOverlap=t}},{key:"getDisplayWeekNumber",value:function(){return this.options.displayWeekNumber}},{key:"setDisplayWeekNumber",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.displayWeekNumber=t,e||this.render()}},{key:"getDisplayHeader",value:function(){return this.options.displayHeader}},{key:"setDisplayHeader",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.displayHeader=t,e||this.render()}},{key:"getDisplayDisabledDataSource",value:function(){return this.options.displayDisabledDataSource}},{key:"setDisplayDisabledDataSource",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.displayDisabledDataSource=t,e||this.render()}},{key:"getAlwaysHalfDay",value:function(){return this.options.alwaysHalfDay}},{key:"setAlwaysHalfDay",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.alwaysHalfDay=t,e||this.render()}},{key:"getEnableRangeSelection",value:function(){return this.options.enableRangeSelection}},{key:"setEnableRangeSelection",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.enableRangeSelection=t,e||this.render()}},{key:"getDisabledDays",value:function(){return this.options.disabledDays}},{key:"setDisabledDays",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.disabledDays=t instanceof Array?t:[],e||this.render()}},{key:"getDisabledWeekDays",value:function(){return this.options.disabledWeekDays}},{key:"setDisabledWeekDays",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.disabledWeekDays=t instanceof Array?t:[],e||this.render()}},{key:"getHiddenWeekDays",value:function(){return this.options.hiddenWeekDays}},{key:"setHiddenWeekDays",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.hiddenWeekDays=t instanceof Array?t:[],e||this.render()}},{key:"getRoundRangeLimits",value:function(){return this.options.roundRangeLimits}},{key:"setRoundRangeLimits",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.roundRangeLimits=t,e||this.render()}},{key:"getEnableContextMenu",value:function(){return this.options.enableContextMenu}},{key:"setEnableContextMenu",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.enableContextMenu=t,e||this.render()}},{key:"getContextMenuItems",value:function(){return this.options.contextMenuItems}},{key:"setContextMenuItems",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.contextMenuItems=t instanceof Array?t:[],e||this.render()}},{key:"getCustomDayRenderer",value:function(){return this.options.customDayRenderer}},{key:"setCustomDayRenderer",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.customDayRenderer="function"==typeof t?t:null,e||this.render()}},{key:"getCustomDataSourceRenderer",value:function(){return this.options.customDataSourceRenderer}},{key:"setCustomDataSourceRenderer",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.customDataSourceRenderer="function"==typeof t?t:null,e||this.render()}},{key:"getLanguage",value:function(){return this.options.language}},{key:"setLanguage",value:function(e){var n=arguments.length>1&&void 0!==arguments[1]&&arguments[1];null!=e&&null!=t.locales[e]&&(this.options.language=e,n||this.render())}},{key:"getDataSource",value:function(){return this.options.dataSource}},{key:"setDataSource",value:function(t){var e=this,n=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.dataSource=t instanceof Array||"function"==typeof t?t:[],"function"==typeof this.options.dataSource?(this.render(!0),this._fetchDataSource((function(t){e._dataSource=t,e._initializeDatasourceColors(),e.render(!1)}))):(this._dataSource=this.options.dataSource,this._initializeDatasourceColors(),n||this.render())}},{key:"getWeekStart",value:function(){return null!==this.options.weekStart?this.options.weekStart:t.locales[this.options.language].weekStart}},{key:"setWeekStart",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this.options.weekStart=isNaN(parseInt(t))?null:parseInt(t),e||this.render()}},{key:"getLoadingTemplate",value:function(){return this.options.loadingTemplate}},{key:"setLoadingTemplate",value:function(t){this.options.loadingTemplate="string"==typeof t||t instanceof HTMLElement?t:null}},{key:"addEvent",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]&&arguments[1];this._dataSource.push(t),e||this.render()}}]),t}();t.default=o,a(o,"locales",{en:{days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],daysShort:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],daysMin:["Su","Mo","Tu","We","Th","Fr","Sa"],months:["January","February","March","April","May","June","July","August","September","October","November","December"],monthsShort:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],weekShort:"W",weekStart:0}}),a(o,"colors",["#2C8FC9","#9CB703","#F5BB00","#FF4A32","#B56CE2","#45A597"]),"object"===("undefined"==typeof window?"undefined":e(window))&&(window.Calendar=o,document.addEventListener("DOMContentLoaded",(function(){document.querySelectorAll('[data-provide="calendar"]').forEach((function(t){return new o(t)}))})))},void 0===(i="function"==typeof n?n.apply(e,r):n)||(t.exports=i)},363:()=>{Calendar.locales.es={days:["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"],daysShort:["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"],daysMin:["Do","Lu","Ma","Mi","Ju","Vi","Sa"],months:["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],monthsShort:["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],weekShort:"S",weekStart:1}},379:(t,e,n)=>{"use strict";var r,i=function(){return void 0===r&&(r=Boolean(window&&document&&document.all&&!window.atob)),r},a=function(){var t={};return function(e){if(void 0===t[e]){var n=document.querySelector(e);if(window.HTMLIFrameElement&&n instanceof window.HTMLIFrameElement)try{n=n.contentDocument.head}catch(t){n=null}t[e]=n}return t[e]}}(),s=[];function o(t){for(var e=-1,n=0;n<s.length;n++)if(s[n].identifier===t){e=n;break}return e}function l(t,e){for(var n={},r=[],i=0;i<t.length;i++){var a=t[i],l=e.base?a[0]+e.base:a[0],u=n[l]||0,d="".concat(l," ").concat(u);n[l]=u+1;var c=o(d),h={css:a[1],media:a[2],sourceMap:a[3]};-1!==c?(s[c].references++,s[c].updater(h)):s.push({identifier:d,updater:g(h,e),references:1}),r.push(d)}return r}function u(t){var e=document.createElement("style"),r=t.attributes||{};if(void 0===r.nonce){var i=n.nc;i&&(r.nonce=i)}if(Object.keys(r).forEach((function(t){e.setAttribute(t,r[t])})),"function"==typeof t.insert)t.insert(e);else{var s=a(t.insert||"head");if(!s)throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");s.appendChild(e)}return e}var d,c=(d=[],function(t,e){return d[t]=e,d.filter(Boolean).join("\n")});function h(t,e,n,r){var i=n?"":r.media?"@media ".concat(r.media," {").concat(r.css,"}"):r.css;if(t.styleSheet)t.styleSheet.cssText=c(e,i);else{var a=document.createTextNode(i),s=t.childNodes;s[e]&&t.removeChild(s[e]),s.length?t.insertBefore(a,s[e]):t.appendChild(a)}}function f(t,e,n){var r=n.css,i=n.media,a=n.sourceMap;if(i?t.setAttribute("media",i):t.removeAttribute("media"),a&&"undefined"!=typeof btoa&&(r+="\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(a))))," */")),t.styleSheet)t.styleSheet.cssText=r;else{for(;t.firstChild;)t.removeChild(t.firstChild);t.appendChild(document.createTextNode(r))}}var p=null,m=0;function g(t,e){var n,r,i;if(e.singleton){var a=m++;n=p||(p=u(e)),r=h.bind(null,n,a,!1),i=h.bind(null,n,a,!0)}else n=u(e),r=f.bind(null,n,e),i=function(){!function(t){if(null===t.parentNode)return!1;t.parentNode.removeChild(t)}(n)};return r(t),function(e){if(e){if(e.css===t.css&&e.media===t.media&&e.sourceMap===t.sourceMap)return;r(t=e)}else i()}}t.exports=function(t,e){(e=e||{}).singleton||"boolean"==typeof e.singleton||(e.singleton=i());var n=l(t=t||[],e);return function(t){if(t=t||[],"[object Array]"===Object.prototype.toString.call(t)){for(var r=0;r<n.length;r++){var i=o(n[r]);s[i].references--}for(var a=l(t,e),u=0;u<n.length;u++){var d=o(n[u]);0===s[d].references&&(s[d].updater(),s.splice(d,1))}n=a}}}}},e={};function n(r){var i=e[r];if(void 0!==i)return i.exports;var a=e[r]={id:r,exports:{}};return t[r].call(a.exports,a,a.exports,n),a.exports}n.n=t=>{var e=t&&t.__esModule?()=>t.default:()=>t;return n.d(e,{a:e}),e},n.d=(t,e)=>{for(var r in e)n.o(e,r)&&!n.o(t,r)&&Object.defineProperty(t,r,{enumerable:!0,get:e[r]})},n.o=(t,e)=>Object.prototype.hasOwnProperty.call(t,e),n.nc=void 0,(()=>{"use strict";function t(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}function e(t,e){t.prototype=Object.create(e.prototype),t.prototype.constructor=t,t.__proto__=e}var r,i,a,s,o,l,u,d,c,h,f,p,m,g,_,v={autoSleep:120,force3D:"auto",nullTargetWarn:1,units:{lineHeight:""}},y={duration:.5,overwrite:!1,delay:0},b=1e8,D=1e-8,w=2*Math.PI,x=w/4,k=0,T=Math.sqrt,S=Math.cos,M=Math.sin,E=function(t){return"string"==typeof t},C=function(t){return"function"==typeof t},L=function(t){return"number"==typeof t},O=function(t){return void 0===t},A=function(t){return"object"==typeof t},I=function(t){return!1!==t},F=function(){return"undefined"!=typeof window},R=function(t){return C(t)||E(t)},Y="function"==typeof ArrayBuffer&&ArrayBuffer.isView||function(){},B=Array.isArray,P=/(?:-?\.?\d|\.)+/gi,z=/[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g,$=/[-+=.]*\d+[.e-]*\d*[a-z%]*/g,W=/[-+=.]*\d+\.?\d*(?:e-|e\+)?\d*/gi,H=/[+-]=-?[.\d]+/,q=/[^,'"\[\]\s]+/gi,N=/^[+\-=e\s\d]*\d+[.\d]*([a-z]*|%)\s*$/i,j={},U={},V=function(t){return(U=wt(t,j))&&kn},X=function(t,e){return console.warn("Invalid property",t,"set to",e,"Missing plugin? gsap.registerPlugin()")},J=function(t,e){return!e&&console.warn(t)},Z=function(t,e){return t&&(j[t]=e)&&U&&(U[t]=e)||j},G=function(){return 0},Q={suppressEvents:!0,isStart:!0,kill:!1},K={suppressEvents:!0,kill:!1},tt={suppressEvents:!0},et={},nt=[],rt={},it={},at={},st=30,ot=[],lt="",ut=function(t){var e,n,r=t[0];if(A(r)||C(r)||(t=[t]),!(e=(r._gsap||{}).harness)){for(n=ot.length;n--&&!ot[n].targetTest(r););e=ot[n]}for(n=t.length;n--;)t[n]&&(t[n]._gsap||(t[n]._gsap=new Be(t[n],e)))||t.splice(n,1);return t},dt=function(t){return t._gsap||ut(te(t))[0]._gsap},ct=function(t,e,n){return(n=t[e])&&C(n)?t[e]():O(n)&&t.getAttribute&&t.getAttribute(e)||n},ht=function(t,e){return(t=t.split(",")).forEach(e)||t},ft=function(t){return Math.round(1e5*t)/1e5||0},pt=function(t){return Math.round(1e7*t)/1e7||0},mt=function(t,e){var n=e.charAt(0),r=parseFloat(e.substr(2));return t=parseFloat(t),"+"===n?t+r:"-"===n?t-r:"*"===n?t*r:t/r},gt=function(t,e){for(var n=e.length,r=0;t.indexOf(e[r])<0&&++r<n;);return r<n},_t=function(){var t,e,n=nt.length,r=nt.slice(0);for(rt={},nt.length=0,t=0;t<n;t++)(e=r[t])&&e._lazy&&(e.render(e._lazy[0],e._lazy[1],!0)._lazy=0)},vt=function(t,e,n,r){nt.length&&!i&&_t(),t.render(e,n,r||i&&e<0&&(t._initted||t._startAt)),nt.length&&!i&&_t()},yt=function(t){var e=parseFloat(t);return(e||0===e)&&(t+"").match(q).length<2?e:E(t)?t.trim():t},bt=function(t){return t},Dt=function(t,e){for(var n in e)n in t||(t[n]=e[n]);return t},wt=function(t,e){for(var n in e)t[n]=e[n];return t},xt=function t(e,n){for(var r in n)"__proto__"!==r&&"constructor"!==r&&"prototype"!==r&&(e[r]=A(n[r])?t(e[r]||(e[r]={}),n[r]):n[r]);return e},kt=function(t,e){var n,r={};for(n in t)n in e||(r[n]=t[n]);return r},Tt=function(t){var e,n=t.parent||s,r=t.keyframes?(e=B(t.keyframes),function(t,n){for(var r in n)r in t||"duration"===r&&e||"ease"===r||(t[r]=n[r])}):Dt;if(I(t.inherit))for(;n;)r(t,n.vars.defaults),n=n.parent||n._dp;return t},St=function(t,e,n,r,i){void 0===n&&(n="_first"),void 0===r&&(r="_last");var a,s=t[r];if(i)for(a=e[i];s&&s[i]>a;)s=s._prev;return s?(e._next=s._next,s._next=e):(e._next=t[n],t[n]=e),e._next?e._next._prev=e:t[r]=e,e._prev=s,e.parent=e._dp=t,e},Mt=function(t,e,n,r){void 0===n&&(n="_first"),void 0===r&&(r="_last");var i=e._prev,a=e._next;i?i._next=a:t[n]===e&&(t[n]=a),a?a._prev=i:t[r]===e&&(t[r]=i),e._next=e._prev=e.parent=null},Et=function(t,e){t.parent&&(!e||t.parent.autoRemoveChildren)&&t.parent.remove&&t.parent.remove(t),t._act=0},Ct=function(t,e){if(t&&(!e||e._end>t._dur||e._start<0))for(var n=t;n;)n._dirty=1,n=n.parent;return t},Lt=function(t,e,n,r){return t._startAt&&(i?t._startAt.revert(K):t.vars.immediateRender&&!t.vars.autoRevert||t._startAt.render(e,!0,r))},Ot=function t(e){return!e||e._ts&&t(e.parent)},At=function(t){return t._repeat?It(t._tTime,t=t.duration()+t._rDelay)*t:0},It=function(t,e){var n=Math.floor(t/=e);return t&&n===t?n-1:n},Ft=function(t,e){return(t-e._start)*e._ts+(e._ts>=0?0:e._dirty?e.totalDuration():e._tDur)},Rt=function(t){return t._end=pt(t._start+(t._tDur/Math.abs(t._ts||t._rts||D)||0))},Yt=function(t,e){var n=t._dp;return n&&n.smoothChildTiming&&t._ts&&(t._start=pt(n._time-(t._ts>0?e/t._ts:((t._dirty?t.totalDuration():t._tDur)-e)/-t._ts)),Rt(t),n._dirty||Ct(n,t)),t},Bt=function(t,e){var n;if((e._time||!e._dur&&e._initted||e._start<t._time&&(e._dur||!e.add))&&(n=Ft(t.rawTime(),e),(!e._dur||Jt(0,e.totalDuration(),n)-e._tTime>D)&&e.render(n,!0)),Ct(t,e)._dp&&t._initted&&t._time>=t._dur&&t._ts){if(t._dur<t.duration())for(n=t;n._dp;)n.rawTime()>=0&&n.totalTime(n._tTime),n=n._dp;t._zTime=-1e-8}},Pt=function(t,e,n,r){return e.parent&&Et(e),e._start=pt((L(n)?n:n||t!==s?Ut(t,n,e):t._time)+e._delay),e._end=pt(e._start+(e.totalDuration()/Math.abs(e.timeScale())||0)),St(t,e,"_first","_last",t._sort?"_start":0),Ht(e)||(t._recent=e),r||Bt(t,e),t._ts<0&&Yt(t,t._tTime),t},zt=function(t,e){return(j.ScrollTrigger||X("scrollTrigger",e))&&j.ScrollTrigger.create(e,t)},$t=function(t,e,n,r,a){return je(t,e,a),t._initted?!n&&t._pt&&!i&&(t._dur&&!1!==t.vars.lazy||!t._dur&&t.vars.lazy)&&c!==ke.frame?(nt.push(t),t._lazy=[a,r],1):void 0:1},Wt=function t(e){var n=e.parent;return n&&n._ts&&n._initted&&!n._lock&&(n.rawTime()<0||t(n))},Ht=function(t){var e=t.data;return"isFromStart"===e||"isStart"===e},qt=function(t,e,n,r){var i=t._repeat,a=pt(e)||0,s=t._tTime/t._tDur;return s&&!r&&(t._time*=a/t._dur),t._dur=a,t._tDur=i?i<0?1e10:pt(a*(i+1)+t._rDelay*i):a,s>0&&!r&&Yt(t,t._tTime=t._tDur*s),t.parent&&Rt(t),n||Ct(t.parent,t),t},Nt=function(t){return t instanceof ze?Ct(t):qt(t,t._dur)},jt={_start:0,endTime:G,totalDuration:G},Ut=function t(e,n,r){var i,a,s,o=e.labels,l=e._recent||jt,u=e.duration()>=b?l.endTime(!1):e._dur;return E(n)&&(isNaN(n)||n in o)?(a=n.charAt(0),s="%"===n.substr(-1),i=n.indexOf("="),"<"===a||">"===a?(i>=0&&(n=n.replace(/=/,"")),("<"===a?l._start:l.endTime(l._repeat>=0))+(parseFloat(n.substr(1))||0)*(s?(i<0?l:r).totalDuration()/100:1)):i<0?(n in o||(o[n]=u),o[n]):(a=parseFloat(n.charAt(i-1)+n.substr(i+1)),s&&r&&(a=a/100*(B(r)?r[0]:r).totalDuration()),i>1?t(e,n.substr(0,i-1),r)+a:u+a)):null==n?u:+n},Vt=function(t,e,n){var r,i,a=L(e[1]),s=(a?2:1)+(t<2?0:1),o=e[s];if(a&&(o.duration=e[1]),o.parent=n,t){for(r=o,i=n;i&&!("immediateRender"in r);)r=i.vars.defaults||{},i=I(i.vars.inherit)&&i.parent;o.immediateRender=I(r.immediateRender),t<2?o.runBackwards=1:o.startAt=e[s-1]}return new Ze(e[0],o,e[s+1])},Xt=function(t,e){return t||0===t?e(t):e},Jt=function(t,e,n){return n<t?t:n>e?e:n},Zt=function(t,e){return E(t)&&(e=N.exec(t))?e[1]:""},Gt=[].slice,Qt=function(t,e){return t&&A(t)&&"length"in t&&(!e&&!t.length||t.length-1 in t&&A(t[0]))&&!t.nodeType&&t!==o},Kt=function(t,e,n){return void 0===n&&(n=[]),t.forEach((function(t){var r;return E(t)&&!e||Qt(t,1)?(r=n).push.apply(r,te(t)):n.push(t)}))||n},te=function(t,e,n){return a&&!e&&a.selector?a.selector(t):!E(t)||n||!l&&Te()?B(t)?Kt(t,n):Qt(t)?Gt.call(t,0):t?[t]:[]:Gt.call((e||u).querySelectorAll(t),0)},ee=function(t){return t=te(t)[0]||J("Invalid scope")||{},function(e){var n=t.current||t.nativeElement||t;return te(e,n.querySelectorAll?n:n===t?J("Invalid scope")||u.createElement("div"):t)}},ne=function(t){return t.sort((function(){return.5-Math.random()}))},re=function(t){if(C(t))return t;var e=A(t)?t:{each:t},n=Ae(e.ease),r=e.from||0,i=parseFloat(e.base)||0,a={},s=r>0&&r<1,o=isNaN(r)||s,l=e.axis,u=r,d=r;return E(r)?u=d={center:.5,edges:.5,end:1}[r]||0:!s&&o&&(u=r[0],d=r[1]),function(t,s,c){var h,f,p,m,g,_,v,y,D,w=(c||e).length,x=a[w];if(!x){if(!(D="auto"===e.grid?0:(e.grid||[1,b])[1])){for(v=-b;v<(v=c[D++].getBoundingClientRect().left)&&D<w;);D<w&&D--}for(x=a[w]=[],h=o?Math.min(D,w)*u-.5:r%D,f=D===b?0:o?w*d/D-.5:r/D|0,v=0,y=b,_=0;_<w;_++)p=_%D-h,m=f-(_/D|0),x[_]=g=l?Math.abs("y"===l?m:p):T(p*p+m*m),g>v&&(v=g),g<y&&(y=g);"random"===r&&ne(x),x.max=v-y,x.min=y,x.v=w=(parseFloat(e.amount)||parseFloat(e.each)*(D>w?w-1:l?"y"===l?w/D:D:Math.max(D,w/D))||0)*("edges"===r?-1:1),x.b=w<0?i-w:i,x.u=Zt(e.amount||e.each)||0,n=n&&w<0?Le(n):n}return w=(x[t]-x.min)/x.max||0,pt(x.b+(n?n(w):w)*x.v)+x.u}},ie=function(t){var e=Math.pow(10,((t+"").split(".")[1]||"").length);return function(n){var r=pt(Math.round(parseFloat(n)/t)*t*e);return(r-r%1)/e+(L(n)?0:Zt(n))}},ae=function(t,e){var n,r,i=B(t);return!i&&A(t)&&(n=i=t.radius||b,t.values?(t=te(t.values),(r=!L(t[0]))&&(n*=n)):t=ie(t.increment)),Xt(e,i?C(t)?function(e){return r=t(e),Math.abs(r-e)<=n?r:e}:function(e){for(var i,a,s=parseFloat(r?e.x:e),o=parseFloat(r?e.y:0),l=b,u=0,d=t.length;d--;)(i=r?(i=t[d].x-s)*i+(a=t[d].y-o)*a:Math.abs(t[d]-s))<l&&(l=i,u=d);return u=!n||l<=n?t[u]:e,r||u===e||L(e)?u:u+Zt(e)}:ie(t))},se=function(t,e,n,r){return Xt(B(t)?!e:!0===n?!!(n=0):!r,(function(){return B(t)?t[~~(Math.random()*t.length)]:(n=n||1e-5)&&(r=n<1?Math.pow(10,(n+"").length-2):1)&&Math.floor(Math.round((t-n/2+Math.random()*(e-t+.99*n))/n)*n*r)/r}))},oe=function(t,e,n){return Xt(n,(function(n){return t[~~e(n)]}))},le=function(t){for(var e,n,r,i,a=0,s="";~(e=t.indexOf("random(",a));)r=t.indexOf(")",e),i="["===t.charAt(e+7),n=t.substr(e+7,r-e-7).match(i?q:P),s+=t.substr(a,e-a)+se(i?n:+n[0],i?0:+n[1],+n[2]||1e-5),a=r+1;return s+t.substr(a,t.length-a)},ue=function(t,e,n,r,i){var a=e-t,s=r-n;return Xt(i,(function(e){return n+((e-t)/a*s||0)}))},de=function(t,e,n){var r,i,a,s=t.labels,o=b;for(r in s)(i=s[r]-e)<0==!!n&&i&&o>(i=Math.abs(i))&&(a=r,o=i);return a},ce=function(t,e,n){var r,i,s,o=t.vars,l=o[e],u=a,d=t._ctx;if(l)return r=o[e+"Params"],i=o.callbackScope||t,n&&nt.length&&_t(),d&&(a=d),s=r?l.apply(i,r):l.call(i),a=u,s},he=function(t){return Et(t),t.scrollTrigger&&t.scrollTrigger.kill(!!i),t.progress()<1&&ce(t,"onInterrupt"),t},fe=[],pe=function(t){if(t)if(t=!t.name&&t.default||t,F()||t.headless){var e=t.name,n=C(t),r=e&&!n&&t.init?function(){this._props=[]}:t,i={init:G,render:sn,add:qe,kill:ln,modifier:on,rawVars:0},a={targetTest:0,get:0,getSetter:en,aliases:{},register:0};if(Te(),t!==r){if(it[e])return;Dt(r,Dt(kt(t,i),a)),wt(r.prototype,wt(i,kt(t,a))),it[r.prop=e]=r,t.targetTest&&(ot.push(r),et[e]=1),e=("css"===e?"CSS":e.charAt(0).toUpperCase()+e.substr(1))+"Plugin"}Z(e,r),t.register&&t.register(kn,r,cn)}else fe.push(t)},me=255,ge={aqua:[0,me,me],lime:[0,me,0],silver:[192,192,192],black:[0,0,0],maroon:[128,0,0],teal:[0,128,128],blue:[0,0,me],navy:[0,0,128],white:[me,me,me],olive:[128,128,0],yellow:[me,me,0],orange:[me,165,0],gray:[128,128,128],purple:[128,0,128],green:[0,128,0],red:[me,0,0],pink:[me,192,203],cyan:[0,me,me],transparent:[me,me,me,0]},_e=function(t,e,n){return(6*(t+=t<0?1:t>1?-1:0)<1?e+(n-e)*t*6:t<.5?n:3*t<2?e+(n-e)*(2/3-t)*6:e)*me+.5|0},ve=function(t,e,n){var r,i,a,s,o,l,u,d,c,h,f=t?L(t)?[t>>16,t>>8&me,t&me]:0:ge.black;if(!f){if(","===t.substr(-1)&&(t=t.substr(0,t.length-1)),ge[t])f=ge[t];else if("#"===t.charAt(0)){if(t.length<6&&(r=t.charAt(1),i=t.charAt(2),a=t.charAt(3),t="#"+r+r+i+i+a+a+(5===t.length?t.charAt(4)+t.charAt(4):"")),9===t.length)return[(f=parseInt(t.substr(1,6),16))>>16,f>>8&me,f&me,parseInt(t.substr(7),16)/255];f=[(t=parseInt(t.substr(1),16))>>16,t>>8&me,t&me]}else if("hsl"===t.substr(0,3))if(f=h=t.match(P),e){if(~t.indexOf("="))return f=t.match(z),n&&f.length<4&&(f[3]=1),f}else s=+f[0]%360/360,o=+f[1]/100,r=2*(l=+f[2]/100)-(i=l<=.5?l*(o+1):l+o-l*o),f.length>3&&(f[3]*=1),f[0]=_e(s+1/3,r,i),f[1]=_e(s,r,i),f[2]=_e(s-1/3,r,i);else f=t.match(P)||ge.transparent;f=f.map(Number)}return e&&!h&&(r=f[0]/me,i=f[1]/me,a=f[2]/me,l=((u=Math.max(r,i,a))+(d=Math.min(r,i,a)))/2,u===d?s=o=0:(c=u-d,o=l>.5?c/(2-u-d):c/(u+d),s=u===r?(i-a)/c+(i<a?6:0):u===i?(a-r)/c+2:(r-i)/c+4,s*=60),f[0]=~~(s+.5),f[1]=~~(100*o+.5),f[2]=~~(100*l+.5)),n&&f.length<4&&(f[3]=1),f},ye=function(t){var e=[],n=[],r=-1;return t.split(De).forEach((function(t){var i=t.match($)||[];e.push.apply(e,i),n.push(r+=i.length+1)})),e.c=n,e},be=function(t,e,n){var r,i,a,s,o="",l=(t+o).match(De),u=e?"hsla(":"rgba(",d=0;if(!l)return t;if(l=l.map((function(t){return(t=ve(t,e,1))&&u+(e?t[0]+","+t[1]+"%,"+t[2]+"%,"+t[3]:t.join(","))+")"})),n&&(a=ye(t),(r=n.c).join(o)!==a.c.join(o)))for(s=(i=t.replace(De,"1").split($)).length-1;d<s;d++)o+=i[d]+(~r.indexOf(d)?l.shift()||u+"0,0,0,0)":(a.length?a:l.length?l:n).shift());if(!i)for(s=(i=t.split(De)).length-1;d<s;d++)o+=i[d]+l[d];return o+i[s]},De=function(){var t,e="(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3,4}){1,2}\\b";for(t in ge)e+="|"+t+"\\b";return new RegExp(e+")","gi")}(),we=/hsl[a]?\(/,xe=function(t){var e,n=t.join(" ");if(De.lastIndex=0,De.test(n))return e=we.test(n),t[1]=be(t[1],e),t[0]=be(t[0],e,ye(t[1])),!0},ke=function(){var t,e,n,r,i,a,s=Date.now,c=500,h=33,p=s(),m=p,g=1e3/240,_=g,v=[],y=function n(o){var l,u,d,f,y=s()-m,b=!0===o;if((y>c||y<0)&&(p+=y-h),((l=(d=(m+=y)-p)-_)>0||b)&&(f=++r.frame,i=d-1e3*r.time,r.time=d/=1e3,_+=l+(l>=g?4:g-l),u=1),b||(t=e(n)),u)for(a=0;a<v.length;a++)v[a](d,i,f,o)};return r={time:0,frame:0,tick:function(){y(!0)},deltaRatio:function(t){return i/(1e3/(t||60))},wake:function(){d&&(!l&&F()&&(o=l=window,u=o.document||{},j.gsap=kn,(o.gsapVersions||(o.gsapVersions=[])).push(kn.version),V(U||o.GreenSockGlobals||!o.gsap&&o||{}),fe.forEach(pe)),n="undefined"!=typeof requestAnimationFrame&&requestAnimationFrame,t&&r.sleep(),e=n||function(t){return setTimeout(t,_-1e3*r.time+1|0)},f=1,y(2))},sleep:function(){(n?cancelAnimationFrame:clearTimeout)(t),f=0,e=G},lagSmoothing:function(t,e){c=t||1/0,h=Math.min(e||33,c)},fps:function(t){g=1e3/(t||240),_=1e3*r.time+g},add:function(t,e,n){var i=e?function(e,n,a,s){t(e,n,a,s),r.remove(i)}:t;return r.remove(t),v[n?"unshift":"push"](i),Te(),i},remove:function(t,e){~(e=v.indexOf(t))&&v.splice(e,1)&&a>=e&&a--},_listeners:v}}(),Te=function(){return!f&&ke.wake()},Se={},Me=/^[\d.\-M][\d.\-,\s]/,Ee=/["']/g,Ce=function(t){for(var e,n,r,i={},a=t.substr(1,t.length-3).split(":"),s=a[0],o=1,l=a.length;o<l;o++)n=a[o],e=o!==l-1?n.lastIndexOf(","):n.length,r=n.substr(0,e),i[s]=isNaN(r)?r.replace(Ee,"").trim():+r,s=n.substr(e+1).trim();return i},Le=function(t){return function(e){return 1-t(1-e)}},Oe=function t(e,n){for(var r,i=e._first;i;)i instanceof ze?t(i,n):!i.vars.yoyoEase||i._yoyo&&i._repeat||i._yoyo===n||(i.timeline?t(i.timeline,n):(r=i._ease,i._ease=i._yEase,i._yEase=r,i._yoyo=n)),i=i._next},Ae=function(t,e){return t&&(C(t)?t:Se[t]||function(t){var e,n,r,i,a=(t+"").split("("),s=Se[a[0]];return s&&a.length>1&&s.config?s.config.apply(null,~t.indexOf("{")?[Ce(a[1])]:(e=t,n=e.indexOf("(")+1,r=e.indexOf(")"),i=e.indexOf("(",n),e.substring(n,~i&&i<r?e.indexOf(")",r+1):r)).split(",").map(yt)):Se._CE&&Me.test(t)?Se._CE("",t):s}(t))||e},Ie=function(t,e,n,r){void 0===n&&(n=function(t){return 1-e(1-t)}),void 0===r&&(r=function(t){return t<.5?e(2*t)/2:1-e(2*(1-t))/2});var i,a={easeIn:e,easeOut:n,easeInOut:r};return ht(t,(function(t){for(var e in Se[t]=j[t]=a,Se[i=t.toLowerCase()]=n,a)Se[i+("easeIn"===e?".in":"easeOut"===e?".out":".inOut")]=Se[t+"."+e]=a[e]})),a},Fe=function(t){return function(e){return e<.5?(1-t(1-2*e))/2:.5+t(2*(e-.5))/2}},Re=function t(e,n,r){var i=n>=1?n:1,a=(r||(e?.3:.45))/(n<1?n:1),s=a/w*(Math.asin(1/i)||0),o=function(t){return 1===t?1:i*Math.pow(2,-10*t)*M((t-s)*a)+1},l="out"===e?o:"in"===e?function(t){return 1-o(1-t)}:Fe(o);return a=w/a,l.config=function(n,r){return t(e,n,r)},l},Ye=function t(e,n){void 0===n&&(n=1.70158);var r=function(t){return t?--t*t*((n+1)*t+n)+1:0},i="out"===e?r:"in"===e?function(t){return 1-r(1-t)}:Fe(r);return i.config=function(n){return t(e,n)},i};ht("Linear,Quad,Cubic,Quart,Quint,Strong",(function(t,e){var n=e<5?e+1:e;Ie(t+",Power"+(n-1),e?function(t){return Math.pow(t,n)}:function(t){return t},(function(t){return 1-Math.pow(1-t,n)}),(function(t){return t<.5?Math.pow(2*t,n)/2:1-Math.pow(2*(1-t),n)/2}))})),Se.Linear.easeNone=Se.none=Se.Linear.easeIn,Ie("Elastic",Re("in"),Re("out"),Re()),p=7.5625,g=1/(m=2.75),Ie("Bounce",(function(t){return 1-_(1-t)}),_=function(t){return t<g?p*t*t:t<.7272727272727273?p*Math.pow(t-1.5/m,2)+.75:t<.9090909090909092?p*(t-=2.25/m)*t+.9375:p*Math.pow(t-2.625/m,2)+.984375}),Ie("Expo",(function(t){return t?Math.pow(2,10*(t-1)):0})),Ie("Circ",(function(t){return-(T(1-t*t)-1)})),Ie("Sine",(function(t){return 1===t?1:1-S(t*x)})),Ie("Back",Ye("in"),Ye("out"),Ye()),Se.SteppedEase=Se.steps=j.SteppedEase={config:function(t,e){void 0===t&&(t=1);var n=1/t,r=t+(e?0:1),i=e?1:0;return function(t){return((r*Jt(0,.99999999,t)|0)+i)*n}}},y.ease=Se["quad.out"],ht("onComplete,onUpdate,onStart,onRepeat,onReverseComplete,onInterrupt",(function(t){return lt+=t+","+t+"Params,"}));var Be=function(t,e){this.id=k++,t._gsap=this,this.target=t,this.harness=e,this.get=e?e.get:ct,this.set=e?e.getSetter:en},Pe=function(){function t(t){this.vars=t,this._delay=+t.delay||0,(this._repeat=t.repeat===1/0?-2:t.repeat||0)&&(this._rDelay=t.repeatDelay||0,this._yoyo=!!t.yoyo||!!t.yoyoEase),this._ts=1,qt(this,+t.duration,1,1),this.data=t.data,a&&(this._ctx=a,a.data.push(this)),f||ke.wake()}var e=t.prototype;return e.delay=function(t){return t||0===t?(this.parent&&this.parent.smoothChildTiming&&this.startTime(this._start+t-this._delay),this._delay=t,this):this._delay},e.duration=function(t){return arguments.length?this.totalDuration(this._repeat>0?t+(t+this._rDelay)*this._repeat:t):this.totalDuration()&&this._dur},e.totalDuration=function(t){return arguments.length?(this._dirty=0,qt(this,this._repeat<0?t:(t-this._repeat*this._rDelay)/(this._repeat+1))):this._tDur},e.totalTime=function(t,e){if(Te(),!arguments.length)return this._tTime;var n=this._dp;if(n&&n.smoothChildTiming&&this._ts){for(Yt(this,t),!n._dp||n.parent||Bt(n,this);n&&n.parent;)n.parent._time!==n._start+(n._ts>=0?n._tTime/n._ts:(n.totalDuration()-n._tTime)/-n._ts)&&n.totalTime(n._tTime,!0),n=n.parent;!this.parent&&this._dp.autoRemoveChildren&&(this._ts>0&&t<this._tDur||this._ts<0&&t>0||!this._tDur&&!t)&&Pt(this._dp,this,this._start-this._delay)}return(this._tTime!==t||!this._dur&&!e||this._initted&&Math.abs(this._zTime)===D||!t&&!this._initted&&(this.add||this._ptLookup))&&(this._ts||(this._pTime=t),vt(this,t,e)),this},e.time=function(t,e){return arguments.length?this.totalTime(Math.min(this.totalDuration(),t+At(this))%(this._dur+this._rDelay)||(t?this._dur:0),e):this._time},e.totalProgress=function(t,e){return arguments.length?this.totalTime(this.totalDuration()*t,e):this.totalDuration()?Math.min(1,this._tTime/this._tDur):this.rawTime()>0?1:0},e.progress=function(t,e){return arguments.length?this.totalTime(this.duration()*(!this._yoyo||1&this.iteration()?t:1-t)+At(this),e):this.duration()?Math.min(1,this._time/this._dur):this.rawTime()>0?1:0},e.iteration=function(t,e){var n=this.duration()+this._rDelay;return arguments.length?this.totalTime(this._time+(t-1)*n,e):this._repeat?It(this._tTime,n)+1:1},e.timeScale=function(t,e){if(!arguments.length)return-1e-8===this._rts?0:this._rts;if(this._rts===t)return this;var n=this.parent&&this._ts?Ft(this.parent._time,this):this._tTime;return this._rts=+t||0,this._ts=this._ps||-1e-8===t?0:this._rts,this.totalTime(Jt(-Math.abs(this._delay),this._tDur,n),!1!==e),Rt(this),function(t){for(var e=t.parent;e&&e.parent;)e._dirty=1,e.totalDuration(),e=e.parent;return t}(this)},e.paused=function(t){return arguments.length?(this._ps!==t&&(this._ps=t,t?(this._pTime=this._tTime||Math.max(-this._delay,this.rawTime()),this._ts=this._act=0):(Te(),this._ts=this._rts,this.totalTime(this.parent&&!this.parent.smoothChildTiming?this.rawTime():this._tTime||this._pTime,1===this.progress()&&Math.abs(this._zTime)!==D&&(this._tTime-=D)))),this):this._ps},e.startTime=function(t){if(arguments.length){this._start=t;var e=this.parent||this._dp;return e&&(e._sort||!this.parent)&&Pt(e,this,t-this._delay),this}return this._start},e.endTime=function(t){return this._start+(I(t)?this.totalDuration():this.duration())/Math.abs(this._ts||1)},e.rawTime=function(t){var e=this.parent||this._dp;return e?t&&(!this._ts||this._repeat&&this._time&&this.totalProgress()<1)?this._tTime%(this._dur+this._rDelay):this._ts?Ft(e.rawTime(t),this):this._tTime:this._tTime},e.revert=function(t){void 0===t&&(t=tt);var e=i;return i=t,(this._initted||this._startAt)&&(this.timeline&&this.timeline.revert(t),this.totalTime(-.01,t.suppressEvents)),"nested"!==this.data&&!1!==t.kill&&this.kill(),i=e,this},e.globalTime=function(t){for(var e=this,n=arguments.length?t:e.rawTime();e;)n=e._start+n/(Math.abs(e._ts)||1),e=e._dp;return!this.parent&&this._sat?this._sat.globalTime(t):n},e.repeat=function(t){return arguments.length?(this._repeat=t===1/0?-2:t,Nt(this)):-2===this._repeat?1/0:this._repeat},e.repeatDelay=function(t){if(arguments.length){var e=this._time;return this._rDelay=t,Nt(this),e?this.time(e):this}return this._rDelay},e.yoyo=function(t){return arguments.length?(this._yoyo=t,this):this._yoyo},e.seek=function(t,e){return this.totalTime(Ut(this,t),I(e))},e.restart=function(t,e){return this.play().totalTime(t?-this._delay:0,I(e))},e.play=function(t,e){return null!=t&&this.seek(t,e),this.reversed(!1).paused(!1)},e.reverse=function(t,e){return null!=t&&this.seek(t||this.totalDuration(),e),this.reversed(!0).paused(!1)},e.pause=function(t,e){return null!=t&&this.seek(t,e),this.paused(!0)},e.resume=function(){return this.paused(!1)},e.reversed=function(t){return arguments.length?(!!t!==this.reversed()&&this.timeScale(-this._rts||(t?-1e-8:0)),this):this._rts<0},e.invalidate=function(){return this._initted=this._act=0,this._zTime=-1e-8,this},e.isActive=function(){var t,e=this.parent||this._dp,n=this._start;return!(e&&!(this._ts&&this._initted&&e.isActive()&&(t=e.rawTime(!0))>=n&&t<this.endTime(!0)-D))},e.eventCallback=function(t,e,n){var r=this.vars;return arguments.length>1?(e?(r[t]=e,n&&(r[t+"Params"]=n),"onUpdate"===t&&(this._onUpdate=e)):delete r[t],this):r[t]},e.then=function(t){var e=this;return new Promise((function(n){var r=C(t)?t:bt,i=function(){var t=e.then;e.then=null,C(r)&&(r=r(e))&&(r.then||r===e)&&(e.then=t),n(r),e.then=t};e._initted&&1===e.totalProgress()&&e._ts>=0||!e._tTime&&e._ts<0?i():e._prom=i}))},e.kill=function(){he(this)},t}();Dt(Pe.prototype,{_time:0,_start:0,_end:0,_tTime:0,_tDur:0,_dirty:0,_repeat:0,_yoyo:!1,parent:null,_initted:!1,_rDelay:0,_ts:1,_dp:0,ratio:0,_zTime:-1e-8,_prom:0,_ps:!1,_rts:1});var ze=function(n){function r(e,r){var i;return void 0===e&&(e={}),(i=n.call(this,e)||this).labels={},i.smoothChildTiming=!!e.smoothChildTiming,i.autoRemoveChildren=!!e.autoRemoveChildren,i._sort=I(e.sortChildren),s&&Pt(e.parent||s,t(i),r),e.reversed&&i.reverse(),e.paused&&i.paused(!0),e.scrollTrigger&&zt(t(i),e.scrollTrigger),i}e(r,n);var a=r.prototype;return a.to=function(t,e,n){return Vt(0,arguments,this),this},a.from=function(t,e,n){return Vt(1,arguments,this),this},a.fromTo=function(t,e,n,r){return Vt(2,arguments,this),this},a.set=function(t,e,n){return e.duration=0,e.parent=this,Tt(e).repeatDelay||(e.repeat=0),e.immediateRender=!!e.immediateRender,new Ze(t,e,Ut(this,n),1),this},a.call=function(t,e,n){return Pt(this,Ze.delayedCall(0,t,e),n)},a.staggerTo=function(t,e,n,r,i,a,s){return n.duration=e,n.stagger=n.stagger||r,n.onComplete=a,n.onCompleteParams=s,n.parent=this,new Ze(t,n,Ut(this,i)),this},a.staggerFrom=function(t,e,n,r,i,a,s){return n.runBackwards=1,Tt(n).immediateRender=I(n.immediateRender),this.staggerTo(t,e,n,r,i,a,s)},a.staggerFromTo=function(t,e,n,r,i,a,s,o){return r.startAt=n,Tt(r).immediateRender=I(r.immediateRender),this.staggerTo(t,e,r,i,a,s,o)},a.render=function(t,e,n){var r,a,o,l,u,d,c,h,f,p,m,g,_=this._time,v=this._dirty?this.totalDuration():this._tDur,y=this._dur,b=t<=0?0:pt(t),w=this._zTime<0!=t<0&&(this._initted||!y);if(this!==s&&b>v&&t>=0&&(b=v),b!==this._tTime||n||w){if(_!==this._time&&y&&(b+=this._time-_,t+=this._time-_),r=b,f=this._start,d=!(h=this._ts),w&&(y||(_=this._zTime),(t||!e)&&(this._zTime=t)),this._repeat){if(m=this._yoyo,u=y+this._rDelay,this._repeat<-1&&t<0)return this.totalTime(100*u+t,e,n);if(r=pt(b%u),b===v?(l=this._repeat,r=y):((l=~~(b/u))&&l===b/u&&(r=y,l--),r>y&&(r=y)),p=It(this._tTime,u),!_&&this._tTime&&p!==l&&this._tTime-p*u-this._dur<=0&&(p=l),m&&1&l&&(r=y-r,g=1),l!==p&&!this._lock){var x=m&&1&p,k=x===(m&&1&l);if(l<p&&(x=!x),_=x?0:b%y?y:b,this._lock=1,this.render(_||(g?0:pt(l*u)),e,!y)._lock=0,this._tTime=b,!e&&this.parent&&ce(this,"onRepeat"),this.vars.repeatRefresh&&!g&&(this.invalidate()._lock=1),_&&_!==this._time||d!==!this._ts||this.vars.onRepeat&&!this.parent&&!this._act)return this;if(y=this._dur,v=this._tDur,k&&(this._lock=2,_=x?y:-1e-4,this.render(_,!0),this.vars.repeatRefresh&&!g&&this.invalidate()),this._lock=0,!this._ts&&!d)return this;Oe(this,g)}}if(this._hasPause&&!this._forcing&&this._lock<2&&(c=function(t,e,n){var r;if(n>e)for(r=t._first;r&&r._start<=n;){if("isPause"===r.data&&r._start>e)return r;r=r._next}else for(r=t._last;r&&r._start>=n;){if("isPause"===r.data&&r._start<e)return r;r=r._prev}}(this,pt(_),pt(r)),c&&(b-=r-(r=c._start))),this._tTime=b,this._time=r,this._act=!h,this._initted||(this._onUpdate=this.vars.onUpdate,this._initted=1,this._zTime=t,_=0),!_&&r&&!e&&!l&&(ce(this,"onStart"),this._tTime!==b))return this;if(r>=_&&t>=0)for(a=this._first;a;){if(o=a._next,(a._act||r>=a._start)&&a._ts&&c!==a){if(a.parent!==this)return this.render(t,e,n);if(a.render(a._ts>0?(r-a._start)*a._ts:(a._dirty?a.totalDuration():a._tDur)+(r-a._start)*a._ts,e,n),r!==this._time||!this._ts&&!d){c=0,o&&(b+=this._zTime=-1e-8);break}}a=o}else{a=this._last;for(var T=t<0?t:r;a;){if(o=a._prev,(a._act||T<=a._end)&&a._ts&&c!==a){if(a.parent!==this)return this.render(t,e,n);if(a.render(a._ts>0?(T-a._start)*a._ts:(a._dirty?a.totalDuration():a._tDur)+(T-a._start)*a._ts,e,n||i&&(a._initted||a._startAt)),r!==this._time||!this._ts&&!d){c=0,o&&(b+=this._zTime=T?-1e-8:D);break}}a=o}}if(c&&!e&&(this.pause(),c.render(r>=_?0:-1e-8)._zTime=r>=_?1:-1,this._ts))return this._start=f,Rt(this),this.render(t,e,n);this._onUpdate&&!e&&ce(this,"onUpdate",!0),(b===v&&this._tTime>=this.totalDuration()||!b&&_)&&(f!==this._start&&Math.abs(h)===Math.abs(this._ts)||this._lock||((t||!y)&&(b===v&&this._ts>0||!b&&this._ts<0)&&Et(this,1),e||t<0&&!_||!b&&!_&&v||(ce(this,b===v&&t>=0?"onComplete":"onReverseComplete",!0),this._prom&&!(b<v&&this.timeScale()>0)&&this._prom())))}return this},a.add=function(t,e){var n=this;if(L(e)||(e=Ut(this,e,t)),!(t instanceof Pe)){if(B(t))return t.forEach((function(t){return n.add(t,e)})),this;if(E(t))return this.addLabel(t,e);if(!C(t))return this;t=Ze.delayedCall(0,t)}return this!==t?Pt(this,t,e):this},a.getChildren=function(t,e,n,r){void 0===t&&(t=!0),void 0===e&&(e=!0),void 0===n&&(n=!0),void 0===r&&(r=-b);for(var i=[],a=this._first;a;)a._start>=r&&(a instanceof Ze?e&&i.push(a):(n&&i.push(a),t&&i.push.apply(i,a.getChildren(!0,e,n)))),a=a._next;return i},a.getById=function(t){for(var e=this.getChildren(1,1,1),n=e.length;n--;)if(e[n].vars.id===t)return e[n]},a.remove=function(t){return E(t)?this.removeLabel(t):C(t)?this.killTweensOf(t):(Mt(this,t),t===this._recent&&(this._recent=this._last),Ct(this))},a.totalTime=function(t,e){return arguments.length?(this._forcing=1,!this._dp&&this._ts&&(this._start=pt(ke.time-(this._ts>0?t/this._ts:(this.totalDuration()-t)/-this._ts))),n.prototype.totalTime.call(this,t,e),this._forcing=0,this):this._tTime},a.addLabel=function(t,e){return this.labels[t]=Ut(this,e),this},a.removeLabel=function(t){return delete this.labels[t],this},a.addPause=function(t,e,n){var r=Ze.delayedCall(0,e||G,n);return r.data="isPause",this._hasPause=1,Pt(this,r,Ut(this,t))},a.removePause=function(t){var e=this._first;for(t=Ut(this,t);e;)e._start===t&&"isPause"===e.data&&Et(e),e=e._next},a.killTweensOf=function(t,e,n){for(var r=this.getTweensOf(t,n),i=r.length;i--;)$e!==r[i]&&r[i].kill(t,e);return this},a.getTweensOf=function(t,e){for(var n,r=[],i=te(t),a=this._first,s=L(e);a;)a instanceof Ze?gt(a._targets,i)&&(s?(!$e||a._initted&&a._ts)&&a.globalTime(0)<=e&&a.globalTime(a.totalDuration())>e:!e||a.isActive())&&r.push(a):(n=a.getTweensOf(i,e)).length&&r.push.apply(r,n),a=a._next;return r},a.tweenTo=function(t,e){e=e||{};var n,r=this,i=Ut(r,t),a=e,s=a.startAt,o=a.onStart,l=a.onStartParams,u=a.immediateRender,d=Ze.to(r,Dt({ease:e.ease||"none",lazy:!1,immediateRender:!1,time:i,overwrite:"auto",duration:e.duration||Math.abs((i-(s&&"time"in s?s.time:r._time))/r.timeScale())||D,onStart:function(){if(r.pause(),!n){var t=e.duration||Math.abs((i-(s&&"time"in s?s.time:r._time))/r.timeScale());d._dur!==t&&qt(d,t,0,1).render(d._time,!0,!0),n=1}o&&o.apply(d,l||[])}},e));return u?d.render(0):d},a.tweenFromTo=function(t,e,n){return this.tweenTo(e,Dt({startAt:{time:Ut(this,t)}},n))},a.recent=function(){return this._recent},a.nextLabel=function(t){return void 0===t&&(t=this._time),de(this,Ut(this,t))},a.previousLabel=function(t){return void 0===t&&(t=this._time),de(this,Ut(this,t),1)},a.currentLabel=function(t){return arguments.length?this.seek(t,!0):this.previousLabel(this._time+D)},a.shiftChildren=function(t,e,n){void 0===n&&(n=0);for(var r,i=this._first,a=this.labels;i;)i._start>=n&&(i._start+=t,i._end+=t),i=i._next;if(e)for(r in a)a[r]>=n&&(a[r]+=t);return Ct(this)},a.invalidate=function(t){var e=this._first;for(this._lock=0;e;)e.invalidate(t),e=e._next;return n.prototype.invalidate.call(this,t)},a.clear=function(t){void 0===t&&(t=!0);for(var e,n=this._first;n;)e=n._next,this.remove(n),n=e;return this._dp&&(this._time=this._tTime=this._pTime=0),t&&(this.labels={}),Ct(this)},a.totalDuration=function(t){var e,n,r,i=0,a=this,o=a._last,l=b;if(arguments.length)return a.timeScale((a._repeat<0?a.duration():a.totalDuration())/(a.reversed()?-t:t));if(a._dirty){for(r=a.parent;o;)e=o._prev,o._dirty&&o.totalDuration(),(n=o._start)>l&&a._sort&&o._ts&&!a._lock?(a._lock=1,Pt(a,o,n-o._delay,1)._lock=0):l=n,n<0&&o._ts&&(i-=n,(!r&&!a._dp||r&&r.smoothChildTiming)&&(a._start+=n/a._ts,a._time-=n,a._tTime-=n),a.shiftChildren(-n,!1,-Infinity),l=0),o._end>i&&o._ts&&(i=o._end),o=e;qt(a,a===s&&a._time>i?a._time:i,1,1),a._dirty=0}return a._tDur},r.updateRoot=function(t){if(s._ts&&(vt(s,Ft(t,s)),c=ke.frame),ke.frame>=st){st+=v.autoSleep||120;var e=s._first;if((!e||!e._ts)&&v.autoSleep&&ke._listeners.length<2){for(;e&&!e._ts;)e=e._next;e||ke.sleep()}}},r}(Pe);Dt(ze.prototype,{_lock:0,_hasPause:0,_forcing:0});var $e,We,He=function(t,e,n,r,i,a,s){var o,l,u,d,c,h,f,p,m=new cn(this._pt,t,e,0,1,an,null,i),g=0,_=0;for(m.b=n,m.e=r,n+="",(f=~(r+="").indexOf("random("))&&(r=le(r)),a&&(a(p=[n,r],t,e),n=p[0],r=p[1]),l=n.match(W)||[];o=W.exec(r);)d=o[0],c=r.substring(g,o.index),u?u=(u+1)%5:"rgba("===c.substr(-5)&&(u=1),d!==l[_++]&&(h=parseFloat(l[_-1])||0,m._pt={_next:m._pt,p:c||1===_?c:",",s:h,c:"="===d.charAt(1)?mt(h,d)-h:parseFloat(d)-h,m:u&&u<4?Math.round:0},g=W.lastIndex);return m.c=g<r.length?r.substring(g,r.length):"",m.fp=s,(H.test(r)||f)&&(m.e=0),this._pt=m,m},qe=function(t,e,n,r,i,a,s,o,l,u){C(r)&&(r=r(i||0,t,a));var d,c=t[e],h="get"!==n?n:C(c)?l?t[e.indexOf("set")||!C(t["get"+e.substr(3)])?e:"get"+e.substr(3)](l):t[e]():c,f=C(c)?l?Ke:Qe:Ge;if(E(r)&&(~r.indexOf("random(")&&(r=le(r)),"="===r.charAt(1)&&((d=mt(h,r)+(Zt(h)||0))||0===d)&&(r=d)),!u||h!==r||We)return isNaN(h*r)||""===r?(!c&&!(e in t)&&X(e,r),He.call(this,t,e,h,r,f,o||v.stringFilter,l)):(d=new cn(this._pt,t,e,+h||0,r-(h||0),"boolean"==typeof c?rn:nn,0,f),l&&(d.fp=l),s&&d.modifier(s,this,t),this._pt=d)},Ne=function(t,e,n,r,i,a){var s,o,l,u;if(it[t]&&!1!==(s=new it[t]).init(i,s.rawVars?e[t]:function(t,e,n,r,i){if(C(t)&&(t=Ve(t,i,e,n,r)),!A(t)||t.style&&t.nodeType||B(t)||Y(t))return E(t)?Ve(t,i,e,n,r):t;var a,s={};for(a in t)s[a]=Ve(t[a],i,e,n,r);return s}(e[t],r,i,a,n),n,r,a)&&(n._pt=o=new cn(n._pt,i,t,0,1,s.render,s,0,s.priority),n!==h))for(l=n._ptLookup[n._targets.indexOf(i)],u=s._props.length;u--;)l[s._props[u]]=o;return s},je=function t(e,n,a){var o,l,u,d,c,h,f,p,m,g,_,v,w,x=e.vars,k=x.ease,T=x.startAt,S=x.immediateRender,M=x.lazy,E=x.onUpdate,C=x.runBackwards,L=x.yoyoEase,O=x.keyframes,A=x.autoRevert,F=e._dur,R=e._startAt,Y=e._targets,B=e.parent,P=B&&"nested"===B.data?B.vars.targets:Y,z="auto"===e._overwrite&&!r,$=e.timeline;if($&&(!O||!k)&&(k="none"),e._ease=Ae(k,y.ease),e._yEase=L?Le(Ae(!0===L?k:L,y.ease)):0,L&&e._yoyo&&!e._repeat&&(L=e._yEase,e._yEase=e._ease,e._ease=L),e._from=!$&&!!x.runBackwards,!$||O&&!x.stagger){if(v=(p=Y[0]?dt(Y[0]).harness:0)&&x[p.prop],o=kt(x,et),R&&(R._zTime<0&&R.progress(1),n<0&&C&&S&&!A?R.render(-1,!0):R.revert(C&&F?K:Q),R._lazy=0),T){if(Et(e._startAt=Ze.set(Y,Dt({data:"isStart",overwrite:!1,parent:B,immediateRender:!0,lazy:!R&&I(M),startAt:null,delay:0,onUpdate:E&&function(){return ce(e,"onUpdate")},stagger:0},T))),e._startAt._dp=0,e._startAt._sat=e,n<0&&(i||!S&&!A)&&e._startAt.revert(K),S&&F&&n<=0&&a<=0)return void(n&&(e._zTime=n))}else if(C&&F&&!R)if(n&&(S=!1),u=Dt({overwrite:!1,data:"isFromStart",lazy:S&&!R&&I(M),immediateRender:S,stagger:0,parent:B},o),v&&(u[p.prop]=v),Et(e._startAt=Ze.set(Y,u)),e._startAt._dp=0,e._startAt._sat=e,n<0&&(i?e._startAt.revert(K):e._startAt.render(-1,!0)),e._zTime=n,S){if(!n)return}else t(e._startAt,D,D);for(e._pt=e._ptCache=0,M=F&&I(M)||M&&!F,l=0;l<Y.length;l++){if(f=(c=Y[l])._gsap||ut(Y)[l]._gsap,e._ptLookup[l]=g={},rt[f.id]&&nt.length&&_t(),_=P===Y?l:P.indexOf(c),p&&!1!==(m=new p).init(c,v||o,e,_,P)&&(e._pt=d=new cn(e._pt,c,m.name,0,1,m.render,m,0,m.priority),m._props.forEach((function(t){g[t]=d})),m.priority&&(h=1)),!p||v)for(u in o)it[u]&&(m=Ne(u,o,e,_,c,P))?m.priority&&(h=1):g[u]=d=qe.call(e,c,u,"get",o[u],_,P,0,x.stringFilter);e._op&&e._op[l]&&e.kill(c,e._op[l]),z&&e._pt&&($e=e,s.killTweensOf(c,g,e.globalTime(n)),w=!e.parent,$e=0),e._pt&&M&&(rt[f.id]=1)}h&&dn(e),e._onInit&&e._onInit(e)}e._onUpdate=E,e._initted=(!e._op||e._pt)&&!w,O&&n<=0&&$.render(b,!0,!0)},Ue=function(t,e,n,r){var i,a,s=e.ease||r||"power1.inOut";if(B(e))a=n[t]||(n[t]=[]),e.forEach((function(t,n){return a.push({t:n/(e.length-1)*100,v:t,e:s})}));else for(i in e)a=n[i]||(n[i]=[]),"ease"===i||a.push({t:parseFloat(t),v:e[i],e:s})},Ve=function(t,e,n,r,i){return C(t)?t.call(e,n,r,i):E(t)&&~t.indexOf("random(")?le(t):t},Xe=lt+"repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase,autoRevert",Je={};ht(Xe+",id,stagger,delay,duration,paused,scrollTrigger",(function(t){return Je[t]=1}));var Ze=function(n){function a(e,i,a,o){var l;"number"==typeof i&&(a.duration=i,i=a,a=null);var u,d,c,h,f,p,m,g,_=(l=n.call(this,o?i:Tt(i))||this).vars,y=_.duration,b=_.delay,D=_.immediateRender,w=_.stagger,x=_.overwrite,k=_.keyframes,T=_.defaults,S=_.scrollTrigger,M=_.yoyoEase,E=i.parent||s,C=(B(e)||Y(e)?L(e[0]):"length"in i)?[e]:te(e);if(l._targets=C.length?ut(C):J("GSAP target "+e+" not found. https://gsap.com",!v.nullTargetWarn)||[],l._ptLookup=[],l._overwrite=x,k||w||R(y)||R(b)){if(i=l.vars,(u=l.timeline=new ze({data:"nested",defaults:T||{},targets:E&&"nested"===E.data?E.vars.targets:C})).kill(),u.parent=u._dp=t(l),u._start=0,w||R(y)||R(b)){if(h=C.length,m=w&&re(w),A(w))for(f in w)~Xe.indexOf(f)&&(g||(g={}),g[f]=w[f]);for(d=0;d<h;d++)(c=kt(i,Je)).stagger=0,M&&(c.yoyoEase=M),g&&wt(c,g),p=C[d],c.duration=+Ve(y,t(l),d,p,C),c.delay=(+Ve(b,t(l),d,p,C)||0)-l._delay,!w&&1===h&&c.delay&&(l._delay=b=c.delay,l._start+=b,c.delay=0),u.to(p,c,m?m(d,p,C):0),u._ease=Se.none;u.duration()?y=b=0:l.timeline=0}else if(k){Tt(Dt(u.vars.defaults,{ease:"none"})),u._ease=Ae(k.ease||i.ease||"none");var O,F,P,z=0;if(B(k))k.forEach((function(t){return u.to(C,t,">")})),u.duration();else{for(f in c={},k)"ease"===f||"easeEach"===f||Ue(f,k[f],c,k.easeEach);for(f in c)for(O=c[f].sort((function(t,e){return t.t-e.t})),z=0,d=0;d<O.length;d++)(P={ease:(F=O[d]).e,duration:(F.t-(d?O[d-1].t:0))/100*y})[f]=F.v,u.to(C,P,z),z+=P.duration;u.duration()<y&&u.to({},{duration:y-u.duration()})}}y||l.duration(y=u.duration())}else l.timeline=0;return!0!==x||r||($e=t(l),s.killTweensOf(C),$e=0),Pt(E,t(l),a),i.reversed&&l.reverse(),i.paused&&l.paused(!0),(D||!y&&!k&&l._start===pt(E._time)&&I(D)&&Ot(t(l))&&"nested"!==E.data)&&(l._tTime=-1e-8,l.render(Math.max(0,-b)||0)),S&&zt(t(l),S),l}e(a,n);var o=a.prototype;return o.render=function(t,e,n){var r,a,s,o,l,u,d,c,h,f=this._time,p=this._tDur,m=this._dur,g=t<0,_=t>p-D&&!g?p:t<D?0:t;if(m){if(_!==this._tTime||!t||n||!this._initted&&this._tTime||this._startAt&&this._zTime<0!==g){if(r=_,c=this.timeline,this._repeat){if(o=m+this._rDelay,this._repeat<-1&&g)return this.totalTime(100*o+t,e,n);if(r=pt(_%o),_===p?(s=this._repeat,r=m):((s=~~(_/o))&&s===pt(_/o)&&(r=m,s--),r>m&&(r=m)),(u=this._yoyo&&1&s)&&(h=this._yEase,r=m-r),l=It(this._tTime,o),r===f&&!n&&this._initted&&s===l)return this._tTime=_,this;s!==l&&(c&&this._yEase&&Oe(c,u),this.vars.repeatRefresh&&!u&&!this._lock&&this._time!==o&&this._initted&&(this._lock=n=1,this.render(pt(o*s),!0).invalidate()._lock=0))}if(!this._initted){if($t(this,g?t:r,n,e,_))return this._tTime=0,this;if(!(f===this._time||n&&this.vars.repeatRefresh&&s!==l))return this;if(m!==this._dur)return this.render(t,e,n)}if(this._tTime=_,this._time=r,!this._act&&this._ts&&(this._act=1,this._lazy=0),this.ratio=d=(h||this._ease)(r/m),this._from&&(this.ratio=d=1-d),r&&!f&&!e&&!s&&(ce(this,"onStart"),this._tTime!==_))return this;for(a=this._pt;a;)a.r(d,a.d),a=a._next;c&&c.render(t<0?t:c._dur*c._ease(r/this._dur),e,n)||this._startAt&&(this._zTime=t),this._onUpdate&&!e&&(g&&Lt(this,t,0,n),ce(this,"onUpdate")),this._repeat&&s!==l&&this.vars.onRepeat&&!e&&this.parent&&ce(this,"onRepeat"),_!==this._tDur&&_||this._tTime!==_||(g&&!this._onUpdate&&Lt(this,t,0,!0),(t||!m)&&(_===this._tDur&&this._ts>0||!_&&this._ts<0)&&Et(this,1),e||g&&!f||!(_||f||u)||(ce(this,_===p?"onComplete":"onReverseComplete",!0),this._prom&&!(_<p&&this.timeScale()>0)&&this._prom()))}}else!function(t,e,n,r){var a,s,o,l=t.ratio,u=e<0||!e&&(!t._start&&Wt(t)&&(t._initted||!Ht(t))||(t._ts<0||t._dp._ts<0)&&!Ht(t))?0:1,d=t._rDelay,c=0;if(d&&t._repeat&&(c=Jt(0,t._tDur,e),s=It(c,d),t._yoyo&&1&s&&(u=1-u),s!==It(t._tTime,d)&&(l=1-u,t.vars.repeatRefresh&&t._initted&&t.invalidate())),u!==l||i||r||t._zTime===D||!e&&t._zTime){if(!t._initted&&$t(t,e,r,n,c))return;for(o=t._zTime,t._zTime=e||(n?D:0),n||(n=e&&!o),t.ratio=u,t._from&&(u=1-u),t._time=0,t._tTime=c,a=t._pt;a;)a.r(u,a.d),a=a._next;e<0&&Lt(t,e,0,!0),t._onUpdate&&!n&&ce(t,"onUpdate"),c&&t._repeat&&!n&&t.parent&&ce(t,"onRepeat"),(e>=t._tDur||e<0)&&t.ratio===u&&(u&&Et(t,1),n||i||(ce(t,u?"onComplete":"onReverseComplete",!0),t._prom&&t._prom()))}else t._zTime||(t._zTime=e)}(this,t,e,n);return this},o.targets=function(){return this._targets},o.invalidate=function(t){return(!t||!this.vars.runBackwards)&&(this._startAt=0),this._pt=this._op=this._onUpdate=this._lazy=this.ratio=0,this._ptLookup=[],this.timeline&&this.timeline.invalidate(t),n.prototype.invalidate.call(this,t)},o.resetTo=function(t,e,n,r,i){f||ke.wake(),this._ts||this.play();var a=Math.min(this._dur,(this._dp._time-this._start)*this._ts);return this._initted||je(this,a),function(t,e,n,r,i,a,s,o){var l,u,d,c,h=(t._pt&&t._ptCache||(t._ptCache={}))[e];if(!h)for(h=t._ptCache[e]=[],d=t._ptLookup,c=t._targets.length;c--;){if((l=d[c][e])&&l.d&&l.d._pt)for(l=l.d._pt;l&&l.p!==e&&l.fp!==e;)l=l._next;if(!l)return We=1,t.vars[e]="+=0",je(t,s),We=0,o?J(e+" not eligible for reset"):1;h.push(l)}for(c=h.length;c--;)(l=(u=h[c])._pt||u).s=!r&&0!==r||i?l.s+(r||0)+a*l.c:r,l.c=n-l.s,u.e&&(u.e=ft(n)+Zt(u.e)),u.b&&(u.b=l.s+Zt(u.b))}(this,t,e,n,r,this._ease(a/this._dur),a,i)?this.resetTo(t,e,n,r,1):(Yt(this,0),this.parent||St(this._dp,this,"_first","_last",this._dp._sort?"_start":0),this.render(0))},o.kill=function(t,e){if(void 0===e&&(e="all"),!(t||e&&"all"!==e))return this._lazy=this._pt=0,this.parent?he(this):this;if(this.timeline){var n=this.timeline.totalDuration();return this.timeline.killTweensOf(t,e,$e&&!0!==$e.vars.overwrite)._first||he(this),this.parent&&n!==this.timeline.totalDuration()&&qt(this,this._dur*this.timeline._tDur/n,0,1),this}var r,i,a,s,o,l,u,d=this._targets,c=t?te(t):d,h=this._ptLookup,f=this._pt;if((!e||"all"===e)&&function(t,e){for(var n=t.length,r=n===e.length;r&&n--&&t[n]===e[n];);return n<0}(d,c))return"all"===e&&(this._pt=0),he(this);for(r=this._op=this._op||[],"all"!==e&&(E(e)&&(o={},ht(e,(function(t){return o[t]=1})),e=o),e=function(t,e){var n,r,i,a,s=t[0]?dt(t[0]).harness:0,o=s&&s.aliases;if(!o)return e;for(r in n=wt({},e),o)if(r in n)for(i=(a=o[r].split(",")).length;i--;)n[a[i]]=n[r];return n}(d,e)),u=d.length;u--;)if(~c.indexOf(d[u]))for(o in i=h[u],"all"===e?(r[u]=e,s=i,a={}):(a=r[u]=r[u]||{},s=e),s)(l=i&&i[o])&&("kill"in l.d&&!0!==l.d.kill(o)||Mt(this,l,"_pt"),delete i[o]),"all"!==a&&(a[o]=1);return this._initted&&!this._pt&&f&&he(this),this},a.to=function(t,e){return new a(t,e,arguments[2])},a.from=function(t,e){return Vt(1,arguments)},a.delayedCall=function(t,e,n,r){return new a(e,0,{immediateRender:!1,lazy:!1,overwrite:!1,delay:t,onComplete:e,onReverseComplete:e,onCompleteParams:n,onReverseCompleteParams:n,callbackScope:r})},a.fromTo=function(t,e,n){return Vt(2,arguments)},a.set=function(t,e){return e.duration=0,e.repeatDelay||(e.repeat=0),new a(t,e)},a.killTweensOf=function(t,e,n){return s.killTweensOf(t,e,n)},a}(Pe);Dt(Ze.prototype,{_targets:[],_lazy:0,_startAt:0,_op:0,_onInit:0}),ht("staggerTo,staggerFrom,staggerFromTo",(function(t){Ze[t]=function(){var e=new ze,n=Gt.call(arguments,0);return n.splice("staggerFromTo"===t?5:4,0,0),e[t].apply(e,n)}}));var Ge=function(t,e,n){return t[e]=n},Qe=function(t,e,n){return t[e](n)},Ke=function(t,e,n,r){return t[e](r.fp,n)},tn=function(t,e,n){return t.setAttribute(e,n)},en=function(t,e){return C(t[e])?Qe:O(t[e])&&t.setAttribute?tn:Ge},nn=function(t,e){return e.set(e.t,e.p,Math.round(1e6*(e.s+e.c*t))/1e6,e)},rn=function(t,e){return e.set(e.t,e.p,!!(e.s+e.c*t),e)},an=function(t,e){var n=e._pt,r="";if(!t&&e.b)r=e.b;else if(1===t&&e.e)r=e.e;else{for(;n;)r=n.p+(n.m?n.m(n.s+n.c*t):Math.round(1e4*(n.s+n.c*t))/1e4)+r,n=n._next;r+=e.c}e.set(e.t,e.p,r,e)},sn=function(t,e){for(var n=e._pt;n;)n.r(t,n.d),n=n._next},on=function(t,e,n,r){for(var i,a=this._pt;a;)i=a._next,a.p===r&&a.modifier(t,e,n),a=i},ln=function(t){for(var e,n,r=this._pt;r;)n=r._next,r.p===t&&!r.op||r.op===t?Mt(this,r,"_pt"):r.dep||(e=1),r=n;return!e},un=function(t,e,n,r){r.mSet(t,e,r.m.call(r.tween,n,r.mt),r)},dn=function(t){for(var e,n,r,i,a=t._pt;a;){for(e=a._next,n=r;n&&n.pr>a.pr;)n=n._next;(a._prev=n?n._prev:i)?a._prev._next=a:r=a,(a._next=n)?n._prev=a:i=a,a=e}t._pt=r},cn=function(){function t(t,e,n,r,i,a,s,o,l){this.t=e,this.s=r,this.c=i,this.p=n,this.r=a||nn,this.d=s||this,this.set=o||Ge,this.pr=l||0,this._next=t,t&&(t._prev=this)}return t.prototype.modifier=function(t,e,n){this.mSet=this.mSet||this.set,this.set=un,this.m=t,this.mt=n,this.tween=e},t}();ht(lt+"parent,duration,ease,delay,overwrite,runBackwards,startAt,yoyo,immediateRender,repeat,repeatDelay,data,paused,reversed,lazy,callbackScope,stringFilter,id,yoyoEase,stagger,inherit,repeatRefresh,keyframes,autoRevert,scrollTrigger",(function(t){return et[t]=1})),j.TweenMax=j.TweenLite=Ze,j.TimelineLite=j.TimelineMax=ze,s=new ze({sortChildren:!1,defaults:y,autoRemoveChildren:!0,id:"root",smoothChildTiming:!0}),v.stringFilter=xe;var hn=[],fn={},pn=[],mn=0,gn=0,_n=function(t){return(fn[t]||pn).map((function(t){return t()}))},vn=function(){var t=Date.now(),e=[];t-mn>2&&(_n("matchMediaInit"),hn.forEach((function(t){var n,r,i,a,s=t.queries,l=t.conditions;for(r in s)(n=o.matchMedia(s[r]).matches)&&(i=1),n!==l[r]&&(l[r]=n,a=1);a&&(t.revert(),i&&e.push(t))})),_n("matchMediaRevert"),e.forEach((function(t){return t.onMatch(t,(function(e){return t.add(null,e)}))})),mn=t,_n("matchMedia"))},yn=function(){function t(t,e){this.selector=e&&ee(e),this.data=[],this._r=[],this.isReverted=!1,this.id=gn++,t&&this.add(t)}var e=t.prototype;return e.add=function(t,e,n){C(t)&&(n=e,e=t,t=C);var r=this,i=function(){var t,i=a,s=r.selector;return i&&i!==r&&i.data.push(r),n&&(r.selector=ee(n)),a=r,t=e.apply(r,arguments),C(t)&&r._r.push(t),a=i,r.selector=s,r.isReverted=!1,t};return r.last=i,t===C?i(r,(function(t){return r.add(null,t)})):t?r[t]=i:i},e.ignore=function(t){var e=a;a=null,t(this),a=e},e.getTweens=function(){var e=[];return this.data.forEach((function(n){return n instanceof t?e.push.apply(e,n.getTweens()):n instanceof Ze&&!(n.parent&&"nested"===n.parent.data)&&e.push(n)})),e},e.clear=function(){this._r.length=this.data.length=0},e.kill=function(t,e){var n=this;if(t?function(){for(var e,r=n.getTweens(),i=n.data.length;i--;)"isFlip"===(e=n.data[i]).data&&(e.revert(),e.getChildren(!0,!0,!1).forEach((function(t){return r.splice(r.indexOf(t),1)})));for(r.map((function(t){return{g:t._dur||t._delay||t._sat&&!t._sat.vars.immediateRender?t.globalTime(0):-1/0,t}})).sort((function(t,e){return e.g-t.g||-1/0})).forEach((function(e){return e.t.revert(t)})),i=n.data.length;i--;)(e=n.data[i])instanceof ze?"nested"!==e.data&&(e.scrollTrigger&&e.scrollTrigger.revert(),e.kill()):!(e instanceof Ze)&&e.revert&&e.revert(t);n._r.forEach((function(e){return e(t,n)})),n.isReverted=!0}():this.data.forEach((function(t){return t.kill&&t.kill()})),this.clear(),e)for(var r=hn.length;r--;)hn[r].id===this.id&&hn.splice(r,1)},e.revert=function(t){this.kill(t||{})},t}(),bn=function(){function t(t){this.contexts=[],this.scope=t,a&&a.data.push(this)}var e=t.prototype;return e.add=function(t,e,n){A(t)||(t={matches:t});var r,i,s,l=new yn(0,n||this.scope),u=l.conditions={};for(i in a&&!l.selector&&(l.selector=a.selector),this.contexts.push(l),e=l.add("onMatch",e),l.queries=t,t)"all"===i?s=1:(r=o.matchMedia(t[i]))&&(hn.indexOf(l)<0&&hn.push(l),(u[i]=r.matches)&&(s=1),r.addListener?r.addListener(vn):r.addEventListener("change",vn));return s&&e(l,(function(t){return l.add(null,t)})),this},e.revert=function(t){this.kill(t||{})},e.kill=function(t){this.contexts.forEach((function(e){return e.kill(t,!0)}))},t}(),Dn={registerPlugin:function(){for(var t=arguments.length,e=new Array(t),n=0;n<t;n++)e[n]=arguments[n];e.forEach((function(t){return pe(t)}))},timeline:function(t){return new ze(t)},getTweensOf:function(t,e){return s.getTweensOf(t,e)},getProperty:function(t,e,n,r){E(t)&&(t=te(t)[0]);var i=dt(t||{}).get,a=n?bt:yt;return"native"===n&&(n=""),t?e?a((it[e]&&it[e].get||i)(t,e,n,r)):function(e,n,r){return a((it[e]&&it[e].get||i)(t,e,n,r))}:t},quickSetter:function(t,e,n){if((t=te(t)).length>1){var r=t.map((function(t){return kn.quickSetter(t,e,n)})),i=r.length;return function(t){for(var e=i;e--;)r[e](t)}}t=t[0]||{};var a=it[e],s=dt(t),o=s.harness&&(s.harness.aliases||{})[e]||e,l=a?function(e){var r=new a;h._pt=0,r.init(t,n?e+n:e,h,0,[t]),r.render(1,r),h._pt&&sn(1,h)}:s.set(t,o);return a?l:function(e){return l(t,o,n?e+n:e,s,1)}},quickTo:function(t,e,n){var r,i=kn.to(t,wt(((r={})[e]="+=0.1",r.paused=!0,r),n||{})),a=function(t,n,r){return i.resetTo(e,t,n,r)};return a.tween=i,a},isTweening:function(t){return s.getTweensOf(t,!0).length>0},defaults:function(t){return t&&t.ease&&(t.ease=Ae(t.ease,y.ease)),xt(y,t||{})},config:function(t){return xt(v,t||{})},registerEffect:function(t){var e=t.name,n=t.effect,r=t.plugins,i=t.defaults,a=t.extendTimeline;(r||"").split(",").forEach((function(t){return t&&!it[t]&&!j[t]&&J(e+" effect requires "+t+" plugin.")})),at[e]=function(t,e,r){return n(te(t),Dt(e||{},i),r)},a&&(ze.prototype[e]=function(t,n,r){return this.add(at[e](t,A(n)?n:(r=n)&&{},this),r)})},registerEase:function(t,e){Se[t]=Ae(e)},parseEase:function(t,e){return arguments.length?Ae(t,e):Se},getById:function(t){return s.getById(t)},exportRoot:function(t,e){void 0===t&&(t={});var n,r,i=new ze(t);for(i.smoothChildTiming=I(t.smoothChildTiming),s.remove(i),i._dp=0,i._time=i._tTime=s._time,n=s._first;n;)r=n._next,!e&&!n._dur&&n instanceof Ze&&n.vars.onComplete===n._targets[0]||Pt(i,n,n._start-n._delay),n=r;return Pt(s,i,0),i},context:function(t,e){return t?new yn(t,e):a},matchMedia:function(t){return new bn(t)},matchMediaRefresh:function(){return hn.forEach((function(t){var e,n,r=t.conditions;for(n in r)r[n]&&(r[n]=!1,e=1);e&&t.revert()}))||vn()},addEventListener:function(t,e){var n=fn[t]||(fn[t]=[]);~n.indexOf(e)||n.push(e)},removeEventListener:function(t,e){var n=fn[t],r=n&&n.indexOf(e);r>=0&&n.splice(r,1)},utils:{wrap:function t(e,n,r){var i=n-e;return B(e)?oe(e,t(0,e.length),n):Xt(r,(function(t){return(i+(t-e)%i)%i+e}))},wrapYoyo:function t(e,n,r){var i=n-e,a=2*i;return B(e)?oe(e,t(0,e.length-1),n):Xt(r,(function(t){return e+((t=(a+(t-e)%a)%a||0)>i?a-t:t)}))},distribute:re,random:se,snap:ae,normalize:function(t,e,n){return ue(t,e,0,1,n)},getUnit:Zt,clamp:function(t,e,n){return Xt(n,(function(n){return Jt(t,e,n)}))},splitColor:ve,toArray:te,selector:ee,mapRange:ue,pipe:function(){for(var t=arguments.length,e=new Array(t),n=0;n<t;n++)e[n]=arguments[n];return function(t){return e.reduce((function(t,e){return e(t)}),t)}},unitize:function(t,e){return function(n){return t(parseFloat(n))+(e||Zt(n))}},interpolate:function t(e,n,r,i){var a=isNaN(e+n)?0:function(t){return(1-t)*e+t*n};if(!a){var s,o,l,u,d,c=E(e),h={};if(!0===r&&(i=1)&&(r=null),c)e={p:e},n={p:n};else if(B(e)&&!B(n)){for(l=[],u=e.length,d=u-2,o=1;o<u;o++)l.push(t(e[o-1],e[o]));u--,a=function(t){t*=u;var e=Math.min(d,~~t);return l[e](t-e)},r=n}else i||(e=wt(B(e)?[]:{},e));if(!l){for(s in n)qe.call(h,e,s,"get",n[s]);a=function(t){return sn(t,h)||(c?e.p:e)}}}return Xt(r,a)},shuffle:ne},install:V,effects:at,ticker:ke,updateRoot:ze.updateRoot,plugins:it,globalTimeline:s,core:{PropTween:cn,globals:Z,Tween:Ze,Timeline:ze,Animation:Pe,getCache:dt,_removeLinkedListItem:Mt,reverting:function(){return i},context:function(t){return t&&a&&(a.data.push(t),t._ctx=a),a},suppressOverwrites:function(t){return r=t}}};ht("to,from,fromTo,delayedCall,set,killTweensOf",(function(t){return Dn[t]=Ze[t]})),ke.add(ze.updateRoot),h=Dn.to({},{duration:0});var wn=function(t,e){for(var n=t._pt;n&&n.p!==e&&n.op!==e&&n.fp!==e;)n=n._next;return n},xn=function(t,e){return{name:t,rawVars:1,init:function(t,n,r){r._onInit=function(t){var r,i;if(E(n)&&(r={},ht(n,(function(t){return r[t]=1})),n=r),e){for(i in r={},n)r[i]=e(n[i]);n=r}!function(t,e){var n,r,i,a=t._targets;for(n in e)for(r=a.length;r--;)(i=t._ptLookup[r][n])&&(i=i.d)&&(i._pt&&(i=wn(i,n)),i&&i.modifier&&i.modifier(e[n],t,a[r],n))}(t,n)}}}},kn=Dn.registerPlugin({name:"attr",init:function(t,e,n,r,i){var a,s,o;for(a in this.tween=n,e)o=t.getAttribute(a)||"",(s=this.add(t,"setAttribute",(o||0)+"",e[a],r,i,0,0,a)).op=a,s.b=o,this._props.push(a)},render:function(t,e){for(var n=e._pt;n;)i?n.set(n.t,n.p,n.b,n):n.r(t,n.d),n=n._next}},{name:"endArray",init:function(t,e){for(var n=e.length;n--;)this.add(t,n,t[n]||0,e[n],0,0,0,0,0,1)}},xn("roundProps",ie),xn("modifiers"),xn("snap",ae))||Dn;Ze.version=ze.version=kn.version="3.12.5",d=1,F()&&Te();Se.Power0,Se.Power1,Se.Power2,Se.Power3,Se.Power4,Se.Linear,Se.Quad,Se.Cubic,Se.Quart,Se.Quint,Se.Strong,Se.Elastic,Se.Back,Se.SteppedEase,Se.Bounce,Se.Sine,Se.Expo,Se.Circ;var Tn,Sn,Mn,En,Cn,Ln,On,An,In={},Fn=180/Math.PI,Rn=Math.PI/180,Yn=Math.atan2,Bn=/([A-Z])/g,Pn=/(left|right|width|margin|padding|x)/i,zn=/[\s,\(]\S/,$n={autoAlpha:"opacity,visibility",scale:"scaleX,scaleY",alpha:"opacity"},Wn=function(t,e){return e.set(e.t,e.p,Math.round(1e4*(e.s+e.c*t))/1e4+e.u,e)},Hn=function(t,e){return e.set(e.t,e.p,1===t?e.e:Math.round(1e4*(e.s+e.c*t))/1e4+e.u,e)},qn=function(t,e){return e.set(e.t,e.p,t?Math.round(1e4*(e.s+e.c*t))/1e4+e.u:e.b,e)},Nn=function(t,e){var n=e.s+e.c*t;e.set(e.t,e.p,~~(n+(n<0?-.5:.5))+e.u,e)},jn=function(t,e){return e.set(e.t,e.p,t?e.e:e.b,e)},Un=function(t,e){return e.set(e.t,e.p,1!==t?e.b:e.e,e)},Vn=function(t,e,n){return t.style[e]=n},Xn=function(t,e,n){return t.style.setProperty(e,n)},Jn=function(t,e,n){return t._gsap[e]=n},Zn=function(t,e,n){return t._gsap.scaleX=t._gsap.scaleY=n},Gn=function(t,e,n,r,i){var a=t._gsap;a.scaleX=a.scaleY=n,a.renderTransform(i,a)},Qn=function(t,e,n,r,i){var a=t._gsap;a[e]=n,a.renderTransform(i,a)},Kn="transform",tr=Kn+"Origin",er=function t(e,n){var r=this,i=this.target,a=i.style,s=i._gsap;if(e in In&&a){if(this.tfm=this.tfm||{},"transform"===e)return $n.transform.split(",").forEach((function(e){return t.call(r,e,n)}));if(~(e=$n[e]||e).indexOf(",")?e.split(",").forEach((function(t){return r.tfm[t]=yr(i,t)})):this.tfm[e]=s.x?s[e]:yr(i,e),e===tr&&(this.tfm.zOrigin=s.zOrigin),this.props.indexOf(Kn)>=0)return;s.svg&&(this.svgo=i.getAttribute("data-svg-origin"),this.props.push(tr,n,"")),e=Kn}(a||n)&&this.props.push(e,n,a[e])},nr=function(t){t.translate&&(t.removeProperty("translate"),t.removeProperty("scale"),t.removeProperty("rotate"))},rr=function(){var t,e,n=this.props,r=this.target,i=r.style,a=r._gsap;for(t=0;t<n.length;t+=3)n[t+1]?r[n[t]]=n[t+2]:n[t+2]?i[n[t]]=n[t+2]:i.removeProperty("--"===n[t].substr(0,2)?n[t]:n[t].replace(Bn,"-$1").toLowerCase());if(this.tfm){for(e in this.tfm)a[e]=this.tfm[e];a.svg&&(a.renderTransform(),r.setAttribute("data-svg-origin",this.svgo||"")),(t=On())&&t.isStart||i[Kn]||(nr(i),a.zOrigin&&i[tr]&&(i[tr]+=" "+a.zOrigin+"px",a.zOrigin=0,a.renderTransform()),a.uncache=1)}},ir=function(t,e){var n={target:t,props:[],revert:rr,save:er};return t._gsap||kn.core.getCache(t),e&&e.split(",").forEach((function(t){return n.save(t)})),n},ar=function(t,e){var n=Sn.createElementNS?Sn.createElementNS((e||"http://www.w3.org/1999/xhtml").replace(/^https/,"http"),t):Sn.createElement(t);return n&&n.style?n:Sn.createElement(t)},sr=function t(e,n,r){var i=getComputedStyle(e);return i[n]||i.getPropertyValue(n.replace(Bn,"-$1").toLowerCase())||i.getPropertyValue(n)||!r&&t(e,lr(n)||n,1)||""},or="O,Moz,ms,Ms,Webkit".split(","),lr=function(t,e,n){var r=(e||Cn).style,i=5;if(t in r&&!n)return t;for(t=t.charAt(0).toUpperCase()+t.substr(1);i--&&!(or[i]+t in r););return i<0?null:(3===i?"ms":i>=0?or[i]:"")+t},ur=function(){"undefined"!=typeof window&&window.document&&(Tn=window,Sn=Tn.document,Mn=Sn.documentElement,Cn=ar("div")||{style:{}},ar("div"),Kn=lr(Kn),tr=Kn+"Origin",Cn.style.cssText="border-width:0;line-height:0;position:absolute;padding:0",An=!!lr("perspective"),On=kn.core.reverting,En=1)},dr=function t(e){var n,r=ar("svg",this.ownerSVGElement&&this.ownerSVGElement.getAttribute("xmlns")||"http://www.w3.org/2000/svg"),i=this.parentNode,a=this.nextSibling,s=this.style.cssText;if(Mn.appendChild(r),r.appendChild(this),this.style.display="block",e)try{n=this.getBBox(),this._gsapBBox=this.getBBox,this.getBBox=t}catch(t){}else this._gsapBBox&&(n=this._gsapBBox());return i&&(a?i.insertBefore(this,a):i.appendChild(this)),Mn.removeChild(r),this.style.cssText=s,n},cr=function(t,e){for(var n=e.length;n--;)if(t.hasAttribute(e[n]))return t.getAttribute(e[n])},hr=function(t){var e;try{e=t.getBBox()}catch(n){e=dr.call(t,!0)}return e&&(e.width||e.height)||t.getBBox===dr||(e=dr.call(t,!0)),!e||e.width||e.x||e.y?e:{x:+cr(t,["x","cx","x1"])||0,y:+cr(t,["y","cy","y1"])||0,width:0,height:0}},fr=function(t){return!(!t.getCTM||t.parentNode&&!t.ownerSVGElement||!hr(t))},pr=function(t,e){if(e){var n,r=t.style;e in In&&e!==tr&&(e=Kn),r.removeProperty?("ms"!==(n=e.substr(0,2))&&"webkit"!==e.substr(0,6)||(e="-"+e),r.removeProperty("--"===n?e:e.replace(Bn,"-$1").toLowerCase())):r.removeAttribute(e)}},mr=function(t,e,n,r,i,a){var s=new cn(t._pt,e,n,0,1,a?Un:jn);return t._pt=s,s.b=r,s.e=i,t._props.push(n),s},gr={deg:1,rad:1,turn:1},_r={grid:1,flex:1},vr=function t(e,n,r,i){var a,s,o,l,u=parseFloat(r)||0,d=(r+"").trim().substr((u+"").length)||"px",c=Cn.style,h=Pn.test(n),f="svg"===e.tagName.toLowerCase(),p=(f?"client":"offset")+(h?"Width":"Height"),m=100,g="px"===i,_="%"===i;if(i===d||!u||gr[i]||gr[d])return u;if("px"!==d&&!g&&(u=t(e,n,r,"px")),l=e.getCTM&&fr(e),(_||"%"===d)&&(In[n]||~n.indexOf("adius")))return a=l?e.getBBox()[h?"width":"height"]:e[p],ft(_?u/a*m:u/100*a);if(c[h?"width":"height"]=m+(g?d:i),s=~n.indexOf("adius")||"em"===i&&e.appendChild&&!f?e:e.parentNode,l&&(s=(e.ownerSVGElement||{}).parentNode),s&&s!==Sn&&s.appendChild||(s=Sn.body),(o=s._gsap)&&_&&o.width&&h&&o.time===ke.time&&!o.uncache)return ft(u/o.width*m);if(!_||"height"!==n&&"width"!==n)(_||"%"===d)&&!_r[sr(s,"display")]&&(c.position=sr(e,"position")),s===e&&(c.position="static"),s.appendChild(Cn),a=Cn[p],s.removeChild(Cn),c.position="absolute";else{var v=e.style[n];e.style[n]=m+i,a=e[p],v?e.style[n]=v:pr(e,n)}return h&&_&&((o=dt(s)).time=ke.time,o.width=s[p]),ft(g?a*u/m:a&&u?m/a*u:0)},yr=function(t,e,n,r){var i;return En||ur(),e in $n&&"transform"!==e&&~(e=$n[e]).indexOf(",")&&(e=e.split(",")[0]),In[e]&&"transform"!==e?(i=Lr(t,r),i="transformOrigin"!==e?i[e]:i.svg?i.origin:Or(sr(t,tr))+" "+i.zOrigin+"px"):(!(i=t.style[e])||"auto"===i||r||~(i+"").indexOf("calc("))&&(i=xr[e]&&xr[e](t,e,n)||sr(t,e)||ct(t,e)||("opacity"===e?1:0)),n&&!~(i+"").trim().indexOf(" ")?vr(t,e,i,n)+n:i},br=function(t,e,n,r){if(!n||"none"===n){var i=lr(e,t,1),a=i&&sr(t,i,1);a&&a!==n?(e=i,n=a):"borderColor"===e&&(n=sr(t,"borderTopColor"))}var s,o,l,u,d,c,h,f,p,m,g,_=new cn(this._pt,t.style,e,0,1,an),y=0,b=0;if(_.b=n,_.e=r,n+="","auto"===(r+="")&&(c=t.style[e],t.style[e]=r,r=sr(t,e)||r,c?t.style[e]=c:pr(t,e)),xe(s=[n,r]),r=s[1],l=(n=s[0]).match($)||[],(r.match($)||[]).length){for(;o=$.exec(r);)h=o[0],p=r.substring(y,o.index),d?d=(d+1)%5:"rgba("!==p.substr(-5)&&"hsla("!==p.substr(-5)||(d=1),h!==(c=l[b++]||"")&&(u=parseFloat(c)||0,g=c.substr((u+"").length),"="===h.charAt(1)&&(h=mt(u,h)+g),f=parseFloat(h),m=h.substr((f+"").length),y=$.lastIndex-m.length,m||(m=m||v.units[e]||g,y===r.length&&(r+=m,_.e+=m)),g!==m&&(u=vr(t,e,c,m)||0),_._pt={_next:_._pt,p:p||1===b?p:",",s:u,c:f-u,m:d&&d<4||"zIndex"===e?Math.round:0});_.c=y<r.length?r.substring(y,r.length):""}else _.r="display"===e&&"none"===r?Un:jn;return H.test(r)&&(_.e=0),this._pt=_,_},Dr={top:"0%",bottom:"100%",left:"0%",right:"100%",center:"50%"},wr=function(t,e){if(e.tween&&e.tween._time===e.tween._dur){var n,r,i,a=e.t,s=a.style,o=e.u,l=a._gsap;if("all"===o||!0===o)s.cssText="",r=1;else for(i=(o=o.split(",")).length;--i>-1;)n=o[i],In[n]&&(r=1,n="transformOrigin"===n?tr:Kn),pr(a,n);r&&(pr(a,Kn),l&&(l.svg&&a.removeAttribute("transform"),Lr(a,1),l.uncache=1,nr(s)))}},xr={clearProps:function(t,e,n,r,i){if("isFromStart"!==i.data){var a=t._pt=new cn(t._pt,e,n,0,0,wr);return a.u=r,a.pr=-10,a.tween=i,t._props.push(n),1}}},kr=[1,0,0,1,0,0],Tr={},Sr=function(t){return"matrix(1, 0, 0, 1, 0, 0)"===t||"none"===t||!t},Mr=function(t){var e=sr(t,Kn);return Sr(e)?kr:e.substr(7).match(z).map(ft)},Er=function(t,e){var n,r,i,a,s=t._gsap||dt(t),o=t.style,l=Mr(t);return s.svg&&t.getAttribute("transform")?"1,0,0,1,0,0"===(l=[(i=t.transform.baseVal.consolidate().matrix).a,i.b,i.c,i.d,i.e,i.f]).join(",")?kr:l:(l!==kr||t.offsetParent||t===Mn||s.svg||(i=o.display,o.display="block",(n=t.parentNode)&&t.offsetParent||(a=1,r=t.nextElementSibling,Mn.appendChild(t)),l=Mr(t),i?o.display=i:pr(t,"display"),a&&(r?n.insertBefore(t,r):n?n.appendChild(t):Mn.removeChild(t))),e&&l.length>6?[l[0],l[1],l[4],l[5],l[12],l[13]]:l)},Cr=function(t,e,n,r,i,a){var s,o,l,u=t._gsap,d=i||Er(t,!0),c=u.xOrigin||0,h=u.yOrigin||0,f=u.xOffset||0,p=u.yOffset||0,m=d[0],g=d[1],_=d[2],v=d[3],y=d[4],b=d[5],D=e.split(" "),w=parseFloat(D[0])||0,x=parseFloat(D[1])||0;n?d!==kr&&(o=m*v-g*_)&&(l=w*(-g/o)+x*(m/o)-(m*b-g*y)/o,w=w*(v/o)+x*(-_/o)+(_*b-v*y)/o,x=l):(w=(s=hr(t)).x+(~D[0].indexOf("%")?w/100*s.width:w),x=s.y+(~(D[1]||D[0]).indexOf("%")?x/100*s.height:x)),r||!1!==r&&u.smooth?(y=w-c,b=x-h,u.xOffset=f+(y*m+b*_)-y,u.yOffset=p+(y*g+b*v)-b):u.xOffset=u.yOffset=0,u.xOrigin=w,u.yOrigin=x,u.smooth=!!r,u.origin=e,u.originIsAbsolute=!!n,t.style[tr]="0px 0px",a&&(mr(a,u,"xOrigin",c,w),mr(a,u,"yOrigin",h,x),mr(a,u,"xOffset",f,u.xOffset),mr(a,u,"yOffset",p,u.yOffset)),t.setAttribute("data-svg-origin",w+" "+x)},Lr=function(t,e){var n=t._gsap||new Be(t);if("x"in n&&!e&&!n.uncache)return n;var r,i,a,s,o,l,u,d,c,h,f,p,m,g,_,y,b,D,w,x,k,T,S,M,E,C,L,O,A,I,F,R,Y=t.style,B=n.scaleX<0,P="px",z="deg",$=getComputedStyle(t),W=sr(t,tr)||"0";return r=i=a=l=u=d=c=h=f=0,s=o=1,n.svg=!(!t.getCTM||!fr(t)),$.translate&&("none"===$.translate&&"none"===$.scale&&"none"===$.rotate||(Y[Kn]=("none"!==$.translate?"translate3d("+($.translate+" 0 0").split(" ").slice(0,3).join(", ")+") ":"")+("none"!==$.rotate?"rotate("+$.rotate+") ":"")+("none"!==$.scale?"scale("+$.scale.split(" ").join(",")+") ":"")+("none"!==$[Kn]?$[Kn]:"")),Y.scale=Y.rotate=Y.translate="none"),g=Er(t,n.svg),n.svg&&(n.uncache?(E=t.getBBox(),W=n.xOrigin-E.x+"px "+(n.yOrigin-E.y)+"px",M=""):M=!e&&t.getAttribute("data-svg-origin"),Cr(t,M||W,!!M||n.originIsAbsolute,!1!==n.smooth,g)),p=n.xOrigin||0,m=n.yOrigin||0,g!==kr&&(D=g[0],w=g[1],x=g[2],k=g[3],r=T=g[4],i=S=g[5],6===g.length?(s=Math.sqrt(D*D+w*w),o=Math.sqrt(k*k+x*x),l=D||w?Yn(w,D)*Fn:0,(c=x||k?Yn(x,k)*Fn+l:0)&&(o*=Math.abs(Math.cos(c*Rn))),n.svg&&(r-=p-(p*D+m*x),i-=m-(p*w+m*k))):(R=g[6],I=g[7],L=g[8],O=g[9],A=g[10],F=g[11],r=g[12],i=g[13],a=g[14],u=(_=Yn(R,A))*Fn,_&&(M=T*(y=Math.cos(-_))+L*(b=Math.sin(-_)),E=S*y+O*b,C=R*y+A*b,L=T*-b+L*y,O=S*-b+O*y,A=R*-b+A*y,F=I*-b+F*y,T=M,S=E,R=C),d=(_=Yn(-x,A))*Fn,_&&(y=Math.cos(-_),F=k*(b=Math.sin(-_))+F*y,D=M=D*y-L*b,w=E=w*y-O*b,x=C=x*y-A*b),l=(_=Yn(w,D))*Fn,_&&(M=D*(y=Math.cos(_))+w*(b=Math.sin(_)),E=T*y+S*b,w=w*y-D*b,S=S*y-T*b,D=M,T=E),u&&Math.abs(u)+Math.abs(l)>359.9&&(u=l=0,d=180-d),s=ft(Math.sqrt(D*D+w*w+x*x)),o=ft(Math.sqrt(S*S+R*R)),_=Yn(T,S),c=Math.abs(_)>2e-4?_*Fn:0,f=F?1/(F<0?-F:F):0),n.svg&&(M=t.getAttribute("transform"),n.forceCSS=t.setAttribute("transform","")||!Sr(sr(t,Kn)),M&&t.setAttribute("transform",M))),Math.abs(c)>90&&Math.abs(c)<270&&(B?(s*=-1,c+=l<=0?180:-180,l+=l<=0?180:-180):(o*=-1,c+=c<=0?180:-180)),e=e||n.uncache,n.x=r-((n.xPercent=r&&(!e&&n.xPercent||(Math.round(t.offsetWidth/2)===Math.round(-r)?-50:0)))?t.offsetWidth*n.xPercent/100:0)+P,n.y=i-((n.yPercent=i&&(!e&&n.yPercent||(Math.round(t.offsetHeight/2)===Math.round(-i)?-50:0)))?t.offsetHeight*n.yPercent/100:0)+P,n.z=a+P,n.scaleX=ft(s),n.scaleY=ft(o),n.rotation=ft(l)+z,n.rotationX=ft(u)+z,n.rotationY=ft(d)+z,n.skewX=c+z,n.skewY=h+z,n.transformPerspective=f+P,(n.zOrigin=parseFloat(W.split(" ")[2])||!e&&n.zOrigin||0)&&(Y[tr]=Or(W)),n.xOffset=n.yOffset=0,n.force3D=v.force3D,n.renderTransform=n.svg?Pr:An?Br:Ir,n.uncache=0,n},Or=function(t){return(t=t.split(" "))[0]+" "+t[1]},Ar=function(t,e,n){var r=Zt(e);return ft(parseFloat(e)+parseFloat(vr(t,"x",n+"px",r)))+r},Ir=function(t,e){e.z="0px",e.rotationY=e.rotationX="0deg",e.force3D=0,Br(t,e)},Fr="0deg",Rr="0px",Yr=") ",Br=function(t,e){var n=e||this,r=n.xPercent,i=n.yPercent,a=n.x,s=n.y,o=n.z,l=n.rotation,u=n.rotationY,d=n.rotationX,c=n.skewX,h=n.skewY,f=n.scaleX,p=n.scaleY,m=n.transformPerspective,g=n.force3D,_=n.target,v=n.zOrigin,y="",b="auto"===g&&t&&1!==t||!0===g;if(v&&(d!==Fr||u!==Fr)){var D,w=parseFloat(u)*Rn,x=Math.sin(w),k=Math.cos(w);w=parseFloat(d)*Rn,D=Math.cos(w),a=Ar(_,a,x*D*-v),s=Ar(_,s,-Math.sin(w)*-v),o=Ar(_,o,k*D*-v+v)}m!==Rr&&(y+="perspective("+m+Yr),(r||i)&&(y+="translate("+r+"%, "+i+"%) "),(b||a!==Rr||s!==Rr||o!==Rr)&&(y+=o!==Rr||b?"translate3d("+a+", "+s+", "+o+") ":"translate("+a+", "+s+Yr),l!==Fr&&(y+="rotate("+l+Yr),u!==Fr&&(y+="rotateY("+u+Yr),d!==Fr&&(y+="rotateX("+d+Yr),c===Fr&&h===Fr||(y+="skew("+c+", "+h+Yr),1===f&&1===p||(y+="scale("+f+", "+p+Yr),_.style[Kn]=y||"translate(0, 0)"},Pr=function(t,e){var n,r,i,a,s,o=e||this,l=o.xPercent,u=o.yPercent,d=o.x,c=o.y,h=o.rotation,f=o.skewX,p=o.skewY,m=o.scaleX,g=o.scaleY,_=o.target,v=o.xOrigin,y=o.yOrigin,b=o.xOffset,D=o.yOffset,w=o.forceCSS,x=parseFloat(d),k=parseFloat(c);h=parseFloat(h),f=parseFloat(f),(p=parseFloat(p))&&(f+=p=parseFloat(p),h+=p),h||f?(h*=Rn,f*=Rn,n=Math.cos(h)*m,r=Math.sin(h)*m,i=Math.sin(h-f)*-g,a=Math.cos(h-f)*g,f&&(p*=Rn,s=Math.tan(f-p),i*=s=Math.sqrt(1+s*s),a*=s,p&&(s=Math.tan(p),n*=s=Math.sqrt(1+s*s),r*=s)),n=ft(n),r=ft(r),i=ft(i),a=ft(a)):(n=m,a=g,r=i=0),(x&&!~(d+"").indexOf("px")||k&&!~(c+"").indexOf("px"))&&(x=vr(_,"x",d,"px"),k=vr(_,"y",c,"px")),(v||y||b||D)&&(x=ft(x+v-(v*n+y*i)+b),k=ft(k+y-(v*r+y*a)+D)),(l||u)&&(s=_.getBBox(),x=ft(x+l/100*s.width),k=ft(k+u/100*s.height)),s="matrix("+n+","+r+","+i+","+a+","+x+","+k+")",_.setAttribute("transform",s),w&&(_.style[Kn]=s)},zr=function(t,e,n,r,i){var a,s,o=360,l=E(i),u=parseFloat(i)*(l&&~i.indexOf("rad")?Fn:1)-r,d=r+u+"deg";return l&&("short"===(a=i.split("_")[1])&&(u%=o)!==u%180&&(u+=u<0?o:-360),"cw"===a&&u<0?u=(u+36e9)%o-~~(u/o)*o:"ccw"===a&&u>0&&(u=(u-36e9)%o-~~(u/o)*o)),t._pt=s=new cn(t._pt,e,n,r,u,Hn),s.e=d,s.u="deg",t._props.push(n),s},$r=function(t,e){for(var n in e)t[n]=e[n];return t},Wr=function(t,e,n){var r,i,a,s,o,l,u,d=$r({},n._gsap),c=n.style;for(i in d.svg?(a=n.getAttribute("transform"),n.setAttribute("transform",""),c[Kn]=e,r=Lr(n,1),pr(n,Kn),n.setAttribute("transform",a)):(a=getComputedStyle(n)[Kn],c[Kn]=e,r=Lr(n,1),c[Kn]=a),In)(a=d[i])!==(s=r[i])&&"perspective,force3D,transformOrigin,svgOrigin".indexOf(i)<0&&(o=Zt(a)!==(u=Zt(s))?vr(n,i,a,u):parseFloat(a),l=parseFloat(s),t._pt=new cn(t._pt,r,i,o,l-o,Wn),t._pt.u=u||0,t._props.push(i));$r(r,d)};ht("padding,margin,Width,Radius",(function(t,e){var n="Top",r="Right",i="Bottom",a="Left",s=(e<3?[n,r,i,a]:[n+a,n+r,i+r,i+a]).map((function(n){return e<2?t+n:"border"+n+t}));xr[e>1?"border"+t:t]=function(t,e,n,r,i){var a,o;if(arguments.length<4)return a=s.map((function(e){return yr(t,e,n)})),5===(o=a.join(" ")).split(a[0]).length?a[0]:o;a=(r+"").split(" "),o={},s.forEach((function(t,e){return o[t]=a[e]=a[e]||a[(e-1)/2|0]})),t.init(e,o,i)}}));var Hr,qr,Nr,jr={name:"css",register:ur,targetTest:function(t){return t.style&&t.nodeType},init:function(t,e,n,r,i){var a,s,o,l,u,d,c,h,f,p,m,g,_,y,b,D,w,x,k,T,S=this._props,M=t.style,C=n.vars.startAt;for(c in En||ur(),this.styles=this.styles||ir(t),D=this.styles.props,this.tween=n,e)if("autoRound"!==c&&(s=e[c],!it[c]||!Ne(c,e,n,r,t,i)))if(u=typeof s,d=xr[c],"function"===u&&(u=typeof(s=s.call(n,r,t,i))),"string"===u&&~s.indexOf("random(")&&(s=le(s)),d)d(this,t,c,s,n)&&(b=1);else if("--"===c.substr(0,2))a=(getComputedStyle(t).getPropertyValue(c)+"").trim(),s+="",De.lastIndex=0,De.test(a)||(h=Zt(a),f=Zt(s)),f?h!==f&&(a=vr(t,c,a,f)+f):h&&(s+=h),this.add(M,"setProperty",a,s,r,i,0,0,c),S.push(c),D.push(c,0,M[c]);else if("undefined"!==u){if(C&&c in C?(a="function"==typeof C[c]?C[c].call(n,r,t,i):C[c],E(a)&&~a.indexOf("random(")&&(a=le(a)),Zt(a+"")||"auto"===a||(a+=v.units[c]||Zt(yr(t,c))||""),"="===(a+"").charAt(1)&&(a=yr(t,c))):a=yr(t,c),l=parseFloat(a),(p="string"===u&&"="===s.charAt(1)&&s.substr(0,2))&&(s=s.substr(2)),o=parseFloat(s),c in $n&&("autoAlpha"===c&&(1===l&&"hidden"===yr(t,"visibility")&&o&&(l=0),D.push("visibility",0,M.visibility),mr(this,M,"visibility",l?"inherit":"hidden",o?"inherit":"hidden",!o)),"scale"!==c&&"transform"!==c&&~(c=$n[c]).indexOf(",")&&(c=c.split(",")[0])),m=c in In)if(this.styles.save(c),g||((_=t._gsap).renderTransform&&!e.parseTransform||Lr(t,e.parseTransform),y=!1!==e.smoothOrigin&&_.smooth,(g=this._pt=new cn(this._pt,M,Kn,0,1,_.renderTransform,_,0,-1)).dep=1),"scale"===c)this._pt=new cn(this._pt,_,"scaleY",_.scaleY,(p?mt(_.scaleY,p+o):o)-_.scaleY||0,Wn),this._pt.u=0,S.push("scaleY",c),c+="X";else{if("transformOrigin"===c){D.push(tr,0,M[tr]),x=void 0,k=void 0,T=void 0,x=(w=s).split(" "),k=x[0],T=x[1]||"50%","top"!==k&&"bottom"!==k&&"left"!==T&&"right"!==T||(w=k,k=T,T=w),x[0]=Dr[k]||k,x[1]=Dr[T]||T,s=x.join(" "),_.svg?Cr(t,s,0,y,0,this):((f=parseFloat(s.split(" ")[2])||0)!==_.zOrigin&&mr(this,_,"zOrigin",_.zOrigin,f),mr(this,M,c,Or(a),Or(s)));continue}if("svgOrigin"===c){Cr(t,s,1,y,0,this);continue}if(c in Tr){zr(this,_,c,l,p?mt(l,p+s):s);continue}if("smoothOrigin"===c){mr(this,_,"smooth",_.smooth,s);continue}if("force3D"===c){_[c]=s;continue}if("transform"===c){Wr(this,s,t);continue}}else c in M||(c=lr(c)||c);if(m||(o||0===o)&&(l||0===l)&&!zn.test(s)&&c in M)o||(o=0),(h=(a+"").substr((l+"").length))!==(f=Zt(s)||(c in v.units?v.units[c]:h))&&(l=vr(t,c,a,f)),this._pt=new cn(this._pt,m?_:M,c,l,(p?mt(l,p+o):o)-l,m||"px"!==f&&"zIndex"!==c||!1===e.autoRound?Wn:Nn),this._pt.u=f||0,h!==f&&"%"!==f&&(this._pt.b=a,this._pt.r=qn);else if(c in M)br.call(this,t,c,a,p?p+s:s);else if(c in t)this.add(t,c,a||t[c],p?p+s:s,r,i);else if("parseTransform"!==c){X(c,s);continue}m||(c in M?D.push(c,0,M[c]):D.push(c,1,a||t[c])),S.push(c)}b&&dn(this)},render:function(t,e){if(e.tween._time||!On())for(var n=e._pt;n;)n.r(t,n.d),n=n._next;else e.styles.revert()},get:yr,aliases:$n,getSetter:function(t,e,n){var r=$n[e];return r&&r.indexOf(",")<0&&(e=r),e in In&&e!==tr&&(t._gsap.x||yr(t,"x"))?n&&Ln===n?"scale"===e?Zn:Jn:(Ln=n||{})&&("scale"===e?Gn:Qn):t.style&&!O(t.style[e])?Vn:~e.indexOf("-")?Xn:en(t,e)},core:{_removeProperty:pr,_getMatrix:Er}};kn.utils.checkPrefix=lr,kn.core.getStyleSaver=ir,Nr=ht((Hr="x,y,z,scale,scaleX,scaleY,xPercent,yPercent")+","+(qr="rotation,rotationX,rotationY,skewX,skewY")+",transform,transformOrigin,svgOrigin,force3D,smoothOrigin,transformPerspective",(function(t){In[t]=1})),ht(qr,(function(t){v.units[t]="deg",Tr[t]=1})),$n[Nr[13]]=Hr+","+qr,ht("0:translateX,1:translateY,2:translateZ,8:rotate,8:rotationZ,8:rotateZ,9:rotateX,10:rotateY",(function(t){var e=t.split(":");$n[e[1]]=Nr[e[0]]})),ht("x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective",(function(t){v.units[t]="px"})),kn.registerPlugin(jr);var Ur=kn.registerPlugin(jr)||kn,Vr=(Ur.core.Tween,n(319)),Xr=n.n(Vr),Jr=(n(363),n(379)),Zr=n.n(Jr),Gr=n(77),Qr={insert:"head",singleton:!1};Zr()(Gr.Z,Qr);Gr.Z.locals;var Kr=n(484),ti=n.n(Kr),ei=n(215),ni=["2024-01-19","2024-02-16","2024-03-13","2024-04-18","2024-05-17","2024-06-17","2024-07-18","2024-08-15","2024-09-18","2024-10-17","2024-11-15","2024-12-13"];function ri(t,e){var n="undefined"!=typeof Symbol&&t[Symbol.iterator]||t["@@iterator"];if(!n){if(Array.isArray(t)||(n=function(t,e){if(!t)return;if("string"==typeof t)return ii(t,e);var n=Object.prototype.toString.call(t).slice(8,-1);"Object"===n&&t.constructor&&(n=t.constructor.name);if("Map"===n||"Set"===n)return Array.from(t);if("Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))return ii(t,e)}(t))||e&&t&&"number"==typeof t.length){n&&(t=n);var r=0,i=function(){};return{s:i,n:function(){return r>=t.length?{done:!0}:{done:!1,value:t[r++]}},e:function(t){throw t},f:i}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var a,s=!0,o=!1;return{s:function(){n=n.call(t)},n:function(){var t=n.next();return s=t.done,t},e:function(t){o=!0,a=t},f:function(){try{s||null==n.return||n.return()}finally{if(o)throw a}}}}function ii(t,e){(null==e||e>t.length)&&(e=t.length);for(var n=0,r=new Array(e);n<e;n++)r[n]=t[n];return r}ti().extend(ei.Z,{holidays:["2023-12-08","2023-12-25","2024-01-01","2024-01-08","2024-03-25","2024-03-28","2024-03-29","2024-05-01","2024-05-13","2024-06-03","2024-06-10","2024-07-01","2024-07-20","2024-08-07","2024-08-19","2024-10-14","2024-11-04","2024-11-11","2024-12-08","2024-12-25"],holidayFormat:"YYYY-MM-DD"});var ai="pa__login",si=document.getElementById(ai);if(document.getElementById("hora")){var oi=document.getElementById("hora"),li=new Date,ui=li.getHours(),di=li.getMinutes(),ci=li.getSeconds(),hi=li.toLocaleDateString();oi.innerHTML="<b>Fecha y hora:</b> ".concat(hi," ").concat(ui,":").concat(di,":").concat(ci)}if(si){var fi=Ur.timeline({paused:!1});fi.from("#".concat(ai," .pa_login_screen"),{opacity:0,clipPath:"inset(0 100% 0 0)",duration:.7,ease:"power1.inOut"},"0"),fi.from("#".concat(ai," .pa_login_form"),{opacity:0,clipPath:"inset(0 100% 0 0)",duration:.5,delay:.7,background:"#CEE3EB",ease:"power1.inOut"},"0"),fi.from("#".concat(ai," .pa_login_screen .anim_1"),{opacity:0,y:19,duration:.5,stagger:.3,ease:"power1.inOut"},"+=0.4")}function pi(){console.log("Iniciando chat"),embedded_svc.liveAgentAPI.startChat({directToAgentRouting:{buttonId:"5738a000000Tn5E",fallback:!0},extraPrechatInfo:[{entityName:"Contact",saveToTranscript:""}],extraPrechatFormDetails:[]})}if(document.getElementById("start_chat")&&document.getElementById("start_chat").addEventListener("click",pi),document.getElementById("link_chat")&&document.getElementById("link_chat").addEventListener("click",pi),document.getElementById("nav_search")&&document.querySelector("#nav_search .as__nav_search_ico").addEventListener("click",(function(t){document.getElementById("nav_search").classList.toggle("open"),t.target.classList.toggle("fa-xmark"),t.target.classList.toggle("fa-magnifying-glass")})),document.getElementById("open_chat_btn")&&document.getElementById("open_chat_btn").addEventListener("click",(function(t){t.preventDefault(),document.getElementById("open_chat").classList.toggle("toopen")})),document.getElementById("togglePassword")){var mi=document.querySelector("#togglePassword"),gi=document.querySelector("#id_password");mi.addEventListener("click",(function(t){var e="password"===gi.getAttribute("type")?"text":"password";gi.setAttribute("type",e),this.classList.toggle("fa-eye-slash"),this.classList.toggle("fa-eye")}))}if(document.getElementById("togglePassword2")){var _i=document.querySelector("#togglePassword2"),vi=document.querySelector("#id_password2");_i.addEventListener("click",(function(t){var e="password"===vi.getAttribute("type")?"text":"password";vi.setAttribute("type",e),this.classList.toggle("fa-eye-slash"),this.classList.toggle("fa-eye")}))}var yi=!1,bi=document.getElementById("open_menu"),Di=document.getElementById("as__nav_links"),wi=document.getElementById("as__header");if(bi.addEventListener("click",(function(){yi?(document.querySelector("body").classList.remove("overflow-hidden"),Di.classList.add("nav_close"),bi.classList.remove("open"),Di.classList.remove("nav_open"),wi.classList.remove("open")):(document.querySelector("body").classList.add("overflow-hidden"),Di.classList.add("nav_open"),wi.classList.add("open"),bi.classList.add("open"),Di.classList.remove("nav_close"));yi=!yi})),document.querySelectorAll(".service_link a[href='#']").forEach((function(t){t.classList.add("disabled")})),document.querySelectorAll(".as__nav_links_ppal_li .dropdown-content a[href='#']").forEach((function(t){t.classList.add("disabled")})),document.getElementById("servicios")&&document.getElementById("docs_tabs")){var xi=document.querySelectorAll(".tabs_link");if(document.getElementById("docs_tabs").selectedIndex=0,document.getElementById("docs_tabs").addEventListener("change",(function(t){Mi(t.target.value)})),document.querySelectorAll(".as__nav_links_ppal_link[data-tab]").forEach((function(t){t.addEventListener("click",(function(t){t.preventDefault(),Mi(t.target.dataset.tab)}))})),xi.forEach((function(t){t.addEventListener("click",(function(t){t.preventDefault();var e=t.target.dataset.tab,n=t.target.dataset.hash;history.replaceState({},document.title,window.location.pathname+window.location.search);var r=window.location.href;r=(r=r.split("#")[0])+"#"+n,history.replaceState({},document.title,r),Mi(e)}))})),window.location.hash){var ki=window.location.hash.split("#")[1],Ti=document.querySelector(".tabs_link[data-hash='"+ki+"']"),Si=location.href;location.href="#servicios",history.replaceState(null,null,Si),Ti&&Ti.click()}}function Mi(t){document.getElementById("docs_tabs").selectedIndex=parseInt(t),document.querySelectorAll(".tabs_link").forEach((function(e){if(t!==e.dataset.tab)e.classList.remove("active");else{e.classList.add("active"),window.location.hash=e.dataset.hash;var n=location.href;location.href="#servicios",history.replaceState(null,null,n)}})),document.querySelectorAll(".servicios_contents_item").forEach((function(e){t!==e.dataset.tab?e.classList.remove("active"):e.classList.add("active")})),Ur.fromTo(".servicios_contents_item.active ul li",{opacity:0},{opacity:1,y:5,duration:.5,stagger:.2,ease:"power1.inOut"})}if(document.getElementById("as__ayuda")){var Ei=Ur.timeline({paused:!1});Ei.to(".as__ayuda svg .ban_st",{transformOrigin:"center",duration:4,repeat:-1,rotate:function(t){return t%2==0?360:-360},ease:"power4.inout",yoyo:!0,stagger:.2},"0"),Ei.to(".as__ayuda svg .ban_nube_1",{scale:1.1,transformOrigin:"center",duration:4,repeat:-1,ease:"power4.inout",yoyo:!0,stagger:.2},"0"),Ei.fromTo(".as__ayuda svg .ban_nube_it",{x:"-40vw"},{x:"180vw",transformOrigin:"center",duration:19,repeat:-1,ease:"power4.inout",stagger:.2},"0"),Ei.fromTo(".as__ayuda svg .ban_nube_dt",{x:"20vw"},{x:"-120vw",transformOrigin:"center",duration:15,repeat:-1,ease:"power4.inout",stagger:.2},"0")}if(function(t){var e=new Date,n=ti()(e).lastBusinessDayOfMonth().format("DD/MM/YYYY");if(document.getElementById("as__calendario_pay")){document.getElementById("as__calendario_pay").innerHTML=n;var r=new Date,i=ni.find((function(t){return ti()(t).isAfter(r)}));document.getElementById("as__calendario_next").innerHTML=i.split("-").reverse().join("/")}if(document.getElementById("as__calendario")){document.getElementById("proximo_pago").innerHTML=n;new(Xr())(".calendar",{language:"es",startDate:new Date,enableRangeSelection:!1,renderEnd:function(){t.fromTo(".month-container",{opacity:0},{opacity:1,duration:.5,ease:"power4.inout",stagger:.1,dalay:1})},customDayRenderer:function(t,e){var n=new Date,r=ti()(e).format("YYYY-MM-DD");ti()(e).lastBusinessDayOfMonth().format("DD/MM/YYYY")==ti()(e).format("DD/MM/YYYY")&&t.classList.add("last_day"),ti()(e).format("DD/MM/YYYY")==ti()(n).format("DD/MM/YYYY")&&t.classList.add("today"),ti()(e).isBusinessDay()||t.classList.add("weekend"),ni.includes(r)&&t.classList.add("novedad")}})}}(Ur),document.getElementById("faqs")){var Ci=document.querySelectorAll(".as__g_faqs_ls .fqs_list:first-child");document.querySelectorAll(".as__g_faqs_ls .fqs_list").forEach((function(t){t.children[0].children[0].addEventListener("click",(function(t){if(t.preventDefault(),t.target.parentElement.parentElement.classList.contains("active"))t.target.parentElement.parentElement.classList.remove("active");else{var e,n=ri(t.target.parentElement.parentElement.parentElement.children);try{for(n.s();!(e=n.n()).done;){e.value.classList.remove("active")}}catch(t){n.e(t)}finally{n.f()}t.target.parentElement.parentElement.classList.add("active")}}))})),Ci.forEach((function(t){t.classList.add("active")})),document.getElementById("docs_tabs").selectedIndex=0,document.getElementById("docs_tabs").addEventListener("change",(function(t){Li(t.target.value)})),document.querySelectorAll(".tabs_link").forEach((function(t){t.addEventListener("click",(function(t){t.preventDefault(),Li(t.target.dataset.tab)}))}))}function Li(t){document.getElementById("docs_tabs").selectedIndex=parseInt(t),document.querySelectorAll(".tabs_link").forEach((function(e){t!==e.dataset.tab?e.classList.remove("active"):e.classList.add("active")})),document.querySelectorAll(".as__g_faqs_tcon_list_int").forEach((function(e){t!==e.dataset.tab?e.classList.remove("active"):e.classList.add("active")}))}})()})();
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/js/calendar.js":
+/*!****************************!*\
+  !*** ./src/js/calendar.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setCalendar: () => (/* binding */ setCalendar)
+/* harmony export */ });
+/* harmony import */ var js_year_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-year-calendar */ "./node_modules/js-year-calendar/dist/js-year-calendar.js");
+/* harmony import */ var js_year_calendar__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(js_year_calendar__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var js_year_calendar_locales_js_year_calendar_es__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js-year-calendar/locales/js-year-calendar.es */ "./node_modules/js-year-calendar/locales/js-year-calendar.es.js");
+/* harmony import */ var js_year_calendar_locales_js_year_calendar_es__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(js_year_calendar_locales_js_year_calendar_es__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var js_year_calendar_dist_js_year_calendar_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js-year-calendar/dist/js-year-calendar.css */ "./node_modules/js-year-calendar/dist/js-year-calendar.css");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var dayjs_business_days2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! dayjs-business-days2 */ "./node_modules/dayjs-business-days2/dist/index.js");
+
+
+
+
+
+var options = {
+  holidays: ["2023-12-08", "2023-12-25", "2024-01-01", "2024-01-08", "2024-03-25", "2024-03-28", "2024-03-29", "2024-05-01", "2024-05-13", "2024-06-03", "2024-06-10", "2024-07-01", "2024-07-20", "2024-08-07", "2024-08-19", "2024-10-14", "2024-11-04", "2024-11-11", "2024-12-08", "2024-12-25"],
+  holidayFormat: "YYYY-MM-DD"
+};
+var novedades = ["2024-01-19", "2024-02-16", "2024-03-13", "2024-04-18", "2024-05-17", "2024-06-17", "2024-07-18", "2024-08-15", "2024-09-18", "2024-10-17", "2024-11-15", "2024-12-13"];
+dayjs__WEBPACK_IMPORTED_MODULE_3___default().extend(dayjs_business_days2__WEBPACK_IMPORTED_MODULE_4__["default"], options);
+function setCalendar(gsap) {
+  var today = new Date();
+  var lastday = dayjs__WEBPACK_IMPORTED_MODULE_3___default()(today).lastBusinessDayOfMonth().format("DD/MM/YYYY");
+  if (document.getElementById("as__calendario_pay")) {
+    document.getElementById("as__calendario_pay").innerHTML = lastday;
+    var _today = new Date();
+    var nextNovedad = novedades.find(function (date) {
+      return dayjs__WEBPACK_IMPORTED_MODULE_3___default()(date).isAfter(_today);
+    });
+    document.getElementById("as__calendario_next").innerHTML = nextNovedad.split("-").reverse().join("/");
+  }
+  if (document.getElementById("as__calendario")) {
+    document.getElementById("proximo_pago").innerHTML = lastday;
+    var calendar = new (js_year_calendar__WEBPACK_IMPORTED_MODULE_0___default())(".calendar", {
+      language: "es",
+      //   numberMonthsDisplayed: 16,
+      startDate: new Date(),
+      enableRangeSelection: false,
+      renderEnd: function renderEnd() {
+        gsap.fromTo(".month-container", {
+          opacity: 0
+        }, {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power4.inout",
+          stagger: 0.1,
+          dalay: 1
+        });
+      },
+      customDayRenderer: function customDayRenderer(element, date) {
+        var today = new Date();
+        var fdate = dayjs__WEBPACK_IMPORTED_MODULE_3___default()(date).format("YYYY-MM-DD");
+        if (dayjs__WEBPACK_IMPORTED_MODULE_3___default()(date).lastBusinessDayOfMonth().format("DD/MM/YYYY") == dayjs__WEBPACK_IMPORTED_MODULE_3___default()(date).format("DD/MM/YYYY")) {
+          element.classList.add("last_day");
+        }
+        if (dayjs__WEBPACK_IMPORTED_MODULE_3___default()(date).format("DD/MM/YYYY") == dayjs__WEBPACK_IMPORTED_MODULE_3___default()(today).format("DD/MM/YYYY")) {
+          element.classList.add("today");
+        }
+        if (!dayjs__WEBPACK_IMPORTED_MODULE_3___default()(date).isBusinessDay()) {
+          element.classList.add("weekend");
+        }
+        if (novedades.includes(fdate)) {
+          element.classList.add("novedad");
+        }
+      }
+    });
+    // console.log(calendar);
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./node_modules/js-year-calendar/dist/js-year-calendar.css":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./node_modules/js-year-calendar/dist/js-year-calendar.css ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "/* =========================================================\n * JS year calendar v0.1.0\n * Repo: https://github.com/year-calendar/js-year-calendar\n * =========================================================\n * Created by Paul David-Sivelle\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n * ========================================================= */\n/* Main */\n.calendar {\n  padding: 4px;\n  border-radius: 4px;\n  direction: ltr;\n  overflow-x: hidden;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  user-select: none;\n  /* Header */\n  /* Months */\n  /* Loading */\n}\n.calendar:after {\n  /* Apply the right height on the calendar div, even if the months elements are floating  */\n  clear: both;\n  content: \"\";\n  display: block;\n}\n.calendar .calendar-rtl {\n  direction: rtl;\n}\n.calendar .calendar-rtl .calendar-rtl table tr td span {\n  float: right;\n}\n.calendar table {\n  margin: auto;\n  border-spacing: 0;\n}\n.calendar table td,\n.calendar table th {\n  text-align: center;\n  width: 20px;\n  height: 20px;\n  border: none;\n  padding: 4px 5px;\n  font-size: 12px;\n}\n.calendar .calendar-header {\n  width: 100%;\n  margin-bottom: 20px;\n  border: 1px solid #ddd;\n}\n.calendar .calendar-header table {\n  width: 100%;\n}\n.calendar .calendar-header table th {\n  font-size: 22px;\n  padding: 5px 10px;\n  cursor: pointer;\n}\n.calendar .calendar-header table th:hover {\n  background: #eeeeee;\n}\n.calendar .calendar-header table th.disabled,\n.calendar .calendar-header table th.disabled:hover {\n  background: none;\n  cursor: default;\n  color: white;\n}\n.calendar .calendar-header table th.prev,\n.calendar .calendar-header table th.next {\n  width: 20px;\n}\n.calendar .calendar-header .year-title {\n  font-weight: bold;\n  text-align: center;\n  height: 20px;\n  width: auto;\n}\n.calendar .calendar-header .year-neighbor {\n  opacity: 0.4;\n}\n@media (max-width: 991px) {\n  .calendar .calendar-header .year-neighbor {\n    display: none;\n  }\n}\n.calendar .calendar-header .year-neighbor2 {\n  opacity: 0.2;\n}\n@media (max-width: 767px) {\n  .calendar .calendar-header .year-neighbor2 {\n    display: none;\n  }\n}\n.calendar .months-container {\n  width: 100%;\n  display: none;\n  flex-wrap: wrap;\n}\n.calendar .months-container .month-container {\n  float: left;\n  text-align: center;\n  padding: 0;\n}\n.calendar .months-container .month-container.month-2 {\n  width: 16.66666667%;\n}\n.calendar .months-container .month-container.month-3 {\n  width: 25%;\n}\n.calendar .months-container .month-container.month-4 {\n  width: 33.33333333%;\n}\n.calendar .months-container .month-container.month-6 {\n  width: 50%;\n}\n.calendar .months-container .month-container.month-12 {\n  width: 100%;\n}\n.calendar table.month th.month-title {\n  font-size: 16px;\n  padding-bottom: 5px;\n}\n.calendar table.month th.day-header {\n  font-size: 14px;\n}\n.calendar table.month tr td,\n.calendar table.month tr th {\n  padding: 0;\n}\n.calendar table.month tr td.hidden,\n.calendar table.month tr th.hidden {\n  display: none;\n}\n.calendar table.month td.week-number {\n  cursor: default;\n  font-weight: bold;\n  border-right: 1px solid #eee;\n  padding: 5px;\n}\n.calendar table.month td.day.round-left {\n  border-radius: 8px 0 0 8px;\n}\n.calendar table.month td.day.round-right {\n  webkit-border-radius: 0 8px 8px 0 ;\n  border-radius: 0 8px 8px 0;\n}\n.calendar table.month td.day .day-content {\n  border-radius: 4px;\n  padding: 5px 6px;\n}\n.calendar table.month td.old,\n.calendar table.month td.new,\n.calendar table.month td.old:hover,\n.calendar table.month td.new:hover {\n  background: none;\n  cursor: default;\n}\n.calendar table.month td.disabled,\n.calendar table.month td.disabled:hover {\n  color: #dddddd;\n}\n.calendar table.month td.disabled .day-content:hover,\n.calendar table.month td.disabled:hover .day-content:hover {\n  background: none;\n  cursor: default;\n}\n.calendar table.month td.range .day-content {\n  background: rgba(0, 0, 0, 0.2);\n  border-radius: 0;\n}\n.calendar table.month td.range.range-start .day-content {\n  border-top-left-radius: 4px;\n  border-bottom-left-radius: 4px;\n}\n.calendar table.month td.range.range-end .day-content {\n  border-top-right-radius: 4px;\n  border-bottom-right-radius: 4px;\n}\n.calendar .calendar-loading-container {\n  position: relative;\n  text-align: center;\n  min-height: 200px;\n}\n.calendar .calendar-loading-container .calendar-loading {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translateX(-50%) translateY(-50%);\n}\n.calendar .calendar-spinner {\n  margin: 20px auto;\n  width: 80px;\n  text-align: center;\n}\n.calendar .calendar-spinner > div {\n  width: 16px;\n  height: 16px;\n  margin: 5px;\n  background-color: #333;\n  border-radius: 100%;\n  display: inline-block;\n  animation: sk-bouncedelay 1s infinite ease-in-out both;\n}\n.calendar .calendar-spinner > div.bounce1 {\n  animation-delay: -0.32s;\n}\n.calendar .calendar-spinner > div.bounce2 {\n  animation-delay: -0.16s;\n}\n/* Context menu */\n.calendar-context-menu,\n.calendar-context-menu .submenu {\n  border: 1px solid #ddd;\n  background-color: white;\n  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);\n  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);\n  position: absolute;\n  display: none;\n}\n.calendar-context-menu .item {\n  position: relative;\n}\n.calendar-context-menu .item .content {\n  padding: 5px 10px;\n  cursor: pointer;\n  display: table;\n  width: 100%;\n  white-space: nowrap;\n  box-sizing: border-box;\n}\n.calendar-context-menu .item .content:hover {\n  background: #eee;\n}\n.calendar-context-menu .item .content .text {\n  display: table-cell;\n}\n.calendar-context-menu .item .content .arrow {\n  display: table-cell;\n  padding-left: 10px;\n  text-align: right;\n}\n.calendar-context-menu .item .submenu {\n  top: -1px;\n  /* Compensate for the border */\n}\n.calendar-context-menu .item .submenu:not(.open-left) {\n  left: 100%;\n}\n.calendar-context-menu .item .submenu.open-left {\n  right: 100%;\n}\n.calendar-context-menu .item:hover > .submenu {\n  display: block;\n}\n.table-striped .calendar table.month tr td,\n.table-striped .calendar table.month tr th {\n  background-color: transparent;\n}\ntable.month td.day .day-content:hover {\n  background: rgba(0, 0, 0, 0.2);\n  cursor: pointer;\n}\n@keyframes sk-bouncedelay {\n  0%,\n  80%,\n  100% {\n    transform: scale(0);\n  }\n  40% {\n    transform: scale(1);\n  }\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (cssWithMappingToString) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join("");
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === "string") {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, ""]];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
+
+/***/ }),
+
+/***/ "./node_modules/dayjs-business-days2/dist/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/dayjs-business-days2/dist/index.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const BusinessDaysPlugin = (options = {}, dayjsClass, dayjsFactory) => {
+    const defaultWorkingWeekdays = [1, 2, 3, 4, 5];
+    dayjsFactory.getWorkingWeekdays = function () {
+        return options.workingWeekdays || defaultWorkingWeekdays;
+    };
+    dayjsFactory.setWorkingWeekdays = function (workingWeekdays) {
+        options.workingWeekdays = workingWeekdays;
+    };
+    dayjsFactory.getHolidays = function () {
+        return options.holidays || [];
+    };
+    dayjsFactory.setHolidays = function (holidays) {
+        options.holidays = holidays;
+    };
+    dayjsFactory.getHolidayFormat = function () {
+        return options.holidayFormat;
+    };
+    dayjsFactory.setHolidayFormat = function (holidayFormat) {
+        options.holidayFormat = holidayFormat;
+    };
+    dayjsFactory.getAdditionalWorkingDays = function () {
+        return options.additionalWorkingDays || [];
+    };
+    dayjsFactory.setAdditionalWorkingDays = function (additionalWorkingDays) {
+        options.additionalWorkingDays = additionalWorkingDays;
+    };
+    dayjsFactory.getAdditionalWorkingDayFormat = function () {
+        return options.additionalWorkingDayFormat;
+    };
+    dayjsFactory.setAdditionalWorkingDayFormat = function (additionalWorkingDayFormat) {
+        options.additionalWorkingDayFormat = additionalWorkingDayFormat;
+    };
+    dayjsClass.prototype.isHoliday = function () {
+        if (!options.holidays) {
+            return false;
+        }
+        if (options.holidays.includes(this.format(options.holidayFormat))) {
+            return true;
+        }
+        return false;
+    };
+    dayjsClass.prototype.isBusinessDay = function () {
+        const workingWeekdays = options.workingWeekdays || defaultWorkingWeekdays;
+        if (this.isHoliday()) {
+            return false;
+        }
+        if (this.isAdditionalWorkingDay()) {
+            return true;
+        }
+        if (workingWeekdays.includes(this.day())) {
+            return true;
+        }
+        return false;
+    };
+    dayjsClass.prototype.isAdditionalWorkingDay = function () {
+        if (!options.additionalWorkingDays) {
+            return false;
+        }
+        if (options.additionalWorkingDays.includes(this.format(options.additionalWorkingDayFormat))) {
+            return true;
+        }
+        return false;
+    };
+    dayjsClass.prototype.businessDaysAdd = function (days) {
+        const numericDirection = days < 0 ? -1 : 1;
+        let currentDay = this.clone();
+        let daysRemaining = Math.abs(days);
+        while (daysRemaining > 0) {
+            currentDay = currentDay.add(numericDirection, `d`);
+            if (currentDay.isBusinessDay()) {
+                daysRemaining -= 1;
+            }
+        }
+        return currentDay;
+    };
+    dayjsClass.prototype.businessDaysSubtract = function (days) {
+        let currentDay = this.clone();
+        currentDay = currentDay.businessDaysAdd(days * -1);
+        return currentDay;
+    };
+    dayjsClass.prototype.businessDiff = function (date) {
+        const day1 = this.clone();
+        const day2 = date.clone();
+        const isPositiveDiff = day1 >= day2;
+        let start = isPositiveDiff ? day2 : day1;
+        const end = isPositiveDiff ? day1 : day2;
+        let daysBetween = 0;
+        if (start.isSame(end)) {
+            return daysBetween;
+        }
+        while (start < end) {
+            if (start.isBusinessDay()) {
+                daysBetween += 1;
+            }
+            start = start.add(1, `d`);
+        }
+        return isPositiveDiff ? daysBetween : -daysBetween;
+    };
+    dayjsClass.prototype.nextBusinessDay = function () {
+        const searchLimit = 7;
+        let currentDay = this.clone();
+        let loopIndex = 1;
+        while (loopIndex < searchLimit) {
+            currentDay = currentDay.add(1, `day`);
+            if (currentDay.isBusinessDay()) {
+                break;
+            }
+            loopIndex += 1;
+        }
+        return currentDay;
+    };
+    dayjsClass.prototype.prevBusinessDay = function () {
+        const searchLimit = 7;
+        let currentDay = this.clone();
+        let loopIndex = 1;
+        while (loopIndex < searchLimit) {
+            currentDay = currentDay.subtract(1, `day`);
+            if (currentDay.isBusinessDay()) {
+                break;
+            }
+            loopIndex += 1;
+        }
+        return currentDay;
+    };
+    dayjsClass.prototype.businessDaysInMonth = function () {
+        if (!this.isValid()) {
+            return [];
+        }
+        let currentDay = this.clone().startOf(`month`);
+        const monthEnd = this.clone().endOf(`month`);
+        const businessDays = [];
+        let monthComplete = false;
+        while (!monthComplete) {
+            if (currentDay.isBusinessDay()) {
+                businessDays.push(currentDay.clone());
+            }
+            currentDay = currentDay.add(1, `day`);
+            if (currentDay.isAfter(monthEnd)) {
+                monthComplete = true;
+            }
+        }
+        return businessDays;
+    };
+    dayjsClass.prototype.lastBusinessDayOfMonth = function () {
+        const businessDays = this.businessDaysInMonth();
+        const lastBusinessDay = businessDays[businessDays.length - 1];
+        return lastBusinessDay;
+    };
+    dayjsClass.prototype.businessWeeksInMonth = function () {
+        if (!this.isValid()) {
+            return [];
+        }
+        let currentDay = this.clone().startOf(`month`);
+        const monthEnd = this.clone().endOf(`month`);
+        const businessWeeks = [];
+        let businessDays = [];
+        let monthComplete = false;
+        while (!monthComplete) {
+            if (currentDay.isBusinessDay()) {
+                businessDays.push(currentDay.clone());
+            }
+            if (currentDay.day() === 5 || currentDay.isSame(monthEnd, `day`)) {
+                businessWeeks.push(businessDays);
+                businessDays = [];
+            }
+            currentDay = currentDay.add(1, `day`);
+            if (currentDay.isAfter(monthEnd)) {
+                monthComplete = true;
+            }
+        }
+        return businessWeeks;
+    };
+};
+exports["default"] = BusinessDaysPlugin;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/dayjs/dayjs.min.js":
+/*!*****************************************!*\
+  !*** ./node_modules/dayjs/dayjs.min.js ***!
+  \*****************************************/
+/***/ (function(module) {
+
+!function(t,e){ true?module.exports=e():0}(this,(function(){"use strict";var t=1e3,e=6e4,n=36e5,r="millisecond",i="second",s="minute",u="hour",a="day",o="week",c="month",f="quarter",h="year",d="date",l="Invalid Date",$=/^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/,y=/\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g,M={name:"en",weekdays:"Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),months:"January_February_March_April_May_June_July_August_September_October_November_December".split("_"),ordinal:function(t){var e=["th","st","nd","rd"],n=t%100;return"["+t+(e[(n-20)%10]||e[n]||e[0])+"]"}},m=function(t,e,n){var r=String(t);return!r||r.length>=e?t:""+Array(e+1-r.length).join(n)+t},v={s:m,z:function(t){var e=-t.utcOffset(),n=Math.abs(e),r=Math.floor(n/60),i=n%60;return(e<=0?"+":"-")+m(r,2,"0")+":"+m(i,2,"0")},m:function t(e,n){if(e.date()<n.date())return-t(n,e);var r=12*(n.year()-e.year())+(n.month()-e.month()),i=e.clone().add(r,c),s=n-i<0,u=e.clone().add(r+(s?-1:1),c);return+(-(r+(n-i)/(s?i-u:u-i))||0)},a:function(t){return t<0?Math.ceil(t)||0:Math.floor(t)},p:function(t){return{M:c,y:h,w:o,d:a,D:d,h:u,m:s,s:i,ms:r,Q:f}[t]||String(t||"").toLowerCase().replace(/s$/,"")},u:function(t){return void 0===t}},g="en",D={};D[g]=M;var p="$isDayjsObject",S=function(t){return t instanceof _||!(!t||!t[p])},w=function t(e,n,r){var i;if(!e)return g;if("string"==typeof e){var s=e.toLowerCase();D[s]&&(i=s),n&&(D[s]=n,i=s);var u=e.split("-");if(!i&&u.length>1)return t(u[0])}else{var a=e.name;D[a]=e,i=a}return!r&&i&&(g=i),i||!r&&g},O=function(t,e){if(S(t))return t.clone();var n="object"==typeof e?e:{};return n.date=t,n.args=arguments,new _(n)},b=v;b.l=w,b.i=S,b.w=function(t,e){return O(t,{locale:e.$L,utc:e.$u,x:e.$x,$offset:e.$offset})};var _=function(){function M(t){this.$L=w(t.locale,null,!0),this.parse(t),this.$x=this.$x||t.x||{},this[p]=!0}var m=M.prototype;return m.parse=function(t){this.$d=function(t){var e=t.date,n=t.utc;if(null===e)return new Date(NaN);if(b.u(e))return new Date;if(e instanceof Date)return new Date(e);if("string"==typeof e&&!/Z$/i.test(e)){var r=e.match($);if(r){var i=r[2]-1||0,s=(r[7]||"0").substring(0,3);return n?new Date(Date.UTC(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,s)):new Date(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,s)}}return new Date(e)}(t),this.init()},m.init=function(){var t=this.$d;this.$y=t.getFullYear(),this.$M=t.getMonth(),this.$D=t.getDate(),this.$W=t.getDay(),this.$H=t.getHours(),this.$m=t.getMinutes(),this.$s=t.getSeconds(),this.$ms=t.getMilliseconds()},m.$utils=function(){return b},m.isValid=function(){return!(this.$d.toString()===l)},m.isSame=function(t,e){var n=O(t);return this.startOf(e)<=n&&n<=this.endOf(e)},m.isAfter=function(t,e){return O(t)<this.startOf(e)},m.isBefore=function(t,e){return this.endOf(e)<O(t)},m.$g=function(t,e,n){return b.u(t)?this[e]:this.set(n,t)},m.unix=function(){return Math.floor(this.valueOf()/1e3)},m.valueOf=function(){return this.$d.getTime()},m.startOf=function(t,e){var n=this,r=!!b.u(e)||e,f=b.p(t),l=function(t,e){var i=b.w(n.$u?Date.UTC(n.$y,e,t):new Date(n.$y,e,t),n);return r?i:i.endOf(a)},$=function(t,e){return b.w(n.toDate()[t].apply(n.toDate("s"),(r?[0,0,0,0]:[23,59,59,999]).slice(e)),n)},y=this.$W,M=this.$M,m=this.$D,v="set"+(this.$u?"UTC":"");switch(f){case h:return r?l(1,0):l(31,11);case c:return r?l(1,M):l(0,M+1);case o:var g=this.$locale().weekStart||0,D=(y<g?y+7:y)-g;return l(r?m-D:m+(6-D),M);case a:case d:return $(v+"Hours",0);case u:return $(v+"Minutes",1);case s:return $(v+"Seconds",2);case i:return $(v+"Milliseconds",3);default:return this.clone()}},m.endOf=function(t){return this.startOf(t,!1)},m.$set=function(t,e){var n,o=b.p(t),f="set"+(this.$u?"UTC":""),l=(n={},n[a]=f+"Date",n[d]=f+"Date",n[c]=f+"Month",n[h]=f+"FullYear",n[u]=f+"Hours",n[s]=f+"Minutes",n[i]=f+"Seconds",n[r]=f+"Milliseconds",n)[o],$=o===a?this.$D+(e-this.$W):e;if(o===c||o===h){var y=this.clone().set(d,1);y.$d[l]($),y.init(),this.$d=y.set(d,Math.min(this.$D,y.daysInMonth())).$d}else l&&this.$d[l]($);return this.init(),this},m.set=function(t,e){return this.clone().$set(t,e)},m.get=function(t){return this[b.p(t)]()},m.add=function(r,f){var d,l=this;r=Number(r);var $=b.p(f),y=function(t){var e=O(l);return b.w(e.date(e.date()+Math.round(t*r)),l)};if($===c)return this.set(c,this.$M+r);if($===h)return this.set(h,this.$y+r);if($===a)return y(1);if($===o)return y(7);var M=(d={},d[s]=e,d[u]=n,d[i]=t,d)[$]||1,m=this.$d.getTime()+r*M;return b.w(m,this)},m.subtract=function(t,e){return this.add(-1*t,e)},m.format=function(t){var e=this,n=this.$locale();if(!this.isValid())return n.invalidDate||l;var r=t||"YYYY-MM-DDTHH:mm:ssZ",i=b.z(this),s=this.$H,u=this.$m,a=this.$M,o=n.weekdays,c=n.months,f=n.meridiem,h=function(t,n,i,s){return t&&(t[n]||t(e,r))||i[n].slice(0,s)},d=function(t){return b.s(s%12||12,t,"0")},$=f||function(t,e,n){var r=t<12?"AM":"PM";return n?r.toLowerCase():r};return r.replace(y,(function(t,r){return r||function(t){switch(t){case"YY":return String(e.$y).slice(-2);case"YYYY":return b.s(e.$y,4,"0");case"M":return a+1;case"MM":return b.s(a+1,2,"0");case"MMM":return h(n.monthsShort,a,c,3);case"MMMM":return h(c,a);case"D":return e.$D;case"DD":return b.s(e.$D,2,"0");case"d":return String(e.$W);case"dd":return h(n.weekdaysMin,e.$W,o,2);case"ddd":return h(n.weekdaysShort,e.$W,o,3);case"dddd":return o[e.$W];case"H":return String(s);case"HH":return b.s(s,2,"0");case"h":return d(1);case"hh":return d(2);case"a":return $(s,u,!0);case"A":return $(s,u,!1);case"m":return String(u);case"mm":return b.s(u,2,"0");case"s":return String(e.$s);case"ss":return b.s(e.$s,2,"0");case"SSS":return b.s(e.$ms,3,"0");case"Z":return i}return null}(t)||i.replace(":","")}))},m.utcOffset=function(){return 15*-Math.round(this.$d.getTimezoneOffset()/15)},m.diff=function(r,d,l){var $,y=this,M=b.p(d),m=O(r),v=(m.utcOffset()-this.utcOffset())*e,g=this-m,D=function(){return b.m(y,m)};switch(M){case h:$=D()/12;break;case c:$=D();break;case f:$=D()/3;break;case o:$=(g-v)/6048e5;break;case a:$=(g-v)/864e5;break;case u:$=g/n;break;case s:$=g/e;break;case i:$=g/t;break;default:$=g}return l?$:b.a($)},m.daysInMonth=function(){return this.endOf(c).$D},m.$locale=function(){return D[this.$L]},m.locale=function(t,e){if(!t)return this.$L;var n=this.clone(),r=w(t,e,!0);return r&&(n.$L=r),n},m.clone=function(){return b.w(this.$d,this)},m.toDate=function(){return new Date(this.valueOf())},m.toJSON=function(){return this.isValid()?this.toISOString():null},m.toISOString=function(){return this.$d.toISOString()},m.toString=function(){return this.$d.toUTCString()},M}(),k=_.prototype;return O.prototype=k,[["$ms",r],["$s",i],["$m",s],["$H",u],["$W",a],["$M",c],["$y",h],["$D",d]].forEach((function(t){k[t[1]]=function(e){return this.$g(e,t[0],t[1])}})),O.extend=function(t,e){return t.$i||(t(e,_,O),t.$i=!0),O},O.locale=w,O.isDayjs=S,O.unix=function(t){return O(1e3*t)},O.en=D[g],O.Ls=D,O.p={},O}));
+
+/***/ }),
+
+/***/ "./node_modules/gsap/CSSPlugin.js":
+/*!****************************************!*\
+  !*** ./node_modules/gsap/CSSPlugin.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CSSPlugin: () => (/* binding */ CSSPlugin),
+/* harmony export */   _createElement: () => (/* binding */ _createElement),
+/* harmony export */   _getBBox: () => (/* binding */ _getBBox),
+/* harmony export */   checkPrefix: () => (/* binding */ _checkPropPrefix),
+/* harmony export */   "default": () => (/* binding */ CSSPlugin)
+/* harmony export */ });
+/* harmony import */ var _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gsap-core.js */ "./node_modules/gsap/gsap-core.js");
+/*!
+ * CSSPlugin 3.12.5
+ * https://gsap.com
+ *
+ * Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+
+
+var _win,
+    _doc,
+    _docElement,
+    _pluginInitted,
+    _tempDiv,
+    _tempDivStyler,
+    _recentSetterPlugin,
+    _reverting,
+    _windowExists = function _windowExists() {
+  return typeof window !== "undefined";
+},
+    _transformProps = {},
+    _RAD2DEG = 180 / Math.PI,
+    _DEG2RAD = Math.PI / 180,
+    _atan2 = Math.atan2,
+    _bigNum = 1e8,
+    _capsExp = /([A-Z])/g,
+    _horizontalExp = /(left|right|width|margin|padding|x)/i,
+    _complexExp = /[\s,\(]\S/,
+    _propertyAliases = {
+  autoAlpha: "opacity,visibility",
+  scale: "scaleX,scaleY",
+  alpha: "opacity"
+},
+    _renderCSSProp = function _renderCSSProp(ratio, data) {
+  return data.set(data.t, data.p, Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u, data);
+},
+    _renderPropWithEnd = function _renderPropWithEnd(ratio, data) {
+  return data.set(data.t, data.p, ratio === 1 ? data.e : Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u, data);
+},
+    _renderCSSPropWithBeginning = function _renderCSSPropWithBeginning(ratio, data) {
+  return data.set(data.t, data.p, ratio ? Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u : data.b, data);
+},
+    //if units change, we need a way to render the original unit/value when the tween goes all the way back to the beginning (ratio:0)
+_renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
+  var value = data.s + data.c * ratio;
+  data.set(data.t, data.p, ~~(value + (value < 0 ? -.5 : .5)) + data.u, data);
+},
+    _renderNonTweeningValue = function _renderNonTweeningValue(ratio, data) {
+  return data.set(data.t, data.p, ratio ? data.e : data.b, data);
+},
+    _renderNonTweeningValueOnlyAtEnd = function _renderNonTweeningValueOnlyAtEnd(ratio, data) {
+  return data.set(data.t, data.p, ratio !== 1 ? data.b : data.e, data);
+},
+    _setterCSSStyle = function _setterCSSStyle(target, property, value) {
+  return target.style[property] = value;
+},
+    _setterCSSProp = function _setterCSSProp(target, property, value) {
+  return target.style.setProperty(property, value);
+},
+    _setterTransform = function _setterTransform(target, property, value) {
+  return target._gsap[property] = value;
+},
+    _setterScale = function _setterScale(target, property, value) {
+  return target._gsap.scaleX = target._gsap.scaleY = value;
+},
+    _setterScaleWithRender = function _setterScaleWithRender(target, property, value, data, ratio) {
+  var cache = target._gsap;
+  cache.scaleX = cache.scaleY = value;
+  cache.renderTransform(ratio, cache);
+},
+    _setterTransformWithRender = function _setterTransformWithRender(target, property, value, data, ratio) {
+  var cache = target._gsap;
+  cache[property] = value;
+  cache.renderTransform(ratio, cache);
+},
+    _transformProp = "transform",
+    _transformOriginProp = _transformProp + "Origin",
+    _saveStyle = function _saveStyle(property, isNotCSS) {
+  var _this = this;
+
+  var target = this.target,
+      style = target.style,
+      cache = target._gsap;
+
+  if (property in _transformProps && style) {
+    this.tfm = this.tfm || {};
+
+    if (property !== "transform") {
+      property = _propertyAliases[property] || property;
+      ~property.indexOf(",") ? property.split(",").forEach(function (a) {
+        return _this.tfm[a] = _get(target, a);
+      }) : this.tfm[property] = cache.x ? cache[property] : _get(target, property); // note: scale would map to "scaleX,scaleY", thus we loop and apply them both.
+
+      property === _transformOriginProp && (this.tfm.zOrigin = cache.zOrigin);
+    } else {
+      return _propertyAliases.transform.split(",").forEach(function (p) {
+        return _saveStyle.call(_this, p, isNotCSS);
+      });
+    }
+
+    if (this.props.indexOf(_transformProp) >= 0) {
+      return;
+    }
+
+    if (cache.svg) {
+      this.svgo = target.getAttribute("data-svg-origin");
+      this.props.push(_transformOriginProp, isNotCSS, "");
+    }
+
+    property = _transformProp;
+  }
+
+  (style || isNotCSS) && this.props.push(property, isNotCSS, style[property]);
+},
+    _removeIndependentTransforms = function _removeIndependentTransforms(style) {
+  if (style.translate) {
+    style.removeProperty("translate");
+    style.removeProperty("scale");
+    style.removeProperty("rotate");
+  }
+},
+    _revertStyle = function _revertStyle() {
+  var props = this.props,
+      target = this.target,
+      style = target.style,
+      cache = target._gsap,
+      i,
+      p;
+
+  for (i = 0; i < props.length; i += 3) {
+    // stored like this: property, isNotCSS, value
+    props[i + 1] ? target[props[i]] = props[i + 2] : props[i + 2] ? style[props[i]] = props[i + 2] : style.removeProperty(props[i].substr(0, 2) === "--" ? props[i] : props[i].replace(_capsExp, "-$1").toLowerCase());
+  }
+
+  if (this.tfm) {
+    for (p in this.tfm) {
+      cache[p] = this.tfm[p];
+    }
+
+    if (cache.svg) {
+      cache.renderTransform();
+      target.setAttribute("data-svg-origin", this.svgo || "");
+    }
+
+    i = _reverting();
+
+    if ((!i || !i.isStart) && !style[_transformProp]) {
+      _removeIndependentTransforms(style);
+
+      if (cache.zOrigin && style[_transformOriginProp]) {
+        style[_transformOriginProp] += " " + cache.zOrigin + "px"; // since we're uncaching, we must put the zOrigin back into the transformOrigin so that we can pull it out accurately when we parse again. Otherwise, we'd lose the z portion of the origin since we extract it to protect from Safari bugs.
+
+        cache.zOrigin = 0;
+        cache.renderTransform();
+      }
+
+      cache.uncache = 1; // if it's a startAt that's being reverted in the _initTween() of the core, we don't need to uncache transforms. This is purely a performance optimization.
+    }
+  }
+},
+    _getStyleSaver = function _getStyleSaver(target, properties) {
+  var saver = {
+    target: target,
+    props: [],
+    revert: _revertStyle,
+    save: _saveStyle
+  };
+  target._gsap || _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.core.getCache(target); // just make sure there's a _gsap cache defined because we read from it in _saveStyle() and it's more efficient to just check it here once.
+
+  properties && properties.split(",").forEach(function (p) {
+    return saver.save(p);
+  });
+  return saver;
+},
+    _supports3D,
+    _createElement = function _createElement(type, ns) {
+  var e = _doc.createElementNS ? _doc.createElementNS((ns || "http://www.w3.org/1999/xhtml").replace(/^https/, "http"), type) : _doc.createElement(type); //some servers swap in https for http in the namespace which can break things, making "style" inaccessible.
+
+  return e && e.style ? e : _doc.createElement(type); //some environments won't allow access to the element's style when created with a namespace in which case we default to the standard createElement() to work around the issue. Also note that when GSAP is embedded directly inside an SVG file, createElement() won't allow access to the style object in Firefox (see https://gsap.com/forums/topic/20215-problem-using-tweenmax-in-standalone-self-containing-svg-file-err-cannot-set-property-csstext-of-undefined/).
+},
+    _getComputedProperty = function _getComputedProperty(target, property, skipPrefixFallback) {
+  var cs = getComputedStyle(target);
+  return cs[property] || cs.getPropertyValue(property.replace(_capsExp, "-$1").toLowerCase()) || cs.getPropertyValue(property) || !skipPrefixFallback && _getComputedProperty(target, _checkPropPrefix(property) || property, 1) || ""; //css variables may not need caps swapped out for dashes and lowercase.
+},
+    _prefixes = "O,Moz,ms,Ms,Webkit".split(","),
+    _checkPropPrefix = function _checkPropPrefix(property, element, preferPrefix) {
+  var e = element || _tempDiv,
+      s = e.style,
+      i = 5;
+
+  if (property in s && !preferPrefix) {
+    return property;
+  }
+
+  property = property.charAt(0).toUpperCase() + property.substr(1);
+
+  while (i-- && !(_prefixes[i] + property in s)) {}
+
+  return i < 0 ? null : (i === 3 ? "ms" : i >= 0 ? _prefixes[i] : "") + property;
+},
+    _initCore = function _initCore() {
+  if (_windowExists() && window.document) {
+    _win = window;
+    _doc = _win.document;
+    _docElement = _doc.documentElement;
+    _tempDiv = _createElement("div") || {
+      style: {}
+    };
+    _tempDivStyler = _createElement("div");
+    _transformProp = _checkPropPrefix(_transformProp);
+    _transformOriginProp = _transformProp + "Origin";
+    _tempDiv.style.cssText = "border-width:0;line-height:0;position:absolute;padding:0"; //make sure to override certain properties that may contaminate measurements, in case the user has overreaching style sheets.
+
+    _supports3D = !!_checkPropPrefix("perspective");
+    _reverting = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.core.reverting;
+    _pluginInitted = 1;
+  }
+},
+    _getBBoxHack = function _getBBoxHack(swapIfPossible) {
+  //works around issues in some browsers (like Firefox) that don't correctly report getBBox() on SVG elements inside a <defs> element and/or <mask>. We try creating an SVG, adding it to the documentElement and toss the element in there so that it's definitely part of the rendering tree, then grab the bbox and if it works, we actually swap out the original getBBox() method for our own that does these extra steps whenever getBBox is needed. This helps ensure that performance is optimal (only do all these extra steps when absolutely necessary...most elements don't need it).
+  var svg = _createElement("svg", this.ownerSVGElement && this.ownerSVGElement.getAttribute("xmlns") || "http://www.w3.org/2000/svg"),
+      oldParent = this.parentNode,
+      oldSibling = this.nextSibling,
+      oldCSS = this.style.cssText,
+      bbox;
+
+  _docElement.appendChild(svg);
+
+  svg.appendChild(this);
+  this.style.display = "block";
+
+  if (swapIfPossible) {
+    try {
+      bbox = this.getBBox();
+      this._gsapBBox = this.getBBox; //store the original
+
+      this.getBBox = _getBBoxHack;
+    } catch (e) {}
+  } else if (this._gsapBBox) {
+    bbox = this._gsapBBox();
+  }
+
+  if (oldParent) {
+    if (oldSibling) {
+      oldParent.insertBefore(this, oldSibling);
+    } else {
+      oldParent.appendChild(this);
+    }
+  }
+
+  _docElement.removeChild(svg);
+
+  this.style.cssText = oldCSS;
+  return bbox;
+},
+    _getAttributeFallbacks = function _getAttributeFallbacks(target, attributesArray) {
+  var i = attributesArray.length;
+
+  while (i--) {
+    if (target.hasAttribute(attributesArray[i])) {
+      return target.getAttribute(attributesArray[i]);
+    }
+  }
+},
+    _getBBox = function _getBBox(target) {
+  var bounds;
+
+  try {
+    bounds = target.getBBox(); //Firefox throws errors if you try calling getBBox() on an SVG element that's not rendered (like in a <symbol> or <defs>). https://bugzilla.mozilla.org/show_bug.cgi?id=612118
+  } catch (error) {
+    bounds = _getBBoxHack.call(target, true);
+  }
+
+  bounds && (bounds.width || bounds.height) || target.getBBox === _getBBoxHack || (bounds = _getBBoxHack.call(target, true)); //some browsers (like Firefox) misreport the bounds if the element has zero width and height (it just assumes it's at x:0, y:0), thus we need to manually grab the position in that case.
+
+  return bounds && !bounds.width && !bounds.x && !bounds.y ? {
+    x: +_getAttributeFallbacks(target, ["x", "cx", "x1"]) || 0,
+    y: +_getAttributeFallbacks(target, ["y", "cy", "y1"]) || 0,
+    width: 0,
+    height: 0
+  } : bounds;
+},
+    _isSVG = function _isSVG(e) {
+  return !!(e.getCTM && (!e.parentNode || e.ownerSVGElement) && _getBBox(e));
+},
+    //reports if the element is an SVG on which getBBox() actually works
+_removeProperty = function _removeProperty(target, property) {
+  if (property) {
+    var style = target.style,
+        first2Chars;
+
+    if (property in _transformProps && property !== _transformOriginProp) {
+      property = _transformProp;
+    }
+
+    if (style.removeProperty) {
+      first2Chars = property.substr(0, 2);
+
+      if (first2Chars === "ms" || property.substr(0, 6) === "webkit") {
+        //Microsoft and some Webkit browsers don't conform to the standard of capitalizing the first prefix character, so we adjust so that when we prefix the caps with a dash, it's correct (otherwise it'd be "ms-transform" instead of "-ms-transform" for IE9, for example)
+        property = "-" + property;
+      }
+
+      style.removeProperty(first2Chars === "--" ? property : property.replace(_capsExp, "-$1").toLowerCase());
+    } else {
+      //note: old versions of IE use "removeAttribute()" instead of "removeProperty()"
+      style.removeAttribute(property);
+    }
+  }
+},
+    _addNonTweeningPT = function _addNonTweeningPT(plugin, target, property, beginning, end, onlySetAtEnd) {
+  var pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(plugin._pt, target, property, 0, 1, onlySetAtEnd ? _renderNonTweeningValueOnlyAtEnd : _renderNonTweeningValue);
+  plugin._pt = pt;
+  pt.b = beginning;
+  pt.e = end;
+
+  plugin._props.push(property);
+
+  return pt;
+},
+    _nonConvertibleUnits = {
+  deg: 1,
+  rad: 1,
+  turn: 1
+},
+    _nonStandardLayouts = {
+  grid: 1,
+  flex: 1
+},
+    //takes a single value like 20px and converts it to the unit specified, like "%", returning only the numeric amount.
+_convertToUnit = function _convertToUnit(target, property, value, unit) {
+  var curValue = parseFloat(value) || 0,
+      curUnit = (value + "").trim().substr((curValue + "").length) || "px",
+      // some browsers leave extra whitespace at the beginning of CSS variables, hence the need to trim()
+  style = _tempDiv.style,
+      horizontal = _horizontalExp.test(property),
+      isRootSVG = target.tagName.toLowerCase() === "svg",
+      measureProperty = (isRootSVG ? "client" : "offset") + (horizontal ? "Width" : "Height"),
+      amount = 100,
+      toPixels = unit === "px",
+      toPercent = unit === "%",
+      px,
+      parent,
+      cache,
+      isSVG;
+
+  if (unit === curUnit || !curValue || _nonConvertibleUnits[unit] || _nonConvertibleUnits[curUnit]) {
+    return curValue;
+  }
+
+  curUnit !== "px" && !toPixels && (curValue = _convertToUnit(target, property, value, "px"));
+  isSVG = target.getCTM && _isSVG(target);
+
+  if ((toPercent || curUnit === "%") && (_transformProps[property] || ~property.indexOf("adius"))) {
+    px = isSVG ? target.getBBox()[horizontal ? "width" : "height"] : target[measureProperty];
+    return (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(toPercent ? curValue / px * amount : curValue / 100 * px);
+  }
+
+  style[horizontal ? "width" : "height"] = amount + (toPixels ? curUnit : unit);
+  parent = ~property.indexOf("adius") || unit === "em" && target.appendChild && !isRootSVG ? target : target.parentNode;
+
+  if (isSVG) {
+    parent = (target.ownerSVGElement || {}).parentNode;
+  }
+
+  if (!parent || parent === _doc || !parent.appendChild) {
+    parent = _doc.body;
+  }
+
+  cache = parent._gsap;
+
+  if (cache && toPercent && cache.width && horizontal && cache.time === _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._ticker.time && !cache.uncache) {
+    return (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(curValue / cache.width * amount);
+  } else {
+    if (toPercent && (property === "height" || property === "width")) {
+      // if we're dealing with width/height that's inside a container with padding and/or it's a flexbox/grid container, we must apply it to the target itself rather than the _tempDiv in order to ensure complete accuracy, factoring in the parent's padding.
+      var v = target.style[property];
+      target.style[property] = amount + unit;
+      px = target[measureProperty];
+      v ? target.style[property] = v : _removeProperty(target, property);
+    } else {
+      (toPercent || curUnit === "%") && !_nonStandardLayouts[_getComputedProperty(parent, "display")] && (style.position = _getComputedProperty(target, "position"));
+      parent === target && (style.position = "static"); // like for borderRadius, if it's a % we must have it relative to the target itself but that may not have position: relative or position: absolute in which case it'd go up the chain until it finds its offsetParent (bad). position: static protects against that.
+
+      parent.appendChild(_tempDiv);
+      px = _tempDiv[measureProperty];
+      parent.removeChild(_tempDiv);
+      style.position = "absolute";
+    }
+
+    if (horizontal && toPercent) {
+      cache = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._getCache)(parent);
+      cache.time = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._ticker.time;
+      cache.width = parent[measureProperty];
+    }
+  }
+
+  return (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(toPixels ? px * curValue / amount : px && curValue ? amount / px * curValue : 0);
+},
+    _get = function _get(target, property, unit, uncache) {
+  var value;
+  _pluginInitted || _initCore();
+
+  if (property in _propertyAliases && property !== "transform") {
+    property = _propertyAliases[property];
+
+    if (~property.indexOf(",")) {
+      property = property.split(",")[0];
+    }
+  }
+
+  if (_transformProps[property] && property !== "transform") {
+    value = _parseTransform(target, uncache);
+    value = property !== "transformOrigin" ? value[property] : value.svg ? value.origin : _firstTwoOnly(_getComputedProperty(target, _transformOriginProp)) + " " + value.zOrigin + "px";
+  } else {
+    value = target.style[property];
+
+    if (!value || value === "auto" || uncache || ~(value + "").indexOf("calc(")) {
+      value = _specialProps[property] && _specialProps[property](target, property, unit) || _getComputedProperty(target, property) || (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._getProperty)(target, property) || (property === "opacity" ? 1 : 0); // note: some browsers, like Firefox, don't report borderRadius correctly! Instead, it only reports every corner like  borderTopLeftRadius
+    }
+  }
+
+  return unit && !~(value + "").trim().indexOf(" ") ? _convertToUnit(target, property, value, unit) + unit : value;
+},
+    _tweenComplexCSSString = function _tweenComplexCSSString(target, prop, start, end) {
+  // note: we call _tweenComplexCSSString.call(pluginInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
+  if (!start || start === "none") {
+    // some browsers like Safari actually PREFER the prefixed property and mis-report the unprefixed value like clipPath (BUG). In other words, even though clipPath exists in the style ("clipPath" in target.style) and it's set in the CSS properly (along with -webkit-clip-path), Safari reports clipPath as "none" whereas WebkitClipPath reports accurately like "ellipse(100% 0% at 50% 0%)", so in this case we must SWITCH to using the prefixed property instead. See https://gsap.com/forums/topic/18310-clippath-doesnt-work-on-ios/
+    var p = _checkPropPrefix(prop, target, 1),
+        s = p && _getComputedProperty(target, p, 1);
+
+    if (s && s !== start) {
+      prop = p;
+      start = s;
+    } else if (prop === "borderColor") {
+      start = _getComputedProperty(target, "borderTopColor"); // Firefox bug: always reports "borderColor" as "", so we must fall back to borderTopColor. See https://gsap.com/forums/topic/24583-how-to-return-colors-that-i-had-after-reverse/
+    }
+  }
+
+  var pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(this._pt, target.style, prop, 0, 1, _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._renderComplexString),
+      index = 0,
+      matchIndex = 0,
+      a,
+      result,
+      startValues,
+      startNum,
+      color,
+      startValue,
+      endValue,
+      endNum,
+      chunk,
+      endUnit,
+      startUnit,
+      endValues;
+  pt.b = start;
+  pt.e = end;
+  start += ""; // ensure values are strings
+
+  end += "";
+
+  if (end === "auto") {
+    startValue = target.style[prop];
+    target.style[prop] = end;
+    end = _getComputedProperty(target, prop) || end;
+    startValue ? target.style[prop] = startValue : _removeProperty(target, prop);
+  }
+
+  a = [start, end];
+
+  (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._colorStringFilter)(a); // pass an array with the starting and ending values and let the filter do whatever it needs to the values. If colors are found, it returns true and then we must match where the color shows up order-wise because for things like boxShadow, sometimes the browser provides the computed values with the color FIRST, but the user provides it with the color LAST, so flip them if necessary. Same for drop-shadow().
+
+
+  start = a[0];
+  end = a[1];
+  startValues = start.match(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._numWithUnitExp) || [];
+  endValues = end.match(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._numWithUnitExp) || [];
+
+  if (endValues.length) {
+    while (result = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._numWithUnitExp.exec(end)) {
+      endValue = result[0];
+      chunk = end.substring(index, result.index);
+
+      if (color) {
+        color = (color + 1) % 5;
+      } else if (chunk.substr(-5) === "rgba(" || chunk.substr(-5) === "hsla(") {
+        color = 1;
+      }
+
+      if (endValue !== (startValue = startValues[matchIndex++] || "")) {
+        startNum = parseFloat(startValue) || 0;
+        startUnit = startValue.substr((startNum + "").length);
+        endValue.charAt(1) === "=" && (endValue = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._parseRelative)(startNum, endValue) + startUnit);
+        endNum = parseFloat(endValue);
+        endUnit = endValue.substr((endNum + "").length);
+        index = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._numWithUnitExp.lastIndex - endUnit.length;
+
+        if (!endUnit) {
+          //if something like "perspective:300" is passed in and we must add a unit to the end
+          endUnit = endUnit || _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units[prop] || startUnit;
+
+          if (index === end.length) {
+            end += endUnit;
+            pt.e += endUnit;
+          }
+        }
+
+        if (startUnit !== endUnit) {
+          startNum = _convertToUnit(target, prop, startValue, endUnit) || 0;
+        } // these nested PropTweens are handled in a special way - we'll never actually call a render or setter method on them. We'll just loop through them in the parent complex string PropTween's render method.
+
+
+        pt._pt = {
+          _next: pt._pt,
+          p: chunk || matchIndex === 1 ? chunk : ",",
+          //note: SVG spec allows omission of comma/space when a negative sign is wedged between two numbers, like 2.5-5.3 instead of 2.5,-5.3 but when tweening, the negative value may switch to positive, so we insert the comma just in case.
+          s: startNum,
+          c: endNum - startNum,
+          m: color && color < 4 || prop === "zIndex" ? Math.round : 0
+        };
+      }
+    }
+
+    pt.c = index < end.length ? end.substring(index, end.length) : ""; //we use the "c" of the PropTween to store the final part of the string (after the last number)
+  } else {
+    pt.r = prop === "display" && end === "none" ? _renderNonTweeningValueOnlyAtEnd : _renderNonTweeningValue;
+  }
+
+  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._relExp.test(end) && (pt.e = 0); //if the end string contains relative values or dynamic random(...) values, delete the end it so that on the final render we don't actually set it to the string with += or -= characters (forces it to use the calculated value).
+
+  this._pt = pt; //start the linked list with this new PropTween. Remember, we call _tweenComplexCSSString.call(pluginInstance...) to ensure that it's scoped properly. We may call it from within another plugin too, thus "this" would refer to the plugin.
+
+  return pt;
+},
+    _keywordToPercent = {
+  top: "0%",
+  bottom: "100%",
+  left: "0%",
+  right: "100%",
+  center: "50%"
+},
+    _convertKeywordsToPercentages = function _convertKeywordsToPercentages(value) {
+  var split = value.split(" "),
+      x = split[0],
+      y = split[1] || "50%";
+
+  if (x === "top" || x === "bottom" || y === "left" || y === "right") {
+    //the user provided them in the wrong order, so flip them
+    value = x;
+    x = y;
+    y = value;
+  }
+
+  split[0] = _keywordToPercent[x] || x;
+  split[1] = _keywordToPercent[y] || y;
+  return split.join(" ");
+},
+    _renderClearProps = function _renderClearProps(ratio, data) {
+  if (data.tween && data.tween._time === data.tween._dur) {
+    var target = data.t,
+        style = target.style,
+        props = data.u,
+        cache = target._gsap,
+        prop,
+        clearTransforms,
+        i;
+
+    if (props === "all" || props === true) {
+      style.cssText = "";
+      clearTransforms = 1;
+    } else {
+      props = props.split(",");
+      i = props.length;
+
+      while (--i > -1) {
+        prop = props[i];
+
+        if (_transformProps[prop]) {
+          clearTransforms = 1;
+          prop = prop === "transformOrigin" ? _transformOriginProp : _transformProp;
+        }
+
+        _removeProperty(target, prop);
+      }
+    }
+
+    if (clearTransforms) {
+      _removeProperty(target, _transformProp);
+
+      if (cache) {
+        cache.svg && target.removeAttribute("transform");
+
+        _parseTransform(target, 1); // force all the cached values back to "normal"/identity, otherwise if there's another tween that's already set to render transforms on this element, it could display the wrong values.
+
+
+        cache.uncache = 1;
+
+        _removeIndependentTransforms(style);
+      }
+    }
+  }
+},
+    // note: specialProps should return 1 if (and only if) they have a non-zero priority. It indicates we need to sort the linked list.
+_specialProps = {
+  clearProps: function clearProps(plugin, target, property, endValue, tween) {
+    if (tween.data !== "isFromStart") {
+      var pt = plugin._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(plugin._pt, target, property, 0, 0, _renderClearProps);
+      pt.u = endValue;
+      pt.pr = -10;
+      pt.tween = tween;
+
+      plugin._props.push(property);
+
+      return 1;
+    }
+  }
+  /* className feature (about 0.4kb gzipped).
+  , className(plugin, target, property, endValue, tween) {
+  	let _renderClassName = (ratio, data) => {
+  			data.css.render(ratio, data.css);
+  			if (!ratio || ratio === 1) {
+  				let inline = data.rmv,
+  					target = data.t,
+  					p;
+  				target.setAttribute("class", ratio ? data.e : data.b);
+  				for (p in inline) {
+  					_removeProperty(target, p);
+  				}
+  			}
+  		},
+  		_getAllStyles = (target) => {
+  			let styles = {},
+  				computed = getComputedStyle(target),
+  				p;
+  			for (p in computed) {
+  				if (isNaN(p) && p !== "cssText" && p !== "length") {
+  					styles[p] = computed[p];
+  				}
+  			}
+  			_setDefaults(styles, _parseTransform(target, 1));
+  			return styles;
+  		},
+  		startClassList = target.getAttribute("class"),
+  		style = target.style,
+  		cssText = style.cssText,
+  		cache = target._gsap,
+  		classPT = cache.classPT,
+  		inlineToRemoveAtEnd = {},
+  		data = {t:target, plugin:plugin, rmv:inlineToRemoveAtEnd, b:startClassList, e:(endValue.charAt(1) !== "=") ? endValue : startClassList.replace(new RegExp("(?:\\s|^)" + endValue.substr(2) + "(?![\\w-])"), "") + ((endValue.charAt(0) === "+") ? " " + endValue.substr(2) : "")},
+  		changingVars = {},
+  		startVars = _getAllStyles(target),
+  		transformRelated = /(transform|perspective)/i,
+  		endVars, p;
+  	if (classPT) {
+  		classPT.r(1, classPT.d);
+  		_removeLinkedListItem(classPT.d.plugin, classPT, "_pt");
+  	}
+  	target.setAttribute("class", data.e);
+  	endVars = _getAllStyles(target, true);
+  	target.setAttribute("class", startClassList);
+  	for (p in endVars) {
+  		if (endVars[p] !== startVars[p] && !transformRelated.test(p)) {
+  			changingVars[p] = endVars[p];
+  			if (!style[p] && style[p] !== "0") {
+  				inlineToRemoveAtEnd[p] = 1;
+  			}
+  		}
+  	}
+  	cache.classPT = plugin._pt = new PropTween(plugin._pt, target, "className", 0, 0, _renderClassName, data, 0, -11);
+  	if (style.cssText !== cssText) { //only apply if things change. Otherwise, in cases like a background-image that's pulled dynamically, it could cause a refresh. See https://gsap.com/forums/topic/20368-possible-gsap-bug-switching-classnames-in-chrome/.
+  		style.cssText = cssText; //we recorded cssText before we swapped classes and ran _getAllStyles() because in cases when a className tween is overwritten, we remove all the related tweening properties from that class change (otherwise class-specific stuff can't override properties we've directly set on the target's style object due to specificity).
+  	}
+  	_parseTransform(target, true); //to clear the caching of transforms
+  	data.css = new gsap.plugins.css();
+  	data.css.init(target, changingVars, tween);
+  	plugin._props.push(...data.css._props);
+  	return 1;
+  }
+  */
+
+},
+
+/*
+ * --------------------------------------------------------------------------------------
+ * TRANSFORMS
+ * --------------------------------------------------------------------------------------
+ */
+_identity2DMatrix = [1, 0, 0, 1, 0, 0],
+    _rotationalProperties = {},
+    _isNullTransform = function _isNullTransform(value) {
+  return value === "matrix(1, 0, 0, 1, 0, 0)" || value === "none" || !value;
+},
+    _getComputedTransformMatrixAsArray = function _getComputedTransformMatrixAsArray(target) {
+  var matrixString = _getComputedProperty(target, _transformProp);
+
+  return _isNullTransform(matrixString) ? _identity2DMatrix : matrixString.substr(7).match(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._numExp).map(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round);
+},
+    _getMatrix = function _getMatrix(target, force2D) {
+  var cache = target._gsap || (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._getCache)(target),
+      style = target.style,
+      matrix = _getComputedTransformMatrixAsArray(target),
+      parent,
+      nextSibling,
+      temp,
+      addedToDOM;
+
+  if (cache.svg && target.getAttribute("transform")) {
+    temp = target.transform.baseVal.consolidate().matrix; //ensures that even complex values like "translate(50,60) rotate(135,0,0)" are parsed because it mashes it into a matrix.
+
+    matrix = [temp.a, temp.b, temp.c, temp.d, temp.e, temp.f];
+    return matrix.join(",") === "1,0,0,1,0,0" ? _identity2DMatrix : matrix;
+  } else if (matrix === _identity2DMatrix && !target.offsetParent && target !== _docElement && !cache.svg) {
+    //note: if offsetParent is null, that means the element isn't in the normal document flow, like if it has display:none or one of its ancestors has display:none). Firefox returns null for getComputedStyle() if the element is in an iframe that has display:none. https://bugzilla.mozilla.org/show_bug.cgi?id=548397
+    //browsers don't report transforms accurately unless the element is in the DOM and has a display value that's not "none". Firefox and Microsoft browsers have a partial bug where they'll report transforms even if display:none BUT not any percentage-based values like translate(-50%, 8px) will be reported as if it's translate(0, 8px).
+    temp = style.display;
+    style.display = "block";
+    parent = target.parentNode;
+
+    if (!parent || !target.offsetParent) {
+      // note: in 3.3.0 we switched target.offsetParent to _doc.body.contains(target) to avoid [sometimes unnecessary] MutationObserver calls but that wasn't adequate because there are edge cases where nested position: fixed elements need to get reparented to accurately sense transforms. See https://github.com/greensock/GSAP/issues/388 and https://github.com/greensock/GSAP/issues/375
+      addedToDOM = 1; //flag
+
+      nextSibling = target.nextElementSibling;
+
+      _docElement.appendChild(target); //we must add it to the DOM in order to get values properly
+
+    }
+
+    matrix = _getComputedTransformMatrixAsArray(target);
+    temp ? style.display = temp : _removeProperty(target, "display");
+
+    if (addedToDOM) {
+      nextSibling ? parent.insertBefore(target, nextSibling) : parent ? parent.appendChild(target) : _docElement.removeChild(target);
+    }
+  }
+
+  return force2D && matrix.length > 6 ? [matrix[0], matrix[1], matrix[4], matrix[5], matrix[12], matrix[13]] : matrix;
+},
+    _applySVGOrigin = function _applySVGOrigin(target, origin, originIsAbsolute, smooth, matrixArray, pluginToAddPropTweensTo) {
+  var cache = target._gsap,
+      matrix = matrixArray || _getMatrix(target, true),
+      xOriginOld = cache.xOrigin || 0,
+      yOriginOld = cache.yOrigin || 0,
+      xOffsetOld = cache.xOffset || 0,
+      yOffsetOld = cache.yOffset || 0,
+      a = matrix[0],
+      b = matrix[1],
+      c = matrix[2],
+      d = matrix[3],
+      tx = matrix[4],
+      ty = matrix[5],
+      originSplit = origin.split(" "),
+      xOrigin = parseFloat(originSplit[0]) || 0,
+      yOrigin = parseFloat(originSplit[1]) || 0,
+      bounds,
+      determinant,
+      x,
+      y;
+
+  if (!originIsAbsolute) {
+    bounds = _getBBox(target);
+    xOrigin = bounds.x + (~originSplit[0].indexOf("%") ? xOrigin / 100 * bounds.width : xOrigin);
+    yOrigin = bounds.y + (~(originSplit[1] || originSplit[0]).indexOf("%") ? yOrigin / 100 * bounds.height : yOrigin); // if (!("xOrigin" in cache) && (xOrigin || yOrigin)) { // added in 3.12.3, reverted in 3.12.4; requires more exploration
+    // 	xOrigin -= bounds.x;
+    // 	yOrigin -= bounds.y;
+    // }
+  } else if (matrix !== _identity2DMatrix && (determinant = a * d - b * c)) {
+    //if it's zero (like if scaleX and scaleY are zero), skip it to avoid errors with dividing by zero.
+    x = xOrigin * (d / determinant) + yOrigin * (-c / determinant) + (c * ty - d * tx) / determinant;
+    y = xOrigin * (-b / determinant) + yOrigin * (a / determinant) - (a * ty - b * tx) / determinant;
+    xOrigin = x;
+    yOrigin = y; // theory: we only had to do this for smoothing and it assumes that the previous one was not originIsAbsolute.
+  }
+
+  if (smooth || smooth !== false && cache.smooth) {
+    tx = xOrigin - xOriginOld;
+    ty = yOrigin - yOriginOld;
+    cache.xOffset = xOffsetOld + (tx * a + ty * c) - tx;
+    cache.yOffset = yOffsetOld + (tx * b + ty * d) - ty;
+  } else {
+    cache.xOffset = cache.yOffset = 0;
+  }
+
+  cache.xOrigin = xOrigin;
+  cache.yOrigin = yOrigin;
+  cache.smooth = !!smooth;
+  cache.origin = origin;
+  cache.originIsAbsolute = !!originIsAbsolute;
+  target.style[_transformOriginProp] = "0px 0px"; //otherwise, if someone sets  an origin via CSS, it will likely interfere with the SVG transform attribute ones (because remember, we're baking the origin into the matrix() value).
+
+  if (pluginToAddPropTweensTo) {
+    _addNonTweeningPT(pluginToAddPropTweensTo, cache, "xOrigin", xOriginOld, xOrigin);
+
+    _addNonTweeningPT(pluginToAddPropTweensTo, cache, "yOrigin", yOriginOld, yOrigin);
+
+    _addNonTweeningPT(pluginToAddPropTweensTo, cache, "xOffset", xOffsetOld, cache.xOffset);
+
+    _addNonTweeningPT(pluginToAddPropTweensTo, cache, "yOffset", yOffsetOld, cache.yOffset);
+  }
+
+  target.setAttribute("data-svg-origin", xOrigin + " " + yOrigin);
+},
+    _parseTransform = function _parseTransform(target, uncache) {
+  var cache = target._gsap || new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.GSCache(target);
+
+  if ("x" in cache && !uncache && !cache.uncache) {
+    return cache;
+  }
+
+  var style = target.style,
+      invertedScaleX = cache.scaleX < 0,
+      px = "px",
+      deg = "deg",
+      cs = getComputedStyle(target),
+      origin = _getComputedProperty(target, _transformOriginProp) || "0",
+      x,
+      y,
+      z,
+      scaleX,
+      scaleY,
+      rotation,
+      rotationX,
+      rotationY,
+      skewX,
+      skewY,
+      perspective,
+      xOrigin,
+      yOrigin,
+      matrix,
+      angle,
+      cos,
+      sin,
+      a,
+      b,
+      c,
+      d,
+      a12,
+      a22,
+      t1,
+      t2,
+      t3,
+      a13,
+      a23,
+      a33,
+      a42,
+      a43,
+      a32;
+  x = y = z = rotation = rotationX = rotationY = skewX = skewY = perspective = 0;
+  scaleX = scaleY = 1;
+  cache.svg = !!(target.getCTM && _isSVG(target));
+
+  if (cs.translate) {
+    // accommodate independent transforms by combining them into normal ones.
+    if (cs.translate !== "none" || cs.scale !== "none" || cs.rotate !== "none") {
+      style[_transformProp] = (cs.translate !== "none" ? "translate3d(" + (cs.translate + " 0 0").split(" ").slice(0, 3).join(", ") + ") " : "") + (cs.rotate !== "none" ? "rotate(" + cs.rotate + ") " : "") + (cs.scale !== "none" ? "scale(" + cs.scale.split(" ").join(",") + ") " : "") + (cs[_transformProp] !== "none" ? cs[_transformProp] : "");
+    }
+
+    style.scale = style.rotate = style.translate = "none";
+  }
+
+  matrix = _getMatrix(target, cache.svg);
+
+  if (cache.svg) {
+    if (cache.uncache) {
+      // if cache.uncache is true (and maybe if origin is 0,0), we need to set element.style.transformOrigin = (cache.xOrigin - bbox.x) + "px " + (cache.yOrigin - bbox.y) + "px". Previously we let the data-svg-origin stay instead, but when introducing revert(), it complicated things.
+      t2 = target.getBBox();
+      origin = cache.xOrigin - t2.x + "px " + (cache.yOrigin - t2.y) + "px";
+      t1 = "";
+    } else {
+      t1 = !uncache && target.getAttribute("data-svg-origin"); //  Remember, to work around browser inconsistencies we always force SVG elements' transformOrigin to 0,0 and offset the translation accordingly.
+    }
+
+    _applySVGOrigin(target, t1 || origin, !!t1 || cache.originIsAbsolute, cache.smooth !== false, matrix);
+  }
+
+  xOrigin = cache.xOrigin || 0;
+  yOrigin = cache.yOrigin || 0;
+
+  if (matrix !== _identity2DMatrix) {
+    a = matrix[0]; //a11
+
+    b = matrix[1]; //a21
+
+    c = matrix[2]; //a31
+
+    d = matrix[3]; //a41
+
+    x = a12 = matrix[4];
+    y = a22 = matrix[5]; //2D matrix
+
+    if (matrix.length === 6) {
+      scaleX = Math.sqrt(a * a + b * b);
+      scaleY = Math.sqrt(d * d + c * c);
+      rotation = a || b ? _atan2(b, a) * _RAD2DEG : 0; //note: if scaleX is 0, we cannot accurately measure rotation. Same for skewX with a scaleY of 0. Therefore, we default to the previously recorded value (or zero if that doesn't exist).
+
+      skewX = c || d ? _atan2(c, d) * _RAD2DEG + rotation : 0;
+      skewX && (scaleY *= Math.abs(Math.cos(skewX * _DEG2RAD)));
+
+      if (cache.svg) {
+        x -= xOrigin - (xOrigin * a + yOrigin * c);
+        y -= yOrigin - (xOrigin * b + yOrigin * d);
+      } //3D matrix
+
+    } else {
+      a32 = matrix[6];
+      a42 = matrix[7];
+      a13 = matrix[8];
+      a23 = matrix[9];
+      a33 = matrix[10];
+      a43 = matrix[11];
+      x = matrix[12];
+      y = matrix[13];
+      z = matrix[14];
+      angle = _atan2(a32, a33);
+      rotationX = angle * _RAD2DEG; //rotationX
+
+      if (angle) {
+        cos = Math.cos(-angle);
+        sin = Math.sin(-angle);
+        t1 = a12 * cos + a13 * sin;
+        t2 = a22 * cos + a23 * sin;
+        t3 = a32 * cos + a33 * sin;
+        a13 = a12 * -sin + a13 * cos;
+        a23 = a22 * -sin + a23 * cos;
+        a33 = a32 * -sin + a33 * cos;
+        a43 = a42 * -sin + a43 * cos;
+        a12 = t1;
+        a22 = t2;
+        a32 = t3;
+      } //rotationY
+
+
+      angle = _atan2(-c, a33);
+      rotationY = angle * _RAD2DEG;
+
+      if (angle) {
+        cos = Math.cos(-angle);
+        sin = Math.sin(-angle);
+        t1 = a * cos - a13 * sin;
+        t2 = b * cos - a23 * sin;
+        t3 = c * cos - a33 * sin;
+        a43 = d * sin + a43 * cos;
+        a = t1;
+        b = t2;
+        c = t3;
+      } //rotationZ
+
+
+      angle = _atan2(b, a);
+      rotation = angle * _RAD2DEG;
+
+      if (angle) {
+        cos = Math.cos(angle);
+        sin = Math.sin(angle);
+        t1 = a * cos + b * sin;
+        t2 = a12 * cos + a22 * sin;
+        b = b * cos - a * sin;
+        a22 = a22 * cos - a12 * sin;
+        a = t1;
+        a12 = t2;
+      }
+
+      if (rotationX && Math.abs(rotationX) + Math.abs(rotation) > 359.9) {
+        //when rotationY is set, it will often be parsed as 180 degrees different than it should be, and rotationX and rotation both being 180 (it looks the same), so we adjust for that here.
+        rotationX = rotation = 0;
+        rotationY = 180 - rotationY;
+      }
+
+      scaleX = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(Math.sqrt(a * a + b * b + c * c));
+      scaleY = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(Math.sqrt(a22 * a22 + a32 * a32));
+      angle = _atan2(a12, a22);
+      skewX = Math.abs(angle) > 0.0002 ? angle * _RAD2DEG : 0;
+      perspective = a43 ? 1 / (a43 < 0 ? -a43 : a43) : 0;
+    }
+
+    if (cache.svg) {
+      //sense if there are CSS transforms applied on an SVG element in which case we must overwrite them when rendering. The transform attribute is more reliable cross-browser, but we can't just remove the CSS ones because they may be applied in a CSS rule somewhere (not just inline).
+      t1 = target.getAttribute("transform");
+      cache.forceCSS = target.setAttribute("transform", "") || !_isNullTransform(_getComputedProperty(target, _transformProp));
+      t1 && target.setAttribute("transform", t1);
+    }
+  }
+
+  if (Math.abs(skewX) > 90 && Math.abs(skewX) < 270) {
+    if (invertedScaleX) {
+      scaleX *= -1;
+      skewX += rotation <= 0 ? 180 : -180;
+      rotation += rotation <= 0 ? 180 : -180;
+    } else {
+      scaleY *= -1;
+      skewX += skewX <= 0 ? 180 : -180;
+    }
+  }
+
+  uncache = uncache || cache.uncache;
+  cache.x = x - ((cache.xPercent = x && (!uncache && cache.xPercent || (Math.round(target.offsetWidth / 2) === Math.round(-x) ? -50 : 0))) ? target.offsetWidth * cache.xPercent / 100 : 0) + px;
+  cache.y = y - ((cache.yPercent = y && (!uncache && cache.yPercent || (Math.round(target.offsetHeight / 2) === Math.round(-y) ? -50 : 0))) ? target.offsetHeight * cache.yPercent / 100 : 0) + px;
+  cache.z = z + px;
+  cache.scaleX = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(scaleX);
+  cache.scaleY = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(scaleY);
+  cache.rotation = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(rotation) + deg;
+  cache.rotationX = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(rotationX) + deg;
+  cache.rotationY = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(rotationY) + deg;
+  cache.skewX = skewX + deg;
+  cache.skewY = skewY + deg;
+  cache.transformPerspective = perspective + px;
+
+  if (cache.zOrigin = parseFloat(origin.split(" ")[2]) || !uncache && cache.zOrigin || 0) {
+    style[_transformOriginProp] = _firstTwoOnly(origin);
+  }
+
+  cache.xOffset = cache.yOffset = 0;
+  cache.force3D = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.force3D;
+  cache.renderTransform = cache.svg ? _renderSVGTransforms : _supports3D ? _renderCSSTransforms : _renderNon3DTransforms;
+  cache.uncache = 0;
+  return cache;
+},
+    _firstTwoOnly = function _firstTwoOnly(value) {
+  return (value = value.split(" "))[0] + " " + value[1];
+},
+    //for handling transformOrigin values, stripping out the 3rd dimension
+_addPxTranslate = function _addPxTranslate(target, start, value) {
+  var unit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(start);
+  return (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(parseFloat(start) + parseFloat(_convertToUnit(target, "x", value + "px", unit))) + unit;
+},
+    _renderNon3DTransforms = function _renderNon3DTransforms(ratio, cache) {
+  cache.z = "0px";
+  cache.rotationY = cache.rotationX = "0deg";
+  cache.force3D = 0;
+
+  _renderCSSTransforms(ratio, cache);
+},
+    _zeroDeg = "0deg",
+    _zeroPx = "0px",
+    _endParenthesis = ") ",
+    _renderCSSTransforms = function _renderCSSTransforms(ratio, cache) {
+  var _ref = cache || this,
+      xPercent = _ref.xPercent,
+      yPercent = _ref.yPercent,
+      x = _ref.x,
+      y = _ref.y,
+      z = _ref.z,
+      rotation = _ref.rotation,
+      rotationY = _ref.rotationY,
+      rotationX = _ref.rotationX,
+      skewX = _ref.skewX,
+      skewY = _ref.skewY,
+      scaleX = _ref.scaleX,
+      scaleY = _ref.scaleY,
+      transformPerspective = _ref.transformPerspective,
+      force3D = _ref.force3D,
+      target = _ref.target,
+      zOrigin = _ref.zOrigin,
+      transforms = "",
+      use3D = force3D === "auto" && ratio && ratio !== 1 || force3D === true; // Safari has a bug that causes it not to render 3D transform-origin values properly, so we force the z origin to 0, record it in the cache, and then do the math here to offset the translate values accordingly (basically do the 3D transform-origin part manually)
+
+
+  if (zOrigin && (rotationX !== _zeroDeg || rotationY !== _zeroDeg)) {
+    var angle = parseFloat(rotationY) * _DEG2RAD,
+        a13 = Math.sin(angle),
+        a33 = Math.cos(angle),
+        cos;
+
+    angle = parseFloat(rotationX) * _DEG2RAD;
+    cos = Math.cos(angle);
+    x = _addPxTranslate(target, x, a13 * cos * -zOrigin);
+    y = _addPxTranslate(target, y, -Math.sin(angle) * -zOrigin);
+    z = _addPxTranslate(target, z, a33 * cos * -zOrigin + zOrigin);
+  }
+
+  if (transformPerspective !== _zeroPx) {
+    transforms += "perspective(" + transformPerspective + _endParenthesis;
+  }
+
+  if (xPercent || yPercent) {
+    transforms += "translate(" + xPercent + "%, " + yPercent + "%) ";
+  }
+
+  if (use3D || x !== _zeroPx || y !== _zeroPx || z !== _zeroPx) {
+    transforms += z !== _zeroPx || use3D ? "translate3d(" + x + ", " + y + ", " + z + ") " : "translate(" + x + ", " + y + _endParenthesis;
+  }
+
+  if (rotation !== _zeroDeg) {
+    transforms += "rotate(" + rotation + _endParenthesis;
+  }
+
+  if (rotationY !== _zeroDeg) {
+    transforms += "rotateY(" + rotationY + _endParenthesis;
+  }
+
+  if (rotationX !== _zeroDeg) {
+    transforms += "rotateX(" + rotationX + _endParenthesis;
+  }
+
+  if (skewX !== _zeroDeg || skewY !== _zeroDeg) {
+    transforms += "skew(" + skewX + ", " + skewY + _endParenthesis;
+  }
+
+  if (scaleX !== 1 || scaleY !== 1) {
+    transforms += "scale(" + scaleX + ", " + scaleY + _endParenthesis;
+  }
+
+  target.style[_transformProp] = transforms || "translate(0, 0)";
+},
+    _renderSVGTransforms = function _renderSVGTransforms(ratio, cache) {
+  var _ref2 = cache || this,
+      xPercent = _ref2.xPercent,
+      yPercent = _ref2.yPercent,
+      x = _ref2.x,
+      y = _ref2.y,
+      rotation = _ref2.rotation,
+      skewX = _ref2.skewX,
+      skewY = _ref2.skewY,
+      scaleX = _ref2.scaleX,
+      scaleY = _ref2.scaleY,
+      target = _ref2.target,
+      xOrigin = _ref2.xOrigin,
+      yOrigin = _ref2.yOrigin,
+      xOffset = _ref2.xOffset,
+      yOffset = _ref2.yOffset,
+      forceCSS = _ref2.forceCSS,
+      tx = parseFloat(x),
+      ty = parseFloat(y),
+      a11,
+      a21,
+      a12,
+      a22,
+      temp;
+
+  rotation = parseFloat(rotation);
+  skewX = parseFloat(skewX);
+  skewY = parseFloat(skewY);
+
+  if (skewY) {
+    //for performance reasons, we combine all skewing into the skewX and rotation values. Remember, a skewY of 10 degrees looks the same as a rotation of 10 degrees plus a skewX of 10 degrees.
+    skewY = parseFloat(skewY);
+    skewX += skewY;
+    rotation += skewY;
+  }
+
+  if (rotation || skewX) {
+    rotation *= _DEG2RAD;
+    skewX *= _DEG2RAD;
+    a11 = Math.cos(rotation) * scaleX;
+    a21 = Math.sin(rotation) * scaleX;
+    a12 = Math.sin(rotation - skewX) * -scaleY;
+    a22 = Math.cos(rotation - skewX) * scaleY;
+
+    if (skewX) {
+      skewY *= _DEG2RAD;
+      temp = Math.tan(skewX - skewY);
+      temp = Math.sqrt(1 + temp * temp);
+      a12 *= temp;
+      a22 *= temp;
+
+      if (skewY) {
+        temp = Math.tan(skewY);
+        temp = Math.sqrt(1 + temp * temp);
+        a11 *= temp;
+        a21 *= temp;
+      }
+    }
+
+    a11 = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(a11);
+    a21 = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(a21);
+    a12 = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(a12);
+    a22 = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(a22);
+  } else {
+    a11 = scaleX;
+    a22 = scaleY;
+    a21 = a12 = 0;
+  }
+
+  if (tx && !~(x + "").indexOf("px") || ty && !~(y + "").indexOf("px")) {
+    tx = _convertToUnit(target, "x", x, "px");
+    ty = _convertToUnit(target, "y", y, "px");
+  }
+
+  if (xOrigin || yOrigin || xOffset || yOffset) {
+    tx = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(tx + xOrigin - (xOrigin * a11 + yOrigin * a12) + xOffset);
+    ty = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(ty + yOrigin - (xOrigin * a21 + yOrigin * a22) + yOffset);
+  }
+
+  if (xPercent || yPercent) {
+    //The SVG spec doesn't support percentage-based translation in the "transform" attribute, so we merge it into the translation to simulate it.
+    temp = target.getBBox();
+    tx = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(tx + xPercent / 100 * temp.width);
+    ty = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._round)(ty + yPercent / 100 * temp.height);
+  }
+
+  temp = "matrix(" + a11 + "," + a21 + "," + a12 + "," + a22 + "," + tx + "," + ty + ")";
+  target.setAttribute("transform", temp);
+  forceCSS && (target.style[_transformProp] = temp); //some browsers prioritize CSS transforms over the transform attribute. When we sense that the user has CSS transforms applied, we must overwrite them this way (otherwise some browser simply won't render the transform attribute changes!)
+},
+    _addRotationalPropTween = function _addRotationalPropTween(plugin, target, property, startNum, endValue) {
+  var cap = 360,
+      isString = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._isString)(endValue),
+      endNum = parseFloat(endValue) * (isString && ~endValue.indexOf("rad") ? _RAD2DEG : 1),
+      change = endNum - startNum,
+      finalValue = startNum + change + "deg",
+      direction,
+      pt;
+
+  if (isString) {
+    direction = endValue.split("_")[1];
+
+    if (direction === "short") {
+      change %= cap;
+
+      if (change !== change % (cap / 2)) {
+        change += change < 0 ? cap : -cap;
+      }
+    }
+
+    if (direction === "cw" && change < 0) {
+      change = (change + cap * _bigNum) % cap - ~~(change / cap) * cap;
+    } else if (direction === "ccw" && change > 0) {
+      change = (change - cap * _bigNum) % cap - ~~(change / cap) * cap;
+    }
+  }
+
+  plugin._pt = pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(plugin._pt, target, property, startNum, change, _renderPropWithEnd);
+  pt.e = finalValue;
+  pt.u = "deg";
+
+  plugin._props.push(property);
+
+  return pt;
+},
+    _assign = function _assign(target, source) {
+  // Internet Explorer doesn't have Object.assign(), so we recreate it here.
+  for (var p in source) {
+    target[p] = source[p];
+  }
+
+  return target;
+},
+    _addRawTransformPTs = function _addRawTransformPTs(plugin, transforms, target) {
+  //for handling cases where someone passes in a whole transform string, like transform: "scale(2, 3) rotate(20deg) translateY(30em)"
+  var startCache = _assign({}, target._gsap),
+      exclude = "perspective,force3D,transformOrigin,svgOrigin",
+      style = target.style,
+      endCache,
+      p,
+      startValue,
+      endValue,
+      startNum,
+      endNum,
+      startUnit,
+      endUnit;
+
+  if (startCache.svg) {
+    startValue = target.getAttribute("transform");
+    target.setAttribute("transform", "");
+    style[_transformProp] = transforms;
+    endCache = _parseTransform(target, 1);
+
+    _removeProperty(target, _transformProp);
+
+    target.setAttribute("transform", startValue);
+  } else {
+    startValue = getComputedStyle(target)[_transformProp];
+    style[_transformProp] = transforms;
+    endCache = _parseTransform(target, 1);
+    style[_transformProp] = startValue;
+  }
+
+  for (p in _transformProps) {
+    startValue = startCache[p];
+    endValue = endCache[p];
+
+    if (startValue !== endValue && exclude.indexOf(p) < 0) {
+      //tweening to no perspective gives very unintuitive results - just keep the same perspective in that case.
+      startUnit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(startValue);
+      endUnit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(endValue);
+      startNum = startUnit !== endUnit ? _convertToUnit(target, p, startValue, endUnit) : parseFloat(startValue);
+      endNum = parseFloat(endValue);
+      plugin._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(plugin._pt, endCache, p, startNum, endNum - startNum, _renderCSSProp);
+      plugin._pt.u = endUnit || 0;
+
+      plugin._props.push(p);
+    }
+  }
+
+  _assign(endCache, startCache);
+}; // handle splitting apart padding, margin, borderWidth, and borderRadius into their 4 components. Firefox, for example, won't report borderRadius correctly - it will only do borderTopLeftRadius and the other corners. We also want to handle paddingTop, marginLeft, borderRightWidth, etc.
+
+
+(0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._forEachName)("padding,margin,Width,Radius", function (name, index) {
+  var t = "Top",
+      r = "Right",
+      b = "Bottom",
+      l = "Left",
+      props = (index < 3 ? [t, r, b, l] : [t + l, t + r, b + r, b + l]).map(function (side) {
+    return index < 2 ? name + side : "border" + side + name;
+  });
+
+  _specialProps[index > 1 ? "border" + name : name] = function (plugin, target, property, endValue, tween) {
+    var a, vars;
+
+    if (arguments.length < 4) {
+      // getter, passed target, property, and unit (from _get())
+      a = props.map(function (prop) {
+        return _get(plugin, prop, property);
+      });
+      vars = a.join(" ");
+      return vars.split(a[0]).length === 5 ? a[0] : vars;
+    }
+
+    a = (endValue + "").split(" ");
+    vars = {};
+    props.forEach(function (prop, i) {
+      return vars[prop] = a[i] = a[i] || a[(i - 1) / 2 | 0];
+    });
+    plugin.init(target, vars, tween);
+  };
+});
+
+var CSSPlugin = {
+  name: "css",
+  register: _initCore,
+  targetTest: function targetTest(target) {
+    return target.style && target.nodeType;
+  },
+  init: function init(target, vars, tween, index, targets) {
+    var props = this._props,
+        style = target.style,
+        startAt = tween.vars.startAt,
+        startValue,
+        endValue,
+        endNum,
+        startNum,
+        type,
+        specialProp,
+        p,
+        startUnit,
+        endUnit,
+        relative,
+        isTransformRelated,
+        transformPropTween,
+        cache,
+        smooth,
+        hasPriority,
+        inlineProps;
+    _pluginInitted || _initCore(); // we may call init() multiple times on the same plugin instance, like when adding special properties, so make sure we don't overwrite the revert data or inlineProps
+
+    this.styles = this.styles || _getStyleSaver(target);
+    inlineProps = this.styles.props;
+    this.tween = tween;
+
+    for (p in vars) {
+      if (p === "autoRound") {
+        continue;
+      }
+
+      endValue = vars[p];
+
+      if (_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._plugins[p] && (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._checkPlugin)(p, vars, tween, index, target, targets)) {
+        // plugins
+        continue;
+      }
+
+      type = typeof endValue;
+      specialProp = _specialProps[p];
+
+      if (type === "function") {
+        endValue = endValue.call(tween, index, target, targets);
+        type = typeof endValue;
+      }
+
+      if (type === "string" && ~endValue.indexOf("random(")) {
+        endValue = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._replaceRandom)(endValue);
+      }
+
+      if (specialProp) {
+        specialProp(this, target, p, endValue, tween) && (hasPriority = 1);
+      } else if (p.substr(0, 2) === "--") {
+        //CSS variable
+        startValue = (getComputedStyle(target).getPropertyValue(p) + "").trim();
+        endValue += "";
+        _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._colorExp.lastIndex = 0;
+
+        if (!_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._colorExp.test(startValue)) {
+          // colors don't have units
+          startUnit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(startValue);
+          endUnit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(endValue);
+        }
+
+        endUnit ? startUnit !== endUnit && (startValue = _convertToUnit(target, p, startValue, endUnit) + endUnit) : startUnit && (endValue += startUnit);
+        this.add(style, "setProperty", startValue, endValue, index, targets, 0, 0, p);
+        props.push(p);
+        inlineProps.push(p, 0, style[p]);
+      } else if (type !== "undefined") {
+        if (startAt && p in startAt) {
+          // in case someone hard-codes a complex value as the start, like top: "calc(2vh / 2)". Without this, it'd use the computed value (always in px)
+          startValue = typeof startAt[p] === "function" ? startAt[p].call(tween, index, target, targets) : startAt[p];
+          (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._isString)(startValue) && ~startValue.indexOf("random(") && (startValue = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._replaceRandom)(startValue));
+          (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(startValue + "") || startValue === "auto" || (startValue += _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units[p] || (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(_get(target, p)) || ""); // for cases when someone passes in a unitless value like {x: 100}; if we try setting translate(100, 0px) it won't work.
+
+          (startValue + "").charAt(1) === "=" && (startValue = _get(target, p)); // can't work with relative values
+        } else {
+          startValue = _get(target, p);
+        }
+
+        startNum = parseFloat(startValue);
+        relative = type === "string" && endValue.charAt(1) === "=" && endValue.substr(0, 2);
+        relative && (endValue = endValue.substr(2));
+        endNum = parseFloat(endValue);
+
+        if (p in _propertyAliases) {
+          if (p === "autoAlpha") {
+            //special case where we control the visibility along with opacity. We still allow the opacity value to pass through and get tweened.
+            if (startNum === 1 && _get(target, "visibility") === "hidden" && endNum) {
+              //if visibility is initially set to "hidden", we should interpret that as intent to make opacity 0 (a convenience)
+              startNum = 0;
+            }
+
+            inlineProps.push("visibility", 0, style.visibility);
+
+            _addNonTweeningPT(this, style, "visibility", startNum ? "inherit" : "hidden", endNum ? "inherit" : "hidden", !endNum);
+          }
+
+          if (p !== "scale" && p !== "transform") {
+            p = _propertyAliases[p];
+            ~p.indexOf(",") && (p = p.split(",")[0]);
+          }
+        }
+
+        isTransformRelated = p in _transformProps; //--- TRANSFORM-RELATED ---
+
+        if (isTransformRelated) {
+          this.styles.save(p);
+
+          if (!transformPropTween) {
+            cache = target._gsap;
+            cache.renderTransform && !vars.parseTransform || _parseTransform(target, vars.parseTransform); // if, for example, gsap.set(... {transform:"translateX(50vw)"}), the _get() call doesn't parse the transform, thus cache.renderTransform won't be set yet so force the parsing of the transform here.
+
+            smooth = vars.smoothOrigin !== false && cache.smooth;
+            transformPropTween = this._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(this._pt, style, _transformProp, 0, 1, cache.renderTransform, cache, 0, -1); //the first time through, create the rendering PropTween so that it runs LAST (in the linked list, we keep adding to the beginning)
+
+            transformPropTween.dep = 1; //flag it as dependent so that if things get killed/overwritten and this is the only PropTween left, we can safely kill the whole tween.
+          }
+
+          if (p === "scale") {
+            this._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(this._pt, cache, "scaleY", cache.scaleY, (relative ? (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._parseRelative)(cache.scaleY, relative + endNum) : endNum) - cache.scaleY || 0, _renderCSSProp);
+            this._pt.u = 0;
+            props.push("scaleY", p);
+            p += "X";
+          } else if (p === "transformOrigin") {
+            inlineProps.push(_transformOriginProp, 0, style[_transformOriginProp]);
+            endValue = _convertKeywordsToPercentages(endValue); //in case something like "left top" or "bottom right" is passed in. Convert to percentages.
+
+            if (cache.svg) {
+              _applySVGOrigin(target, endValue, 0, smooth, 0, this);
+            } else {
+              endUnit = parseFloat(endValue.split(" ")[2]) || 0; //handle the zOrigin separately!
+
+              endUnit !== cache.zOrigin && _addNonTweeningPT(this, cache, "zOrigin", cache.zOrigin, endUnit);
+
+              _addNonTweeningPT(this, style, p, _firstTwoOnly(startValue), _firstTwoOnly(endValue));
+            }
+
+            continue;
+          } else if (p === "svgOrigin") {
+            _applySVGOrigin(target, endValue, 1, smooth, 0, this);
+
+            continue;
+          } else if (p in _rotationalProperties) {
+            _addRotationalPropTween(this, cache, p, startNum, relative ? (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._parseRelative)(startNum, relative + endValue) : endValue);
+
+            continue;
+          } else if (p === "smoothOrigin") {
+            _addNonTweeningPT(this, cache, "smooth", cache.smooth, endValue);
+
+            continue;
+          } else if (p === "force3D") {
+            cache[p] = endValue;
+            continue;
+          } else if (p === "transform") {
+            _addRawTransformPTs(this, endValue, target);
+
+            continue;
+          }
+        } else if (!(p in style)) {
+          p = _checkPropPrefix(p) || p;
+        }
+
+        if (isTransformRelated || (endNum || endNum === 0) && (startNum || startNum === 0) && !_complexExp.test(endValue) && p in style) {
+          startUnit = (startValue + "").substr((startNum + "").length);
+          endNum || (endNum = 0); // protect against NaN
+
+          endUnit = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.getUnit)(endValue) || (p in _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units ? _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units[p] : startUnit);
+          startUnit !== endUnit && (startNum = _convertToUnit(target, p, startValue, endUnit));
+          this._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.PropTween(this._pt, isTransformRelated ? cache : style, p, startNum, (relative ? (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._parseRelative)(startNum, relative + endNum) : endNum) - startNum, !isTransformRelated && (endUnit === "px" || p === "zIndex") && vars.autoRound !== false ? _renderRoundedCSSProp : _renderCSSProp);
+          this._pt.u = endUnit || 0;
+
+          if (startUnit !== endUnit && endUnit !== "%") {
+            //when the tween goes all the way back to the beginning, we need to revert it to the OLD/ORIGINAL value (with those units). We record that as a "b" (beginning) property and point to a render method that handles that. (performance optimization)
+            this._pt.b = startValue;
+            this._pt.r = _renderCSSPropWithBeginning;
+          }
+        } else if (!(p in style)) {
+          if (p in target) {
+            //maybe it's not a style - it could be a property added directly to an element in which case we'll try to animate that.
+            this.add(target, p, startValue || target[p], relative ? relative + endValue : endValue, index, targets);
+          } else if (p !== "parseTransform") {
+            (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._missingPlugin)(p, endValue);
+
+            continue;
+          }
+        } else {
+          _tweenComplexCSSString.call(this, target, p, startValue, relative ? relative + endValue : endValue);
+        }
+
+        isTransformRelated || (p in style ? inlineProps.push(p, 0, style[p]) : inlineProps.push(p, 1, startValue || target[p]));
+        props.push(p);
+      }
+    }
+
+    hasPriority && (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._sortPropTweensByPriority)(this);
+  },
+  render: function render(ratio, data) {
+    if (data.tween._time || !_reverting()) {
+      var pt = data._pt;
+
+      while (pt) {
+        pt.r(ratio, pt.d);
+        pt = pt._next;
+      }
+    } else {
+      data.styles.revert();
+    }
+  },
+  get: _get,
+  aliases: _propertyAliases,
+  getSetter: function getSetter(target, property, plugin) {
+    //returns a setter function that accepts target, property, value and applies it accordingly. Remember, properties like "x" aren't as simple as target.style.property = value because they've got to be applied to a proxy object and then merged into a transform string in a renderer.
+    var p = _propertyAliases[property];
+    p && p.indexOf(",") < 0 && (property = p);
+    return property in _transformProps && property !== _transformOriginProp && (target._gsap.x || _get(target, "x")) ? plugin && _recentSetterPlugin === plugin ? property === "scale" ? _setterScale : _setterTransform : (_recentSetterPlugin = plugin || {}) && (property === "scale" ? _setterScaleWithRender : _setterTransformWithRender) : target.style && !(0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._isUndefined)(target.style[property]) ? _setterCSSStyle : ~property.indexOf("-") ? _setterCSSProp : (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._getSetter)(target, property);
+  },
+  core: {
+    _removeProperty: _removeProperty,
+    _getMatrix: _getMatrix
+  }
+};
+_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.checkPrefix = _checkPropPrefix;
+_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.core.getStyleSaver = _getStyleSaver;
+
+(function (positionAndScale, rotation, others, aliases) {
+  var all = (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._forEachName)(positionAndScale + "," + rotation + "," + others, function (name) {
+    _transformProps[name] = 1;
+  });
+
+  (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._forEachName)(rotation, function (name) {
+    _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units[name] = "deg";
+    _rotationalProperties[name] = 1;
+  });
+
+  _propertyAliases[all[13]] = positionAndScale + "," + rotation;
+
+  (0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._forEachName)(aliases, function (name) {
+    var split = name.split(":");
+    _propertyAliases[split[1]] = all[split[0]];
+  });
+})("x,y,z,scale,scaleX,scaleY,xPercent,yPercent", "rotation,rotationX,rotationY,skewX,skewY", "transform,transformOrigin,svgOrigin,force3D,smoothOrigin,transformPerspective", "0:translateX,1:translateY,2:translateZ,8:rotate,8:rotationZ,8:rotateZ,9:rotateX,10:rotateY");
+
+(0,_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._forEachName)("x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective", function (name) {
+  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__._config.units[name] = "px";
+});
+
+_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(CSSPlugin);
+
+
+/***/ }),
+
+/***/ "./node_modules/gsap/gsap-core.js":
+/*!****************************************!*\
+  !*** ./node_modules/gsap/gsap-core.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Animation: () => (/* binding */ Animation),
+/* harmony export */   Back: () => (/* binding */ Back),
+/* harmony export */   Bounce: () => (/* binding */ Bounce),
+/* harmony export */   Circ: () => (/* binding */ Circ),
+/* harmony export */   Cubic: () => (/* binding */ Cubic),
+/* harmony export */   Elastic: () => (/* binding */ Elastic),
+/* harmony export */   Expo: () => (/* binding */ Expo),
+/* harmony export */   GSCache: () => (/* binding */ GSCache),
+/* harmony export */   Linear: () => (/* binding */ Linear),
+/* harmony export */   Power0: () => (/* binding */ Power0),
+/* harmony export */   Power1: () => (/* binding */ Power1),
+/* harmony export */   Power2: () => (/* binding */ Power2),
+/* harmony export */   Power3: () => (/* binding */ Power3),
+/* harmony export */   Power4: () => (/* binding */ Power4),
+/* harmony export */   PropTween: () => (/* binding */ PropTween),
+/* harmony export */   Quad: () => (/* binding */ Quad),
+/* harmony export */   Quart: () => (/* binding */ Quart),
+/* harmony export */   Quint: () => (/* binding */ Quint),
+/* harmony export */   Sine: () => (/* binding */ Sine),
+/* harmony export */   SteppedEase: () => (/* binding */ SteppedEase),
+/* harmony export */   Strong: () => (/* binding */ Strong),
+/* harmony export */   Timeline: () => (/* binding */ Timeline),
+/* harmony export */   TimelineLite: () => (/* binding */ Timeline),
+/* harmony export */   TimelineMax: () => (/* binding */ Timeline),
+/* harmony export */   Tween: () => (/* binding */ Tween),
+/* harmony export */   TweenLite: () => (/* binding */ Tween),
+/* harmony export */   TweenMax: () => (/* binding */ Tween),
+/* harmony export */   _checkPlugin: () => (/* binding */ _checkPlugin),
+/* harmony export */   _colorExp: () => (/* binding */ _colorExp),
+/* harmony export */   _colorStringFilter: () => (/* binding */ _colorStringFilter),
+/* harmony export */   _config: () => (/* binding */ _config),
+/* harmony export */   _forEachName: () => (/* binding */ _forEachName),
+/* harmony export */   _getCache: () => (/* binding */ _getCache),
+/* harmony export */   _getProperty: () => (/* binding */ _getProperty),
+/* harmony export */   _getSetter: () => (/* binding */ _getSetter),
+/* harmony export */   _isString: () => (/* binding */ _isString),
+/* harmony export */   _isUndefined: () => (/* binding */ _isUndefined),
+/* harmony export */   _missingPlugin: () => (/* binding */ _missingPlugin),
+/* harmony export */   _numExp: () => (/* binding */ _numExp),
+/* harmony export */   _numWithUnitExp: () => (/* binding */ _numWithUnitExp),
+/* harmony export */   _parseRelative: () => (/* binding */ _parseRelative),
+/* harmony export */   _plugins: () => (/* binding */ _plugins),
+/* harmony export */   _relExp: () => (/* binding */ _relExp),
+/* harmony export */   _removeLinkedListItem: () => (/* binding */ _removeLinkedListItem),
+/* harmony export */   _renderComplexString: () => (/* binding */ _renderComplexString),
+/* harmony export */   _replaceRandom: () => (/* binding */ _replaceRandom),
+/* harmony export */   _round: () => (/* binding */ _round),
+/* harmony export */   _roundModifier: () => (/* binding */ _roundModifier),
+/* harmony export */   _setDefaults: () => (/* binding */ _setDefaults),
+/* harmony export */   _sortPropTweensByPriority: () => (/* binding */ _sortPropTweensByPriority),
+/* harmony export */   _ticker: () => (/* binding */ _ticker),
+/* harmony export */   clamp: () => (/* binding */ clamp),
+/* harmony export */   "default": () => (/* binding */ gsap),
+/* harmony export */   distribute: () => (/* binding */ distribute),
+/* harmony export */   getUnit: () => (/* binding */ getUnit),
+/* harmony export */   gsap: () => (/* binding */ gsap),
+/* harmony export */   interpolate: () => (/* binding */ interpolate),
+/* harmony export */   mapRange: () => (/* binding */ mapRange),
+/* harmony export */   normalize: () => (/* binding */ normalize),
+/* harmony export */   pipe: () => (/* binding */ pipe),
+/* harmony export */   random: () => (/* binding */ random),
+/* harmony export */   selector: () => (/* binding */ selector),
+/* harmony export */   shuffle: () => (/* binding */ shuffle),
+/* harmony export */   snap: () => (/* binding */ snap),
+/* harmony export */   splitColor: () => (/* binding */ splitColor),
+/* harmony export */   toArray: () => (/* binding */ toArray),
+/* harmony export */   unitize: () => (/* binding */ unitize),
+/* harmony export */   wrap: () => (/* binding */ wrap),
+/* harmony export */   wrapYoyo: () => (/* binding */ wrapYoyo)
+/* harmony export */ });
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+
+/*!
+ * GSAP 3.12.5
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+var _config = {
+  autoSleep: 120,
+  force3D: "auto",
+  nullTargetWarn: 1,
+  units: {
+    lineHeight: ""
+  }
+},
+    _defaults = {
+  duration: .5,
+  overwrite: false,
+  delay: 0
+},
+    _suppressOverwrites,
+    _reverting,
+    _context,
+    _bigNum = 1e8,
+    _tinyNum = 1 / _bigNum,
+    _2PI = Math.PI * 2,
+    _HALF_PI = _2PI / 4,
+    _gsID = 0,
+    _sqrt = Math.sqrt,
+    _cos = Math.cos,
+    _sin = Math.sin,
+    _isString = function _isString(value) {
+  return typeof value === "string";
+},
+    _isFunction = function _isFunction(value) {
+  return typeof value === "function";
+},
+    _isNumber = function _isNumber(value) {
+  return typeof value === "number";
+},
+    _isUndefined = function _isUndefined(value) {
+  return typeof value === "undefined";
+},
+    _isObject = function _isObject(value) {
+  return typeof value === "object";
+},
+    _isNotFalse = function _isNotFalse(value) {
+  return value !== false;
+},
+    _windowExists = function _windowExists() {
+  return typeof window !== "undefined";
+},
+    _isFuncOrString = function _isFuncOrString(value) {
+  return _isFunction(value) || _isString(value);
+},
+    _isTypedArray = typeof ArrayBuffer === "function" && ArrayBuffer.isView || function () {},
+    // note: IE10 has ArrayBuffer, but NOT ArrayBuffer.isView().
+_isArray = Array.isArray,
+    _strictNumExp = /(?:-?\.?\d|\.)+/gi,
+    //only numbers (including negatives and decimals) but NOT relative values.
+_numExp = /[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g,
+    //finds any numbers, including ones that start with += or -=, negative numbers, and ones in scientific notation like 1e-8.
+_numWithUnitExp = /[-+=.]*\d+[.e-]*\d*[a-z%]*/g,
+    _complexStringNumExp = /[-+=.]*\d+\.?\d*(?:e-|e\+)?\d*/gi,
+    //duplicate so that while we're looping through matches from exec(), it doesn't contaminate the lastIndex of _numExp which we use to search for colors too.
+_relExp = /[+-]=-?[.\d]+/,
+    _delimitedValueExp = /[^,'"\[\]\s]+/gi,
+    // previously /[#\-+.]*\b[a-z\d\-=+%.]+/gi but didn't catch special characters.
+_unitExp = /^[+\-=e\s\d]*\d+[.\d]*([a-z]*|%)\s*$/i,
+    _globalTimeline,
+    _win,
+    _coreInitted,
+    _doc,
+    _globals = {},
+    _installScope = {},
+    _coreReady,
+    _install = function _install(scope) {
+  return (_installScope = _merge(scope, _globals)) && gsap;
+},
+    _missingPlugin = function _missingPlugin(property, value) {
+  return console.warn("Invalid property", property, "set to", value, "Missing plugin? gsap.registerPlugin()");
+},
+    _warn = function _warn(message, suppress) {
+  return !suppress && console.warn(message);
+},
+    _addGlobal = function _addGlobal(name, obj) {
+  return name && (_globals[name] = obj) && _installScope && (_installScope[name] = obj) || _globals;
+},
+    _emptyFunc = function _emptyFunc() {
+  return 0;
+},
+    _startAtRevertConfig = {
+  suppressEvents: true,
+  isStart: true,
+  kill: false
+},
+    _revertConfigNoKill = {
+  suppressEvents: true,
+  kill: false
+},
+    _revertConfig = {
+  suppressEvents: true
+},
+    _reservedProps = {},
+    _lazyTweens = [],
+    _lazyLookup = {},
+    _lastRenderedFrame,
+    _plugins = {},
+    _effects = {},
+    _nextGCFrame = 30,
+    _harnessPlugins = [],
+    _callbackNames = "",
+    _harness = function _harness(targets) {
+  var target = targets[0],
+      harnessPlugin,
+      i;
+  _isObject(target) || _isFunction(target) || (targets = [targets]);
+
+  if (!(harnessPlugin = (target._gsap || {}).harness)) {
+    // find the first target with a harness. We assume targets passed into an animation will be of similar type, meaning the same kind of harness can be used for them all (performance optimization)
+    i = _harnessPlugins.length;
+
+    while (i-- && !_harnessPlugins[i].targetTest(target)) {}
+
+    harnessPlugin = _harnessPlugins[i];
+  }
+
+  i = targets.length;
+
+  while (i--) {
+    targets[i] && (targets[i]._gsap || (targets[i]._gsap = new GSCache(targets[i], harnessPlugin))) || targets.splice(i, 1);
+  }
+
+  return targets;
+},
+    _getCache = function _getCache(target) {
+  return target._gsap || _harness(toArray(target))[0]._gsap;
+},
+    _getProperty = function _getProperty(target, property, v) {
+  return (v = target[property]) && _isFunction(v) ? target[property]() : _isUndefined(v) && target.getAttribute && target.getAttribute(property) || v;
+},
+    _forEachName = function _forEachName(names, func) {
+  return (names = names.split(",")).forEach(func) || names;
+},
+    //split a comma-delimited list of names into an array, then run a forEach() function and return the split array (this is just a way to consolidate/shorten some code).
+_round = function _round(value) {
+  return Math.round(value * 100000) / 100000 || 0;
+},
+    _roundPrecise = function _roundPrecise(value) {
+  return Math.round(value * 10000000) / 10000000 || 0;
+},
+    // increased precision mostly for timing values.
+_parseRelative = function _parseRelative(start, value) {
+  var operator = value.charAt(0),
+      end = parseFloat(value.substr(2));
+  start = parseFloat(start);
+  return operator === "+" ? start + end : operator === "-" ? start - end : operator === "*" ? start * end : start / end;
+},
+    _arrayContainsAny = function _arrayContainsAny(toSearch, toFind) {
+  //searches one array to find matches for any of the items in the toFind array. As soon as one is found, it returns true. It does NOT return all the matches; it's simply a boolean search.
+  var l = toFind.length,
+      i = 0;
+
+  for (; toSearch.indexOf(toFind[i]) < 0 && ++i < l;) {}
+
+  return i < l;
+},
+    _lazyRender = function _lazyRender() {
+  var l = _lazyTweens.length,
+      a = _lazyTweens.slice(0),
+      i,
+      tween;
+
+  _lazyLookup = {};
+  _lazyTweens.length = 0;
+
+  for (i = 0; i < l; i++) {
+    tween = a[i];
+    tween && tween._lazy && (tween.render(tween._lazy[0], tween._lazy[1], true)._lazy = 0);
+  }
+},
+    _lazySafeRender = function _lazySafeRender(animation, time, suppressEvents, force) {
+  _lazyTweens.length && !_reverting && _lazyRender();
+  animation.render(time, suppressEvents, force || _reverting && time < 0 && (animation._initted || animation._startAt));
+  _lazyTweens.length && !_reverting && _lazyRender(); //in case rendering caused any tweens to lazy-init, we should render them because typically when someone calls seek() or time() or progress(), they expect an immediate render.
+},
+    _numericIfPossible = function _numericIfPossible(value) {
+  var n = parseFloat(value);
+  return (n || n === 0) && (value + "").match(_delimitedValueExp).length < 2 ? n : _isString(value) ? value.trim() : value;
+},
+    _passThrough = function _passThrough(p) {
+  return p;
+},
+    _setDefaults = function _setDefaults(obj, defaults) {
+  for (var p in defaults) {
+    p in obj || (obj[p] = defaults[p]);
+  }
+
+  return obj;
+},
+    _setKeyframeDefaults = function _setKeyframeDefaults(excludeDuration) {
+  return function (obj, defaults) {
+    for (var p in defaults) {
+      p in obj || p === "duration" && excludeDuration || p === "ease" || (obj[p] = defaults[p]);
+    }
+  };
+},
+    _merge = function _merge(base, toMerge) {
+  for (var p in toMerge) {
+    base[p] = toMerge[p];
+  }
+
+  return base;
+},
+    _mergeDeep = function _mergeDeep(base, toMerge) {
+  for (var p in toMerge) {
+    p !== "__proto__" && p !== "constructor" && p !== "prototype" && (base[p] = _isObject(toMerge[p]) ? _mergeDeep(base[p] || (base[p] = {}), toMerge[p]) : toMerge[p]);
+  }
+
+  return base;
+},
+    _copyExcluding = function _copyExcluding(obj, excluding) {
+  var copy = {},
+      p;
+
+  for (p in obj) {
+    p in excluding || (copy[p] = obj[p]);
+  }
+
+  return copy;
+},
+    _inheritDefaults = function _inheritDefaults(vars) {
+  var parent = vars.parent || _globalTimeline,
+      func = vars.keyframes ? _setKeyframeDefaults(_isArray(vars.keyframes)) : _setDefaults;
+
+  if (_isNotFalse(vars.inherit)) {
+    while (parent) {
+      func(vars, parent.vars.defaults);
+      parent = parent.parent || parent._dp;
+    }
+  }
+
+  return vars;
+},
+    _arraysMatch = function _arraysMatch(a1, a2) {
+  var i = a1.length,
+      match = i === a2.length;
+
+  while (match && i-- && a1[i] === a2[i]) {}
+
+  return i < 0;
+},
+    _addLinkedListItem = function _addLinkedListItem(parent, child, firstProp, lastProp, sortBy) {
+  if (firstProp === void 0) {
+    firstProp = "_first";
+  }
+
+  if (lastProp === void 0) {
+    lastProp = "_last";
+  }
+
+  var prev = parent[lastProp],
+      t;
+
+  if (sortBy) {
+    t = child[sortBy];
+
+    while (prev && prev[sortBy] > t) {
+      prev = prev._prev;
+    }
+  }
+
+  if (prev) {
+    child._next = prev._next;
+    prev._next = child;
+  } else {
+    child._next = parent[firstProp];
+    parent[firstProp] = child;
+  }
+
+  if (child._next) {
+    child._next._prev = child;
+  } else {
+    parent[lastProp] = child;
+  }
+
+  child._prev = prev;
+  child.parent = child._dp = parent;
+  return child;
+},
+    _removeLinkedListItem = function _removeLinkedListItem(parent, child, firstProp, lastProp) {
+  if (firstProp === void 0) {
+    firstProp = "_first";
+  }
+
+  if (lastProp === void 0) {
+    lastProp = "_last";
+  }
+
+  var prev = child._prev,
+      next = child._next;
+
+  if (prev) {
+    prev._next = next;
+  } else if (parent[firstProp] === child) {
+    parent[firstProp] = next;
+  }
+
+  if (next) {
+    next._prev = prev;
+  } else if (parent[lastProp] === child) {
+    parent[lastProp] = prev;
+  }
+
+  child._next = child._prev = child.parent = null; // don't delete the _dp just so we can revert if necessary. But parent should be null to indicate the item isn't in a linked list.
+},
+    _removeFromParent = function _removeFromParent(child, onlyIfParentHasAutoRemove) {
+  child.parent && (!onlyIfParentHasAutoRemove || child.parent.autoRemoveChildren) && child.parent.remove && child.parent.remove(child);
+  child._act = 0;
+},
+    _uncache = function _uncache(animation, child) {
+  if (animation && (!child || child._end > animation._dur || child._start < 0)) {
+    // performance optimization: if a child animation is passed in we should only uncache if that child EXTENDS the animation (its end time is beyond the end)
+    var a = animation;
+
+    while (a) {
+      a._dirty = 1;
+      a = a.parent;
+    }
+  }
+
+  return animation;
+},
+    _recacheAncestors = function _recacheAncestors(animation) {
+  var parent = animation.parent;
+
+  while (parent && parent.parent) {
+    //sometimes we must force a re-sort of all children and update the duration/totalDuration of all ancestor timelines immediately in case, for example, in the middle of a render loop, one tween alters another tween's timeScale which shoves its startTime before 0, forcing the parent timeline to shift around and shiftChildren() which could affect that next tween's render (startTime). Doesn't matter for the root timeline though.
+    parent._dirty = 1;
+    parent.totalDuration();
+    parent = parent.parent;
+  }
+
+  return animation;
+},
+    _rewindStartAt = function _rewindStartAt(tween, totalTime, suppressEvents, force) {
+  return tween._startAt && (_reverting ? tween._startAt.revert(_revertConfigNoKill) : tween.vars.immediateRender && !tween.vars.autoRevert || tween._startAt.render(totalTime, true, force));
+},
+    _hasNoPausedAncestors = function _hasNoPausedAncestors(animation) {
+  return !animation || animation._ts && _hasNoPausedAncestors(animation.parent);
+},
+    _elapsedCycleDuration = function _elapsedCycleDuration(animation) {
+  return animation._repeat ? _animationCycle(animation._tTime, animation = animation.duration() + animation._rDelay) * animation : 0;
+},
+    // feed in the totalTime and cycleDuration and it'll return the cycle (iteration minus 1) and if the playhead is exactly at the very END, it will NOT bump up to the next cycle.
+_animationCycle = function _animationCycle(tTime, cycleDuration) {
+  var whole = Math.floor(tTime /= cycleDuration);
+  return tTime && whole === tTime ? whole - 1 : whole;
+},
+    _parentToChildTotalTime = function _parentToChildTotalTime(parentTime, child) {
+  return (parentTime - child._start) * child._ts + (child._ts >= 0 ? 0 : child._dirty ? child.totalDuration() : child._tDur);
+},
+    _setEnd = function _setEnd(animation) {
+  return animation._end = _roundPrecise(animation._start + (animation._tDur / Math.abs(animation._ts || animation._rts || _tinyNum) || 0));
+},
+    _alignPlayhead = function _alignPlayhead(animation, totalTime) {
+  // adjusts the animation's _start and _end according to the provided totalTime (only if the parent's smoothChildTiming is true and the animation isn't paused). It doesn't do any rendering or forcing things back into parent timelines, etc. - that's what totalTime() is for.
+  var parent = animation._dp;
+
+  if (parent && parent.smoothChildTiming && animation._ts) {
+    animation._start = _roundPrecise(parent._time - (animation._ts > 0 ? totalTime / animation._ts : ((animation._dirty ? animation.totalDuration() : animation._tDur) - totalTime) / -animation._ts));
+
+    _setEnd(animation);
+
+    parent._dirty || _uncache(parent, animation); //for performance improvement. If the parent's cache is already dirty, it already took care of marking the ancestors as dirty too, so skip the function call here.
+  }
+
+  return animation;
+},
+
+/*
+_totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
+	let cycleDuration = duration + repeatDelay,
+		time = _round(clampedTotalTime % cycleDuration);
+	if (time > duration) {
+		time = duration;
+	}
+	return (yoyo && (~~(clampedTotalTime / cycleDuration) & 1)) ? duration - time : time;
+},
+*/
+_postAddChecks = function _postAddChecks(timeline, child) {
+  var t;
+
+  if (child._time || !child._dur && child._initted || child._start < timeline._time && (child._dur || !child.add)) {
+    // in case, for example, the _start is moved on a tween that has already rendered, or if it's being inserted into a timeline BEFORE where the playhead is currently. Imagine it's at its end state, then the startTime is moved WAY later (after the end of this timeline), it should render at its beginning. Special case: if it's a timeline (has .add() method) and no duration, we can skip rendering because the user may be populating it AFTER adding it to a parent timeline (unconventional, but possible, and we wouldn't want it to get removed if the parent's autoRemoveChildren is true).
+    t = _parentToChildTotalTime(timeline.rawTime(), child);
+
+    if (!child._dur || _clamp(0, child.totalDuration(), t) - child._tTime > _tinyNum) {
+      child.render(t, true);
+    }
+  } //if the timeline has already ended but the inserted tween/timeline extends the duration, we should enable this timeline again so that it renders properly. We should also align the playhead with the parent timeline's when appropriate.
+
+
+  if (_uncache(timeline, child)._dp && timeline._initted && timeline._time >= timeline._dur && timeline._ts) {
+    //in case any of the ancestors had completed but should now be enabled...
+    if (timeline._dur < timeline.duration()) {
+      t = timeline;
+
+      while (t._dp) {
+        t.rawTime() >= 0 && t.totalTime(t._tTime); //moves the timeline (shifts its startTime) if necessary, and also enables it. If it's currently zero, though, it may not be scheduled to render until later so there's no need to force it to align with the current playhead position. Only move to catch up with the playhead.
+
+        t = t._dp;
+      }
+    }
+
+    timeline._zTime = -_tinyNum; // helps ensure that the next render() will be forced (crossingStart = true in render()), even if the duration hasn't changed (we're adding a child which would need to get rendered). Definitely an edge case. Note: we MUST do this AFTER the loop above where the totalTime() might trigger a render() because this _addToTimeline() method gets called from the Animation constructor, BEFORE tweens even record their targets, etc. so we wouldn't want things to get triggered in the wrong order.
+  }
+},
+    _addToTimeline = function _addToTimeline(timeline, child, position, skipChecks) {
+  child.parent && _removeFromParent(child);
+  child._start = _roundPrecise((_isNumber(position) ? position : position || timeline !== _globalTimeline ? _parsePosition(timeline, position, child) : timeline._time) + child._delay);
+  child._end = _roundPrecise(child._start + (child.totalDuration() / Math.abs(child.timeScale()) || 0));
+
+  _addLinkedListItem(timeline, child, "_first", "_last", timeline._sort ? "_start" : 0);
+
+  _isFromOrFromStart(child) || (timeline._recent = child);
+  skipChecks || _postAddChecks(timeline, child);
+  timeline._ts < 0 && _alignPlayhead(timeline, timeline._tTime); // if the timeline is reversed and the new child makes it longer, we may need to adjust the parent's _start (push it back)
+
+  return timeline;
+},
+    _scrollTrigger = function _scrollTrigger(animation, trigger) {
+  return (_globals.ScrollTrigger || _missingPlugin("scrollTrigger", trigger)) && _globals.ScrollTrigger.create(trigger, animation);
+},
+    _attemptInitTween = function _attemptInitTween(tween, time, force, suppressEvents, tTime) {
+  _initTween(tween, time, tTime);
+
+  if (!tween._initted) {
+    return 1;
+  }
+
+  if (!force && tween._pt && !_reverting && (tween._dur && tween.vars.lazy !== false || !tween._dur && tween.vars.lazy) && _lastRenderedFrame !== _ticker.frame) {
+    _lazyTweens.push(tween);
+
+    tween._lazy = [tTime, suppressEvents];
+    return 1;
+  }
+},
+    _parentPlayheadIsBeforeStart = function _parentPlayheadIsBeforeStart(_ref) {
+  var parent = _ref.parent;
+  return parent && parent._ts && parent._initted && !parent._lock && (parent.rawTime() < 0 || _parentPlayheadIsBeforeStart(parent));
+},
+    // check parent's _lock because when a timeline repeats/yoyos and does its artificial wrapping, we shouldn't force the ratio back to 0
+_isFromOrFromStart = function _isFromOrFromStart(_ref2) {
+  var data = _ref2.data;
+  return data === "isFromStart" || data === "isStart";
+},
+    _renderZeroDurationTween = function _renderZeroDurationTween(tween, totalTime, suppressEvents, force) {
+  var prevRatio = tween.ratio,
+      ratio = totalTime < 0 || !totalTime && (!tween._start && _parentPlayheadIsBeforeStart(tween) && !(!tween._initted && _isFromOrFromStart(tween)) || (tween._ts < 0 || tween._dp._ts < 0) && !_isFromOrFromStart(tween)) ? 0 : 1,
+      // if the tween or its parent is reversed and the totalTime is 0, we should go to a ratio of 0. Edge case: if a from() or fromTo() stagger tween is placed later in a timeline, the "startAt" zero-duration tween could initially render at a time when the parent timeline's playhead is technically BEFORE where this tween is, so make sure that any "from" and "fromTo" startAt tweens are rendered the first time at a ratio of 1.
+  repeatDelay = tween._rDelay,
+      tTime = 0,
+      pt,
+      iteration,
+      prevIteration;
+
+  if (repeatDelay && tween._repeat) {
+    // in case there's a zero-duration tween that has a repeat with a repeatDelay
+    tTime = _clamp(0, tween._tDur, totalTime);
+    iteration = _animationCycle(tTime, repeatDelay);
+    tween._yoyo && iteration & 1 && (ratio = 1 - ratio);
+
+    if (iteration !== _animationCycle(tween._tTime, repeatDelay)) {
+      // if iteration changed
+      prevRatio = 1 - ratio;
+      tween.vars.repeatRefresh && tween._initted && tween.invalidate();
+    }
+  }
+
+  if (ratio !== prevRatio || _reverting || force || tween._zTime === _tinyNum || !totalTime && tween._zTime) {
+    if (!tween._initted && _attemptInitTween(tween, totalTime, force, suppressEvents, tTime)) {
+      // if we render the very beginning (time == 0) of a fromTo(), we must force the render (normal tweens wouldn't need to render at a time of 0 when the prevTime was also 0). This is also mandatory to make sure overwriting kicks in immediately.
+      return;
+    }
+
+    prevIteration = tween._zTime;
+    tween._zTime = totalTime || (suppressEvents ? _tinyNum : 0); // when the playhead arrives at EXACTLY time 0 (right on top) of a zero-duration tween, we need to discern if events are suppressed so that when the playhead moves again (next time), it'll trigger the callback. If events are NOT suppressed, obviously the callback would be triggered in this render. Basically, the callback should fire either when the playhead ARRIVES or LEAVES this exact spot, not both. Imagine doing a timeline.seek(0) and there's a callback that sits at 0. Since events are suppressed on that seek() by default, nothing will fire, but when the playhead moves off of that position, the callback should fire. This behavior is what people intuitively expect.
+
+    suppressEvents || (suppressEvents = totalTime && !prevIteration); // if it was rendered previously at exactly 0 (_zTime) and now the playhead is moving away, DON'T fire callbacks otherwise they'll seem like duplicates.
+
+    tween.ratio = ratio;
+    tween._from && (ratio = 1 - ratio);
+    tween._time = 0;
+    tween._tTime = tTime;
+    pt = tween._pt;
+
+    while (pt) {
+      pt.r(ratio, pt.d);
+      pt = pt._next;
+    }
+
+    totalTime < 0 && _rewindStartAt(tween, totalTime, suppressEvents, true);
+    tween._onUpdate && !suppressEvents && _callback(tween, "onUpdate");
+    tTime && tween._repeat && !suppressEvents && tween.parent && _callback(tween, "onRepeat");
+
+    if ((totalTime >= tween._tDur || totalTime < 0) && tween.ratio === ratio) {
+      ratio && _removeFromParent(tween, 1);
+
+      if (!suppressEvents && !_reverting) {
+        _callback(tween, ratio ? "onComplete" : "onReverseComplete", true);
+
+        tween._prom && tween._prom();
+      }
+    }
+  } else if (!tween._zTime) {
+    tween._zTime = totalTime;
+  }
+},
+    _findNextPauseTween = function _findNextPauseTween(animation, prevTime, time) {
+  var child;
+
+  if (time > prevTime) {
+    child = animation._first;
+
+    while (child && child._start <= time) {
+      if (child.data === "isPause" && child._start > prevTime) {
+        return child;
+      }
+
+      child = child._next;
+    }
+  } else {
+    child = animation._last;
+
+    while (child && child._start >= time) {
+      if (child.data === "isPause" && child._start < prevTime) {
+        return child;
+      }
+
+      child = child._prev;
+    }
+  }
+},
+    _setDuration = function _setDuration(animation, duration, skipUncache, leavePlayhead) {
+  var repeat = animation._repeat,
+      dur = _roundPrecise(duration) || 0,
+      totalProgress = animation._tTime / animation._tDur;
+  totalProgress && !leavePlayhead && (animation._time *= dur / animation._dur);
+  animation._dur = dur;
+  animation._tDur = !repeat ? dur : repeat < 0 ? 1e10 : _roundPrecise(dur * (repeat + 1) + animation._rDelay * repeat);
+  totalProgress > 0 && !leavePlayhead && _alignPlayhead(animation, animation._tTime = animation._tDur * totalProgress);
+  animation.parent && _setEnd(animation);
+  skipUncache || _uncache(animation.parent, animation);
+  return animation;
+},
+    _onUpdateTotalDuration = function _onUpdateTotalDuration(animation) {
+  return animation instanceof Timeline ? _uncache(animation) : _setDuration(animation, animation._dur);
+},
+    _zeroPosition = {
+  _start: 0,
+  endTime: _emptyFunc,
+  totalDuration: _emptyFunc
+},
+    _parsePosition = function _parsePosition(animation, position, percentAnimation) {
+  var labels = animation.labels,
+      recent = animation._recent || _zeroPosition,
+      clippedDuration = animation.duration() >= _bigNum ? recent.endTime(false) : animation._dur,
+      //in case there's a child that infinitely repeats, users almost never intend for the insertion point of a new child to be based on a SUPER long value like that so we clip it and assume the most recently-added child's endTime should be used instead.
+  i,
+      offset,
+      isPercent;
+
+  if (_isString(position) && (isNaN(position) || position in labels)) {
+    //if the string is a number like "1", check to see if there's a label with that name, otherwise interpret it as a number (absolute value).
+    offset = position.charAt(0);
+    isPercent = position.substr(-1) === "%";
+    i = position.indexOf("=");
+
+    if (offset === "<" || offset === ">") {
+      i >= 0 && (position = position.replace(/=/, ""));
+      return (offset === "<" ? recent._start : recent.endTime(recent._repeat >= 0)) + (parseFloat(position.substr(1)) || 0) * (isPercent ? (i < 0 ? recent : percentAnimation).totalDuration() / 100 : 1);
+    }
+
+    if (i < 0) {
+      position in labels || (labels[position] = clippedDuration);
+      return labels[position];
+    }
+
+    offset = parseFloat(position.charAt(i - 1) + position.substr(i + 1));
+
+    if (isPercent && percentAnimation) {
+      offset = offset / 100 * (_isArray(percentAnimation) ? percentAnimation[0] : percentAnimation).totalDuration();
+    }
+
+    return i > 1 ? _parsePosition(animation, position.substr(0, i - 1), percentAnimation) + offset : clippedDuration + offset;
+  }
+
+  return position == null ? clippedDuration : +position;
+},
+    _createTweenType = function _createTweenType(type, params, timeline) {
+  var isLegacy = _isNumber(params[1]),
+      varsIndex = (isLegacy ? 2 : 1) + (type < 2 ? 0 : 1),
+      vars = params[varsIndex],
+      irVars,
+      parent;
+
+  isLegacy && (vars.duration = params[1]);
+  vars.parent = timeline;
+
+  if (type) {
+    irVars = vars;
+    parent = timeline;
+
+    while (parent && !("immediateRender" in irVars)) {
+      // inheritance hasn't happened yet, but someone may have set a default in an ancestor timeline. We could do vars.immediateRender = _isNotFalse(_inheritDefaults(vars).immediateRender) but that'd exact a slight performance penalty because _inheritDefaults() also runs in the Tween constructor. We're paying a small kb price here to gain speed.
+      irVars = parent.vars.defaults || {};
+      parent = _isNotFalse(parent.vars.inherit) && parent.parent;
+    }
+
+    vars.immediateRender = _isNotFalse(irVars.immediateRender);
+    type < 2 ? vars.runBackwards = 1 : vars.startAt = params[varsIndex - 1]; // "from" vars
+  }
+
+  return new Tween(params[0], vars, params[varsIndex + 1]);
+},
+    _conditionalReturn = function _conditionalReturn(value, func) {
+  return value || value === 0 ? func(value) : func;
+},
+    _clamp = function _clamp(min, max, value) {
+  return value < min ? min : value > max ? max : value;
+},
+    getUnit = function getUnit(value, v) {
+  return !_isString(value) || !(v = _unitExp.exec(value)) ? "" : v[1];
+},
+    // note: protect against padded numbers as strings, like "100.100". That shouldn't return "00" as the unit. If it's numeric, return no unit.
+clamp = function clamp(min, max, value) {
+  return _conditionalReturn(value, function (v) {
+    return _clamp(min, max, v);
+  });
+},
+    _slice = [].slice,
+    _isArrayLike = function _isArrayLike(value, nonEmpty) {
+  return value && _isObject(value) && "length" in value && (!nonEmpty && !value.length || value.length - 1 in value && _isObject(value[0])) && !value.nodeType && value !== _win;
+},
+    _flatten = function _flatten(ar, leaveStrings, accumulator) {
+  if (accumulator === void 0) {
+    accumulator = [];
+  }
+
+  return ar.forEach(function (value) {
+    var _accumulator;
+
+    return _isString(value) && !leaveStrings || _isArrayLike(value, 1) ? (_accumulator = accumulator).push.apply(_accumulator, toArray(value)) : accumulator.push(value);
+  }) || accumulator;
+},
+    //takes any value and returns an array. If it's a string (and leaveStrings isn't true), it'll use document.querySelectorAll() and convert that to an array. It'll also accept iterables like jQuery objects.
+toArray = function toArray(value, scope, leaveStrings) {
+  return _context && !scope && _context.selector ? _context.selector(value) : _isString(value) && !leaveStrings && (_coreInitted || !_wake()) ? _slice.call((scope || _doc).querySelectorAll(value), 0) : _isArray(value) ? _flatten(value, leaveStrings) : _isArrayLike(value) ? _slice.call(value, 0) : value ? [value] : [];
+},
+    selector = function selector(value) {
+  value = toArray(value)[0] || _warn("Invalid scope") || {};
+  return function (v) {
+    var el = value.current || value.nativeElement || value;
+    return toArray(v, el.querySelectorAll ? el : el === value ? _warn("Invalid scope") || _doc.createElement("div") : value);
+  };
+},
+    shuffle = function shuffle(a) {
+  return a.sort(function () {
+    return .5 - Math.random();
+  });
+},
+    // alternative that's a bit faster and more reliably diverse but bigger:   for (let j, v, i = a.length; i; j = Math.floor(Math.random() * i), v = a[--i], a[i] = a[j], a[j] = v); return a;
+//for distributing values across an array. Can accept a number, a function or (most commonly) a function which can contain the following properties: {base, amount, from, ease, grid, axis, length, each}. Returns a function that expects the following parameters: index, target, array. Recognizes the following
+distribute = function distribute(v) {
+  if (_isFunction(v)) {
+    return v;
+  }
+
+  var vars = _isObject(v) ? v : {
+    each: v
+  },
+      //n:1 is just to indicate v was a number; we leverage that later to set v according to the length we get. If a number is passed in, we treat it like the old stagger value where 0.1, for example, would mean that things would be distributed with 0.1 between each element in the array rather than a total "amount" that's chunked out among them all.
+  ease = _parseEase(vars.ease),
+      from = vars.from || 0,
+      base = parseFloat(vars.base) || 0,
+      cache = {},
+      isDecimal = from > 0 && from < 1,
+      ratios = isNaN(from) || isDecimal,
+      axis = vars.axis,
+      ratioX = from,
+      ratioY = from;
+
+  if (_isString(from)) {
+    ratioX = ratioY = {
+      center: .5,
+      edges: .5,
+      end: 1
+    }[from] || 0;
+  } else if (!isDecimal && ratios) {
+    ratioX = from[0];
+    ratioY = from[1];
+  }
+
+  return function (i, target, a) {
+    var l = (a || vars).length,
+        distances = cache[l],
+        originX,
+        originY,
+        x,
+        y,
+        d,
+        j,
+        max,
+        min,
+        wrapAt;
+
+    if (!distances) {
+      wrapAt = vars.grid === "auto" ? 0 : (vars.grid || [1, _bigNum])[1];
+
+      if (!wrapAt) {
+        max = -_bigNum;
+
+        while (max < (max = a[wrapAt++].getBoundingClientRect().left) && wrapAt < l) {}
+
+        wrapAt < l && wrapAt--;
+      }
+
+      distances = cache[l] = [];
+      originX = ratios ? Math.min(wrapAt, l) * ratioX - .5 : from % wrapAt;
+      originY = wrapAt === _bigNum ? 0 : ratios ? l * ratioY / wrapAt - .5 : from / wrapAt | 0;
+      max = 0;
+      min = _bigNum;
+
+      for (j = 0; j < l; j++) {
+        x = j % wrapAt - originX;
+        y = originY - (j / wrapAt | 0);
+        distances[j] = d = !axis ? _sqrt(x * x + y * y) : Math.abs(axis === "y" ? y : x);
+        d > max && (max = d);
+        d < min && (min = d);
+      }
+
+      from === "random" && shuffle(distances);
+      distances.max = max - min;
+      distances.min = min;
+      distances.v = l = (parseFloat(vars.amount) || parseFloat(vars.each) * (wrapAt > l ? l - 1 : !axis ? Math.max(wrapAt, l / wrapAt) : axis === "y" ? l / wrapAt : wrapAt) || 0) * (from === "edges" ? -1 : 1);
+      distances.b = l < 0 ? base - l : base;
+      distances.u = getUnit(vars.amount || vars.each) || 0; //unit
+
+      ease = ease && l < 0 ? _invertEase(ease) : ease;
+    }
+
+    l = (distances[i] - distances.min) / distances.max || 0;
+    return _roundPrecise(distances.b + (ease ? ease(l) : l) * distances.v) + distances.u; //round in order to work around floating point errors
+  };
+},
+    _roundModifier = function _roundModifier(v) {
+  //pass in 0.1 get a function that'll round to the nearest tenth, or 5 to round to the closest 5, or 0.001 to the closest 1000th, etc.
+  var p = Math.pow(10, ((v + "").split(".")[1] || "").length); //to avoid floating point math errors (like 24 * 0.1 == 2.4000000000000004), we chop off at a specific number of decimal places (much faster than toFixed())
+
+  return function (raw) {
+    var n = _roundPrecise(Math.round(parseFloat(raw) / v) * v * p);
+
+    return (n - n % 1) / p + (_isNumber(raw) ? 0 : getUnit(raw)); // n - n % 1 replaces Math.floor() in order to handle negative values properly. For example, Math.floor(-150.00000000000003) is 151!
+  };
+},
+    snap = function snap(snapTo, value) {
+  var isArray = _isArray(snapTo),
+      radius,
+      is2D;
+
+  if (!isArray && _isObject(snapTo)) {
+    radius = isArray = snapTo.radius || _bigNum;
+
+    if (snapTo.values) {
+      snapTo = toArray(snapTo.values);
+
+      if (is2D = !_isNumber(snapTo[0])) {
+        radius *= radius; //performance optimization so we don't have to Math.sqrt() in the loop.
+      }
+    } else {
+      snapTo = _roundModifier(snapTo.increment);
+    }
+  }
+
+  return _conditionalReturn(value, !isArray ? _roundModifier(snapTo) : _isFunction(snapTo) ? function (raw) {
+    is2D = snapTo(raw);
+    return Math.abs(is2D - raw) <= radius ? is2D : raw;
+  } : function (raw) {
+    var x = parseFloat(is2D ? raw.x : raw),
+        y = parseFloat(is2D ? raw.y : 0),
+        min = _bigNum,
+        closest = 0,
+        i = snapTo.length,
+        dx,
+        dy;
+
+    while (i--) {
+      if (is2D) {
+        dx = snapTo[i].x - x;
+        dy = snapTo[i].y - y;
+        dx = dx * dx + dy * dy;
+      } else {
+        dx = Math.abs(snapTo[i] - x);
+      }
+
+      if (dx < min) {
+        min = dx;
+        closest = i;
+      }
+    }
+
+    closest = !radius || min <= radius ? snapTo[closest] : raw;
+    return is2D || closest === raw || _isNumber(raw) ? closest : closest + getUnit(raw);
+  });
+},
+    random = function random(min, max, roundingIncrement, returnFunction) {
+  return _conditionalReturn(_isArray(min) ? !max : roundingIncrement === true ? !!(roundingIncrement = 0) : !returnFunction, function () {
+    return _isArray(min) ? min[~~(Math.random() * min.length)] : (roundingIncrement = roundingIncrement || 1e-5) && (returnFunction = roundingIncrement < 1 ? Math.pow(10, (roundingIncrement + "").length - 2) : 1) && Math.floor(Math.round((min - roundingIncrement / 2 + Math.random() * (max - min + roundingIncrement * .99)) / roundingIncrement) * roundingIncrement * returnFunction) / returnFunction;
+  });
+},
+    pipe = function pipe() {
+  for (var _len = arguments.length, functions = new Array(_len), _key = 0; _key < _len; _key++) {
+    functions[_key] = arguments[_key];
+  }
+
+  return function (value) {
+    return functions.reduce(function (v, f) {
+      return f(v);
+    }, value);
+  };
+},
+    unitize = function unitize(func, unit) {
+  return function (value) {
+    return func(parseFloat(value)) + (unit || getUnit(value));
+  };
+},
+    normalize = function normalize(min, max, value) {
+  return mapRange(min, max, 0, 1, value);
+},
+    _wrapArray = function _wrapArray(a, wrapper, value) {
+  return _conditionalReturn(value, function (index) {
+    return a[~~wrapper(index)];
+  });
+},
+    wrap = function wrap(min, max, value) {
+  // NOTE: wrap() CANNOT be an arrow function! A very odd compiling bug causes problems (unrelated to GSAP).
+  var range = max - min;
+  return _isArray(min) ? _wrapArray(min, wrap(0, min.length), max) : _conditionalReturn(value, function (value) {
+    return (range + (value - min) % range) % range + min;
+  });
+},
+    wrapYoyo = function wrapYoyo(min, max, value) {
+  var range = max - min,
+      total = range * 2;
+  return _isArray(min) ? _wrapArray(min, wrapYoyo(0, min.length - 1), max) : _conditionalReturn(value, function (value) {
+    value = (total + (value - min) % total) % total || 0;
+    return min + (value > range ? total - value : value);
+  });
+},
+    _replaceRandom = function _replaceRandom(value) {
+  //replaces all occurrences of random(...) in a string with the calculated random value. can be a range like random(-100, 100, 5) or an array like random([0, 100, 500])
+  var prev = 0,
+      s = "",
+      i,
+      nums,
+      end,
+      isArray;
+
+  while (~(i = value.indexOf("random(", prev))) {
+    end = value.indexOf(")", i);
+    isArray = value.charAt(i + 7) === "[";
+    nums = value.substr(i + 7, end - i - 7).match(isArray ? _delimitedValueExp : _strictNumExp);
+    s += value.substr(prev, i - prev) + random(isArray ? nums : +nums[0], isArray ? 0 : +nums[1], +nums[2] || 1e-5);
+    prev = end + 1;
+  }
+
+  return s + value.substr(prev, value.length - prev);
+},
+    mapRange = function mapRange(inMin, inMax, outMin, outMax, value) {
+  var inRange = inMax - inMin,
+      outRange = outMax - outMin;
+  return _conditionalReturn(value, function (value) {
+    return outMin + ((value - inMin) / inRange * outRange || 0);
+  });
+},
+    interpolate = function interpolate(start, end, progress, mutate) {
+  var func = isNaN(start + end) ? 0 : function (p) {
+    return (1 - p) * start + p * end;
+  };
+
+  if (!func) {
+    var isString = _isString(start),
+        master = {},
+        p,
+        i,
+        interpolators,
+        l,
+        il;
+
+    progress === true && (mutate = 1) && (progress = null);
+
+    if (isString) {
+      start = {
+        p: start
+      };
+      end = {
+        p: end
+      };
+    } else if (_isArray(start) && !_isArray(end)) {
+      interpolators = [];
+      l = start.length;
+      il = l - 2;
+
+      for (i = 1; i < l; i++) {
+        interpolators.push(interpolate(start[i - 1], start[i])); //build the interpolators up front as a performance optimization so that when the function is called many times, it can just reuse them.
+      }
+
+      l--;
+
+      func = function func(p) {
+        p *= l;
+        var i = Math.min(il, ~~p);
+        return interpolators[i](p - i);
+      };
+
+      progress = end;
+    } else if (!mutate) {
+      start = _merge(_isArray(start) ? [] : {}, start);
+    }
+
+    if (!interpolators) {
+      for (p in end) {
+        _addPropTween.call(master, start, p, "get", end[p]);
+      }
+
+      func = function func(p) {
+        return _renderPropTweens(p, master) || (isString ? start.p : start);
+      };
+    }
+  }
+
+  return _conditionalReturn(progress, func);
+},
+    _getLabelInDirection = function _getLabelInDirection(timeline, fromTime, backward) {
+  //used for nextLabel() and previousLabel()
+  var labels = timeline.labels,
+      min = _bigNum,
+      p,
+      distance,
+      label;
+
+  for (p in labels) {
+    distance = labels[p] - fromTime;
+
+    if (distance < 0 === !!backward && distance && min > (distance = Math.abs(distance))) {
+      label = p;
+      min = distance;
+    }
+  }
+
+  return label;
+},
+    _callback = function _callback(animation, type, executeLazyFirst) {
+  var v = animation.vars,
+      callback = v[type],
+      prevContext = _context,
+      context = animation._ctx,
+      params,
+      scope,
+      result;
+
+  if (!callback) {
+    return;
+  }
+
+  params = v[type + "Params"];
+  scope = v.callbackScope || animation;
+  executeLazyFirst && _lazyTweens.length && _lazyRender(); //in case rendering caused any tweens to lazy-init, we should render them because typically when a timeline finishes, users expect things to have rendered fully. Imagine an onUpdate on a timeline that reports/checks tweened values.
+
+  context && (_context = context);
+  result = params ? callback.apply(scope, params) : callback.call(scope);
+  _context = prevContext;
+  return result;
+},
+    _interrupt = function _interrupt(animation) {
+  _removeFromParent(animation);
+
+  animation.scrollTrigger && animation.scrollTrigger.kill(!!_reverting);
+  animation.progress() < 1 && _callback(animation, "onInterrupt");
+  return animation;
+},
+    _quickTween,
+    _registerPluginQueue = [],
+    _createPlugin = function _createPlugin(config) {
+  if (!config) return;
+  config = !config.name && config["default"] || config; // UMD packaging wraps things oddly, so for example MotionPathHelper becomes {MotionPathHelper:MotionPathHelper, default:MotionPathHelper}.
+
+  if (_windowExists() || config.headless) {
+    // edge case: some build tools may pass in a null/undefined value
+    var name = config.name,
+        isFunc = _isFunction(config),
+        Plugin = name && !isFunc && config.init ? function () {
+      this._props = [];
+    } : config,
+        //in case someone passes in an object that's not a plugin, like CustomEase
+    instanceDefaults = {
+      init: _emptyFunc,
+      render: _renderPropTweens,
+      add: _addPropTween,
+      kill: _killPropTweensOf,
+      modifier: _addPluginModifier,
+      rawVars: 0
+    },
+        statics = {
+      targetTest: 0,
+      get: 0,
+      getSetter: _getSetter,
+      aliases: {},
+      register: 0
+    };
+
+    _wake();
+
+    if (config !== Plugin) {
+      if (_plugins[name]) {
+        return;
+      }
+
+      _setDefaults(Plugin, _setDefaults(_copyExcluding(config, instanceDefaults), statics)); //static methods
+
+
+      _merge(Plugin.prototype, _merge(instanceDefaults, _copyExcluding(config, statics))); //instance methods
+
+
+      _plugins[Plugin.prop = name] = Plugin;
+
+      if (config.targetTest) {
+        _harnessPlugins.push(Plugin);
+
+        _reservedProps[name] = 1;
+      }
+
+      name = (name === "css" ? "CSS" : name.charAt(0).toUpperCase() + name.substr(1)) + "Plugin"; //for the global name. "motionPath" should become MotionPathPlugin
+    }
+
+    _addGlobal(name, Plugin);
+
+    config.register && config.register(gsap, Plugin, PropTween);
+  } else {
+    _registerPluginQueue.push(config);
+  }
+},
+
+/*
+ * --------------------------------------------------------------------------------------
+ * COLORS
+ * --------------------------------------------------------------------------------------
+ */
+_255 = 255,
+    _colorLookup = {
+  aqua: [0, _255, _255],
+  lime: [0, _255, 0],
+  silver: [192, 192, 192],
+  black: [0, 0, 0],
+  maroon: [128, 0, 0],
+  teal: [0, 128, 128],
+  blue: [0, 0, _255],
+  navy: [0, 0, 128],
+  white: [_255, _255, _255],
+  olive: [128, 128, 0],
+  yellow: [_255, _255, 0],
+  orange: [_255, 165, 0],
+  gray: [128, 128, 128],
+  purple: [128, 0, 128],
+  green: [0, 128, 0],
+  red: [_255, 0, 0],
+  pink: [_255, 192, 203],
+  cyan: [0, _255, _255],
+  transparent: [_255, _255, _255, 0]
+},
+    // possible future idea to replace the hard-coded color name values - put this in the ticker.wake() where we set the _doc:
+// let ctx = _doc.createElement("canvas").getContext("2d");
+// _forEachName("aqua,lime,silver,black,maroon,teal,blue,navy,white,olive,yellow,orange,gray,purple,green,red,pink,cyan", color => {ctx.fillStyle = color; _colorLookup[color] = splitColor(ctx.fillStyle)});
+_hue = function _hue(h, m1, m2) {
+  h += h < 0 ? 1 : h > 1 ? -1 : 0;
+  return (h * 6 < 1 ? m1 + (m2 - m1) * h * 6 : h < .5 ? m2 : h * 3 < 2 ? m1 + (m2 - m1) * (2 / 3 - h) * 6 : m1) * _255 + .5 | 0;
+},
+    splitColor = function splitColor(v, toHSL, forceAlpha) {
+  var a = !v ? _colorLookup.black : _isNumber(v) ? [v >> 16, v >> 8 & _255, v & _255] : 0,
+      r,
+      g,
+      b,
+      h,
+      s,
+      l,
+      max,
+      min,
+      d,
+      wasHSL;
+
+  if (!a) {
+    if (v.substr(-1) === ",") {
+      //sometimes a trailing comma is included and we should chop it off (typically from a comma-delimited list of values like a textShadow:"2px 2px 2px blue, 5px 5px 5px rgb(255,0,0)" - in this example "blue," has a trailing comma. We could strip it out inside parseComplex() but we'd need to do it to the beginning and ending values plus it wouldn't provide protection from other potential scenarios like if the user passes in a similar value.
+      v = v.substr(0, v.length - 1);
+    }
+
+    if (_colorLookup[v]) {
+      a = _colorLookup[v];
+    } else if (v.charAt(0) === "#") {
+      if (v.length < 6) {
+        //for shorthand like #9F0 or #9F0F (could have alpha)
+        r = v.charAt(1);
+        g = v.charAt(2);
+        b = v.charAt(3);
+        v = "#" + r + r + g + g + b + b + (v.length === 5 ? v.charAt(4) + v.charAt(4) : "");
+      }
+
+      if (v.length === 9) {
+        // hex with alpha, like #fd5e53ff
+        a = parseInt(v.substr(1, 6), 16);
+        return [a >> 16, a >> 8 & _255, a & _255, parseInt(v.substr(7), 16) / 255];
+      }
+
+      v = parseInt(v.substr(1), 16);
+      a = [v >> 16, v >> 8 & _255, v & _255];
+    } else if (v.substr(0, 3) === "hsl") {
+      a = wasHSL = v.match(_strictNumExp);
+
+      if (!toHSL) {
+        h = +a[0] % 360 / 360;
+        s = +a[1] / 100;
+        l = +a[2] / 100;
+        g = l <= .5 ? l * (s + 1) : l + s - l * s;
+        r = l * 2 - g;
+        a.length > 3 && (a[3] *= 1); //cast as number
+
+        a[0] = _hue(h + 1 / 3, r, g);
+        a[1] = _hue(h, r, g);
+        a[2] = _hue(h - 1 / 3, r, g);
+      } else if (~v.indexOf("=")) {
+        //if relative values are found, just return the raw strings with the relative prefixes in place.
+        a = v.match(_numExp);
+        forceAlpha && a.length < 4 && (a[3] = 1);
+        return a;
+      }
+    } else {
+      a = v.match(_strictNumExp) || _colorLookup.transparent;
+    }
+
+    a = a.map(Number);
+  }
+
+  if (toHSL && !wasHSL) {
+    r = a[0] / _255;
+    g = a[1] / _255;
+    b = a[2] / _255;
+    max = Math.max(r, g, b);
+    min = Math.min(r, g, b);
+    l = (max + min) / 2;
+
+    if (max === min) {
+      h = s = 0;
+    } else {
+      d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      h = max === r ? (g - b) / d + (g < b ? 6 : 0) : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+      h *= 60;
+    }
+
+    a[0] = ~~(h + .5);
+    a[1] = ~~(s * 100 + .5);
+    a[2] = ~~(l * 100 + .5);
+  }
+
+  forceAlpha && a.length < 4 && (a[3] = 1);
+  return a;
+},
+    _colorOrderData = function _colorOrderData(v) {
+  // strips out the colors from the string, finds all the numeric slots (with units) and returns an array of those. The Array also has a "c" property which is an Array of the index values where the colors belong. This is to help work around issues where there's a mis-matched order of color/numeric data like drop-shadow(#f00 0px 1px 2px) and drop-shadow(0x 1px 2px #f00). This is basically a helper function used in _formatColors()
+  var values = [],
+      c = [],
+      i = -1;
+  v.split(_colorExp).forEach(function (v) {
+    var a = v.match(_numWithUnitExp) || [];
+    values.push.apply(values, a);
+    c.push(i += a.length + 1);
+  });
+  values.c = c;
+  return values;
+},
+    _formatColors = function _formatColors(s, toHSL, orderMatchData) {
+  var result = "",
+      colors = (s + result).match(_colorExp),
+      type = toHSL ? "hsla(" : "rgba(",
+      i = 0,
+      c,
+      shell,
+      d,
+      l;
+
+  if (!colors) {
+    return s;
+  }
+
+  colors = colors.map(function (color) {
+    return (color = splitColor(color, toHSL, 1)) && type + (toHSL ? color[0] + "," + color[1] + "%," + color[2] + "%," + color[3] : color.join(",")) + ")";
+  });
+
+  if (orderMatchData) {
+    d = _colorOrderData(s);
+    c = orderMatchData.c;
+
+    if (c.join(result) !== d.c.join(result)) {
+      shell = s.replace(_colorExp, "1").split(_numWithUnitExp);
+      l = shell.length - 1;
+
+      for (; i < l; i++) {
+        result += shell[i] + (~c.indexOf(i) ? colors.shift() || type + "0,0,0,0)" : (d.length ? d : colors.length ? colors : orderMatchData).shift());
+      }
+    }
+  }
+
+  if (!shell) {
+    shell = s.split(_colorExp);
+    l = shell.length - 1;
+
+    for (; i < l; i++) {
+      result += shell[i] + colors[i];
+    }
+  }
+
+  return result + shell[l];
+},
+    _colorExp = function () {
+  var s = "(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3,4}){1,2}\\b",
+      //we'll dynamically build this Regular Expression to conserve file size. After building it, it will be able to find rgb(), rgba(), # (hexadecimal), and named color values like red, blue, purple, etc.,
+  p;
+
+  for (p in _colorLookup) {
+    s += "|" + p + "\\b";
+  }
+
+  return new RegExp(s + ")", "gi");
+}(),
+    _hslExp = /hsl[a]?\(/,
+    _colorStringFilter = function _colorStringFilter(a) {
+  var combined = a.join(" "),
+      toHSL;
+  _colorExp.lastIndex = 0;
+
+  if (_colorExp.test(combined)) {
+    toHSL = _hslExp.test(combined);
+    a[1] = _formatColors(a[1], toHSL);
+    a[0] = _formatColors(a[0], toHSL, _colorOrderData(a[1])); // make sure the order of numbers/colors match with the END value.
+
+    return true;
+  }
+},
+
+/*
+ * --------------------------------------------------------------------------------------
+ * TICKER
+ * --------------------------------------------------------------------------------------
+ */
+_tickerActive,
+    _ticker = function () {
+  var _getTime = Date.now,
+      _lagThreshold = 500,
+      _adjustedLag = 33,
+      _startTime = _getTime(),
+      _lastUpdate = _startTime,
+      _gap = 1000 / 240,
+      _nextTime = _gap,
+      _listeners = [],
+      _id,
+      _req,
+      _raf,
+      _self,
+      _delta,
+      _i,
+      _tick = function _tick(v) {
+    var elapsed = _getTime() - _lastUpdate,
+        manual = v === true,
+        overlap,
+        dispatch,
+        time,
+        frame;
+
+    (elapsed > _lagThreshold || elapsed < 0) && (_startTime += elapsed - _adjustedLag);
+    _lastUpdate += elapsed;
+    time = _lastUpdate - _startTime;
+    overlap = time - _nextTime;
+
+    if (overlap > 0 || manual) {
+      frame = ++_self.frame;
+      _delta = time - _self.time * 1000;
+      _self.time = time = time / 1000;
+      _nextTime += overlap + (overlap >= _gap ? 4 : _gap - overlap);
+      dispatch = 1;
+    }
+
+    manual || (_id = _req(_tick)); //make sure the request is made before we dispatch the "tick" event so that timing is maintained. Otherwise, if processing the "tick" requires a bunch of time (like 15ms) and we're using a setTimeout() that's based on 16.7ms, it'd technically take 31.7ms between frames otherwise.
+
+    if (dispatch) {
+      for (_i = 0; _i < _listeners.length; _i++) {
+        // use _i and check _listeners.length instead of a variable because a listener could get removed during the loop, and if that happens to an element less than the current index, it'd throw things off in the loop.
+        _listeners[_i](time, _delta, frame, v);
+      }
+    }
+  };
+
+  _self = {
+    time: 0,
+    frame: 0,
+    tick: function tick() {
+      _tick(true);
+    },
+    deltaRatio: function deltaRatio(fps) {
+      return _delta / (1000 / (fps || 60));
+    },
+    wake: function wake() {
+      if (_coreReady) {
+        if (!_coreInitted && _windowExists()) {
+          _win = _coreInitted = window;
+          _doc = _win.document || {};
+          _globals.gsap = gsap;
+          (_win.gsapVersions || (_win.gsapVersions = [])).push(gsap.version);
+
+          _install(_installScope || _win.GreenSockGlobals || !_win.gsap && _win || {});
+
+          _registerPluginQueue.forEach(_createPlugin);
+        }
+
+        _raf = typeof requestAnimationFrame !== "undefined" && requestAnimationFrame;
+        _id && _self.sleep();
+
+        _req = _raf || function (f) {
+          return setTimeout(f, _nextTime - _self.time * 1000 + 1 | 0);
+        };
+
+        _tickerActive = 1;
+
+        _tick(2);
+      }
+    },
+    sleep: function sleep() {
+      (_raf ? cancelAnimationFrame : clearTimeout)(_id);
+      _tickerActive = 0;
+      _req = _emptyFunc;
+    },
+    lagSmoothing: function lagSmoothing(threshold, adjustedLag) {
+      _lagThreshold = threshold || Infinity; // zero should be interpreted as basically unlimited
+
+      _adjustedLag = Math.min(adjustedLag || 33, _lagThreshold);
+    },
+    fps: function fps(_fps) {
+      _gap = 1000 / (_fps || 240);
+      _nextTime = _self.time * 1000 + _gap;
+    },
+    add: function add(callback, once, prioritize) {
+      var func = once ? function (t, d, f, v) {
+        callback(t, d, f, v);
+
+        _self.remove(func);
+      } : callback;
+
+      _self.remove(callback);
+
+      _listeners[prioritize ? "unshift" : "push"](func);
+
+      _wake();
+
+      return func;
+    },
+    remove: function remove(callback, i) {
+      ~(i = _listeners.indexOf(callback)) && _listeners.splice(i, 1) && _i >= i && _i--;
+    },
+    _listeners: _listeners
+  };
+  return _self;
+}(),
+    _wake = function _wake() {
+  return !_tickerActive && _ticker.wake();
+},
+    //also ensures the core classes are initialized.
+
+/*
+* -------------------------------------------------
+* EASING
+* -------------------------------------------------
+*/
+_easeMap = {},
+    _customEaseExp = /^[\d.\-M][\d.\-,\s]/,
+    _quotesExp = /["']/g,
+    _parseObjectInString = function _parseObjectInString(value) {
+  //takes a string like "{wiggles:10, type:anticipate})" and turns it into a real object. Notice it ends in ")" and includes the {} wrappers. This is because we only use this function for parsing ease configs and prioritized optimization rather than reusability.
+  var obj = {},
+      split = value.substr(1, value.length - 3).split(":"),
+      key = split[0],
+      i = 1,
+      l = split.length,
+      index,
+      val,
+      parsedVal;
+
+  for (; i < l; i++) {
+    val = split[i];
+    index = i !== l - 1 ? val.lastIndexOf(",") : val.length;
+    parsedVal = val.substr(0, index);
+    obj[key] = isNaN(parsedVal) ? parsedVal.replace(_quotesExp, "").trim() : +parsedVal;
+    key = val.substr(index + 1).trim();
+  }
+
+  return obj;
+},
+    _valueInParentheses = function _valueInParentheses(value) {
+  var open = value.indexOf("(") + 1,
+      close = value.indexOf(")"),
+      nested = value.indexOf("(", open);
+  return value.substring(open, ~nested && nested < close ? value.indexOf(")", close + 1) : close);
+},
+    _configEaseFromString = function _configEaseFromString(name) {
+  //name can be a string like "elastic.out(1,0.5)", and pass in _easeMap as obj and it'll parse it out and call the actual function like _easeMap.Elastic.easeOut.config(1,0.5). It will also parse custom ease strings as long as CustomEase is loaded and registered (internally as _easeMap._CE).
+  var split = (name + "").split("("),
+      ease = _easeMap[split[0]];
+  return ease && split.length > 1 && ease.config ? ease.config.apply(null, ~name.indexOf("{") ? [_parseObjectInString(split[1])] : _valueInParentheses(name).split(",").map(_numericIfPossible)) : _easeMap._CE && _customEaseExp.test(name) ? _easeMap._CE("", name) : ease;
+},
+    _invertEase = function _invertEase(ease) {
+  return function (p) {
+    return 1 - ease(1 - p);
+  };
+},
+    // allow yoyoEase to be set in children and have those affected when the parent/ancestor timeline yoyos.
+_propagateYoyoEase = function _propagateYoyoEase(timeline, isYoyo) {
+  var child = timeline._first,
+      ease;
+
+  while (child) {
+    if (child instanceof Timeline) {
+      _propagateYoyoEase(child, isYoyo);
+    } else if (child.vars.yoyoEase && (!child._yoyo || !child._repeat) && child._yoyo !== isYoyo) {
+      if (child.timeline) {
+        _propagateYoyoEase(child.timeline, isYoyo);
+      } else {
+        ease = child._ease;
+        child._ease = child._yEase;
+        child._yEase = ease;
+        child._yoyo = isYoyo;
+      }
+    }
+
+    child = child._next;
+  }
+},
+    _parseEase = function _parseEase(ease, defaultEase) {
+  return !ease ? defaultEase : (_isFunction(ease) ? ease : _easeMap[ease] || _configEaseFromString(ease)) || defaultEase;
+},
+    _insertEase = function _insertEase(names, easeIn, easeOut, easeInOut) {
+  if (easeOut === void 0) {
+    easeOut = function easeOut(p) {
+      return 1 - easeIn(1 - p);
+    };
+  }
+
+  if (easeInOut === void 0) {
+    easeInOut = function easeInOut(p) {
+      return p < .5 ? easeIn(p * 2) / 2 : 1 - easeIn((1 - p) * 2) / 2;
+    };
+  }
+
+  var ease = {
+    easeIn: easeIn,
+    easeOut: easeOut,
+    easeInOut: easeInOut
+  },
+      lowercaseName;
+
+  _forEachName(names, function (name) {
+    _easeMap[name] = _globals[name] = ease;
+    _easeMap[lowercaseName = name.toLowerCase()] = easeOut;
+
+    for (var p in ease) {
+      _easeMap[lowercaseName + (p === "easeIn" ? ".in" : p === "easeOut" ? ".out" : ".inOut")] = _easeMap[name + "." + p] = ease[p];
+    }
+  });
+
+  return ease;
+},
+    _easeInOutFromOut = function _easeInOutFromOut(easeOut) {
+  return function (p) {
+    return p < .5 ? (1 - easeOut(1 - p * 2)) / 2 : .5 + easeOut((p - .5) * 2) / 2;
+  };
+},
+    _configElastic = function _configElastic(type, amplitude, period) {
+  var p1 = amplitude >= 1 ? amplitude : 1,
+      //note: if amplitude is < 1, we simply adjust the period for a more natural feel. Otherwise the math doesn't work right and the curve starts at 1.
+  p2 = (period || (type ? .3 : .45)) / (amplitude < 1 ? amplitude : 1),
+      p3 = p2 / _2PI * (Math.asin(1 / p1) || 0),
+      easeOut = function easeOut(p) {
+    return p === 1 ? 1 : p1 * Math.pow(2, -10 * p) * _sin((p - p3) * p2) + 1;
+  },
+      ease = type === "out" ? easeOut : type === "in" ? function (p) {
+    return 1 - easeOut(1 - p);
+  } : _easeInOutFromOut(easeOut);
+
+  p2 = _2PI / p2; //precalculate to optimize
+
+  ease.config = function (amplitude, period) {
+    return _configElastic(type, amplitude, period);
+  };
+
+  return ease;
+},
+    _configBack = function _configBack(type, overshoot) {
+  if (overshoot === void 0) {
+    overshoot = 1.70158;
+  }
+
+  var easeOut = function easeOut(p) {
+    return p ? --p * p * ((overshoot + 1) * p + overshoot) + 1 : 0;
+  },
+      ease = type === "out" ? easeOut : type === "in" ? function (p) {
+    return 1 - easeOut(1 - p);
+  } : _easeInOutFromOut(easeOut);
+
+  ease.config = function (overshoot) {
+    return _configBack(type, overshoot);
+  };
+
+  return ease;
+}; // a cheaper (kb and cpu) but more mild way to get a parameterized weighted ease by feeding in a value between -1 (easeIn) and 1 (easeOut) where 0 is linear.
+// _weightedEase = ratio => {
+// 	let y = 0.5 + ratio / 2;
+// 	return p => (2 * (1 - p) * p * y + p * p);
+// },
+// a stronger (but more expensive kb/cpu) parameterized weighted ease that lets you feed in a value between -1 (easeIn) and 1 (easeOut) where 0 is linear.
+// _weightedEaseStrong = ratio => {
+// 	ratio = .5 + ratio / 2;
+// 	let o = 1 / 3 * (ratio < .5 ? ratio : 1 - ratio),
+// 		b = ratio - o,
+// 		c = ratio + o;
+// 	return p => p === 1 ? p : 3 * b * (1 - p) * (1 - p) * p + 3 * c * (1 - p) * p * p + p * p * p;
+// };
+
+
+_forEachName("Linear,Quad,Cubic,Quart,Quint,Strong", function (name, i) {
+  var power = i < 5 ? i + 1 : i;
+
+  _insertEase(name + ",Power" + (power - 1), i ? function (p) {
+    return Math.pow(p, power);
+  } : function (p) {
+    return p;
+  }, function (p) {
+    return 1 - Math.pow(1 - p, power);
+  }, function (p) {
+    return p < .5 ? Math.pow(p * 2, power) / 2 : 1 - Math.pow((1 - p) * 2, power) / 2;
+  });
+});
+
+_easeMap.Linear.easeNone = _easeMap.none = _easeMap.Linear.easeIn;
+
+_insertEase("Elastic", _configElastic("in"), _configElastic("out"), _configElastic());
+
+(function (n, c) {
+  var n1 = 1 / c,
+      n2 = 2 * n1,
+      n3 = 2.5 * n1,
+      easeOut = function easeOut(p) {
+    return p < n1 ? n * p * p : p < n2 ? n * Math.pow(p - 1.5 / c, 2) + .75 : p < n3 ? n * (p -= 2.25 / c) * p + .9375 : n * Math.pow(p - 2.625 / c, 2) + .984375;
+  };
+
+  _insertEase("Bounce", function (p) {
+    return 1 - easeOut(1 - p);
+  }, easeOut);
+})(7.5625, 2.75);
+
+_insertEase("Expo", function (p) {
+  return p ? Math.pow(2, 10 * (p - 1)) : 0;
+});
+
+_insertEase("Circ", function (p) {
+  return -(_sqrt(1 - p * p) - 1);
+});
+
+_insertEase("Sine", function (p) {
+  return p === 1 ? 1 : -_cos(p * _HALF_PI) + 1;
+});
+
+_insertEase("Back", _configBack("in"), _configBack("out"), _configBack());
+
+_easeMap.SteppedEase = _easeMap.steps = _globals.SteppedEase = {
+  config: function config(steps, immediateStart) {
+    if (steps === void 0) {
+      steps = 1;
+    }
+
+    var p1 = 1 / steps,
+        p2 = steps + (immediateStart ? 0 : 1),
+        p3 = immediateStart ? 1 : 0,
+        max = 1 - _tinyNum;
+    return function (p) {
+      return ((p2 * _clamp(0, max, p) | 0) + p3) * p1;
+    };
+  }
+};
+_defaults.ease = _easeMap["quad.out"];
+
+_forEachName("onComplete,onUpdate,onStart,onRepeat,onReverseComplete,onInterrupt", function (name) {
+  return _callbackNames += name + "," + name + "Params,";
+});
+/*
+ * --------------------------------------------------------------------------------------
+ * CACHE
+ * --------------------------------------------------------------------------------------
+ */
+
+
+var GSCache = function GSCache(target, harness) {
+  this.id = _gsID++;
+  target._gsap = this;
+  this.target = target;
+  this.harness = harness;
+  this.get = harness ? harness.get : _getProperty;
+  this.set = harness ? harness.getSetter : _getSetter;
+};
+/*
+ * --------------------------------------------------------------------------------------
+ * ANIMATION
+ * --------------------------------------------------------------------------------------
+ */
+
+var Animation = /*#__PURE__*/function () {
+  function Animation(vars) {
+    this.vars = vars;
+    this._delay = +vars.delay || 0;
+
+    if (this._repeat = vars.repeat === Infinity ? -2 : vars.repeat || 0) {
+      // TODO: repeat: Infinity on a timeline's children must flag that timeline internally and affect its totalDuration, otherwise it'll stop in the negative direction when reaching the start.
+      this._rDelay = vars.repeatDelay || 0;
+      this._yoyo = !!vars.yoyo || !!vars.yoyoEase;
+    }
+
+    this._ts = 1;
+
+    _setDuration(this, +vars.duration, 1, 1);
+
+    this.data = vars.data;
+
+    if (_context) {
+      this._ctx = _context;
+
+      _context.data.push(this);
+    }
+
+    _tickerActive || _ticker.wake();
+  }
+
+  var _proto = Animation.prototype;
+
+  _proto.delay = function delay(value) {
+    if (value || value === 0) {
+      this.parent && this.parent.smoothChildTiming && this.startTime(this._start + value - this._delay);
+      this._delay = value;
+      return this;
+    }
+
+    return this._delay;
+  };
+
+  _proto.duration = function duration(value) {
+    return arguments.length ? this.totalDuration(this._repeat > 0 ? value + (value + this._rDelay) * this._repeat : value) : this.totalDuration() && this._dur;
+  };
+
+  _proto.totalDuration = function totalDuration(value) {
+    if (!arguments.length) {
+      return this._tDur;
+    }
+
+    this._dirty = 0;
+    return _setDuration(this, this._repeat < 0 ? value : (value - this._repeat * this._rDelay) / (this._repeat + 1));
+  };
+
+  _proto.totalTime = function totalTime(_totalTime, suppressEvents) {
+    _wake();
+
+    if (!arguments.length) {
+      return this._tTime;
+    }
+
+    var parent = this._dp;
+
+    if (parent && parent.smoothChildTiming && this._ts) {
+      _alignPlayhead(this, _totalTime);
+
+      !parent._dp || parent.parent || _postAddChecks(parent, this); // edge case: if this is a child of a timeline that already completed, for example, we must re-activate the parent.
+      //in case any of the ancestor timelines had completed but should now be enabled, we should reset their totalTime() which will also ensure that they're lined up properly and enabled. Skip for animations that are on the root (wasteful). Example: a TimelineLite.exportRoot() is performed when there's a paused tween on the root, the export will not complete until that tween is unpaused, but imagine a child gets restarted later, after all [unpaused] tweens have completed. The start of that child would get pushed out, but one of the ancestors may have completed.
+
+      while (parent && parent.parent) {
+        if (parent.parent._time !== parent._start + (parent._ts >= 0 ? parent._tTime / parent._ts : (parent.totalDuration() - parent._tTime) / -parent._ts)) {
+          parent.totalTime(parent._tTime, true);
+        }
+
+        parent = parent.parent;
+      }
+
+      if (!this.parent && this._dp.autoRemoveChildren && (this._ts > 0 && _totalTime < this._tDur || this._ts < 0 && _totalTime > 0 || !this._tDur && !_totalTime)) {
+        //if the animation doesn't have a parent, put it back into its last parent (recorded as _dp for exactly cases like this). Limit to parents with autoRemoveChildren (like globalTimeline) so that if the user manually removes an animation from a timeline and then alters its playhead, it doesn't get added back in.
+        _addToTimeline(this._dp, this, this._start - this._delay);
+      }
+    }
+
+    if (this._tTime !== _totalTime || !this._dur && !suppressEvents || this._initted && Math.abs(this._zTime) === _tinyNum || !_totalTime && !this._initted && (this.add || this._ptLookup)) {
+      // check for _ptLookup on a Tween instance to ensure it has actually finished being instantiated, otherwise if this.reverse() gets called in the Animation constructor, it could trigger a render() here even though the _targets weren't populated, thus when _init() is called there won't be any PropTweens (it'll act like the tween is non-functional)
+      this._ts || (this._pTime = _totalTime); // otherwise, if an animation is paused, then the playhead is moved back to zero, then resumed, it'd revert back to the original time at the pause
+      //if (!this._lock) { // avoid endless recursion (not sure we need this yet or if it's worth the performance hit)
+      //   this._lock = 1;
+
+      _lazySafeRender(this, _totalTime, suppressEvents); //   this._lock = 0;
+      //}
+
+    }
+
+    return this;
+  };
+
+  _proto.time = function time(value, suppressEvents) {
+    return arguments.length ? this.totalTime(Math.min(this.totalDuration(), value + _elapsedCycleDuration(this)) % (this._dur + this._rDelay) || (value ? this._dur : 0), suppressEvents) : this._time; // note: if the modulus results in 0, the playhead could be exactly at the end or the beginning, and we always defer to the END with a non-zero value, otherwise if you set the time() to the very end (duration()), it would render at the START!
+  };
+
+  _proto.totalProgress = function totalProgress(value, suppressEvents) {
+    return arguments.length ? this.totalTime(this.totalDuration() * value, suppressEvents) : this.totalDuration() ? Math.min(1, this._tTime / this._tDur) : this.rawTime() > 0 ? 1 : 0;
+  };
+
+  _proto.progress = function progress(value, suppressEvents) {
+    return arguments.length ? this.totalTime(this.duration() * (this._yoyo && !(this.iteration() & 1) ? 1 - value : value) + _elapsedCycleDuration(this), suppressEvents) : this.duration() ? Math.min(1, this._time / this._dur) : this.rawTime() > 0 ? 1 : 0;
+  };
+
+  _proto.iteration = function iteration(value, suppressEvents) {
+    var cycleDuration = this.duration() + this._rDelay;
+
+    return arguments.length ? this.totalTime(this._time + (value - 1) * cycleDuration, suppressEvents) : this._repeat ? _animationCycle(this._tTime, cycleDuration) + 1 : 1;
+  } // potential future addition:
+  // isPlayingBackwards() {
+  // 	let animation = this,
+  // 		orientation = 1; // 1 = forward, -1 = backward
+  // 	while (animation) {
+  // 		orientation *= animation.reversed() || (animation.repeat() && !(animation.iteration() & 1)) ? -1 : 1;
+  // 		animation = animation.parent;
+  // 	}
+  // 	return orientation < 0;
+  // }
+  ;
+
+  _proto.timeScale = function timeScale(value, suppressEvents) {
+    if (!arguments.length) {
+      return this._rts === -_tinyNum ? 0 : this._rts; // recorded timeScale. Special case: if someone calls reverse() on an animation with timeScale of 0, we assign it -_tinyNum to remember it's reversed.
+    }
+
+    if (this._rts === value) {
+      return this;
+    }
+
+    var tTime = this.parent && this._ts ? _parentToChildTotalTime(this.parent._time, this) : this._tTime; // make sure to do the parentToChildTotalTime() BEFORE setting the new _ts because the old one must be used in that calculation.
+    // future addition? Up side: fast and minimal file size. Down side: only works on this animation; if a timeline is reversed, for example, its childrens' onReverse wouldn't get called.
+    //(+value < 0 && this._rts >= 0) && _callback(this, "onReverse", true);
+    // prioritize rendering where the parent's playhead lines up instead of this._tTime because there could be a tween that's animating another tween's timeScale in the same rendering loop (same parent), thus if the timeScale tween renders first, it would alter _start BEFORE _tTime was set on that tick (in the rendering loop), effectively freezing it until the timeScale tween finishes.
+
+    this._rts = +value || 0;
+    this._ts = this._ps || value === -_tinyNum ? 0 : this._rts; // _ts is the functional timeScale which would be 0 if the animation is paused.
+
+    this.totalTime(_clamp(-Math.abs(this._delay), this._tDur, tTime), suppressEvents !== false);
+
+    _setEnd(this); // if parent.smoothChildTiming was false, the end time didn't get updated in the _alignPlayhead() method, so do it here.
+
+
+    return _recacheAncestors(this);
+  };
+
+  _proto.paused = function paused(value) {
+    if (!arguments.length) {
+      return this._ps;
+    }
+
+    if (this._ps !== value) {
+      this._ps = value;
+
+      if (value) {
+        this._pTime = this._tTime || Math.max(-this._delay, this.rawTime()); // if the pause occurs during the delay phase, make sure that's factored in when resuming.
+
+        this._ts = this._act = 0; // _ts is the functional timeScale, so a paused tween would effectively have a timeScale of 0. We record the "real" timeScale as _rts (recorded time scale)
+      } else {
+        _wake();
+
+        this._ts = this._rts; //only defer to _pTime (pauseTime) if tTime is zero. Remember, someone could pause() an animation, then scrub the playhead and resume(). If the parent doesn't have smoothChildTiming, we render at the rawTime() because the startTime won't get updated.
+
+        this.totalTime(this.parent && !this.parent.smoothChildTiming ? this.rawTime() : this._tTime || this._pTime, this.progress() === 1 && Math.abs(this._zTime) !== _tinyNum && (this._tTime -= _tinyNum)); // edge case: animation.progress(1).pause().play() wouldn't render again because the playhead is already at the end, but the call to totalTime() below will add it back to its parent...and not remove it again (since removing only happens upon rendering at a new time). Offsetting the _tTime slightly is done simply to cause the final render in totalTime() that'll pop it off its timeline (if autoRemoveChildren is true, of course). Check to make sure _zTime isn't -_tinyNum to avoid an edge case where the playhead is pushed to the end but INSIDE a tween/callback, the timeline itself is paused thus halting rendering and leaving a few unrendered. When resuming, it wouldn't render those otherwise.
+      }
+    }
+
+    return this;
+  };
+
+  _proto.startTime = function startTime(value) {
+    if (arguments.length) {
+      this._start = value;
+      var parent = this.parent || this._dp;
+      parent && (parent._sort || !this.parent) && _addToTimeline(parent, this, value - this._delay);
+      return this;
+    }
+
+    return this._start;
+  };
+
+  _proto.endTime = function endTime(includeRepeats) {
+    return this._start + (_isNotFalse(includeRepeats) ? this.totalDuration() : this.duration()) / Math.abs(this._ts || 1);
+  };
+
+  _proto.rawTime = function rawTime(wrapRepeats) {
+    var parent = this.parent || this._dp; // _dp = detached parent
+
+    return !parent ? this._tTime : wrapRepeats && (!this._ts || this._repeat && this._time && this.totalProgress() < 1) ? this._tTime % (this._dur + this._rDelay) : !this._ts ? this._tTime : _parentToChildTotalTime(parent.rawTime(wrapRepeats), this);
+  };
+
+  _proto.revert = function revert(config) {
+    if (config === void 0) {
+      config = _revertConfig;
+    }
+
+    var prevIsReverting = _reverting;
+    _reverting = config;
+
+    if (this._initted || this._startAt) {
+      this.timeline && this.timeline.revert(config);
+      this.totalTime(-0.01, config.suppressEvents);
+    }
+
+    this.data !== "nested" && config.kill !== false && this.kill();
+    _reverting = prevIsReverting;
+    return this;
+  };
+
+  _proto.globalTime = function globalTime(rawTime) {
+    var animation = this,
+        time = arguments.length ? rawTime : animation.rawTime();
+
+    while (animation) {
+      time = animation._start + time / (Math.abs(animation._ts) || 1);
+      animation = animation._dp;
+    }
+
+    return !this.parent && this._sat ? this._sat.globalTime(rawTime) : time; // the _startAt tweens for .fromTo() and .from() that have immediateRender should always be FIRST in the timeline (important for context.revert()). "_sat" stands for _startAtTween, referring to the parent tween that created the _startAt. We must discern if that tween had immediateRender so that we can know whether or not to prioritize it in revert().
+  };
+
+  _proto.repeat = function repeat(value) {
+    if (arguments.length) {
+      this._repeat = value === Infinity ? -2 : value;
+      return _onUpdateTotalDuration(this);
+    }
+
+    return this._repeat === -2 ? Infinity : this._repeat;
+  };
+
+  _proto.repeatDelay = function repeatDelay(value) {
+    if (arguments.length) {
+      var time = this._time;
+      this._rDelay = value;
+
+      _onUpdateTotalDuration(this);
+
+      return time ? this.time(time) : this;
+    }
+
+    return this._rDelay;
+  };
+
+  _proto.yoyo = function yoyo(value) {
+    if (arguments.length) {
+      this._yoyo = value;
+      return this;
+    }
+
+    return this._yoyo;
+  };
+
+  _proto.seek = function seek(position, suppressEvents) {
+    return this.totalTime(_parsePosition(this, position), _isNotFalse(suppressEvents));
+  };
+
+  _proto.restart = function restart(includeDelay, suppressEvents) {
+    return this.play().totalTime(includeDelay ? -this._delay : 0, _isNotFalse(suppressEvents));
+  };
+
+  _proto.play = function play(from, suppressEvents) {
+    from != null && this.seek(from, suppressEvents);
+    return this.reversed(false).paused(false);
+  };
+
+  _proto.reverse = function reverse(from, suppressEvents) {
+    from != null && this.seek(from || this.totalDuration(), suppressEvents);
+    return this.reversed(true).paused(false);
+  };
+
+  _proto.pause = function pause(atTime, suppressEvents) {
+    atTime != null && this.seek(atTime, suppressEvents);
+    return this.paused(true);
+  };
+
+  _proto.resume = function resume() {
+    return this.paused(false);
+  };
+
+  _proto.reversed = function reversed(value) {
+    if (arguments.length) {
+      !!value !== this.reversed() && this.timeScale(-this._rts || (value ? -_tinyNum : 0)); // in case timeScale is zero, reversing would have no effect so we use _tinyNum.
+
+      return this;
+    }
+
+    return this._rts < 0;
+  };
+
+  _proto.invalidate = function invalidate() {
+    this._initted = this._act = 0;
+    this._zTime = -_tinyNum;
+    return this;
+  };
+
+  _proto.isActive = function isActive() {
+    var parent = this.parent || this._dp,
+        start = this._start,
+        rawTime;
+    return !!(!parent || this._ts && this._initted && parent.isActive() && (rawTime = parent.rawTime(true)) >= start && rawTime < this.endTime(true) - _tinyNum);
+  };
+
+  _proto.eventCallback = function eventCallback(type, callback, params) {
+    var vars = this.vars;
+
+    if (arguments.length > 1) {
+      if (!callback) {
+        delete vars[type];
+      } else {
+        vars[type] = callback;
+        params && (vars[type + "Params"] = params);
+        type === "onUpdate" && (this._onUpdate = callback);
+      }
+
+      return this;
+    }
+
+    return vars[type];
+  };
+
+  _proto.then = function then(onFulfilled) {
+    var self = this;
+    return new Promise(function (resolve) {
+      var f = _isFunction(onFulfilled) ? onFulfilled : _passThrough,
+          _resolve = function _resolve() {
+        var _then = self.then;
+        self.then = null; // temporarily null the then() method to avoid an infinite loop (see https://github.com/greensock/GSAP/issues/322)
+
+        _isFunction(f) && (f = f(self)) && (f.then || f === self) && (self.then = _then);
+        resolve(f);
+        self.then = _then;
+      };
+
+      if (self._initted && self.totalProgress() === 1 && self._ts >= 0 || !self._tTime && self._ts < 0) {
+        _resolve();
+      } else {
+        self._prom = _resolve;
+      }
+    });
+  };
+
+  _proto.kill = function kill() {
+    _interrupt(this);
+  };
+
+  return Animation;
+}();
+
+_setDefaults(Animation.prototype, {
+  _time: 0,
+  _start: 0,
+  _end: 0,
+  _tTime: 0,
+  _tDur: 0,
+  _dirty: 0,
+  _repeat: 0,
+  _yoyo: false,
+  parent: null,
+  _initted: false,
+  _rDelay: 0,
+  _ts: 1,
+  _dp: 0,
+  ratio: 0,
+  _zTime: -_tinyNum,
+  _prom: 0,
+  _ps: false,
+  _rts: 1
+});
+/*
+ * -------------------------------------------------
+ * TIMELINE
+ * -------------------------------------------------
+ */
+
+
+var Timeline = /*#__PURE__*/function (_Animation) {
+  _inheritsLoose(Timeline, _Animation);
+
+  function Timeline(vars, position) {
+    var _this;
+
+    if (vars === void 0) {
+      vars = {};
+    }
+
+    _this = _Animation.call(this, vars) || this;
+    _this.labels = {};
+    _this.smoothChildTiming = !!vars.smoothChildTiming;
+    _this.autoRemoveChildren = !!vars.autoRemoveChildren;
+    _this._sort = _isNotFalse(vars.sortChildren);
+    _globalTimeline && _addToTimeline(vars.parent || _globalTimeline, _assertThisInitialized(_this), position);
+    vars.reversed && _this.reverse();
+    vars.paused && _this.paused(true);
+    vars.scrollTrigger && _scrollTrigger(_assertThisInitialized(_this), vars.scrollTrigger);
+    return _this;
+  }
+
+  var _proto2 = Timeline.prototype;
+
+  _proto2.to = function to(targets, vars, position) {
+    _createTweenType(0, arguments, this);
+
+    return this;
+  };
+
+  _proto2.from = function from(targets, vars, position) {
+    _createTweenType(1, arguments, this);
+
+    return this;
+  };
+
+  _proto2.fromTo = function fromTo(targets, fromVars, toVars, position) {
+    _createTweenType(2, arguments, this);
+
+    return this;
+  };
+
+  _proto2.set = function set(targets, vars, position) {
+    vars.duration = 0;
+    vars.parent = this;
+    _inheritDefaults(vars).repeatDelay || (vars.repeat = 0);
+    vars.immediateRender = !!vars.immediateRender;
+    new Tween(targets, vars, _parsePosition(this, position), 1);
+    return this;
+  };
+
+  _proto2.call = function call(callback, params, position) {
+    return _addToTimeline(this, Tween.delayedCall(0, callback, params), position);
+  } //ONLY for backward compatibility! Maybe delete?
+  ;
+
+  _proto2.staggerTo = function staggerTo(targets, duration, vars, stagger, position, onCompleteAll, onCompleteAllParams) {
+    vars.duration = duration;
+    vars.stagger = vars.stagger || stagger;
+    vars.onComplete = onCompleteAll;
+    vars.onCompleteParams = onCompleteAllParams;
+    vars.parent = this;
+    new Tween(targets, vars, _parsePosition(this, position));
+    return this;
+  };
+
+  _proto2.staggerFrom = function staggerFrom(targets, duration, vars, stagger, position, onCompleteAll, onCompleteAllParams) {
+    vars.runBackwards = 1;
+    _inheritDefaults(vars).immediateRender = _isNotFalse(vars.immediateRender);
+    return this.staggerTo(targets, duration, vars, stagger, position, onCompleteAll, onCompleteAllParams);
+  };
+
+  _proto2.staggerFromTo = function staggerFromTo(targets, duration, fromVars, toVars, stagger, position, onCompleteAll, onCompleteAllParams) {
+    toVars.startAt = fromVars;
+    _inheritDefaults(toVars).immediateRender = _isNotFalse(toVars.immediateRender);
+    return this.staggerTo(targets, duration, toVars, stagger, position, onCompleteAll, onCompleteAllParams);
+  };
+
+  _proto2.render = function render(totalTime, suppressEvents, force) {
+    var prevTime = this._time,
+        tDur = this._dirty ? this.totalDuration() : this._tDur,
+        dur = this._dur,
+        tTime = totalTime <= 0 ? 0 : _roundPrecise(totalTime),
+        // if a paused timeline is resumed (or its _start is updated for another reason...which rounds it), that could result in the playhead shifting a **tiny** amount and a zero-duration child at that spot may get rendered at a different ratio, like its totalTime in render() may be 1e-17 instead of 0, for example.
+    crossingStart = this._zTime < 0 !== totalTime < 0 && (this._initted || !dur),
+        time,
+        child,
+        next,
+        iteration,
+        cycleDuration,
+        prevPaused,
+        pauseTween,
+        timeScale,
+        prevStart,
+        prevIteration,
+        yoyo,
+        isYoyo;
+    this !== _globalTimeline && tTime > tDur && totalTime >= 0 && (tTime = tDur);
+
+    if (tTime !== this._tTime || force || crossingStart) {
+      if (prevTime !== this._time && dur) {
+        //if totalDuration() finds a child with a negative startTime and smoothChildTiming is true, things get shifted around internally so we need to adjust the time accordingly. For example, if a tween starts at -30 we must shift EVERYTHING forward 30 seconds and move this timeline's startTime backward by 30 seconds so that things align with the playhead (no jump).
+        tTime += this._time - prevTime;
+        totalTime += this._time - prevTime;
+      }
+
+      time = tTime;
+      prevStart = this._start;
+      timeScale = this._ts;
+      prevPaused = !timeScale;
+
+      if (crossingStart) {
+        dur || (prevTime = this._zTime); //when the playhead arrives at EXACTLY time 0 (right on top) of a zero-duration timeline, we need to discern if events are suppressed so that when the playhead moves again (next time), it'll trigger the callback. If events are NOT suppressed, obviously the callback would be triggered in this render. Basically, the callback should fire either when the playhead ARRIVES or LEAVES this exact spot, not both. Imagine doing a timeline.seek(0) and there's a callback that sits at 0. Since events are suppressed on that seek() by default, nothing will fire, but when the playhead moves off of that position, the callback should fire. This behavior is what people intuitively expect.
+
+        (totalTime || !suppressEvents) && (this._zTime = totalTime);
+      }
+
+      if (this._repeat) {
+        //adjust the time for repeats and yoyos
+        yoyo = this._yoyo;
+        cycleDuration = dur + this._rDelay;
+
+        if (this._repeat < -1 && totalTime < 0) {
+          return this.totalTime(cycleDuration * 100 + totalTime, suppressEvents, force);
+        }
+
+        time = _roundPrecise(tTime % cycleDuration); //round to avoid floating point errors. (4 % 0.8 should be 0 but some browsers report it as 0.79999999!)
+
+        if (tTime === tDur) {
+          // the tDur === tTime is for edge cases where there's a lengthy decimal on the duration and it may reach the very end but the time is rendered as not-quite-there (remember, tDur is rounded to 4 decimals whereas dur isn't)
+          iteration = this._repeat;
+          time = dur;
+        } else {
+          iteration = ~~(tTime / cycleDuration);
+
+          if (iteration && iteration === tTime / cycleDuration) {
+            time = dur;
+            iteration--;
+          }
+
+          time > dur && (time = dur);
+        }
+
+        prevIteration = _animationCycle(this._tTime, cycleDuration);
+        !prevTime && this._tTime && prevIteration !== iteration && this._tTime - prevIteration * cycleDuration - this._dur <= 0 && (prevIteration = iteration); // edge case - if someone does addPause() at the very beginning of a repeating timeline, that pause is technically at the same spot as the end which causes this._time to get set to 0 when the totalTime would normally place the playhead at the end. See https://gsap.com/forums/topic/23823-closing-nav-animation-not-working-on-ie-and-iphone-6-maybe-other-older-browser/?tab=comments#comment-113005 also, this._tTime - prevIteration * cycleDuration - this._dur <= 0 just checks to make sure it wasn't previously in the "repeatDelay" portion
+
+        if (yoyo && iteration & 1) {
+          time = dur - time;
+          isYoyo = 1;
+        }
+        /*
+        make sure children at the end/beginning of the timeline are rendered properly. If, for example,
+        a 3-second long timeline rendered at 2.9 seconds previously, and now renders at 3.2 seconds (which
+        would get translated to 2.8 seconds if the timeline yoyos or 0.2 seconds if it just repeats), there
+        could be a callback or a short tween that's at 2.95 or 3 seconds in which wouldn't render. So
+        we need to push the timeline to the end (and/or beginning depending on its yoyo value). Also we must
+        ensure that zero-duration tweens at the very beginning or end of the Timeline work.
+        */
+
+
+        if (iteration !== prevIteration && !this._lock) {
+          var rewinding = yoyo && prevIteration & 1,
+              doesWrap = rewinding === (yoyo && iteration & 1);
+          iteration < prevIteration && (rewinding = !rewinding);
+          prevTime = rewinding ? 0 : tTime % dur ? dur : tTime; // if the playhead is landing exactly at the end of an iteration, use that totalTime rather than only the duration, otherwise it'll skip the 2nd render since it's effectively at the same time.
+
+          this._lock = 1;
+          this.render(prevTime || (isYoyo ? 0 : _roundPrecise(iteration * cycleDuration)), suppressEvents, !dur)._lock = 0;
+          this._tTime = tTime; // if a user gets the iteration() inside the onRepeat, for example, it should be accurate.
+
+          !suppressEvents && this.parent && _callback(this, "onRepeat");
+          this.vars.repeatRefresh && !isYoyo && (this.invalidate()._lock = 1);
+
+          if (prevTime && prevTime !== this._time || prevPaused !== !this._ts || this.vars.onRepeat && !this.parent && !this._act) {
+            // if prevTime is 0 and we render at the very end, _time will be the end, thus won't match. So in this edge case, prevTime won't match _time but that's okay. If it gets killed in the onRepeat, eject as well.
+            return this;
+          }
+
+          dur = this._dur; // in case the duration changed in the onRepeat
+
+          tDur = this._tDur;
+
+          if (doesWrap) {
+            this._lock = 2;
+            prevTime = rewinding ? dur : -0.0001;
+            this.render(prevTime, true);
+            this.vars.repeatRefresh && !isYoyo && this.invalidate();
+          }
+
+          this._lock = 0;
+
+          if (!this._ts && !prevPaused) {
+            return this;
+          } //in order for yoyoEase to work properly when there's a stagger, we must swap out the ease in each sub-tween.
+
+
+          _propagateYoyoEase(this, isYoyo);
+        }
+      }
+
+      if (this._hasPause && !this._forcing && this._lock < 2) {
+        pauseTween = _findNextPauseTween(this, _roundPrecise(prevTime), _roundPrecise(time));
+
+        if (pauseTween) {
+          tTime -= time - (time = pauseTween._start);
+        }
+      }
+
+      this._tTime = tTime;
+      this._time = time;
+      this._act = !timeScale; //as long as it's not paused, force it to be active so that if the user renders independent of the parent timeline, it'll be forced to re-render on the next tick.
+
+      if (!this._initted) {
+        this._onUpdate = this.vars.onUpdate;
+        this._initted = 1;
+        this._zTime = totalTime;
+        prevTime = 0; // upon init, the playhead should always go forward; someone could invalidate() a completed timeline and then if they restart(), that would make child tweens render in reverse order which could lock in the wrong starting values if they build on each other, like tl.to(obj, {x: 100}).to(obj, {x: 0}).
+      }
+
+      if (!prevTime && time && !suppressEvents && !iteration) {
+        _callback(this, "onStart");
+
+        if (this._tTime !== tTime) {
+          // in case the onStart triggered a render at a different spot, eject. Like if someone did animation.pause(0.5) or something inside the onStart.
+          return this;
+        }
+      }
+
+      if (time >= prevTime && totalTime >= 0) {
+        child = this._first;
+
+        while (child) {
+          next = child._next;
+
+          if ((child._act || time >= child._start) && child._ts && pauseTween !== child) {
+            if (child.parent !== this) {
+              // an extreme edge case - the child's render could do something like kill() the "next" one in the linked list, or reparent it. In that case we must re-initiate the whole render to be safe.
+              return this.render(totalTime, suppressEvents, force);
+            }
+
+            child.render(child._ts > 0 ? (time - child._start) * child._ts : (child._dirty ? child.totalDuration() : child._tDur) + (time - child._start) * child._ts, suppressEvents, force);
+
+            if (time !== this._time || !this._ts && !prevPaused) {
+              //in case a tween pauses or seeks the timeline when rendering, like inside of an onUpdate/onComplete
+              pauseTween = 0;
+              next && (tTime += this._zTime = -_tinyNum); // it didn't finish rendering, so flag zTime as negative so that so that the next time render() is called it'll be forced (to render any remaining children)
+
+              break;
+            }
+          }
+
+          child = next;
+        }
+      } else {
+        child = this._last;
+        var adjustedTime = totalTime < 0 ? totalTime : time; //when the playhead goes backward beyond the start of this timeline, we must pass that information down to the child animations so that zero-duration tweens know whether to render their starting or ending values.
+
+        while (child) {
+          next = child._prev;
+
+          if ((child._act || adjustedTime <= child._end) && child._ts && pauseTween !== child) {
+            if (child.parent !== this) {
+              // an extreme edge case - the child's render could do something like kill() the "next" one in the linked list, or reparent it. In that case we must re-initiate the whole render to be safe.
+              return this.render(totalTime, suppressEvents, force);
+            }
+
+            child.render(child._ts > 0 ? (adjustedTime - child._start) * child._ts : (child._dirty ? child.totalDuration() : child._tDur) + (adjustedTime - child._start) * child._ts, suppressEvents, force || _reverting && (child._initted || child._startAt)); // if reverting, we should always force renders of initted tweens (but remember that .fromTo() or .from() may have a _startAt but not _initted yet). If, for example, a .fromTo() tween with a stagger (which creates an internal timeline) gets reverted BEFORE some of its child tweens render for the first time, it may not properly trigger them to revert.
+
+            if (time !== this._time || !this._ts && !prevPaused) {
+              //in case a tween pauses or seeks the timeline when rendering, like inside of an onUpdate/onComplete
+              pauseTween = 0;
+              next && (tTime += this._zTime = adjustedTime ? -_tinyNum : _tinyNum); // it didn't finish rendering, so adjust zTime so that so that the next time render() is called it'll be forced (to render any remaining children)
+
+              break;
+            }
+          }
+
+          child = next;
+        }
+      }
+
+      if (pauseTween && !suppressEvents) {
+        this.pause();
+        pauseTween.render(time >= prevTime ? 0 : -_tinyNum)._zTime = time >= prevTime ? 1 : -1;
+
+        if (this._ts) {
+          //the callback resumed playback! So since we may have held back the playhead due to where the pause is positioned, go ahead and jump to where it's SUPPOSED to be (if no pause happened).
+          this._start = prevStart; //if the pause was at an earlier time and the user resumed in the callback, it could reposition the timeline (changing its startTime), throwing things off slightly, so we make sure the _start doesn't shift.
+
+          _setEnd(this);
+
+          return this.render(totalTime, suppressEvents, force);
+        }
+      }
+
+      this._onUpdate && !suppressEvents && _callback(this, "onUpdate", true);
+      if (tTime === tDur && this._tTime >= this.totalDuration() || !tTime && prevTime) if (prevStart === this._start || Math.abs(timeScale) !== Math.abs(this._ts)) if (!this._lock) {
+        // remember, a child's callback may alter this timeline's playhead or timeScale which is why we need to add some of these checks.
+        (totalTime || !dur) && (tTime === tDur && this._ts > 0 || !tTime && this._ts < 0) && _removeFromParent(this, 1); // don't remove if the timeline is reversed and the playhead isn't at 0, otherwise tl.progress(1).reverse() won't work. Only remove if the playhead is at the end and timeScale is positive, or if the playhead is at 0 and the timeScale is negative.
+
+        if (!suppressEvents && !(totalTime < 0 && !prevTime) && (tTime || prevTime || !tDur)) {
+          _callback(this, tTime === tDur && totalTime >= 0 ? "onComplete" : "onReverseComplete", true);
+
+          this._prom && !(tTime < tDur && this.timeScale() > 0) && this._prom();
+        }
+      }
+    }
+
+    return this;
+  };
+
+  _proto2.add = function add(child, position) {
+    var _this2 = this;
+
+    _isNumber(position) || (position = _parsePosition(this, position, child));
+
+    if (!(child instanceof Animation)) {
+      if (_isArray(child)) {
+        child.forEach(function (obj) {
+          return _this2.add(obj, position);
+        });
+        return this;
+      }
+
+      if (_isString(child)) {
+        return this.addLabel(child, position);
+      }
+
+      if (_isFunction(child)) {
+        child = Tween.delayedCall(0, child);
+      } else {
+        return this;
+      }
+    }
+
+    return this !== child ? _addToTimeline(this, child, position) : this; //don't allow a timeline to be added to itself as a child!
+  };
+
+  _proto2.getChildren = function getChildren(nested, tweens, timelines, ignoreBeforeTime) {
+    if (nested === void 0) {
+      nested = true;
+    }
+
+    if (tweens === void 0) {
+      tweens = true;
+    }
+
+    if (timelines === void 0) {
+      timelines = true;
+    }
+
+    if (ignoreBeforeTime === void 0) {
+      ignoreBeforeTime = -_bigNum;
+    }
+
+    var a = [],
+        child = this._first;
+
+    while (child) {
+      if (child._start >= ignoreBeforeTime) {
+        if (child instanceof Tween) {
+          tweens && a.push(child);
+        } else {
+          timelines && a.push(child);
+          nested && a.push.apply(a, child.getChildren(true, tweens, timelines));
+        }
+      }
+
+      child = child._next;
+    }
+
+    return a;
+  };
+
+  _proto2.getById = function getById(id) {
+    var animations = this.getChildren(1, 1, 1),
+        i = animations.length;
+
+    while (i--) {
+      if (animations[i].vars.id === id) {
+        return animations[i];
+      }
+    }
+  };
+
+  _proto2.remove = function remove(child) {
+    if (_isString(child)) {
+      return this.removeLabel(child);
+    }
+
+    if (_isFunction(child)) {
+      return this.killTweensOf(child);
+    }
+
+    _removeLinkedListItem(this, child);
+
+    if (child === this._recent) {
+      this._recent = this._last;
+    }
+
+    return _uncache(this);
+  };
+
+  _proto2.totalTime = function totalTime(_totalTime2, suppressEvents) {
+    if (!arguments.length) {
+      return this._tTime;
+    }
+
+    this._forcing = 1;
+
+    if (!this._dp && this._ts) {
+      //special case for the global timeline (or any other that has no parent or detached parent).
+      this._start = _roundPrecise(_ticker.time - (this._ts > 0 ? _totalTime2 / this._ts : (this.totalDuration() - _totalTime2) / -this._ts));
+    }
+
+    _Animation.prototype.totalTime.call(this, _totalTime2, suppressEvents);
+
+    this._forcing = 0;
+    return this;
+  };
+
+  _proto2.addLabel = function addLabel(label, position) {
+    this.labels[label] = _parsePosition(this, position);
+    return this;
+  };
+
+  _proto2.removeLabel = function removeLabel(label) {
+    delete this.labels[label];
+    return this;
+  };
+
+  _proto2.addPause = function addPause(position, callback, params) {
+    var t = Tween.delayedCall(0, callback || _emptyFunc, params);
+    t.data = "isPause";
+    this._hasPause = 1;
+    return _addToTimeline(this, t, _parsePosition(this, position));
+  };
+
+  _proto2.removePause = function removePause(position) {
+    var child = this._first;
+    position = _parsePosition(this, position);
+
+    while (child) {
+      if (child._start === position && child.data === "isPause") {
+        _removeFromParent(child);
+      }
+
+      child = child._next;
+    }
+  };
+
+  _proto2.killTweensOf = function killTweensOf(targets, props, onlyActive) {
+    var tweens = this.getTweensOf(targets, onlyActive),
+        i = tweens.length;
+
+    while (i--) {
+      _overwritingTween !== tweens[i] && tweens[i].kill(targets, props);
+    }
+
+    return this;
+  };
+
+  _proto2.getTweensOf = function getTweensOf(targets, onlyActive) {
+    var a = [],
+        parsedTargets = toArray(targets),
+        child = this._first,
+        isGlobalTime = _isNumber(onlyActive),
+        // a number is interpreted as a global time. If the animation spans
+    children;
+
+    while (child) {
+      if (child instanceof Tween) {
+        if (_arrayContainsAny(child._targets, parsedTargets) && (isGlobalTime ? (!_overwritingTween || child._initted && child._ts) && child.globalTime(0) <= onlyActive && child.globalTime(child.totalDuration()) > onlyActive : !onlyActive || child.isActive())) {
+          // note: if this is for overwriting, it should only be for tweens that aren't paused and are initted.
+          a.push(child);
+        }
+      } else if ((children = child.getTweensOf(parsedTargets, onlyActive)).length) {
+        a.push.apply(a, children);
+      }
+
+      child = child._next;
+    }
+
+    return a;
+  } // potential future feature - targets() on timelines
+  // targets() {
+  // 	let result = [];
+  // 	this.getChildren(true, true, false).forEach(t => result.push(...t.targets()));
+  // 	return result.filter((v, i) => result.indexOf(v) === i);
+  // }
+  ;
+
+  _proto2.tweenTo = function tweenTo(position, vars) {
+    vars = vars || {};
+
+    var tl = this,
+        endTime = _parsePosition(tl, position),
+        _vars = vars,
+        startAt = _vars.startAt,
+        _onStart = _vars.onStart,
+        onStartParams = _vars.onStartParams,
+        immediateRender = _vars.immediateRender,
+        initted,
+        tween = Tween.to(tl, _setDefaults({
+      ease: vars.ease || "none",
+      lazy: false,
+      immediateRender: false,
+      time: endTime,
+      overwrite: "auto",
+      duration: vars.duration || Math.abs((endTime - (startAt && "time" in startAt ? startAt.time : tl._time)) / tl.timeScale()) || _tinyNum,
+      onStart: function onStart() {
+        tl.pause();
+
+        if (!initted) {
+          var duration = vars.duration || Math.abs((endTime - (startAt && "time" in startAt ? startAt.time : tl._time)) / tl.timeScale());
+          tween._dur !== duration && _setDuration(tween, duration, 0, 1).render(tween._time, true, true);
+          initted = 1;
+        }
+
+        _onStart && _onStart.apply(tween, onStartParams || []); //in case the user had an onStart in the vars - we don't want to overwrite it.
+      }
+    }, vars));
+
+    return immediateRender ? tween.render(0) : tween;
+  };
+
+  _proto2.tweenFromTo = function tweenFromTo(fromPosition, toPosition, vars) {
+    return this.tweenTo(toPosition, _setDefaults({
+      startAt: {
+        time: _parsePosition(this, fromPosition)
+      }
+    }, vars));
+  };
+
+  _proto2.recent = function recent() {
+    return this._recent;
+  };
+
+  _proto2.nextLabel = function nextLabel(afterTime) {
+    if (afterTime === void 0) {
+      afterTime = this._time;
+    }
+
+    return _getLabelInDirection(this, _parsePosition(this, afterTime));
+  };
+
+  _proto2.previousLabel = function previousLabel(beforeTime) {
+    if (beforeTime === void 0) {
+      beforeTime = this._time;
+    }
+
+    return _getLabelInDirection(this, _parsePosition(this, beforeTime), 1);
+  };
+
+  _proto2.currentLabel = function currentLabel(value) {
+    return arguments.length ? this.seek(value, true) : this.previousLabel(this._time + _tinyNum);
+  };
+
+  _proto2.shiftChildren = function shiftChildren(amount, adjustLabels, ignoreBeforeTime) {
+    if (ignoreBeforeTime === void 0) {
+      ignoreBeforeTime = 0;
+    }
+
+    var child = this._first,
+        labels = this.labels,
+        p;
+
+    while (child) {
+      if (child._start >= ignoreBeforeTime) {
+        child._start += amount;
+        child._end += amount;
+      }
+
+      child = child._next;
+    }
+
+    if (adjustLabels) {
+      for (p in labels) {
+        if (labels[p] >= ignoreBeforeTime) {
+          labels[p] += amount;
+        }
+      }
+    }
+
+    return _uncache(this);
+  };
+
+  _proto2.invalidate = function invalidate(soft) {
+    var child = this._first;
+    this._lock = 0;
+
+    while (child) {
+      child.invalidate(soft);
+      child = child._next;
+    }
+
+    return _Animation.prototype.invalidate.call(this, soft);
+  };
+
+  _proto2.clear = function clear(includeLabels) {
+    if (includeLabels === void 0) {
+      includeLabels = true;
+    }
+
+    var child = this._first,
+        next;
+
+    while (child) {
+      next = child._next;
+      this.remove(child);
+      child = next;
+    }
+
+    this._dp && (this._time = this._tTime = this._pTime = 0);
+    includeLabels && (this.labels = {});
+    return _uncache(this);
+  };
+
+  _proto2.totalDuration = function totalDuration(value) {
+    var max = 0,
+        self = this,
+        child = self._last,
+        prevStart = _bigNum,
+        prev,
+        start,
+        parent;
+
+    if (arguments.length) {
+      return self.timeScale((self._repeat < 0 ? self.duration() : self.totalDuration()) / (self.reversed() ? -value : value));
+    }
+
+    if (self._dirty) {
+      parent = self.parent;
+
+      while (child) {
+        prev = child._prev; //record it here in case the tween changes position in the sequence...
+
+        child._dirty && child.totalDuration(); //could change the tween._startTime, so make sure the animation's cache is clean before analyzing it.
+
+        start = child._start;
+
+        if (start > prevStart && self._sort && child._ts && !self._lock) {
+          //in case one of the tweens shifted out of order, it needs to be re-inserted into the correct position in the sequence
+          self._lock = 1; //prevent endless recursive calls - there are methods that get triggered that check duration/totalDuration when we add().
+
+          _addToTimeline(self, child, start - child._delay, 1)._lock = 0;
+        } else {
+          prevStart = start;
+        }
+
+        if (start < 0 && child._ts) {
+          //children aren't allowed to have negative startTimes unless smoothChildTiming is true, so adjust here if one is found.
+          max -= start;
+
+          if (!parent && !self._dp || parent && parent.smoothChildTiming) {
+            self._start += start / self._ts;
+            self._time -= start;
+            self._tTime -= start;
+          }
+
+          self.shiftChildren(-start, false, -1e999);
+          prevStart = 0;
+        }
+
+        child._end > max && child._ts && (max = child._end);
+        child = prev;
+      }
+
+      _setDuration(self, self === _globalTimeline && self._time > max ? self._time : max, 1, 1);
+
+      self._dirty = 0;
+    }
+
+    return self._tDur;
+  };
+
+  Timeline.updateRoot = function updateRoot(time) {
+    if (_globalTimeline._ts) {
+      _lazySafeRender(_globalTimeline, _parentToChildTotalTime(time, _globalTimeline));
+
+      _lastRenderedFrame = _ticker.frame;
+    }
+
+    if (_ticker.frame >= _nextGCFrame) {
+      _nextGCFrame += _config.autoSleep || 120;
+      var child = _globalTimeline._first;
+      if (!child || !child._ts) if (_config.autoSleep && _ticker._listeners.length < 2) {
+        while (child && !child._ts) {
+          child = child._next;
+        }
+
+        child || _ticker.sleep();
+      }
+    }
+  };
+
+  return Timeline;
+}(Animation);
+
+_setDefaults(Timeline.prototype, {
+  _lock: 0,
+  _hasPause: 0,
+  _forcing: 0
+});
+
+var _addComplexStringPropTween = function _addComplexStringPropTween(target, prop, start, end, setter, stringFilter, funcParam) {
+  //note: we call _addComplexStringPropTween.call(tweenInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
+  var pt = new PropTween(this._pt, target, prop, 0, 1, _renderComplexString, null, setter),
+      index = 0,
+      matchIndex = 0,
+      result,
+      startNums,
+      color,
+      endNum,
+      chunk,
+      startNum,
+      hasRandom,
+      a;
+  pt.b = start;
+  pt.e = end;
+  start += ""; //ensure values are strings
+
+  end += "";
+
+  if (hasRandom = ~end.indexOf("random(")) {
+    end = _replaceRandom(end);
+  }
+
+  if (stringFilter) {
+    a = [start, end];
+    stringFilter(a, target, prop); //pass an array with the starting and ending values and let the filter do whatever it needs to the values.
+
+    start = a[0];
+    end = a[1];
+  }
+
+  startNums = start.match(_complexStringNumExp) || [];
+
+  while (result = _complexStringNumExp.exec(end)) {
+    endNum = result[0];
+    chunk = end.substring(index, result.index);
+
+    if (color) {
+      color = (color + 1) % 5;
+    } else if (chunk.substr(-5) === "rgba(") {
+      color = 1;
+    }
+
+    if (endNum !== startNums[matchIndex++]) {
+      startNum = parseFloat(startNums[matchIndex - 1]) || 0; //these nested PropTweens are handled in a special way - we'll never actually call a render or setter method on them. We'll just loop through them in the parent complex string PropTween's render method.
+
+      pt._pt = {
+        _next: pt._pt,
+        p: chunk || matchIndex === 1 ? chunk : ",",
+        //note: SVG spec allows omission of comma/space when a negative sign is wedged between two numbers, like 2.5-5.3 instead of 2.5,-5.3 but when tweening, the negative value may switch to positive, so we insert the comma just in case.
+        s: startNum,
+        c: endNum.charAt(1) === "=" ? _parseRelative(startNum, endNum) - startNum : parseFloat(endNum) - startNum,
+        m: color && color < 4 ? Math.round : 0
+      };
+      index = _complexStringNumExp.lastIndex;
+    }
+  }
+
+  pt.c = index < end.length ? end.substring(index, end.length) : ""; //we use the "c" of the PropTween to store the final part of the string (after the last number)
+
+  pt.fp = funcParam;
+
+  if (_relExp.test(end) || hasRandom) {
+    pt.e = 0; //if the end string contains relative values or dynamic random(...) values, delete the end it so that on the final render we don't actually set it to the string with += or -= characters (forces it to use the calculated value).
+  }
+
+  this._pt = pt; //start the linked list with this new PropTween. Remember, we call _addComplexStringPropTween.call(tweenInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
+
+  return pt;
+},
+    _addPropTween = function _addPropTween(target, prop, start, end, index, targets, modifier, stringFilter, funcParam, optional) {
+  _isFunction(end) && (end = end(index || 0, target, targets));
+  var currentValue = target[prop],
+      parsedStart = start !== "get" ? start : !_isFunction(currentValue) ? currentValue : funcParam ? target[prop.indexOf("set") || !_isFunction(target["get" + prop.substr(3)]) ? prop : "get" + prop.substr(3)](funcParam) : target[prop](),
+      setter = !_isFunction(currentValue) ? _setterPlain : funcParam ? _setterFuncWithParam : _setterFunc,
+      pt;
+
+  if (_isString(end)) {
+    if (~end.indexOf("random(")) {
+      end = _replaceRandom(end);
+    }
+
+    if (end.charAt(1) === "=") {
+      pt = _parseRelative(parsedStart, end) + (getUnit(parsedStart) || 0);
+
+      if (pt || pt === 0) {
+        // to avoid isNaN, like if someone passes in a value like "!= whatever"
+        end = pt;
+      }
+    }
+  }
+
+  if (!optional || parsedStart !== end || _forceAllPropTweens) {
+    if (!isNaN(parsedStart * end) && end !== "") {
+      // fun fact: any number multiplied by "" is evaluated as the number 0!
+      pt = new PropTween(this._pt, target, prop, +parsedStart || 0, end - (parsedStart || 0), typeof currentValue === "boolean" ? _renderBoolean : _renderPlain, 0, setter);
+      funcParam && (pt.fp = funcParam);
+      modifier && pt.modifier(modifier, this, target);
+      return this._pt = pt;
+    }
+
+    !currentValue && !(prop in target) && _missingPlugin(prop, end);
+    return _addComplexStringPropTween.call(this, target, prop, parsedStart, end, setter, stringFilter || _config.stringFilter, funcParam);
+  }
+},
+    //creates a copy of the vars object and processes any function-based values (putting the resulting values directly into the copy) as well as strings with "random()" in them. It does NOT process relative values.
+_processVars = function _processVars(vars, index, target, targets, tween) {
+  _isFunction(vars) && (vars = _parseFuncOrString(vars, tween, index, target, targets));
+
+  if (!_isObject(vars) || vars.style && vars.nodeType || _isArray(vars) || _isTypedArray(vars)) {
+    return _isString(vars) ? _parseFuncOrString(vars, tween, index, target, targets) : vars;
+  }
+
+  var copy = {},
+      p;
+
+  for (p in vars) {
+    copy[p] = _parseFuncOrString(vars[p], tween, index, target, targets);
+  }
+
+  return copy;
+},
+    _checkPlugin = function _checkPlugin(property, vars, tween, index, target, targets) {
+  var plugin, pt, ptLookup, i;
+
+  if (_plugins[property] && (plugin = new _plugins[property]()).init(target, plugin.rawVars ? vars[property] : _processVars(vars[property], index, target, targets, tween), tween, index, targets) !== false) {
+    tween._pt = pt = new PropTween(tween._pt, target, property, 0, 1, plugin.render, plugin, 0, plugin.priority);
+
+    if (tween !== _quickTween) {
+      ptLookup = tween._ptLookup[tween._targets.indexOf(target)]; //note: we can't use tween._ptLookup[index] because for staggered tweens, the index from the fullTargets array won't match what it is in each individual tween that spawns from the stagger.
+
+      i = plugin._props.length;
+
+      while (i--) {
+        ptLookup[plugin._props[i]] = pt;
+      }
+    }
+  }
+
+  return plugin;
+},
+    _overwritingTween,
+    //store a reference temporarily so we can avoid overwriting itself.
+_forceAllPropTweens,
+    _initTween = function _initTween(tween, time, tTime) {
+  var vars = tween.vars,
+      ease = vars.ease,
+      startAt = vars.startAt,
+      immediateRender = vars.immediateRender,
+      lazy = vars.lazy,
+      onUpdate = vars.onUpdate,
+      runBackwards = vars.runBackwards,
+      yoyoEase = vars.yoyoEase,
+      keyframes = vars.keyframes,
+      autoRevert = vars.autoRevert,
+      dur = tween._dur,
+      prevStartAt = tween._startAt,
+      targets = tween._targets,
+      parent = tween.parent,
+      fullTargets = parent && parent.data === "nested" ? parent.vars.targets : targets,
+      autoOverwrite = tween._overwrite === "auto" && !_suppressOverwrites,
+      tl = tween.timeline,
+      cleanVars,
+      i,
+      p,
+      pt,
+      target,
+      hasPriority,
+      gsData,
+      harness,
+      plugin,
+      ptLookup,
+      index,
+      harnessVars,
+      overwritten;
+  tl && (!keyframes || !ease) && (ease = "none");
+  tween._ease = _parseEase(ease, _defaults.ease);
+  tween._yEase = yoyoEase ? _invertEase(_parseEase(yoyoEase === true ? ease : yoyoEase, _defaults.ease)) : 0;
+
+  if (yoyoEase && tween._yoyo && !tween._repeat) {
+    //there must have been a parent timeline with yoyo:true that is currently in its yoyo phase, so flip the eases.
+    yoyoEase = tween._yEase;
+    tween._yEase = tween._ease;
+    tween._ease = yoyoEase;
+  }
+
+  tween._from = !tl && !!vars.runBackwards; //nested timelines should never run backwards - the backwards-ness is in the child tweens.
+
+  if (!tl || keyframes && !vars.stagger) {
+    //if there's an internal timeline, skip all the parsing because we passed that task down the chain.
+    harness = targets[0] ? _getCache(targets[0]).harness : 0;
+    harnessVars = harness && vars[harness.prop]; //someone may need to specify CSS-specific values AND non-CSS values, like if the element has an "x" property plus it's a standard DOM element. We allow people to distinguish by wrapping plugin-specific stuff in a css:{} object for example.
+
+    cleanVars = _copyExcluding(vars, _reservedProps);
+
+    if (prevStartAt) {
+      prevStartAt._zTime < 0 && prevStartAt.progress(1); // in case it's a lazy startAt that hasn't rendered yet.
+
+      time < 0 && runBackwards && immediateRender && !autoRevert ? prevStartAt.render(-1, true) : prevStartAt.revert(runBackwards && dur ? _revertConfigNoKill : _startAtRevertConfig); // if it's a "startAt" (not "from()" or runBackwards: true), we only need to do a shallow revert (keep transforms cached in CSSPlugin)
+      // don't just _removeFromParent(prevStartAt.render(-1, true)) because that'll leave inline styles. We're creating a new _startAt for "startAt" tweens that re-capture things to ensure that if the pre-tween values changed since the tween was created, they're recorded.
+
+      prevStartAt._lazy = 0;
+    }
+
+    if (startAt) {
+      _removeFromParent(tween._startAt = Tween.set(targets, _setDefaults({
+        data: "isStart",
+        overwrite: false,
+        parent: parent,
+        immediateRender: true,
+        lazy: !prevStartAt && _isNotFalse(lazy),
+        startAt: null,
+        delay: 0,
+        onUpdate: onUpdate && function () {
+          return _callback(tween, "onUpdate");
+        },
+        stagger: 0
+      }, startAt))); //copy the properties/values into a new object to avoid collisions, like var to = {x:0}, from = {x:500}; timeline.fromTo(e, from, to).fromTo(e, to, from);
+
+
+      tween._startAt._dp = 0; // don't allow it to get put back into root timeline! Like when revert() is called and totalTime() gets set.
+
+      tween._startAt._sat = tween; // used in globalTime(). _sat stands for _startAtTween
+
+      time < 0 && (_reverting || !immediateRender && !autoRevert) && tween._startAt.revert(_revertConfigNoKill); // rare edge case, like if a render is forced in the negative direction of a non-initted tween.
+
+      if (immediateRender) {
+        if (dur && time <= 0 && tTime <= 0) {
+          // check tTime here because in the case of a yoyo tween whose playhead gets pushed to the end like tween.progress(1), we should allow it through so that the onComplete gets fired properly.
+          time && (tween._zTime = time);
+          return; //we skip initialization here so that overwriting doesn't occur until the tween actually begins. Otherwise, if you create several immediateRender:true tweens of the same target/properties to drop into a Timeline, the last one created would overwrite the first ones because they didn't get placed into the timeline yet before the first render occurs and kicks in overwriting.
+        }
+      }
+    } else if (runBackwards && dur) {
+      //from() tweens must be handled uniquely: their beginning values must be rendered but we don't want overwriting to occur yet (when time is still 0). Wait until the tween actually begins before doing all the routines like overwriting. At that time, we should render at the END of the tween to ensure that things initialize correctly (remember, from() tweens go backwards)
+      if (!prevStartAt) {
+        time && (immediateRender = false); //in rare cases (like if a from() tween runs and then is invalidate()-ed), immediateRender could be true but the initial forced-render gets skipped, so there's no need to force the render in this context when the _time is greater than 0
+
+        p = _setDefaults({
+          overwrite: false,
+          data: "isFromStart",
+          //we tag the tween with as "isFromStart" so that if [inside a plugin] we need to only do something at the very END of a tween, we have a way of identifying this tween as merely the one that's setting the beginning values for a "from()" tween. For example, clearProps in CSSPlugin should only get applied at the very END of a tween and without this tag, from(...{height:100, clearProps:"height", delay:1}) would wipe the height at the beginning of the tween and after 1 second, it'd kick back in.
+          lazy: immediateRender && !prevStartAt && _isNotFalse(lazy),
+          immediateRender: immediateRender,
+          //zero-duration tweens render immediately by default, but if we're not specifically instructed to render this tween immediately, we should skip this and merely _init() to record the starting values (rendering them immediately would push them to completion which is wasteful in that case - we'd have to render(-1) immediately after)
+          stagger: 0,
+          parent: parent //ensures that nested tweens that had a stagger are handled properly, like gsap.from(".class", {y: gsap.utils.wrap([-100,100]), stagger: 0.5})
+
+        }, cleanVars);
+        harnessVars && (p[harness.prop] = harnessVars); // in case someone does something like .from(..., {css:{}})
+
+        _removeFromParent(tween._startAt = Tween.set(targets, p));
+
+        tween._startAt._dp = 0; // don't allow it to get put back into root timeline!
+
+        tween._startAt._sat = tween; // used in globalTime()
+
+        time < 0 && (_reverting ? tween._startAt.revert(_revertConfigNoKill) : tween._startAt.render(-1, true));
+        tween._zTime = time;
+
+        if (!immediateRender) {
+          _initTween(tween._startAt, _tinyNum, _tinyNum); //ensures that the initial values are recorded
+
+        } else if (!time) {
+          return;
+        }
+      }
+    }
+
+    tween._pt = tween._ptCache = 0;
+    lazy = dur && _isNotFalse(lazy) || lazy && !dur;
+
+    for (i = 0; i < targets.length; i++) {
+      target = targets[i];
+      gsData = target._gsap || _harness(targets)[i]._gsap;
+      tween._ptLookup[i] = ptLookup = {};
+      _lazyLookup[gsData.id] && _lazyTweens.length && _lazyRender(); //if other tweens of the same target have recently initted but haven't rendered yet, we've got to force the render so that the starting values are correct (imagine populating a timeline with a bunch of sequential tweens and then jumping to the end)
+
+      index = fullTargets === targets ? i : fullTargets.indexOf(target);
+
+      if (harness && (plugin = new harness()).init(target, harnessVars || cleanVars, tween, index, fullTargets) !== false) {
+        tween._pt = pt = new PropTween(tween._pt, target, plugin.name, 0, 1, plugin.render, plugin, 0, plugin.priority);
+
+        plugin._props.forEach(function (name) {
+          ptLookup[name] = pt;
+        });
+
+        plugin.priority && (hasPriority = 1);
+      }
+
+      if (!harness || harnessVars) {
+        for (p in cleanVars) {
+          if (_plugins[p] && (plugin = _checkPlugin(p, cleanVars, tween, index, target, fullTargets))) {
+            plugin.priority && (hasPriority = 1);
+          } else {
+            ptLookup[p] = pt = _addPropTween.call(tween, target, p, "get", cleanVars[p], index, fullTargets, 0, vars.stringFilter);
+          }
+        }
+      }
+
+      tween._op && tween._op[i] && tween.kill(target, tween._op[i]);
+
+      if (autoOverwrite && tween._pt) {
+        _overwritingTween = tween;
+
+        _globalTimeline.killTweensOf(target, ptLookup, tween.globalTime(time)); // make sure the overwriting doesn't overwrite THIS tween!!!
+
+
+        overwritten = !tween.parent;
+        _overwritingTween = 0;
+      }
+
+      tween._pt && lazy && (_lazyLookup[gsData.id] = 1);
+    }
+
+    hasPriority && _sortPropTweensByPriority(tween);
+    tween._onInit && tween._onInit(tween); //plugins like RoundProps must wait until ALL of the PropTweens are instantiated. In the plugin's init() function, it sets the _onInit on the tween instance. May not be pretty/intuitive, but it's fast and keeps file size down.
+  }
+
+  tween._onUpdate = onUpdate;
+  tween._initted = (!tween._op || tween._pt) && !overwritten; // if overwrittenProps resulted in the entire tween being killed, do NOT flag it as initted or else it may render for one tick.
+
+  keyframes && time <= 0 && tl.render(_bigNum, true, true); // if there's a 0% keyframe, it'll render in the "before" state for any staggered/delayed animations thus when the following tween initializes, it'll use the "before" state instead of the "after" state as the initial values.
+},
+    _updatePropTweens = function _updatePropTweens(tween, property, value, start, startIsRelative, ratio, time, skipRecursion) {
+  var ptCache = (tween._pt && tween._ptCache || (tween._ptCache = {}))[property],
+      pt,
+      rootPT,
+      lookup,
+      i;
+
+  if (!ptCache) {
+    ptCache = tween._ptCache[property] = [];
+    lookup = tween._ptLookup;
+    i = tween._targets.length;
+
+    while (i--) {
+      pt = lookup[i][property];
+
+      if (pt && pt.d && pt.d._pt) {
+        // it's a plugin, so find the nested PropTween
+        pt = pt.d._pt;
+
+        while (pt && pt.p !== property && pt.fp !== property) {
+          // "fp" is functionParam for things like setting CSS variables which require .setProperty("--var-name", value)
+          pt = pt._next;
+        }
+      }
+
+      if (!pt) {
+        // there is no PropTween associated with that property, so we must FORCE one to be created and ditch out of this
+        // if the tween has other properties that already rendered at new positions, we'd normally have to rewind to put them back like tween.render(0, true) before forcing an _initTween(), but that can create another edge case like tweening a timeline's progress would trigger onUpdates to fire which could move other things around. It's better to just inform users that .resetTo() should ONLY be used for tweens that already have that property. For example, you can't gsap.to(...{ y: 0 }) and then tween.restTo("x", 200) for example.
+        _forceAllPropTweens = 1; // otherwise, when we _addPropTween() and it finds no change between the start and end values, it skips creating a PropTween (for efficiency...why tween when there's no difference?) but in this case we NEED that PropTween created so we can edit it.
+
+        tween.vars[property] = "+=0";
+
+        _initTween(tween, time);
+
+        _forceAllPropTweens = 0;
+        return skipRecursion ? _warn(property + " not eligible for reset") : 1; // if someone tries to do a quickTo() on a special property like borderRadius which must get split into 4 different properties, that's not eligible for .resetTo().
+      }
+
+      ptCache.push(pt);
+    }
+  }
+
+  i = ptCache.length;
+
+  while (i--) {
+    rootPT = ptCache[i];
+    pt = rootPT._pt || rootPT; // complex values may have nested PropTweens. We only accommodate the FIRST value.
+
+    pt.s = (start || start === 0) && !startIsRelative ? start : pt.s + (start || 0) + ratio * pt.c;
+    pt.c = value - pt.s;
+    rootPT.e && (rootPT.e = _round(value) + getUnit(rootPT.e)); // mainly for CSSPlugin (end value)
+
+    rootPT.b && (rootPT.b = pt.s + getUnit(rootPT.b)); // (beginning value)
+  }
+},
+    _addAliasesToVars = function _addAliasesToVars(targets, vars) {
+  var harness = targets[0] ? _getCache(targets[0]).harness : 0,
+      propertyAliases = harness && harness.aliases,
+      copy,
+      p,
+      i,
+      aliases;
+
+  if (!propertyAliases) {
+    return vars;
+  }
+
+  copy = _merge({}, vars);
+
+  for (p in propertyAliases) {
+    if (p in copy) {
+      aliases = propertyAliases[p].split(",");
+      i = aliases.length;
+
+      while (i--) {
+        copy[aliases[i]] = copy[p];
+      }
+    }
+  }
+
+  return copy;
+},
+    // parses multiple formats, like {"0%": {x: 100}, {"50%": {x: -20}} and { x: {"0%": 100, "50%": -20} }, and an "ease" can be set on any object. We populate an "allProps" object with an Array for each property, like {x: [{}, {}], y:[{}, {}]} with data for each property tween. The objects have a "t" (time), "v", (value), and "e" (ease) property. This allows us to piece together a timeline later.
+_parseKeyframe = function _parseKeyframe(prop, obj, allProps, easeEach) {
+  var ease = obj.ease || easeEach || "power1.inOut",
+      p,
+      a;
+
+  if (_isArray(obj)) {
+    a = allProps[prop] || (allProps[prop] = []); // t = time (out of 100), v = value, e = ease
+
+    obj.forEach(function (value, i) {
+      return a.push({
+        t: i / (obj.length - 1) * 100,
+        v: value,
+        e: ease
+      });
+    });
+  } else {
+    for (p in obj) {
+      a = allProps[p] || (allProps[p] = []);
+      p === "ease" || a.push({
+        t: parseFloat(prop),
+        v: obj[p],
+        e: ease
+      });
+    }
+  }
+},
+    _parseFuncOrString = function _parseFuncOrString(value, tween, i, target, targets) {
+  return _isFunction(value) ? value.call(tween, i, target, targets) : _isString(value) && ~value.indexOf("random(") ? _replaceRandom(value) : value;
+},
+    _staggerTweenProps = _callbackNames + "repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase,autoRevert",
+    _staggerPropsToSkip = {};
+
+_forEachName(_staggerTweenProps + ",id,stagger,delay,duration,paused,scrollTrigger", function (name) {
+  return _staggerPropsToSkip[name] = 1;
+});
+/*
+ * --------------------------------------------------------------------------------------
+ * TWEEN
+ * --------------------------------------------------------------------------------------
+ */
+
+
+var Tween = /*#__PURE__*/function (_Animation2) {
+  _inheritsLoose(Tween, _Animation2);
+
+  function Tween(targets, vars, position, skipInherit) {
+    var _this3;
+
+    if (typeof vars === "number") {
+      position.duration = vars;
+      vars = position;
+      position = null;
+    }
+
+    _this3 = _Animation2.call(this, skipInherit ? vars : _inheritDefaults(vars)) || this;
+    var _this3$vars = _this3.vars,
+        duration = _this3$vars.duration,
+        delay = _this3$vars.delay,
+        immediateRender = _this3$vars.immediateRender,
+        stagger = _this3$vars.stagger,
+        overwrite = _this3$vars.overwrite,
+        keyframes = _this3$vars.keyframes,
+        defaults = _this3$vars.defaults,
+        scrollTrigger = _this3$vars.scrollTrigger,
+        yoyoEase = _this3$vars.yoyoEase,
+        parent = vars.parent || _globalTimeline,
+        parsedTargets = (_isArray(targets) || _isTypedArray(targets) ? _isNumber(targets[0]) : "length" in vars) ? [targets] : toArray(targets),
+        tl,
+        i,
+        copy,
+        l,
+        p,
+        curTarget,
+        staggerFunc,
+        staggerVarsToMerge;
+    _this3._targets = parsedTargets.length ? _harness(parsedTargets) : _warn("GSAP target " + targets + " not found. https://gsap.com", !_config.nullTargetWarn) || [];
+    _this3._ptLookup = []; //PropTween lookup. An array containing an object for each target, having keys for each tweening property
+
+    _this3._overwrite = overwrite;
+
+    if (keyframes || stagger || _isFuncOrString(duration) || _isFuncOrString(delay)) {
+      vars = _this3.vars;
+      tl = _this3.timeline = new Timeline({
+        data: "nested",
+        defaults: defaults || {},
+        targets: parent && parent.data === "nested" ? parent.vars.targets : parsedTargets
+      }); // we need to store the targets because for staggers and keyframes, we end up creating an individual tween for each but function-based values need to know the index and the whole Array of targets.
+
+      tl.kill();
+      tl.parent = tl._dp = _assertThisInitialized(_this3);
+      tl._start = 0;
+
+      if (stagger || _isFuncOrString(duration) || _isFuncOrString(delay)) {
+        l = parsedTargets.length;
+        staggerFunc = stagger && distribute(stagger);
+
+        if (_isObject(stagger)) {
+          //users can pass in callbacks like onStart/onComplete in the stagger object. These should fire with each individual tween.
+          for (p in stagger) {
+            if (~_staggerTweenProps.indexOf(p)) {
+              staggerVarsToMerge || (staggerVarsToMerge = {});
+              staggerVarsToMerge[p] = stagger[p];
+            }
+          }
+        }
+
+        for (i = 0; i < l; i++) {
+          copy = _copyExcluding(vars, _staggerPropsToSkip);
+          copy.stagger = 0;
+          yoyoEase && (copy.yoyoEase = yoyoEase);
+          staggerVarsToMerge && _merge(copy, staggerVarsToMerge);
+          curTarget = parsedTargets[i]; //don't just copy duration or delay because if they're a string or function, we'd end up in an infinite loop because _isFuncOrString() would evaluate as true in the child tweens, entering this loop, etc. So we parse the value straight from vars and default to 0.
+
+          copy.duration = +_parseFuncOrString(duration, _assertThisInitialized(_this3), i, curTarget, parsedTargets);
+          copy.delay = (+_parseFuncOrString(delay, _assertThisInitialized(_this3), i, curTarget, parsedTargets) || 0) - _this3._delay;
+
+          if (!stagger && l === 1 && copy.delay) {
+            // if someone does delay:"random(1, 5)", repeat:-1, for example, the delay shouldn't be inside the repeat.
+            _this3._delay = delay = copy.delay;
+            _this3._start += delay;
+            copy.delay = 0;
+          }
+
+          tl.to(curTarget, copy, staggerFunc ? staggerFunc(i, curTarget, parsedTargets) : 0);
+          tl._ease = _easeMap.none;
+        }
+
+        tl.duration() ? duration = delay = 0 : _this3.timeline = 0; // if the timeline's duration is 0, we don't need a timeline internally!
+      } else if (keyframes) {
+        _inheritDefaults(_setDefaults(tl.vars.defaults, {
+          ease: "none"
+        }));
+
+        tl._ease = _parseEase(keyframes.ease || vars.ease || "none");
+        var time = 0,
+            a,
+            kf,
+            v;
+
+        if (_isArray(keyframes)) {
+          keyframes.forEach(function (frame) {
+            return tl.to(parsedTargets, frame, ">");
+          });
+          tl.duration(); // to ensure tl._dur is cached because we tap into it for performance purposes in the render() method.
+        } else {
+          copy = {};
+
+          for (p in keyframes) {
+            p === "ease" || p === "easeEach" || _parseKeyframe(p, keyframes[p], copy, keyframes.easeEach);
+          }
+
+          for (p in copy) {
+            a = copy[p].sort(function (a, b) {
+              return a.t - b.t;
+            });
+            time = 0;
+
+            for (i = 0; i < a.length; i++) {
+              kf = a[i];
+              v = {
+                ease: kf.e,
+                duration: (kf.t - (i ? a[i - 1].t : 0)) / 100 * duration
+              };
+              v[p] = kf.v;
+              tl.to(parsedTargets, v, time);
+              time += v.duration;
+            }
+          }
+
+          tl.duration() < duration && tl.to({}, {
+            duration: duration - tl.duration()
+          }); // in case keyframes didn't go to 100%
+        }
+      }
+
+      duration || _this3.duration(duration = tl.duration());
+    } else {
+      _this3.timeline = 0; //speed optimization, faster lookups (no going up the prototype chain)
+    }
+
+    if (overwrite === true && !_suppressOverwrites) {
+      _overwritingTween = _assertThisInitialized(_this3);
+
+      _globalTimeline.killTweensOf(parsedTargets);
+
+      _overwritingTween = 0;
+    }
+
+    _addToTimeline(parent, _assertThisInitialized(_this3), position);
+
+    vars.reversed && _this3.reverse();
+    vars.paused && _this3.paused(true);
+
+    if (immediateRender || !duration && !keyframes && _this3._start === _roundPrecise(parent._time) && _isNotFalse(immediateRender) && _hasNoPausedAncestors(_assertThisInitialized(_this3)) && parent.data !== "nested") {
+      _this3._tTime = -_tinyNum; //forces a render without having to set the render() "force" parameter to true because we want to allow lazying by default (using the "force" parameter always forces an immediate full render)
+
+      _this3.render(Math.max(0, -delay) || 0); //in case delay is negative
+
+    }
+
+    scrollTrigger && _scrollTrigger(_assertThisInitialized(_this3), scrollTrigger);
+    return _this3;
+  }
+
+  var _proto3 = Tween.prototype;
+
+  _proto3.render = function render(totalTime, suppressEvents, force) {
+    var prevTime = this._time,
+        tDur = this._tDur,
+        dur = this._dur,
+        isNegative = totalTime < 0,
+        tTime = totalTime > tDur - _tinyNum && !isNegative ? tDur : totalTime < _tinyNum ? 0 : totalTime,
+        time,
+        pt,
+        iteration,
+        cycleDuration,
+        prevIteration,
+        isYoyo,
+        ratio,
+        timeline,
+        yoyoEase;
+
+    if (!dur) {
+      _renderZeroDurationTween(this, totalTime, suppressEvents, force);
+    } else if (tTime !== this._tTime || !totalTime || force || !this._initted && this._tTime || this._startAt && this._zTime < 0 !== isNegative) {
+      //this senses if we're crossing over the start time, in which case we must record _zTime and force the render, but we do it in this lengthy conditional way for performance reasons (usually we can skip the calculations): this._initted && (this._zTime < 0) !== (totalTime < 0)
+      time = tTime;
+      timeline = this.timeline;
+
+      if (this._repeat) {
+        //adjust the time for repeats and yoyos
+        cycleDuration = dur + this._rDelay;
+
+        if (this._repeat < -1 && isNegative) {
+          return this.totalTime(cycleDuration * 100 + totalTime, suppressEvents, force);
+        }
+
+        time = _roundPrecise(tTime % cycleDuration); //round to avoid floating point errors. (4 % 0.8 should be 0 but some browsers report it as 0.79999999!)
+
+        if (tTime === tDur) {
+          // the tDur === tTime is for edge cases where there's a lengthy decimal on the duration and it may reach the very end but the time is rendered as not-quite-there (remember, tDur is rounded to 4 decimals whereas dur isn't)
+          iteration = this._repeat;
+          time = dur;
+        } else {
+          iteration = ~~(tTime / cycleDuration);
+
+          if (iteration && iteration === _roundPrecise(tTime / cycleDuration)) {
+            time = dur;
+            iteration--;
+          }
+
+          time > dur && (time = dur);
+        }
+
+        isYoyo = this._yoyo && iteration & 1;
+
+        if (isYoyo) {
+          yoyoEase = this._yEase;
+          time = dur - time;
+        }
+
+        prevIteration = _animationCycle(this._tTime, cycleDuration);
+
+        if (time === prevTime && !force && this._initted && iteration === prevIteration) {
+          //could be during the repeatDelay part. No need to render and fire callbacks.
+          this._tTime = tTime;
+          return this;
+        }
+
+        if (iteration !== prevIteration) {
+          timeline && this._yEase && _propagateYoyoEase(timeline, isYoyo); //repeatRefresh functionality
+
+          if (this.vars.repeatRefresh && !isYoyo && !this._lock && this._time !== cycleDuration && this._initted) {
+            // this._time will === cycleDuration when we render at EXACTLY the end of an iteration. Without this condition, it'd often do the repeatRefresh render TWICE (again on the very next tick).
+            this._lock = force = 1; //force, otherwise if lazy is true, the _attemptInitTween() will return and we'll jump out and get caught bouncing on each tick.
+
+            this.render(_roundPrecise(cycleDuration * iteration), true).invalidate()._lock = 0;
+          }
+        }
+      }
+
+      if (!this._initted) {
+        if (_attemptInitTween(this, isNegative ? totalTime : time, force, suppressEvents, tTime)) {
+          this._tTime = 0; // in constructor if immediateRender is true, we set _tTime to -_tinyNum to have the playhead cross the starting point but we can't leave _tTime as a negative number.
+
+          return this;
+        }
+
+        if (prevTime !== this._time && !(force && this.vars.repeatRefresh && iteration !== prevIteration)) {
+          // rare edge case - during initialization, an onUpdate in the _startAt (.fromTo()) might force this tween to render at a different spot in which case we should ditch this render() call so that it doesn't revert the values. But we also don't want to dump if we're doing a repeatRefresh render!
+          return this;
+        }
+
+        if (dur !== this._dur) {
+          // while initting, a plugin like InertiaPlugin might alter the duration, so rerun from the start to ensure everything renders as it should.
+          return this.render(totalTime, suppressEvents, force);
+        }
+      }
+
+      this._tTime = tTime;
+      this._time = time;
+
+      if (!this._act && this._ts) {
+        this._act = 1; //as long as it's not paused, force it to be active so that if the user renders independent of the parent timeline, it'll be forced to re-render on the next tick.
+
+        this._lazy = 0;
+      }
+
+      this.ratio = ratio = (yoyoEase || this._ease)(time / dur);
+
+      if (this._from) {
+        this.ratio = ratio = 1 - ratio;
+      }
+
+      if (time && !prevTime && !suppressEvents && !iteration) {
+        _callback(this, "onStart");
+
+        if (this._tTime !== tTime) {
+          // in case the onStart triggered a render at a different spot, eject. Like if someone did animation.pause(0.5) or something inside the onStart.
+          return this;
+        }
+      }
+
+      pt = this._pt;
+
+      while (pt) {
+        pt.r(ratio, pt.d);
+        pt = pt._next;
+      }
+
+      timeline && timeline.render(totalTime < 0 ? totalTime : timeline._dur * timeline._ease(time / this._dur), suppressEvents, force) || this._startAt && (this._zTime = totalTime);
+
+      if (this._onUpdate && !suppressEvents) {
+        isNegative && _rewindStartAt(this, totalTime, suppressEvents, force); //note: for performance reasons, we tuck this conditional logic inside less traveled areas (most tweens don't have an onUpdate). We'd just have it at the end before the onComplete, but the values should be updated before any onUpdate is called, so we ALSO put it here and then if it's not called, we do so later near the onComplete.
+
+        _callback(this, "onUpdate");
+      }
+
+      this._repeat && iteration !== prevIteration && this.vars.onRepeat && !suppressEvents && this.parent && _callback(this, "onRepeat");
+
+      if ((tTime === this._tDur || !tTime) && this._tTime === tTime) {
+        isNegative && !this._onUpdate && _rewindStartAt(this, totalTime, true, true);
+        (totalTime || !dur) && (tTime === this._tDur && this._ts > 0 || !tTime && this._ts < 0) && _removeFromParent(this, 1); // don't remove if we're rendering at exactly a time of 0, as there could be autoRevert values that should get set on the next tick (if the playhead goes backward beyond the startTime, negative totalTime). Don't remove if the timeline is reversed and the playhead isn't at 0, otherwise tl.progress(1).reverse() won't work. Only remove if the playhead is at the end and timeScale is positive, or if the playhead is at 0 and the timeScale is negative.
+
+        if (!suppressEvents && !(isNegative && !prevTime) && (tTime || prevTime || isYoyo)) {
+          // if prevTime and tTime are zero, we shouldn't fire the onReverseComplete. This could happen if you gsap.to(... {paused:true}).play();
+          _callback(this, tTime === tDur ? "onComplete" : "onReverseComplete", true);
+
+          this._prom && !(tTime < tDur && this.timeScale() > 0) && this._prom();
+        }
+      }
+    }
+
+    return this;
+  };
+
+  _proto3.targets = function targets() {
+    return this._targets;
+  };
+
+  _proto3.invalidate = function invalidate(soft) {
+    // "soft" gives us a way to clear out everything EXCEPT the recorded pre-"from" portion of from() tweens. Otherwise, for example, if you tween.progress(1).render(0, true true).invalidate(), the "from" values would persist and then on the next render, the from() tweens would initialize and the current value would match the "from" values, thus animate from the same value to the same value (no animation). We tap into this in ScrollTrigger's refresh() where we must push a tween to completion and then back again but honor its init state in case the tween is dependent on another tween further up on the page.
+    (!soft || !this.vars.runBackwards) && (this._startAt = 0);
+    this._pt = this._op = this._onUpdate = this._lazy = this.ratio = 0;
+    this._ptLookup = [];
+    this.timeline && this.timeline.invalidate(soft);
+    return _Animation2.prototype.invalidate.call(this, soft);
+  };
+
+  _proto3.resetTo = function resetTo(property, value, start, startIsRelative, skipRecursion) {
+    _tickerActive || _ticker.wake();
+    this._ts || this.play();
+    var time = Math.min(this._dur, (this._dp._time - this._start) * this._ts),
+        ratio;
+    this._initted || _initTween(this, time);
+    ratio = this._ease(time / this._dur); // don't just get tween.ratio because it may not have rendered yet.
+    // possible future addition to allow an object with multiple values to update, like tween.resetTo({x: 100, y: 200}); At this point, it doesn't seem worth the added kb given the fact that most users will likely opt for the convenient gsap.quickTo() way of interacting with this method.
+    // if (_isObject(property)) { // performance optimization
+    // 	for (p in property) {
+    // 		if (_updatePropTweens(this, p, property[p], value ? value[p] : null, start, ratio, time)) {
+    // 			return this.resetTo(property, value, start, startIsRelative); // if a PropTween wasn't found for the property, it'll get forced with a re-initialization so we need to jump out and start over again.
+    // 		}
+    // 	}
+    // } else {
+
+    if (_updatePropTweens(this, property, value, start, startIsRelative, ratio, time, skipRecursion)) {
+      return this.resetTo(property, value, start, startIsRelative, 1); // if a PropTween wasn't found for the property, it'll get forced with a re-initialization so we need to jump out and start over again.
+    } //}
+
+
+    _alignPlayhead(this, 0);
+
+    this.parent || _addLinkedListItem(this._dp, this, "_first", "_last", this._dp._sort ? "_start" : 0);
+    return this.render(0);
+  };
+
+  _proto3.kill = function kill(targets, vars) {
+    if (vars === void 0) {
+      vars = "all";
+    }
+
+    if (!targets && (!vars || vars === "all")) {
+      this._lazy = this._pt = 0;
+      return this.parent ? _interrupt(this) : this;
+    }
+
+    if (this.timeline) {
+      var tDur = this.timeline.totalDuration();
+      this.timeline.killTweensOf(targets, vars, _overwritingTween && _overwritingTween.vars.overwrite !== true)._first || _interrupt(this); // if nothing is left tweening, interrupt.
+
+      this.parent && tDur !== this.timeline.totalDuration() && _setDuration(this, this._dur * this.timeline._tDur / tDur, 0, 1); // if a nested tween is killed that changes the duration, it should affect this tween's duration. We must use the ratio, though, because sometimes the internal timeline is stretched like for keyframes where they don't all add up to whatever the parent tween's duration was set to.
+
+      return this;
+    }
+
+    var parsedTargets = this._targets,
+        killingTargets = targets ? toArray(targets) : parsedTargets,
+        propTweenLookup = this._ptLookup,
+        firstPT = this._pt,
+        overwrittenProps,
+        curLookup,
+        curOverwriteProps,
+        props,
+        p,
+        pt,
+        i;
+
+    if ((!vars || vars === "all") && _arraysMatch(parsedTargets, killingTargets)) {
+      vars === "all" && (this._pt = 0);
+      return _interrupt(this);
+    }
+
+    overwrittenProps = this._op = this._op || [];
+
+    if (vars !== "all") {
+      //so people can pass in a comma-delimited list of property names
+      if (_isString(vars)) {
+        p = {};
+
+        _forEachName(vars, function (name) {
+          return p[name] = 1;
+        });
+
+        vars = p;
+      }
+
+      vars = _addAliasesToVars(parsedTargets, vars);
+    }
+
+    i = parsedTargets.length;
+
+    while (i--) {
+      if (~killingTargets.indexOf(parsedTargets[i])) {
+        curLookup = propTweenLookup[i];
+
+        if (vars === "all") {
+          overwrittenProps[i] = vars;
+          props = curLookup;
+          curOverwriteProps = {};
+        } else {
+          curOverwriteProps = overwrittenProps[i] = overwrittenProps[i] || {};
+          props = vars;
+        }
+
+        for (p in props) {
+          pt = curLookup && curLookup[p];
+
+          if (pt) {
+            if (!("kill" in pt.d) || pt.d.kill(p) === true) {
+              _removeLinkedListItem(this, pt, "_pt");
+            }
+
+            delete curLookup[p];
+          }
+
+          if (curOverwriteProps !== "all") {
+            curOverwriteProps[p] = 1;
+          }
+        }
+      }
+    }
+
+    this._initted && !this._pt && firstPT && _interrupt(this); //if all tweening properties are killed, kill the tween. Without this line, if there's a tween with multiple targets and then you killTweensOf() each target individually, the tween would technically still remain active and fire its onComplete even though there aren't any more properties tweening.
+
+    return this;
+  };
+
+  Tween.to = function to(targets, vars) {
+    return new Tween(targets, vars, arguments[2]);
+  };
+
+  Tween.from = function from(targets, vars) {
+    return _createTweenType(1, arguments);
+  };
+
+  Tween.delayedCall = function delayedCall(delay, callback, params, scope) {
+    return new Tween(callback, 0, {
+      immediateRender: false,
+      lazy: false,
+      overwrite: false,
+      delay: delay,
+      onComplete: callback,
+      onReverseComplete: callback,
+      onCompleteParams: params,
+      onReverseCompleteParams: params,
+      callbackScope: scope
+    }); // we must use onReverseComplete too for things like timeline.add(() => {...}) which should be triggered in BOTH directions (forward and reverse)
+  };
+
+  Tween.fromTo = function fromTo(targets, fromVars, toVars) {
+    return _createTweenType(2, arguments);
+  };
+
+  Tween.set = function set(targets, vars) {
+    vars.duration = 0;
+    vars.repeatDelay || (vars.repeat = 0);
+    return new Tween(targets, vars);
+  };
+
+  Tween.killTweensOf = function killTweensOf(targets, props, onlyActive) {
+    return _globalTimeline.killTweensOf(targets, props, onlyActive);
+  };
+
+  return Tween;
+}(Animation);
+
+_setDefaults(Tween.prototype, {
+  _targets: [],
+  _lazy: 0,
+  _startAt: 0,
+  _op: 0,
+  _onInit: 0
+}); //add the pertinent timeline methods to Tween instances so that users can chain conveniently and create a timeline automatically. (removed due to concerns that it'd ultimately add to more confusion especially for beginners)
+// _forEachName("to,from,fromTo,set,call,add,addLabel,addPause", name => {
+// 	Tween.prototype[name] = function() {
+// 		let tl = new Timeline();
+// 		return _addToTimeline(tl, this)[name].apply(tl, toArray(arguments));
+// 	}
+// });
+//for backward compatibility. Leverage the timeline calls.
+
+
+_forEachName("staggerTo,staggerFrom,staggerFromTo", function (name) {
+  Tween[name] = function () {
+    var tl = new Timeline(),
+        params = _slice.call(arguments, 0);
+
+    params.splice(name === "staggerFromTo" ? 5 : 4, 0, 0);
+    return tl[name].apply(tl, params);
+  };
+});
+/*
+ * --------------------------------------------------------------------------------------
+ * PROPTWEEN
+ * --------------------------------------------------------------------------------------
+ */
+
+
+var _setterPlain = function _setterPlain(target, property, value) {
+  return target[property] = value;
+},
+    _setterFunc = function _setterFunc(target, property, value) {
+  return target[property](value);
+},
+    _setterFuncWithParam = function _setterFuncWithParam(target, property, value, data) {
+  return target[property](data.fp, value);
+},
+    _setterAttribute = function _setterAttribute(target, property, value) {
+  return target.setAttribute(property, value);
+},
+    _getSetter = function _getSetter(target, property) {
+  return _isFunction(target[property]) ? _setterFunc : _isUndefined(target[property]) && target.setAttribute ? _setterAttribute : _setterPlain;
+},
+    _renderPlain = function _renderPlain(ratio, data) {
+  return data.set(data.t, data.p, Math.round((data.s + data.c * ratio) * 1000000) / 1000000, data);
+},
+    _renderBoolean = function _renderBoolean(ratio, data) {
+  return data.set(data.t, data.p, !!(data.s + data.c * ratio), data);
+},
+    _renderComplexString = function _renderComplexString(ratio, data) {
+  var pt = data._pt,
+      s = "";
+
+  if (!ratio && data.b) {
+    //b = beginning string
+    s = data.b;
+  } else if (ratio === 1 && data.e) {
+    //e = ending string
+    s = data.e;
+  } else {
+    while (pt) {
+      s = pt.p + (pt.m ? pt.m(pt.s + pt.c * ratio) : Math.round((pt.s + pt.c * ratio) * 10000) / 10000) + s; //we use the "p" property for the text inbetween (like a suffix). And in the context of a complex string, the modifier (m) is typically just Math.round(), like for RGB colors.
+
+      pt = pt._next;
+    }
+
+    s += data.c; //we use the "c" of the PropTween to store the final chunk of non-numeric text.
+  }
+
+  data.set(data.t, data.p, s, data);
+},
+    _renderPropTweens = function _renderPropTweens(ratio, data) {
+  var pt = data._pt;
+
+  while (pt) {
+    pt.r(ratio, pt.d);
+    pt = pt._next;
+  }
+},
+    _addPluginModifier = function _addPluginModifier(modifier, tween, target, property) {
+  var pt = this._pt,
+      next;
+
+  while (pt) {
+    next = pt._next;
+    pt.p === property && pt.modifier(modifier, tween, target);
+    pt = next;
+  }
+},
+    _killPropTweensOf = function _killPropTweensOf(property) {
+  var pt = this._pt,
+      hasNonDependentRemaining,
+      next;
+
+  while (pt) {
+    next = pt._next;
+
+    if (pt.p === property && !pt.op || pt.op === property) {
+      _removeLinkedListItem(this, pt, "_pt");
+    } else if (!pt.dep) {
+      hasNonDependentRemaining = 1;
+    }
+
+    pt = next;
+  }
+
+  return !hasNonDependentRemaining;
+},
+    _setterWithModifier = function _setterWithModifier(target, property, value, data) {
+  data.mSet(target, property, data.m.call(data.tween, value, data.mt), data);
+},
+    _sortPropTweensByPriority = function _sortPropTweensByPriority(parent) {
+  var pt = parent._pt,
+      next,
+      pt2,
+      first,
+      last; //sorts the PropTween linked list in order of priority because some plugins need to do their work after ALL of the PropTweens were created (like RoundPropsPlugin and ModifiersPlugin)
+
+  while (pt) {
+    next = pt._next;
+    pt2 = first;
+
+    while (pt2 && pt2.pr > pt.pr) {
+      pt2 = pt2._next;
+    }
+
+    if (pt._prev = pt2 ? pt2._prev : last) {
+      pt._prev._next = pt;
+    } else {
+      first = pt;
+    }
+
+    if (pt._next = pt2) {
+      pt2._prev = pt;
+    } else {
+      last = pt;
+    }
+
+    pt = next;
+  }
+
+  parent._pt = first;
+}; //PropTween key: t = target, p = prop, r = renderer, d = data, s = start, c = change, op = overwriteProperty (ONLY populated when it's different than p), pr = priority, _next/_prev for the linked list siblings, set = setter, m = modifier, mSet = modifierSetter (the original setter, before a modifier was added)
+
+
+var PropTween = /*#__PURE__*/function () {
+  function PropTween(next, target, prop, start, change, renderer, data, setter, priority) {
+    this.t = target;
+    this.s = start;
+    this.c = change;
+    this.p = prop;
+    this.r = renderer || _renderPlain;
+    this.d = data || this;
+    this.set = setter || _setterPlain;
+    this.pr = priority || 0;
+    this._next = next;
+
+    if (next) {
+      next._prev = this;
+    }
+  }
+
+  var _proto4 = PropTween.prototype;
+
+  _proto4.modifier = function modifier(func, tween, target) {
+    this.mSet = this.mSet || this.set; //in case it was already set (a PropTween can only have one modifier)
+
+    this.set = _setterWithModifier;
+    this.m = func;
+    this.mt = target; //modifier target
+
+    this.tween = tween;
+  };
+
+  return PropTween;
+}(); //Initialization tasks
+
+_forEachName(_callbackNames + "parent,duration,ease,delay,overwrite,runBackwards,startAt,yoyo,immediateRender,repeat,repeatDelay,data,paused,reversed,lazy,callbackScope,stringFilter,id,yoyoEase,stagger,inherit,repeatRefresh,keyframes,autoRevert,scrollTrigger", function (name) {
+  return _reservedProps[name] = 1;
+});
+
+_globals.TweenMax = _globals.TweenLite = Tween;
+_globals.TimelineLite = _globals.TimelineMax = Timeline;
+_globalTimeline = new Timeline({
+  sortChildren: false,
+  defaults: _defaults,
+  autoRemoveChildren: true,
+  id: "root",
+  smoothChildTiming: true
+});
+_config.stringFilter = _colorStringFilter;
+
+var _media = [],
+    _listeners = {},
+    _emptyArray = [],
+    _lastMediaTime = 0,
+    _contextID = 0,
+    _dispatch = function _dispatch(type) {
+  return (_listeners[type] || _emptyArray).map(function (f) {
+    return f();
+  });
+},
+    _onMediaChange = function _onMediaChange() {
+  var time = Date.now(),
+      matches = [];
+
+  if (time - _lastMediaTime > 2) {
+    _dispatch("matchMediaInit");
+
+    _media.forEach(function (c) {
+      var queries = c.queries,
+          conditions = c.conditions,
+          match,
+          p,
+          anyMatch,
+          toggled;
+
+      for (p in queries) {
+        match = _win.matchMedia(queries[p]).matches; // Firefox doesn't update the "matches" property of the MediaQueryList object correctly - it only does so as it calls its change handler - so we must re-create a media query here to ensure it's accurate.
+
+        match && (anyMatch = 1);
+
+        if (match !== conditions[p]) {
+          conditions[p] = match;
+          toggled = 1;
+        }
+      }
+
+      if (toggled) {
+        c.revert();
+        anyMatch && matches.push(c);
+      }
+    });
+
+    _dispatch("matchMediaRevert");
+
+    matches.forEach(function (c) {
+      return c.onMatch(c, function (func) {
+        return c.add(null, func);
+      });
+    });
+    _lastMediaTime = time;
+
+    _dispatch("matchMedia");
+  }
+};
+
+var Context = /*#__PURE__*/function () {
+  function Context(func, scope) {
+    this.selector = scope && selector(scope);
+    this.data = [];
+    this._r = []; // returned/cleanup functions
+
+    this.isReverted = false;
+    this.id = _contextID++; // to work around issues that frameworks like Vue cause by making things into Proxies which make it impossible to do something like _media.indexOf(this) because "this" would no longer refer to the Context instance itself - it'd refer to a Proxy! We needed a way to identify the context uniquely
+
+    func && this.add(func);
+  }
+
+  var _proto5 = Context.prototype;
+
+  _proto5.add = function add(name, func, scope) {
+    // possible future addition if we need the ability to add() an animation to a context and for whatever reason cannot create that animation inside of a context.add(() => {...}) function.
+    // if (name && _isFunction(name.revert)) {
+    // 	this.data.push(name);
+    // 	return (name._ctx = this);
+    // }
+    if (_isFunction(name)) {
+      scope = func;
+      func = name;
+      name = _isFunction;
+    }
+
+    var self = this,
+        f = function f() {
+      var prev = _context,
+          prevSelector = self.selector,
+          result;
+      prev && prev !== self && prev.data.push(self);
+      scope && (self.selector = selector(scope));
+      _context = self;
+      result = func.apply(self, arguments);
+      _isFunction(result) && self._r.push(result);
+      _context = prev;
+      self.selector = prevSelector;
+      self.isReverted = false;
+      return result;
+    };
+
+    self.last = f;
+    return name === _isFunction ? f(self, function (func) {
+      return self.add(null, func);
+    }) : name ? self[name] = f : f;
+  };
+
+  _proto5.ignore = function ignore(func) {
+    var prev = _context;
+    _context = null;
+    func(this);
+    _context = prev;
+  };
+
+  _proto5.getTweens = function getTweens() {
+    var a = [];
+    this.data.forEach(function (e) {
+      return e instanceof Context ? a.push.apply(a, e.getTweens()) : e instanceof Tween && !(e.parent && e.parent.data === "nested") && a.push(e);
+    });
+    return a;
+  };
+
+  _proto5.clear = function clear() {
+    this._r.length = this.data.length = 0;
+  };
+
+  _proto5.kill = function kill(revert, matchMedia) {
+    var _this4 = this;
+
+    if (revert) {
+      (function () {
+        var tweens = _this4.getTweens(),
+            i = _this4.data.length,
+            t;
+
+        while (i--) {
+          // Flip plugin tweens are very different in that they should actually be pushed to their end. The plugin replaces the timeline's .revert() method to do exactly that. But we also need to remove any of those nested tweens inside the flip timeline so that they don't get individually reverted.
+          t = _this4.data[i];
+
+          if (t.data === "isFlip") {
+            t.revert();
+            t.getChildren(true, true, false).forEach(function (tween) {
+              return tweens.splice(tweens.indexOf(tween), 1);
+            });
+          }
+        } // save as an object so that we can cache the globalTime for each tween to optimize performance during the sort
+
+
+        tweens.map(function (t) {
+          return {
+            g: t._dur || t._delay || t._sat && !t._sat.vars.immediateRender ? t.globalTime(0) : -Infinity,
+            t: t
+          };
+        }).sort(function (a, b) {
+          return b.g - a.g || -Infinity;
+        }).forEach(function (o) {
+          return o.t.revert(revert);
+        }); // note: all of the _startAt tweens should be reverted in reverse order that they were created, and they'll all have the same globalTime (-1) so the " || -1" in the sort keeps the order properly.
+
+        i = _this4.data.length;
+
+        while (i--) {
+          // make sure we loop backwards so that, for example, SplitTexts that were created later on the same element get reverted first
+          t = _this4.data[i];
+
+          if (t instanceof Timeline) {
+            if (t.data !== "nested") {
+              t.scrollTrigger && t.scrollTrigger.revert();
+              t.kill(); // don't revert() the timeline because that's duplicating efforts since we already reverted all the tweens
+            }
+          } else {
+            !(t instanceof Tween) && t.revert && t.revert(revert);
+          }
+        }
+
+        _this4._r.forEach(function (f) {
+          return f(revert, _this4);
+        });
+
+        _this4.isReverted = true;
+      })();
+    } else {
+      this.data.forEach(function (e) {
+        return e.kill && e.kill();
+      });
+    }
+
+    this.clear();
+
+    if (matchMedia) {
+      var i = _media.length;
+
+      while (i--) {
+        // previously, we checked _media.indexOf(this), but some frameworks like Vue enforce Proxy objects that make it impossible to get the proper result that way, so we must use a unique ID number instead.
+        _media[i].id === this.id && _media.splice(i, 1);
+      }
+    }
+  };
+
+  _proto5.revert = function revert(config) {
+    this.kill(config || {});
+  };
+
+  return Context;
+}();
+
+var MatchMedia = /*#__PURE__*/function () {
+  function MatchMedia(scope) {
+    this.contexts = [];
+    this.scope = scope;
+    _context && _context.data.push(this);
+  }
+
+  var _proto6 = MatchMedia.prototype;
+
+  _proto6.add = function add(conditions, func, scope) {
+    _isObject(conditions) || (conditions = {
+      matches: conditions
+    });
+    var context = new Context(0, scope || this.scope),
+        cond = context.conditions = {},
+        mq,
+        p,
+        active;
+    _context && !context.selector && (context.selector = _context.selector); // in case a context is created inside a context. Like a gsap.matchMedia() that's inside a scoped gsap.context()
+
+    this.contexts.push(context);
+    func = context.add("onMatch", func);
+    context.queries = conditions;
+
+    for (p in conditions) {
+      if (p === "all") {
+        active = 1;
+      } else {
+        mq = _win.matchMedia(conditions[p]);
+
+        if (mq) {
+          _media.indexOf(context) < 0 && _media.push(context);
+          (cond[p] = mq.matches) && (active = 1);
+          mq.addListener ? mq.addListener(_onMediaChange) : mq.addEventListener("change", _onMediaChange);
+        }
+      }
+    }
+
+    active && func(context, function (f) {
+      return context.add(null, f);
+    });
+    return this;
+  } // refresh() {
+  // 	let time = _lastMediaTime,
+  // 		media = _media;
+  // 	_lastMediaTime = -1;
+  // 	_media = this.contexts;
+  // 	_onMediaChange();
+  // 	_lastMediaTime = time;
+  // 	_media = media;
+  // }
+  ;
+
+  _proto6.revert = function revert(config) {
+    this.kill(config || {});
+  };
+
+  _proto6.kill = function kill(revert) {
+    this.contexts.forEach(function (c) {
+      return c.kill(revert, true);
+    });
+  };
+
+  return MatchMedia;
+}();
+/*
+ * --------------------------------------------------------------------------------------
+ * GSAP
+ * --------------------------------------------------------------------------------------
+ */
+
+
+var _gsap = {
+  registerPlugin: function registerPlugin() {
+    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    args.forEach(function (config) {
+      return _createPlugin(config);
+    });
+  },
+  timeline: function timeline(vars) {
+    return new Timeline(vars);
+  },
+  getTweensOf: function getTweensOf(targets, onlyActive) {
+    return _globalTimeline.getTweensOf(targets, onlyActive);
+  },
+  getProperty: function getProperty(target, property, unit, uncache) {
+    _isString(target) && (target = toArray(target)[0]); //in case selector text or an array is passed in
+
+    var getter = _getCache(target || {}).get,
+        format = unit ? _passThrough : _numericIfPossible;
+
+    unit === "native" && (unit = "");
+    return !target ? target : !property ? function (property, unit, uncache) {
+      return format((_plugins[property] && _plugins[property].get || getter)(target, property, unit, uncache));
+    } : format((_plugins[property] && _plugins[property].get || getter)(target, property, unit, uncache));
+  },
+  quickSetter: function quickSetter(target, property, unit) {
+    target = toArray(target);
+
+    if (target.length > 1) {
+      var setters = target.map(function (t) {
+        return gsap.quickSetter(t, property, unit);
+      }),
+          l = setters.length;
+      return function (value) {
+        var i = l;
+
+        while (i--) {
+          setters[i](value);
+        }
+      };
+    }
+
+    target = target[0] || {};
+
+    var Plugin = _plugins[property],
+        cache = _getCache(target),
+        p = cache.harness && (cache.harness.aliases || {})[property] || property,
+        // in case it's an alias, like "rotate" for "rotation".
+    setter = Plugin ? function (value) {
+      var p = new Plugin();
+      _quickTween._pt = 0;
+      p.init(target, unit ? value + unit : value, _quickTween, 0, [target]);
+      p.render(1, p);
+      _quickTween._pt && _renderPropTweens(1, _quickTween);
+    } : cache.set(target, p);
+
+    return Plugin ? setter : function (value) {
+      return setter(target, p, unit ? value + unit : value, cache, 1);
+    };
+  },
+  quickTo: function quickTo(target, property, vars) {
+    var _merge2;
+
+    var tween = gsap.to(target, _merge((_merge2 = {}, _merge2[property] = "+=0.1", _merge2.paused = true, _merge2), vars || {})),
+        func = function func(value, start, startIsRelative) {
+      return tween.resetTo(property, value, start, startIsRelative);
+    };
+
+    func.tween = tween;
+    return func;
+  },
+  isTweening: function isTweening(targets) {
+    return _globalTimeline.getTweensOf(targets, true).length > 0;
+  },
+  defaults: function defaults(value) {
+    value && value.ease && (value.ease = _parseEase(value.ease, _defaults.ease));
+    return _mergeDeep(_defaults, value || {});
+  },
+  config: function config(value) {
+    return _mergeDeep(_config, value || {});
+  },
+  registerEffect: function registerEffect(_ref3) {
+    var name = _ref3.name,
+        effect = _ref3.effect,
+        plugins = _ref3.plugins,
+        defaults = _ref3.defaults,
+        extendTimeline = _ref3.extendTimeline;
+    (plugins || "").split(",").forEach(function (pluginName) {
+      return pluginName && !_plugins[pluginName] && !_globals[pluginName] && _warn(name + " effect requires " + pluginName + " plugin.");
+    });
+
+    _effects[name] = function (targets, vars, tl) {
+      return effect(toArray(targets), _setDefaults(vars || {}, defaults), tl);
+    };
+
+    if (extendTimeline) {
+      Timeline.prototype[name] = function (targets, vars, position) {
+        return this.add(_effects[name](targets, _isObject(vars) ? vars : (position = vars) && {}, this), position);
+      };
+    }
+  },
+  registerEase: function registerEase(name, ease) {
+    _easeMap[name] = _parseEase(ease);
+  },
+  parseEase: function parseEase(ease, defaultEase) {
+    return arguments.length ? _parseEase(ease, defaultEase) : _easeMap;
+  },
+  getById: function getById(id) {
+    return _globalTimeline.getById(id);
+  },
+  exportRoot: function exportRoot(vars, includeDelayedCalls) {
+    if (vars === void 0) {
+      vars = {};
+    }
+
+    var tl = new Timeline(vars),
+        child,
+        next;
+    tl.smoothChildTiming = _isNotFalse(vars.smoothChildTiming);
+
+    _globalTimeline.remove(tl);
+
+    tl._dp = 0; //otherwise it'll get re-activated when adding children and be re-introduced into _globalTimeline's linked list (then added to itself).
+
+    tl._time = tl._tTime = _globalTimeline._time;
+    child = _globalTimeline._first;
+
+    while (child) {
+      next = child._next;
+
+      if (includeDelayedCalls || !(!child._dur && child instanceof Tween && child.vars.onComplete === child._targets[0])) {
+        _addToTimeline(tl, child, child._start - child._delay);
+      }
+
+      child = next;
+    }
+
+    _addToTimeline(_globalTimeline, tl, 0);
+
+    return tl;
+  },
+  context: function context(func, scope) {
+    return func ? new Context(func, scope) : _context;
+  },
+  matchMedia: function matchMedia(scope) {
+    return new MatchMedia(scope);
+  },
+  matchMediaRefresh: function matchMediaRefresh() {
+    return _media.forEach(function (c) {
+      var cond = c.conditions,
+          found,
+          p;
+
+      for (p in cond) {
+        if (cond[p]) {
+          cond[p] = false;
+          found = 1;
+        }
+      }
+
+      found && c.revert();
+    }) || _onMediaChange();
+  },
+  addEventListener: function addEventListener(type, callback) {
+    var a = _listeners[type] || (_listeners[type] = []);
+    ~a.indexOf(callback) || a.push(callback);
+  },
+  removeEventListener: function removeEventListener(type, callback) {
+    var a = _listeners[type],
+        i = a && a.indexOf(callback);
+    i >= 0 && a.splice(i, 1);
+  },
+  utils: {
+    wrap: wrap,
+    wrapYoyo: wrapYoyo,
+    distribute: distribute,
+    random: random,
+    snap: snap,
+    normalize: normalize,
+    getUnit: getUnit,
+    clamp: clamp,
+    splitColor: splitColor,
+    toArray: toArray,
+    selector: selector,
+    mapRange: mapRange,
+    pipe: pipe,
+    unitize: unitize,
+    interpolate: interpolate,
+    shuffle: shuffle
+  },
+  install: _install,
+  effects: _effects,
+  ticker: _ticker,
+  updateRoot: Timeline.updateRoot,
+  plugins: _plugins,
+  globalTimeline: _globalTimeline,
+  core: {
+    PropTween: PropTween,
+    globals: _addGlobal,
+    Tween: Tween,
+    Timeline: Timeline,
+    Animation: Animation,
+    getCache: _getCache,
+    _removeLinkedListItem: _removeLinkedListItem,
+    reverting: function reverting() {
+      return _reverting;
+    },
+    context: function context(toAdd) {
+      if (toAdd && _context) {
+        _context.data.push(toAdd);
+
+        toAdd._ctx = _context;
+      }
+
+      return _context;
+    },
+    suppressOverwrites: function suppressOverwrites(value) {
+      return _suppressOverwrites = value;
+    }
+  }
+};
+
+_forEachName("to,from,fromTo,delayedCall,set,killTweensOf", function (name) {
+  return _gsap[name] = Tween[name];
+});
+
+_ticker.add(Timeline.updateRoot);
+
+_quickTween = _gsap.to({}, {
+  duration: 0
+}); // ---- EXTRA PLUGINS --------------------------------------------------------
+
+var _getPluginPropTween = function _getPluginPropTween(plugin, prop) {
+  var pt = plugin._pt;
+
+  while (pt && pt.p !== prop && pt.op !== prop && pt.fp !== prop) {
+    pt = pt._next;
+  }
+
+  return pt;
+},
+    _addModifiers = function _addModifiers(tween, modifiers) {
+  var targets = tween._targets,
+      p,
+      i,
+      pt;
+
+  for (p in modifiers) {
+    i = targets.length;
+
+    while (i--) {
+      pt = tween._ptLookup[i][p];
+
+      if (pt && (pt = pt.d)) {
+        if (pt._pt) {
+          // is a plugin
+          pt = _getPluginPropTween(pt, p);
+        }
+
+        pt && pt.modifier && pt.modifier(modifiers[p], tween, targets[i], p);
+      }
+    }
+  }
+},
+    _buildModifierPlugin = function _buildModifierPlugin(name, modifier) {
+  return {
+    name: name,
+    rawVars: 1,
+    //don't pre-process function-based values or "random()" strings.
+    init: function init(target, vars, tween) {
+      tween._onInit = function (tween) {
+        var temp, p;
+
+        if (_isString(vars)) {
+          temp = {};
+
+          _forEachName(vars, function (name) {
+            return temp[name] = 1;
+          }); //if the user passes in a comma-delimited list of property names to roundProps, like "x,y", we round to whole numbers.
+
+
+          vars = temp;
+        }
+
+        if (modifier) {
+          temp = {};
+
+          for (p in vars) {
+            temp[p] = modifier(vars[p]);
+          }
+
+          vars = temp;
+        }
+
+        _addModifiers(tween, vars);
+      };
+    }
+  };
+}; //register core plugins
+
+
+var gsap = _gsap.registerPlugin({
+  name: "attr",
+  init: function init(target, vars, tween, index, targets) {
+    var p, pt, v;
+    this.tween = tween;
+
+    for (p in vars) {
+      v = target.getAttribute(p) || "";
+      pt = this.add(target, "setAttribute", (v || 0) + "", vars[p], index, targets, 0, 0, p);
+      pt.op = p;
+      pt.b = v; // record the beginning value so we can revert()
+
+      this._props.push(p);
+    }
+  },
+  render: function render(ratio, data) {
+    var pt = data._pt;
+
+    while (pt) {
+      _reverting ? pt.set(pt.t, pt.p, pt.b, pt) : pt.r(ratio, pt.d); // if reverting, go back to the original (pt.b)
+
+      pt = pt._next;
+    }
+  }
+}, {
+  name: "endArray",
+  init: function init(target, value) {
+    var i = value.length;
+
+    while (i--) {
+      this.add(target, i, target[i] || 0, value[i], 0, 0, 0, 0, 0, 1);
+    }
+  }
+}, _buildModifierPlugin("roundProps", _roundModifier), _buildModifierPlugin("modifiers"), _buildModifierPlugin("snap", snap)) || _gsap; //to prevent the core plugins from being dropped via aggressive tree shaking, we must include them in the variable declaration in this way.
+
+Tween.version = Timeline.version = gsap.version = "3.12.5";
+_coreReady = 1;
+_windowExists() && _wake();
+var Power0 = _easeMap.Power0,
+    Power1 = _easeMap.Power1,
+    Power2 = _easeMap.Power2,
+    Power3 = _easeMap.Power3,
+    Power4 = _easeMap.Power4,
+    Linear = _easeMap.Linear,
+    Quad = _easeMap.Quad,
+    Cubic = _easeMap.Cubic,
+    Quart = _easeMap.Quart,
+    Quint = _easeMap.Quint,
+    Strong = _easeMap.Strong,
+    Elastic = _easeMap.Elastic,
+    Back = _easeMap.Back,
+    SteppedEase = _easeMap.SteppedEase,
+    Bounce = _easeMap.Bounce,
+    Sine = _easeMap.Sine,
+    Expo = _easeMap.Expo,
+    Circ = _easeMap.Circ;
+
+ //export some internal methods/orojects for use in CSSPlugin so that we can externalize that file and allow custom builds that exclude it.
+
+
+
+/***/ }),
+
+/***/ "./node_modules/gsap/index.js":
+/*!************************************!*\
+  !*** ./node_modules/gsap/index.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Back: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Back),
+/* harmony export */   Bounce: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Bounce),
+/* harmony export */   CSSPlugin: () => (/* reexport safe */ _CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__.CSSPlugin),
+/* harmony export */   Circ: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Circ),
+/* harmony export */   Cubic: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Cubic),
+/* harmony export */   Elastic: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Elastic),
+/* harmony export */   Expo: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Expo),
+/* harmony export */   Linear: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Linear),
+/* harmony export */   Power0: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Power0),
+/* harmony export */   Power1: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Power1),
+/* harmony export */   Power2: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Power2),
+/* harmony export */   Power3: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Power3),
+/* harmony export */   Power4: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Power4),
+/* harmony export */   Quad: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Quad),
+/* harmony export */   Quart: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Quart),
+/* harmony export */   Quint: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Quint),
+/* harmony export */   Sine: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Sine),
+/* harmony export */   SteppedEase: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.SteppedEase),
+/* harmony export */   Strong: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.Strong),
+/* harmony export */   TimelineLite: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.TimelineLite),
+/* harmony export */   TimelineMax: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.TimelineMax),
+/* harmony export */   TweenLite: () => (/* reexport safe */ _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.TweenLite),
+/* harmony export */   TweenMax: () => (/* binding */ TweenMaxWithCSS),
+/* harmony export */   "default": () => (/* binding */ gsapWithCSS),
+/* harmony export */   gsap: () => (/* binding */ gsapWithCSS)
+/* harmony export */ });
+/* harmony import */ var _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gsap-core.js */ "./node_modules/gsap/gsap-core.js");
+/* harmony import */ var _CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CSSPlugin.js */ "./node_modules/gsap/CSSPlugin.js");
+
+
+var gsapWithCSS = _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(_CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__.CSSPlugin) || _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__.gsap,
+    // to protect from tree shaking
+TweenMaxWithCSS = gsapWithCSS.core.Tween;
+
+
+/***/ }),
+
+/***/ "./node_modules/js-year-calendar/dist/js-year-calendar.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/js-year-calendar/dist/js-year-calendar.js ***!
+  \****************************************************************/
+/***/ (function(module, exports) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : this, function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports["default"] = void 0;
+
+  function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+  /* =========================================================
+   * JS year calendar v1.0.0
+   * Repo: https://github.com/year-calendar/js-year-calendar
+   * =========================================================
+   * Created by Paul David-Sivelle
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   * http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   * ========================================================= */
+  // NodeList forEach() polyfill
+  if (typeof NodeList !== "undefined" && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = function (callback, thisArg) {
+      thisArg = thisArg || window;
+
+      for (var i = 0; i < this.length; i++) {
+        callback.call(thisArg, this[i], i, this);
+      }
+    };
+  } // Element closest() polyfill
+
+
+  if (typeof Element !== "undefined" && !Element.prototype.matches) {
+    var prototype = Element.prototype;
+    Element.prototype.matches = prototype.msMatchesSelector || prototype.webkitMatchesSelector;
+  }
+
+  if (typeof Element !== "undefined" && !Element.prototype.closest) {
+    Element.prototype.closest = function (s) {
+      var el = this;
+      if (!document.documentElement.contains(el)) return null;
+
+      do {
+        if (el.matches(s)) return el;
+        el = el.parentElement || el.parentNode;
+      } while (el !== null && el.nodeType == 1);
+
+      return null;
+    };
+  }
+  /**
+   * Calendar instance.
+   */
+
+
+  var Calendar = /*#__PURE__*/function () {
+    /**
+     * Fired when a day is clicked.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('clickDay', function(e) {
+     *   console.log("Click on day: " + e.date + " (" + e.events.length + " events)");
+     * })
+     * ```
+     */
+
+    /**
+     * Fired when a day is right clicked.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('clickDay', function(e) {
+     *   console.log("Right click on day: " + e.date + " (" + e.events.length + " events)");
+     * })
+     * ```
+     */
+
+    /**
+     * Fired when the mouse enter in a day.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('mouseOnDay', function(e) {
+     *   console.log("Mouse enter in a day: " + e.date + " (" + e.events.length + " events)");
+     * })
+     * ```
+     */
+
+    /**
+     * Fired when the mouse leave a day.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('mouseOutDay', function(e) {
+     *   console.log("Mouse leave a day: " + e.date + " (" + e.events.length + " events)");
+     * })
+     * ```
+     */
+
+    /**
+     * Fired when the calendar rendering is ended.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('renderEnd', function(e) {
+     *   console.log("Render end for year: " + e.currentYear);
+     * })
+     * ```
+     */
+
+    /**
+     * Fired when a date range is selected.
+     * 
+     * Don't forget to enable the `enableRangeSelection` option to be able to use the range selection functionality.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('selectRange', function(e) {
+     *   console.log("Select the range: " + e.startDate + " - " + e.endDate);
+     * })
+     * ```
+     */
+
+    /**
+     * Triggered after the changing the current year.
+     * Works only if the calendar is used in a full year mode. Otherwise, use `periodChanged` event.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('yearChanged', function(e) {
+     *   console.log("New year selected: " + e.currentYear);
+     * })
+     * ```
+     */
+
+    /**
+     * Triggered after the changing the visible period.
+     * @event
+     * @example
+     * ```
+     * 
+     * document.querySelector('.calendar').addEventListener('periodChanged', function(e) {
+     *   console.log(`New period selected: ${e.startDate} ${e.endDate}`);
+     * })
+     * ```
+     */
+
+    /**
+     * Create a new calendar.
+     * @param element The element (or the selector to an element) in which the calendar should be created.
+     * @param options [Optional] The options used to customize the calendar
+     */
+    function Calendar(element) {
+      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+      _classCallCheck(this, Calendar);
+
+      _defineProperty(this, "element", void 0);
+
+      _defineProperty(this, "options", void 0);
+
+      _defineProperty(this, "_startDate", void 0);
+
+      _defineProperty(this, "_dataSource", void 0);
+
+      _defineProperty(this, "_mouseDown", void 0);
+
+      _defineProperty(this, "_rangeStart", void 0);
+
+      _defineProperty(this, "_rangeEnd", void 0);
+
+      _defineProperty(this, "_responsiveInterval", void 0);
+
+      _defineProperty(this, "_nbCols", void 0);
+
+      _defineProperty(this, "clickDay", void 0);
+
+      _defineProperty(this, "dayContextMenu", void 0);
+
+      _defineProperty(this, "mouseOnDay", void 0);
+
+      _defineProperty(this, "mouseOutDay", void 0);
+
+      _defineProperty(this, "renderEnd", void 0);
+
+      _defineProperty(this, "selectRange", void 0);
+
+      _defineProperty(this, "yearChanged", void 0);
+
+      _defineProperty(this, "periodChanged", void 0);
+
+      if (element instanceof HTMLElement) {
+        this.element = element;
+      } else if (typeof element === "string") {
+        this.element = document.querySelector(element);
+      } else {
+        throw new Error("The element parameter should be a DOM node or a selector");
+      }
+
+      this.element.classList.add('calendar');
+
+      this._initializeEvents(options);
+
+      this._initializeOptions(options);
+
+      var startYear = new Date().getFullYear();
+      var startMonth = 0;
+
+      if (this.options.startDate) {
+        startYear = this.options.startDate.getFullYear();
+        startMonth = this.options.startDate.getMonth();
+      } else if (this.options.startYear) {
+        startYear = this.options.startYear;
+      }
+
+      this.setStartDate(new Date(startYear, startMonth, 1));
+    }
+
+    _createClass(Calendar, [{
+      key: "_initializeOptions",
+      value: function _initializeOptions(opt) {
+        if (opt == null) {
+          opt = {};
+        }
+
+        this.options = {
+          startYear: !isNaN(parseInt(opt.startYear)) ? parseInt(opt.startYear) : null,
+          startDate: opt.startDate instanceof Date ? opt.startDate : null,
+          numberMonthsDisplayed: !isNaN(parseInt(opt.numberMonthsDisplayed)) && opt.numberMonthsDisplayed > 0 && opt.numberMonthsDisplayed <= 12 ? parseInt(opt.numberMonthsDisplayed) : 12,
+          minDate: opt.minDate instanceof Date ? opt.minDate : null,
+          maxDate: opt.maxDate instanceof Date ? opt.maxDate : null,
+          language: opt.language != null && Calendar.locales[opt.language] != null ? opt.language : 'en',
+          allowOverlap: opt.allowOverlap != null ? opt.allowOverlap : true,
+          displayWeekNumber: opt.displayWeekNumber != null ? opt.displayWeekNumber : false,
+          displayDisabledDataSource: opt.displayDisabledDataSource != null ? opt.displayDisabledDataSource : false,
+          displayHeader: opt.displayHeader != null ? opt.displayHeader : true,
+          alwaysHalfDay: opt.alwaysHalfDay != null ? opt.alwaysHalfDay : false,
+          enableRangeSelection: opt.enableRangeSelection != null ? opt.enableRangeSelection : false,
+          disabledDays: opt.disabledDays instanceof Array ? opt.disabledDays : [],
+          disabledWeekDays: opt.disabledWeekDays instanceof Array ? opt.disabledWeekDays : [],
+          hiddenWeekDays: opt.hiddenWeekDays instanceof Array ? opt.hiddenWeekDays : [],
+          roundRangeLimits: opt.roundRangeLimits != null ? opt.roundRangeLimits : false,
+          dataSource: opt.dataSource instanceof Array || typeof opt.dataSource === "function" ? opt.dataSource : [],
+          style: opt.style == 'background' || opt.style == 'border' || opt.style == 'custom' ? opt.style : 'border',
+          enableContextMenu: opt.enableContextMenu != null ? opt.enableContextMenu : false,
+          contextMenuItems: opt.contextMenuItems instanceof Array ? opt.contextMenuItems : [],
+          customDayRenderer: typeof opt.customDayRenderer === "function" ? opt.customDayRenderer : null,
+          customDataSourceRenderer: typeof opt.customDataSourceRenderer === "function" ? opt.customDataSourceRenderer : null,
+          weekStart: !isNaN(parseInt(opt.weekStart)) ? parseInt(opt.weekStart) : null,
+          loadingTemplate: typeof opt.loadingTemplate === "string" || opt.loadingTemplate instanceof HTMLElement ? opt.loadingTemplate : null
+        };
+
+        if (this.options.dataSource instanceof Array) {
+          this._dataSource = this.options.dataSource;
+
+          this._initializeDatasourceColors();
+        }
+      }
+    }, {
+      key: "_initializeEvents",
+      value: function _initializeEvents(opt) {
+        if (opt == null) {
+          opt = [];
+        }
+
+        if (opt.yearChanged) {
+          this.element.addEventListener('yearChanged', opt.yearChanged);
+        }
+
+        if (opt.periodChanged) {
+          this.element.addEventListener('periodChanged', opt.periodChanged);
+        }
+
+        if (opt.renderEnd) {
+          this.element.addEventListener('renderEnd', opt.renderEnd);
+        }
+
+        if (opt.clickDay) {
+          this.element.addEventListener('clickDay', opt.clickDay);
+        }
+
+        if (opt.dayContextMenu) {
+          this.element.addEventListener('dayContextMenu', opt.dayContextMenu);
+        }
+
+        if (opt.selectRange) {
+          this.element.addEventListener('selectRange', opt.selectRange);
+        }
+
+        if (opt.mouseOnDay) {
+          this.element.addEventListener('mouseOnDay', opt.mouseOnDay);
+        }
+
+        if (opt.mouseOutDay) {
+          this.element.addEventListener('mouseOutDay', opt.mouseOutDay);
+        }
+      }
+    }, {
+      key: "_fetchDataSource",
+      value: function _fetchDataSource(callback) {
+        if (typeof this.options.dataSource === "function") {
+          var getDataSource = this.options.dataSource;
+          var currentPeriod = this.getCurrentPeriod();
+          var fetchParameters = {
+            year: currentPeriod.startDate.getFullYear(),
+            startDate: currentPeriod.startDate,
+            endDate: currentPeriod.endDate
+          };
+
+          if (getDataSource.length == 2) {
+            // 2 parameters, means callback method
+            getDataSource(fetchParameters, callback);
+          } else {
+            // 1 parameter, means synchronous or promise method
+            var result = getDataSource(fetchParameters);
+
+            if (result instanceof Array) {
+              callback(result);
+            }
+
+            if (result && result.then) {
+              result.then(callback);
+            }
+          }
+        } else {
+          callback(this.options.dataSource);
+        }
+      }
+    }, {
+      key: "_initializeDatasourceColors",
+      value: function _initializeDatasourceColors() {
+        for (var i = 0; i < this._dataSource.length; i++) {
+          if (this._dataSource[i].color == null) {
+            this._dataSource[i].color = Calendar.colors[i % Calendar.colors.length];
+          }
+        }
+      }
+      /**
+          * Renders the calendar.
+          */
+
+    }, {
+      key: "render",
+      value: function render() {
+        var isLoading = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+        // Clear the calendar (faster method)
+        while (this.element.firstChild) {
+          this.element.removeChild(this.element.firstChild);
+        }
+
+        if (this.options.displayHeader) {
+          this._renderHeader();
+        }
+
+        if (isLoading) {
+          this._renderLoading();
+        } else {
+          this._renderBody();
+
+          this._renderDataSource();
+
+          this._applyEvents(); // Fade animation
+
+
+          var months = this.element.querySelector('.months-container');
+          months.style.opacity = '0';
+          months.style.display = 'flex';
+          months.style.transition = 'opacity 0.5s';
+          setTimeout(function () {
+            months.style.opacity = '1';
+            setTimeout(function () {
+              return months.style.transition = '';
+            }, 500);
+          }, 0);
+          var currentPeriod = this.getCurrentPeriod();
+
+          this._triggerEvent('renderEnd', {
+            currentYear: currentPeriod.startDate.getFullYear(),
+            startDate: currentPeriod.startDate,
+            endDate: currentPeriod.endDate
+          });
+        }
+      }
+    }, {
+      key: "_renderHeader",
+      value: function _renderHeader() {
+        var header = document.createElement('div');
+        header.classList.add('calendar-header');
+        var headerTable = document.createElement('table');
+        var period = this.getCurrentPeriod(); // Left arrow
+
+        var prevDiv = document.createElement('th');
+        prevDiv.classList.add('prev');
+
+        if (this.options.minDate != null && this.options.minDate >= period.startDate) {
+          prevDiv.classList.add('disabled');
+        }
+
+        var prevIcon = document.createElement('span');
+        prevIcon.innerHTML = "&lsaquo;";
+        prevDiv.appendChild(prevIcon);
+        headerTable.appendChild(prevDiv);
+
+        if (this._isFullYearMode()) {
+          // Year N-2
+          var prev2YearDiv = document.createElement('th');
+          prev2YearDiv.classList.add('year-title');
+          prev2YearDiv.classList.add('year-neighbor2');
+          prev2YearDiv.textContent = (this._startDate.getFullYear() - 2).toString();
+
+          if (this.options.minDate != null && this.options.minDate > new Date(this._startDate.getFullYear() - 2, 11, 31)) {
+            prev2YearDiv.classList.add('disabled');
+          }
+
+          headerTable.appendChild(prev2YearDiv); // Year N-1
+
+          var prevYearDiv = document.createElement('th');
+          prevYearDiv.classList.add('year-title');
+          prevYearDiv.classList.add('year-neighbor');
+          prevYearDiv.textContent = (this._startDate.getFullYear() - 1).toString();
+
+          if (this.options.minDate != null && this.options.minDate > new Date(this._startDate.getFullYear() - 1, 11, 31)) {
+            prevYearDiv.classList.add('disabled');
+          }
+
+          headerTable.appendChild(prevYearDiv);
+        } // Current year
+
+
+        var yearDiv = document.createElement('th');
+        yearDiv.classList.add('year-title');
+
+        if (this._isFullYearMode()) {
+          yearDiv.textContent = this._startDate.getFullYear().toString();
+        } else if (this.options.numberMonthsDisplayed == 12) {
+          yearDiv.textContent = "".concat(period.startDate.getFullYear(), " - ").concat(period.endDate.getFullYear());
+        } else if (this.options.numberMonthsDisplayed > 1) {
+          yearDiv.textContent = "".concat(Calendar.locales[this.options.language].months[period.startDate.getMonth()], " ").concat(period.startDate.getFullYear(), " - ").concat(Calendar.locales[this.options.language].months[period.endDate.getMonth()], " ").concat(period.endDate.getFullYear());
+        } else {
+          yearDiv.textContent = "".concat(Calendar.locales[this.options.language].months[period.startDate.getMonth()], " ").concat(period.startDate.getFullYear());
+        }
+
+        headerTable.appendChild(yearDiv);
+
+        if (this._isFullYearMode()) {
+          // Year N+1
+          var nextYearDiv = document.createElement('th');
+          nextYearDiv.classList.add('year-title');
+          nextYearDiv.classList.add('year-neighbor');
+          nextYearDiv.textContent = (this._startDate.getFullYear() + 1).toString();
+
+          if (this.options.maxDate != null && this.options.maxDate < new Date(this._startDate.getFullYear() + 1, 0, 1)) {
+            nextYearDiv.classList.add('disabled');
+          }
+
+          headerTable.appendChild(nextYearDiv); // Year N+2
+
+          var next2YearDiv = document.createElement('th');
+          next2YearDiv.classList.add('year-title');
+          next2YearDiv.classList.add('year-neighbor2');
+          next2YearDiv.textContent = (this._startDate.getFullYear() + 2).toString();
+
+          if (this.options.maxDate != null && this.options.maxDate < new Date(this._startDate.getFullYear() + 2, 0, 1)) {
+            next2YearDiv.classList.add('disabled');
+          }
+
+          headerTable.appendChild(next2YearDiv);
+        } // Right arrow
+
+
+        var nextDiv = document.createElement('th');
+        nextDiv.classList.add('next');
+
+        if (this.options.maxDate != null && this.options.maxDate <= period.endDate) {
+          nextDiv.classList.add('disabled');
+        }
+
+        var nextIcon = document.createElement('span');
+        nextIcon.innerHTML = "&rsaquo;";
+        nextDiv.appendChild(nextIcon);
+        headerTable.appendChild(nextDiv);
+        header.appendChild(headerTable);
+        this.element.appendChild(header);
+      }
+    }, {
+      key: "_renderBody",
+      value: function _renderBody() {
+        var monthsDiv = document.createElement('div');
+        monthsDiv.classList.add('months-container');
+        var monthStartDate = new Date(this._startDate.getTime());
+
+        for (var m = 0; m < this.options.numberMonthsDisplayed; m++) {
+          /* Container */
+          var monthDiv = document.createElement('div');
+          monthDiv.classList.add('month-container');
+          monthDiv.dataset.monthId = m.toString();
+
+          if (this._nbCols) {
+            monthDiv.classList.add("month-".concat(this._nbCols));
+          }
+
+          var table = document.createElement('table');
+          table.classList.add('month');
+          /* Month header */
+
+          var thead = document.createElement('thead');
+          var titleRow = document.createElement('tr');
+          var titleCell = document.createElement('th');
+          titleCell.classList.add('month-title');
+          titleCell.setAttribute('colspan', this.options.displayWeekNumber ? '8' : '7');
+          titleCell.textContent = Calendar.locales[this.options.language].months[monthStartDate.getMonth()];
+          titleRow.appendChild(titleCell);
+          thead.appendChild(titleRow);
+          var headerRow = document.createElement('tr');
+
+          if (this.options.displayWeekNumber) {
+            var weekNumberCell = document.createElement('th');
+            weekNumberCell.classList.add('week-number');
+            weekNumberCell.textContent = Calendar.locales[this.options.language].weekShort;
+            headerRow.appendChild(weekNumberCell);
+          }
+
+          var weekStart = this.getWeekStart();
+          var d = weekStart;
+
+          do {
+            var headerCell = document.createElement('th');
+            headerCell.classList.add('day-header');
+            headerCell.textContent = Calendar.locales[this.options.language].daysMin[d];
+
+            if (this._isHidden(d)) {
+              headerCell.classList.add('hidden');
+            }
+
+            headerRow.appendChild(headerCell);
+            d++;
+            if (d >= 7) d = 0;
+          } while (d != weekStart);
+
+          thead.appendChild(headerRow);
+          table.appendChild(thead);
+          /* Days */
+
+          var currentDate = new Date(monthStartDate.getTime());
+          var lastDate = new Date(monthStartDate.getFullYear(), monthStartDate.getMonth() + 1, 0);
+
+          while (currentDate.getDay() != weekStart) {
+            currentDate.setDate(currentDate.getDate() - 1);
+          }
+
+          while (currentDate <= lastDate) {
+            var row = document.createElement('tr');
+
+            if (this.options.displayWeekNumber) {
+              var weekNumberCell = document.createElement('td');
+              var currentThursday = new Date(currentDate.getTime()); // Week number is computed based on the thursday
+
+              currentThursday.setDate(currentThursday.getDate() - weekStart + 4);
+              weekNumberCell.classList.add('week-number');
+              weekNumberCell.textContent = this.getWeekNumber(currentThursday).toString();
+              row.appendChild(weekNumberCell);
+            }
+
+            do {
+              var cell = document.createElement('td');
+              cell.classList.add('day');
+
+              if (this._isHidden(currentDate.getDay())) {
+                cell.classList.add('hidden');
+              }
+
+              if (currentDate < monthStartDate) {
+                cell.classList.add('old');
+              } else if (currentDate > lastDate) {
+                cell.classList.add('new');
+              } else {
+                if (this._isDisabled(currentDate)) {
+                  cell.classList.add('disabled');
+                }
+
+                var cellContent = document.createElement('div');
+                cellContent.classList.add('day-content');
+                cellContent.textContent = currentDate.getDate().toString();
+                cell.appendChild(cellContent);
+
+                if (this.options.customDayRenderer) {
+                  this.options.customDayRenderer(cellContent, currentDate);
+                }
+              }
+
+              row.appendChild(cell);
+              currentDate.setDate(currentDate.getDate() + 1);
+            } while (currentDate.getDay() != weekStart);
+
+            table.appendChild(row);
+          }
+
+          monthDiv.appendChild(table);
+          monthsDiv.appendChild(monthDiv);
+          monthStartDate.setMonth(monthStartDate.getMonth() + 1);
+        }
+
+        this.element.appendChild(monthsDiv);
+      }
+    }, {
+      key: "_renderLoading",
+      value: function _renderLoading() {
+        var container = document.createElement('div');
+        container.classList.add('calendar-loading-container');
+        container.style.minHeight = this._nbCols * 200 + 'px';
+        var loading = document.createElement('div');
+        loading.classList.add('calendar-loading');
+
+        if (this.options.loadingTemplate) {
+          if (typeof this.options.loadingTemplate === "string") {
+            loading.innerHTML = this.options.loadingTemplate;
+          } else if (this.options.loadingTemplate instanceof HTMLElement) {
+            loading.appendChild(this.options.loadingTemplate);
+          }
+        } else {
+          var spinner = document.createElement('div');
+          spinner.classList.add('calendar-spinner');
+
+          for (var i = 1; i <= 3; i++) {
+            var bounce = document.createElement('div');
+            bounce.classList.add("bounce".concat(i));
+            spinner.appendChild(bounce);
+          }
+
+          loading.appendChild(spinner);
+        }
+
+        container.appendChild(loading);
+        this.element.appendChild(container);
+      }
+    }, {
+      key: "_renderDataSource",
+      value: function _renderDataSource() {
+        var _this = this;
+
+        if (this._dataSource != null && this._dataSource.length > 0) {
+          this.element.querySelectorAll('.month-container').forEach(function (month) {
+            var monthId = parseInt(month.dataset.monthId);
+
+            var currentYear = _this._startDate.getFullYear();
+
+            var currentMonth = _this._startDate.getMonth() + monthId;
+            var firstDate = new Date(currentYear, currentMonth, 1);
+            var lastDate = new Date(currentYear, currentMonth + 1, 1);
+
+            if ((_this.options.minDate == null || lastDate > _this.options.minDate) && (_this.options.maxDate == null || firstDate <= _this.options.maxDate)) {
+              var monthData = [];
+
+              for (var i = 0; i < _this._dataSource.length; i++) {
+                if (!(_this._dataSource[i].startDate >= lastDate) || _this._dataSource[i].endDate < firstDate) {
+                  monthData.push(_this._dataSource[i]);
+                }
+              }
+
+              if (monthData.length > 0) {
+                month.querySelectorAll('.day-content').forEach(function (day) {
+                  var currentDate = new Date(currentYear, currentMonth, parseInt(day.textContent));
+                  var nextDate = new Date(currentYear, currentMonth, currentDate.getDate() + 1);
+                  var dayData = [];
+
+                  if ((_this.options.minDate == null || currentDate >= _this.options.minDate) && (_this.options.maxDate == null || currentDate <= _this.options.maxDate)) {
+                    for (var i = 0; i < monthData.length; i++) {
+                      if (monthData[i].startDate < nextDate && monthData[i].endDate >= currentDate) {
+                        dayData.push(monthData[i]);
+                      }
+                    }
+
+                    if (dayData.length > 0 && (_this.options.displayDisabledDataSource || !_this._isDisabled(currentDate))) {
+                      _this._renderDataSourceDay(day, currentDate, dayData);
+                    }
+                  }
+                });
+              }
+            }
+          });
+        }
+      }
+    }, {
+      key: "_renderDataSourceDay",
+      value: function _renderDataSourceDay(elt, currentDate, events) {
+        var parent = elt.parentElement;
+
+        switch (this.options.style) {
+          case 'border':
+            var weight = 0;
+
+            if (events.length == 1) {
+              weight = 4;
+            } else if (events.length <= 3) {
+              weight = 2;
+            } else {
+              parent.style.boxShadow = 'inset 0 -4px 0 0 black';
+            }
+
+            if (weight > 0) {
+              var boxShadow = '';
+
+              for (var i = 0; i < events.length; i++) {
+                if (boxShadow != '') {
+                  boxShadow += ",";
+                }
+
+                boxShadow += "inset 0 -".concat((i + 1) * weight, "px 0 0 ").concat(events[i].color);
+              }
+
+              parent.style.boxShadow = boxShadow;
+            }
+
+            break;
+
+          case 'background':
+            parent.style.backgroundColor = events[events.length - 1].color;
+            var currentTime = currentDate.getTime();
+
+            if (events[events.length - 1].startDate.getTime() == currentTime) {
+              parent.classList.add('day-start');
+
+              if (events[events.length - 1].startHalfDay || this.options.alwaysHalfDay) {
+                parent.classList.add('day-half'); // Find color for other half
+
+                var otherColor = 'transparent';
+
+                for (var i = events.length - 2; i >= 0; i--) {
+                  if (events[i].startDate.getTime() != currentTime || !events[i].startHalfDay && !this.options.alwaysHalfDay) {
+                    otherColor = events[i].color;
+                    break;
+                  }
+                }
+
+                parent.style.background = "linear-gradient(-45deg, ".concat(events[events.length - 1].color, ", ").concat(events[events.length - 1].color, " 49%, ").concat(otherColor, " 51%, ").concat(otherColor, ")");
+              } else if (this.options.roundRangeLimits) {
+                parent.classList.add('round-left');
+              }
+            } else if (events[events.length - 1].endDate.getTime() == currentTime) {
+              parent.classList.add('day-end');
+
+              if (events[events.length - 1].endHalfDay || this.options.alwaysHalfDay) {
+                parent.classList.add('day-half'); // Find color for other half
+
+                var otherColor = 'transparent';
+
+                for (var i = events.length - 2; i >= 0; i--) {
+                  if (events[i].endDate.getTime() != currentTime || !events[i].endHalfDay && !this.options.alwaysHalfDay) {
+                    otherColor = events[i].color;
+                    break;
+                  }
+                }
+
+                parent.style.background = "linear-gradient(135deg, ".concat(events[events.length - 1].color, ", ").concat(events[events.length - 1].color, " 49%, ").concat(otherColor, " 51%, ").concat(otherColor, ")");
+              } else if (this.options.roundRangeLimits) {
+                parent.classList.add('round-right');
+              }
+            }
+
+            break;
+
+          case 'custom':
+            if (this.options.customDataSourceRenderer) {
+              this.options.customDataSourceRenderer.call(this, elt, currentDate, events);
+            }
+
+            break;
+        }
+      }
+    }, {
+      key: "_applyEvents",
+      value: function _applyEvents() {
+        var _this2 = this;
+
+        if (this.options.displayHeader) {
+          /* Header buttons */
+          this.element.querySelectorAll('.year-neighbor, .year-neighbor2').forEach(function (element) {
+            element.addEventListener('click', function (e) {
+              if (!e.currentTarget.classList.contains('disabled')) {
+                _this2.setYear(parseInt(e.currentTarget.textContent));
+              }
+            });
+          });
+          this.element.querySelector('.calendar-header .prev').addEventListener('click', function (e) {
+            if (!e.currentTarget.classList.contains('disabled')) {
+              var months = _this2.element.querySelector('.months-container');
+
+              months.style.transition = 'margin-left 0.1s';
+              months.style.marginLeft = '100%';
+              setTimeout(function () {
+                months.style.visibility = 'hidden';
+                months.style.transition = '';
+                months.style.marginLeft = '0';
+                setTimeout(function () {
+                  _this2.setStartDate(new Date(_this2._startDate.getFullYear(), _this2._startDate.getMonth() - _this2.options.numberMonthsDisplayed, 1));
+                }, 50);
+              }, 100);
+            }
+          });
+          this.element.querySelector('.calendar-header .next').addEventListener('click', function (e) {
+            if (!e.currentTarget.classList.contains('disabled')) {
+              var months = _this2.element.querySelector('.months-container');
+
+              months.style.transition = 'margin-left 0.1s';
+              months.style.marginLeft = '-100%';
+              setTimeout(function () {
+                months.style.visibility = 'hidden';
+                months.style.transition = '';
+                months.style.marginLeft = '0';
+                setTimeout(function () {
+                  _this2.setStartDate(new Date(_this2._startDate.getFullYear(), _this2._startDate.getMonth() + _this2.options.numberMonthsDisplayed, 1));
+                }, 50);
+              }, 100);
+            }
+          });
+        }
+
+        var cells = this.element.querySelectorAll('.day:not(.old):not(.new):not(.disabled)');
+        cells.forEach(function (cell) {
+          /* Click on date */
+          cell.addEventListener('click', function (e) {
+            e.stopPropagation();
+
+            var date = _this2._getDate(e.currentTarget);
+
+            _this2._triggerEvent('clickDay', {
+              element: e.currentTarget,
+              date: date,
+              events: _this2.getEvents(date)
+            });
+          });
+          /* Click right on date */
+
+          cell.addEventListener('contextmenu', function (e) {
+            if (_this2.options.enableContextMenu) {
+              e.preventDefault();
+
+              if (_this2.options.contextMenuItems.length > 0) {
+                _this2._openContextMenu(e.currentTarget);
+              }
+            }
+
+            var date = _this2._getDate(e.currentTarget);
+
+            _this2._triggerEvent('dayContextMenu', {
+              element: e.currentTarget,
+              date: date,
+              events: _this2.getEvents(date)
+            });
+          });
+          /* Range selection */
+
+          if (_this2.options.enableRangeSelection) {
+            cell.addEventListener('mousedown', function (e) {
+              if (e.which == 1) {
+                var currentDate = _this2._getDate(e.currentTarget);
+
+                if (_this2.options.allowOverlap || _this2.isThereFreeSlot(currentDate)) {
+                  _this2._mouseDown = true;
+                  _this2._rangeStart = _this2._rangeEnd = currentDate;
+
+                  _this2._refreshRange();
+                }
+              }
+            });
+            cell.addEventListener('mouseenter', function (e) {
+              if (_this2._mouseDown) {
+                var currentDate = _this2._getDate(e.currentTarget);
+
+                if (!_this2.options.allowOverlap) {
+                  var newDate = new Date(_this2._rangeStart.getTime());
+
+                  if (newDate < currentDate) {
+                    var nextDate = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);
+
+                    while (newDate < currentDate) {
+                      if (!_this2.isThereFreeSlot(nextDate, false)) {
+                        break;
+                      }
+
+                      newDate.setDate(newDate.getDate() + 1);
+                      nextDate.setDate(nextDate.getDate() + 1);
+                    }
+                  } else {
+                    var nextDate = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() - 1);
+
+                    while (newDate > currentDate) {
+                      if (!_this2.isThereFreeSlot(nextDate, true)) {
+                        break;
+                      }
+
+                      newDate.setDate(newDate.getDate() - 1);
+                      nextDate.setDate(nextDate.getDate() - 1);
+                    }
+                  }
+
+                  currentDate = newDate;
+                }
+
+                var oldValue = _this2._rangeEnd;
+                _this2._rangeEnd = currentDate;
+
+                if (oldValue.getTime() != _this2._rangeEnd.getTime()) {
+                  _this2._refreshRange();
+                }
+              }
+            });
+          }
+          /* Hover date */
+
+
+          cell.addEventListener('mouseenter', function (e) {
+            if (!_this2._mouseDown) {
+              var date = _this2._getDate(e.currentTarget);
+
+              _this2._triggerEvent('mouseOnDay', {
+                element: e.currentTarget,
+                date: date,
+                events: _this2.getEvents(date)
+              });
+            }
+          });
+          cell.addEventListener('mouseleave', function (e) {
+            var date = _this2._getDate(e.currentTarget);
+
+            _this2._triggerEvent('mouseOutDay', {
+              element: e.currentTarget,
+              date: date,
+              events: _this2.getEvents(date)
+            });
+          });
+        });
+
+        if (this.options.enableRangeSelection) {
+          // Release range selection
+          window.addEventListener('mouseup', function (e) {
+            if (_this2._mouseDown) {
+              _this2._mouseDown = false;
+
+              _this2._refreshRange();
+
+              var minDate = _this2._rangeStart < _this2._rangeEnd ? _this2._rangeStart : _this2._rangeEnd;
+              var maxDate = _this2._rangeEnd > _this2._rangeStart ? _this2._rangeEnd : _this2._rangeStart;
+
+              _this2._triggerEvent('selectRange', {
+                startDate: minDate,
+                endDate: maxDate,
+                events: _this2.getEventsOnRange(minDate, new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate() + 1))
+              });
+            }
+          });
+        }
+        /* Responsive management */
+
+
+        if (this._responsiveInterval) {
+          clearInterval(this._responsiveInterval);
+          this._responsiveInterval = null;
+        }
+
+        this._responsiveInterval = setInterval(function () {
+          if (_this2.element.querySelector('.month') == null) {
+            return;
+          }
+
+          var calendarSize = _this2.element.offsetWidth;
+          var monthSize = _this2.element.querySelector('.month').offsetWidth + 10;
+          _this2._nbCols = null;
+
+          if (monthSize * 6 < calendarSize && _this2.options.numberMonthsDisplayed >= 6) {
+            _this2._nbCols = 2;
+          } else if (monthSize * 4 < calendarSize && _this2.options.numberMonthsDisplayed >= 4) {
+            _this2._nbCols = 3;
+          } else if (monthSize * 3 < calendarSize && _this2.options.numberMonthsDisplayed >= 3) {
+            _this2._nbCols = 4;
+          } else if (monthSize * 2 < calendarSize && _this2.options.numberMonthsDisplayed >= 2) {
+            _this2._nbCols = 6;
+          } else {
+            _this2._nbCols = 12;
+          }
+
+          _this2.element.querySelectorAll('.month-container').forEach(function (month) {
+            if (!month.classList.contains("month-".concat(_this2._nbCols))) {
+              ['month-2', 'month-3', 'month-4', 'month-6', 'month-12'].forEach(function (className) {
+                month.classList.remove(className);
+              });
+              month.classList.add("month-".concat(_this2._nbCols));
+            }
+          });
+        }, 300);
+      }
+    }, {
+      key: "_refreshRange",
+      value: function _refreshRange() {
+        var _this3 = this;
+
+        this.element.querySelectorAll('td.day.range').forEach(function (day) {
+          return day.classList.remove('range');
+        });
+        this.element.querySelectorAll('td.day.range-start').forEach(function (day) {
+          return day.classList.remove('range-start');
+        });
+        this.element.querySelectorAll('td.day.range-end').forEach(function (day) {
+          return day.classList.remove('range-end');
+        });
+
+        if (this._mouseDown) {
+          var minDate = this._rangeStart < this._rangeEnd ? this._rangeStart : this._rangeEnd;
+          var maxDate = this._rangeEnd > this._rangeStart ? this._rangeEnd : this._rangeStart;
+          this.element.querySelectorAll('.month-container').forEach(function (month) {
+            var monthId = parseInt(month.dataset.monthId);
+            var monthStartDate = new Date(_this3._startDate.getFullYear(), _this3._startDate.getMonth() + monthId, 1);
+            var monthEndDate = new Date(_this3._startDate.getFullYear(), _this3._startDate.getMonth() + monthId + 1, 1);
+
+            if (minDate.getTime() < monthEndDate.getTime() && maxDate.getTime() >= monthStartDate.getTime()) {
+              month.querySelectorAll('td.day:not(.old):not(.new)').forEach(function (day) {
+                var date = _this3._getDate(day);
+
+                if (date >= minDate && date <= maxDate) {
+                  day.classList.add('range');
+
+                  if (date.getTime() == minDate.getTime()) {
+                    day.classList.add('range-start');
+                  }
+
+                  if (date.getTime() == maxDate.getTime()) {
+                    day.classList.add('range-end');
+                  }
+                }
+              });
+            }
+          });
+        }
+      }
+    }, {
+      key: "_getElementPosition",
+      value: function _getElementPosition(element) {
+        var top = 0,
+            left = 0;
+
+        do {
+          top += element.offsetTop || 0;
+          left += element.offsetLeft || 0;
+          element = element.offsetParent;
+        } while (element);
+
+        return {
+          top: top,
+          left: left
+        };
+      }
+    }, {
+      key: "_openContextMenu",
+      value: function _openContextMenu(elt) {
+        var _this4 = this;
+
+        var contextMenu = document.querySelector('.calendar-context-menu');
+
+        if (contextMenu !== null) {
+          contextMenu.style.display = 'none'; // Clear the context menu (faster method)
+
+          while (contextMenu.firstChild) {
+            contextMenu.removeChild(contextMenu.firstChild);
+          }
+        } else {
+          contextMenu = document.createElement('div');
+          contextMenu.classList.add('calendar-context-menu');
+          document.body.appendChild(contextMenu);
+        }
+
+        var date = this._getDate(elt);
+
+        var events = this.getEvents(date);
+
+        for (var i = 0; i < events.length; i++) {
+          var eventItem = document.createElement('div');
+          eventItem.classList.add('item');
+          eventItem.style.paddingLeft = '4px';
+          eventItem.style.boxShadow = "inset 4px 0 0 0 ".concat(events[i].color);
+          var eventItemContent = document.createElement('div');
+          eventItemContent.classList.add('content');
+          var text = document.createElement('span');
+          text.classList.add('text');
+          text.textContent = events[i].name;
+          eventItemContent.appendChild(text);
+          var icon = document.createElement('span');
+          icon.classList.add('arrow');
+          icon.innerHTML = "&rsaquo;";
+          eventItemContent.appendChild(icon);
+          eventItem.appendChild(eventItemContent);
+
+          this._renderContextMenuItems(eventItem, this.options.contextMenuItems, events[i]);
+
+          contextMenu.appendChild(eventItem);
+        }
+
+        if (contextMenu.children.length > 0) {
+          var position = this._getElementPosition(elt);
+
+          contextMenu.style.left = position.left + 25 + 'px';
+          contextMenu.style.right = '';
+          contextMenu.style.top = position.top + 25 + 'px';
+          contextMenu.style.display = 'block';
+
+          if (contextMenu.getBoundingClientRect().right > document.body.offsetWidth) {
+            contextMenu.style.left = '';
+            contextMenu.style.right = '0';
+          } // Launch the position check once the whole context menu tree will be rendered
+
+
+          setTimeout(function () {
+            return _this4._checkContextMenuItemsPosition();
+          }, 0);
+
+          var closeContextMenu = function closeContextMenu(event) {
+            if (event.type !== 'click' || !contextMenu.contains(event.target)) {
+              contextMenu.style.display = 'none';
+              window.removeEventListener('click', closeContextMenu);
+              window.removeEventListener('resize', closeContextMenu);
+              window.removeEventListener('scroll', closeContextMenu);
+            }
+          };
+
+          window.addEventListener('click', closeContextMenu);
+          window.addEventListener('resize', closeContextMenu);
+          window.addEventListener('scroll', closeContextMenu);
+        }
+      }
+    }, {
+      key: "_renderContextMenuItems",
+      value: function _renderContextMenuItems(parent, items, evt) {
+        var subMenu = document.createElement('div');
+        subMenu.classList.add('submenu');
+
+        for (var i = 0; i < items.length; i++) {
+          if (items[i].visible === false || typeof items[i].visible === "function" && !items[i].visible(evt)) {
+            continue;
+          }
+
+          var menuItem = document.createElement('div');
+          menuItem.classList.add('item');
+          var menuItemContent = document.createElement('div');
+          menuItemContent.classList.add('content');
+          var text = document.createElement('span');
+          text.classList.add('text');
+          text.textContent = items[i].text;
+          menuItemContent.appendChild(text);
+
+          if (items[i].click) {
+            (function (index) {
+              menuItemContent.addEventListener('click', function () {
+                document.querySelector('.calendar-context-menu').style.display = 'none';
+                items[index].click(evt);
+              });
+            })(i);
+          }
+
+          menuItem.appendChild(menuItemContent);
+
+          if (items[i].items && items[i].items.length > 0) {
+            var icon = document.createElement('span');
+            icon.classList.add('arrow');
+            icon.innerHTML = "&rsaquo;";
+            menuItemContent.appendChild(icon);
+
+            this._renderContextMenuItems(menuItem, items[i].items, evt);
+          }
+
+          subMenu.appendChild(menuItem);
+        }
+
+        if (subMenu.children.length > 0) {
+          parent.appendChild(subMenu);
+        }
+      }
+    }, {
+      key: "_checkContextMenuItemsPosition",
+      value: function _checkContextMenuItemsPosition() {
+        var menus = document.querySelectorAll('.calendar-context-menu .submenu');
+        menus.forEach(function (menu) {
+          var htmlMenu = menu;
+          htmlMenu.style.display = 'block';
+          htmlMenu.style.visibility = 'hidden';
+        });
+        menus.forEach(function (menu) {
+          var htmlMenu = menu;
+
+          if (htmlMenu.getBoundingClientRect().right > document.body.offsetWidth) {
+            htmlMenu.classList.add('open-left');
+          } else {
+            htmlMenu.classList.remove('open-left');
+          }
+        });
+        menus.forEach(function (menu) {
+          var htmlMenu = menu;
+          htmlMenu.style.display = '';
+          htmlMenu.style.visibility = '';
+        });
+      }
+    }, {
+      key: "_getDate",
+      value: function _getDate(elt) {
+        var day = elt.querySelector('.day-content').textContent;
+        var monthId = parseInt(elt.closest('.month-container').dataset.monthId);
+        return new Date(this._startDate.getFullYear(), this._startDate.getMonth() + monthId, day);
+      }
+    }, {
+      key: "_triggerEvent",
+      value: function _triggerEvent(eventName, parameters) {
+        var event = null;
+
+        if (typeof Event === "function") {
+          event = new Event(eventName);
+        } else {
+          event = document.createEvent('Event');
+          event.initEvent(eventName, false, false);
+        }
+
+        event.calendar = this;
+
+        for (var i in parameters) {
+          event[i] = parameters[i];
+        }
+
+        this.element.dispatchEvent(event);
+        return event;
+      }
+    }, {
+      key: "_isDisabled",
+      value: function _isDisabled(date) {
+        if (this.options.minDate != null && date < this.options.minDate || this.options.maxDate != null && date > this.options.maxDate) {
+          return true;
+        }
+
+        if (this.options.disabledWeekDays.length > 0) {
+          for (var d = 0; d < this.options.disabledWeekDays.length; d++) {
+            if (date.getDay() == this.options.disabledWeekDays[d]) {
+              return true;
+            }
+          }
+        }
+
+        if (this.options.disabledDays.length > 0) {
+          for (var d = 0; d < this.options.disabledDays.length; d++) {
+            if (date.getTime() == this.options.disabledDays[d].getTime()) {
+              return true;
+            }
+          }
+        }
+
+        return false;
+      }
+    }, {
+      key: "_isHidden",
+      value: function _isHidden(day) {
+        if (this.options.hiddenWeekDays.length > 0) {
+          for (var d = 0; d < this.options.hiddenWeekDays.length; d++) {
+            if (day == this.options.hiddenWeekDays[d]) {
+              return true;
+            }
+          }
+        }
+
+        return false;
+      }
+    }, {
+      key: "_isFullYearMode",
+      value: function _isFullYearMode() {
+        return this._startDate.getMonth() == 0 && this.options.numberMonthsDisplayed == 12;
+      }
+      /**
+          * Gets the week number for a specified date.
+          *
+          * @param date The specified date.
+          */
+
+    }, {
+      key: "getWeekNumber",
+      value: function getWeekNumber(date) {
+        // Algorithm from https://weeknumber.net/how-to/javascript
+        var workingDate = new Date(date.getTime());
+        workingDate.setHours(0, 0, 0, 0); // Thursday in current week decides the year.
+
+        workingDate.setDate(workingDate.getDate() + 3 - (workingDate.getDay() + 6) % 7); // January 4 is always in week 1.
+
+        var week1 = new Date(workingDate.getFullYear(), 0, 4); // Adjust to Thursday in week 1 and count number of weeks from date to week1.
+
+        return 1 + Math.round(((workingDate.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
+      }
+      /**
+          * Gets the data source elements for a specified day.
+          *
+          * @param date The specified day.
+          */
+
+    }, {
+      key: "getEvents",
+      value: function getEvents(date) {
+        return this.getEventsOnRange(date, new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1));
+      }
+      /**
+          * Gets the data source elements for a specified range of days.
+          *
+          * @param startDate The beginning of the day range (inclusive).
+       * @param endDate The end of the day range (non inclusive).
+          */
+
+    }, {
+      key: "getEventsOnRange",
+      value: function getEventsOnRange(startDate, endDate) {
+        var events = [];
+
+        if (this._dataSource && startDate && endDate) {
+          for (var i = 0; i < this._dataSource.length; i++) {
+            if (this._dataSource[i].startDate < endDate && this._dataSource[i].endDate >= startDate) {
+              events.push(this._dataSource[i]);
+            }
+          }
+        }
+
+        return events;
+      }
+      /**
+          * Check if there is no event on the first part, last part or on the whole specified day.
+          *
+          * @param date The specified day.
+          * @param after Whether to check for a free slot on the first part (if `false`) or the last part (if `true`) of the day. If `null`, this will check on the whole day.
+       * 
+       * Usefull only if using the `alwaysHalfDay` option of the calendar, or the `startHalfDay` or `endHalfDay` option of the datasource.
+          */
+
+    }, {
+      key: "isThereFreeSlot",
+      value: function isThereFreeSlot(date) {
+        var _this5 = this;
+
+        var after = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+        var events = this.getEvents(date);
+
+        if (after === true) {
+          return !events.some(function (evt) {
+            return !_this5.options.alwaysHalfDay && !evt.endHalfDay || evt.endDate > date;
+          });
+        } else if (after === false) {
+          return !events.some(function (evt) {
+            return !_this5.options.alwaysHalfDay && !evt.startHalfDay || evt.startDate < date;
+          });
+        } else {
+          return this.isThereFreeSlot(date, false) || this.isThereFreeSlot(date, true);
+        }
+      }
+      /**
+          * Gets the period displayed on the calendar.
+          */
+
+    }, {
+      key: "getCurrentPeriod",
+      value: function getCurrentPeriod() {
+        var startDate = new Date(this._startDate.getTime());
+        var endDate = new Date(this._startDate.getTime());
+        endDate.setMonth(endDate.getMonth() + this.options.numberMonthsDisplayed);
+        endDate.setTime(endDate.getTime() - 1);
+        return {
+          startDate: startDate,
+          endDate: endDate
+        };
+      }
+      /**
+          * Gets the year displayed on the calendar.
+       * If the calendar is not used in a full year configuration, this will return the year of the first date displayed in the calendar.
+          */
+
+    }, {
+      key: "getYear",
+      value: function getYear() {
+        return this._isFullYearMode() ? this._startDate.getFullYear() : null;
+      }
+      /**
+          * Sets the year displayed on the calendar.
+       * If the calendar is not used in a full year configuration, this will set the start date to January 1st of the given year.
+          *
+          * @param year The year to displayed on the calendar.
+          */
+
+    }, {
+      key: "setYear",
+      value: function setYear(year) {
+        var parsedYear = parseInt(year);
+
+        if (!isNaN(parsedYear)) {
+          this.setStartDate(new Date(parsedYear, 0, 1));
+        }
+      }
+      /**
+          * Gets the first date displayed on the calendar.
+          */
+
+    }, {
+      key: "getStartDate",
+      value: function getStartDate() {
+        return this._startDate;
+      }
+      /**
+          * Sets the first date that should be displayed on the calendar.
+          *
+          * @param startDate The first date that should be displayed on the calendar.
+          */
+
+    }, {
+      key: "setStartDate",
+      value: function setStartDate(startDate) {
+        var _this6 = this;
+
+        if (startDate instanceof Date) {
+          this.options.startDate = startDate;
+          this._startDate = new Date(startDate.getFullYear(), startDate.getMonth(), 1); // Clear the calendar (faster method)
+
+          while (this.element.firstChild) {
+            this.element.removeChild(this.element.firstChild);
+          }
+
+          if (this.options.displayHeader) {
+            this._renderHeader();
+          }
+
+          var newPeriod = this.getCurrentPeriod();
+
+          var periodEventResult = this._triggerEvent('periodChanged', {
+            startDate: newPeriod.startDate,
+            endDate: newPeriod.endDate,
+            preventRendering: false
+          });
+
+          var yearEventResult = null;
+
+          if (this._isFullYearMode()) {
+            yearEventResult = this._triggerEvent('yearChanged', {
+              currentYear: this._startDate.getFullYear(),
+              preventRendering: false
+            });
+          }
+
+          if (typeof this.options.dataSource === "function") {
+            this.render(true);
+
+            this._fetchDataSource(function (dataSource) {
+              _this6._dataSource = dataSource;
+
+              _this6._initializeDatasourceColors();
+
+              _this6.render(false);
+            });
+          } else {
+            if (!periodEventResult.preventRendering && (!yearEventResult || !yearEventResult.preventRedering)) {
+              this.render();
+            }
+          }
+        }
+      }
+      /**
+          * Gets the number of months displayed by the calendar.
+          */
+
+    }, {
+      key: "getNumberMonthsDisplayed",
+      value: function getNumberMonthsDisplayed() {
+        return this.options.numberMonthsDisplayed;
+      }
+      /**
+          * Sets the number of months displayed that should be displayed by the calendar.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param numberMonthsDisplayed Number of months that should be displayed by the calendar.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setNumberMonthsDisplayed",
+      value: function setNumberMonthsDisplayed(numberMonthsDisplayed) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        var parsedNumber = parseInt(numberMonthsDisplayed);
+
+        if (!isNaN(parsedNumber) && parsedNumber > 0 && parsedNumber <= 12) {
+          this.options.numberMonthsDisplayed = parsedNumber;
+
+          if (!preventRendering) {
+            this.render();
+          }
+        }
+      }
+      /**
+          * Gets the minimum date of the calendar.
+          */
+
+    }, {
+      key: "getMinDate",
+      value: function getMinDate() {
+        return this.options.minDate;
+      }
+      /**
+          * Sets the minimum date of the calendar.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param minDate The minimum date to set.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setMinDate",
+      value: function setMinDate(date) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+        if (date instanceof Date || date === null) {
+          this.options.minDate = date;
+
+          if (!preventRendering) {
+            this.render();
+          }
+        }
+      }
+      /**
+          * Gets the maximum date of the calendar.
+          */
+
+    }, {
+      key: "getMaxDate",
+      value: function getMaxDate() {
+        return this.options.maxDate;
+      }
+      /**
+          * Sets the maximum date of the calendar. 
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param maxDate The maximum date to set.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setMaxDate",
+      value: function setMaxDate(date) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+        if (date instanceof Date || date === null) {
+          this.options.maxDate = date;
+
+          if (!preventRendering) {
+            this.render();
+          }
+        }
+      }
+      /**
+          * Gets the current style used for displaying data source.
+          */
+
+    }, {
+      key: "getStyle",
+      value: function getStyle() {
+        return this.options.style;
+      }
+      /**
+          * Sets the style to use for displaying data source. 
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param style The style to use for displaying data source ("background", "border" or "custom").
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setStyle",
+      value: function setStyle(style) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.style = style == 'background' || style == 'border' || style == 'custom' ? style : 'border';
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets a value indicating whether the user can select a range which overlapping an other element present in the datasource.
+          */
+
+    }, {
+      key: "getAllowOverlap",
+      value: function getAllowOverlap() {
+        return this.options.allowOverlap;
+      }
+      /**
+          * Sets a value indicating whether the user can select a range which overlapping an other element present in the datasource.
+          *
+          * @param allowOverlap Indicates whether the user can select a range which overlapping an other element present in the datasource.
+          */
+
+    }, {
+      key: "setAllowOverlap",
+      value: function setAllowOverlap(allowOverlap) {
+        this.options.allowOverlap = allowOverlap;
+      }
+      /**
+          * Gets a value indicating whether the weeks number are displayed.
+          */
+
+    }, {
+      key: "getDisplayWeekNumber",
+      value: function getDisplayWeekNumber() {
+        return this.options.displayWeekNumber;
+      }
+      /**
+          * Sets a value indicating whether the weeks number are displayed.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param  displayWeekNumber Indicates whether the weeks number are displayed.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setDisplayWeekNumber",
+      value: function setDisplayWeekNumber(displayWeekNumber) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.displayWeekNumber = displayWeekNumber;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets a value indicating whether the calendar header is displayed.
+          */
+
+    }, {
+      key: "getDisplayHeader",
+      value: function getDisplayHeader() {
+        return this.options.displayHeader;
+      }
+      /**
+          * Sets a value indicating whether the calendar header is displayed.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param displayHeader Indicates whether the calendar header is displayed.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setDisplayHeader",
+      value: function setDisplayHeader(displayHeader) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.displayHeader = displayHeader;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets a value indicating whether the data source must be rendered on disabled days.
+          */
+
+    }, {
+      key: "getDisplayDisabledDataSource",
+      value: function getDisplayDisabledDataSource() {
+        return this.options.displayDisabledDataSource;
+      }
+      /**
+          * Sets a value indicating whether the data source must be rendered on disabled days.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param displayDisabledDataSource Indicates whether the data source must be rendered on disabled days.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setDisplayDisabledDataSource",
+      value: function setDisplayDisabledDataSource(displayDisabledDataSource) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.displayDisabledDataSource = displayDisabledDataSource;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets a value indicating whether the beginning and the end of each range should be displayed as half selected day.
+          */
+
+    }, {
+      key: "getAlwaysHalfDay",
+      value: function getAlwaysHalfDay() {
+        return this.options.alwaysHalfDay;
+      }
+      /**
+          * Sets a value indicating whether the beginning and the end of each range should be displayed as half selected day.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param alwaysHalfDay Indicates whether the beginning and the end of each range should be displayed as half selected day.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setAlwaysHalfDay",
+      value: function setAlwaysHalfDay(alwaysHalfDay) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.alwaysHalfDay = alwaysHalfDay;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets a value indicating whether the user can make range selection.
+          */
+
+    }, {
+      key: "getEnableRangeSelection",
+      value: function getEnableRangeSelection() {
+        return this.options.enableRangeSelection;
+      }
+      /**
+          * Sets a value indicating whether the user can make range selection.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param enableRangeSelection Indicates whether the user can make range selection.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setEnableRangeSelection",
+      value: function setEnableRangeSelection(enableRangeSelection) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.enableRangeSelection = enableRangeSelection;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the disabled days.
+          */
+
+    }, {
+      key: "getDisabledDays",
+      value: function getDisabledDays() {
+        return this.options.disabledDays;
+      }
+      /**
+          * Sets the disabled days.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param disableDays The disabled days to set.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setDisabledDays",
+      value: function setDisabledDays(disabledDays) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.disabledDays = disabledDays instanceof Array ? disabledDays : [];
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the disabled days of the week.
+          */
+
+    }, {
+      key: "getDisabledWeekDays",
+      value: function getDisabledWeekDays() {
+        return this.options.disabledWeekDays;
+      }
+      /**
+          * Sets the disabled days of the week.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param disabledWeekDays The disabled days of the week to set.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setDisabledWeekDays",
+      value: function setDisabledWeekDays(disabledWeekDays) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.disabledWeekDays = disabledWeekDays instanceof Array ? disabledWeekDays : [];
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the hidden days of the week.
+          */
+
+    }, {
+      key: "getHiddenWeekDays",
+      value: function getHiddenWeekDays() {
+        return this.options.hiddenWeekDays;
+      }
+      /**
+          * Sets the hidden days of the week.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param hiddenWeekDays The hidden days of the week to set.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setHiddenWeekDays",
+      value: function setHiddenWeekDays(hiddenWeekDays) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.hiddenWeekDays = hiddenWeekDays instanceof Array ? hiddenWeekDays : [];
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets a value indicating whether the beginning and the end of each range should be displayed as rounded cells.
+          */
+
+    }, {
+      key: "getRoundRangeLimits",
+      value: function getRoundRangeLimits() {
+        return this.options.roundRangeLimits;
+      }
+      /**
+          * Sets a value indicating whether the beginning and the end of each range should be displayed as rounded cells.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param roundRangeLimits Indicates whether the beginning and the end of each range should be displayed as rounded cells. 
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setRoundRangeLimits",
+      value: function setRoundRangeLimits(roundRangeLimits) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.roundRangeLimits = roundRangeLimits;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets a value indicating whether the default context menu must be displayed when right clicking on a day.
+          */
+
+    }, {
+      key: "getEnableContextMenu",
+      value: function getEnableContextMenu() {
+        return this.options.enableContextMenu;
+      }
+      /**
+          * Sets a value indicating whether the default context menu must be displayed when right clicking on a day. 
+          * 
+       * This method causes a refresh of the calendar.
+          * 
+          * @param enableContextMenu Indicates whether the default context menu must be displayed when right clicking on a day.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setEnableContextMenu",
+      value: function setEnableContextMenu(enableContextMenu) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.enableContextMenu = enableContextMenu;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the context menu items.
+          */
+
+    }, {
+      key: "getContextMenuItems",
+      value: function getContextMenuItems() {
+        return this.options.contextMenuItems;
+      }
+      /**
+          * Sets new context menu items.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param contextMenuItems The new context menu items.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setContextMenuItems",
+      value: function setContextMenuItems(contextMenuItems) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.contextMenuItems = contextMenuItems instanceof Array ? contextMenuItems : [];
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the custom day renderer.
+          */
+
+    }, {
+      key: "getCustomDayRenderer",
+      value: function getCustomDayRenderer() {
+        return this.options.customDayRenderer;
+      }
+      /**
+          * Sets the custom day renderer.
+       * 
+       * This method causes a refresh of the calendar.
+       *
+       * @param handler The function used to render the days. This function is called during render for each day.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setCustomDayRenderer",
+      value: function setCustomDayRenderer(customDayRenderer) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.customDayRenderer = typeof customDayRenderer === "function" ? customDayRenderer : null;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the custom data source renderer.
+          */
+
+    }, {
+      key: "getCustomDataSourceRenderer",
+      value: function getCustomDataSourceRenderer() {
+        return this.options.customDataSourceRenderer;
+      }
+      /**
+          * Sets the custom data source renderer. Works only with the style set to "custom".
+       * 
+       * This method causes a refresh of the calendar.
+       *
+       * @param handler The function used to render the data source. This function is called during render for each day containing at least one event.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setCustomDataSourceRenderer",
+      value: function setCustomDataSourceRenderer(customDataSourceRenderer) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.customDataSourceRenderer = typeof customDataSourceRenderer === "function" ? customDataSourceRenderer : null;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the language used for calendar rendering.
+          */
+
+    }, {
+      key: "getLanguage",
+      value: function getLanguage() {
+        return this.options.language;
+      }
+      /**
+          * Sets the language used for calendar rendering.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param language The language to use for calendar redering.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setLanguage",
+      value: function setLanguage(language) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+        if (language != null && Calendar.locales[language] != null) {
+          this.options.language = language;
+
+          if (!preventRendering) {
+            this.render();
+          }
+        }
+      }
+      /**
+          * Gets the current data source.
+          */
+
+    }, {
+      key: "getDataSource",
+      value: function getDataSource() {
+        return this.options.dataSource;
+      }
+      /**
+          * Sets a new data source.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param dataSource The new data source.
+       * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setDataSource",
+      value: function setDataSource(dataSource) {
+        var _this7 = this;
+
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.dataSource = dataSource instanceof Array || typeof dataSource === "function" ? dataSource : [];
+
+        if (typeof this.options.dataSource === "function") {
+          this.render(true);
+
+          this._fetchDataSource(function (dataSource) {
+            _this7._dataSource = dataSource;
+
+            _this7._initializeDatasourceColors();
+
+            _this7.render(false);
+          });
+        } else {
+          this._dataSource = this.options.dataSource;
+
+          this._initializeDatasourceColors();
+
+          if (!preventRendering) {
+            this.render();
+          }
+        }
+      }
+      /**
+          * Gets the starting day of the week.
+          */
+
+    }, {
+      key: "getWeekStart",
+      value: function getWeekStart() {
+        return this.options.weekStart !== null ? this.options.weekStart : Calendar.locales[this.options.language].weekStart;
+      }
+      /**
+          * Sets the starting day of the week.
+       * 
+       * This method causes a refresh of the calendar.
+          *
+          * @param weekStart The starting day of the week. This option overrides the parameter define in the language file.
+          * @param preventRedering Indicates whether the rendering should be prevented after the property update.
+          */
+
+    }, {
+      key: "setWeekStart",
+      value: function setWeekStart(weekStart) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        this.options.weekStart = !isNaN(parseInt(weekStart)) ? parseInt(weekStart) : null;
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+      /**
+          * Gets the loading template.
+          */
+
+    }, {
+      key: "getLoadingTemplate",
+      value: function getLoadingTemplate() {
+        return this.options.loadingTemplate;
+      }
+      /**
+          * Sets the loading template.
+          *
+          * @param loadingTemplate The loading template.
+          */
+
+    }, {
+      key: "setLoadingTemplate",
+      value: function setLoadingTemplate(loadingTemplate) {
+        this.options.loadingTemplate = typeof loadingTemplate === "string" || loadingTemplate instanceof HTMLElement ? loadingTemplate : null;
+      }
+      /**
+       * 
+          * Add a new element to the data source.
+       * 
+       * This method causes a refresh of the calendar.
+          * 
+          * @param element The element to add.
+       * @param preventRendering Indicates whether the calendar shouldn't be refreshed once the event added.
+          */
+
+    }, {
+      key: "addEvent",
+      value: function addEvent(evt) {
+        var preventRendering = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+        this._dataSource.push(evt);
+
+        if (!preventRendering) {
+          this.render();
+        }
+      }
+    }]);
+
+    return Calendar;
+  }();
+
+  _exports["default"] = Calendar;
+
+  _defineProperty(Calendar, "locales", {
+    en: {
+      days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+      months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      weekShort: 'W',
+      weekStart: 0
+    }
+  });
+
+  _defineProperty(Calendar, "colors", ['#2C8FC9', '#9CB703', '#F5BB00', '#FF4A32', '#B56CE2', '#45A597']);
+
+  if ((typeof window === "undefined" ? "undefined" : _typeof(window)) === "object") {
+    window.Calendar = Calendar;
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('[data-provide="calendar"]').forEach(function (element) {
+        return new Calendar(element);
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/js-year-calendar/locales/js-year-calendar.es.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/js-year-calendar/locales/js-year-calendar.es.js ***!
+  \**********************************************************************/
+/***/ (() => {
+
+/**
+ * Spanish translation for js-year-calendar
+ * Paul DAVID-SIVELLE
+ * Based on 
+ * Spanish translation for bootstrap-datepicker
+ * Bruno Bonamin <bruno.bonamin@gmail.com>
+ */
+ 
+Calendar.locales['es'] = {
+	days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+	daysShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
+	daysMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+	months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+	monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+	weekShort: 'S',
+	weekStart: 1
+};
+
+/***/ }),
+
+/***/ "./node_modules/js-year-calendar/dist/js-year-calendar.css":
+/*!*****************************************************************!*\
+  !*** ./node_modules/js-year-calendar/dist/js-year-calendar.css ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_2_js_year_calendar_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!../../postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./js-year-calendar.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./node_modules/js-year-calendar/dist/js-year-calendar.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_2_js_year_calendar_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_8_oneOf_1_use_2_js_year_calendar_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
+
+    return memo;
+  };
+}();
+
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : 0;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && typeof btoa !== 'undefined') {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var singleton = null;
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			id: moduleId,
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!**************************!*\
+  !*** ./src/js/portal.js ***!
+  \**************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var _calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calendar */ "./src/js/calendar.js");
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+
+
+var id_login = "pa__login";
+var pa__login = document.getElementById(id_login);
+if (document.getElementById("hora")) {
+  var horaElement = document.getElementById("hora");
+  var currentDate = new Date();
+  var hora = currentDate.getHours();
+  var minutos = currentDate.getMinutes();
+  var segundos = currentDate.getSeconds();
+  var fecha = currentDate.toLocaleDateString();
+  horaElement.innerHTML = "<b>Fecha y hora:</b> ".concat(fecha, " ").concat(hora, ":").concat(minutos, ":").concat(segundos);
+}
+if (pa__login) {
+  var tl_pa__login = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline({
+    paused: false
+  });
+  tl_pa__login.from("#".concat(id_login, " .pa_login_screen"), {
+    opacity: 0,
+    clipPath: "inset(0 100% 0 0)",
+    duration: 0.7,
+    ease: "power1.inOut"
+  }, "0");
+  tl_pa__login.from("#".concat(id_login, " .pa_login_form"), {
+    opacity: 0,
+    clipPath: "inset(0 100% 0 0)",
+    duration: 0.5,
+    delay: 0.7,
+    background: "#CEE3EB",
+    ease: "power1.inOut"
+  }, "0");
+  tl_pa__login.from("#".concat(id_login, " .pa_login_screen .anim_1"), {
+    opacity: 0,
+    y: 19,
+    duration: 0.5,
+    stagger: 0.3,
+    ease: "power1.inOut"
+  }, "+=0.4");
+
+  //   tl_pa__login.fromTo(
+  //     ".as__top_int img",
+  //     {
+  //       yPercent: 150,
+  //       opacity: 0,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       yPercent: 0,
+  //       duration: 0.8,
+  //       ease: "power4.inout",
+  //     },
+  //     "-=1"
+  //   );
+  //   tl_pa__login.fromTo(
+  //     ".as__top_title_item",
+  //     {
+  //       xPercent: -10,
+  //       opacity: 0,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       xPercent: 0,
+  //       duration: 1,
+  //       stagger: 0.3,
+  //       ease: "power4.inout",
+  //     },
+  //     "-=0"
+  //   );
+}
+if (document.getElementById("start_chat")) document.getElementById("start_chat").addEventListener("click", startChat);
+if (document.getElementById("link_chat")) document.getElementById("link_chat").addEventListener("click", startChat);
+if (document.getElementById("nav_search")) {
+  document.querySelector("#nav_search .as__nav_search_ico").addEventListener("click", function (e) {
+    document.getElementById("nav_search").classList.toggle("open");
+    e.target.classList.toggle("fa-xmark");
+    e.target.classList.toggle("fa-magnifying-glass");
+  });
+}
+function startChat() {
+  console.log("Iniciando chat");
+  embedded_svc.liveAgentAPI.startChat({
+    directToAgentRouting: {
+      buttonId: "5738a000000Tn5E",
+      fallback: true
+    },
+    extraPrechatInfo: [{
+      entityName: "Contact",
+      saveToTranscript: ""
+    }],
+    extraPrechatFormDetails: []
+  });
+}
+if (document.getElementById("open_chat_btn")) {
+  document.getElementById("open_chat_btn").addEventListener("click", function (e) {
+    e.preventDefault();
+    document.getElementById("open_chat").classList.toggle("toopen");
+  });
+}
+if (document.getElementById("togglePassword")) {
+  var togglePassword = document.querySelector("#togglePassword");
+  var password = document.querySelector("#id_password");
+  togglePassword.addEventListener("click", function (e) {
+    // toggle the type attribute
+    var type = password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
+    // toggle the eye slash icon
+    this.classList.toggle("fa-eye-slash");
+    this.classList.toggle("fa-eye");
+  });
+}
+if (document.getElementById("togglePassword2")) {
+  var togglePassword2 = document.querySelector("#togglePassword2");
+  var _password = document.querySelector("#id_password2");
+  togglePassword2.addEventListener("click", function (e) {
+    // toggle the type attribute
+    var type = _password.getAttribute("type") === "password" ? "text" : "password";
+    _password.setAttribute("type", type);
+    // toggle the eye slash icon
+    this.classList.toggle("fa-eye-slash");
+    this.classList.toggle("fa-eye");
+  });
+}
+
+/**
+ * MENU
+ */
+var open_menu = false;
+var menu_button = document.getElementById("open_menu");
+var menu_nav = document.getElementById("as__nav_links");
+var menu_wrap = document.getElementById("as__header");
+menu_button.addEventListener("click", handleMenu);
+function handleMenu() {
+  // lenis.scroll = window.scrollY;
+  // console.log(document.querySelector("body").classList);
+  if (!open_menu) {
+    document.querySelector("body").classList.add("overflow-hidden");
+    menu_nav.classList.add("nav_open");
+    menu_wrap.classList.add("open");
+    menu_button.classList.add("open");
+    menu_nav.classList.remove("nav_close");
+  } else {
+    document.querySelector("body").classList.remove("overflow-hidden");
+    menu_nav.classList.add("nav_close");
+    menu_button.classList.remove("open");
+    menu_nav.classList.remove("nav_open");
+    menu_wrap.classList.remove("open");
+  }
+  open_menu = !open_menu;
+}
+var serviceLinks = document.querySelectorAll(".service_link a[href='#']");
+serviceLinks.forEach(function (link) {
+  link.classList.add("disabled");
+});
+var serviceNavsLinks = document.querySelectorAll(".as__nav_links_ppal_li .dropdown-content a[href='#']");
+serviceNavsLinks.forEach(function (link) {
+  link.classList.add("disabled");
+});
+if (document.getElementById("servicios") && document.getElementById("docs_tabs")) {
+  var as = document.querySelectorAll(".tabs_link");
+  document.getElementById("docs_tabs").selectedIndex = 0;
+  document.getElementById("docs_tabs").addEventListener("change", function (e) {
+    changeTab(e.target.value);
+    // location.href = "#servicios";
+  });
+  document.querySelectorAll(".as__nav_links_ppal_link[data-tab]").forEach(function (tabe) {
+    tabe.addEventListener("click", function (e) {
+      e.preventDefault();
+      var tab = e.target.dataset.tab;
+      changeTab(tab);
+    });
+  });
+  as.forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var tab = e.target.dataset.tab;
+      var hash = e.target.dataset.hash;
+      history.replaceState({}, document.title, window.location.pathname + window.location.search);
+      var url = window.location.href;
+      url = url.split("#")[0];
+      url = url + "#" + hash;
+      history.replaceState({}, document.title, url);
+      changeTab(tab);
+      // location.href = "#";
+    });
+  });
+  if (window.location.hash) {
+    var hast = window.location.hash.split("#")[1];
+    var elTag = document.querySelector(".tabs_link[data-hash='" + hast + "']");
+    var url = location.href;
+    location.href = "#servicios";
+    history.replaceState(null, null, url);
+    if (elTag) elTag.click();
+  } else {}
+}
+function changeTab(tab) {
+  document.getElementById("docs_tabs").selectedIndex = parseInt(tab);
+  document.querySelectorAll(".tabs_link").forEach(function (tabe) {
+    if (tab !== tabe.dataset.tab) tabe.classList.remove("active");else {
+      tabe.classList.add("active");
+      window.location.hash = tabe.dataset.hash; // Change the page hash
+      var url = location.href;
+      location.href = "#servicios";
+      history.replaceState(null, null, url);
+    }
+  });
+  document.querySelectorAll(".servicios_contents_item").forEach(function (tabe) {
+    if (tab !== tabe.dataset.tab) tabe.classList.remove("active");else tabe.classList.add("active");
+  });
+  gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.fromTo(".servicios_contents_item.active ul li", {
+    opacity: 0
+  }, {
+    opacity: 1,
+    y: 5,
+    duration: 0.5,
+    stagger: 0.2,
+    ease: "power1.inOut"
+  });
+}
+if (document.getElementById("as__ayuda")) {
+  var tl_banner = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline({
+    paused: false
+  });
+  tl_banner.to(".as__ayuda svg .ban_st", {
+    transformOrigin: "center",
+    duration: 4,
+    repeat: -1,
+    rotate: function rotate(i) {
+      return i % 2 == 0 ? 360 : -360;
+    },
+    ease: "power4.inout",
+    yoyo: true,
+    stagger: 0.2
+  }, "0");
+  tl_banner.to(".as__ayuda svg .ban_nube_1", {
+    scale: 1.1,
+    transformOrigin: "center",
+    duration: 4,
+    repeat: -1,
+    ease: "power4.inout",
+    yoyo: true,
+    stagger: 0.2
+  }, "0");
+  tl_banner.fromTo(".as__ayuda svg .ban_nube_it", {
+    x: "-40vw"
+  }, {
+    x: "180vw",
+    transformOrigin: "center",
+    duration: 19,
+    repeat: -1,
+    ease: "power4.inout",
+    // yoyo: true,
+    stagger: 0.2
+  }, "0");
+  tl_banner.fromTo(".as__ayuda svg .ban_nube_dt", {
+    x: "20vw"
+  }, {
+    x: "-120vw",
+    transformOrigin: "center",
+    duration: 15,
+    repeat: -1,
+    ease: "power4.inout",
+    // yoyo: true,
+    stagger: 0.2
+  }, "0");
+}
+
+//CALENDAR
+(0,_calendar__WEBPACK_IMPORTED_MODULE_0__.setCalendar)(gsap__WEBPACK_IMPORTED_MODULE_1__.gsap);
+if (document.getElementById("faqs")) {
+  var faq = document.querySelectorAll(".as__g_faqs_ls .fqs_list:first-child");
+  document.querySelectorAll(".as__g_faqs_ls .fqs_list").forEach(function (fq) {
+    fq.children[0].children[0].addEventListener("click", function (e) {
+      e.preventDefault();
+      if (!e.target.parentElement.parentElement.classList.contains("active")) {
+        var _iterator = _createForOfIteratorHelper(e.target.parentElement.parentElement.parentElement.children),
+          _step;
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var ep = _step.value;
+            ep.classList.remove("active");
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+        e.target.parentElement.parentElement.classList.add("active");
+      } else {
+        e.target.parentElement.parentElement.classList.remove("active");
+      }
+    });
+  });
+  faq.forEach(function (fq) {
+    fq.classList.add("active");
+  });
+  document.getElementById("docs_tabs").selectedIndex = 0;
+  document.getElementById("docs_tabs").addEventListener("change", function (e) {
+    changeTab2(e.target.value);
+  });
+  var _as = document.querySelectorAll(".tabs_link");
+  _as.forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var tab = e.target.dataset.tab;
+      changeTab2(tab);
+    });
+  });
+}
+function changeTab2(tab) {
+  document.getElementById("docs_tabs").selectedIndex = parseInt(tab);
+  document.querySelectorAll(".tabs_link").forEach(function (tabe) {
+    if (tab !== tabe.dataset.tab) tabe.classList.remove("active");else tabe.classList.add("active");
+  });
+  document.querySelectorAll(".as__g_faqs_tcon_list_int").forEach(function (tabe) {
+    if (tab !== tabe.dataset.tab) tabe.classList.remove("active");else tabe.classList.add("active");
+  });
+}
+})();
+
+/******/ })()
+;

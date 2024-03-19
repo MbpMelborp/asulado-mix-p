@@ -381,3 +381,21 @@ function changeTab2(tab) {
     else tabe.classList.add("active");
   });
 }
+
+if (document.getElementById("tabs_nov")) {
+  const as = document.querySelectorAll(".tab");
+
+  as.forEach((a) => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      const tab = e.target.dataset.tab;
+
+      document.querySelectorAll(".tab-active").forEach((tabe) => {
+        tabe.classList.remove("tab-active");
+      });
+      document.querySelectorAll(`[data-tab="${tab}"]`).forEach((tabe) => {
+        tabe.classList.add("tab-active");
+      });
+    });
+  });
+}

@@ -1427,3 +1427,17 @@ body {
     }
   }
 }
+
+#tabs_nov {
+  .tab-active {
+    @apply bg-transparent bg-gradient-to-b from-white to-transparent;
+  }
+}
+#tabs_nov_int {
+  ul {
+    @apply hidden;
+  }
+  ul.tab-active {
+    @apply flex;
+  }
+}

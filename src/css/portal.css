@@ -1077,6 +1077,12 @@ body {
           h4 {
             @apply text-azul-bold text-2xl font-je mb-4;
           }
+          h3 {
+            @apply text-azul-dark text-3xl font-je mb-4;
+          }
+          p {
+            @apply text-azul-dark text-lg leading-tight;
+          }
           img {
             @apply w-full my-4;
           }

@@ -1,0 +1,64 @@
+<extends
+  src="portal.html"
+  locals='{ "id": "as__home",
+"top":"" }'
+>
+  <block name="head">
+    <title>ASULADO Seguros de Vida</title>
+    <meta name="title" content="ASULADO Seguros de Vida" />
+    <meta
+      name="keywords"
+      content="Asulado seguros de vida, renta vitalicia, seguro previsional, pension anticipada"
+    />
+    <meta
+      name="description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta property="og:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="og:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:image" content="/assets/fb.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta property="twitter:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="twitter:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="twitter:image" content="/assets/fb.png" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="PORTAL/p_top_no_img.html"
+      locals='{ 
+        "cls":"inl small",
+        "ico": "xmark",
+        "title":"Error",
+        "image":"tmp_header.png",
+        "content":""
+      }'
+    ></include>
+
+    <div id="content" class="as__section pa__inter">
+      <div class="as__section_wrapper">
+        <div class="as__section_content_full pa__inter_content">
+          <div class="seacrh_result">
+            <div class="no_results">
+              <h4>¡Parece que esta página no existe!</h4>
+              <h3>Puedes explorar otras secciones de nuestro sitio web</h3>
+              <img src="/assets/images/PORTAL/top_search_no.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <include src="PORTAL/p_ayuda.html"></include>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

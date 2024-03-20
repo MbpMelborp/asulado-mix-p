@@ -564,6 +564,21 @@ body {
         @apply font-semibold text-xl md:text-3xl;
       }
     }
+    .error {
+      @apply max-w-lg flex flex-col gap-4 justify-center mx-auto w-full text-center;
+      h4 {
+        @apply text-azul-bold text-2xl font-je mb-4;
+      }
+      h3 {
+        @apply text-azul-dark text-3xl font-je mb-4;
+      }
+      p {
+        @apply text-azul-dark text-lg leading-tight;
+      }
+      img {
+        @apply w-full my-4;
+      }
+    }
   }
   .pa_login_form {
     @apply text-azul-dark w-full md:w-1/2 bg-alpha-10 px-8 md:px-16 py-8 md:py-16;

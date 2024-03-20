@@ -206,7 +206,7 @@ if (
       tabe.addEventListener("click", (e) => {
         e.preventDefault();
         const tab = e.target.dataset.tab;
-        changeTab(tab);
+        changeTab(tab, true);
       });
     });
 
@@ -243,16 +243,18 @@ if (
   }
 }
 
-function changeTab(tab) {
+function changeTab(tab, scroll = true) {
   document.getElementById("docs_tabs").selectedIndex = parseInt(tab);
   document.querySelectorAll(".tabs_link").forEach((tabe) => {
     if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
     else {
       tabe.classList.add("active");
       window.location.hash = tabe.dataset.hash; // Change the page hash
-      var url = location.href;
-      location.href = "#servicios";
-      history.replaceState(null, null, url);
+      if (scroll) {
+        var url = location.href;
+        location.href = "#servicios";
+        history.replaceState(null, null, url);
+      }
     }
   });
   document.querySelectorAll(".servicios_contents_item").forEach((tabe) => {

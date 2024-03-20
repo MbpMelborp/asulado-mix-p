@@ -48,7 +48,7 @@
               <h2>¡Hola {!$User.FirstName}!</h2>
 
               <h3>
-                ¡{!$User.Genero__c} a ASULADO, tu aliado en beneficios
+                ¡Te damos la bienvenida a ASULADO, tu aliado en beneficios
                 garantizados!
               </h3>
               <p>
@@ -132,7 +132,7 @@
                     Solicitudes
                   </a>
                 </li>
-                <li>
+                <!-- <li>
                   <a
                     href="#servicios"
                     data-tab="3"
@@ -142,7 +142,7 @@
                     <i class="fa-light fa-arrow-progress"></i>
                     Seguimiento a solicitudes
                   </a>
-                </li>
+                </li> -->
               </ul>
             </div>
             <div class="servicios_contents">
@@ -166,7 +166,6 @@
                     "image":"tmp_servicio.png",
                     "content":"Documento que certifica el ingreso de una mesada pensional por parte de ASULADO. Reúne información sobre el tipo de pensión, valor de la mesada pensional y la fecha desde cuándo formas parte de nuestra Familia."}'
                   ></include>
-
                   <include
                     src="PORTAL/p_home_servicio.html"
                     locals='{ "link":"#",
@@ -275,6 +274,16 @@
                     "content":"Si has realizado cambios en tu Pensión Voluntaria, como ajustes en las contribuciones o cualquier modificación, ¡cuéntanos! Así podemos brindarte el mejor acompañamiento."
                   }'
                   ></include>
+                  <include
+                    src="PORTAL/p_home_servicio.html"
+                    locals='{ 
+                    "link":"#",
+                    "ico": "file-lines",
+                    "title":"Consultar una novedad",
+                    "image":"tmp_servicio.png",
+                    "content":"¡Tu bienestar es nuestra prioridad! Por eso puedes conocer el estado de la actualización de tus novedades de nómina aquí."
+                  }'
+                  ></include>
                 </ul>
               </div>
               <div data-tab="4" class="servicios_contents_item">
@@ -288,10 +297,6 @@
                     "content":"¡Tus necesidades son importantes para nosotros! Conoce los diferentes tipos de consultas que puedes realizar e inicia una solicitud ahora"
                   }'
                   ></include>
-                </ul>
-              </div>
-              <div data-tab="3" class="servicios_contents_item">
-                <ul>
                   <include
                     src="PORTAL/p_home_servicio.html"
                     locals='{ "link":"/PORTAL/pqrs_2_consultar.html",
@@ -301,18 +306,11 @@
                       "content":"¡Para nosotros es importante realizar seguimiento a tus solicitudes! Si recientemente realizaste una solicitud puedes conocer el estado del proceso aquí."
                   }'
                   ></include>
-                  <include
-                    src="PORTAL/p_home_servicio.html"
-                    locals='{ 
-                    "link":"#",
-                    "ico": "file-lines",
-                    "title":"Consulta novedades",
-                    "image":"tmp_servicio.png",
-                    "content":"¡Tu bienestar es nuestra prioridad! Por eso puedes conocer el estado de la actualización de tus novedades de nómina aquí."
-                  }'
-                  ></include>
                 </ul>
               </div>
+              <!-- <div data-tab="3" class="servicios_contents_item">
+                <ul></ul>
+              </div> -->
             </div>
           </div>
         </div>

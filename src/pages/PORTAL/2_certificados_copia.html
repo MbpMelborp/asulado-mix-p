@@ -1,7 +1,7 @@
 <extends
   src="portal.html"
   locals='{ "id": "as__home",
- "top":"" }'
+"top":"" }'
 >
   <block name="head">
     <title>ASULADO Seguros de Vida</title>
@@ -36,12 +36,12 @@
     <include
       src="PORTAL/p_top.html"
       locals='{
-        "cls":"",
-        "ico":"file-invoice",
-        "title":"Colilla de pagos",
-        "image":"tmp_header.png",
-        "content":"Aquí podrás obtener información detallada sobre los pagos de tu mesada. ¡Explora y gestiona tu información pensional de manera fácil y rápida!"
-     }'
+      "cls":"",
+      "ico":"file-invoice-dollar",
+      "title":"Copia de poliza",
+      "image":"tmp_header.png",
+      "content":"Aquí, puedes acceder y gestionar fácilmente la información de tu póliza de manera rápida. ¡Obtén una copia detallada en pocos pasos!"
+   }'
     ></include>
 
     <div id="servicios" class="as__section pa__options">
@@ -50,46 +50,38 @@
           <ul>
             <include
               src="PORTAL/p_link_servicio.html"
+              locals='{ "cls":"",
+              "link":"/PORTAL/2_certificados_colilla.html",
+              "ico": "file-invoice",  "title":"Colilla de pagos",
+              "image":"tmp_servicio.png",
+              "content":"Documento que reúne información sobre tu mesada pensional, incluyendo: valor mensual de la mesada, fecha y descuentos realizados."}'
+            ></include>
+
+            <include
+              src="PORTAL/p_link_servicio.html"
+              locals='{ "cls":"",
+              "link":"/PORTAL/2_certificados_pension.html",
+              "ico": "file-lines",  "title":"Certificado de pensión",
+              "image":"tmp_servicio.png",
+              "content":"Documento que certifica el ingreso de una mesada pensional por parte de ASULADO. Reúne información sobre el tipo de pensión, valor de la mesada pensional y la fecha desde cuándo formas parte de nuestra Familia."}'
+            ></include>
+
+            <include
+              src="PORTAL/p_link_servicio.html"
               locals='{ "cls":"active",
-               "link":"/PORTAL/2_certificados_colilla.html",
-               "ico": "file-invoice",
-               "title":"Colilla de pagos",
-               "image":"tmp_servicio.png",
-               "content":"Documento que reúne información sobre tu mesada pensional, incluyendo: valor mensual de la mesada, fecha y descuentos realizados."
-              }'
-            ></include>
-
-            <include
-              src="PORTAL/p_link_servicio.html"
-              locals='{ "cls":"",
-               "link":"/PORTAL/2_certificados_pension.html",
-               "ico": "file-lines",
-               "title":"Certificado de pensión",
-               "image":"tmp_servicio.png",
-               "content":"Documento que certifica el ingreso de una mesada pensional por parte de ASULADO. Reúne información sobre el tipo de pensión, valor de la mesada pensional y la fecha desde cuándo formas parte de nuestra Familia."
-              }'
-            ></include>
-
-            <include
-              src="PORTAL/p_link_servicio.html"
-              locals='{ "cls":"",
               "link":"/PORTAL/2_certificados_copia.html",
-               "ico": "file-invoice-dollar",
-               "title":"Copia de póliza",
-               "image":"tmp_servicio.png",
-               "content":"Documento que ilustra los componentes de tu póliza de Renta Vitalicia, tus deberes y derechos como cliente y nuestras obligaciones y derechos como Aseguradora de Vida."
-              }'
+              "ico": "file-invoice-dollar",  "title":"Copia de póliza",
+              "image":"tmp_servicio.png",
+              "content":"Documento que ilustra los componentes de tu póliza de Renta Vitalicia, tus deberes y derechos como cliente y nuestras obligaciones y derechos como Aseguradora de Vida."}'
             ></include>
 
             <include
               src="PORTAL/p_link_servicio.html"
               locals='{"cls":"",
-               "link":"/PORTAL/2_certificados_ingreso.html",
-               "ico": "money-check-pen",
-               "title":"Certificado de ingresos y retenciones",
-               "image":"tmp_servicio.png",
-               "content":"Documento que informa los ingresos y las retenciones que se realizaron durante un periodo de tiempo determinado. Te servirá para que realices tu declaración de renta y otros trámites."
-              }'
+              "link":"/PORTAL/2_certificados_ingreso.html",
+              "ico": "money-check-pen",  "title":"Certificado de ingresos y retenciones",
+              "image":"tmp_servicio.png",
+              "content":"Documento que informa los ingresos y las retenciones que se realizaron durante un periodo de tiempo determinado. Te servirá para que realices tu declaración de renta y otros trámites."}'
             ></include>
           </ul>
         </div>
@@ -99,27 +91,27 @@
     <div id="content" class="as__section pa__inter">
       <div class="as__section_wrapper">
         <div class="as__section_content_full pa__inter_content">
-          <div class="pa_co_header">
-            <h4>Tipo de consulta:</h4>
+          <!-- <div class="pa_co_header">
+            <h4>Generar certificado de pensión:</h4>
             <ul class="items">
               <li>
                 <p>
-                  Selecciona <b>“Consultar último pago de mi mesada”</b> para
-                  obtener detalles sobre tu último pago.
+                  Selecciona <b>“Certificado de pensión SIN salario”</b> para
+                  obtener un documento detallado de tu pensión sin incluir
+                  información salarial.
                 </p>
               </li>
               <li>
                 <p>
-                  Selecciona <b>“Consultar varios periodos de mesada”</b> para
-                  comparar y revisar tus pagos anteriores.
+                  Selecciona <b>“Certificado de pensión CON salario”</b> si
+                  deseas incluir la información salarial en tu certificado para
+                  conseguir un registro más completo.
                 </p>
               </li>
             </ul>
-          </div>
+          </div> -->
           <div class="pa_co_content">
-            <include
-              src="PORTAL/2_certificados/1_certificados_colilla.html"
-            ></include>
+            [***** !!!!!!!! COD DE SALESFORCE *****]
           </div>
           <div class="pa_co_footer prose"></div>
         </div>

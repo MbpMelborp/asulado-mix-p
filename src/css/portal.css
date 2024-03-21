@@ -576,7 +576,10 @@ body {
         @apply text-azul-dark text-lg leading-tight;
       }
       img {
-        @apply w-full my-4;
+        @apply w-full max-w-xl mx-auto my-4;
+      }
+      .logo{
+        @apply !w-[220px] mx-auto;
       }
     }
   }

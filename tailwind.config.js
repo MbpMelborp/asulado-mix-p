@@ -53,6 +53,7 @@ module.exports = {
         "star-xs": "var(--il-star-2xs)",
       },
       backgroundImage: {
+        video: "var(--il-video)",
         ayuda: "var(--il-ayuda)",
         lusa: "var(--il-lusa)",
         chat_open: "var(--il-chat-open)",

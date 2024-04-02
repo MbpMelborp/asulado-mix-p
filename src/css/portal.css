@@ -568,17 +568,23 @@ body {
       @apply max-w-lg flex flex-col gap-4 justify-center mx-auto w-full text-center;
       h4 {
         @apply text-azul-bold text-2xl font-je mb-4;
+        a {
+          @apply btn-link text-azul-bold text-2xl font-je mb-4;
+        }
       }
       h3 {
         @apply text-azul-dark text-3xl font-je mb-4;
       }
       p {
         @apply text-azul-dark text-lg leading-tight;
+        &.text-try {
+          @apply text-2xl;
+        }
       }
       img {
         @apply w-full max-w-xl mx-auto my-4;
       }
-      .logo{
+      .logo {
         @apply !w-[220px] mx-auto;
       }
     }

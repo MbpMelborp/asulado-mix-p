@@ -1197,7 +1197,7 @@ body {
 }
 .pa_co_content {
 }
-.table {
+/* .table {
   :where(th) {
     @apply border-b border-azul-bright2 text-azul-bold text-base font-normal;
   }
@@ -1208,7 +1208,7 @@ body {
       }
     }
   }
-}
+} */
 .calendario-top {
   @apply flex gap-8;
   .doc_ico {

@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { setCalendar } from "./calendar";
+// import { Grid } from "gridjs";
 
 const id_login = "pa__login";
 const pa__login = document.getElementById(id_login);
@@ -401,3 +402,18 @@ if (document.getElementById("tabs_nov")) {
     });
   });
 }
+
+// if (document.querySelectorAll("table.tableClass").length > 0) {
+//   document.querySelectorAll("table.tableClass").forEach((table) => {
+//     console.log("table", table);
+//     const div = document.createElement("div");
+//     table.parentNode.insertBefore(div, table.nextSibling);
+//     div.classList.add("gridjs-container");
+//     const grid = new Grid({
+//       from: table,
+//       // pagination: {
+//       //   limit: 10
+//       // },
+//     }).render(div);
+//   });
+// }

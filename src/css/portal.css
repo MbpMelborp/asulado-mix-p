@@ -382,7 +382,7 @@ body {
               @apply hidden lg:block;
             }
             a {
-              @apply lg:text-sm text-base;
+              @apply lg:!text-sm text-base;
             }
           }
         }

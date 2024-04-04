@@ -227,13 +227,13 @@ body {
     }
 
     ul.as__nav_links {
-      @apply hidden lg:flex w-full flex-col items-center py-8 lg:w-auto lg:h-auto lg:min-h-max lg:flex-row lg:gap-x-0 lg:border-0 lg:p-0 2xl:gap-x-2 lg:bg-transparent;
+      @apply hidden lg:flex w-full flex-col items-center px-8 py-8 lg:w-auto lg:h-auto lg:min-h-max lg:flex-row lg:gap-x-0 lg:border-0 lg:p-0 2xl:gap-x-2 lg:bg-transparent gap-4;
 
       &.nav_open {
         @apply flex duration-700 animate-in fade-in;
       }
       li.as__nav_links_ppal_li {
-        @apply my-auto w-full lg:px-0 2xl:px-4 text-center md:w-auto md:px-0;
+        @apply my-auto w-full lg:px-0 2xl:px-4 text-center md:w-auto md:px-0 lg:rounded-none rounded-lg bg-white bg-opacity-20 lg:bg-transparent;
         &.usability {
           @apply mr-4;
         }
@@ -252,7 +252,7 @@ body {
         }
         a.as__nav_links_ppal_link,
         button.as__nav_links_ppal_link {
-          @apply block rounded-2xl px-2 lg:px-2 pb-1 pt-1.5 text-xl leading-none text-white transition-colors ease-in-out hover:bg-blue-100 hover:text-azul-bold md:px-2 md:text-sm;
+          @apply block rounded-2xl px-2 lg:px-2 pb-1 pt-1.5 text-xl leading-none text-azul-dark lg:text-white transition-colors ease-in-out font-bold lg:font-normal hover:bg-blue-100 hover:text-azul-bold md:px-2 md:text-sm;
           @apply leading-none;
           i {
             @apply text-xl;
@@ -363,7 +363,7 @@ body {
 
       li {
         a {
-          @apply hover:lg:bg-alpha-19 !text-base  lg:!text-base rounded-none hover:rounded flex lg:justify-between justify-center items-center border-b border-alpha-20 lg:border-base-200 leading-none !py-1;
+          @apply hover:lg:bg-alpha-19 !text-base  lg:!text-base rounded-none hover:rounded flex lg:justify-between justify-center items-center lg:border-b border-none lg:border-base-200 leading-none !py-1;
           i {
             @apply text-base text-azul-bold;
           }
@@ -372,11 +372,18 @@ body {
           }
         }
         &.dropdown-group {
+          @apply border-t border-azul-bright lg:border-none;
           .menu-title {
-            @apply text-left;
+            @apply text-base text-azul-dark lg:text-azul-60 text-center lg:text-left;
           }
-          a {
-            @apply !text-sm;
+          ul {
+            @apply ml-0;
+            &::before {
+              @apply hidden lg:block;
+            }
+            a {
+              @apply lg:text-sm text-base;
+            }
           }
         }
       }

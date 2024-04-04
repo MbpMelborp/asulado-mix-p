@@ -360,6 +360,7 @@ body {
     }
     .dropdown-content {
       @apply z-[1] menu p-2 lg:shadow lg:bg-base-100 lg:rounded-box lg:w-80 w-full;
+
       li {
         a {
           @apply hover:lg:bg-alpha-19 !text-base  lg:!text-base rounded-none hover:rounded flex lg:justify-between justify-center items-center border-b border-alpha-20 lg:border-base-200 leading-none !py-1;
@@ -368,6 +369,14 @@ body {
           }
           &.disabled {
             @apply cursor-not-allowed text-slate-200;
+          }
+        }
+        &.dropdown-group {
+          .menu-title {
+            @apply text-left;
+          }
+          a {
+            @apply !text-sm;
           }
         }
       }
@@ -916,7 +925,10 @@ body {
         li {
           @apply lg:w-auto w-full flex flex-col items-center justify-center gap-3;
           i.ayu-ico {
-            @apply flex h-20 w-20 2xl:h-28 2xl:w-28 items-center justify-center rounded-full border-azul-bold border md:border-2 bg-gradient-radial from-amarillo-10 to-amarillo-light text-3xl 2xl:text-5xl text-azul-bold shadow-lg shadow-alpha-30;
+            @apply hidden h-20 w-20 2xl:h-28 2xl:w-28 items-center justify-center rounded-full border-azul-bold border md:border-2 bg-gradient-radial from-amarillo-10 to-amarillo-light text-3xl 2xl:text-5xl text-azul-bold shadow-lg shadow-alpha-30;
+          }
+          img {
+            @apply w-full max-w-[200px] mx-auto block;
           }
           p {
             @apply text-azul-bold text-center text-xl 2xl:text-2xl font-je;
@@ -956,7 +968,7 @@ body {
   .pa__header_top {
     @apply flex flex-col md:flex-row items-center justify-start gap-4;
     img {
-      @apply max-w-[314px];
+      @apply max-w-[314px] rounded-xl;
     }
     div.pa__header_int {
       @apply flex flex-col gap-3;

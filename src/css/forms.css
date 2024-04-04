@@ -1,4 +1,4 @@
-.pa_co_form {
+.pa_co_form, .pa_co_content {
   @apply py-8;
   form {
     @apply mb-4;
@@ -105,6 +105,12 @@
       tr:nth-child(2n) {
         @apply bg-alpha-10;
       }
+    }
+  }
+  .table_info {
+    @apply overflow-x-auto;
+    .tableClass {
+      @apply table-pin-rows table-pin-cols;
     }
   }
 }

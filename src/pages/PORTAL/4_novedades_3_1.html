@@ -1,0 +1,863 @@
+<extends
+  src="portal.html"
+  locals='{ "id": "as__home",
+"top":"" }'
+>
+  <block name="head">
+    <title>ASULADO Seguros de Vida</title>
+    <meta name="title" content="ASULADO Seguros de Vida" />
+    <meta
+      name="keywords"
+      content="Asulado seguros de vida, renta vitalicia, seguro previsional, pension anticipada"
+    />
+    <meta
+      name="description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta property="og:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="og:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:image" content="/assets/fb.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta property="twitter:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="twitter:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="twitter:image" content="/assets/fb.png" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="PORTAL/p_top.html"
+      locals='{
+        "cls":"",
+        "ico":"file-invoice-dollar",
+        "title":"Novedades",
+        "image":"tmp_header.png",
+        "content":"¡Para nosotros es muy importante estar al día con tu información! Aquí puedes actualizar los datos más relevantes."
+     }'
+    ></include>
+
+    <div id="servicios" class="as__section pa__options">
+      <div class="as__section_wrapper">
+        <div class="as__section_content_full pa__option">
+          <div id="tabs_nov" role="tablist" class="tabs tabs-lifted tabs-lg">
+            <a role="tab" class="tab" data-tab="0">Deducción nomina</a>
+            <a role="tab" class="tab" data-tab="1">Certificación nomina</a>
+            <a role="tab" class="tab tab-active" data-tab="2"
+              >Consultar novedades</a
+            >
+          </div>
+          <div id="tabs_nov_int" class="py-2">
+            <ul data-tab="0">
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                "cls":"",
+                "link":"/PORTAL/4_novedades_1.html",
+                "ico": "file-invoice",
+                 "title":"Redistribuciones de mesada",
+                "image":"tmp_servicio.png",
+                "content":"Si recientemente has tenido cambios en la distribución de tu mesada, como ajustes en los montos o beneficiarios, ¡cuéntanos! Esto nos ayuda a que tus beneficios se administren de la mejor forma."
+            }'
+              ></include>
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                "cls":"",
+                "link":"/PORTAL/4_novedades_1.html",
+                "ico": "file-lines",
+                 "title":"Novedades de EPS",
+                "image":"tmp_servicio.png",
+                "content":"¡Tu bienestar es nuestra prioridad! Si recientemente hubo cambios con tu EPS, ¡queremos saberlo! Mantén tu información actualizada para que podamos brindarte el mejor servicio."
+              }'
+              ></include>
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                "cls":"",
+                "link":"/PORTAL/4_novedades_1.html",
+                "ico": "file-lines",
+                 "title":"Novedades de Caja de Compensación",
+                "image":"tmp_servicio.png",
+                "content":"Si recientemente has tenido cambios en tu Caja de Compensación, como el proveedor de servicios o cualquier actualización relevante, ¡queremos saberlo! Así podemos acompañarte en cada paso."
+            }'
+              ></include>
+
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                "cls":"",
+                "link":"/PORTAL/4_novedades_1.html",
+                "ico": "file-lines",
+                "title":"Novedades Pensión Voluntaria",
+                "image":"tmp_servicio.png",
+                "content":"Si has realizado cambios en tu Pensión Voluntaria, como ajustes en las contribuciones o cualquier modificación, ¡cuéntanos! Así podemos brindarte el mejor acompañamiento."
+            }'
+              ></include>
+            </ul>
+            <ul data-tab="1">
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                "cls":"",
+                "link":"/PORTAL/4_novedades_1.html",
+                "ico": "file-lines",
+                  "title":"Certificado de estudio",
+                "image":"tmp_servicio.png",
+                "content":"Documento que certifica que los beneficiarios de pensión entre los 18 y 25 años están estudiando un mínimo de 20 horas semanales. Este documento debe presentarse cada 6 meses."
+              }'
+              ></include>
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                  "cls":"",
+                  "link":"/PORTAL/4_novedades_1.html",
+                  "ico": "file-lines",
+                    "title":"Certificado de supervivencia",
+                  "image":"tmp_servicio.png",
+                  "content":"Documento que certifica que te encuentras disponible para seguir recibiendo tu mesada pensional. Lo deben presentar los colombianos que se encuentran pensionados y viven en otro país."
+                }'
+              ></include>
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                  "cls":"",
+                  "link":"/PORTAL/4_novedades_1.html",
+                  "ico": "file-lines",
+                    "title":"Novedades de cuenta financiera",
+                  "image":"tmp_servicio.png",
+                  "content":"Cuéntanos si recientemente hubo cambios en tu cuenta financiera, como el banco o número de cuenta. Esto nos permite garantizar que tus mesadas se procesen sin contratiempos."
+                }'
+              ></include>
+            </ul>
+            <ul data-tab="2" class="tab-active">
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                  "cls":"active",
+                  "link":"/PORTAL/4_novedades_3_1.html",
+                  "ico": "file-lines",
+                  "title":"Consulta novedades",
+                  "image":"tmp_servicio.png",
+                  "content":"¡Tu bienestar es nuestra prioridad! Por eso puedes conocer el estado de la actualización de tus novedades de nómina aquí."
+                }'
+              ></include>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="content" class="as__section pa__inter">
+      <div class="as__section_wrapper">
+        <div class="as__section_content_full pa__inter_content">
+          <div class="pa_co_header">
+            <h3>Consulta aqui tus Novedades</h3>
+          </div>
+          <div class="pa_co_form">
+            <span id="header:j_id4">
+              <div class="table_info">
+                <table
+                  class="tableClass"
+                  id="header:j_id5"
+                  border="0"
+                  cellpadding="0"
+                  cellspacing="0"
+                >
+                  <colgroup span="6"></colgroup>
+                  <thead class="">
+                    <tr>
+                      <th scope="col" colspan="1" id="header:j_id5:j_id6header">
+                        <div id="header:j_id5:j_id6header:sortDiv">
+                          Número novedad
+                        </div>
+                      </th>
+                      <th scope="col" colspan="1" id="header:j_id5:j_id9header">
+                        <div id="header:j_id5:j_id9header:sortDiv">
+                          Fecha Radicación
+                        </div>
+                      </th>
+                      <th
+                        scope="col"
+                        colspan="1"
+                        id="header:j_id5:j_id13header"
+                      >
+                        <div id="header:j_id5:j_id13header:sortDiv">
+                          Fecha Cierre
+                        </div>
+                      </th>
+                      <th
+                        scope="col"
+                        colspan="1"
+                        id="header:j_id5:j_id17header"
+                      >
+                        <div id="header:j_id5:j_id17header:sortDiv">
+                          Tipo de novedad
+                        </div>
+                      </th>
+                      <th
+                        scope="col"
+                        colspan="1"
+                        id="header:j_id5:j_id20header"
+                      >
+                        <div id="header:j_id5:j_id20header:sortDiv">
+                          Estado del Caso
+                        </div>
+                      </th>
+                      <th
+                        scope="col"
+                        colspan="1"
+                        id="header:j_id5:j_id23header"
+                      >
+                        <div id="header:j_id5:j_id23header:sortDiv">
+                          Observaciónes
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="header:j_id5:tb">
+                    <tr>
+                      <td id="header:j_id5:0:j_id6" colspan="1">
+                        NOVN-00000566
+                      </td>
+                      <td id="header:j_id5:0:j_id9" colspan="1">04/03/24</td>
+                      <td id="header:j_id5:0:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:0:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:0:j_id20" colspan="1">Pendiente</td>
+                      <td id="header:j_id5:0:j_id23" colspan="1">
+                        {"CorrelationId":"027ae019-d8d0-89f3-0ce3-a44ec6c5eae7","TransactionId":"9704229d-254c-402d-b023-9958d0117ccc"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:1:j_id6" colspan="1">
+                        NOVN-00000565
+                      </td>
+                      <td id="header:j_id5:1:j_id9" colspan="1">04/03/24</td>
+                      <td id="header:j_id5:1:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:1:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:1:j_id20" colspan="1">Pendiente</td>
+                      <td id="header:j_id5:1:j_id23" colspan="1">
+                        {"CorrelationId":"b83690cf-f89b-ad3c-ee94-521e980a8f3f","TransactionId":"6535a2aa-4c8d-4019-b1dd-e89613c295b3"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:2:j_id6" colspan="1">
+                        NOVN-00000564
+                      </td>
+                      <td id="header:j_id5:2:j_id9" colspan="1">04/03/24</td>
+                      <td id="header:j_id5:2:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:2:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:2:j_id20" colspan="1">Pendiente</td>
+                      <td id="header:j_id5:2:j_id23" colspan="1">
+                        {"CorrelationId":"4a7598bd-5536-e363-b91c-675434f71308","TransactionId":"75623382-b889-4c92-ac05-607ece8f3739"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:3:j_id6" colspan="1">
+                        NOVN-00000563
+                      </td>
+                      <td id="header:j_id5:3:j_id9" colspan="1">04/03/24</td>
+                      <td id="header:j_id5:3:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:3:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:3:j_id20" colspan="1">Pendiente</td>
+                      <td id="header:j_id5:3:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:4:j_id6" colspan="1">
+                        NOVN-00000557
+                      </td>
+                      <td id="header:j_id5:4:j_id9" colspan="1">04/01/24</td>
+                      <td id="header:j_id5:4:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:4:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:4:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:4:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:5:j_id6" colspan="1">
+                        NOVN-00000556
+                      </td>
+                      <td id="header:j_id5:5:j_id9" colspan="1">03/27/24</td>
+                      <td id="header:j_id5:5:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:5:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:5:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:5:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:6:j_id6" colspan="1">
+                        NOVN-00000555
+                      </td>
+                      <td id="header:j_id5:6:j_id9" colspan="1">03/27/24</td>
+                      <td id="header:j_id5:6:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:6:j_id17" colspan="1">EMBARGO</td>
+                      <td id="header:j_id5:6:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:6:j_id23" colspan="1">
+                        {"CorrelationId":"c59f9834-5acc-9ef5-c111-0fcbed8367f2","TransactionId":"2a80029c-a9da-4a43-ba9d-a98bbef0cd96"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:7:j_id6" colspan="1">
+                        NOVN-00000554
+                      </td>
+                      <td id="header:j_id5:7:j_id9" colspan="1">03/27/24</td>
+                      <td id="header:j_id5:7:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:7:j_id17" colspan="1">EMBARGO</td>
+                      <td id="header:j_id5:7:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:7:j_id23" colspan="1">
+                        {"CorrelationId":"f6a94688-df47-905d-ebba-40392f85ca31","TransactionId":"5e08aada-e04b-4453-9ef2-a5631fc46638"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:8:j_id6" colspan="1">
+                        NOVN-00000552
+                      </td>
+                      <td id="header:j_id5:8:j_id9" colspan="1">03/27/24</td>
+                      <td id="header:j_id5:8:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:8:j_id17" colspan="1">EMBARGO</td>
+                      <td id="header:j_id5:8:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:8:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:9:j_id6" colspan="1">
+                        NOVN-00000551
+                      </td>
+                      <td id="header:j_id5:9:j_id9" colspan="1">03/27/24</td>
+                      <td id="header:j_id5:9:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:9:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:9:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:9:j_id23" colspan="1">
+                        {"CorrelationId":"382c0e82-8a17-0d02-3398-1cdae53abbdd","TransactionId":"23d92e74-63c5-4812-8f57-0344158e9920"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:10:j_id6" colspan="1">
+                        NOVN-00000550
+                      </td>
+                      <td id="header:j_id5:10:j_id9" colspan="1">03/27/24</td>
+                      <td id="header:j_id5:10:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:10:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:10:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:10:j_id23" colspan="1">
+                        {"CorrelationId":"f78e66b4-c14f-d7d7-6fef-1cdefa7db33f","TransactionId":"c01beed2-76e5-4487-a4a4-ae31e496a80e"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:11:j_id6" colspan="1">
+                        NOVN-00000549
+                      </td>
+                      <td id="header:j_id5:11:j_id9" colspan="1">03/27/24</td>
+                      <td id="header:j_id5:11:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:11:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:11:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:11:j_id23" colspan="1">
+                        {"CorrelationId":"90b510c8-cd76-5d02-72ac-15e6d4a71b20","TransactionId":"15c79865-fbc2-412f-836d-d5c269e22533"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:12:j_id6" colspan="1">
+                        NOVN-00000548
+                      </td>
+                      <td id="header:j_id5:12:j_id9" colspan="1">03/27/24</td>
+                      <td id="header:j_id5:12:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:12:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:12:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:12:j_id23" colspan="1">
+                        {"CorrelationId":"f26d9e05-e968-5f66-764c-a8ad9d3f85f4","TransactionId":"dd9f42f4-8d10-4eb4-89cd-2ba75bb8447e"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:13:j_id6" colspan="1">
+                        NOVN-00000547
+                      </td>
+                      <td id="header:j_id5:13:j_id9" colspan="1">03/27/24</td>
+                      <td id="header:j_id5:13:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:13:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:13:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:13:j_id23" colspan="1">
+                        {"CorrelationId":"07d1c07a-8a87-02c0-2b08-20b230e48c27","TransactionId":"8cd43fa1-124a-4cd6-878f-70cfecf681e0"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:14:j_id6" colspan="1">
+                        NOVN-00000546
+                      </td>
+                      <td id="header:j_id5:14:j_id9" colspan="1">03/27/24</td>
+                      <td id="header:j_id5:14:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:14:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:14:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:14:j_id23" colspan="1">
+                        {"CorrelationId":"edccb75c-6f87-0c18-25bd-b0a79187ea26","TransactionId":"261b5887-cfdc-48ad-acc3-45af9dda493f"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:15:j_id6" colspan="1">
+                        NOVN-00000545
+                      </td>
+                      <td id="header:j_id5:15:j_id9" colspan="1">03/27/24</td>
+                      <td id="header:j_id5:15:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:15:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:15:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:15:j_id23" colspan="1">
+                        {"CorrelationId":"3b27ec0a-434e-5ef0-56de-c06d34dbb0be","TransactionId":"77cf4d42-d4ca-49e5-aaf0-3f6f6716bd6c"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:16:j_id6" colspan="1">
+                        NOVN-00000544
+                      </td>
+                      <td id="header:j_id5:16:j_id9" colspan="1">03/27/24</td>
+                      <td id="header:j_id5:16:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:16:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:16:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:16:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:17:j_id6" colspan="1">
+                        NOVN-00000543
+                      </td>
+                      <td id="header:j_id5:17:j_id9" colspan="1">03/27/24</td>
+                      <td id="header:j_id5:17:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:17:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:17:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:17:j_id23" colspan="1">
+                        {"CorrelationId":"104c98b7-4c93-b485-fc82-9c134aa608f2","TransactionId":"8902b081-565a-438e-ac78-df6e0971cbb3"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:18:j_id6" colspan="1">
+                        NOVN-00000539
+                      </td>
+                      <td id="header:j_id5:18:j_id9" colspan="1">03/21/24</td>
+                      <td id="header:j_id5:18:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:18:j_id17" colspan="1">EMBARGO</td>
+                      <td id="header:j_id5:18:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:18:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:19:j_id6" colspan="1">
+                        NOVN-00000538
+                      </td>
+                      <td id="header:j_id5:19:j_id9" colspan="1">03/21/24</td>
+                      <td id="header:j_id5:19:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:19:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:19:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:19:j_id23" colspan="1">
+                        {"CorrelationId":"c858545c-0258-008d-0fda-7c1aef2503b3","TransactionId":"39b348bb-3e6e-46c4-a6a9-f0ba1d141fdd"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:20:j_id6" colspan="1">
+                        NOVN-00000537
+                      </td>
+                      <td id="header:j_id5:20:j_id9" colspan="1">03/21/24</td>
+                      <td id="header:j_id5:20:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:20:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:20:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:20:j_id23" colspan="1">
+                        {"CorrelationId":"6be0bc0e-3ab8-c2ab-594b-a610d96bc18f","TransactionId":"803539ba-80ac-4a1b-a307-34a0fc2fc259"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:21:j_id6" colspan="1">
+                        NOVN-00000536
+                      </td>
+                      <td id="header:j_id5:21:j_id9" colspan="1">03/21/24</td>
+                      <td id="header:j_id5:21:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:21:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:21:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:21:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:22:j_id6" colspan="1">
+                        NOVN-00000535
+                      </td>
+                      <td id="header:j_id5:22:j_id9" colspan="1">03/21/24</td>
+                      <td id="header:j_id5:22:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:22:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:22:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:22:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:23:j_id6" colspan="1">
+                        NOVN-00000534
+                      </td>
+                      <td id="header:j_id5:23:j_id9" colspan="1">03/21/24</td>
+                      <td id="header:j_id5:23:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:23:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:23:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:23:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:24:j_id6" colspan="1">
+                        NOVN-00000533
+                      </td>
+                      <td id="header:j_id5:24:j_id9" colspan="1">03/21/24</td>
+                      <td id="header:j_id5:24:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:24:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:24:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:24:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:25:j_id6" colspan="1">
+                        NOVN-00000532
+                      </td>
+                      <td id="header:j_id5:25:j_id9" colspan="1">03/21/24</td>
+                      <td id="header:j_id5:25:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:25:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:25:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:25:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:26:j_id6" colspan="1">
+                        NOVN-00000531
+                      </td>
+                      <td id="header:j_id5:26:j_id9" colspan="1">03/21/24</td>
+                      <td id="header:j_id5:26:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:26:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:26:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:26:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:27:j_id6" colspan="1">
+                        NOVN-00000530
+                      </td>
+                      <td id="header:j_id5:27:j_id9" colspan="1">03/21/24</td>
+                      <td id="header:j_id5:27:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:27:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:27:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:27:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:28:j_id6" colspan="1">
+                        NOVN-00000529
+                      </td>
+                      <td id="header:j_id5:28:j_id9" colspan="1">03/21/24</td>
+                      <td id="header:j_id5:28:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:28:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:28:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:28:j_id23" colspan="1">
+                        {"CorrelationId":"94a15844-0742-c22e-591b-eb154db6552a","TransactionId":"3de7f414-c1fd-4e9e-bcbd-8e85c008e6bd"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:29:j_id6" colspan="1">
+                        NOVN-00000528
+                      </td>
+                      <td id="header:j_id5:29:j_id9" colspan="1">03/21/24</td>
+                      <td id="header:j_id5:29:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:29:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:29:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:29:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:30:j_id6" colspan="1">
+                        NOVN-00000527
+                      </td>
+                      <td id="header:j_id5:30:j_id9" colspan="1">03/21/24</td>
+                      <td id="header:j_id5:30:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:30:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:30:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:30:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:31:j_id6" colspan="1">
+                        NOVN-00000525
+                      </td>
+                      <td id="header:j_id5:31:j_id9" colspan="1">03/20/24</td>
+                      <td id="header:j_id5:31:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:31:j_id17" colspan="1">EMBARGO</td>
+                      <td id="header:j_id5:31:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:31:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:32:j_id6" colspan="1">
+                        NOVN-00000524
+                      </td>
+                      <td id="header:j_id5:32:j_id9" colspan="1">03/20/24</td>
+                      <td id="header:j_id5:32:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:32:j_id17" colspan="1">EMBARGO</td>
+                      <td id="header:j_id5:32:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:32:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:33:j_id6" colspan="1">
+                        NOVN-00000523
+                      </td>
+                      <td id="header:j_id5:33:j_id9" colspan="1">03/20/24</td>
+                      <td id="header:j_id5:33:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:33:j_id17" colspan="1">EMBARGO</td>
+                      <td id="header:j_id5:33:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:33:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:34:j_id6" colspan="1">
+                        NOVN-00000522
+                      </td>
+                      <td id="header:j_id5:34:j_id9" colspan="1">03/20/24</td>
+                      <td id="header:j_id5:34:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:34:j_id17" colspan="1">EMBARGO</td>
+                      <td id="header:j_id5:34:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:34:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:35:j_id6" colspan="1">
+                        NOVN-00000521
+                      </td>
+                      <td id="header:j_id5:35:j_id9" colspan="1">03/20/24</td>
+                      <td id="header:j_id5:35:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:35:j_id17" colspan="1">EMBARGO</td>
+                      <td id="header:j_id5:35:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:35:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:36:j_id6" colspan="1">
+                        NOVN-00000520
+                      </td>
+                      <td id="header:j_id5:36:j_id9" colspan="1">03/20/24</td>
+                      <td id="header:j_id5:36:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:36:j_id17" colspan="1">EMBARGO</td>
+                      <td id="header:j_id5:36:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:36:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:37:j_id6" colspan="1">
+                        NOVN-00000519
+                      </td>
+                      <td id="header:j_id5:37:j_id9" colspan="1">03/20/24</td>
+                      <td id="header:j_id5:37:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:37:j_id17" colspan="1">EMBARGO</td>
+                      <td id="header:j_id5:37:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:37:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:38:j_id6" colspan="1">
+                        NOVN-00000518
+                      </td>
+                      <td id="header:j_id5:38:j_id9" colspan="1">03/20/24</td>
+                      <td id="header:j_id5:38:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:38:j_id17" colspan="1">EMBARGO</td>
+                      <td id="header:j_id5:38:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:38:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:39:j_id6" colspan="1">
+                        NOVN-00000512
+                      </td>
+                      <td id="header:j_id5:39:j_id9" colspan="1">03/18/24</td>
+                      <td id="header:j_id5:39:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:39:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:39:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:39:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:40:j_id6" colspan="1">
+                        NOVN-00000510
+                      </td>
+                      <td id="header:j_id5:40:j_id9" colspan="1">03/18/24</td>
+                      <td id="header:j_id5:40:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:40:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:40:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:40:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:41:j_id6" colspan="1">
+                        NOVN-00000509
+                      </td>
+                      <td id="header:j_id5:41:j_id9" colspan="1">03/18/24</td>
+                      <td id="header:j_id5:41:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:41:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:41:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:41:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:42:j_id6" colspan="1">
+                        NOVN-00000508
+                      </td>
+                      <td id="header:j_id5:42:j_id9" colspan="1">03/18/24</td>
+                      <td id="header:j_id5:42:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:42:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:42:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:42:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:43:j_id6" colspan="1">
+                        NOVN-00000507
+                      </td>
+                      <td id="header:j_id5:43:j_id9" colspan="1">03/18/24</td>
+                      <td id="header:j_id5:43:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:43:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:43:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:43:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:44:j_id6" colspan="1">
+                        NOVN-00000505
+                      </td>
+                      <td id="header:j_id5:44:j_id9" colspan="1">03/18/24</td>
+                      <td id="header:j_id5:44:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:44:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:44:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:44:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:45:j_id6" colspan="1">
+                        NOVN-00000504
+                      </td>
+                      <td id="header:j_id5:45:j_id9" colspan="1">03/18/24</td>
+                      <td id="header:j_id5:45:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:45:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:45:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:45:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:46:j_id6" colspan="1">
+                        NOVN-00000503
+                      </td>
+                      <td id="header:j_id5:46:j_id9" colspan="1">03/18/24</td>
+                      <td id="header:j_id5:46:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:46:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:46:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:46:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:47:j_id6" colspan="1">
+                        NOVN-00000502
+                      </td>
+                      <td id="header:j_id5:47:j_id9" colspan="1">03/18/24</td>
+                      <td id="header:j_id5:47:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:47:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:47:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:47:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:48:j_id6" colspan="1">
+                        NOVN-00000501
+                      </td>
+                      <td id="header:j_id5:48:j_id9" colspan="1">03/18/24</td>
+                      <td id="header:j_id5:48:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:48:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:48:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:48:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:49:j_id6" colspan="1">
+                        NOVN-00000500
+                      </td>
+                      <td id="header:j_id5:49:j_id9" colspan="1">03/18/24</td>
+                      <td id="header:j_id5:49:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:49:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:49:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:49:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:50:j_id6" colspan="1">
+                        NOVN-00000495
+                      </td>
+                      <td id="header:j_id5:50:j_id9" colspan="1">03/04/24</td>
+                      <td id="header:j_id5:50:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:50:j_id17" colspan="1">EMBARGO</td>
+                      <td id="header:j_id5:50:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:50:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:51:j_id6" colspan="1">
+                        NOVN-00000494
+                      </td>
+                      <td id="header:j_id5:51:j_id9" colspan="1">03/01/24</td>
+                      <td id="header:j_id5:51:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:51:j_id17" colspan="1">LIBRANZA</td>
+                      <td id="header:j_id5:51:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:51:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:52:j_id6" colspan="1">
+                        NOVN-00000493
+                      </td>
+                      <td id="header:j_id5:52:j_id9" colspan="1">02/28/24</td>
+                      <td id="header:j_id5:52:j_id13" colspan="1"></td>
+                      <td id="header:j_id5:52:j_id17" colspan="1">
+                        CAJA DE COMPENSACION
+                      </td>
+                      <td id="header:j_id5:52:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:52:j_id23" colspan="1"></td>
+                    </tr>
+                    <tr>
+                      <td id="header:j_id5:53:j_id6" colspan="1">
+                        NOVN-00000004
+                      </td>
+                      <td id="header:j_id5:53:j_id9" colspan="1"></td>
+                      <td id="header:j_id5:53:j_id13" colspan="1">12/19/23</td>
+                      <td id="header:j_id5:53:j_id17" colspan="1">EMBARGO</td>
+                      <td id="header:j_id5:53:j_id20" colspan="1"></td>
+                      <td id="header:j_id5:53:j_id23" colspan="1">
+                        Test de observaciones 4
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div></span
+            >
+          </div>
+          <div class="pa_co_footer prose"></div>
+        </div>
+        <div class="as__section_content_full">
+          <div class="pa__inter_footer prose"></div>
+        </div>
+      </div>
+    </div>
+
+    <include src="PORTAL/p_ayuda.html"></include>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

@@ -1,0 +1,203 @@
+<extends
+  src="portal.html"
+  locals='{ "id": "as__home",
+"top":"" }'
+>
+  <block name="head">
+    <title>ASULADO Seguros de Vida</title>
+    <meta name="title" content="ASULADO Seguros de Vida" />
+    <meta
+      name="keywords"
+      content="Asulado seguros de vida, renta vitalicia, seguro previsional, pension anticipada"
+    />
+    <meta
+      name="description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta property="og:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="og:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:image" content="/assets/fb.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta property="twitter:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="twitter:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="twitter:image" content="/assets/fb.png" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="PORTAL/p_top.html"
+      locals='{
+        "cls":"",
+        "ico":"file-invoice-dollar",
+        "title":"Novedades",
+        "image":"tmp_header.png",
+        "content":"¡Para nosotros es muy importante estar al día con tu información! Aquí puedes actualizar los datos más relevantes."
+     }'
+    ></include>
+
+    <div id="servicios" class="as__section pa__options">
+      <div class="as__section_wrapper">
+        <div class="as__section_content_full pa__option">
+          <div id="tabs_nov" role="tablist" class="tabs tabs-lifted tabs-lg">
+            <a role="tab" class="tab tab-active" data-tab="0"
+              >Deducción nomina</a
+            >
+            <a role="tab" class="tab" data-tab="1">Certificación nomina</a>
+            <a role="tab" class="tab" data-tab="2">Consultar novedades</a>
+          </div>
+          <div id="tabs_nov_int" class="py-2">
+            <ul data-tab="0" class="tab-active">
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                "cls":"",
+                "link":"/PORTAL/4_novedades_1_1.html",
+                "ico": "file-invoice",
+                 "title":"Redistribuciones de mesada",
+                "image":"tmp_servicio.png",
+                "content":"Si recientemente has tenido cambios en la distribución de tu mesada, como ajustes en los montos o beneficiarios, ¡cuéntanos! Esto nos ayuda a que tus beneficios se administren de la mejor forma."
+            }'
+              ></include>
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                "cls":"",
+                "link":"/PORTAL/4_novedades_1_2.html",
+                "ico": "file-lines",
+                 "title":"Novedades de EPS",
+                "image":"tmp_servicio.png",
+                "content":"¡Tu bienestar es nuestra prioridad! Si recientemente hubo cambios con tu EPS, ¡queremos saberlo! Mantén tu información actualizada para que podamos brindarte el mejor servicio."
+              }'
+              ></include>
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                "cls":"",
+                "link":"/PORTAL/4_novedades_1_3.html",
+                "ico": "file-lines",
+                 "title":"Novedades de Caja de Compensación",
+                "image":"tmp_servicio.png",
+                "content":"Si recientemente has tenido cambios en tu Caja de Compensación, como el proveedor de servicios o cualquier actualización relevante, ¡queremos saberlo! Así podemos acompañarte en cada paso."
+            }'
+              ></include>
+
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                "cls":"active",
+                "link":"/PORTAL/4_novedades_1_4.html",
+                "ico": "file-lines",
+                "title":"Novedades Pensión Voluntaria",
+                "image":"tmp_servicio.png",
+                "content":"Si has realizado cambios en tu Pensión Voluntaria, como ajustes en las contribuciones o cualquier modificación, ¡cuéntanos! Así podemos brindarte el mejor acompañamiento."
+            }'
+              ></include>
+            </ul>
+            <ul data-tab="1">
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                "cls":"",
+                "link":"/PORTAL/4_novedades_2_1.html",
+                "ico": "file-lines",
+                  "title":"Certificado de estudio",
+                "image":"tmp_servicio.png",
+                "content":"Documento que certifica que los beneficiarios de pensión entre los 18 y 25 años están estudiando un mínimo de 20 horas semanales. Este documento debe presentarse cada 6 meses."
+              }'
+              ></include>
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                  "cls":"",
+                  "link":"/PORTAL/4_novedades_2_2.html",
+                  "ico": "file-lines",
+                    "title":"Certificado de supervivencia",
+                  "image":"tmp_servicio.png",
+                  "content":"Documento que certifica que te encuentras disponible para seguir recibiendo tu mesada pensional. Lo deben presentar los colombianos que se encuentran pensionados y viven en otro país."
+                }'
+              ></include>
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                  "cls":"",
+                  "link":"/PORTAL/4_novedades_2_3.html",
+                  "ico": "file-lines",
+                    "title":"Novedades de cuenta financiera",
+                  "image":"tmp_servicio.png",
+                  "content":"Cuéntanos si recientemente hubo cambios en tu cuenta financiera, como el banco o número de cuenta. Esto nos permite garantizar que tus mesadas se procesen sin contratiempos."
+                }'
+              ></include>
+            </ul>
+            <ul data-tab="2">
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                  "cls":"",
+                  "link":"/PORTAL/4_novedades_3_1.html",
+                  "ico": "file-lines",
+                  "title":"Consulta novedades",
+                  "image":"tmp_servicio.png",
+                  "content":"¡Tu bienestar es nuestra prioridad! Por eso puedes conocer el estado de la actualización de tus novedades de nómina aquí."
+                }'
+              ></include>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="content" class="as__section pa__inter">
+      <div class="as__section_wrapper">
+        <div class="as__section_content_full pa__inter_content">
+          <div class="pa_co_header">
+            <p class="text-lg">
+              A continuación, elige el tipo de deducción que necesitas solicitar
+              y tu entidad de Pensión Voluntaria. Diligencia los datos
+              requeridos y adjunta el certificado indicado. Ten en cuenta que tú
+              elegirás el valor de tu aporte.
+            </p>
+            <div role="alert" class="alert">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="stroke-info shrink-0 w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <p>
+                <b>Recuerda:</b> el certificado debe estar bajo el NIT de
+                Asulado. Al finalizar, recibirás un correo confirmando el éxito
+                de tu solicitud.
+              </p>
+            </div>
+          </div>
+          <div class="pa_co_content">
+            [***** !!!!!!!! COD DE SALESFORCE *****]
+          </div>
+          <div class="pa_co_footer prose"></div>
+        </div>
+        <div class="as__section_content_full">
+          <div class="pa__inter_footer prose"></div>
+        </div>
+      </div>
+    </div>
+
+    <include src="PORTAL/p_ayuda.html"></include>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

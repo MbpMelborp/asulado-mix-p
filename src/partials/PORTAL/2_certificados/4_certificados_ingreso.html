@@ -1,2203 +1,825 @@
-<article
-  c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-  data-content-position="right"
-  tabindex="-1"
-  class="omniscript-article slds-card slds-grid slds-wrap slds-grid_vertical-stretch slds-flexipage-container_large"
+<form
+  id="pg:fm"
+  name="pg:fm"
+  method="post"
+  action="https://proteccion--stage--c.sandbox.vf.force.com/apex/CertiIngresos"
+  enctype="application/x-www-form-urlencoded"
 >
-  <div
-    c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-  ></div>
-  <div
-    c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-    class="omniscript-body slds-card__body slds-card__body_inner slds-m-top_medium slds-p-right_medium slds-col slds-grid slds-grid_vertical slds-size_1-of-1"
-    data-stepborder="right"
-  >
-    <vlocity_ins-omniscript-step
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="Step1"
-      vlocity_ins-omniscriptstep_omniscriptstep-host=""
-      ><div vlocity_ins-omniscriptstep_omniscriptstep=""></div>
-      <h1
-        vlocity_ins-omniscriptstep_omniscriptstep=""
-        class="slds-page-header__title slds-p-horizontal_medium slds-text-heading--medium slds-m-top_medium os-step-label"
-      >
-        Certificado de Ingreso y Retención
-      </h1>
-      <div
-        class="vlc-separator slds-border_top slds-m-top_x-small slds-m-bottom_xx-small slds-m-horizontal_medium"
-        vlocity_ins-omniscriptstep_omniscriptstep=""
-      ></div>
-      <div
-        vlocity_ins-omniscriptstep_omniscriptstep=""
-        class="slds-grid slds-wrap slds-p-vertical_small omniscript-step__body"
-      >
-        <slot
-          vlocity_ins-omniscriptstep_omniscriptstep=""
-          class="slds-grid slds-wrap slds-size_1-of-1 slds-p-left_medium"
-          ><vlocity_ins-omniscript-date
-            c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-            data-omni-key="AnioConsulta"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12"
-            ><slot
-              ><c-input
-                class="slds-container_fluid"
-                data-omni-input=""
-                vlocity_ins-input_input_slds-host=""
-                ><c-date-picker
-                  vlocity_ins-input_input_slds=""
-                  vlocity_ins-datepicker_datepicker_slds-host=""
-                  ><div
-                    vlocity_ins-datepicker_datepicker_slds=""
-                    class="via-slds datePickerHt"
-                  >
-                    <div
-                      vlocity_ins-datepicker_datepicker_slds=""
-                      class="slds-form"
+  <input type="hidden" name="pg:fm" value="pg:fm" />
+  <script>
+    if (!window.sfdcPage) {
+      window.sfdcPage = new ApexPage();
+    }
+    UserContext.initialize({
+      ampm: ["AM", "PM"],
+      isAccessibleMode: false,
+      salesforceURL: "https://proteccion--stage.sandbox.my.salesforce.com",
+      dateFormat: "d/MM/yyyy",
+      language: "en_US",
+      locale: "es_CO",
+      dateTimeFormat: "d/MM/yyyy, h:mm a",
+      labelLastModified: "1712661847000",
+      today: "10/04/2024, 12:45 PM",
+      userPreferences: [
+        { index: 112, name: "HideInlineEditSplash", value: false },
+        { index: 114, name: "OverrideTaskSendNotification", value: false },
+        { index: 115, name: "DefaultTaskSendNotification", value: false },
+        { index: 119, name: "HideUserLayoutStdFieldInfo", value: false },
+        { index: 116, name: "HideRPPWarning", value: false },
+        { index: 87, name: "HideInlineSchedulingSplash", value: false },
+        { index: 88, name: "HideCRUCNotification", value: false },
+        { index: 89, name: "HideNewPLESplash", value: false },
+        { index: 90, name: "HideNewPLEWarnIE6", value: false },
+        { index: 122, name: "HideOverrideSharingMessage", value: false },
+        { index: 91, name: "HideProfileILEWarn", value: false },
+        { index: 93, name: "HideProfileElvVideo", value: false },
+        { index: 97, name: "ShowPicklistEditSplash", value: false },
+        { index: 92, name: "HideDataCategorySplash", value: false },
+        { index: 128, name: "ShowDealView", value: false },
+        { index: 129, name: "HideDealViewGuidedTour", value: false },
+        { index: 132, name: "HideKnowledgeFirstTimeSetupMsg", value: false },
+        { index: 104, name: "DefaultOffEntityPermsMsg", value: false },
+        { index: 135, name: "HideNewCsnSplash", value: false },
+        { index: 101, name: "HideBrowserWarning", value: false },
+        { index: 139, name: "HideDashboardBuilderGuidedTour", value: false },
+        { index: 140, name: "HideSchedulingGuidedTour", value: false },
+        { index: 180, name: "HideReportBuilderGuidedTour", value: false },
+        { index: 183, name: "HideAssociationQueueCallout", value: false },
+        { index: 194, name: "HideQTEBanner", value: false },
+        { index: 270, name: "HideIDEGuidedTour", value: false },
+        { index: 282, name: "HideQueryToolGuidedTour", value: false },
+        { index: 196, name: "HideCSIGuidedTour", value: false },
+        { index: 271, name: "HideFewmetGuidedTour", value: false },
+        { index: 272, name: "HideEditorGuidedTour", value: false },
+        { index: 205, name: "HideApexTestGuidedTour", value: false },
+        { index: 206, name: "HideSetupProfileHeaderTour", value: false },
+        {
+          index: 207,
+          name: "HideSetupProfileObjectsAndTabsTour",
+          value: false,
+        },
+        {
+          index: 213,
+          name: "DefaultOffArticleTypeEntityPermMsg",
+          value: false,
+        },
+        { index: 214, name: "HideSelfInfluenceGetStarted", value: false },
+        { index: 215, name: "HideOtherInfluenceGetStarted", value: false },
+        { index: 216, name: "HideFeedToggleGuidedTour", value: false },
+        { index: 268, name: "ShowChatterTab178GuidedTour", value: false },
+        { index: 275, name: "HidePeopleTabDeprecationMsg", value: false },
+        { index: 276, name: "HideGroupTabDeprecationMsg", value: false },
+        { index: 224, name: "HideUnifiedSearchGuidedTour", value: false },
+        { index: 226, name: "ShowDevContextMenu", value: true },
+        {
+          index: 227,
+          name: "HideWhatRecommenderForActivityQueues",
+          value: false,
+        },
+        { index: 228, name: "HideLiveAgentFirstTimeSetupMsg", value: false },
+        {
+          index: 232,
+          name: "HideGroupAllowsGuestsMsgOnMemberWidget",
+          value: false,
+        },
+        { index: 233, name: "HideGroupAllowsGuestsMsg", value: false },
+        { index: 234, name: "HideWhatAreGuestsMsg", value: false },
+        { index: 235, name: "HideNowAllowGuestsMsg", value: false },
+        {
+          index: 236,
+          name: "HideSocialAccountsAndContactsGuidedTour",
+          value: false,
+        },
+        { index: 237, name: "HideAnalyticsHomeGuidedTour", value: false },
+        { index: 238, name: "ShowQuickCreateGuidedTour", value: false },
+        { index: 245, name: "HideFilePageGuidedTour", value: false },
+        { index: 250, name: "HideForecastingGuidedTour", value: false },
+        { index: 251, name: "HideBucketFieldGuide", value: false },
+        { index: 263, name: "HideSmartSearchCallOut", value: false },
+        { index: 273, name: "ShowForecastingQuotaAttainment", value: false },
+        { index: 280, name: "HideForecastingQuotaColumn", value: false },
+        { index: 301, name: "HideManyWhoGuidedTour", value: false },
+        { index: 298, name: "HideFileSyncBannerMsg", value: false },
+        { index: 299, name: "HideTestConsoleGuidedTour", value: false },
+        { index: 302, name: "HideManyWhoInlineEditTip", value: false },
+        { index: 303, name: "HideSetupV2WelcomeMessage", value: false },
+        { index: 312, name: "ForecastingShowQuantity", value: false },
+        { index: 313, name: "HideDataImporterIntroMsg", value: false },
+        { index: 314, name: "HideEnvironmentHubLightbox", value: false },
+        { index: 316, name: "HideSetupV2GuidedTour", value: false },
+        { index: 317, name: "HideFileSyncMobileDownloadDialog", value: false },
+        { index: 322, name: "HideEnhancedProfileHelpBubble", value: false },
+        { index: 328, name: "ForecastingHideZeroRows", value: false },
+        {
+          index: 330,
+          name: "HideEmbeddedComponentsFeatureCallout",
+          value: false,
+        },
+        { index: 341, name: "HideDedupeMatchResultCallout", value: false },
+        { index: 340, name: "HideS1BrowserUI", value: true },
+        { index: 346, name: "HideS1Banner", value: false },
+        { index: 358, name: "HideEmailVerificationAlert", value: false },
+        { index: 354, name: "HideLearningPathModal", value: false },
+        { index: 359, name: "HideAtMentionsHelpBubble", value: false },
+        { index: 368, name: "LightningExperiencePreferred", value: true },
+        { index: 373, name: "PreviewLightning", value: false },
+        { index: 281, name: "HideMSPPopup", value: false },
+      ],
+      networkId: "",
+      uiTheme: "Theme3",
+      uiSkin: "Theme3",
+      userName: "juanosorio@melborp.co.stage",
+      userId: "005O8000002QLUJ",
+      isCurrentlySysAdminSU: false,
+      renderMode: "RETRO",
+      startOfWeek: "1",
+      vfDomainPattern: "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
+      auraDomain: "proteccion--stage.sandbox.lightning.force.com",
+      useNativeAlertConfirmPrompt: false,
+      orgPreferences: [
+        { index: 257, name: "TabOrganizer", value: true },
+        { index: 113, name: "GroupTasks", value: true },
+      ],
+      siteUrlPrefix: "",
+      isDefaultNetwork: true,
+      timeFormat: "h:mm a",
+    });
+  </script>
+  <div class="apexp">
+    <div
+      id="pg:fm:pb"
+      class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
+    >
+      <script>
+        function twistSection(elem, sectionId) {
+          var parentDiv = elem;
+          var twisty = elem;
+          while (parentDiv.tagName != "DIV") {
+            parentDiv = parentDiv.parentNode;
+          }
+          if (
+            elem.tagName === "DIV" &&
+            elem.attributes["data-twistyimgid"] !== undefined
+          ) {
+            twisty = document.getElementById(
+              elem.attributes["data-twistyimgid"].value
+            );
+          }
+          var div = parentDiv.nextSibling;
+          var elemWasOn = false;
+          if (div.style.display != "none") {
+            div.style.display = "none";
+            twisty.className = "showListButton";
+            twisty.alt = "Show Section - " + twisty.name;
+            elem.title = twisty.alt;
+            elemWasOn = true;
+          } else {
+            div.style.display = "block";
+            twisty.className = "hideListButton";
+            twisty.alt = "Hide Section - " + twisty.name;
+            elem.title = twisty.alt;
+          }
+          return !elemWasOn;
+        }
+        var registeredSections = new Array();
+        function registerTwistableSection(headerId, mainTableId) {
+          var obj = new Object();
+          obj.headerId = headerId;
+          obj.mainTableId = mainTableId;
+          registeredSections[registeredSections.length] = obj;
+        }
+        function twistAllSections(on) {
+          for (var i = 0; i < registeredSections.length; i++) {
+            var obj = registeredSections[i];
+            var img;
+            img = document.getElementById("img_" + obj.headerId);
+            if (on && "showListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            } else if (!on && "hideListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            }
+          }
+        }
+        function toggleSection(headerId, on) {
+          var sectionHead = document.getElementById(
+            "head_" + headerId + "_pg_fm_pb"
+          );
+          var body = sectionHead.nextSibling;
+          var disp = on ? "block" : "none";
+          sectionHead.style.display = disp;
+          body.style.display = disp;
+        }
+        function registerTwistableSections_pg_fm_pb() {
+          registerTwistableSection("pg_fm_pb_send", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_init", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_preview", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_notpreview", "pg_fm_pb");
+        }
+        registerTwistableSections_pg_fm_pb();
+      </script>
+      <div class="pbBody">
+        <div id="pg:fm:pb:init">
+          <div class="pbSubsection">
+            <table
+              class="detailList"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+            >
+              <tbody>
+                <tr>
+                  <td class="data2Col first" colspan="2">
+                    <div class="as__form_wrapper"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col form-control as_select" colspan="2">
+                    <label class="label"
+                      ><span class="label-text"
+                        >¿Que año desea generar?</span
+                      ></label
                     >
-                      <fieldset
-                        vlocity_ins-datepicker_datepicker_slds=""
-                        class="slds-form-element"
-                      >
-                        <div
-                          vlocity_ins-datepicker_datepicker_slds=""
-                          class="slds-form-element__group"
-                        >
-                          <div
-                            vlocity_ins-datepicker_datepicker_slds=""
-                            class="slds-form-element__row"
-                          >
-                            <div
-                              vlocity_ins-datepicker_datepicker_slds=""
-                              class="slds-gutters slds-size_full slds-m-around_none"
-                            >
-                              <div
-                                vlocity_ins-datepicker_datepicker_slds=""
-                                class="slds-col slds-p-around_none"
-                              >
-                                <div
-                                  vlocity_ins-datepicker_datepicker_slds=""
-                                  class="slds-form-element slds-size_1-of-1 slds-dropdown-trigger slds-dropdown-trigger_click"
-                                >
-                                  <div
-                                    vlocity_ins-datepicker_datepicker_slds=""
-                                    class="slds-grid"
-                                    data-label="true"
-                                  >
-                                    <label
-                                      vlocity_ins-datepicker_datepicker_slds=""
-                                      class="slds-form-element__label slds-show--inline slds-truncate"
-                                      for="date-input-150"
-                                      ><abbr
-                                        vlocity_ins-datepicker_datepicker_slds=""
-                                        class="slds-required"
-                                        title="Required"
-                                        ><span
-                                          vlocity_ins-datepicker_datepicker_slds=""
-                                          >*</span
-                                        ></abbr
-                                      >Año a consultar</label
-                                    ><slot
-                                      vlocity_ins-datepicker_datepicker_slds=""
-                                      name="label"
-                                      ><slot
-                                        vlocity_ins-input_input_slds=""
-                                        slot="label"
-                                        name="label"
-                                      ></slot
-                                    ></slot>
-                                  </div>
-                                  <div
-                                    vlocity_ins-datepicker_datepicker_slds=""
-                                    class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right"
-                                  >
-                                    <input
-                                      vlocity_ins-datepicker_datepicker_slds=""
-                                      class="slds-input"
-                                      type="text"
-                                      id="date-input-150"
-                                      aria-label="Año a consultar"
-                                      required=""
-                                      data-id="date-picker-slds-input"
-                                      autocomplete="off"
-                                      aria-invalid="false"
-                                      aria-describedby="errorMessageBlock-150"
-                                    /><button
-                                      vlocity_ins-datepicker_datepicker_slds=""
-                                      class="slds-button slds-button_icon slds-input__icon slds-input__icon_right Date"
-                                      data-id="datePickerBtn"
-                                      title="Select Date"
-                                      type="button"
-                                    >
-                                      <c-icon
-                                        vlocity_ins-datepicker_datepicker_slds=""
-                                        class="Date"
-                                        aria-hidden="true"
-                                        ><svg
-                                          class="slds-icon slds-icon-text-default slds-icon_x-small"
-                                          aria-hidden="true"
-                                        >
-                                          <use
-                                            xlink:href="#httpsproteccionstagesandboxmysitecomasuladosldsiconsutilityspritesvgsymbolssvg_event"
-                                          ></use></svg
-                                        ><span
-                                          class="slds-assistive-text"
-                                        ></span></c-icon
-                                      ><span
-                                        vlocity_ins-datepicker_datepicker_slds=""
-                                        class="slds-assistive-text"
-                                        >Select Date</span
-                                      >
-                                    </button>
-                                  </div>
-                                  <div
-                                    vlocity_ins-datepicker_datepicker_slds=""
-                                    class="calendar-div slds-datepicker slds-dropdown slds-dropdown_left posAbsolute"
-                                    data-id="date-picker-div"
-                                    role="dialog"
-                                    aria-hidden="false"
-                                    aria-label="Date picker"
-                                  >
-                                    <div
-                                      vlocity_ins-datepicker_datepicker_slds=""
-                                      class="slds-datepicker__filter slds-grid"
-                                    >
-                                      <div
-                                        vlocity_ins-datepicker_datepicker_slds=""
-                                        class="slds-datepicker__filter_month slds-grid slds-grid_align-spread slds-grow"
-                                      >
-                                        <div
-                                          vlocity_ins-datepicker_datepicker_slds=""
-                                          class="slds-align-middle"
-                                        >
-                                          <button
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="slds-button slds-button_icon slds-button_icon-container prevMonth"
-                                            data-id="prevMonthBtnId"
-                                            tabindex="0"
-                                            title="Previous Month"
-                                            type="button"
-                                          >
-                                            <c-icon
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="prevMonth"
-                                              ><svg
-                                                class="slds-icon slds-icon-text-default slds-icon_x-small"
-                                                aria-hidden="true"
-                                              >
-                                                <use
-                                                  xlink:href="#httpsproteccionstagesandboxmysitecomasuladosldsiconsutilityspritesvgsymbolssvg_left"
-                                                ></use></svg
-                                              ><span
-                                                class="slds-assistive-text"
-                                              ></span></c-icon
-                                            ><span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-assistive-text"
-                                              >Previous Month</span
-                                            >
-                                          </button>
-                                        </div>
-                                        <h2
-                                          vlocity_ins-datepicker_datepicker_slds=""
-                                          class="slds-align-middle"
-                                          data-id="selected_month"
-                                          id="month-150"
-                                        >
-                                          February
-                                        </h2>
-                                        <div
-                                          vlocity_ins-datepicker_datepicker_slds=""
-                                          class="slds-align-middle"
-                                        >
-                                          <button
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="slds-button slds-button_icon slds-button_icon-container nextMonth"
-                                            data-id="nextMonthBtnId"
-                                            tabindex="0"
-                                            title="Next Month"
-                                            type="button"
-                                          >
-                                            <c-icon
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="nextMonth"
-                                              ><svg
-                                                class="slds-icon slds-icon-text-default slds-icon_x-small"
-                                                aria-hidden="true"
-                                              >
-                                                <use
-                                                  xlink:href="#httpsproteccionstagesandboxmysitecomasuladosldsiconsutilityspritesvgsymbolssvg_right"
-                                                ></use></svg
-                                              ><span
-                                                class="slds-assistive-text"
-                                              ></span></c-icon
-                                            ><span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-assistive-text"
-                                              >Next Month</span
-                                            >
-                                          </button>
-                                        </div>
-                                      </div>
-                                      <div
-                                        vlocity_ins-datepicker_datepicker_slds=""
-                                        class="slds-shrink-none"
-                                      >
-                                        <label
-                                          vlocity_ins-datepicker_datepicker_slds=""
-                                          class="slds-assistive-text"
-                                          for="select-01-150"
-                                          >Pick a year</label
-                                        >
-                                        <div
-                                          vlocity_ins-datepicker_datepicker_slds=""
-                                          class="slds-select_container"
-                                        >
-                                          <select
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="slds-select"
-                                            tabindex="0"
-                                            data-id="select-01"
-                                            id="select-01-150"
-                                          >
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2014</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2015</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2016</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2017</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2018</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2019</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2020</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2021</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2022</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2023</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2024</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2025</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2026</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2027</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2028</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2029</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2030</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2031</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2032</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2033</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2034</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2035</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2036</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2037</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2038</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2039</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2040</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2041</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2042</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2043</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2044</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2045</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2046</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2047</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2048</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2049</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2050</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2051</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2052</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2053</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2054</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2055</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2056</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2057</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2058</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2059</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2060</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2061</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2062</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2063</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2064</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2065</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2066</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2067</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2068</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2069</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2070</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2071</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2072</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2073</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2074</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2075</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2076</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2077</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2078</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2079</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2080</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2081</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2082</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2083</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2084</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2085</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2086</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2087</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2088</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2089</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2090</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2091</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2092</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2093</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2094</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2095</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2096</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2097</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2098</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2099</span
-                                              >
-                                            </option>
-                                            <option
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                            >
-                                              <span
-                                                vlocity_ins-datepicker_datepicker_slds=""
-                                                >2100</span
-                                              >
-                                            </option>
-                                          </select>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <table
-                                      vlocity_ins-datepicker_datepicker_slds=""
-                                      class="slds-datepicker__month"
-                                      aria-multiselectable="true"
-                                      role="presentation"
-                                    >
-                                      <thead
-                                        vlocity_ins-datepicker_datepicker_slds=""
-                                      >
-                                        <tr
-                                          vlocity_ins-datepicker_datepicker_slds=""
-                                          data-id="weekdays"
-                                        >
-                                          <th
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="slds-disabled-text"
-                                            data-id="Sun"
-                                            tabindex="-1"
-                                            scope="col"
-                                          >
-                                            <abbr
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              title="Sun"
-                                              >Sun</abbr
-                                            >
-                                          </th>
-                                          <th
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="slds-disabled-text"
-                                            data-id="Mon"
-                                            tabindex="-1"
-                                            scope="col"
-                                          >
-                                            <abbr
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              title="Mon"
-                                              >Mon</abbr
-                                            >
-                                          </th>
-                                          <th
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="slds-disabled-text"
-                                            data-id="Tue"
-                                            tabindex="-1"
-                                            scope="col"
-                                          >
-                                            <abbr
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              title="Tue"
-                                              >Tue</abbr
-                                            >
-                                          </th>
-                                          <th
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="slds-disabled-text"
-                                            data-id="Wed"
-                                            tabindex="-1"
-                                            scope="col"
-                                          >
-                                            <abbr
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              title="Wed"
-                                              >Wed</abbr
-                                            >
-                                          </th>
-                                          <th
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="slds-disabled-text"
-                                            data-id="Thu"
-                                            tabindex="-1"
-                                            scope="col"
-                                          >
-                                            <abbr
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              title="Thu"
-                                              >Thu</abbr
-                                            >
-                                          </th>
-                                          <th
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="slds-disabled-text"
-                                            data-id="Fri"
-                                            tabindex="-1"
-                                            scope="col"
-                                          >
-                                            <abbr
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              title="Fri"
-                                              >Fri</abbr
-                                            >
-                                          </th>
-                                          <th
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="slds-disabled-text"
-                                            data-id="Sat"
-                                            tabindex="-1"
-                                            scope="col"
-                                          >
-                                            <abbr
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              title="Sat"
-                                              >Sat</abbr
-                                            >
-                                          </th>
-                                        </tr>
-                                      </thead>
-                                      <tbody
-                                        vlocity_ins-datepicker_datepicker_slds=""
-                                      >
-                                        <tr
-                                          vlocity_ins-datepicker_datepicker_slds=""
-                                        >
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day slds-day_adjacent-month prev-month dayId-prev28"
-                                            data-id="prev-month-dayId28"
-                                            aria-selected="false"
-                                            aria-label="February 28 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >28</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day slds-day_adjacent-month prev-month dayId-prev29"
-                                            data-id="prev-month-dayId29"
-                                            aria-selected="false"
-                                            aria-label="February 29 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >29</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day slds-day_adjacent-month prev-month dayId-prev30"
-                                            data-id="prev-month-dayId30"
-                                            aria-selected="false"
-                                            aria-label="February 30 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >30</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day slds-day_adjacent-month prev-month dayId-prev31"
-                                            data-id="prev-month-dayId31"
-                                            aria-selected="false"
-                                            aria-label="February 31 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >31</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId1"
-                                            data-id="dayId1"
-                                            aria-selected="false"
-                                            aria-label="February 1 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >1</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId2"
-                                            data-id="dayId2"
-                                            aria-selected="false"
-                                            aria-label="February 2 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >2</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId3"
-                                            data-id="dayId3"
-                                            aria-selected="false"
-                                            aria-label="February 3 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >3</span
-                                            >
-                                          </td>
-                                        </tr>
-                                        <tr
-                                          vlocity_ins-datepicker_datepicker_slds=""
-                                        >
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId4"
-                                            data-id="dayId4"
-                                            aria-selected="false"
-                                            aria-label="February 4 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >4</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId5"
-                                            data-id="dayId5"
-                                            aria-selected="false"
-                                            aria-label="February 5 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >5</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId6"
-                                            data-id="dayId6"
-                                            aria-selected="false"
-                                            aria-label="February 6 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >6</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId7"
-                                            data-id="dayId7"
-                                            aria-selected="false"
-                                            aria-label="February 7 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >7</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId8"
-                                            data-id="dayId8"
-                                            aria-selected="false"
-                                            aria-label="February 8 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >8</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId9"
-                                            data-id="dayId9"
-                                            aria-selected="false"
-                                            aria-label="February 9 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >9</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId10"
-                                            data-id="dayId10"
-                                            aria-selected="false"
-                                            aria-label="February 10 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >10</span
-                                            >
-                                          </td>
-                                        </tr>
-                                        <tr
-                                          vlocity_ins-datepicker_datepicker_slds=""
-                                        >
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId11"
-                                            data-id="dayId11"
-                                            aria-selected="false"
-                                            aria-label="February 11 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >11</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId12"
-                                            data-id="dayId12"
-                                            aria-selected="false"
-                                            aria-label="February 12 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >12</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId13"
-                                            data-id="dayId13"
-                                            aria-selected="false"
-                                            aria-label="February 13 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >13</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId14"
-                                            data-id="dayId14"
-                                            aria-selected="false"
-                                            aria-label="February 14 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >14</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId15 slds-is-today"
-                                            data-id="dayId15"
-                                            aria-selected="false"
-                                            aria-label="February 15 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >15</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId16"
-                                            data-id="dayId16"
-                                            aria-selected="false"
-                                            aria-label="February 16 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >16</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId17"
-                                            data-id="dayId17"
-                                            aria-selected="false"
-                                            aria-label="February 17 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >17</span
-                                            >
-                                          </td>
-                                        </tr>
-                                        <tr
-                                          vlocity_ins-datepicker_datepicker_slds=""
-                                        >
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId18"
-                                            data-id="dayId18"
-                                            aria-selected="false"
-                                            aria-label="February 18 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >18</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId19"
-                                            data-id="dayId19"
-                                            aria-selected="false"
-                                            aria-label="February 19 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >19</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId20"
-                                            data-id="dayId20"
-                                            aria-selected="false"
-                                            aria-label="February 20 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >20</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId21"
-                                            data-id="dayId21"
-                                            aria-selected="false"
-                                            aria-label="February 21 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >21</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId22"
-                                            data-id="dayId22"
-                                            aria-selected="false"
-                                            aria-label="February 22 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >22</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId23"
-                                            data-id="dayId23"
-                                            aria-selected="false"
-                                            aria-label="February 23 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >23</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId24"
-                                            data-id="dayId24"
-                                            aria-selected="false"
-                                            aria-label="February 24 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >24</span
-                                            >
-                                          </td>
-                                        </tr>
-                                        <tr
-                                          vlocity_ins-datepicker_datepicker_slds=""
-                                        >
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId25"
-                                            data-id="dayId25"
-                                            aria-selected="false"
-                                            aria-label="February 25 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >25</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId26"
-                                            data-id="dayId26"
-                                            aria-selected="false"
-                                            aria-label="February 26 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >26</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId27"
-                                            data-id="dayId27"
-                                            aria-selected="false"
-                                            aria-label="February 27 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >27</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId28"
-                                            data-id="dayId28"
-                                            aria-selected="false"
-                                            aria-label="February 28 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >28</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day curr-month dayId29"
-                                            data-id="dayId29"
-                                            aria-selected="false"
-                                            aria-label="February 29 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >29</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day slds-day_adjacent-month next-month dayId-next1"
-                                            data-id="next-month-dayId1"
-                                            aria-selected="false"
-                                            aria-label="February 1 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >1</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day slds-day_adjacent-month next-month dayId-next2"
-                                            data-id="next-month-dayId2"
-                                            aria-selected="false"
-                                            aria-label="February 2 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >2</span
-                                            >
-                                          </td>
-                                        </tr>
-                                        <tr
-                                          vlocity_ins-datepicker_datepicker_slds=""
-                                        >
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day slds-day_adjacent-month next-month dayId-next3"
-                                            data-id="next-month-dayId3"
-                                            aria-selected="false"
-                                            aria-label="February 3 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >3</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day slds-day_adjacent-month next-month dayId-next4"
-                                            data-id="next-month-dayId4"
-                                            aria-selected="false"
-                                            aria-label="February 4 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >4</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day slds-day_adjacent-month next-month dayId-next5"
-                                            data-id="next-month-dayId5"
-                                            aria-selected="false"
-                                            aria-label="February 5 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >5</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day slds-day_adjacent-month next-month dayId-next6"
-                                            data-id="next-month-dayId6"
-                                            aria-selected="false"
-                                            aria-label="February 6 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >6</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day slds-day_adjacent-month next-month dayId-next7"
-                                            data-id="next-month-dayId7"
-                                            aria-selected="false"
-                                            aria-label="February 7 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >7</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day slds-day_adjacent-month next-month dayId-next8"
-                                            data-id="next-month-dayId8"
-                                            aria-selected="false"
-                                            aria-label="February 8 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >8</span
-                                            >
-                                          </td>
-                                          <td
-                                            vlocity_ins-datepicker_datepicker_slds=""
-                                            class="day-val day slds-day slds-day_adjacent-month next-month dayId-next9"
-                                            data-id="next-month-dayId9"
-                                            aria-selected="false"
-                                            aria-label="February 9 2024"
-                                            tabindex="0"
-                                            role="button"
-                                          >
-                                            <span
-                                              vlocity_ins-datepicker_datepicker_slds=""
-                                              class="slds-day"
-                                              >9</span
-                                            >
-                                          </td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                    <button
-                                      vlocity_ins-datepicker_datepicker_slds=""
-                                      class="slds-button slds-align_absolute-center slds-text-link currentDate"
-                                      data-id="current-date"
-                                      tabindex="0"
-                                      type="button"
-                                    >
-                                      Today
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </fieldset>
-                    </div>
-                  </div></c-date-picker
-                ></c-input
-              ></slot
-            ></vlocity_ins-omniscript-date
-          ><vlocity_ins-omniscript-formula
-            c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-            data-omni-key="FormulaAnio"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12 slds-hide"
-            ><slot
-              ><c-masked-input
-                data-omni-input=""
-                vlocity_ins-maskedinput_maskedinput_slds-host=""
-                ><div
-                  vlocity_ins-maskedinput_maskedinput_slds=""
-                  class="slds-form-element slds-form-container"
-                >
-                  <div
-                    vlocity_ins-maskedinput_maskedinput_slds=""
-                    class="slds-grid"
-                  >
-                    <slot
-                      vlocity_ins-maskedinput_maskedinput_slds=""
-                      name="label"
-                    ></slot>
-                  </div>
-                  <div vlocity_ins-maskedinput_maskedinput_slds="">
-                    <div
-                      vlocity_ins-maskedinput_maskedinput_slds=""
-                      class="slds-grid"
-                    >
-                      <label
-                        vlocity_ins-maskedinput_maskedinput_slds=""
-                        class="slds-form-element__label slds-show--inline"
-                        for="input11-153"
-                        style="width: auto"
-                        >Formula1</label
-                      >
-                    </div>
+                    <select id="Anio" name="Anio" required="true">
+                      <option value="2023">2023</option>
+                      <option value="2022">2022</option>
+                      <option value="2021">2021</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2"></td>
+                </tr>
+                <tr>
+                  <td class="data2Col last" colspan="2">
                     <input
-                      vlocity_ins-maskedinput_maskedinput_slds=""
-                      class="slds-input"
-                      type="text"
-                      readonly=""
-                      disabled=""
-                      id="input11-153"
+                      id="pg:fm:pb:init:btnVerify"
+                      type="submit"
+                      name="pg:fm:pb:init:btnVerify"
+                      value="Generar certificado"
                     />
-                  </div>
-                  <div
-                    vlocity_ins-maskedinput_maskedinput_slds=""
-                    class="slds-form-element__control slds-form-element__control-animated-label"
-                  ></div>
-                  <div
-                    vlocity_ins-maskedinput_maskedinput_slds=""
-                    class="slds-grid"
-                  ></div></div></c-masked-input></slot></vlocity_ins-omniscript-formula
-        ></slot></div></vlocity_ins-omniscript-step
-    ><vlocity_ins-omniscript-set-values
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="SetAnio"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-set-values
-    ><vlocity_ins-omniscript-ip-action
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="ExtractUserInfo"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-ip-action
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="IPUsuario"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-ip-action
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="ConsultarInformacionContacto"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-ip-action
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="ConsultaIngresoRetencion"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-set-values
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="DatosURL"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-set-values
-    ><vlocity_ins-omniscript-set-values
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="SetValues1"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-set-values
-    ><vlocity_ins-omniscript-step
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="PrevisualizacionPDF"
-      vlocity_ins-omniscriptstep_omniscriptstep-host=""
-    ></vlocity_ins-omniscript-step>
-    <div
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      class="slds-grid slds-wrap slds-gutters slds-p-horizontal_medium slds-show_medium"
-    >
-      <div
-        c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-        class="slds-col slds-order_2 slds-medium-order_1 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-          class="omniscript-sfl-actions"
-        >
-          <vlocity_ins-navigate-action
-            c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-            data-omni-key="DEFAULT-CANCEL"
-            ><slot></slot
-          ></vlocity_ins-navigate-action>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-      <div
-        c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-        class="slds-col slds-order_1 slds-medium-order_2 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-          class="slds-grid slds-wrap slds-grid_align-end omniscript-button-position"
-        >
-          <vlocity_ins-button
-            c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-            class="omniscript-btn-next slds-size_12-of-12 slds-m-bottom_x-small slds-medium-size_3-of-12"
-            ><button
-              class="vlocity-btn slds-button slds-button_brand slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center"
-              type="button"
-              aria-label="Siguiente"
-            >
-              <span class="btnLabel">Siguiente</span>
-            </button></vlocity_ins-button
-          >
-        </div>
-      </div>
-    </div>
-    <div
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      class="slds-grid slds-wrap slds-gutters slds-p-horizontal_medium slds-hide_medium"
-    >
-      <div
-        c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-        class="slds-col slds-order_1 slds-medium-order_2 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-          class="slds-grid slds-wrap slds-grid_align-end"
-        >
-          <vlocity_ins-button
-            c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-            class="omniscript-btn-next slds-size_12-of-12 slds-m-bottom_x-small slds-medium-size_3-of-12"
-            ><button
-              class="vlocity-btn slds-button slds-button_brand slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center"
-              type="button"
-              aria-label="Siguiente"
-            >
-              <span class="btnLabel">Siguiente</span>
-            </button></vlocity_ins-button
-          >
-        </div>
-      </div>
-      <div
-        c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-        class="slds-col slds-order_2 slds-medium-order_1 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-          class="omniscript-sfl-actions"
-        >
-          <vlocity_ins-navigate-action
-            c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-            data-omni-key="DEFAULT-CANCEL"
-            ><slot></slot
-          ></vlocity_ins-navigate-action>
-        </div>
-      </div>
+      <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
     </div>
   </div>
-</article>
-<article
-  c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-  data-content-position="right"
-  tabindex="-1"
-  class="omniscript-article slds-card slds-grid slds-wrap slds-grid_vertical-stretch slds-flexipage-container_large"
+  <div id="pg:fm:j_id21"></div>
+</form>
+
+<hr class="my-4" />
+<form
+  id="pg:fm"
+  name="pg:fm"
+  method="post"
+  action="https://proteccion--stage--c.sandbox.vf.force.com/apex/CertiIngresos"
+  enctype="application/x-www-form-urlencoded"
 >
-  <div
-    c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-  ></div>
-  <div
-    c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-    class="omniscript-body slds-card__body slds-card__body_inner slds-m-top_medium slds-p-right_medium slds-col slds-grid slds-grid_vertical slds-size_1-of-1"
-    data-stepborder="right"
-  >
-    <vlocity_ins-omniscript-step
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="Step1"
-      vlocity_ins-omniscriptstep_omniscriptstep-host=""
-    ></vlocity_ins-omniscript-step
-    ><vlocity_ins-omniscript-set-values
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="SetAnio"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-set-values
-    ><vlocity_ins-omniscript-ip-action
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="ExtractUserInfo"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-ip-action
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="IPUsuario"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-ip-action
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="ConsultarInformacionContacto"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-ip-action
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="ConsultaIngresoRetencion"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-set-values
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="DatosURL"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-set-values
-    ><vlocity_ins-omniscript-set-values
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="SetValues1"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-set-values
-    ><vlocity_ins-omniscript-step
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      data-omni-key="PrevisualizacionPDF"
-      vlocity_ins-omniscriptstep_omniscriptstep-host=""
-      ><div vlocity_ins-omniscriptstep_omniscriptstep=""></div>
-      <h1
-        vlocity_ins-omniscriptstep_omniscriptstep=""
-        class="slds-page-header__title slds-p-horizontal_medium slds-text-heading--medium slds-m-top_medium os-step-label"
-      ></h1>
-      <div
-        class="vlc-separator slds-border_top slds-m-top_x-small slds-m-bottom_xx-small slds-m-horizontal_medium"
-        vlocity_ins-omniscriptstep_omniscriptstep=""
-      ></div>
-      <div
-        vlocity_ins-omniscriptstep_omniscriptstep=""
-        class="slds-grid slds-wrap slds-p-vertical_small omniscript-step__body"
-      >
-        <slot
-          vlocity_ins-omniscriptstep_omniscriptstep=""
-          class="slds-grid slds-wrap slds-size_1-of-1 slds-p-left_medium"
-          ><vlocity_ins-omniscript-custom-lwc
-            c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-            data-omni-key="CustomLWC1"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12"
-            ><slot
-              ><c-pro_-preview-p-d-f
-                c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-                data-omni-key="CustomLWC1"
-                data-omni-layout="lightning"
-                data-omni-input=""
-                ><lightning-card
-                  ><article class="slds-card" part="card">
-                    <div class="slds-card__header slds-grid">
-                      <header
-                        class="slds-media slds-media_center slds-has-flexi-truncate"
-                        part="header"
-                      >
-                        <div class="slds-media__figure" part="icon">
-                          <lightning-icon
-                            icon-name="custom:custom62"
-                            class="slds-icon-custom-custom62 slds-icon_container"
-                            ><span
-                              style="
-                                --sds-c-icon-color-background: var(
-                                  --slds-c-icon-color-background,
-                                  rgb(107, 146, 220)
-                                );
-                              "
-                              part="boundary"
-                              ><lightning-primitive-icon
-                                size="small"
-                                variant="inverse"
-                                ><svg
-                                  class="slds-icon slds-icon_small"
-                                  focusable="false"
-                                  data-key="custom62"
-                                  aria-hidden="true"
-                                  viewBox="0 0 100 100"
-                                  part="icon"
-                                >
-                                  <g>
-                                    <path
-                                      d="M77 70H23a3 3 0 100 6h54a3 3 0 100-6zm-53-6h34v-4c0-1.1.9-2 2-2h10a2 2 0 012 2v4h4a2 2 0 002-2V28a2 2 0 00-2-2H24a2 2 0 00-2 2v34c0 1.1.9 2 2 2zm9-26c0-1.1.9-2 2-2h29a2 2 0 012 2v2a2 2 0 01-2 2H35a2 2 0 01-2-2v-2zm0 12c0-1.1.9-2 2-2h19a2 2 0 012 2v2a2 2 0 01-2 2H35a2 2 0 01-2-2v-2z"
-                                    ></path>
-                                  </g></svg></lightning-primitive-icon></span
-                          ></lightning-icon>
-                        </div>
-                        <div class="slds-media__body" part="title">
-                          <h2 class="slds-card__header-title">
-                            <span class="slds-text-heading_small slds-truncate"
-                              >Vista Previa de PDF</span
-                            >
-                          </h2>
-                        </div>
-                        <div class="slds-no-flex" part="actions">
-                          <slot name="actions"></slot>
-                        </div>
-                      </header>
-                    </div>
-                    <div class="slds-card__body" part="body">
-                      <slot
-                        ><div class="slds-m-around_medium">
-                          <p>No hay URL de PDF para previsualizar.</p>
-                        </div></slot
-                      >
-                    </div>
-                    <slot
-                      class="slds-hide"
-                      name="footer"
-                    ></slot></article></lightning-card></c-pro_-preview-p-d-f></slot></vlocity_ins-omniscript-custom-lwc
-          ><vlocity_ins-omniscript-text-block
-            c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-            data-omni-key="TextBlock1"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12"
-            ><slot
-              ><div
-                class="slds-form-element slds-form-container slds-text-block"
-              >
-                <c-omniscript-formatted-rich-text
-                  ><lightning-formatted-rich-text
-                    class="slds-rich-text-editor__output"
-                    ><span part="formatted-rich-text"
-                      ><div>
-                        <p>No existe certificado para el año consultado.</p>
-                      </div></span
-                    ></lightning-formatted-rich-text
-                  ></c-omniscript-formatted-rich-text
-                >
-              </div></slot
-            ></vlocity_ins-omniscript-text-block
-          ></slot
-        >
-      </div></vlocity_ins-omniscript-step
-    >
+  <input type="hidden" name="pg:fm" value="pg:fm" />
+  <script>
+    if (!window.sfdcPage) {
+      window.sfdcPage = new ApexPage();
+    }
+    UserContext.initialize({
+      ampm: ["AM", "PM"],
+      isAccessibleMode: false,
+      salesforceURL: "https://proteccion--stage.sandbox.my.salesforce.com",
+      dateFormat: "d/MM/yyyy",
+      language: "en_US",
+      locale: "es_CO",
+      dateTimeFormat: "d/MM/yyyy, h:mm a",
+      labelLastModified: "1712661847000",
+      today: "10/04/2024, 9:33 AM",
+      userPreferences: [
+        { index: 112, name: "HideInlineEditSplash", value: false },
+        { index: 114, name: "OverrideTaskSendNotification", value: false },
+        { index: 115, name: "DefaultTaskSendNotification", value: false },
+        { index: 119, name: "HideUserLayoutStdFieldInfo", value: false },
+        { index: 116, name: "HideRPPWarning", value: false },
+        { index: 87, name: "HideInlineSchedulingSplash", value: false },
+        { index: 88, name: "HideCRUCNotification", value: false },
+        { index: 89, name: "HideNewPLESplash", value: false },
+        { index: 90, name: "HideNewPLEWarnIE6", value: false },
+        { index: 122, name: "HideOverrideSharingMessage", value: false },
+        { index: 91, name: "HideProfileILEWarn", value: false },
+        { index: 93, name: "HideProfileElvVideo", value: false },
+        { index: 97, name: "ShowPicklistEditSplash", value: false },
+        { index: 92, name: "HideDataCategorySplash", value: false },
+        { index: 128, name: "ShowDealView", value: false },
+        { index: 129, name: "HideDealViewGuidedTour", value: false },
+        { index: 132, name: "HideKnowledgeFirstTimeSetupMsg", value: false },
+        { index: 104, name: "DefaultOffEntityPermsMsg", value: false },
+        { index: 135, name: "HideNewCsnSplash", value: false },
+        { index: 101, name: "HideBrowserWarning", value: false },
+        { index: 139, name: "HideDashboardBuilderGuidedTour", value: false },
+        { index: 140, name: "HideSchedulingGuidedTour", value: false },
+        { index: 180, name: "HideReportBuilderGuidedTour", value: false },
+        { index: 183, name: "HideAssociationQueueCallout", value: false },
+        { index: 194, name: "HideQTEBanner", value: false },
+        { index: 270, name: "HideIDEGuidedTour", value: false },
+        { index: 282, name: "HideQueryToolGuidedTour", value: false },
+        { index: 196, name: "HideCSIGuidedTour", value: false },
+        { index: 271, name: "HideFewmetGuidedTour", value: false },
+        { index: 272, name: "HideEditorGuidedTour", value: false },
+        { index: 205, name: "HideApexTestGuidedTour", value: false },
+        { index: 206, name: "HideSetupProfileHeaderTour", value: false },
+        {
+          index: 207,
+          name: "HideSetupProfileObjectsAndTabsTour",
+          value: false,
+        },
+        {
+          index: 213,
+          name: "DefaultOffArticleTypeEntityPermMsg",
+          value: false,
+        },
+        { index: 214, name: "HideSelfInfluenceGetStarted", value: false },
+        { index: 215, name: "HideOtherInfluenceGetStarted", value: false },
+        { index: 216, name: "HideFeedToggleGuidedTour", value: false },
+        { index: 268, name: "ShowChatterTab178GuidedTour", value: false },
+        { index: 275, name: "HidePeopleTabDeprecationMsg", value: false },
+        { index: 276, name: "HideGroupTabDeprecationMsg", value: false },
+        { index: 224, name: "HideUnifiedSearchGuidedTour", value: false },
+        { index: 226, name: "ShowDevContextMenu", value: true },
+        {
+          index: 227,
+          name: "HideWhatRecommenderForActivityQueues",
+          value: false,
+        },
+        { index: 228, name: "HideLiveAgentFirstTimeSetupMsg", value: false },
+        {
+          index: 232,
+          name: "HideGroupAllowsGuestsMsgOnMemberWidget",
+          value: false,
+        },
+        { index: 233, name: "HideGroupAllowsGuestsMsg", value: false },
+        { index: 234, name: "HideWhatAreGuestsMsg", value: false },
+        { index: 235, name: "HideNowAllowGuestsMsg", value: false },
+        {
+          index: 236,
+          name: "HideSocialAccountsAndContactsGuidedTour",
+          value: false,
+        },
+        { index: 237, name: "HideAnalyticsHomeGuidedTour", value: false },
+        { index: 238, name: "ShowQuickCreateGuidedTour", value: false },
+        { index: 245, name: "HideFilePageGuidedTour", value: false },
+        { index: 250, name: "HideForecastingGuidedTour", value: false },
+        { index: 251, name: "HideBucketFieldGuide", value: false },
+        { index: 263, name: "HideSmartSearchCallOut", value: false },
+        { index: 273, name: "ShowForecastingQuotaAttainment", value: false },
+        { index: 280, name: "HideForecastingQuotaColumn", value: false },
+        { index: 301, name: "HideManyWhoGuidedTour", value: false },
+        { index: 298, name: "HideFileSyncBannerMsg", value: false },
+        { index: 299, name: "HideTestConsoleGuidedTour", value: false },
+        { index: 302, name: "HideManyWhoInlineEditTip", value: false },
+        { index: 303, name: "HideSetupV2WelcomeMessage", value: false },
+        { index: 312, name: "ForecastingShowQuantity", value: false },
+        { index: 313, name: "HideDataImporterIntroMsg", value: false },
+        { index: 314, name: "HideEnvironmentHubLightbox", value: false },
+        { index: 316, name: "HideSetupV2GuidedTour", value: false },
+        { index: 317, name: "HideFileSyncMobileDownloadDialog", value: false },
+        { index: 322, name: "HideEnhancedProfileHelpBubble", value: false },
+        { index: 328, name: "ForecastingHideZeroRows", value: false },
+        {
+          index: 330,
+          name: "HideEmbeddedComponentsFeatureCallout",
+          value: false,
+        },
+        { index: 341, name: "HideDedupeMatchResultCallout", value: false },
+        { index: 340, name: "HideS1BrowserUI", value: true },
+        { index: 346, name: "HideS1Banner", value: false },
+        { index: 358, name: "HideEmailVerificationAlert", value: false },
+        { index: 354, name: "HideLearningPathModal", value: false },
+        { index: 359, name: "HideAtMentionsHelpBubble", value: false },
+        { index: 368, name: "LightningExperiencePreferred", value: true },
+        { index: 373, name: "PreviewLightning", value: false },
+        { index: 281, name: "HideMSPPopup", value: false },
+      ],
+      networkId: "",
+      uiTheme: "Theme3",
+      uiSkin: "Theme3",
+      userName: "juanosorio@melborp.co.stage",
+      userId: "005O8000002QLUJ",
+      isCurrentlySysAdminSU: false,
+      renderMode: "RETRO",
+      startOfWeek: "1",
+      vfDomainPattern: "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
+      auraDomain: "proteccion--stage.sandbox.lightning.force.com",
+      useNativeAlertConfirmPrompt: false,
+      orgPreferences: [
+        { index: 257, name: "TabOrganizer", value: true },
+        { index: 113, name: "GroupTasks", value: true },
+      ],
+      siteUrlPrefix: "",
+      isDefaultNetwork: true,
+      timeFormat: "h:mm a",
+    });
+  </script>
+  <div class="apexp">
     <div
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      class="slds-grid slds-wrap slds-gutters slds-p-horizontal_medium slds-show_medium"
+      id="pg:fm:pb"
+      class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
     >
-      <div
-        c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-        class="slds-col slds-order_2 slds-medium-order_1 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-          class="omniscript-sfl-actions"
-        >
-          <vlocity_ins-navigate-action
-            c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-            data-omni-key="DEFAULT-CANCEL"
-            ><slot></slot
-          ></vlocity_ins-navigate-action>
-        </div>
-      </div>
-      <div
-        c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-        class="slds-col slds-order_1 slds-medium-order_2 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-          class="slds-grid slds-wrap slds-grid_align-end omniscript-button-position"
-        >
-          <vlocity_ins-button
-            c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-            class="omniscript-btn-previous slds-size_12-of-12 slds-m-bottom_x-small slds-medium-size_3-of-12"
-            ><button
-              class="vlocity-btn slds-button slds-button_neutral slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center"
-              type="button"
-              aria-label="Regresar"
+      <script>
+        function twistSection(elem, sectionId) {
+          var parentDiv = elem;
+          var twisty = elem;
+          while (parentDiv.tagName != "DIV") {
+            parentDiv = parentDiv.parentNode;
+          }
+          if (
+            elem.tagName === "DIV" &&
+            elem.attributes["data-twistyimgid"] !== undefined
+          ) {
+            twisty = document.getElementById(
+              elem.attributes["data-twistyimgid"].value
+            );
+          }
+          var div = parentDiv.nextSibling;
+          var elemWasOn = false;
+          if (div.style.display != "none") {
+            div.style.display = "none";
+            twisty.className = "showListButton";
+            twisty.alt = "Show Section - " + twisty.name;
+            elem.title = twisty.alt;
+            elemWasOn = true;
+          } else {
+            div.style.display = "block";
+            twisty.className = "hideListButton";
+            twisty.alt = "Hide Section - " + twisty.name;
+            elem.title = twisty.alt;
+          }
+          return !elemWasOn;
+        }
+        var registeredSections = new Array();
+        function registerTwistableSection(headerId, mainTableId) {
+          var obj = new Object();
+          obj.headerId = headerId;
+          obj.mainTableId = mainTableId;
+          registeredSections[registeredSections.length] = obj;
+        }
+        function twistAllSections(on) {
+          for (var i = 0; i < registeredSections.length; i++) {
+            var obj = registeredSections[i];
+            var img;
+            img = document.getElementById("img_" + obj.headerId);
+            if (on && "showListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            } else if (!on && "hideListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            }
+          }
+        }
+        function toggleSection(headerId, on) {
+          var sectionHead = document.getElementById(
+            "head_" + headerId + "_pg_fm_pb"
+          );
+          var body = sectionHead.nextSibling;
+          var disp = on ? "block" : "none";
+          sectionHead.style.display = disp;
+          body.style.display = disp;
+        }
+        function registerTwistableSections_pg_fm_pb() {
+          registerTwistableSection("pg_fm_pb_send", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_init", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_preview", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_notpreview", "pg_fm_pb");
+        }
+        registerTwistableSections_pg_fm_pb();
+      </script>
+      <div class="pbBody">
+        <div id="pg:fm:pb:send">
+          <div class="pbSubsection">
+            <table
+              class="detailList"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
             >
-              <span class="btnLabel">Regresar</span>
-            </button></vlocity_ins-button
-          >
+              <tbody>
+                <tr>
+                  <td class="data2Col first" colspan="2">
+                    <p>
+                      Se ha enviado satisfactoriamente el certificado de
+                      ingresos y retenciones a tu correo registrado
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col last" colspan="2">
+                    <input
+                      id="pg:fm:pb:send:btnVaciar"
+                      type="submit"
+                      name="pg:fm:pb:send:btnVaciar"
+                      value="Regresar"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-      class="slds-grid slds-wrap slds-gutters slds-p-horizontal_medium slds-hide_medium"
-    >
-      <div
-        c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-        class="slds-col slds-order_1 slds-medium-order_2 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-          class="slds-grid slds-wrap slds-grid_align-end"
-        >
-          <vlocity_ins-button
-            c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-            class="omniscript-btn-previous slds-size_12-of-12 slds-m-bottom_x-small slds-medium-size_3-of-12"
-            ><button
-              class="vlocity-btn slds-button slds-button_neutral slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center"
-              type="button"
-              aria-label="Regresar"
-            >
-              <span class="btnLabel">Regresar</span>
-            </button></vlocity_ins-button
-          >
-        </div>
-      </div>
-      <div
-        c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-        class="slds-col slds-order_2 slds-medium-order_1 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-          class="omniscript-sfl-actions"
-        >
-          <vlocity_ins-navigate-action
-            c-proconsultaingresoretencionesenglish_proconsultaingresoretencionesenglish=""
-            data-omni-key="DEFAULT-CANCEL"
-            ><slot></slot
-          ></vlocity_ins-navigate-action>
-        </div>
-      </div>
+      <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
     </div>
   </div>
-</article>
+  <div id="pg:fm:j_id21"></div>
+</form>
+<span id="ajax-view-state-page-container" style="display: none"
+  ><span id="ajax-view-state" style="display: none"
+    ><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewState"
+      name="com.salesforce.visualforce.ViewState"
+      value="i:AAAAWXsidCI6IjAwRDA1MDAwMDAwOHJFayIsInYiOiIwMkc4YTAwMDAwMEhHZFYiLCJhIjoidmZlbmNyeXB0aW9ua2V5IiwidSI6IjAwNU84MDAwMDAyUUxVSiJ9ljRsRG4URnaqFDeUGxGlwmgXGtNmu93PLWgzrgAAAY7IbVWtpR6kkaqMAAp7FRzNwyfxX3X1WYIW1XZ4qWFu34dNDa9Y8Go//vsS4McfhhatvaoLxCUf+140YM1f0Hpe6PodtCmdLpD8qymDRJzo2Gc49v5Q8/JCkRTTUzSV/Juk6n/doOjTwiqhv3y0zUg/cauMz+SefsEPKOnNLO+Li7AK3vvMnFtnGVQJ1h1fc4Ec1C+Ugg9jLurpfNsaRIyKD4b6ykNudfUGV1yQNxu0Esswzm4s+3Iov7qZPjm/LCn42X9QGnYor3fqGjeCTBTPocuqGS4E5irMIxD9nrfhqln7rJ0Vz/996bMsKsvx1dUtbWge+YqJojgJZG0aTT3qieqySB13ykTlexpYwnjIOu2khvWaLBSNMPXJojHTw2AgwhO1PBlCwzEq/0ECWrBH3fqfCXExO9Dg/0NosJjTvCk1HcI3guWlMzN2SD8owfI35exq42mwulitDsJQlxhbOTxXKKi93tvPfpmFDexRRBtNMxxFRVZ5UqbDKGfmbjXGTJLGJBMrod9Z8C8DLKDZti9E/RE9uRcY3dkGOjZMgPkDbtACK44MzShSZMz7QFYj283FzeRIQQQ7LRElfwLMlftbqQJb34ZJmyNGHynV+mwrWvRJqi1umMad6DVXR0d1nN/TJ6ONTq5gmv6ISLFqPzkR47ah497TFZcS29NTbFZAwGTgY+IpFXYRBe3VJ+2wwIBK8UirbhPe/6unPpvjhTek/t0drsM+FS7hd5o9hCB/LiQkayQGsZSCYe0HtLU1hG0zfYWeSzQz7mTHd+Ojo5ndgoeKXJwJCxzdCg8zozkfuuxs73L1zRiK5JFtb3sK3nFc54ssNqxYELERe+wrLtknOe+YwGtq8TRgQNgUEyTfuRD8JJKxr890PqbuRHc3l7k+EDMVA9JWDAq0li4zm7eA/pm/Df8thRNrMWkKFhYwg4jqMf8sJCodLcji1JwrLSBBnlWIN1N/MP2hkp/DDXqE3xnSSdIdCxBo3vRkiH/E7CdvvGKzwSP+1ObStUMgFAf171IE0L3SY9b30Shh8IH7SXIRjCBtA3BzucETXV4nbHrKfaZvmvZiQbbhfDAiV4Gd7OBQdYI6/QAcUk17OUga9QR1ZsxHyKQT1U2NMFuJf37vyzUDRIlcW9JMsEAwD6QfnMkaJph/r0+L21hwyqo+Yt1r/Do9MDLaFUHj3CxfABgYonpbftL8kXl9qAWcE3RFn1leak6iKBkLSe9m4lZjwbWk24KM/aNdCpD8eWuEloe97gVd67S9icc81NjuTWYTLba/QQkV1PGJncmdhs993OLWxVS7rjh4JarjUa6yPo4cRI0/y4ed9Cw2OFKdax6EYDl3Gs3+7f4/sKWix84FcJ3P7/qgPOsMxGao2jClRxwpnyhW+UeEr5aIK4H/qOYuMrncn+W0k2Kb/uSygKBOEjTcPnx0tqhJ53REXlRltFV5uLRJ62P1Ebr9a6HrLnI2xtkwTd0w/QG7nJVFgI14L1Poy++Rs/CSv0K3rKKuUxqGOzZOmm6sjXltd0VO0c2MknkMieGLNrB7gw9ZtXbc+zGqVClqUSyfvCsctv9RBg4vpCVexJyh3yzknd10UGhLb14XR7IBAhINaRYNoNT6AcT0SGegswwsE3dP9ephX+6KcpZYjz772nWAIHo7hzttnIBkRova4t8bFjPVIHmRg4JKETKpv5mAC5cg9jV5ydnq7oRAX7F4NVNIM1F2vTmkrCTvcJIztuBrYgl0qW6ndFNB8f+k2z20c9ZxCKR4k3KNIWBo16V8gHDfEWOSlBC3FQ7L7dLVJ7nbZhqqUn7g3l9YiOSwVP3hNHrOW0LucMat9TpiIplTwvB2yNJ0OsXNfePih5Rb38o7LSQgchlTnfygMku06PTzKtis9nccP+kGUzLfpJaYbe7cyDwab6ywB4wvCoHxC5hQBzeu9oExdwjXTx2bSPPZCaTYAyVBeaeHFk4X89vCJcCgE9boo10ou0+aIjlLriE2X0RBIBEhe7bpdgiQxkUZTjpSzmsz8a7jcHG91Qo9xxkGZRtJka/lPITj8sCBKbYZWZnIx9WtLXTzNDv1bDvL0nh2rMA8KLiSKnh1eOreAUhObTaHWbKyeLlSxKElRtO3R1ClZTlZNEdGrNuSPIRpBLIJuW7Gpkt7C9GY2cHY71Mpf7bS7B41OShOQoWn9Bnahv6BCaOpqYJAjtaAVOkZ0jll5QWvuqcel7FWoFZN3uSItmRoYSg/7mCvEbFSmyTGjfAwRXKy4iMyqsNqufv/cA3MDhU48IDfPSLa8ht7GkNa8gMBa8mKRSqqzhN4W7a0Qy5YAkxSiwLpCODugYcB2RC6Vh7aPIkuupnkskvrctuG/VaNDA5lZf2C8wv7FUzQ8HywBHL8THLr7uBEWKSD5JCEt9Hwyi1hl+ufLOkSdet4927bphqSTt+lCQ7MLpw4xB+OfDhLOpZ2yWkciiHJhRNMJVKcGCLaepNpJuYa8/QLjFoDVkNIMLUgIQy/wQARa6ITxFdMqL0aPZ0ucQotGoNqxBB0BHlitjoktsprEI2LDuOlljdL5Aug4vVC8yII7ufKr8nGwTCKQ63CutaOAH4pxth42so/jYlta4SuTL31dnehHjlg7/v10CuyaxzcwbwqsQbNOABaTUNKnhEIjTZKUnjGcTtEKj0w0a2Cm4fK46bk7rbsjiTyBKsMBLVfMnFfs50b383CpBt6B64p9AMua3uuGgft/rl2o9jLXg/LfTlTzj/sA6kEK1bHUxQqueRR3NxB32Mp6fXC37zFrFqIpOuyvVQxRcbwwCFwRPhJORyPWY6GDx0t+Nt4aKCHrbJEE2ONpWPinaRy5uSfigK7GDYFxoHeN4cB+bPb4F55cZWZ881Ayxvsl3wlQ10/Y4y9GZzHMRW78i83fKVCI57LtMj2ykrCatjbX2/WM/5ZUO7KKUKMzaqkeqzNaPRg9ObviVLOaqBTLcclOAFUCx6qOi/bMvAmhH9ftRX7weloukAuH2A10Utecm1bbxcUhKEw4YZiVhuLO6RfuZnPA7h5k4nGwFPbwAFSr4xSKlayWmRfc+Ir1yc6bVy+jl752Gt7Hna4FnHz26sjKqKSvHKaLM+E4AZG07w6i52kA2EM7phlwppXq7ghTA3cg6+DjMAg+Ar2QK+mdG+rFUbTp9fUXbZweJwmWZoSrKiGza2YWPplrdRhauXM4KAWc2LS+vd86fBcqS5hdx1/rAsbADtebcZNzayZZHAsX7hdDmGF8U7zphACxmEv26nq0jzvil0ZWJt+kVrlvSc4idtnOFSqa6OS5rU2d+anuQ2ZUf7FA6SArMUsHdTQTxFBZ/J2PHiCSs779KreIm/iWP7kP+V/0iCewphuU+2UnxDk0qZfDDt8SA0lUtY6jEDc4rj50c42tB/6BhqZF51nSr8ClpABURXgb8YYMWRgm1sPHgMoli9goUeuiXITB2GhOMfBv4driEAndBLISGxZi2RR1Tf8e4bQQNMrhZ78iijJde+owLtpt5SWloYCMVUWNFxiaIZFVPgGvVYzk08+LN+ZdT+/goskreVjrpaHr1yeeHsQ1TsuPNSznXbLlilsIuC3cbez8kQrNqCnCe50R48ytzBGremNMUwgyaE4PUK5dGuHA02CC8ZlAtRHR/4Pq+FlxXAtKsFepRUIomiEv1PvfRCTOc/hGuc/n3QU814yi4tXYBTnZ0eWghwpiSGT+4IlM0NTpzwRSOpax7d3JX5q8ZCCEKG1ytt1lDyerGDQy+eyIN86Q4MHvlqsxoSODDj8FQZXn7ywAbyP/7oyiv5lVAuKAiG9iWXtJCJ1Ti+PGSoF7ciMguQdqCWndA1NFhgcM0zx2Cy1pgau3iaC+gM9tcQZ2TSf2C1+rUf8/Pt3JY0/HEVVWm/ve+qiPHNkMb6ytebnUcqyYFlBVyqORXY9fESGAdxC43e99cqo1v4yLXA39rotxkbI4s+PAX+9RYRVpl33FPqw0f4zVC5wDCqisKLyECwalrnmv+l+NM4wTXZSBuGzW8GfiCl7x1YWR4J0jlUiliIO0UXroadGAFTvfSFC7jxZlt2FaslBqz2i9JbHenaTqRIr+8nbTSy4rHMm+lsiJfAYF1wTz+d7TFqcJDYs7BJnD4ZVlMSgNgA+Ido0Hj2hbSYo7/9QyD59kk2fRZu4mE2r81yPKnT5D1fGwx6xHnMkHFZlhlvv7yOg0fi9+D9EOO9ECIfV2HTN/6VHiCYKO+C/uIrV/P9hcWAfSLsmgjfVm7IYFld/GbsVKKpSS7tbzFffn1n+30ME6Irv2s6fOkG94X5vbsUIceCawiAiN81T1vE2TNzTxZHG1gtu6aKEK+yTDEZkQPu6CcwVENuNoSe0jjwr20proBME5u44rNcvTJizzfmyie9SLJ/fgKVgcg8uowOt8C9MiNhryz68C741zyLaVR1S7eVLeUkFQMUp1eVMJIxaJk13Kl63i4UFwODztJ6F+c/PlSevRrQDlwFk9DchvulKr4ukZ+8cs+LuixRdbZujQSG0JYrGYQ6uyt4Nin7vv9UR1LQk8eM5lUh16M3IKsd5abmP1XNZhHtj20xhsRvLxLrUg5l8IjQqSrhb1ajKZINhW/z/mZgOO+cojYwqLgx38+eo7ccDkQ0=" /><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewStateVersion"
+      name="com.salesforce.visualforce.ViewStateVersion"
+      value="202404091005020745" /><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewStateMAC"
+      name="com.salesforce.visualforce.ViewStateMAC"
+      value="AGV5SnViMjVqWlNJNklqZGtOMXBIWjBkd2NqZE9VamRWVW13M00xWlRWMkZ0VkVjMU0yWlNUVWczVFdsM1EwNHlNM1J5VDJOY2RUQXdNMlFpTENKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUlzSW10cFpDSTZJbnRjSW5SY0lqcGNJakF3UkRBMU1EQXdNREF3T0hKRmExd2lMRndpZGx3aU9sd2lNREpIT0dFd01EQXdNREJJUjJSV1hDSXNYQ0poWENJNlhDSjJabk5wWjI1cGJtZHJaWGxjSWl4Y0luVmNJanBjSWpBd05VODRNREF3TURBeVVVeFZTbHdpZlNJc0ltTnlhWFFpT2xzaWFXRjBJbDBzSW1saGRDSTZNVGN4TWpjMU9UVTVNak0yTml3aVpYaHdJam93ZlE9PS4uZGsxVXh6QXdPdm50aVFUOUtoMnM4WjAxMVZsUTVVeXNmV1p4LUg0MXUwVT0=" /><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewStateCSRF"
+      name="com.salesforce.visualforce.ViewStateCSRF"
+      value="VmpFPSxNakF5TkMwd05DMHhNMVF4TkRvek16b3hNaTR6TmpkYSxtVnAxX3FubUhtdEJMcTBvYlRSdmNDNWdweXo5dTNuMmJtanRXVVNJcHM0PSxPRFZqTm1VMg==" /></span
+></span>
+<hr class="my-4" />
+<form
+  id="pg:fm"
+  name="pg:fm"
+  method="post"
+  action="https://proteccion--stage--c.sandbox.vf.force.com/apex/CertiIngresos"
+  enctype="application/x-www-form-urlencoded"
+>
+  <input type="hidden" name="pg:fm" value="pg:fm" />
+  <script>
+    if (!window.sfdcPage) {
+      window.sfdcPage = new ApexPage();
+    }
+    UserContext.initialize({
+      ampm: ["AM", "PM"],
+      isAccessibleMode: false,
+      salesforceURL: "https://proteccion--stage.sandbox.my.salesforce.com",
+      dateFormat: "d/MM/yyyy",
+      language: "en_US",
+      locale: "es_CO",
+      dateTimeFormat: "d/MM/yyyy, h:mm a",
+      labelLastModified: "1712661847000",
+      today: "10/04/2024, 12:52 PM",
+      userPreferences: [
+        { index: 112, name: "HideInlineEditSplash", value: false },
+        { index: 114, name: "OverrideTaskSendNotification", value: false },
+        { index: 115, name: "DefaultTaskSendNotification", value: false },
+        { index: 119, name: "HideUserLayoutStdFieldInfo", value: false },
+        { index: 116, name: "HideRPPWarning", value: false },
+        { index: 87, name: "HideInlineSchedulingSplash", value: false },
+        { index: 88, name: "HideCRUCNotification", value: false },
+        { index: 89, name: "HideNewPLESplash", value: false },
+        { index: 90, name: "HideNewPLEWarnIE6", value: false },
+        { index: 122, name: "HideOverrideSharingMessage", value: false },
+        { index: 91, name: "HideProfileILEWarn", value: false },
+        { index: 93, name: "HideProfileElvVideo", value: false },
+        { index: 97, name: "ShowPicklistEditSplash", value: false },
+        { index: 92, name: "HideDataCategorySplash", value: false },
+        { index: 128, name: "ShowDealView", value: false },
+        { index: 129, name: "HideDealViewGuidedTour", value: false },
+        { index: 132, name: "HideKnowledgeFirstTimeSetupMsg", value: false },
+        { index: 104, name: "DefaultOffEntityPermsMsg", value: false },
+        { index: 135, name: "HideNewCsnSplash", value: false },
+        { index: 101, name: "HideBrowserWarning", value: false },
+        { index: 139, name: "HideDashboardBuilderGuidedTour", value: false },
+        { index: 140, name: "HideSchedulingGuidedTour", value: false },
+        { index: 180, name: "HideReportBuilderGuidedTour", value: false },
+        { index: 183, name: "HideAssociationQueueCallout", value: false },
+        { index: 194, name: "HideQTEBanner", value: false },
+        { index: 270, name: "HideIDEGuidedTour", value: false },
+        { index: 282, name: "HideQueryToolGuidedTour", value: false },
+        { index: 196, name: "HideCSIGuidedTour", value: false },
+        { index: 271, name: "HideFewmetGuidedTour", value: false },
+        { index: 272, name: "HideEditorGuidedTour", value: false },
+        { index: 205, name: "HideApexTestGuidedTour", value: false },
+        { index: 206, name: "HideSetupProfileHeaderTour", value: false },
+        {
+          index: 207,
+          name: "HideSetupProfileObjectsAndTabsTour",
+          value: false,
+        },
+        {
+          index: 213,
+          name: "DefaultOffArticleTypeEntityPermMsg",
+          value: false,
+        },
+        { index: 214, name: "HideSelfInfluenceGetStarted", value: false },
+        { index: 215, name: "HideOtherInfluenceGetStarted", value: false },
+        { index: 216, name: "HideFeedToggleGuidedTour", value: false },
+        { index: 268, name: "ShowChatterTab178GuidedTour", value: false },
+        { index: 275, name: "HidePeopleTabDeprecationMsg", value: false },
+        { index: 276, name: "HideGroupTabDeprecationMsg", value: false },
+        { index: 224, name: "HideUnifiedSearchGuidedTour", value: false },
+        { index: 226, name: "ShowDevContextMenu", value: true },
+        {
+          index: 227,
+          name: "HideWhatRecommenderForActivityQueues",
+          value: false,
+        },
+        { index: 228, name: "HideLiveAgentFirstTimeSetupMsg", value: false },
+        {
+          index: 232,
+          name: "HideGroupAllowsGuestsMsgOnMemberWidget",
+          value: false,
+        },
+        { index: 233, name: "HideGroupAllowsGuestsMsg", value: false },
+        { index: 234, name: "HideWhatAreGuestsMsg", value: false },
+        { index: 235, name: "HideNowAllowGuestsMsg", value: false },
+        {
+          index: 236,
+          name: "HideSocialAccountsAndContactsGuidedTour",
+          value: false,
+        },
+        { index: 237, name: "HideAnalyticsHomeGuidedTour", value: false },
+        { index: 238, name: "ShowQuickCreateGuidedTour", value: false },
+        { index: 245, name: "HideFilePageGuidedTour", value: false },
+        { index: 250, name: "HideForecastingGuidedTour", value: false },
+        { index: 251, name: "HideBucketFieldGuide", value: false },
+        { index: 263, name: "HideSmartSearchCallOut", value: false },
+        { index: 273, name: "ShowForecastingQuotaAttainment", value: false },
+        { index: 280, name: "HideForecastingQuotaColumn", value: false },
+        { index: 301, name: "HideManyWhoGuidedTour", value: false },
+        { index: 298, name: "HideFileSyncBannerMsg", value: false },
+        { index: 299, name: "HideTestConsoleGuidedTour", value: false },
+        { index: 302, name: "HideManyWhoInlineEditTip", value: false },
+        { index: 303, name: "HideSetupV2WelcomeMessage", value: false },
+        { index: 312, name: "ForecastingShowQuantity", value: false },
+        { index: 313, name: "HideDataImporterIntroMsg", value: false },
+        { index: 314, name: "HideEnvironmentHubLightbox", value: false },
+        { index: 316, name: "HideSetupV2GuidedTour", value: false },
+        { index: 317, name: "HideFileSyncMobileDownloadDialog", value: false },
+        { index: 322, name: "HideEnhancedProfileHelpBubble", value: false },
+        { index: 328, name: "ForecastingHideZeroRows", value: false },
+        {
+          index: 330,
+          name: "HideEmbeddedComponentsFeatureCallout",
+          value: false,
+        },
+        { index: 341, name: "HideDedupeMatchResultCallout", value: false },
+        { index: 340, name: "HideS1BrowserUI", value: true },
+        { index: 346, name: "HideS1Banner", value: false },
+        { index: 358, name: "HideEmailVerificationAlert", value: false },
+        { index: 354, name: "HideLearningPathModal", value: false },
+        { index: 359, name: "HideAtMentionsHelpBubble", value: false },
+        { index: 368, name: "LightningExperiencePreferred", value: true },
+        { index: 373, name: "PreviewLightning", value: false },
+        { index: 281, name: "HideMSPPopup", value: false },
+      ],
+      networkId: "",
+      uiTheme: "Theme3",
+      uiSkin: "Theme3",
+      userName: "juanosorio@melborp.co.stage",
+      userId: "005O8000002QLUJ",
+      isCurrentlySysAdminSU: false,
+      renderMode: "RETRO",
+      startOfWeek: "1",
+      vfDomainPattern: "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
+      auraDomain: "proteccion--stage.sandbox.lightning.force.com",
+      useNativeAlertConfirmPrompt: false,
+      orgPreferences: [
+        { index: 257, name: "TabOrganizer", value: true },
+        { index: 113, name: "GroupTasks", value: true },
+      ],
+      siteUrlPrefix: "",
+      isDefaultNetwork: true,
+      timeFormat: "h:mm a",
+    });
+  </script>
+  <div class="apexp">
+    <div
+      id="pg:fm:pb"
+      class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
+    >
+      <script>
+        function twistSection(elem, sectionId) {
+          var parentDiv = elem;
+          var twisty = elem;
+          while (parentDiv.tagName != "DIV") {
+            parentDiv = parentDiv.parentNode;
+          }
+          if (
+            elem.tagName === "DIV" &&
+            elem.attributes["data-twistyimgid"] !== undefined
+          ) {
+            twisty = document.getElementById(
+              elem.attributes["data-twistyimgid"].value
+            );
+          }
+          var div = parentDiv.nextSibling;
+          var elemWasOn = false;
+          if (div.style.display != "none") {
+            div.style.display = "none";
+            twisty.className = "showListButton";
+            twisty.alt = "Show Section - " + twisty.name;
+            elem.title = twisty.alt;
+            elemWasOn = true;
+          } else {
+            div.style.display = "block";
+            twisty.className = "hideListButton";
+            twisty.alt = "Hide Section - " + twisty.name;
+            elem.title = twisty.alt;
+          }
+          return !elemWasOn;
+        }
+        var registeredSections = new Array();
+        function registerTwistableSection(headerId, mainTableId) {
+          var obj = new Object();
+          obj.headerId = headerId;
+          obj.mainTableId = mainTableId;
+          registeredSections[registeredSections.length] = obj;
+        }
+        function twistAllSections(on) {
+          for (var i = 0; i < registeredSections.length; i++) {
+            var obj = registeredSections[i];
+            var img;
+            img = document.getElementById("img_" + obj.headerId);
+            if (on && "showListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            } else if (!on && "hideListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            }
+          }
+        }
+        function toggleSection(headerId, on) {
+          var sectionHead = document.getElementById(
+            "head_" + headerId + "_pg_fm_pb"
+          );
+          var body = sectionHead.nextSibling;
+          var disp = on ? "block" : "none";
+          sectionHead.style.display = disp;
+          body.style.display = disp;
+        }
+        function registerTwistableSections_pg_fm_pb() {
+          registerTwistableSection("pg_fm_pb_send", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_init", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_preview", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_notpreview", "pg_fm_pb");
+        }
+        registerTwistableSections_pg_fm_pb();
+      </script>
+      <div class="pbBody">
+        <div id="pg:fm:pb:preview">
+          <div class="pbSubsection">
+            <table
+              class="detailList"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+            >
+              <tbody>
+                <tr>
+                  <td class="data2Col first" colspan="2">
+                    <input
+                      id="pg:fm:pb:preview:btnVaciar"
+                      type="submit"
+                      name="pg:fm:pb:preview:btnVaciar"
+                      value="Regresar"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2">
+                    <input
+                      id="pg:fm:pb:preview:btnSend"
+                      type="submit"
+                      name="pg:fm:pb:preview:btnSend"
+                      value="Enviar al correo electronico"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col last" colspan="2">
+                    <iframe
+                      allow="geolocation *; microphone *; camera *"
+                      frameborder="0"
+                      height="700px"
+                      id="j_id9"
+                      name="j_id9"
+                      scrolling="no"
+                      src="https://proteccion--stage.sandbox.my.salesforce.com/sfc/p/050000008rEk/a/O8000000IWmD/jct2WDs6T4zMflrtFqjCMveLkiN.Ou.61dkKJKit9qA"
+                      title="Content"
+                      width="100%"
+                    ></iframe>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
+    </div>
+  </div>
+  <div id="pg:fm:j_id21"></div>
+</form>

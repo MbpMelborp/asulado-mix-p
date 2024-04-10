@@ -975,7 +975,7 @@ body {
   .pa__header_top {
     @apply flex flex-col md:flex-row items-center justify-start gap-4;
     img {
-      @apply max-w-[314px] rounded-xl;
+      @apply max-w-[260px];
     }
     div.pa__header_int {
       @apply flex flex-col gap-3;
@@ -1035,6 +1035,11 @@ body {
 }
 .pa__options {
   @apply bg-alpha-15 py-4;
+  .tabs {
+    a {
+      @apply leading-none text-base md:text-lg;
+    }
+  }
 }
 
 .pa__option {
@@ -1491,5 +1496,37 @@ body {
   }
   ul.tab-active {
     @apply flex;
+  }
+}
+
+.modal_ss {
+  @apply !bg-alpha-18 bg-opacity-25;
+  .modal-box {
+    @apply bg-BG-8 border border-azul-bright2 max-w-sm p-4 !overflow-visible;
+    .close_small {
+      @apply bg-white text-azul-norm btn btn-sm btn-circle btn-ghost absolute right-2 top-2 h-8 w-8;
+    }
+    .modal_info {
+      @apply flex flex-col gap-y-2;
+      img {
+        filter: drop-shadow(0px -2px 4px #3bc3ed);
+        @apply max-w-[290px] w-full px-8 mx-auto -mt-16;
+      }
+      h3 {
+        @apply text-azul-dark font-je font-bold text-xl leading-tight text-center;
+      }
+      p {
+        @apply text-azul-dark text-lg text-center leading-tight;
+        a {
+          @apply text-azul-bright2 underline underline-offset-2 font-bold;
+        }
+      }
+      .modal_check {
+        @apply py-2 mt-2 border rounded-lg border-azul-20 text-azul-dark flex gap-x-4 items-center justify-center bg-alpha-30 hover:bg-azul-40 transition-colors ease-in-out cursor-pointer;
+      }
+      p.read {
+        @apply text-sm text-azul-norm;
+      }
+    }
   }
 }

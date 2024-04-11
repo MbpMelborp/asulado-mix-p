@@ -1201,7 +1201,12 @@ body {
     @apply text-azul-bold text-2xl font-je;
   }
   h4 {
-    @apply text-azul-bold text-xl font-je;
+    @apply text-azul-bold text-xl font-je flex gap-3;
+    &::before {
+      content: "\f061";
+      font-family: "Font Awesome 5 Pro";
+      @apply text-azul-bright2;
+    }
   }
   ul.items {
     @apply bg-alpha-10 rounded-xl px-6 py-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  md:divide-x divide-solid divide-alpha-30 gap-4 border border-alpha-15;

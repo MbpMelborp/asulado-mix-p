@@ -12,7 +12,7 @@
       @apply pb-4;
       h3 {
         @apply alert text-azul-bold bg-alpha-20;
-        &::before {
+        &:before {
           content: "\f05a";
           font-family: "Font Awesome 5 Pro";
         }

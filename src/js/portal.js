@@ -459,4 +459,17 @@ if (document.getElementById("modal_data")) {
       // setCookie("modal_sus", "false", 1);
     }
   });
+
+  document.getElementsByClassName("btn_no")[0].addEventListener("click", () => {
+    setCookie("modal_data", true, 1);
+    setTimeout(() => {
+      document.getElementById("modal_data").checked = false;
+    }, 500);
+  });
+  document.getElementsByClassName("btn_si")[0].addEventListener("click", () => {
+    setCookie("modal_data", true, 30);
+    setTimeout(() => {
+      document.getElementById("modal_data").checked = false;
+    }, 500);
+  });
 }

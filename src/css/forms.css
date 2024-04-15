@@ -1,6 +1,9 @@
 .pa_co_form,
 .pa_co_content {
   @apply py-8;
+  .pa_co_header {
+    @apply mb-8;
+  }
   form {
     @apply mb-4;
   }
@@ -25,7 +28,7 @@
       @apply w-full;
       tr {
         td {
-          @apply py-1;
+          @apply py-1.5;
           fieldset.form_info_tema {
             legend {
               @apply flex gap-4 text-azul-bold text-xl font-je mb-4;
@@ -86,8 +89,25 @@
             @apply btn btn-primary;
             &[name="pg:fm:pb:preview:btnVaciar"],
             &[name="pg:fm:pb:send:btnVaciar"],
+            &[name="pg:fm:pb:colillas:btnVaciar"],
             &[name="pg:fm:pb:nocolillas:btnVaciar"] {
               @apply btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
+            }
+            &[name="pg:fm:pb:colillas:btnSend"] {
+              @apply btn-sm;
+            }
+          }
+          table {
+            @apply table table-zebra w-full;
+            tbody {
+              tr:nth-child(2n) {
+                @apply bg-alpha-10;
+              }
+            }
+            .dataCell {
+              a {
+                @apply btn btn-secondary btn-sm bg-alpha-20 text-azul-60 hover:bg-alpha-30;
+              }
             }
           }
           iframe[title="Content"] {

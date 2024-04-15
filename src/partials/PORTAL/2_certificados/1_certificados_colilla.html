@@ -18,8 +18,8 @@
       language: "en_US",
       locale: "es_CO",
       dateTimeFormat: "d/MM/yyyy, h:mm a",
-      labelLastModified: "1712661847000",
-      today: "10/04/2024, 1:11 PM",
+      labelLastModified: "1712951156000",
+      today: "15/04/2024, 1:56 PM",
       userPreferences: [
         { index: 112, name: "HideInlineEditSplash", value: false },
         { index: 114, name: "OverrideTaskSendNotification", value: false },
@@ -231,6 +231,18 @@
               <tbody>
                 <tr>
                   <td class="data2Col first" colspan="2">
+                    <div class="pa_co_header">
+                      <h4>Generara colilla de pagos:</h4>
+                      <p class="text-lg">
+                        Para obtener detalles sobre tu último pago, selecciona
+                        <b>“Consultar último pago de mi mesada”</b>. Ahora bien,
+                        si necesitas comparar y revisar diferentes pagos
+                        anteriores, selecciona
+                        <b>“Consultar varios periodos de mi mesada”</b> e indica
+                        el rango de fechas que deseas revisar, ten en cuenta que
+                        puedes elegir maximo <b>4</b> meses consecutivos.
+                      </p>
+                    </div>
                     <div class="as__form_wrapper">
                       <input
                         id="consultaUltimoPago"
@@ -250,7 +262,7 @@
                       <label for="consultaVariosPeriodos"
                         >Consultar varios periodos de mi mesada</label
                       ><br />
-                      <div id="periodosContainer">
+                      <div id="periodosContainer" style="display: none">
                         <label for="desdeMes">Desde:</label>
                         <input
                           id="desdeMes"
@@ -262,7 +274,6 @@
                           id="hastaMes"
                           name="hastaMes"
                           type="date"
-                          max="2024-04-10"
                         /><br />
                       </div>
                     </div>
@@ -275,7 +286,7 @@
                       type="submit"
                       name="pg:fm:pb:pbs:btnVerify"
                       value="Consultar"
-                      class=""
+                      class="hideButton"
                     />
                   </td>
                 </tr>
@@ -290,7 +301,7 @@
       <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
     </div>
   </div>
-  <div id="pg:fm:j_id20"></div>
+  <div id="pg:fm:j_id28"></div>
 </form>
 <hr class="my-4" />
 <form
@@ -551,4 +562,383 @@
     </div>
   </div>
   <div id="pg:fm:j_id20"></div>
+</form>
+<hr />
+<form
+  id="pg:fm"
+  name="pg:fm"
+  method="post"
+  action="https://proteccion--stage--c.sandbox.vf.force.com/apex/CertiColilla"
+  enctype="application/x-www-form-urlencoded"
+>
+  <input type="hidden" name="pg:fm" value="pg:fm" />
+  <script>
+    if (!window.sfdcPage) {
+      window.sfdcPage = new ApexPage();
+    }
+    UserContext.initialize({
+      ampm: ["AM", "PM"],
+      isAccessibleMode: false,
+      salesforceURL: "https://proteccion--stage.sandbox.my.salesforce.com",
+      dateFormat: "d/MM/yyyy",
+      language: "en_US",
+      locale: "es_CO",
+      dateTimeFormat: "d/MM/yyyy, h:mm a",
+      labelLastModified: "1712951156000",
+      today: "15/04/2024, 1:48 PM",
+      userPreferences: [
+        { index: 112, name: "HideInlineEditSplash", value: false },
+        { index: 114, name: "OverrideTaskSendNotification", value: false },
+        { index: 115, name: "DefaultTaskSendNotification", value: false },
+        { index: 119, name: "HideUserLayoutStdFieldInfo", value: false },
+        { index: 116, name: "HideRPPWarning", value: false },
+        { index: 87, name: "HideInlineSchedulingSplash", value: false },
+        { index: 88, name: "HideCRUCNotification", value: false },
+        { index: 89, name: "HideNewPLESplash", value: false },
+        { index: 90, name: "HideNewPLEWarnIE6", value: false },
+        { index: 122, name: "HideOverrideSharingMessage", value: false },
+        { index: 91, name: "HideProfileILEWarn", value: false },
+        { index: 93, name: "HideProfileElvVideo", value: false },
+        { index: 97, name: "ShowPicklistEditSplash", value: false },
+        { index: 92, name: "HideDataCategorySplash", value: false },
+        { index: 128, name: "ShowDealView", value: false },
+        { index: 129, name: "HideDealViewGuidedTour", value: false },
+        { index: 132, name: "HideKnowledgeFirstTimeSetupMsg", value: false },
+        { index: 104, name: "DefaultOffEntityPermsMsg", value: false },
+        { index: 135, name: "HideNewCsnSplash", value: false },
+        { index: 101, name: "HideBrowserWarning", value: false },
+        { index: 139, name: "HideDashboardBuilderGuidedTour", value: false },
+        { index: 140, name: "HideSchedulingGuidedTour", value: false },
+        { index: 180, name: "HideReportBuilderGuidedTour", value: false },
+        { index: 183, name: "HideAssociationQueueCallout", value: false },
+        { index: 194, name: "HideQTEBanner", value: false },
+        { index: 270, name: "HideIDEGuidedTour", value: false },
+        { index: 282, name: "HideQueryToolGuidedTour", value: false },
+        { index: 196, name: "HideCSIGuidedTour", value: false },
+        { index: 271, name: "HideFewmetGuidedTour", value: false },
+        { index: 272, name: "HideEditorGuidedTour", value: false },
+        { index: 205, name: "HideApexTestGuidedTour", value: false },
+        { index: 206, name: "HideSetupProfileHeaderTour", value: false },
+        {
+          index: 207,
+          name: "HideSetupProfileObjectsAndTabsTour",
+          value: false,
+        },
+        {
+          index: 213,
+          name: "DefaultOffArticleTypeEntityPermMsg",
+          value: false,
+        },
+        { index: 214, name: "HideSelfInfluenceGetStarted", value: false },
+        { index: 215, name: "HideOtherInfluenceGetStarted", value: false },
+        { index: 216, name: "HideFeedToggleGuidedTour", value: false },
+        { index: 268, name: "ShowChatterTab178GuidedTour", value: false },
+        { index: 275, name: "HidePeopleTabDeprecationMsg", value: false },
+        { index: 276, name: "HideGroupTabDeprecationMsg", value: false },
+        { index: 224, name: "HideUnifiedSearchGuidedTour", value: false },
+        { index: 226, name: "ShowDevContextMenu", value: true },
+        {
+          index: 227,
+          name: "HideWhatRecommenderForActivityQueues",
+          value: false,
+        },
+        { index: 228, name: "HideLiveAgentFirstTimeSetupMsg", value: false },
+        {
+          index: 232,
+          name: "HideGroupAllowsGuestsMsgOnMemberWidget",
+          value: false,
+        },
+        { index: 233, name: "HideGroupAllowsGuestsMsg", value: false },
+        { index: 234, name: "HideWhatAreGuestsMsg", value: false },
+        { index: 235, name: "HideNowAllowGuestsMsg", value: false },
+        {
+          index: 236,
+          name: "HideSocialAccountsAndContactsGuidedTour",
+          value: false,
+        },
+        { index: 237, name: "HideAnalyticsHomeGuidedTour", value: false },
+        { index: 238, name: "ShowQuickCreateGuidedTour", value: false },
+        { index: 245, name: "HideFilePageGuidedTour", value: false },
+        { index: 250, name: "HideForecastingGuidedTour", value: false },
+        { index: 251, name: "HideBucketFieldGuide", value: false },
+        { index: 263, name: "HideSmartSearchCallOut", value: false },
+        { index: 273, name: "ShowForecastingQuotaAttainment", value: false },
+        { index: 280, name: "HideForecastingQuotaColumn", value: false },
+        { index: 301, name: "HideManyWhoGuidedTour", value: false },
+        { index: 298, name: "HideFileSyncBannerMsg", value: false },
+        { index: 299, name: "HideTestConsoleGuidedTour", value: false },
+        { index: 302, name: "HideManyWhoInlineEditTip", value: false },
+        { index: 303, name: "HideSetupV2WelcomeMessage", value: false },
+        { index: 312, name: "ForecastingShowQuantity", value: false },
+        { index: 313, name: "HideDataImporterIntroMsg", value: false },
+        { index: 314, name: "HideEnvironmentHubLightbox", value: false },
+        { index: 316, name: "HideSetupV2GuidedTour", value: false },
+        { index: 317, name: "HideFileSyncMobileDownloadDialog", value: false },
+        { index: 322, name: "HideEnhancedProfileHelpBubble", value: false },
+        { index: 328, name: "ForecastingHideZeroRows", value: false },
+        {
+          index: 330,
+          name: "HideEmbeddedComponentsFeatureCallout",
+          value: false,
+        },
+        { index: 341, name: "HideDedupeMatchResultCallout", value: false },
+        { index: 340, name: "HideS1BrowserUI", value: true },
+        { index: 346, name: "HideS1Banner", value: false },
+        { index: 358, name: "HideEmailVerificationAlert", value: false },
+        { index: 354, name: "HideLearningPathModal", value: false },
+        { index: 359, name: "HideAtMentionsHelpBubble", value: false },
+        { index: 368, name: "LightningExperiencePreferred", value: true },
+        { index: 373, name: "PreviewLightning", value: false },
+        { index: 281, name: "HideMSPPopup", value: false },
+      ],
+      networkId: "",
+      uiTheme: "Theme3",
+      uiSkin: "Theme3",
+      userName: "juanosorio@melborp.co.stage",
+      userId: "005O8000002QLUJ",
+      isCurrentlySysAdminSU: false,
+      renderMode: "RETRO",
+      startOfWeek: "1",
+      vfDomainPattern: "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
+      auraDomain: "proteccion--stage.sandbox.lightning.force.com",
+      useNativeAlertConfirmPrompt: false,
+      orgPreferences: [
+        { index: 257, name: "TabOrganizer", value: true },
+        { index: 113, name: "GroupTasks", value: true },
+      ],
+      siteUrlPrefix: "",
+      isDefaultNetwork: true,
+      timeFormat: "h:mm a",
+    });
+  </script>
+  <div class="apexp">
+    <div
+      id="pg:fm:pb"
+      class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
+    >
+      <script>
+        function twistSection(elem, sectionId) {
+          var parentDiv = elem;
+          var twisty = elem;
+          while (parentDiv.tagName != "DIV") {
+            parentDiv = parentDiv.parentNode;
+          }
+          if (
+            elem.tagName === "DIV" &&
+            elem.attributes["data-twistyimgid"] !== undefined
+          ) {
+            twisty = document.getElementById(
+              elem.attributes["data-twistyimgid"].value
+            );
+          }
+          var div = parentDiv.nextSibling;
+          var elemWasOn = false;
+          if (div.style.display != "none") {
+            div.style.display = "none";
+            twisty.className = "showListButton";
+            twisty.alt = "Show Section - " + twisty.name;
+            elem.title = twisty.alt;
+            elemWasOn = true;
+          } else {
+            div.style.display = "block";
+            twisty.className = "hideListButton";
+            twisty.alt = "Hide Section - " + twisty.name;
+            elem.title = twisty.alt;
+          }
+          return !elemWasOn;
+        }
+        var registeredSections = new Array();
+        function registerTwistableSection(headerId, mainTableId) {
+          var obj = new Object();
+          obj.headerId = headerId;
+          obj.mainTableId = mainTableId;
+          registeredSections[registeredSections.length] = obj;
+        }
+        function twistAllSections(on) {
+          for (var i = 0; i < registeredSections.length; i++) {
+            var obj = registeredSections[i];
+            var img;
+            img = document.getElementById("img_" + obj.headerId);
+            if (on && "showListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            } else if (!on && "hideListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            }
+          }
+        }
+        function toggleSection(headerId, on) {
+          var sectionHead = document.getElementById(
+            "head_" + headerId + "_pg_fm_pb"
+          );
+          var body = sectionHead.nextSibling;
+          var disp = on ? "block" : "none";
+          sectionHead.style.display = disp;
+          body.style.display = disp;
+        }
+        function registerTwistableSections_pg_fm_pb() {
+          registerTwistableSection("pg_fm_pb_send", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_pbs", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_preview", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_colillas", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_nocolillas", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_notpreview", "pg_fm_pb");
+        }
+        registerTwistableSections_pg_fm_pb();
+      </script>
+      <div class="pbBody">
+        <div id="pg:fm:pb:colillas">
+          <div class="pbSubsection">
+            <table
+              class="detailList"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+            >
+              <tbody>
+                <tr>
+                  <td class="dataCol first" colspan="1">
+                    <input
+                      id="pg:fm:pb:colillas:btnVaciar"
+                      type="submit"
+                      name="pg:fm:pb:colillas:btnVaciar"
+                      value="Regresar"
+                    />
+                  </td>
+                  <td class="dataCol first text-right" colspan="1">
+                    <input
+                      id="pg:fm:pb:colillas:btnSend"
+                      type="submit"
+                      name="pg:fm:pb:colillas:btnSend"
+                      value="Enviar al correo electronico"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="dataCol last" colspan="2">
+                    <table
+                      class="list"
+                      id="pg:fm:pb:colillas:j_id8"
+                      border="0"
+                      cellpadding="0"
+                      cellspacing="0"
+                    >
+                      <colgroup span="3"></colgroup>
+                      <thead class="">
+                        <tr class="headerRow">
+                          <th
+                            class="headerRow"
+                            scope="col"
+                            colspan="1"
+                            id="pg:fm:pb:colillas:j_id8:j_id9header"
+                          >
+                            <div
+                              id="pg:fm:pb:colillas:j_id8:j_id9header:sortDiv"
+                            >
+                              Nombre del Archivo
+                            </div>
+                          </th>
+                          <th
+                            class="headerRow"
+                            scope="col"
+                            colspan="1"
+                            id="pg:fm:pb:colillas:j_id8:j_id11header"
+                          >
+                            <div
+                              id="pg:fm:pb:colillas:j_id8:j_id11header:sortDiv"
+                            >
+                              Periodo colilla
+                            </div>
+                          </th>
+                          <th
+                            class="headerRow"
+                            scope="col"
+                            colspan="1"
+                            id="pg:fm:pb:colillas:j_id8:j_id13header"
+                          >
+                            <div
+                              id="pg:fm:pb:colillas:j_id8:j_id13header:sortDiv"
+                            ></div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody id="pg:fm:pb:colillas:j_id8:tb">
+                        <tr
+                          class="dataRow even first"
+                          onmouseover="if (window.hiOn){hiOn(this);} "
+                          onmouseout="if (window.hiOff){hiOff(this);} "
+                          onblur="if (window.hiOff){hiOff(this);}"
+                          onfocus="if (window.hiOn){hiOn(this);}"
+                        >
+                          <td
+                            class="dataCell"
+                            id="pg:fm:pb:colillas:j_id8:0:j_id9"
+                            colspan="1"
+                          >
+                            ComprobantePago_JULIO_FLOR_Invalidez_2024-02.pdf
+                          </td>
+                          <td
+                            class="dataCell"
+                            id="pg:fm:pb:colillas:j_id8:0:j_id11"
+                            colspan="1"
+                          >
+                            2024-02
+                          </td>
+                          <td
+                            class="dataCell"
+                            id="pg:fm:pb:colillas:j_id8:0:j_id13"
+                            colspan="1"
+                          >
+                            <a
+                              href="https://proteccion--stage.sandbox.file.force.com/sfc/dist/version/download/?oid=00D050000008rEk&amp;ids=068O8000001e61J&amp;d=%2Fa%2FO8000000JHwP%2FzcWczczHJT6WMMhNNnALkisnGR0x8Er9E_O9gF9JIUY&amp;asPdf=true"
+                              target="_blank"
+                              >Descargar</a
+                            >
+                          </td>
+                        </tr>
+                        <tr
+                          class="dataRow odd last"
+                          onmouseover="if (window.hiOn){hiOn(this);} "
+                          onmouseout="if (window.hiOff){hiOff(this);} "
+                          onblur="if (window.hiOff){hiOff(this);}"
+                          onfocus="if (window.hiOn){hiOn(this);}"
+                        >
+                          <td
+                            class="dataCell"
+                            id="pg:fm:pb:colillas:j_id8:1:j_id9"
+                            colspan="1"
+                          >
+                            ComprobantePago_JULIO_FLOR_Invalidez_2024-01.pdf
+                          </td>
+                          <td
+                            class="dataCell"
+                            id="pg:fm:pb:colillas:j_id8:1:j_id11"
+                            colspan="1"
+                          >
+                            2024-01
+                          </td>
+                          <td
+                            class="dataCell"
+                            id="pg:fm:pb:colillas:j_id8:1:j_id13"
+                            colspan="1"
+                          >
+                            <a
+                              href="https://proteccion--stage.sandbox.file.force.com/sfc/dist/version/download/?oid=00D050000008rEk&amp;ids=068O8000001e2D4&amp;d=%2Fa%2FO8000000JHun%2FHWOlz8NPj1tcRdOK1cUw72.tCcM789JfZOCdCxiikwk&amp;asPdf=true"
+                              target="_blank"
+                              >Descargar</a
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
+    </div>
+  </div>
+  <div id="pg:fm:j_id28"></div>
 </form>

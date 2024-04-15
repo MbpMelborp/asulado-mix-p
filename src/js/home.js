@@ -430,9 +430,9 @@ export function setHomeServicios(gsap, ScrollTrigger) {
 
 export function setHomeCifras(gsap, ScrollTrigger) {
   if (document.getElementById("home_cifras")) {
-    const toCLiets = 27;
-    const toCobertura = 5;
-    const toColaboradores = 82;
+    const toCLiets = 29;
+    const toCobertura = 56;
+    const toColaboradores = 93;
     const counters = { clientes: 0, cobertura: 0, colaboradores: 0 };
 
     const tl = gsap.timeline({ paused: true });

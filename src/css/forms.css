@@ -119,6 +119,13 @@
         }
       }
     }
+    p.palert {
+      @apply alert bg-alpha-10 text-azul-bold;
+      &:before {
+        content: "\f05a";
+        font-family: "Font Awesome 5 Pro";
+      }
+    }
     div[id="pg:fm:pb:nocolillas"] {
       .first {
         p {
@@ -159,6 +166,18 @@
     @apply overflow-x-auto;
     .tableClass {
       @apply table-pin-rows table-pin-cols;
+    }
+  }
+  .pa-loading {
+    @apply flex-col gap-8 p-8 flex w-full justify-center items-center bg-alpha-10 border-alpha-30 rounded-lg;
+    i {
+      @apply text-6xl;
+    }
+    .loading {
+      @apply text-azul-bright2 w-24;
+    }
+    p {
+      @apply text-xl animate-pulse;
     }
   }
 }

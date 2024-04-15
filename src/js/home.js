@@ -495,8 +495,9 @@ export function setHomeCifras(gsap, ScrollTrigger) {
             delay: 1.5,
             onUpdate: function () {
               counters.cobertura = Math.round(counters.val);
+              var rems = counters.cobertura / 10;
               document.getElementById("home_cifras_cobertura").innerHTML =
-                counters.cobertura;
+                rems.toFixed(1);
               //   setCobertura(Math.round(counters.val));
             },
           }

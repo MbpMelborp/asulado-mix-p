@@ -1544,6 +1544,8 @@ body {
       p.read {
         @apply text-sm text-azul-norm;
       }
+      &.info2 {
+      }
     }
   }
 }

@@ -175,12 +175,12 @@
 <!-- MODAL  -->
 <!-- <label for="modal_sus" class="btn">open modal</label> -->
 <input type="checkbox" id="modal_data" class="modal-toggle" />
-<div class="modal modal_ss" role="dialog">
+<div id="modal_per" class="modal modal_ss" role="dialog" data-pass="false">
   <div class="modal-box">
     <!-- <form method="dialog">
       <label for="modal_data" class="close_modal close_small"> ✕ </label>
     </form> -->
-    <div class="modal_info">
+    <div class="modal_info info1 flex">
       <img
         src="/assets/images/PORTAL/modal_su.png"
         alt="Tratamiento de datos"
@@ -194,8 +194,8 @@
         ti
       </p>
       <div class="modal_btns">
-        <button class="btn_modal btn_no">Ahora no</button>
-        <button class="btn_modal btn_si">
+        <button class="btn_modal btn_no btn_x">Ahora no</button>
+        <button class="btn_modal btn_si btn_ok">
           Acepto el tratamiento de datos personales
         </button>
       </div>
@@ -219,12 +219,17 @@
         >
       </p>
     </div>
-    <!-- <div class="modal_info info2">
+    <div class="modal_info info2 hidden">
       <h3>¿Estás seguro?</h3>
-
+      <p>
+        Esto nos permite crear un entorno seguro, confiable y transparente para
+        ti
+      </p>
       <div class="modal_btns">
-        <button class="btn_modal btn_no">Regresar</button>
-        <button class="btn_modal btn_si">¡Si! estoy seguro</button>
+        <button class="btn_modal btn_back btn_ok">Regresar</button>
+        <a class="btn_modal btn_x" href="mailto:mail@mail.com"
+          >¡Si! estoy seguro</a
+        >
       </div>
 
       <label class="modal_check" for="showcheck">
@@ -236,7 +241,7 @@
           class="checkbox checkbox-sm checkbox-info"
         />
       </label>
-    </div> -->
+    </div>
   </div>
   <!-- <label class="modal-backdrop" for="modal_data">Cerrar</label> -->
 </div>

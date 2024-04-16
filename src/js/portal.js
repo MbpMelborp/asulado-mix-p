@@ -419,57 +419,99 @@ if (document.getElementById("tabs_nov")) {
 // }
 
 //HOME
-if (document.getElementById("modal_data")) {
-  function setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function getCookieValue(name) {
+  const regex = new RegExp(`(^| )${name}=([^;]+)`);
+  const match = document.cookie.match(regex);
+  if (match) {
+    return match[2];
   }
-  function getCookieValue(name) {
-    const regex = new RegExp(`(^| )${name}=([^;]+)`);
-    const match = document.cookie.match(regex);
-    if (match) {
-      return match[2];
-    }
+}
+function deleteCookie(name) {
+  document.cookie = name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+}
+if (document.getElementById("modal_per")) {
+  if (document.getElementById("modal_per").dataset.pass == "true") {
+    document.getElementById("modal_data").checked = getCookieValue("modal_data")
+      ? false
+      : true;
+
+    document.getElementById("showcheck").checked = false;
+
+    document.getElementById("modal_data").addEventListener("change", (e) => {
+      if (e.target.checked) {
+      } else {
+      }
+    });
+    document.getElementById("showcheck").addEventListener("change", (e) => {
+      if (e.target.checked) {
+        setCookie("modal_data", true, 30);
+        setTimeout(() => {
+          document.getElementById("modal_data").checked = false;
+        }, 500);
+      } else {
+        deleteCookie("modal_data");
+        // setCookie("modal_sus", "false", 1);
+      }
+    });
+
+    document
+      .getElementsByClassName("btn_no")[0]
+      .addEventListener("click", () => {
+        setCookie("modal_data", true, 1);
+        setTimeout(() => {
+          document.getElementById("modal_data").checked = false;
+        }, 500);
+      });
+    document
+      .getElementsByClassName("btn_si")[0]
+      .addEventListener("click", () => {
+        setCookie("modal_data", true, 30);
+        setTimeout(() => {
+          document.getElementById("modal_data").checked = false;
+        }, 500);
+      });
+  } else {
+    document.getElementById("modal_data").checked = getCookieValue("modal_data")
+      ? false
+      : true;
+
+    document.getElementById("showcheck").checked = false;
+
+    document.getElementById("modal_data").addEventListener("change", (e) => {
+      if (e.target.checked) {
+      } else {
+      }
+    });
+
+    document
+      .getElementsByClassName("btn_si")[0]
+      .addEventListener("click", () => {
+        setCookie("modal_data", true, 30);
+        setTimeout(() => {
+          document.getElementById("modal_data").checked = false;
+        }, 500);
+      });
+
+    document
+      .getElementsByClassName("btn_no")[0]
+      .addEventListener("click", () => {
+        document.querySelector(".modal_info.info1").classList.add("hidden");
+        document.querySelector(".modal_info.info2").classList.remove("hidden");
+        document.querySelector(".modal_info.info2").classList.add("flex");
+      });
+    document
+      .getElementsByClassName("btn_back")[0]
+      .addEventListener("click", () => {
+        document.querySelector(".modal_info.info2").classList.remove("flex");
+        document.querySelector(".modal_info.info2").classList.add("hidden");
+        document.querySelector(".modal_info.info1").classList.remove("hidden");
+        document.querySelector(".modal_info.info1").classList.add("flex");
+      });
   }
-  function deleteCookie(name) {
-    document.cookie =
-      name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-  }
-  document.getElementById("modal_data").checked = getCookieValue("modal_data")
-    ? false
-    : true;
-
-  document.getElementById("showcheck").checked = false;
-
-  document.getElementById("modal_data").addEventListener("change", (e) => {
-    if (e.target.checked) {
-    } else {
-    }
-  });
-  document.getElementById("showcheck").addEventListener("change", (e) => {
-    if (e.target.checked) {
-      setCookie("modal_data", true, 30);
-      setTimeout(() => {
-        document.getElementById("modal_data").checked = false;
-      }, 500);
-    } else {
-      deleteCookie("modal_data");
-      // setCookie("modal_sus", "false", 1);
-    }
-  });
-
-  document.getElementsByClassName("btn_no")[0].addEventListener("click", () => {
-    setCookie("modal_data", true, 1);
-    setTimeout(() => {
-      document.getElementById("modal_data").checked = false;
-    }, 500);
-  });
-  document.getElementsByClassName("btn_si")[0].addEventListener("click", () => {
-    setCookie("modal_data", true, 30);
-    setTimeout(() => {
-      document.getElementById("modal_data").checked = false;
-    }, 500);
-  });
 }

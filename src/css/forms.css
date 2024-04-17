@@ -159,6 +159,7 @@
     }
   }
   .pbBottomButtons {
+    @apply mb-2;
     .pbButtonb {
       input[type="submit"] {
         @apply btn btn-primary;
@@ -198,6 +199,124 @@
     }
     p {
       @apply text-xl animate-pulse;
+    }
+  }
+}
+.formpp {
+  @apply flex flex-col w-full;
+  tbody {
+    @apply w-full flex items-start flex-wrap;
+    tr {
+      @apply w-full lg:w-1/2 flex flex-wrap px-2 items-center;
+      &:last-child {
+        .multiSelectPicklistTable {
+          @apply table;
+          tbody {
+            @apply table-row-group;
+            td:nth-child(1) {
+              @apply w-5/12;
+              select {
+                @apply select select-bordered w-full !h-full;
+              }
+            }
+            td.multiSelectPicklistCell {
+              @apply w-1/12 text-center;
+              a {
+                @apply block mx-auto;
+                img {
+                  @apply block mx-auto;
+                }
+              }
+            }
+            td:nth-child(3) {
+              @apply w-5/12;
+              select {
+                @apply select select-bordered w-full !h-full;
+              }
+            }
+            tr {
+              @apply table-row;
+              th {
+                @apply table-cell;
+              }
+              td {
+                @apply table-cell;
+              }
+            }
+          }
+        }
+      }
+      th {
+        @apply w-1/3 px-2 text-left font-normal flex flex-col;
+      }
+      td {
+        @apply w-2/3 px-2 text-left flex flex-col;
+        select {
+          @apply select select-bordered w-full;
+        }
+        input {
+          @apply input input-bordered input-md w-full;
+          &[name="pg:fm:pb:j_id4:j_id17:birthdate"] {
+            @apply w-auto;
+          }
+        }
+        textarea {
+          @apply textarea textarea-bordered h-24 w-full;
+        }
+      }
+    }
+  }
+}
+
+.form-wrap {
+  @apply flex flex-wrap;
+  .form-control {
+    @apply mb-4 flex gap-2 md:w-1/2 w-full px-2;
+    label {
+      @apply !mb-0;
+    }
+    &.as_select {
+      select {
+        @apply select select-bordered;
+      }
+    }
+    &.as_input {
+      input {
+        @apply input input-bordered input-md;
+      }
+    }
+    &.as_textarea {
+      textarea {
+        @apply textarea textarea-bordered h-24;
+      }
+    }
+    &.fc-file {
+      input {
+        @apply file-input file-input-primary file-input-bordered w-full file-input-sm;
+      }
+    }
+    .multiSelectPicklistRow {
+      td:nth-child(1) {
+        @apply w-5/12;
+        select {
+          @apply select select-bordered w-full !h-full;
+        }
+      }
+      td.multiSelectPicklistCell {
+        @apply w-1/12 text-center;
+        a {
+          @apply block mx-auto;
+          img {
+            @apply block mx-auto;
+          }
+        }
+      }
+      td:nth-child(3) {
+        @apply w-5/12;
+        select {
+          @apply select select-bordered w-full !h-full;
+        }
+      }
     }
   }
 }

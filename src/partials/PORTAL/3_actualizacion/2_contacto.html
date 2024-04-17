@@ -1,2610 +1,852 @@
-<article
-  c-procontactdataupdateenglish_procontactdataupdateenglish=""
-  data-content-position="right"
-  tabindex="-1"
-  class="omniscript-article slds-card slds-grid slds-wrap slds-grid_vertical-stretch slds-flexipage-container_large"
+<form
+  id="pg:fm"
+  name="pg:fm"
+  method="post"
+  action="https://proteccion--stage--c.sandbox.vf.force.com/apex/UpdateContact"
+  enctype="application/x-www-form-urlencoded"
 >
-  <div c-procontactdataupdateenglish_procontactdataupdateenglish=""></div>
-  <div
-    c-procontactdataupdateenglish_procontactdataupdateenglish=""
-    class="omniscript-body slds-card__body slds-card__body_inner slds-m-top_medium slds-p-right_medium slds-col slds-grid slds-grid_vertical slds-size_1-of-1"
-    data-stepborder="right"
-  >
-    <vlocity_ins-omniscript-ip-action
-      c-procontactdataupdateenglish_procontactdataupdateenglish=""
-      data-omni-key="ExtractUserCaseInfo"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-ip-action
-      c-procontactdataupdateenglish_procontactdataupdateenglish=""
-      data-omni-key="ExtractUserContactInfo"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-ip-action
-      c-procontactdataupdateenglish_procontactdataupdateenglish=""
-      data-omni-key="ExtraeInfoPoliza"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-step
-      c-procontactdataupdateenglish_procontactdataupdateenglish=""
-      data-omni-key="PreVisualizaInformacion"
-      vlocity_ins-omniscriptstep_omniscriptstep-host=""
-      ><div vlocity_ins-omniscriptstep_omniscriptstep=""></div>
-      <h1
-        vlocity_ins-omniscriptstep_omniscriptstep=""
-        class="slds-page-header__title slds-p-horizontal_medium slds-text-heading--medium slds-m-top_medium os-step-label"
-      >
-        Actualización Datos de Contacto
-      </h1>
-      <div
-        class="vlc-separator slds-border_top slds-m-top_x-small slds-m-bottom_xx-small slds-m-horizontal_medium"
-        vlocity_ins-omniscriptstep_omniscriptstep=""
-      ></div>
-      <div
-        vlocity_ins-omniscriptstep_omniscriptstep=""
-        class="slds-grid slds-wrap slds-p-vertical_small omniscript-step__body"
-      >
-        <slot
-          vlocity_ins-omniscriptstep_omniscriptstep=""
-          class="slds-grid slds-wrap slds-size_1-of-1 slds-p-left_medium"
-          ><vlocity_ins-omniscript-telephone
-            c-procontactdataupdateenglish_procontactdataupdateenglish=""
-            data-omni-key="PrimaryParticipantContact.HomePhone"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12 omni-read-only"
-            aria-disabled="true"
-            ><slot
-              ><c-masked-input
-                class="slds-container_fluid"
-                data-omni-input=""
-                vlocity_ins-maskedinput_maskedinput_slds-host=""
-                ><div
-                  vlocity_ins-maskedinput_maskedinput_slds=""
-                  class="slds-form-element slds-form-container"
+  <input type="hidden" name="pg:fm" value="pg:fm" />
+  <script>
+    if (!window.sfdcPage) {
+      window.sfdcPage = new ApexDetailPage();
+    }
+    UserContext.initialize({
+      ampm: ["AM", "PM"],
+      isAccessibleMode: false,
+      salesforceURL: "https://proteccion--stage.sandbox.my.salesforce.com",
+      dateFormat: "d/MM/yyyy",
+      language: "en_US",
+      locale: "es_CO",
+      dateTimeFormat: "d/MM/yyyy, h:mm a",
+      labelLastModified: "1713272919000",
+      today: "17/04/2024, 2:43 PM",
+      userPreferences: [
+        { index: 112, name: "HideInlineEditSplash", value: false },
+        { index: 114, name: "OverrideTaskSendNotification", value: false },
+        { index: 115, name: "DefaultTaskSendNotification", value: false },
+        { index: 119, name: "HideUserLayoutStdFieldInfo", value: false },
+        { index: 116, name: "HideRPPWarning", value: false },
+        { index: 87, name: "HideInlineSchedulingSplash", value: false },
+        { index: 88, name: "HideCRUCNotification", value: false },
+        { index: 89, name: "HideNewPLESplash", value: false },
+        { index: 90, name: "HideNewPLEWarnIE6", value: false },
+        { index: 122, name: "HideOverrideSharingMessage", value: false },
+        { index: 91, name: "HideProfileILEWarn", value: false },
+        { index: 93, name: "HideProfileElvVideo", value: false },
+        { index: 97, name: "ShowPicklistEditSplash", value: false },
+        { index: 92, name: "HideDataCategorySplash", value: false },
+        { index: 128, name: "ShowDealView", value: false },
+        { index: 129, name: "HideDealViewGuidedTour", value: false },
+        { index: 132, name: "HideKnowledgeFirstTimeSetupMsg", value: false },
+        { index: 104, name: "DefaultOffEntityPermsMsg", value: false },
+        { index: 135, name: "HideNewCsnSplash", value: false },
+        { index: 101, name: "HideBrowserWarning", value: false },
+        { index: 139, name: "HideDashboardBuilderGuidedTour", value: false },
+        { index: 140, name: "HideSchedulingGuidedTour", value: false },
+        { index: 180, name: "HideReportBuilderGuidedTour", value: false },
+        { index: 183, name: "HideAssociationQueueCallout", value: false },
+        { index: 194, name: "HideQTEBanner", value: false },
+        { index: 270, name: "HideIDEGuidedTour", value: false },
+        { index: 282, name: "HideQueryToolGuidedTour", value: false },
+        { index: 196, name: "HideCSIGuidedTour", value: false },
+        { index: 271, name: "HideFewmetGuidedTour", value: false },
+        { index: 272, name: "HideEditorGuidedTour", value: false },
+        { index: 205, name: "HideApexTestGuidedTour", value: false },
+        { index: 206, name: "HideSetupProfileHeaderTour", value: false },
+        {
+          index: 207,
+          name: "HideSetupProfileObjectsAndTabsTour",
+          value: false,
+        },
+        {
+          index: 213,
+          name: "DefaultOffArticleTypeEntityPermMsg",
+          value: false,
+        },
+        { index: 214, name: "HideSelfInfluenceGetStarted", value: false },
+        { index: 215, name: "HideOtherInfluenceGetStarted", value: false },
+        { index: 216, name: "HideFeedToggleGuidedTour", value: false },
+        { index: 268, name: "ShowChatterTab178GuidedTour", value: false },
+        { index: 275, name: "HidePeopleTabDeprecationMsg", value: false },
+        { index: 276, name: "HideGroupTabDeprecationMsg", value: false },
+        { index: 224, name: "HideUnifiedSearchGuidedTour", value: false },
+        { index: 226, name: "ShowDevContextMenu", value: true },
+        {
+          index: 227,
+          name: "HideWhatRecommenderForActivityQueues",
+          value: false,
+        },
+        { index: 228, name: "HideLiveAgentFirstTimeSetupMsg", value: false },
+        {
+          index: 232,
+          name: "HideGroupAllowsGuestsMsgOnMemberWidget",
+          value: false,
+        },
+        { index: 233, name: "HideGroupAllowsGuestsMsg", value: false },
+        { index: 234, name: "HideWhatAreGuestsMsg", value: false },
+        { index: 235, name: "HideNowAllowGuestsMsg", value: false },
+        {
+          index: 236,
+          name: "HideSocialAccountsAndContactsGuidedTour",
+          value: false,
+        },
+        { index: 237, name: "HideAnalyticsHomeGuidedTour", value: false },
+        { index: 238, name: "ShowQuickCreateGuidedTour", value: false },
+        { index: 245, name: "HideFilePageGuidedTour", value: false },
+        { index: 250, name: "HideForecastingGuidedTour", value: false },
+        { index: 251, name: "HideBucketFieldGuide", value: false },
+        { index: 263, name: "HideSmartSearchCallOut", value: false },
+        { index: 273, name: "ShowForecastingQuotaAttainment", value: false },
+        { index: 280, name: "HideForecastingQuotaColumn", value: false },
+        { index: 301, name: "HideManyWhoGuidedTour", value: false },
+        { index: 298, name: "HideFileSyncBannerMsg", value: false },
+        { index: 299, name: "HideTestConsoleGuidedTour", value: false },
+        { index: 302, name: "HideManyWhoInlineEditTip", value: false },
+        { index: 303, name: "HideSetupV2WelcomeMessage", value: false },
+        { index: 312, name: "ForecastingShowQuantity", value: false },
+        { index: 313, name: "HideDataImporterIntroMsg", value: false },
+        { index: 314, name: "HideEnvironmentHubLightbox", value: false },
+        { index: 316, name: "HideSetupV2GuidedTour", value: false },
+        { index: 317, name: "HideFileSyncMobileDownloadDialog", value: false },
+        { index: 322, name: "HideEnhancedProfileHelpBubble", value: false },
+        { index: 328, name: "ForecastingHideZeroRows", value: false },
+        {
+          index: 330,
+          name: "HideEmbeddedComponentsFeatureCallout",
+          value: false,
+        },
+        { index: 341, name: "HideDedupeMatchResultCallout", value: false },
+        { index: 340, name: "HideS1BrowserUI", value: true },
+        { index: 346, name: "HideS1Banner", value: false },
+        { index: 358, name: "HideEmailVerificationAlert", value: false },
+        { index: 354, name: "HideLearningPathModal", value: false },
+        { index: 359, name: "HideAtMentionsHelpBubble", value: false },
+        { index: 368, name: "LightningExperiencePreferred", value: true },
+        { index: 373, name: "PreviewLightning", value: false },
+        { index: 281, name: "HideMSPPopup", value: false },
+      ],
+      networkId: "",
+      uiTheme: "Theme3",
+      uiSkin: "Theme3",
+      userName: "juanosorio@melborp.co.stage",
+      userId: "005O8000002QLUJ",
+      isCurrentlySysAdminSU: false,
+      renderMode: "RETRO",
+      startOfWeek: "1",
+      vfDomainPattern: "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
+      auraDomain: "proteccion--stage.sandbox.lightning.force.com",
+      useNativeAlertConfirmPrompt: false,
+      orgPreferences: [
+        { index: 257, name: "TabOrganizer", value: true },
+        { index: 113, name: "GroupTasks", value: true },
+      ],
+      siteUrlPrefix: "",
+      isDefaultNetwork: true,
+      timeFormat: "h:mm a",
+    });
+  </script>
+  <div class="apexp">
+    <div
+      id="pg:fm:pb"
+      class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
+    >
+      <script>
+        function twistSection(elem, sectionId) {
+          var parentDiv = elem;
+          var twisty = elem;
+          while (parentDiv.tagName != "DIV") {
+            parentDiv = parentDiv.parentNode;
+          }
+          if (
+            elem.tagName === "DIV" &&
+            elem.attributes["data-twistyimgid"] !== undefined
+          ) {
+            twisty = document.getElementById(
+              elem.attributes["data-twistyimgid"].value
+            );
+          }
+          var div = parentDiv.nextSibling;
+          var elemWasOn = false;
+          if (div.style.display != "none") {
+            div.style.display = "none";
+            twisty.className = "showListButton";
+            twisty.alt = "Show Section - " + twisty.name;
+            elem.title = twisty.alt;
+            elemWasOn = true;
+          } else {
+            div.style.display = "block";
+            twisty.className = "hideListButton";
+            twisty.alt = "Hide Section - " + twisty.name;
+            elem.title = twisty.alt;
+          }
+          return !elemWasOn;
+        }
+        var registeredSections = new Array();
+        function registerTwistableSection(headerId, mainTableId) {
+          var obj = new Object();
+          obj.headerId = headerId;
+          obj.mainTableId = mainTableId;
+          registeredSections[registeredSections.length] = obj;
+        }
+        function twistAllSections(on) {
+          for (var i = 0; i < registeredSections.length; i++) {
+            var obj = registeredSections[i];
+            var img;
+            img = document.getElementById("img_" + obj.headerId);
+            if (on && "showListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            } else if (!on && "hideListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            }
+          }
+        }
+        function toggleSection(headerId, on) {
+          var sectionHead = document.getElementById(
+            "head_" + headerId + "_pg_fm_pb"
+          );
+          var body = sectionHead.nextSibling;
+          var disp = on ? "block" : "none";
+          sectionHead.style.display = disp;
+          body.style.display = disp;
+        }
+        function registerTwistableSections_pg_fm_pb() {
+          registerTwistableSection("pg_fm_pb_j_id4", "pg_fm_pb");
+        }
+        registerTwistableSections_pg_fm_pb();
+      </script>
+      <div class="pbBody">
+        <div id="pg:fm:pb:j_id4">
+          <div class="pbSubsection">
+            <div class="form-wrap">
+              <div class="form-control as_input">
+                <label for="pg:fm:pb:j_id4:j_id5:name"> Nombres</label>
+                <input
+                  disabled="true"
+                  id="pg:fm:pb:j_id4:j_id5:name"
+                  maxlength="40"
+                  name="pg:fm:pb:j_id4:j_id5:name"
+                  size="20"
+                  type="text"
+                  value="marc"
+                />
+              </div>
+              <div class="form-control as_input">
+                <label for="pg:fm:pb:j_id4:j_id7:lastname"> Apellidos</label>
+                <input
+                  disabled="true"
+                  id="pg:fm:pb:j_id4:j_id7:lastname"
+                  maxlength="80"
+                  name="pg:fm:pb:j_id4:j_id7:lastname"
+                  required="required"
+                  size="20"
+                  type="text"
+                  value="avila salazar"
+                />
+              </div>
+              <div class="form-control as_input">
+                <label for="pg:fm:pb:j_id4:j_id9:email">
+                  Correo electrónico</label
                 >
-                  <div
-                    vlocity_ins-maskedinput_maskedinput_slds=""
-                    class="slds-grid"
-                  >
-                    <label
-                      vlocity_ins-maskedinput_maskedinput_slds=""
-                      class="slds-form-element__label slds-show--inline"
-                      for="input23-205"
-                      style="width: auto"
-                      >Teléfono Fijo</label
-                    ><slot
-                      vlocity_ins-maskedinput_maskedinput_slds=""
-                      name="label"
-                    ></slot>
-                  </div>
-                  <div
-                    vlocity_ins-maskedinput_maskedinput_slds=""
-                    class="slds-form-element__control slds-form-element__control-animated-label"
-                  >
-                    <input
-                      vlocity_ins-maskedinput_maskedinput_slds=""
-                      class="vlocity-input slds-input"
-                      id="input23-205"
-                      type="tel"
-                      tabindex="-1"
-                      autocomplete="new-password"
-                      name="search"
-                    />
-                  </div>
-                  <div
-                    vlocity_ins-maskedinput_maskedinput_slds=""
-                    class="slds-grid"
-                  ></div></div></c-masked-input></slot></vlocity_ins-omniscript-telephone
-          ><vlocity_ins-omniscript-telephone
-            c-procontactdataupdateenglish_procontactdataupdateenglish=""
-            data-omni-key="PrimaryParticipantContact.MobilePhone"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12 omni-read-only"
-            aria-disabled="true"
-            ><slot
-              ><c-masked-input
-                class="slds-container_fluid"
-                data-omni-input=""
-                vlocity_ins-maskedinput_maskedinput_slds-host=""
-                ><div
-                  vlocity_ins-maskedinput_maskedinput_slds=""
-                  class="slds-form-element slds-form-container"
+                <input
+                  disabled="true"
+                  id="pg:fm:pb:j_id4:j_id9:email"
+                  maxlength="80"
+                  name="pg:fm:pb:j_id4:j_id9:email"
+                  size="20"
+                  type="text"
+                  value="dvelezmesa@gmail.com"
+                />
+              </div>
+              <div class="form-control as_select">
+                <label for="pg:fm:pb:j_id4:j_id11:gender"> Género</label>
+                <select
+                  disabled="true"
+                  id="pg:fm:pb:j_id4:j_id11:gender"
+                  name="pg:fm:pb:j_id4:j_id11:gender"
                 >
-                  <div
-                    vlocity_ins-maskedinput_maskedinput_slds=""
-                    class="slds-grid"
-                  >
-                    <label
-                      vlocity_ins-maskedinput_maskedinput_slds=""
-                      class="slds-form-element__label slds-show--inline"
-                      for="input25-207"
-                      style="width: auto"
-                      >Teléfono Celular</label
-                    ><slot
-                      vlocity_ins-maskedinput_maskedinput_slds=""
-                      name="label"
-                    ></slot>
-                  </div>
-                  <div
-                    vlocity_ins-maskedinput_maskedinput_slds=""
-                    class="slds-form-element__control slds-form-element__control-animated-label"
-                  >
-                    <input
-                      vlocity_ins-maskedinput_maskedinput_slds=""
-                      class="vlocity-input slds-input"
-                      id="input25-207"
-                      type="tel"
-                      tabindex="-1"
-                      autocomplete="new-password"
-                      name="search"
-                    />
-                  </div>
-                  <div
-                    vlocity_ins-maskedinput_maskedinput_slds=""
-                    class="slds-grid"
-                  ></div></div></c-masked-input></slot></vlocity_ins-omniscript-telephone
-          ><vlocity_ins-omniscript-select
-            c-procontactdataupdateenglish_procontactdataupdateenglish=""
-            data-omni-key="PrimaryParticipantContact.Pro_marital_status__c"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12 omni-read-only"
-            aria-disabled="true"
-            ><slot
-              ><c-combobox
-                class="slds-container_fluid"
-                data-refresh="false"
-                data-show-lookup="true"
-                data-omni-input=""
-                vlocity_ins-combobox_combobox_slds-host=""
-                ><div
-                  vlocity_ins-combobox_combobox_slds=""
-                  class="slds-form-element"
+                  <option value="">--None--</option>
+                  <option value="Masculino" selected="selected">
+                    Masculino
+                  </option>
+                  <option value="Femenino">Femenino</option>
+                </select>
+              </div>
+              <div class="form-control as_input">
+                <label for="pg:fm:pb:j_id4:j_id13:typeId">
+                  Tipo de documento identidad</label
                 >
-                  <div
-                    vlocity_ins-combobox_combobox_slds=""
-                    class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click"
-                  >
-                    <div
-                      vlocity_ins-combobox_combobox_slds=""
-                      class="slds-grid"
-                      data-label="true"
-                    >
-                      <label
-                        vlocity_ins-combobox_combobox_slds=""
-                        class="slds-form-element__label slds-show_inline"
-                        for="comboboxId-209"
-                        style="width: auto"
-                        ><span vlocity_ins-combobox_combobox_slds=""
-                          >Estado Civil</span
-                        ></label
-                      ><slot
-                        vlocity_ins-combobox_combobox_slds=""
-                        name="label"
-                      ></slot>
-                    </div>
-                    <div
-                      vlocity_ins-combobox_combobox_slds=""
-                      class="slds-form-element__control"
-                    >
-                      <div
-                        vlocity_ins-combobox_combobox_slds=""
-                        class="slds-combobox_container"
-                      >
-                        <div
-                          vlocity_ins-combobox_combobox_slds=""
-                          class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
-                          role="none"
+                <input
+                  disabled="true"
+                  id="pg:fm:pb:j_id4:j_id13:typeId"
+                  maxlength="50"
+                  name="pg:fm:pb:j_id4:j_id13:typeId"
+                  size="20"
+                  type="text"
+                  value="CC"
+                />
+              </div>
+              <div class="form-control as_input">
+                <label for="pg:fm:pb:j_id4:j_id15:numberId">
+                  Número de documento identidad</label
+                >
+                <input
+                  disabled="true"
+                  id="pg:fm:pb:j_id4:j_id15:numberId"
+                  maxlength="18"
+                  name="pg:fm:pb:j_id4:j_id15:numberId"
+                  required="required"
+                  size="20"
+                  type="text"
+                  value="76302970"
+                />
+              </div>
+              <div class="form-control as_input">
+                <label for="pg:fm:pb:j_id4:j_id17:birthdate">
+                  Fecha de nacimiento</label
+                >
+                <span class="dateInput dateOnlyInput"
+                  ><input
+                    disabled="true"
+                    id="pg:fm:pb:j_id4:j_id17:birthdate"
+                    name="pg:fm:pb:j_id4:j_id17:birthdate"
+                    onfocus="DatePicker.pickDate(true, 'pg:fm:pb:j_id4:j_id17:birthdate', false);"
+                    size="12"
+                    type="text"
+                    value="21/01/1985"
+                  /><span class="dateFormat"
+                    >[&nbsp;<a
+                      href="javascript:DatePicker.insertDate('17/04/2024', 'pg:fm:pb:j_id4:j_id17:birthdate', true);"
+                      >17/04/2024</a
+                    >&nbsp;]</span
+                  ></span
+                >
+              </div>
+              <div class="form-control as_input">
+                <label for="pg:fm:pb:j_id4:j_id19:phone"> Teléfono</label>
+                <input
+                  disabled="true"
+                  id="pg:fm:pb:j_id4:j_id19:phone"
+                  maxlength="40"
+                  name="pg:fm:pb:j_id4:j_id19:phone"
+                  size="20"
+                  type="text"
+                  value="3333333"
+                />
+              </div>
+              <div class="form-control as_input">
+                <label for="pg:fm:pb:j_id4:j_id21:cellphone"> Celular</label>
+                <input
+                  disabled="true"
+                  id="pg:fm:pb:j_id4:j_id21:cellphone"
+                  maxlength="40"
+                  name="pg:fm:pb:j_id4:j_id21:cellphone"
+                  size="20"
+                  type="text"
+                  value="3333333"
+                />
+              </div>
+              <div class="form-control as_select">
+                <label for="pg:fm:pb:j_id4:j_id23:maritalStatus">
+                  Estado civil</label
+                >
+                <select
+                  disabled="true"
+                  id="pg:fm:pb:j_id4:j_id23:maritalStatus"
+                  name="pg:fm:pb:j_id4:j_id23:maritalStatus"
+                >
+                  <option value="">--None--</option>
+                  <option value="Casado">Casado</option>
+                  <option value="Unión libre">Unión libre</option>
+                  <option value="Soltero" selected="selected">Soltero</option>
+                  <option value="Viudo">Viudo</option>
+                  <option value="Separado">Separado</option>
+                  <option value="Divorciado">Divorciado</option>
+                </select>
+              </div>
+              <div class="form-control as_select">
+                <label for="pg:fm:pb:j_id4:j_id25:genderIdentity">
+                  Identidad de género</label
+                ><select
+                  disabled="true"
+                  id="pg:fm:pb:j_id4:j_id25:genderIdentity"
+                  name="pg:fm:pb:j_id4:j_id25:genderIdentity"
+                >
+                  <option value="">--None--</option>
+                  <option value="Femenino">Femenino</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="No Binario">No Binario</option>
+                </select>
+              </div>
+              <div class="form-control as_select">
+                <label for="pg:fm:pb:j_id4:j_id27:subscriptions">
+                  Suscripciones</label
+                >
+                <select
+                  disabled="true"
+                  id="pg:fm:pb:j_id4:j_id27:subscriptions"
+                  multiple="multiple"
+                  name="pg:fm:pb:j_id4:j_id27:subscriptions"
+                  size="4"
+                  style="display: none"
+                >
+                  <option value="Articulos">Articulos</option>
+                  <option value="Colilla">Colilla</option>
+                  <option value="Certificado">Certificado</option>
+                  <option value="Poliza">Poliza</option>
+                </select>
+                <table
+                  class="multiSelectPicklistTable"
+                  border="0"
+                  cellspacing="0"
+                  cellpadding="0"
+                >
+                  <tbody>
+                    <tr class="multiSelectPicklistRow">
+                      <td>
+                        <select
+                          multiple="multiple"
+                          ondblclick="MultiSelectPicklist.handleMSPSelect('pg:fm:pb:j_id4:j_id27:subscriptions'); "
+                          disabled="true"
+                          id="pg:fm:pb:j_id4:j_id27:subscriptions_unselected"
+                          title="Suscripciones - Available"
+                          size="4"
                         >
-                          <input
-                            vlocity_ins-combobox_combobox_slds=""
-                            class="slds-input slds-listbox__option-text_entity"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            role="combobox"
-                            data-value=""
-                            readonly=""
-                            autocomplete="new-password"
-                            id="comboboxId-209"
-                            tabindex="-1"
-                          /><span
-                            vlocity_ins-combobox_combobox_slds=""
-                            class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right"
-                            ><c-icon vlocity_ins-combobox_combobox_slds=""
-                              ><svg
-                                class="slds-icon slds-icon-text-default slds-icon_x-small"
-                                aria-hidden="true"
-                              >
-                                <use
-                                  xlink:href="#httpsproteccionstagesandboxmysitecomasuladosldsiconsutilityspritesvgsymbolssvg_down"
-                                ></use></svg
-                              ><span class="slds-assistive-text"></span></c-icon
-                          ></span>
-                        </div>
-                      </div>
-                      <div
-                        vlocity_ins-combobox_combobox_slds=""
-                        class="slds-form-element"
-                      >
-                        <div
-                          vlocity_ins-combobox_combobox_slds=""
-                          class="slds-dropdown slds-dropdown_fluid slds-p-bottom_none"
-                          role="listbox"
-                        >
-                          <ul
-                            vlocity_ins-combobox_combobox_slds=""
-                            class="dropdown-container listbox slds-listbox slds-listbox_vertical"
-                            role="presentation"
+                          <optgroup
+                            style="text-decoration: none"
+                            label="Available"
                           >
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="none"
-                                data-label="-- Clear --"
-                                data-option-id="0"
-                                role="option"
-                                id="0-209"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >-- Clear --</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Casado"
-                                data-label="Casado"
-                                data-option-id="1"
-                                role="option"
-                                id="1-209"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >Casado</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Unión libre"
-                                data-label="Unión libre"
-                                data-option-id="2"
-                                role="option"
-                                id="2-209"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >Unión libre</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Soltero"
-                                data-label="Soltero"
-                                data-option-id="3"
-                                role="option"
-                                id="3-209"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >Soltero</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Viudo"
-                                data-label="Viudo"
-                                data-option-id="4"
-                                role="option"
-                                id="4-209"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >Viudo</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Separado"
-                                data-label="Separado"
-                                data-option-id="5"
-                                role="option"
-                                id="5-209"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >Separado</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Divorciado"
-                                data-label="Divorciado"
-                                data-option-id="6"
-                                role="option"
-                                id="6-209"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >Divorciado</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div></c-combobox
-              ></slot
-            ></vlocity_ins-omniscript-select
-          ><vlocity_ins-omniscript-select
-            c-procontactdataupdateenglish_procontactdataupdateenglish=""
-            data-omni-key="PrimaryParticipantContact.MailingCountry"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12 omni-read-only"
-            aria-disabled="true"
-            ><slot
-              ><c-combobox
-                class="slds-container_fluid"
-                data-refresh="false"
-                data-show-lookup="true"
-                data-omni-input=""
-                vlocity_ins-combobox_combobox_slds-host=""
-                ><div
-                  vlocity_ins-combobox_combobox_slds=""
-                  class="slds-form-element"
-                >
-                  <div
-                    vlocity_ins-combobox_combobox_slds=""
-                    class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click"
-                  >
-                    <div
-                      vlocity_ins-combobox_combobox_slds=""
-                      class="slds-grid"
-                      data-label="true"
-                    >
-                      <label
-                        vlocity_ins-combobox_combobox_slds=""
-                        class="slds-form-element__label slds-show_inline"
-                        for="comboboxId-212"
-                        style="width: auto"
-                        ><span vlocity_ins-combobox_combobox_slds=""
-                          >País</span
-                        ></label
-                      ><slot
-                        vlocity_ins-combobox_combobox_slds=""
-                        name="label"
-                      ></slot>
-                    </div>
-                    <div
-                      vlocity_ins-combobox_combobox_slds=""
-                      class="slds-form-element__control"
-                    >
-                      <div
-                        vlocity_ins-combobox_combobox_slds=""
-                        class="slds-combobox_container"
-                      >
-                        <div
-                          vlocity_ins-combobox_combobox_slds=""
-                          class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
-                          role="none"
+                            <option value="0">Articulos</option>
+                            <option value="1">Colilla</option>
+                            <option value="2">Certificado</option>
+                            <option value="3">Poliza</option>
+                          </optgroup>
+                        </select>
+                      </td>
+                      <td class="multiSelectPicklistCell">
+                        <a
+                          href="javascript:MultiSelectPicklist.handleMSPSelect%28%27pg%3Afm%3Apb%3Aj_id4%3Aj_id27%3Asubscriptions%27%29%3B"
+                          ><img
+                            src="https://proteccion--stage--c.sandbox.vf.force.com/img/arrow2_picklist_right.gif"
+                            alt="Add"
+                            width="17"
+                            height="17"
+                            align="texttop"
+                            border="0"
+                            disabled="true"
+                            id="pg:fm:pb:j_id4:j_id27:subscriptions_right_arrow"
+                            style="cursor: pointer"
+                            title="Add" /></a
+                        ><br /><br />
+                        <a
+                          href="javascript:MultiSelectPicklist.handleMSPUnSelect%28%27pg%3Afm%3Apb%3Aj_id4%3Aj_id27%3Asubscriptions%27%29%3B"
+                          ><img
+                            src="https://proteccion--stage--c.sandbox.vf.force.com/img/arrow2_picklist_left.gif"
+                            alt="Remove"
+                            width="17"
+                            height="17"
+                            align="texttop"
+                            border="0"
+                            disabled="true"
+                            id="pg:fm:pb:j_id4:j_id27:subscriptions_left_arrow"
+                            style="cursor: pointer"
+                            title="Remove"
+                        /></a>
+                      </td>
+                      <td>
+                        <select
+                          multiple="multiple"
+                          ondblclick="MultiSelectPicklist.handleMSPUnSelect('pg:fm:pb:j_id4:j_id27:subscriptions'); "
+                          disabled="true"
+                          id="pg:fm:pb:j_id4:j_id27:subscriptions_selected"
+                          title="Suscripciones - Chosen"
+                          size="4"
                         >
-                          <input
-                            vlocity_ins-combobox_combobox_slds=""
-                            class="slds-input slds-listbox__option-text_entity"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            role="combobox"
-                            data-value=""
-                            readonly=""
-                            autocomplete="new-password"
-                            id="comboboxId-212"
-                            tabindex="-1"
-                          /><span
-                            vlocity_ins-combobox_combobox_slds=""
-                            class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right"
-                            ><c-icon vlocity_ins-combobox_combobox_slds=""
-                              ><svg
-                                class="slds-icon slds-icon-text-default slds-icon_x-small"
-                                aria-hidden="true"
-                              >
-                                <use
-                                  xlink:href="#httpsproteccionstagesandboxmysitecomasuladosldsiconsutilityspritesvgsymbolssvg_down"
-                                ></use></svg
-                              ><span class="slds-assistive-text"></span></c-icon
-                          ></span>
-                        </div>
-                      </div>
-                      <div
-                        vlocity_ins-combobox_combobox_slds=""
-                        class="slds-form-element"
-                      >
-                        <div
-                          vlocity_ins-combobox_combobox_slds=""
-                          class="slds-dropdown slds-dropdown_fluid slds-p-bottom_none"
-                          role="listbox"
-                        >
-                          <ul
-                            vlocity_ins-combobox_combobox_slds=""
-                            class="dropdown-container listbox slds-listbox slds-listbox_vertical"
-                            role="presentation"
-                          >
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="none"
-                                data-label="-- Clear --"
-                                data-option-id="0"
-                                role="option"
-                                id="0-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >-- Clear --</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Argentina"
-                                data-label="AR-Argentina"
-                                data-option-id="1"
-                                role="option"
-                                id="1-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >AR-Argentina</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Colombia"
-                                data-label="CO-Colombia"
-                                data-option-id="2"
-                                role="option"
-                                id="2-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >CO-Colombia</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Bélgica"
-                                data-label="BE-Bélgica"
-                                data-option-id="3"
-                                role="option"
-                                id="3-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >BE-Bélgica</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Austria"
-                                data-label="AT-Austria"
-                                data-option-id="4"
-                                role="option"
-                                id="4-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >AT-Austria</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Australia"
-                                data-label="AU-Australia"
-                                data-option-id="5"
-                                role="option"
-                                id="5-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >AU-Australia</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Brasil"
-                                data-label="BR-Brasil"
-                                data-option-id="6"
-                                role="option"
-                                id="6-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >BR-Brasil</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Canadá"
-                                data-label="CA-Canadá"
-                                data-option-id="7"
-                                role="option"
-                                id="7-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >CA-Canadá</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Suiza"
-                                data-label="CH-Suiza"
-                                data-option-id="8"
-                                role="option"
-                                id="8-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >CH-Suiza</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Chile"
-                                data-label="CL-Chile"
-                                data-option-id="9"
-                                role="option"
-                                id="9-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >CL-Chile</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="República Popular de China"
-                                data-label="CN-República Popular de China"
-                                data-option-id="10"
-                                role="option"
-                                id="10-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >CN-República Popular de China</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Costa Rica"
-                                data-label="CR-Costa Rica"
-                                data-option-id="11"
-                                role="option"
-                                id="11-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >CR-Costa Rica</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Curazao"
-                                data-label="CW-Curazao"
-                                data-option-id="12"
-                                role="option"
-                                id="12-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >CW-Curazao</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="República Checa"
-                                data-label="CZ-República Checa"
-                                data-option-id="13"
-                                role="option"
-                                id="13-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >CZ-República Checa</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Alemania"
-                                data-label="DE-Alemania"
-                                data-option-id="14"
-                                role="option"
-                                id="14-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >DE-Alemania</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Dinamarca"
-                                data-label="DK-Dinamarca"
-                                data-option-id="15"
-                                role="option"
-                                id="15-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >DK-Dinamarca</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="España"
-                                data-label="ES-España"
-                                data-option-id="16"
-                                role="option"
-                                id="16-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >ES-España</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Finlandia"
-                                data-label="FI-Finlandia"
-                                data-option-id="17"
-                                role="option"
-                                id="17-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >FI-Finlandia</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Francia"
-                                data-label="FR-Francia"
-                                data-option-id="18"
-                                role="option"
-                                id="18-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >FR-Francia</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Reino Unido"
-                                data-label="GB-Reino Unido"
-                                data-option-id="19"
-                                role="option"
-                                id="19-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >GB-Reino Unido</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Grecia"
-                                data-label="GR-Grecia"
-                                data-option-id="20"
-                                role="option"
-                                id="20-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >GR-Grecia</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Hong Kong"
-                                data-label="HK-Hong Kong"
-                                data-option-id="21"
-                                role="option"
-                                id="21-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >HK-Hong Kong</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Croacia"
-                                data-label="HR-Croacia"
-                                data-option-id="22"
-                                role="option"
-                                id="22-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >HR-Croacia</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Hungría"
-                                data-label="HU-Hungría"
-                                data-option-id="23"
-                                role="option"
-                                id="23-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >HU-Hungría</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Indonesia"
-                                data-label="ID-Indonesia"
-                                data-option-id="24"
-                                role="option"
-                                id="24-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >ID-Indonesia</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Irlanda"
-                                data-label="IE-Irlanda"
-                                data-option-id="25"
-                                role="option"
-                                id="25-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >IE-Irlanda</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Israel"
-                                data-label="IL-Israel"
-                                data-option-id="26"
-                                role="option"
-                                id="26-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >IL-Israel</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="India"
-                                data-label="IN-India"
-                                data-option-id="27"
-                                role="option"
-                                id="27-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >IN-India</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Italia"
-                                data-label="IT-Italia"
-                                data-option-id="28"
-                                role="option"
-                                id="28-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >IT-Italia</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Jamaica"
-                                data-label="JM-Jamaica"
-                                data-option-id="29"
-                                role="option"
-                                id="29-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >JM-Jamaica</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Japón"
-                                data-label="JP-Japón"
-                                data-option-id="30"
-                                role="option"
-                                id="30-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >JP-Japón</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Corea del Sur"
-                                data-label="KR-Corea del Sur"
-                                data-option-id="31"
-                                role="option"
-                                id="31-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >KR-Corea del Sur</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Kazajistán"
-                                data-label="KZ-Kazajistán"
-                                data-option-id="32"
-                                role="option"
-                                id="32-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >KZ-Kazajistán</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Luxemburgo"
-                                data-label="LU-Luxemburgo"
-                                data-option-id="33"
-                                role="option"
-                                id="33-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >LU-Luxemburgo</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="México"
-                                data-label="ME-México"
-                                data-option-id="34"
-                                role="option"
-                                id="34-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >ME-México</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Malasia"
-                                data-label="MY-Malasia"
-                                data-option-id="35"
-                                role="option"
-                                id="35-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >MY-Malasia</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Países Bajos"
-                                data-label="NL-Países Bajos"
-                                data-option-id="36"
-                                role="option"
-                                id="36-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >NL-Países Bajos</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Noruega"
-                                data-label="NO-Noruega"
-                                data-option-id="37"
-                                role="option"
-                                id="37-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >NO-Noruega</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Nueva Zelanda"
-                                data-label="NZ-Nueva Zelanda"
-                                data-option-id="38"
-                                role="option"
-                                id="38-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >NZ-Nueva Zelanda</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Panamá"
-                                data-label="PA-Panamá"
-                                data-option-id="39"
-                                role="option"
-                                id="39-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >PA-Panamá</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Perú"
-                                data-label="PE-Perú"
-                                data-option-id="40"
-                                role="option"
-                                id="40-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >PE-Perú</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Filipinas"
-                                data-label="PH-Filipinas"
-                                data-option-id="41"
-                                role="option"
-                                id="41-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >PH-Filipinas</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Polonia"
-                                data-label="PL-Polonia"
-                                data-option-id="42"
-                                role="option"
-                                id="42-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >PL-Polonia</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Protugal"
-                                data-label="PT-Portugal"
-                                data-option-id="43"
-                                role="option"
-                                id="43-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >PT-Portugal</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Rumania"
-                                data-label="RO-Rumania"
-                                data-option-id="44"
-                                role="option"
-                                id="44-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >RO-Rumania</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Rusia"
-                                data-label="RU-Rusia"
-                                data-option-id="45"
-                                role="option"
-                                id="45-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >RU-Rusia</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Suecia"
-                                data-label="SE-Suecia"
-                                data-option-id="46"
-                                role="option"
-                                id="46-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >SE-Suecia</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Singapur"
-                                data-label="SG-Singapur"
-                                data-option-id="47"
-                                role="option"
-                                id="47-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >SG-Singapur</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Slovenia"
-                                data-label="SI-Slovenia"
-                                data-option-id="48"
-                                role="option"
-                                id="48-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >SI-Slovenia</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="El Salvador"
-                                data-label="SV-El Salvador"
-                                data-option-id="49"
-                                role="option"
-                                id="49-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >SV-El Salvador</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Tailandia"
-                                data-label="TH-Tailandia"
-                                data-option-id="50"
-                                role="option"
-                                id="50-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >TH-Tailandia</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Turquía"
-                                data-label="TR-Turquía"
-                                data-option-id="51"
-                                role="option"
-                                id="51-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >TR-Turquía</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Taiwán"
-                                data-label="TW-Taiwán"
-                                data-option-id="52"
-                                role="option"
-                                id="52-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >TW-Taiwán</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Ucrania"
-                                data-label="UA-Ucrania"
-                                data-option-id="53"
-                                role="option"
-                                id="53-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >UA-Ucrania</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Estados Unidos"
-                                data-label="US-Estados Unidos"
-                                data-option-id="54"
-                                role="option"
-                                id="54-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >US-Estados Unidos</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Uruguay"
-                                data-label="UY-Uruguay"
-                                data-option-id="55"
-                                role="option"
-                                id="55-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >UY-Uruguay</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Venezuela"
-                                data-label="VE-Venezuela"
-                                data-option-id="56"
-                                role="option"
-                                id="56-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >VE-Venezuela</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Sudáfrica"
-                                data-label="ZA-Sudáfrica"
-                                data-option-id="57"
-                                role="option"
-                                id="57-212"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >ZA-Sudáfrica</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div></c-combobox
-              ></slot
-            ></vlocity_ins-omniscript-select
-          ><vlocity_ins-omniscript-typeahead-block
-            c-procontactdataupdateenglish_procontactdataupdateenglish=""
-            data-omni-key="PrimaryParticipantContact.MailingState-Block"
-            class="slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12"
-            vlocity_ins-omniscripttypeaheadblock_omniscripttypeaheadblock-host=""
-            ><div
-              vlocity_ins-omniscripttypeaheadblock_omniscripttypeaheadblock=""
-              class="omni-block_children"
+                          <optgroup
+                            style="text-decoration: none"
+                            label="Chosen"
+                          ></optgroup>
+                        </select>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <hr />
+            <table
+              class="detailList formpp"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
             >
-              <slot
-                vlocity_ins-omniscripttypeaheadblock_omniscripttypeaheadblock=""
-                ><vlocity_ins-omniscript-typeahead
-                  c-procontactdataupdateenglish_procontactdataupdateenglish=""
-                  data-omni-key="PrimaryParticipantContact.MailingState"
-                  class="omni-typeahead slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 omni-read-only"
-                  aria-disabled="true"
-                  ><slot
-                    ><div class="omni-typeahead-container">
-                      <c-typeahead
-                        data-omni-input=""
-                        vlocity_ins-typeahead_typeahead_slds-host=""
-                        ><div
-                          vlocity_ins-typeahead_typeahead_slds=""
-                          class="slds-form-element slds-is-relative"
-                        >
-                          <div
-                            vlocity_ins-typeahead_typeahead_slds=""
-                            class="slds-hide"
-                          >
-                            <c-progress-bar
-                              vlocity_ins-typeahead_typeahead_slds=""
-                              data-progress-bar=""
-                              vlocity_ins-progressbar_progressbar-host=""
-                              ><div
-                                vlocity_ins-progressbar_progressbar=""
-                                class="slds-progress-bar slds-progress-bar_xx-small"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                                aria-valuenow="0"
-                                role="progressbar"
-                                data-progress-bar=""
-                              >
-                                <span
-                                  vlocity_ins-progressbar_progressbar=""
-                                  class="slds-progress-bar__value"
-                                  data-progress-bar-value=""
-                                  style="transition-duration: 1s; width: 0%"
-                                  ><span
-                                    vlocity_ins-progressbar_progressbar=""
-                                    class="slds-assistive-text"
-                                    >Progress: 0</span
-                                  ></span
-                                >
-                              </div></c-progress-bar
-                            >
-                          </div>
-                          <div vlocity_ins-typeahead_typeahead_slds="">
-                            <div
-                              vlocity_ins-typeahead_typeahead_slds=""
-                              class="slds-grid"
-                              data-label="true"
-                            >
-                              <label
-                                vlocity_ins-typeahead_typeahead_slds=""
-                                class="slds-form-element__label slds-show--inline slds-truncate"
-                                aria-label="Departamento"
-                                for="inputId-216"
-                                style="width: auto"
-                                ><span vlocity_ins-typeahead_typeahead_slds=""
-                                  >Departamento</span
-                                ></label
-                              >
-                            </div>
-                            <div
-                              vlocity_ins-typeahead_typeahead_slds=""
-                              class="slds-form-element__control"
-                            >
-                              <div
-                                vlocity_ins-typeahead_typeahead_slds=""
-                                class="slds-combobox_container"
-                              >
-                                <div
-                                  vlocity_ins-typeahead_typeahead_slds=""
-                                  class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click"
-                                >
-                                  <div
-                                    vlocity_ins-typeahead_typeahead_slds=""
-                                    class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
-                                    role="none"
-                                  >
-                                    <input
-                                      vlocity_ins-typeahead_typeahead_slds=""
-                                      class="slds-input"
-                                      type="text"
-                                      maxlength="255"
-                                      id="inputId-216"
-                                      autocomplete="off"
-                                      aria-autocomplete="list"
-                                      aria-owns="listboxId-216"
-                                      aria-haspopup="true"
-                                      aria-expanded="false"
-                                      role="combobox"
-                                    /><span
-                                      vlocity_ins-typeahead_typeahead_slds=""
-                                      class="slds-icon_container slds-input__icon slds-input__icon_right"
-                                      ><slot
-                                        vlocity_ins-typeahead_typeahead_slds=""
-                                        name="iconRight"
-                                        ><c-icon
-                                          vlocity_ins-typeahead_typeahead_slds=""
-                                          ><svg
-                                            class="slds-icon slds-icon-text-default slds-icon_x-small"
-                                            aria-hidden="true"
-                                          >
-                                            <use
-                                              xlink:href="#httpsproteccionstagesandboxmysitecomasuladosldsiconsutilityspritesvgsymbolssvg_empty"
-                                            ></use></svg
-                                          ><span class="slds-assistive-text"
-                                            >Edit</span
-                                          ></c-icon
-                                        ></slot
-                                      ></span
-                                    >
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                vlocity_ins-typeahead_typeahead_slds=""
-                                class="slds-form-element"
-                              ></div>
-                            </div>
-                          </div></div
-                      ></c-typeahead></div></slot></vlocity_ins-omniscript-typeahead
-              ></slot></div></vlocity_ins-omniscript-typeahead-block
-          ><vlocity_ins-omniscript-typeahead-block
-            c-procontactdataupdateenglish_procontactdataupdateenglish=""
-            data-omni-key="PrimaryParticipantContact.MailingCity-Block"
-            class="slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12"
-            vlocity_ins-omniscripttypeaheadblock_omniscripttypeaheadblock-host=""
-            ><div
-              vlocity_ins-omniscripttypeaheadblock_omniscripttypeaheadblock=""
-              class="omni-block_children"
-            >
-              <slot
-                vlocity_ins-omniscripttypeaheadblock_omniscripttypeaheadblock=""
-                ><vlocity_ins-omniscript-typeahead
-                  c-procontactdataupdateenglish_procontactdataupdateenglish=""
-                  data-omni-key="PrimaryParticipantContact.MailingCity"
-                  class="omni-typeahead slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 omni-read-only"
-                  aria-disabled="true"
-                  ><slot
-                    ><div class="omni-typeahead-container">
-                      <c-typeahead
-                        data-omni-input=""
-                        vlocity_ins-typeahead_typeahead_slds-host=""
-                        ><div
-                          vlocity_ins-typeahead_typeahead_slds=""
-                          class="slds-form-element slds-is-relative"
-                        >
-                          <div
-                            vlocity_ins-typeahead_typeahead_slds=""
-                            class="slds-hide"
-                          >
-                            <c-progress-bar
-                              vlocity_ins-typeahead_typeahead_slds=""
-                              data-progress-bar=""
-                              vlocity_ins-progressbar_progressbar-host=""
-                              ><div
-                                vlocity_ins-progressbar_progressbar=""
-                                class="slds-progress-bar slds-progress-bar_xx-small"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                                aria-valuenow="0"
-                                role="progressbar"
-                                data-progress-bar=""
-                              >
-                                <span
-                                  vlocity_ins-progressbar_progressbar=""
-                                  class="slds-progress-bar__value"
-                                  data-progress-bar-value=""
-                                  style="transition-duration: 1s; width: 0%"
-                                  ><span
-                                    vlocity_ins-progressbar_progressbar=""
-                                    class="slds-assistive-text"
-                                    >Progress: 0</span
-                                  ></span
-                                >
-                              </div></c-progress-bar
-                            >
-                          </div>
-                          <div vlocity_ins-typeahead_typeahead_slds="">
-                            <div
-                              vlocity_ins-typeahead_typeahead_slds=""
-                              class="slds-grid"
-                              data-label="true"
-                            >
-                              <label
-                                vlocity_ins-typeahead_typeahead_slds=""
-                                class="slds-form-element__label slds-show--inline slds-truncate"
-                                aria-label="Ciudad"
-                                for="inputId-221"
-                                style="width: auto"
-                                ><span vlocity_ins-typeahead_typeahead_slds=""
-                                  >Ciudad</span
-                                ></label
-                              >
-                            </div>
-                            <div
-                              vlocity_ins-typeahead_typeahead_slds=""
-                              class="slds-form-element__control"
-                            >
-                              <div
-                                vlocity_ins-typeahead_typeahead_slds=""
-                                class="slds-combobox_container"
-                              >
-                                <div
-                                  vlocity_ins-typeahead_typeahead_slds=""
-                                  class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click"
-                                >
-                                  <div
-                                    vlocity_ins-typeahead_typeahead_slds=""
-                                    class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
-                                    role="none"
-                                  >
-                                    <input
-                                      vlocity_ins-typeahead_typeahead_slds=""
-                                      class="slds-input"
-                                      type="text"
-                                      maxlength="255"
-                                      id="inputId-221"
-                                      autocomplete="off"
-                                      aria-autocomplete="list"
-                                      aria-owns="listboxId-221"
-                                      aria-haspopup="true"
-                                      aria-expanded="false"
-                                      role="combobox"
-                                    /><span
-                                      vlocity_ins-typeahead_typeahead_slds=""
-                                      class="slds-icon_container slds-input__icon slds-input__icon_right"
-                                      ><slot
-                                        vlocity_ins-typeahead_typeahead_slds=""
-                                        name="iconRight"
-                                        ><c-icon
-                                          vlocity_ins-typeahead_typeahead_slds=""
-                                          ><svg
-                                            class="slds-icon slds-icon-text-default slds-icon_x-small"
-                                            aria-hidden="true"
-                                          >
-                                            <use
-                                              xlink:href="#httpsproteccionstagesandboxmysitecomasuladosldsiconsutilityspritesvgsymbolssvg_empty"
-                                            ></use></svg
-                                          ><span class="slds-assistive-text"
-                                            >Edit</span
-                                          ></c-icon
-                                        ></slot
-                                      ></span
-                                    >
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                vlocity_ins-typeahead_typeahead_slds=""
-                                class="slds-form-element"
-                              ></div>
-                            </div>
-                          </div></div
-                      ></c-typeahead></div></slot></vlocity_ins-omniscript-typeahead
-              ></slot></div></vlocity_ins-omniscript-typeahead-block
-          ><vlocity_ins-omniscript-text
-            c-procontactdataupdateenglish_procontactdataupdateenglish=""
-            data-omni-key="PrimaryParticipantContact.MailingStreet"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12 omni-read-only"
-            aria-disabled="true"
-            ><slot
-              ><c-input
-                class="slds-container_fluid"
-                data-omni-input=""
-                vlocity_ins-input_input_slds-host=""
-                ><div
-                  vlocity_ins-input_input_slds=""
-                  class="slds-form-element slds-form-container"
-                >
-                  <div
-                    vlocity_ins-input_input_slds=""
-                    class="slds-grid"
-                    data-label="true"
-                  >
-                    <label
-                      vlocity_ins-input_input_slds=""
-                      class="slds-form-element__label slds-show--inline"
-                      for="input27-225"
-                      style="width: auto"
-                      ><span vlocity_ins-input_input_slds=""
-                        >Dirección de Residencia</span
-                      ></label
-                    ><span vlocity_ins-input_input_slds="" class="slds-grid"
-                      ><slot vlocity_ins-input_input_slds="" name="label"></slot
-                    ></span>
-                  </div>
-                  <div
-                    vlocity_ins-input_input_slds=""
-                    class="slds-form-element__control slds-form-element__control-animated-label"
-                  >
+              <tbody>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap first" scope="row">
+                    <label for="pg:fm:pb:j_id4:j_id5:name"> Nombres</label>
+                  </th>
+                  <td class="dataCol first">
                     <input
-                      vlocity_ins-input_input_slds=""
-                      class="vlocity-input slds-input"
-                      id="input27-225"
-                      maxlength="255"
-                      minlength="0"
+                      disabled="true"
+                      id="pg:fm:pb:j_id4:j_id5:name"
+                      maxlength="40"
+                      name="pg:fm:pb:j_id4:j_id5:name"
+                      size="20"
                       type="text"
-                      data-isnumber="false"
-                      aria-invalid="false"
-                      placeholder=""
-                      tabindex="-1"
-                      autocomplete="new-password"
-                      name="search"
+                      value="marc"
                     />
-                  </div>
-                  <div
-                    vlocity_ins-input_input_slds=""
-                    class="slds-grid"
-                  ></div></div></c-input></slot></vlocity_ins-omniscript-text
-          ><vlocity_ins-omniscript-select
-            c-procontactdataupdateenglish_procontactdataupdateenglish=""
-            data-omni-key="PrimaryParticipantContact.FinServ__CommunicationPreferences__c"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12 omni-read-only"
-            aria-disabled="true"
-            ><slot
-              ><c-combobox
-                class="slds-container_fluid"
-                data-refresh="false"
-                data-show-lookup="true"
-                data-omni-input=""
-                vlocity_ins-combobox_combobox_slds-host=""
-                ><div
-                  vlocity_ins-combobox_combobox_slds=""
-                  class="slds-form-element"
-                >
-                  <div
-                    vlocity_ins-combobox_combobox_slds=""
-                    class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click"
-                  >
-                    <div
-                      vlocity_ins-combobox_combobox_slds=""
-                      class="slds-grid"
-                      data-label="true"
+                  </td>
+                  <th class="labelCol vfLabelColTextWrap first" scope="row">
+                    <label for="pg:fm:pb:j_id4:j_id7:lastname">
+                      Apellidos</label
                     >
-                      <label
-                        vlocity_ins-combobox_combobox_slds=""
-                        class="slds-form-element__label slds-show_inline"
-                        for="comboboxId-227"
-                        style="width: auto"
-                        ><span vlocity_ins-combobox_combobox_slds=""
-                          >Medio de Contacto Preferido</span
-                        ></label
-                      ><slot
-                        vlocity_ins-combobox_combobox_slds=""
-                        name="label"
-                      ></slot>
+                  </th>
+                  <td class="dataCol first">
+                    <div class="requiredInput">
+                      <div class="requiredBlock"></div>
+                      <input
+                        disabled="true"
+                        id="pg:fm:pb:j_id4:j_id7:lastname"
+                        maxlength="80"
+                        name="pg:fm:pb:j_id4:j_id7:lastname"
+                        required="required"
+                        size="20"
+                        type="text"
+                        value="avila salazar"
+                      />
                     </div>
-                    <div
-                      vlocity_ins-combobox_combobox_slds=""
-                      class="slds-form-element__control"
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:j_id4:j_id9:email">
+                      Correo electrónico</label
                     >
-                      <div
-                        vlocity_ins-combobox_combobox_slds=""
-                        class="slds-combobox_container"
-                      >
-                        <div
-                          vlocity_ins-combobox_combobox_slds=""
-                          class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
-                          role="none"
-                        >
-                          <input
-                            vlocity_ins-combobox_combobox_slds=""
-                            class="slds-input slds-listbox__option-text_entity"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            role="combobox"
-                            data-value=""
-                            readonly=""
-                            autocomplete="new-password"
-                            id="comboboxId-227"
-                            tabindex="-1"
-                          /><span
-                            vlocity_ins-combobox_combobox_slds=""
-                            class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right"
-                            ><c-icon vlocity_ins-combobox_combobox_slds=""
-                              ><svg
-                                class="slds-icon slds-icon-text-default slds-icon_x-small"
-                                aria-hidden="true"
-                              >
-                                <use
-                                  xlink:href="#httpsproteccionstagesandboxmysitecomasuladosldsiconsutilityspritesvgsymbolssvg_down"
-                                ></use></svg
-                              ><span class="slds-assistive-text"></span></c-icon
-                          ></span>
-                        </div>
-                      </div>
-                      <div
-                        vlocity_ins-combobox_combobox_slds=""
-                        class="slds-form-element"
-                      >
-                        <div
-                          vlocity_ins-combobox_combobox_slds=""
-                          class="slds-dropdown slds-dropdown_fluid slds-p-bottom_none"
-                          role="listbox"
-                        >
-                          <ul
-                            vlocity_ins-combobox_combobox_slds=""
-                            class="dropdown-container listbox slds-listbox slds-listbox_vertical"
-                            role="presentation"
-                          >
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="none"
-                                data-label="-- Clear --"
-                                data-option-id="0"
-                                role="option"
-                                id="0-227"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >-- Clear --</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Email"
-                                data-label="Email"
-                                data-option-id="1"
-                                role="option"
-                                id="1-227"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >Email</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Teléfono Móvil"
-                                data-label="Teléfono Móvil"
-                                data-option-id="2"
-                                role="option"
-                                id="2-227"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >Teléfono Móvil</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Mensaje de Texto"
-                                data-label="Mensaje de Texto"
-                                data-option-id="3"
-                                role="option"
-                                id="3-227"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >Mensaje de Texto</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Mensajería en físico"
-                                data-label="Mensajería en físico"
-                                data-option-id="4"
-                                role="option"
-                                id="4-227"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >Mensajería en físico</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div></c-combobox
-              ></slot
-            ></vlocity_ins-omniscript-select
-          ><vlocity_ins-omniscript-checkbox
-            c-procontactdataupdateenglish_procontactdataupdateenglish=""
-            data-omni-key="TratamientoDatosPersonales"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12"
-            ><slot
-              ><div class="slds-grid slds-m-vertical_medium">
-                <c-input data-omni-input="" vlocity_ins-input_input_slds-host=""
-                  ><div
-                    vlocity_ins-input_input_slds=""
-                    class="slds-form-element slds-form-container slds-relative-tooltip slds-wrap"
-                  >
-                    <div
-                      vlocity_ins-input_input_slds=""
-                      class="slds-grid"
-                      data-label="true"
-                    ></div>
-                    <div
-                      vlocity_ins-input_input_slds=""
-                      class="slds-form-element__control"
+                  </th>
+                  <td class="dataCol">
+                    <input
+                      disabled="true"
+                      id="pg:fm:pb:j_id4:j_id9:email"
+                      maxlength="80"
+                      name="pg:fm:pb:j_id4:j_id9:email"
+                      size="20"
+                      type="text"
+                      value="dvelezmesa@gmail.com"
+                    />
+                  </td>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:j_id4:j_id11:gender"> Género</label>
+                  </th>
+                  <td class="dataCol">
+                    <select
+                      disabled="true"
+                      id="pg:fm:pb:j_id4:j_id11:gender"
+                      name="pg:fm:pb:j_id4:j_id11:gender"
                     >
-                      <div
-                        vlocity_ins-input_input_slds=""
-                        class="slds-checkbox"
-                      >
-                        <input
-                          vlocity_ins-input_input_slds=""
-                          class="vlocity-input"
-                          aria-invalid="false"
-                          type="checkbox"
-                          id="input29-230"
-                          value=""
-                        /><label
-                          vlocity_ins-input_input_slds=""
-                          class="slds-checkbox__label"
-                          for="input29-230"
-                          data-label="true"
-                          ><span
-                            vlocity_ins-input_input_slds=""
-                            class="slds-checkbox_faux"
-                          ></span
-                          ><span
-                            vlocity_ins-input_input_slds=""
-                            class="slds-form-element__label slds-show--inline slds-p-top_none"
-                            >Tratamiento de Datos Peronales</span
-                          ></label
-                        ><slot
-                          vlocity_ins-input_input_slds=""
-                          name="label"
-                        ></slot>
-                      </div>
+                      <option value="">--None--</option>
+                      <option value="Masculino" selected="selected">
+                        Masculino
+                      </option>
+                      <option value="Femenino">Femenino</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:j_id4:j_id13:typeId">
+                      Tipo de documento identidad</label
+                    >
+                  </th>
+                  <td class="dataCol">
+                    <input
+                      disabled="true"
+                      id="pg:fm:pb:j_id4:j_id13:typeId"
+                      maxlength="50"
+                      name="pg:fm:pb:j_id4:j_id13:typeId"
+                      size="20"
+                      type="text"
+                      value="CC"
+                    />
+                  </td>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:j_id4:j_id15:numberId">
+                      Número de documento identidad</label
+                    >
+                  </th>
+                  <td class="dataCol">
+                    <div class="requiredInput">
+                      <div class="requiredBlock"></div>
+                      <input
+                        disabled="true"
+                        id="pg:fm:pb:j_id4:j_id15:numberId"
+                        maxlength="18"
+                        name="pg:fm:pb:j_id4:j_id15:numberId"
+                        required="required"
+                        size="20"
+                        type="text"
+                        value="76302970"
+                      />
                     </div>
-                    <div
-                      vlocity_ins-input_input_slds=""
-                      class="slds-form-element__control"
-                    ></div>
-                    <div
-                      vlocity_ins-input_input_slds=""
-                      class="slds-grid"
-                    ></div></div
-                ></c-input></div></slot></vlocity_ins-omniscript-checkbox
-        ></slot></div></vlocity_ins-omniscript-step
-    ><vlocity_ins-omniscript-step
-      c-procontactdataupdateenglish_procontactdataupdateenglish=""
-      data-omni-key="ActualizaInformacion"
-      vlocity_ins-omniscriptstep_omniscriptstep-host=""
-    ></vlocity_ins-omniscript-step
-    ><vlocity_ins-omniscript-ip-action
-      c-procontactdataupdateenglish_procontactdataupdateenglish=""
-      data-omni-key="ActualizaInfoPoliza"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-step
-      c-procontactdataupdateenglish_procontactdataupdateenglish=""
-      data-omni-key="EndProcess"
-      vlocity_ins-omniscriptstep_omniscriptstep-host=""
-    ></vlocity_ins-omniscript-step>
-    <div
-      c-procontactdataupdateenglish_procontactdataupdateenglish=""
-      class="slds-grid slds-wrap slds-gutters slds-p-horizontal_medium slds-show_medium"
-    >
-      <div
-        c-procontactdataupdateenglish_procontactdataupdateenglish=""
-        class="slds-col slds-order_2 slds-medium-order_1 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-procontactdataupdateenglish_procontactdataupdateenglish=""
-          class="omniscript-sfl-actions"
-        >
-          <vlocity_ins-navigate-action
-            c-procontactdataupdateenglish_procontactdataupdateenglish=""
-            data-omni-key="DEFAULT-CANCEL"
-            ><slot></slot
-          ></vlocity_ins-navigate-action>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:j_id4:j_id17:birthdate">
+                      Fecha de nacimiento</label
+                    >
+                  </th>
+                  <td class="dataCol">
+                    <span class="dateInput dateOnlyInput"
+                      ><input
+                        disabled="true"
+                        id="pg:fm:pb:j_id4:j_id17:birthdate"
+                        name="pg:fm:pb:j_id4:j_id17:birthdate"
+                        onfocus="DatePicker.pickDate(true, 'pg:fm:pb:j_id4:j_id17:birthdate', false);"
+                        size="12"
+                        type="text"
+                        value="21/01/1985"
+                      /><span class="dateFormat"
+                        >[&nbsp;<a
+                          href="javascript:DatePicker.insertDate('17/04/2024', 'pg:fm:pb:j_id4:j_id17:birthdate', true);"
+                          >17/04/2024</a
+                        >&nbsp;]</span
+                      ></span
+                    >
+                  </td>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:j_id4:j_id19:phone"> Teléfono</label>
+                  </th>
+                  <td class="dataCol">
+                    <input
+                      disabled="true"
+                      id="pg:fm:pb:j_id4:j_id19:phone"
+                      maxlength="40"
+                      name="pg:fm:pb:j_id4:j_id19:phone"
+                      size="20"
+                      type="text"
+                      value="3333333"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:j_id4:j_id21:cellphone">
+                      Celular</label
+                    >
+                  </th>
+                  <td class="dataCol">
+                    <input
+                      disabled="true"
+                      id="pg:fm:pb:j_id4:j_id21:cellphone"
+                      maxlength="40"
+                      name="pg:fm:pb:j_id4:j_id21:cellphone"
+                      size="20"
+                      type="text"
+                      value="3333333"
+                    />
+                  </td>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:j_id4:j_id23:maritalStatus">
+                      Estado civil</label
+                    >
+                  </th>
+                  <td class="dataCol">
+                    <select
+                      disabled="true"
+                      id="pg:fm:pb:j_id4:j_id23:maritalStatus"
+                      name="pg:fm:pb:j_id4:j_id23:maritalStatus"
+                    >
+                      <option value="">--None--</option>
+                      <option value="Casado">Casado</option>
+                      <option value="Unión libre">Unión libre</option>
+                      <option value="Soltero" selected="selected">
+                        Soltero
+                      </option>
+                      <option value="Viudo">Viudo</option>
+                      <option value="Separado">Separado</option>
+                      <option value="Divorciado">Divorciado</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap last" scope="row">
+                    <label for="pg:fm:pb:j_id4:j_id25:genderIdentity">
+                      Identidad de género</label
+                    >
+                  </th>
+                  <td class="dataCol last">
+                    <select
+                      disabled="true"
+                      id="pg:fm:pb:j_id4:j_id25:genderIdentity"
+                      name="pg:fm:pb:j_id4:j_id25:genderIdentity"
+                    >
+                      <option value="">--None--</option>
+                      <option value="Femenino">Femenino</option>
+                      <option value="Masculino">Masculino</option>
+                      <option value="No Binario">No Binario</option>
+                    </select>
+                  </td>
+                  <th class="labelCol vfLabelColTextWrap last" scope="row">
+                    <label for="pg:fm:pb:j_id4:j_id27:subscriptions">
+                      Suscripciones</label
+                    >
+                  </th>
+                  <td class="dataCol last">
+                    <select
+                      disabled="true"
+                      id="pg:fm:pb:j_id4:j_id27:subscriptions"
+                      multiple="multiple"
+                      name="pg:fm:pb:j_id4:j_id27:subscriptions"
+                      size="4"
+                      style="display: none"
+                    >
+                      <option value="Articulos">Articulos</option>
+                      <option value="Colilla">Colilla</option>
+                      <option value="Certificado">Certificado</option>
+                      <option value="Poliza">Poliza</option>
+                    </select>
+                    <table
+                      class="multiSelectPicklistTable"
+                      border="0"
+                      cellspacing="0"
+                      cellpadding="0"
+                    >
+                      <tbody>
+                        <tr>
+                          <td></td>
+                          <td colspan="100%" height="5"></td>
+                        </tr>
+                        <tr class="multiSelectPicklistRow">
+                          <td>
+                            <select
+                              multiple="multiple"
+                              ondblclick="MultiSelectPicklist.handleMSPSelect('pg:fm:pb:j_id4:j_id27:subscriptions'); "
+                              disabled="true"
+                              id="pg:fm:pb:j_id4:j_id27:subscriptions_unselected"
+                              title="Suscripciones - Available"
+                              size="4"
+                            >
+                              <optgroup
+                                style="text-decoration: none"
+                                label="Available"
+                              >
+                                <option value="0">Articulos</option>
+                                <option value="1">Colilla</option>
+                                <option value="2">Certificado</option>
+                                <option value="3">Poliza</option>
+                              </optgroup>
+                            </select>
+                          </td>
+                          <td class="multiSelectPicklistCell">
+                            <a
+                              href="javascript:MultiSelectPicklist.handleMSPSelect%28%27pg%3Afm%3Apb%3Aj_id4%3Aj_id27%3Asubscriptions%27%29%3B"
+                              ><img
+                                src="/img/arrow2_picklist_right.gif"
+                                alt="Add"
+                                width="17"
+                                height="17"
+                                align="texttop"
+                                border="0"
+                                disabled="true"
+                                id="pg:fm:pb:j_id4:j_id27:subscriptions_right_arrow"
+                                style="cursor: pointer"
+                                title="Add" /></a
+                            ><br /><br />
+                            <a
+                              href="javascript:MultiSelectPicklist.handleMSPUnSelect%28%27pg%3Afm%3Apb%3Aj_id4%3Aj_id27%3Asubscriptions%27%29%3B"
+                              ><img
+                                src="/img/arrow2_picklist_left.gif"
+                                alt="Remove"
+                                width="17"
+                                height="17"
+                                align="texttop"
+                                border="0"
+                                disabled="true"
+                                id="pg:fm:pb:j_id4:j_id27:subscriptions_left_arrow"
+                                style="cursor: pointer"
+                                title="Remove"
+                            /></a>
+                          </td>
+                          <td>
+                            <select
+                              multiple="multiple"
+                              ondblclick="MultiSelectPicklist.handleMSPUnSelect('pg:fm:pb:j_id4:j_id27:subscriptions'); "
+                              disabled="true"
+                              id="pg:fm:pb:j_id4:j_id27:subscriptions_selected"
+                              title="Suscripciones - Chosen"
+                              size="4"
+                            >
+                              <optgroup
+                                style="text-decoration: none"
+                                label="Chosen"
+                              ></optgroup>
+                            </select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-      <div
-        c-procontactdataupdateenglish_procontactdataupdateenglish=""
-        class="slds-col slds-order_1 slds-medium-order_2 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-procontactdataupdateenglish_procontactdataupdateenglish=""
-          class="slds-grid slds-wrap slds-grid_align-end omniscript-button-position"
-        >
-          <vlocity_ins-button
-            c-procontactdataupdateenglish_procontactdataupdateenglish=""
-            class="omniscript-btn-next slds-size_12-of-12 slds-m-bottom_x-small slds-medium-size_5-of-12"
-            ><button
-              class="vlocity-btn slds-button slds-button_brand slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center"
-              type="button"
-              aria-label="Siguiente"
-            >
-              <span class="btnLabel">Siguiente</span>
-            </button></vlocity_ins-button
-          >
-        </div>
+      <div class="pbBottomButtons">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="pbTitle">&nbsp;</td>
+              <td id="pg:fm:pb:p:bottom" class="pbButtonb">
+                <input
+                  id="pg:fm:pb:p:btnVe"
+                  type="submit"
+                  name="pg:fm:pb:p:btnVe"
+                  value="Editar datos"
+                  onclick="enableEdit()"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-    <div
-      c-procontactdataupdateenglish_procontactdataupdateenglish=""
-      class="slds-grid slds-wrap slds-gutters slds-p-horizontal_medium slds-hide_medium"
-    >
-      <div
-        c-procontactdataupdateenglish_procontactdataupdateenglish=""
-        class="slds-col slds-order_1 slds-medium-order_2 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-procontactdataupdateenglish_procontactdataupdateenglish=""
-          class="slds-grid slds-wrap slds-grid_align-end"
-        >
-          <vlocity_ins-button
-            c-procontactdataupdateenglish_procontactdataupdateenglish=""
-            class="omniscript-btn-next slds-size_12-of-12 slds-m-bottom_x-small slds-medium-size_5-of-12"
-            ><button
-              class="vlocity-btn slds-button slds-button_brand slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center"
-              type="button"
-              aria-label="Siguiente"
-            >
-              <span class="btnLabel">Siguiente</span>
-            </button></vlocity_ins-button
-          >
-        </div>
+      <div class="pbBottomButtons">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="pbTitle">&nbsp;</td>
+              <td id="pg:fm:pb:ps:bottom" class="pbButtonb">
+                <input
+                  id="pg:fm:pb:ps:btnvolver"
+                  type="submit"
+                  name="pg:fm:pb:ps:btnvolver"
+                  value="Editar datos"
+                  class="hideButton"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div
-        c-procontactdataupdateenglish_procontactdataupdateenglish=""
-        class="slds-col slds-order_2 slds-medium-order_1 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-procontactdataupdateenglish_procontactdataupdateenglish=""
-          class="omniscript-sfl-actions"
-        >
-          <vlocity_ins-navigate-action
-            c-procontactdataupdateenglish_procontactdataupdateenglish=""
-            data-omni-key="DEFAULT-CANCEL"
-            ><slot></slot
-          ></vlocity_ins-navigate-action>
-        </div>
+      <div class="pbBottomButtons">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="pbTitle">&nbsp;</td>
+              <td id="pg:fm:pb:pbb:bottom" class="pbButtonb">
+                <input
+                  id="pg:fm:pb:pbb:btnVerify"
+                  type="submit"
+                  name="pg:fm:pb:pbb:btnVerify"
+                  value="Confirmar"
+                  class="hideButton"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
     </div>
   </div>
-</article>
+  <div id="pg:fm:j_id39"></div>
+</form>

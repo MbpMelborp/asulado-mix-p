@@ -220,11 +220,11 @@
               }
             }
             td.multiSelectPicklistCell {
-              @apply w-1/12 text-center;
+              @apply w-1/12 text-center p-0;
               a {
                 @apply block mx-auto;
                 img {
-                  @apply block mx-auto;
+                  @apply block w-4 mx-auto;
                 }
               }
             }

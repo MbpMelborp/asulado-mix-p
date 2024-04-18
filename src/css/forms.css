@@ -263,6 +263,15 @@
         textarea {
           @apply textarea textarea-bordered h-24 w-full;
         }
+        span.dateOnlyInput {
+          @apply flex gap-2 justify-between w-full items-center;
+          input{
+            @apply flex-1;
+          }
+          .dateFormat{
+            @apply text-azul-bright2 text-sm;
+          }
+        }
       }
     }
   }

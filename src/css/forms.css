@@ -160,6 +160,9 @@
   }
   .pbBottomButtons {
     @apply mb-2;
+    table {
+      @apply w-full;
+    }
     .pbButtonb {
       input[type="submit"] {
         @apply btn btn-primary;
@@ -203,80 +206,95 @@
   }
 }
 .formpp {
-  @apply flex flex-col w-full;
-  tbody {
-    @apply w-full flex items-start flex-wrap;
-    tr {
-      @apply w-full lg:w-1/2 flex flex-wrap px-2 items-center;
-      &:last-child {
-        .multiSelectPicklistTable {
-          @apply table;
-          tbody {
-            @apply table-row-group;
-            td:nth-child(1) {
-              @apply w-5/12;
-              select {
-                @apply select select-bordered w-full !h-full;
+  .pbBottomButtons {
+    table {
+      @apply max-w-sm;
+      .pbButtonb {
+        @apply max-w-xl;
+      }
+      input {
+        @apply w-full mx-0 flex-1;
+      }
+      tr td:first-child {
+        @apply hidden;
+      }
+    }
+  }
+  .detailList {
+    @apply flex flex-col w-full;
+    tbody {
+      @apply w-full flex items-start flex-wrap;
+      tr {
+        @apply w-full lg:w-1/2 flex flex-wrap px-2 items-center;
+        &:last-child {
+          .multiSelectPicklistTable {
+            @apply table;
+            tbody {
+              @apply table-row-group;
+              td:nth-child(1) {
+                @apply w-5/12;
+                select {
+                  @apply select select-bordered w-full !h-full;
+                }
               }
-            }
-            td.multiSelectPicklistCell {
-              @apply w-1/12 text-center p-0;
-              a {
-                @apply block mx-auto;
-                img {
-                  @apply block w-4 mx-auto;
+              td.multiSelectPicklistCell {
+                @apply w-1/12 text-center p-0;
+                a {
+                  @apply block mx-auto;
+                  img {
+                    @apply block w-4 mx-auto;
+                  }
+                }
+              }
+              td:nth-child(3) {
+                @apply w-5/12;
+                select {
+                  @apply select select-bordered w-full !h-full;
+                }
+              }
+              tr {
+                @apply table-row;
+                th {
+                  @apply table-cell;
+                }
+                td {
+                  @apply table-cell;
                 }
               }
             }
-            td:nth-child(3) {
-              @apply w-5/12;
-              select {
-                @apply select select-bordered w-full !h-full;
-              }
+          }
+        }
+        th {
+          @apply w-full md:w-1/3 px-2 text-left font-normal flex flex-col;
+        }
+        td {
+          @apply w-full md:w-2/3 px-2 text-left flex flex-col mb-4 md:mb-0;
+          select {
+            @apply select select-bordered w-full;
+          }
+          input {
+            @apply input input-bordered input-md w-full;
+            &[name="pg:fm:pb:j_id4:j_id17:birthdate"] {
+              @apply w-auto;
             }
-            tr {
-              @apply table-row;
-              th {
-                @apply table-cell;
-              }
-              td {
-                @apply table-cell;
-              }
+          }
+          textarea {
+            @apply textarea textarea-bordered h-24 w-full;
+          }
+          span.dateOnlyInput {
+            @apply flex gap-2 justify-between w-full items-center;
+            input {
+              @apply flex-1;
             }
-          }
-        }
-      }
-      th {
-        @apply w-full md:w-1/3 px-2 text-left font-normal flex flex-col;
-      }
-      td {
-        @apply w-full md:w-2/3 px-2 text-left flex flex-col mb-4 md:mb-0;
-        select {
-          @apply select select-bordered w-full;
-        }
-        input {
-          @apply input input-bordered input-md w-full;
-          &[name="pg:fm:pb:j_id4:j_id17:birthdate"] {
-            @apply w-auto;
-          }
-        }
-        textarea {
-          @apply textarea textarea-bordered h-24 w-full;
-        }
-        span.dateOnlyInput {
-          @apply flex gap-2 justify-between w-full items-center;
-          input{
-            @apply flex-1;
-          }
-          .dateFormat{
-            @apply text-azul-bright2 text-sm;
+            .dateFormat {
+              @apply text-azul-bright2 text-sm;
+            }
           }
         }
       }
     }
   }
 }
-
 .form-wrap {
   @apply flex flex-wrap;
   .form-control {

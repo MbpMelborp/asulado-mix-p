@@ -86,7 +86,7 @@
           &.first {
           }
           input[type="submit"] {
-            @apply btn btn-primary;
+            @apply btn btn-primary !px-10;
             &[name="pg:fm:pb:preview:btnVaciar"],
             &[name="pg:fm:pb:send:btnVaciar"],
             &[name="pg:fm:pb:colillas:btnVaciar"],
@@ -168,7 +168,7 @@
     }
     .pbButtonb {
       input[type="submit"] {
-        @apply btn btn-primary;
+        @apply btn btn-primary px-10;
         &.hideButton {
           @apply btn-disabled;
         }
@@ -213,7 +213,7 @@
     table {
       @apply max-w-sm;
       input {
-        @apply w-auto mx-0 flex-1;
+        @apply w-auto mx-0 flex-1 px-24;
       }
       td.pbButtonb {
         @apply max-w-xl;
@@ -222,7 +222,7 @@
           input {
             @apply px-10 block grow-0;
             &[id="pg:fm:pb:ps:btnvolver"] {
-              @apply btn btn-secondary btn-sm bg-alpha-20 text-azul-60 hover:bg-alpha-30;
+              @apply btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
             }
           }
         }

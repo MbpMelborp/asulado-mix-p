@@ -354,20 +354,20 @@ function startChat() {
 }
 
 if (document.getElementById("as__ciber_t1_slider")) {
-  window.addEventListener("load", () => {
-    // window.location.hash = "";
-  });
+  // window.addEventListener("load", () => {
+  //   window.location.hash = "";
+  // });
   document.querySelectorAll(".btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      let hash = e.target.getAttribute("href");
-      if (hash == "#") return;
-      if (hash == null) hash = "#slide2";
-      window.location.hash = hash;
-
-      lenis.scrollTo("#as__ciber_t1_slider", {
-        offset: -60,
-      });
+      e.stopPropagation();
+      // e.preventDefault();
+      // let hash = e.target.getAttribute("href");
+      // if (hash == "#") return;
+      // if (hash == null) hash = "#slide2";
+      // window.location.hash = hash;
+      // lenis.scrollTo("#as__ciber_t1_slider", {
+      //   offset: -60,
+      // });
     });
   });
 }

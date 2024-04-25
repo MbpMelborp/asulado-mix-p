@@ -2709,9 +2709,10 @@ body {
 .as__ciber_t1_car {
   .slide_wrap {
   }
-  #slide1 {
-    @apply bg-BG-1;
+  .carousel-item {
+    @apply scroll-mt-16;
   }
+
   .arrows {
     @apply absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2 z-50;
     .btn {
@@ -2728,7 +2729,7 @@ body {
     }
     .slide_int_bg {
       @apply z-0 col-start-1 col-span-1 row-start-1 row-span-1 overflow-hidden;
-      svg{
+      svg {
         @apply max-w-7xl w-full mx-auto h-auto object-cover;
       }
     }

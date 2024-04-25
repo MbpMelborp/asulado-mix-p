@@ -1,6 +1,6 @@
 .pa_co_form,
 .pa_co_content {
-  @apply py-8;
+  @apply pt-8;
   .pa_co_header {
     @apply mb-8;
   }
@@ -56,7 +56,7 @@
             }
             &.fc-file {
               input {
-                @apply file-input file-input-secondary file-input-bordered w-full file-input-sm;
+                @apply !px-0 file-input file-input-secondary file-input-bordered w-full file-input-sm;
               }
             }
           }
@@ -70,7 +70,7 @@
             }
           }
           h6 {
-            @apply py-2 border-t border-azul-light text-base text-azul-bold font-je font-normal;
+            @apply py-2 border-t border-azul-light text-base text-azul-bold font-je font-normal py-4;
           }
           .items {
             @apply flex flex-col gap-1 ml-4 list-disc list-outside;
@@ -160,6 +160,9 @@
   }
   .pbBottomButtons {
     @apply mb-2;
+    .pbTitle {
+      @apply hidden;
+    }
     table {
       @apply w-full;
     }
@@ -209,12 +212,25 @@
   .pbBottomButtons {
     table {
       @apply max-w-sm;
-      .pbButtonb {
-        @apply max-w-xl;
-      }
       input {
-        @apply w-full mx-0 flex-1;
+        @apply w-auto mx-0 flex-1;
       }
+      td.pbButtonb {
+        @apply max-w-xl;
+        &[id="pg:fm:pb:ps:bottom"] {
+          @apply !w-full !max-w-full flex gap-3 items-center justify-between;
+          input {
+            @apply px-10 block grow-0;
+            &[id="pg:fm:pb:ps:btnvolver"] {
+              @apply btn btn-secondary btn-sm bg-alpha-20 text-azul-60 hover:bg-alpha-30;
+            }
+          }
+        }
+      }
+      &:has(.pbButtonb[id="pg:fm:pb:ps:bottom"]) {
+        @apply !w-full !max-w-full;
+      }
+
       tr td:first-child {
         @apply hidden;
       }

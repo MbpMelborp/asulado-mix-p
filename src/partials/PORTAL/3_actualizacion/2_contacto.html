@@ -1,853 +1,268 @@
-<form
-  id="pg:fm"
-  name="pg:fm"
-  method="post"
-  action="https://proteccion--stage--c.sandbox.vf.force.com/apex/UpdateContact"
-  enctype="application/x-www-form-urlencoded"
->
-  <input type="hidden" name="pg:fm" value="pg:fm" />
-  <script>
-    if (!window.sfdcPage) {
-      window.sfdcPage = new ApexDetailPage();
-    }
-    UserContext.initialize({
-      ampm: ["AM", "PM"],
-      isAccessibleMode: false,
-      salesforceURL: "https://proteccion--stage.sandbox.my.salesforce.com",
-      dateFormat: "d/MM/yyyy",
-      language: "en_US",
-      locale: "es_CO",
-      dateTimeFormat: "d/MM/yyyy, h:mm a",
-      labelLastModified: "1713272919000",
-      today: "17/04/2024, 2:43 PM",
-      userPreferences: [
-        { index: 112, name: "HideInlineEditSplash", value: false },
-        { index: 114, name: "OverrideTaskSendNotification", value: false },
-        { index: 115, name: "DefaultTaskSendNotification", value: false },
-        { index: 119, name: "HideUserLayoutStdFieldInfo", value: false },
-        { index: 116, name: "HideRPPWarning", value: false },
-        { index: 87, name: "HideInlineSchedulingSplash", value: false },
-        { index: 88, name: "HideCRUCNotification", value: false },
-        { index: 89, name: "HideNewPLESplash", value: false },
-        { index: 90, name: "HideNewPLEWarnIE6", value: false },
-        { index: 122, name: "HideOverrideSharingMessage", value: false },
-        { index: 91, name: "HideProfileILEWarn", value: false },
-        { index: 93, name: "HideProfileElvVideo", value: false },
-        { index: 97, name: "ShowPicklistEditSplash", value: false },
-        { index: 92, name: "HideDataCategorySplash", value: false },
-        { index: 128, name: "ShowDealView", value: false },
-        { index: 129, name: "HideDealViewGuidedTour", value: false },
-        { index: 132, name: "HideKnowledgeFirstTimeSetupMsg", value: false },
-        { index: 104, name: "DefaultOffEntityPermsMsg", value: false },
-        { index: 135, name: "HideNewCsnSplash", value: false },
-        { index: 101, name: "HideBrowserWarning", value: false },
-        { index: 139, name: "HideDashboardBuilderGuidedTour", value: false },
-        { index: 140, name: "HideSchedulingGuidedTour", value: false },
-        { index: 180, name: "HideReportBuilderGuidedTour", value: false },
-        { index: 183, name: "HideAssociationQueueCallout", value: false },
-        { index: 194, name: "HideQTEBanner", value: false },
-        { index: 270, name: "HideIDEGuidedTour", value: false },
-        { index: 282, name: "HideQueryToolGuidedTour", value: false },
-        { index: 196, name: "HideCSIGuidedTour", value: false },
-        { index: 271, name: "HideFewmetGuidedTour", value: false },
-        { index: 272, name: "HideEditorGuidedTour", value: false },
-        { index: 205, name: "HideApexTestGuidedTour", value: false },
-        { index: 206, name: "HideSetupProfileHeaderTour", value: false },
-        {
-          index: 207,
-          name: "HideSetupProfileObjectsAndTabsTour",
-          value: false,
-        },
-        {
-          index: 213,
-          name: "DefaultOffArticleTypeEntityPermMsg",
-          value: false,
-        },
-        { index: 214, name: "HideSelfInfluenceGetStarted", value: false },
-        { index: 215, name: "HideOtherInfluenceGetStarted", value: false },
-        { index: 216, name: "HideFeedToggleGuidedTour", value: false },
-        { index: 268, name: "ShowChatterTab178GuidedTour", value: false },
-        { index: 275, name: "HidePeopleTabDeprecationMsg", value: false },
-        { index: 276, name: "HideGroupTabDeprecationMsg", value: false },
-        { index: 224, name: "HideUnifiedSearchGuidedTour", value: false },
-        { index: 226, name: "ShowDevContextMenu", value: true },
-        {
-          index: 227,
-          name: "HideWhatRecommenderForActivityQueues",
-          value: false,
-        },
-        { index: 228, name: "HideLiveAgentFirstTimeSetupMsg", value: false },
-        {
-          index: 232,
-          name: "HideGroupAllowsGuestsMsgOnMemberWidget",
-          value: false,
-        },
-        { index: 233, name: "HideGroupAllowsGuestsMsg", value: false },
-        { index: 234, name: "HideWhatAreGuestsMsg", value: false },
-        { index: 235, name: "HideNowAllowGuestsMsg", value: false },
-        {
-          index: 236,
-          name: "HideSocialAccountsAndContactsGuidedTour",
-          value: false,
-        },
-        { index: 237, name: "HideAnalyticsHomeGuidedTour", value: false },
-        { index: 238, name: "ShowQuickCreateGuidedTour", value: false },
-        { index: 245, name: "HideFilePageGuidedTour", value: false },
-        { index: 250, name: "HideForecastingGuidedTour", value: false },
-        { index: 251, name: "HideBucketFieldGuide", value: false },
-        { index: 263, name: "HideSmartSearchCallOut", value: false },
-        { index: 273, name: "ShowForecastingQuotaAttainment", value: false },
-        { index: 280, name: "HideForecastingQuotaColumn", value: false },
-        { index: 301, name: "HideManyWhoGuidedTour", value: false },
-        { index: 298, name: "HideFileSyncBannerMsg", value: false },
-        { index: 299, name: "HideTestConsoleGuidedTour", value: false },
-        { index: 302, name: "HideManyWhoInlineEditTip", value: false },
-        { index: 303, name: "HideSetupV2WelcomeMessage", value: false },
-        { index: 312, name: "ForecastingShowQuantity", value: false },
-        { index: 313, name: "HideDataImporterIntroMsg", value: false },
-        { index: 314, name: "HideEnvironmentHubLightbox", value: false },
-        { index: 316, name: "HideSetupV2GuidedTour", value: false },
-        { index: 317, name: "HideFileSyncMobileDownloadDialog", value: false },
-        { index: 322, name: "HideEnhancedProfileHelpBubble", value: false },
-        { index: 328, name: "ForecastingHideZeroRows", value: false },
-        {
-          index: 330,
-          name: "HideEmbeddedComponentsFeatureCallout",
-          value: false,
-        },
-        { index: 341, name: "HideDedupeMatchResultCallout", value: false },
-        { index: 340, name: "HideS1BrowserUI", value: true },
-        { index: 346, name: "HideS1Banner", value: false },
-        { index: 358, name: "HideEmailVerificationAlert", value: false },
-        { index: 354, name: "HideLearningPathModal", value: false },
-        { index: 359, name: "HideAtMentionsHelpBubble", value: false },
-        { index: 368, name: "LightningExperiencePreferred", value: true },
-        { index: 373, name: "PreviewLightning", value: false },
-        { index: 281, name: "HideMSPPopup", value: false },
-      ],
-      networkId: "",
-      uiTheme: "Theme3",
-      uiSkin: "Theme3",
-      userName: "juanosorio@melborp.co.stage",
-      userId: "005O8000002QLUJ",
-      isCurrentlySysAdminSU: false,
-      renderMode: "RETRO",
-      startOfWeek: "1",
-      vfDomainPattern: "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
-      auraDomain: "proteccion--stage.sandbox.lightning.force.com",
-      useNativeAlertConfirmPrompt: false,
-      orgPreferences: [
-        { index: 257, name: "TabOrganizer", value: true },
-        { index: 113, name: "GroupTasks", value: true },
-      ],
-      siteUrlPrefix: "",
-      isDefaultNetwork: true,
-      timeFormat: "h:mm a",
-    });
-  </script>
-  <div class="apexp">
-    <div
-      id="pg:fm:pb"
-      class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
-    >
-      <script>
-        function twistSection(elem, sectionId) {
-          var parentDiv = elem;
-          var twisty = elem;
-          while (parentDiv.tagName != "DIV") {
-            parentDiv = parentDiv.parentNode;
+<div class="pa_co_form">
+  <form
+    id="j_id0:fm"
+    name="j_id0:fm"
+    method="post"
+    action="https://proteccion--stage--c.sandbox.vf.force.com/apex/CertiPoliza"
+    enctype="application/x-www-form-urlencoded"
+  >
+    <input type="hidden" name="j_id0:fm" value="j_id0:fm" />
+    <script>
+      if (!window.sfdcPage) {
+        window.sfdcPage = new ApexPage();
+      }
+      UserContext.initialize({
+        ampm: ["AM", "PM"],
+        isAccessibleMode: false,
+        salesforceURL: "https://proteccion--stage.sandbox.my.salesforce.com",
+        dateFormat: "d/MM/yyyy",
+        language: "en_US",
+        locale: "es_CO",
+        dateTimeFormat: "d/MM/yyyy, h:mm a",
+        labelLastModified: "1714003983000",
+        today: "25/04/2024, 3:53 PM",
+        userPreferences: [
+          { index: 112, name: "HideInlineEditSplash", value: false },
+          { index: 114, name: "OverrideTaskSendNotification", value: false },
+          { index: 115, name: "DefaultTaskSendNotification", value: false },
+          { index: 119, name: "HideUserLayoutStdFieldInfo", value: false },
+          { index: 116, name: "HideRPPWarning", value: false },
+          { index: 87, name: "HideInlineSchedulingSplash", value: false },
+          { index: 88, name: "HideCRUCNotification", value: false },
+          { index: 89, name: "HideNewPLESplash", value: false },
+          { index: 90, name: "HideNewPLEWarnIE6", value: false },
+          { index: 122, name: "HideOverrideSharingMessage", value: false },
+          { index: 91, name: "HideProfileILEWarn", value: false },
+          { index: 93, name: "HideProfileElvVideo", value: false },
+          { index: 97, name: "ShowPicklistEditSplash", value: false },
+          { index: 92, name: "HideDataCategorySplash", value: false },
+          { index: 128, name: "ShowDealView", value: false },
+          { index: 129, name: "HideDealViewGuidedTour", value: false },
+          { index: 132, name: "HideKnowledgeFirstTimeSetupMsg", value: false },
+          { index: 104, name: "DefaultOffEntityPermsMsg", value: false },
+          { index: 135, name: "HideNewCsnSplash", value: false },
+          { index: 101, name: "HideBrowserWarning", value: false },
+          { index: 139, name: "HideDashboardBuilderGuidedTour", value: false },
+          { index: 140, name: "HideSchedulingGuidedTour", value: false },
+          { index: 180, name: "HideReportBuilderGuidedTour", value: false },
+          { index: 183, name: "HideAssociationQueueCallout", value: false },
+          { index: 194, name: "HideQTEBanner", value: false },
+          { index: 270, name: "HideIDEGuidedTour", value: false },
+          { index: 282, name: "HideQueryToolGuidedTour", value: false },
+          { index: 196, name: "HideCSIGuidedTour", value: false },
+          { index: 271, name: "HideFewmetGuidedTour", value: false },
+          { index: 272, name: "HideEditorGuidedTour", value: false },
+          { index: 205, name: "HideApexTestGuidedTour", value: false },
+          { index: 206, name: "HideSetupProfileHeaderTour", value: false },
+          {
+            index: 207,
+            name: "HideSetupProfileObjectsAndTabsTour",
+            value: false,
+          },
+          {
+            index: 213,
+            name: "DefaultOffArticleTypeEntityPermMsg",
+            value: false,
+          },
+          { index: 214, name: "HideSelfInfluenceGetStarted", value: false },
+          { index: 215, name: "HideOtherInfluenceGetStarted", value: false },
+          { index: 216, name: "HideFeedToggleGuidedTour", value: false },
+          { index: 268, name: "ShowChatterTab178GuidedTour", value: false },
+          { index: 275, name: "HidePeopleTabDeprecationMsg", value: false },
+          { index: 276, name: "HideGroupTabDeprecationMsg", value: false },
+          { index: 224, name: "HideUnifiedSearchGuidedTour", value: false },
+          { index: 226, name: "ShowDevContextMenu", value: true },
+          {
+            index: 227,
+            name: "HideWhatRecommenderForActivityQueues",
+            value: false,
+          },
+          { index: 228, name: "HideLiveAgentFirstTimeSetupMsg", value: false },
+          {
+            index: 232,
+            name: "HideGroupAllowsGuestsMsgOnMemberWidget",
+            value: false,
+          },
+          { index: 233, name: "HideGroupAllowsGuestsMsg", value: false },
+          { index: 234, name: "HideWhatAreGuestsMsg", value: false },
+          { index: 235, name: "HideNowAllowGuestsMsg", value: false },
+          {
+            index: 236,
+            name: "HideSocialAccountsAndContactsGuidedTour",
+            value: false,
+          },
+          { index: 237, name: "HideAnalyticsHomeGuidedTour", value: false },
+          { index: 238, name: "ShowQuickCreateGuidedTour", value: false },
+          { index: 245, name: "HideFilePageGuidedTour", value: false },
+          { index: 250, name: "HideForecastingGuidedTour", value: false },
+          { index: 251, name: "HideBucketFieldGuide", value: false },
+          { index: 263, name: "HideSmartSearchCallOut", value: false },
+          { index: 273, name: "ShowForecastingQuotaAttainment", value: false },
+          { index: 280, name: "HideForecastingQuotaColumn", value: false },
+          { index: 301, name: "HideManyWhoGuidedTour", value: false },
+          { index: 298, name: "HideFileSyncBannerMsg", value: false },
+          { index: 299, name: "HideTestConsoleGuidedTour", value: false },
+          { index: 302, name: "HideManyWhoInlineEditTip", value: false },
+          { index: 303, name: "HideSetupV2WelcomeMessage", value: false },
+          { index: 312, name: "ForecastingShowQuantity", value: false },
+          { index: 313, name: "HideDataImporterIntroMsg", value: false },
+          { index: 314, name: "HideEnvironmentHubLightbox", value: false },
+          { index: 316, name: "HideSetupV2GuidedTour", value: false },
+          {
+            index: 317,
+            name: "HideFileSyncMobileDownloadDialog",
+            value: false,
+          },
+          { index: 322, name: "HideEnhancedProfileHelpBubble", value: false },
+          { index: 328, name: "ForecastingHideZeroRows", value: false },
+          {
+            index: 330,
+            name: "HideEmbeddedComponentsFeatureCallout",
+            value: false,
+          },
+          { index: 341, name: "HideDedupeMatchResultCallout", value: false },
+          { index: 340, name: "HideS1BrowserUI", value: true },
+          { index: 346, name: "HideS1Banner", value: false },
+          { index: 358, name: "HideEmailVerificationAlert", value: false },
+          { index: 354, name: "HideLearningPathModal", value: false },
+          { index: 359, name: "HideAtMentionsHelpBubble", value: false },
+          { index: 368, name: "LightningExperiencePreferred", value: true },
+          { index: 373, name: "PreviewLightning", value: false },
+          { index: 281, name: "HideMSPPopup", value: false },
+        ],
+        networkId: "",
+        uiTheme: "Theme3",
+        uiSkin: "Theme3",
+        userName: "juanosorio@melborp.co.stage",
+        userId: "005O8000002QLUJ",
+        isCurrentlySysAdminSU: false,
+        renderMode: "RETRO",
+        startOfWeek: "1",
+        vfDomainPattern: "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
+        auraDomain: "proteccion--stage.sandbox.lightning.force.com",
+        useNativeAlertConfirmPrompt: false,
+        orgPreferences: [
+          { index: 257, name: "TabOrganizer", value: true },
+          { index: 113, name: "GroupTasks", value: true },
+        ],
+        siteUrlPrefix: "",
+        isDefaultNetwork: true,
+        timeFormat: "h:mm a",
+      });
+    </script>
+    <div class="apexp">
+      <div
+        id="j_id0:fm:pb"
+        class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
+      >
+        <script>
+          function twistSection(elem, sectionId) {
+            var parentDiv = elem;
+            var twisty = elem;
+            while (parentDiv.tagName != "DIV") {
+              parentDiv = parentDiv.parentNode;
+            }
+            if (
+              elem.tagName === "DIV" &&
+              elem.attributes["data-twistyimgid"] !== undefined
+            ) {
+              twisty = document.getElementById(
+                elem.attributes["data-twistyimgid"].value
+              );
+            }
+            var div = parentDiv.nextSibling;
+            var elemWasOn = false;
+            if (div.style.display != "none") {
+              div.style.display = "none";
+              twisty.className = "showListButton";
+              twisty.alt = "Show Section - " + twisty.name;
+              elem.title = twisty.alt;
+              elemWasOn = true;
+            } else {
+              div.style.display = "block";
+              twisty.className = "hideListButton";
+              twisty.alt = "Hide Section - " + twisty.name;
+              elem.title = twisty.alt;
+            }
+            return !elemWasOn;
           }
-          if (
-            elem.tagName === "DIV" &&
-            elem.attributes["data-twistyimgid"] !== undefined
-          ) {
-            twisty = document.getElementById(
-              elem.attributes["data-twistyimgid"].value
-            );
+          var registeredSections = new Array();
+          function registerTwistableSection(headerId, mainTableId) {
+            var obj = new Object();
+            obj.headerId = headerId;
+            obj.mainTableId = mainTableId;
+            registeredSections[registeredSections.length] = obj;
           }
-          var div = parentDiv.nextSibling;
-          var elemWasOn = false;
-          if (div.style.display != "none") {
-            div.style.display = "none";
-            twisty.className = "showListButton";
-            twisty.alt = "Show Section - " + twisty.name;
-            elem.title = twisty.alt;
-            elemWasOn = true;
-          } else {
-            div.style.display = "block";
-            twisty.className = "hideListButton";
-            twisty.alt = "Hide Section - " + twisty.name;
-            elem.title = twisty.alt;
-          }
-          return !elemWasOn;
-        }
-        var registeredSections = new Array();
-        function registerTwistableSection(headerId, mainTableId) {
-          var obj = new Object();
-          obj.headerId = headerId;
-          obj.mainTableId = mainTableId;
-          registeredSections[registeredSections.length] = obj;
-        }
-        function twistAllSections(on) {
-          for (var i = 0; i < registeredSections.length; i++) {
-            var obj = registeredSections[i];
-            var img;
-            img = document.getElementById("img_" + obj.headerId);
-            if (on && "showListButton" == img.className) {
-              twistSection(img, obj.headerId, obj.mainTableId);
-            } else if (!on && "hideListButton" == img.className) {
-              twistSection(img, obj.headerId, obj.mainTableId);
+          function twistAllSections(on) {
+            for (var i = 0; i < registeredSections.length; i++) {
+              var obj = registeredSections[i];
+              var img;
+              img = document.getElementById("img_" + obj.headerId);
+              if (on && "showListButton" == img.className) {
+                twistSection(img, obj.headerId, obj.mainTableId);
+              } else if (!on && "hideListButton" == img.className) {
+                twistSection(img, obj.headerId, obj.mainTableId);
+              }
             }
           }
-        }
-        function toggleSection(headerId, on) {
-          var sectionHead = document.getElementById(
-            "head_" + headerId + "_pg_fm_pb"
-          );
-          var body = sectionHead.nextSibling;
-          var disp = on ? "block" : "none";
-          sectionHead.style.display = disp;
-          body.style.display = disp;
-        }
-        function registerTwistableSections_pg_fm_pb() {
-          registerTwistableSection("pg_fm_pb_j_id4", "pg_fm_pb");
-        }
-        registerTwistableSections_pg_fm_pb();
-      </script>
-      <div class="pbBody">
-        <div id="pg:fm:pb:j_id4">
-          <div class="pbSubsection">
-            <!-- <div class="form-wrap">
-              <div class="form-control as_input">
-                <label for="pg:fm:pb:j_id4:j_id5:name"> Nombres</label>
-                <input
-                  disabled="true"
-                  id="pg:fm:pb:j_id4:j_id5:name"
-                  maxlength="40"
-                  name="pg:fm:pb:j_id4:j_id5:name"
-                  size="20"
-                  type="text"
-                  value="marc"
-                />
-              </div>
-              <div class="form-control as_input">
-                <label for="pg:fm:pb:j_id4:j_id7:lastname"> Apellidos</label>
-                <input
-                  disabled="true"
-                  id="pg:fm:pb:j_id4:j_id7:lastname"
-                  maxlength="80"
-                  name="pg:fm:pb:j_id4:j_id7:lastname"
-                  required="required"
-                  size="20"
-                  type="text"
-                  value="avila salazar"
-                />
-              </div>
-              <div class="form-control as_input">
-                <label for="pg:fm:pb:j_id4:j_id9:email">
-                  Correo electrónico</label
-                >
-                <input
-                  disabled="true"
-                  id="pg:fm:pb:j_id4:j_id9:email"
-                  maxlength="80"
-                  name="pg:fm:pb:j_id4:j_id9:email"
-                  size="20"
-                  type="text"
-                  value="dvelezmesa@gmail.com"
-                />
-              </div>
-              <div class="form-control as_select">
-                <label for="pg:fm:pb:j_id4:j_id11:gender"> Género</label>
-                <select
-                  disabled="true"
-                  id="pg:fm:pb:j_id4:j_id11:gender"
-                  name="pg:fm:pb:j_id4:j_id11:gender"
-                >
-                  <option value="">--None--</option>
-                  <option value="Masculino" selected="selected">
-                    Masculino
-                  </option>
-                  <option value="Femenino">Femenino</option>
-                </select>
-              </div>
-              <div class="form-control as_input">
-                <label for="pg:fm:pb:j_id4:j_id13:typeId">
-                  Tipo de documento identidad</label
-                >
-                <input
-                  disabled="true"
-                  id="pg:fm:pb:j_id4:j_id13:typeId"
-                  maxlength="50"
-                  name="pg:fm:pb:j_id4:j_id13:typeId"
-                  size="20"
-                  type="text"
-                  value="CC"
-                />
-              </div>
-              <div class="form-control as_input">
-                <label for="pg:fm:pb:j_id4:j_id15:numberId">
-                  Número de documento identidad</label
-                >
-                <input
-                  disabled="true"
-                  id="pg:fm:pb:j_id4:j_id15:numberId"
-                  maxlength="18"
-                  name="pg:fm:pb:j_id4:j_id15:numberId"
-                  required="required"
-                  size="20"
-                  type="text"
-                  value="76302970"
-                />
-              </div>
-              <div class="form-control as_input">
-                <label for="pg:fm:pb:j_id4:j_id17:birthdate">
-                  Fecha de nacimiento</label
-                >
-                <span class="dateInput dateOnlyInput flex gap-2 items-center"
-                  ><input
-                    disabled="true"
-                    id="pg:fm:pb:j_id4:j_id17:birthdate"
-                    name="pg:fm:pb:j_id4:j_id17:birthdate"
-                    onfocus="DatePicker.pickDate(true, 'pg:fm:pb:j_id4:j_id17:birthdate', false);"
-                    size="12"
-                    type="text"
-                    value="21/01/1985"
-                    class="flex-1"
-                  /><span class="dateFormat"
-                    >[&nbsp;<a
-                      href="javascript:DatePicker.insertDate('17/04/2024', 'pg:fm:pb:j_id4:j_id17:birthdate', true);"
-                      >17/04/2024</a
-                    >&nbsp;]</span
-                  ></span
-                >
-              </div>
-              <div class="form-control as_input">
-                <label for="pg:fm:pb:j_id4:j_id19:phone"> Teléfono</label>
-                <input
-                  disabled="true"
-                  id="pg:fm:pb:j_id4:j_id19:phone"
-                  maxlength="40"
-                  name="pg:fm:pb:j_id4:j_id19:phone"
-                  size="20"
-                  type="text"
-                  value="3333333"
-                />
-              </div>
-              <div class="form-control as_input">
-                <label for="pg:fm:pb:j_id4:j_id21:cellphone"> Celular</label>
-                <input
-                  disabled="true"
-                  id="pg:fm:pb:j_id4:j_id21:cellphone"
-                  maxlength="40"
-                  name="pg:fm:pb:j_id4:j_id21:cellphone"
-                  size="20"
-                  type="text"
-                  value="3333333"
-                />
-              </div>
-              <div class="form-control as_select">
-                <label for="pg:fm:pb:j_id4:j_id23:maritalStatus">
-                  Estado civil</label
-                >
-                <select
-                  disabled="true"
-                  id="pg:fm:pb:j_id4:j_id23:maritalStatus"
-                  name="pg:fm:pb:j_id4:j_id23:maritalStatus"
-                >
-                  <option value="">--None--</option>
-                  <option value="Casado">Casado</option>
-                  <option value="Unión libre">Unión libre</option>
-                  <option value="Soltero" selected="selected">Soltero</option>
-                  <option value="Viudo">Viudo</option>
-                  <option value="Separado">Separado</option>
-                  <option value="Divorciado">Divorciado</option>
-                </select>
-              </div>
-              <div class="form-control as_select">
-                <label for="pg:fm:pb:j_id4:j_id25:genderIdentity">
-                  Identidad de género</label
-                ><select
-                  disabled="true"
-                  id="pg:fm:pb:j_id4:j_id25:genderIdentity"
-                  name="pg:fm:pb:j_id4:j_id25:genderIdentity"
-                >
-                  <option value="">--None--</option>
-                  <option value="Femenino">Femenino</option>
-                  <option value="Masculino">Masculino</option>
-                  <option value="No Binario">No Binario</option>
-                </select>
-              </div>
-              <div class="form-control as_select">
-                <label for="pg:fm:pb:j_id4:j_id27:subscriptions">
-                  Suscripciones</label
-                >
-                <select
-                  disabled="true"
-                  id="pg:fm:pb:j_id4:j_id27:subscriptions"
-                  multiple="multiple"
-                  name="pg:fm:pb:j_id4:j_id27:subscriptions"
-                  size="4"
-                  style="display: none"
-                >
-                  <option value="Articulos">Articulos</option>
-                  <option value="Colilla">Colilla</option>
-                  <option value="Certificado">Certificado</option>
-                  <option value="Poliza">Poliza</option>
-                </select>
-                <table
-                  class="multiSelectPicklistTable"
-                  border="0"
-                  cellspacing="0"
-                  cellpadding="0"
-                >
-                  <tbody>
-                    <tr class="multiSelectPicklistRow">
-                      <td>
-                        <select
-                          multiple="multiple"
-                          ondblclick="MultiSelectPicklist.handleMSPSelect('pg:fm:pb:j_id4:j_id27:subscriptions'); "
-                          disabled="true"
-                          id="pg:fm:pb:j_id4:j_id27:subscriptions_unselected"
-                          title="Suscripciones - Available"
-                          size="4"
-                        >
-                          <optgroup
-                            style="text-decoration: none"
-                            label="Available"
-                          >
-                            <option value="0">Articulos</option>
-                            <option value="1">Colilla</option>
-                            <option value="2">Certificado</option>
-                            <option value="3">Poliza</option>
-                          </optgroup>
-                        </select>
-                      </td>
-                      <td class="multiSelectPicklistCell">
-                        <a
-                          href="javascript:MultiSelectPicklist.handleMSPSelect%28%27pg%3Afm%3Apb%3Aj_id4%3Aj_id27%3Asubscriptions%27%29%3B"
-                          ><img
-                            src="https://proteccion--stage--c.sandbox.vf.force.com/img/arrow2_picklist_right.gif"
-                            alt="Add"
-                            width="17"
-                            height="17"
-                            align="texttop"
-                            border="0"
-                            disabled="true"
-                            id="pg:fm:pb:j_id4:j_id27:subscriptions_right_arrow"
-                            style="cursor: pointer"
-                            title="Add" /></a
-                        ><br /><br />
-                        <a
-                          href="javascript:MultiSelectPicklist.handleMSPUnSelect%28%27pg%3Afm%3Apb%3Aj_id4%3Aj_id27%3Asubscriptions%27%29%3B"
-                          ><img
-                            src="https://proteccion--stage--c.sandbox.vf.force.com/img/arrow2_picklist_left.gif"
-                            alt="Remove"
-                            width="17"
-                            height="17"
-                            align="texttop"
-                            border="0"
-                            disabled="true"
-                            id="pg:fm:pb:j_id4:j_id27:subscriptions_left_arrow"
-                            style="cursor: pointer"
-                            title="Remove"
-                        /></a>
-                      </td>
-                      <td>
-                        <select
-                          multiple="multiple"
-                          ondblclick="MultiSelectPicklist.handleMSPUnSelect('pg:fm:pb:j_id4:j_id27:subscriptions'); "
-                          disabled="true"
-                          id="pg:fm:pb:j_id4:j_id27:subscriptions_selected"
-                          title="Suscripciones - Chosen"
-                          size="4"
-                        >
-                          <optgroup
-                            style="text-decoration: none"
-                            label="Chosen"
-                          ></optgroup>
-                        </select>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div> -->
-            <hr />
-            <table
-              class="detailList formpp"
-              border="0"
-              cellpadding="0"
-              cellspacing="0"
-            >
-              <tbody>
-                <tr>
-                  <th class="labelCol vfLabelColTextWrap first" scope="row">
-                    <label for="pg:fm:pb:j_id4:j_id5:name"> Nombres</label>
-                  </th>
-                  <td class="dataCol first">
-                    <input
-                      disabled="true"
-                      id="pg:fm:pb:j_id4:j_id5:name"
-                      maxlength="40"
-                      name="pg:fm:pb:j_id4:j_id5:name"
-                      size="20"
-                      type="text"
-                      value="marc"
-                    />
-                  </td>
-                  <th class="labelCol vfLabelColTextWrap first" scope="row">
-                    <label for="pg:fm:pb:j_id4:j_id7:lastname">
-                      Apellidos</label
-                    >
-                  </th>
-                  <td class="dataCol first">
-                    <div class="requiredInput">
-                      <div class="requiredBlock"></div>
-                      <input
-                        disabled="true"
-                        id="pg:fm:pb:j_id4:j_id7:lastname"
-                        maxlength="80"
-                        name="pg:fm:pb:j_id4:j_id7:lastname"
-                        required="required"
-                        size="20"
-                        type="text"
-                        value="avila salazar"
-                      />
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th class="labelCol vfLabelColTextWrap" scope="row">
-                    <label for="pg:fm:pb:j_id4:j_id9:email">
-                      Correo electrónico</label
-                    >
-                  </th>
-                  <td class="dataCol">
-                    <input
-                      disabled="true"
-                      id="pg:fm:pb:j_id4:j_id9:email"
-                      maxlength="80"
-                      name="pg:fm:pb:j_id4:j_id9:email"
-                      size="20"
-                      type="text"
-                      value="dvelezmesa@gmail.com"
-                    />
-                  </td>
-                  <th class="labelCol vfLabelColTextWrap" scope="row">
-                    <label for="pg:fm:pb:j_id4:j_id11:gender"> Género</label>
-                  </th>
-                  <td class="dataCol">
-                    <select
-                      disabled="true"
-                      id="pg:fm:pb:j_id4:j_id11:gender"
-                      name="pg:fm:pb:j_id4:j_id11:gender"
-                    >
-                      <option value="">--None--</option>
-                      <option value="Masculino" selected="selected">
-                        Masculino
-                      </option>
-                      <option value="Femenino">Femenino</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <th class="labelCol vfLabelColTextWrap" scope="row">
-                    <label for="pg:fm:pb:j_id4:j_id13:typeId">
-                      Tipo de documento identidad</label
-                    >
-                  </th>
-                  <td class="dataCol">
-                    <input
-                      disabled="true"
-                      id="pg:fm:pb:j_id4:j_id13:typeId"
-                      maxlength="50"
-                      name="pg:fm:pb:j_id4:j_id13:typeId"
-                      size="20"
-                      type="text"
-                      value="CC"
-                    />
-                  </td>
-                  <th class="labelCol vfLabelColTextWrap" scope="row">
-                    <label for="pg:fm:pb:j_id4:j_id15:numberId">
-                      Número de documento identidad</label
-                    >
-                  </th>
-                  <td class="dataCol">
-                    <div class="requiredInput">
-                      <div class="requiredBlock"></div>
-                      <input
-                        disabled="true"
-                        id="pg:fm:pb:j_id4:j_id15:numberId"
-                        maxlength="18"
-                        name="pg:fm:pb:j_id4:j_id15:numberId"
-                        required="required"
-                        size="20"
-                        type="text"
-                        value="76302970"
-                      />
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th class="labelCol vfLabelColTextWrap" scope="row">
-                    <label for="pg:fm:pb:j_id4:j_id17:birthdate">
-                      Fecha de nacimiento</label
-                    >
-                  </th>
-                  <td class="dataCol">
-                    <span class="dateInput dateOnlyInput"
-                      ><input
-                        disabled="true"
-                        id="pg:fm:pb:j_id4:j_id17:birthdate"
-                        name="pg:fm:pb:j_id4:j_id17:birthdate"
-                        onfocus="DatePicker.pickDate(true, 'pg:fm:pb:j_id4:j_id17:birthdate', false);"
-                        size="12"
-                        type="text"
-                        value="21/01/1985"
-                      /><span class="dateFormat"
-                        >[&nbsp;<a
-                          href="javascript:DatePicker.insertDate('17/04/2024', 'pg:fm:pb:j_id4:j_id17:birthdate', true);"
-                          >17/04/2024</a
-                        >&nbsp;]</span
-                      ></span
-                    >
-                  </td>
-                  <th class="labelCol vfLabelColTextWrap" scope="row">
-                    <label for="pg:fm:pb:j_id4:j_id19:phone"> Teléfono</label>
-                  </th>
-                  <td class="dataCol">
-                    <input
-                      disabled="true"
-                      id="pg:fm:pb:j_id4:j_id19:phone"
-                      maxlength="40"
-                      name="pg:fm:pb:j_id4:j_id19:phone"
-                      size="20"
-                      type="text"
-                      value="3333333"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th class="labelCol vfLabelColTextWrap" scope="row">
-                    <label for="pg:fm:pb:j_id4:j_id21:cellphone">
-                      Celular</label
-                    >
-                  </th>
-                  <td class="dataCol">
-                    <input
-                      disabled="true"
-                      id="pg:fm:pb:j_id4:j_id21:cellphone"
-                      maxlength="40"
-                      name="pg:fm:pb:j_id4:j_id21:cellphone"
-                      size="20"
-                      type="text"
-                      value="3333333"
-                    />
-                  </td>
-                  <th class="labelCol vfLabelColTextWrap" scope="row">
-                    <label for="pg:fm:pb:j_id4:j_id23:maritalStatus">
-                      Estado civil</label
-                    >
-                  </th>
-                  <td class="dataCol">
-                    <select
-                      disabled="true"
-                      id="pg:fm:pb:j_id4:j_id23:maritalStatus"
-                      name="pg:fm:pb:j_id4:j_id23:maritalStatus"
-                    >
-                      <option value="">--None--</option>
-                      <option value="Casado">Casado</option>
-                      <option value="Unión libre">Unión libre</option>
-                      <option value="Soltero" selected="selected">
-                        Soltero
-                      </option>
-                      <option value="Viudo">Viudo</option>
-                      <option value="Separado">Separado</option>
-                      <option value="Divorciado">Divorciado</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <th class="labelCol vfLabelColTextWrap last" scope="row">
-                    <label for="pg:fm:pb:j_id4:j_id25:genderIdentity">
-                      Identidad de género</label
-                    >
-                  </th>
-                  <td class="dataCol last">
-                    <select
-                      disabled="true"
-                      id="pg:fm:pb:j_id4:j_id25:genderIdentity"
-                      name="pg:fm:pb:j_id4:j_id25:genderIdentity"
-                    >
-                      <option value="">--None--</option>
-                      <option value="Femenino">Femenino</option>
-                      <option value="Masculino">Masculino</option>
-                      <option value="No Binario">No Binario</option>
-                    </select>
-                  </td>
-                  <th class="labelCol vfLabelColTextWrap last" scope="row">
-                    <label for="pg:fm:pb:j_id4:j_id27:subscriptions">
-                      Suscripciones</label
-                    >
-                  </th>
-                  <td class="dataCol last">
-                    <select
-                      disabled="true"
-                      id="pg:fm:pb:j_id4:j_id27:subscriptions"
-                      multiple="multiple"
-                      name="pg:fm:pb:j_id4:j_id27:subscriptions"
-                      size="4"
-                      style="display: none"
-                    >
-                      <option value="Articulos">Articulos</option>
-                      <option value="Colilla">Colilla</option>
-                      <option value="Certificado">Certificado</option>
-                      <option value="Poliza">Poliza</option>
-                    </select>
-                    <table
-                      class="multiSelectPicklistTable"
-                      border="0"
-                      cellspacing="0"
-                      cellpadding="0"
-                    >
-                      <tbody>
-                        <tr>
-                          <td></td>
-                          <td colspan="100%" height="5"></td>
-                        </tr>
-                        <tr class="multiSelectPicklistRow">
-                          <td>
-                            <select
-                              multiple="multiple"
-                              ondblclick="MultiSelectPicklist.handleMSPSelect('pg:fm:pb:j_id4:j_id27:subscriptions'); "
-                              disabled="true"
-                              id="pg:fm:pb:j_id4:j_id27:subscriptions_unselected"
-                              title="Suscripciones - Available"
-                              size="4"
-                            >
-                              <optgroup
-                                style="text-decoration: none"
-                                label="Available"
-                              >
-                                <option value="0">Articulos</option>
-                                <option value="1">Colilla</option>
-                                <option value="2">Certificado</option>
-                                <option value="3">Poliza</option>
-                              </optgroup>
-                            </select>
-                          </td>
-                          <td class="multiSelectPicklistCell">
-                            <a
-                              href="javascript:MultiSelectPicklist.handleMSPSelect%28%27pg%3Afm%3Apb%3Aj_id4%3Aj_id27%3Asubscriptions%27%29%3B"
-                              ><img
-                                src="https://proteccion--stage--c.sandbox.vf.force.com/img/arrow2_picklist_right.gif"
-                                alt="Add"
-                                width="17"
-                                height="17"
-                                align="texttop"
-                                border="0"
-                                disabled="true"
-                                id="pg:fm:pb:j_id4:j_id27:subscriptions_right_arrow"
-                                style="cursor: pointer"
-                                title="Add" /></a
-                            ><br /><br />
-                            <a
-                              href="javascript:MultiSelectPicklist.handleMSPUnSelect%28%27pg%3Afm%3Apb%3Aj_id4%3Aj_id27%3Asubscriptions%27%29%3B"
-                              ><img
-                                src="https://proteccion--stage--c.sandbox.vf.force.com/img/arrow2_picklist_left.gif"
-                                alt="Remove"
-                                width="17"
-                                height="17"
-                                align="texttop"
-                                border="0"
-                                disabled="true"
-                                id="pg:fm:pb:j_id4:j_id27:subscriptions_left_arrow"
-                                style="cursor: pointer"
-                                title="Remove"
-                            /></a>
-                          </td>
-                          <td>
-                            <select
-                              multiple="multiple"
-                              ondblclick="MultiSelectPicklist.handleMSPUnSelect('pg:fm:pb:j_id4:j_id27:subscriptions'); "
-                              disabled="true"
-                              id="pg:fm:pb:j_id4:j_id27:subscriptions_selected"
-                              title="Suscripciones - Chosen"
-                              size="4"
-                            >
-                              <optgroup
-                                style="text-decoration: none"
-                                label="Chosen"
-                              ></optgroup>
-                            </select>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          function toggleSection(headerId, on) {
+            var sectionHead = document.getElementById(
+              "head_" + headerId + "_j_id0_fm_pb"
+            );
+            var body = sectionHead.nextSibling;
+            var disp = on ? "block" : "none";
+            sectionHead.style.display = disp;
+            body.style.display = disp;
+          }
+          function registerTwistableSections_j_id0_fm_pb() {
+            registerTwistableSection("j_id0_fm_pb_send", "j_id0_fm_pb");
+            registerTwistableSection("j_id0_fm_pb_notpreview", "j_id0_fm_pb");
+            registerTwistableSection("j_id0_fm_pb_preview", "j_id0_fm_pb");
+            registerTwistableSection("j_id0_fm_pb_waitpreview", "j_id0_fm_pb");
+          }
+          registerTwistableSections_j_id0_fm_pb();
+        </script>
+        <div class="pbBody"></div>
+        <div class="pbBottomButtons">
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr>
+                <td class="pbTitle">&nbsp;</td>
+                <td id="j_id0:fm:pb:pbb:bottom" class="pbButtonb">
+                  <input
+                    id="j_id0:fm:pb:pbb:btnVerify"
+                    type="submit"
+                    name="j_id0:fm:pb:pbb:btnVerify"
+                    value="Generar caratula"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+        <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
       </div>
-      <div class="pbBottomButtons">
-        <table border="0" cellpadding="0" cellspacing="0">
-          <tbody>
-            <tr>
-              <td class="pbTitle">&nbsp;</td>
-              <td id="pg:fm:pb:p:bottom" class="pbButtonb">
-                <input
-                  id="pg:fm:pb:p:btnVe"
-                  type="submit"
-                  name="pg:fm:pb:p:btnVe"
-                  value="Editar datos"
-                  onclick="enableEdit()"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="pbBottomButtons">
-        <table border="0" cellpadding="0" cellspacing="0">
-          <tbody>
-            <tr>
-              <td class="pbTitle">&nbsp;</td>
-              <td id="pg:fm:pb:ps:bottom" class="pbButtonb">
-                <input
-                  id="pg:fm:pb:ps:btnvolver"
-                  type="submit"
-                  name="pg:fm:pb:ps:btnvolver"
-                  value="Editar datos"
-                  class="hideButton"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="pbBottomButtons">
-        <table border="0" cellpadding="0" cellspacing="0">
-          <tbody>
-            <tr>
-              <td class="pbTitle">&nbsp;</td>
-              <td id="pg:fm:pb:pbb:bottom" class="pbButtonb">
-                <input
-                  id="pg:fm:pb:pbb:btnVerify"
-                  type="submit"
-                  name="pg:fm:pb:pbb:btnVerify"
-                  value="Confirmar"
-                  class="hideButton"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
     </div>
-  </div>
-  <div id="pg:fm:j_id39"></div>
-</form>
+    <div id="j_id0:fm:j_id20"></div>
+  </form>
+  <span id="ajax-view-state-page-container" style="display: none"
+    ><span id="ajax-view-state" style="display: none"
+      ><input
+        type="hidden"
+        id="com.salesforce.visualforce.ViewState"
+        name="com.salesforce.visualforce.ViewState"
+        value="i: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" /><input
+        type="hidden"
+        id="com.salesforce.visualforce.ViewStateVersion"
+        name="com.salesforce.visualforce.ViewStateVersion"
+        value="202404242253250078" /><input
+        type="hidden"
+        id="com.salesforce.visualforce.ViewStateMAC"
+        name="com.salesforce.visualforce.ViewStateMAC"
+        value="AGV5SnViMjVqWlNJNklrbEZUM2s0Y2t4c1gwSnJlV3BsZVVOVlRHbzBVbFF3ZDBaRVkwRjBjamszUTA1UlVUaDBNRXgyY2pSY2RUQXdNMlFpTENKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUlzSW10cFpDSTZJbnRjSW5SY0lqcGNJakF3UkRBMU1EQXdNREF3T0hKRmExd2lMRndpZGx3aU9sd2lNREpIT0dFd01EQXdNREJJUjJSV1hDSXNYQ0poWENJNlhDSjJabk5wWjI1cGJtZHJaWGxjSWl4Y0luVmNJanBjSWpBd05VODRNREF3TURBeVVVeFZTbHdpZlNJc0ltTnlhWFFpT2xzaWFXRjBJbDBzSW1saGRDSTZNVGN4TkRBM09EUXlNRFk0Tml3aVpYaHdJam93ZlE9PS4uRC1pVnVReDdLcHNzRmJTNS1nbERZWFVRQk82QktDejhvTHlJU0dPQ2dXMD0=" /><input
+        type="hidden"
+        id="com.salesforce.visualforce.ViewStateCSRF"
+        name="com.salesforce.visualforce.ViewStateCSRF"
+        value="VmpFPSxNakF5TkMwd05DMHlPRlF5TURvMU16bzBNQzQyT0RaYSxQZTB1SGxabVBsX2dLYlA4UzVmbUpDa2tIZjFxMlFibVJieHk5eDJuZUZVPSxNRE00TUdWaQ==" /></span
+  ></span>
+</div>

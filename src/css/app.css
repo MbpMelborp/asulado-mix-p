@@ -896,6 +896,9 @@ body {
         }
         .cl-4 {
         }
+        .single {
+          @apply text-center mx-auto leading-none flex px-4 py-1 items-center justify-center rounded-full bg-azul-light text-azul-dark w-auto;
+        }
       }
     }
   }
@@ -2627,5 +2630,107 @@ body {
   @apply flex flex-col gap-8 md:!flex-row justify-between items-start;
   .as_documentos_grd_item {
     @apply w-full md:w-1/2 flex flex-col gap-4;
+  }
+}
+.as_ciber {
+  @apply py-8 bg-gradient-to-b from-white to-azul-light;
+  .tabs {
+    @apply max-w-xl mx-auto bg-azul-dark items-center rounded-full;
+    .tab {
+      @apply h-auto leading-none text-white text-base font-je py-2 rounded-full;
+      &.tab-active {
+        @apply bg-azul-norm text-white;
+      }
+    }
+  }
+}
+
+.as__ciber_t1 {
+  @apply z-0 overflow-hidden pt-8 pb-24;
+  .as__listado_wrapper {
+    @apply flex flex-col md:flex-row gap-y-8 gap-x-20 justify-between items-center;
+    .as__listado_ilustra {
+      @apply w-full md:w-6/12 max-w-md mx-auto md:max-w-none md:mx-0 grid grid-cols-3 gap-4 md:gap-8 grid-rows-1;
+      h2 {
+        @apply z-10 text-azul-dark font-je text-6xl col-start-1 col-span-2 font-semibold self-center row-start-1 row-span-1;
+      }
+      svg {
+        @apply z-0 w-full mx-auto max-w-xs md:max-w-none col-start-2 col-span-2 row-start-1 row-span-1;
+      }
+    }
+    .as__listado_content {
+      @apply w-full md:w-6/12 flex-col flex gap-y-4 text-lg text-azul-dark font-light;
+      .extra_title {
+        @apply w-full md:w-6/12;
+      }
+      &.full {
+        .extra_title {
+          @apply w-full md:w-full;
+        }
+      }
+
+      p {
+        @apply text-azul-bold;
+        b {
+          @apply font-bold;
+        }
+        a {
+          @apply underline text-azul-bold font-bold hover:text-azul-bright;
+        }
+      }
+      ul.list {
+        @apply flex flex-col pl-16 border-l border-azul-norm gap-y-2;
+        li {
+          a {
+            @apply text-azul-bold flex gap-x-2 justify-start hover:text-azul-dark;
+            span {
+              @apply underline underline-offset-4;
+            }
+            i {
+              text-decoration: none;
+              text-decoration-style: none !important;
+              @apply no-underline flex items-center justify-center w-6 h-6 text-azul-bold bg-amarillo-light rounded-full mr-2 text-xs;
+            }
+          }
+        }
+        &.list_start {
+          @apply pl-8 border-none;
+          li {
+            @apply space-x-4 list-image-star;
+          }
+        }
+      }
+      .as__button {
+        @apply mr-auto mt-4;
+      }
+    }
+  }
+}
+.as__ciber_t1_car {
+  .slide_wrap {
+  }
+  #slide1 {
+    @apply bg-BG-1;
+  }
+  .arrows {
+    @apply absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2 z-50;
+    .btn {
+      @apply bg-white text-azul-dark text-xl;
+    }
+  }
+  .slide_int {
+    @apply grid grid-cols-1 grid-rows-1 gap-0;
+    .slide_int_content {
+      @apply z-10 col-start-1 col-span-1 row-start-1 row-span-1 flex h-full w-full;
+      .compo {
+        @apply h-auto w-full max-w-4xl mx-auto flex justify-center items-center;
+      }
+    }
+    .slide_int_bg {
+      @apply z-0 col-start-1 col-span-1 row-start-1 row-span-1 overflow-hidden;
+      svg{
+        @apply max-w-7xl w-full mx-auto h-auto object-cover;
+      }
+    }
   }
 }

@@ -51,9 +51,20 @@
     <section id="am__tabs" class="as__section as_ciber">
       <div class="as__section_wrapper">
         <div class="as__section_content">
-          <div role="tablist" class="tabs tabs-boxed">
-            <a role="tab" class="tab">Todo sobre ciberseguridad</a>
-            <a role="tab" class="tab tab-active"
+          <div
+            id="tabs-ciber"
+            role="tablist"
+            class="tabs_ciber tabs tabs-boxed"
+            data-tab="0"
+          >
+            <a
+              role="tab"
+              class="tab tab-active"
+              data-tab="1"
+              href="#sobre-seguridad"
+              >Todo sobre ciberseguridad</a
+            >
+            <a role="tab" class="tab" data-tab="2" href="#recomendaciones"
               >Recomendaciones para los canales Asulado
             </a>
             <a role="tab" class="tab">Gestión de riesgos</a>
@@ -63,8 +74,9 @@
     </section>
     <include
       src="ciber/tab_1.html"
-      locals='{ "bg":"bg-azul-light pt-0 pb-28 list_right as__bg_sky_multy"  }'
+      locals='{ "bg":" bg-azul-light pt-0 pb-28 list_right as__bg_sky_multy"  }'
     ></include>
+    <include src="ciber/tab_2.html" locals='{ "bg":""  }'></include>
   </block>
   <!-- FIN CONTENIDO DEL HOME -->
 </extends>

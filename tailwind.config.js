@@ -32,6 +32,7 @@ module.exports = {
           20: "#afecff",
           40: "#3bc3ed",
           60: "#5782e0",
+          50: "#17A4C1",
         },
         alpha: {
           10: "#FAFEFE",
@@ -63,6 +64,7 @@ module.exports = {
         lusa_r_0: "var(--il-lusa-robot-0)",
         lusa_r_1: "var(--il-lusa-robot-1)",
         piso: "var(--bg-piso-1)",
+        cib1: "var(--bg-cib1)",
         "p-login": "var(--il-bg-login)",
         "p-login2": "var(--il-bg-login2)",
         "p-banner": "var(--il-bg-banner)",

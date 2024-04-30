@@ -515,3 +515,9 @@ if (document.getElementById("modal_per")) {
       });
   }
 }
+if (document.getElementById("close_session")) {
+  document.addEventListener("click", () => {
+    document.getElementById("toast_session").classList.add("hidden");
+    document.removeEventListener("click", () => {});
+  });
+}

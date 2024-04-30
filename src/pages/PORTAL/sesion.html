@@ -1,0 +1,96 @@
+<extends src="portal.html" locals='{ "id": "as__home", "top":"" }'>
+  <block name="head">
+    <title>ASULADO Seguros de Vida</title>
+    <meta name="title" content="ASULADO Seguros de Vida" />
+    <meta
+      name="keywords"
+      content="Asulado seguros de vida, renta vitalicia, seguro previsional, pension anticipada"
+    />
+    <meta
+      name="description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta property="og:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="og:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:image" content="/assets/fb.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta property="twitter:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="twitter:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="twitter:image" content="/assets/fb.png" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="PORTAL/p_top_no_img.html"
+      locals='{ "cls":"inl small", "ico": "lock-keyhole", "title":"Sesión", "image":"tmp_header.png", "content":""}'
+    ></include>
+
+    <div id="content" class="as__section pa__inter">
+      <div class="as__section_wrapper">
+        <div
+          class="as__section_content_full pa__inter_content min-h-[600px]"
+        ></div>
+      </div>
+    </div>
+
+    <!-- 
+      MODAL DE SESION
+     -->
+
+    <dialog class="modal modal-bottom sm:modal-middle modal_sesion" open>
+      <div class="modal-box">
+        <div class="modal_info">
+          <i class="ico-warn fa-duotone fa-triangle-exclamation"></i>
+          <h3>Hemos cerrado tu sesión.</h3>
+          <p class="py-4">
+            Llevas 10 minutos de inactividad. Por temas de seguridad, hemos
+            cerrado tu sesión automáticamente.
+          </p>
+        </div>
+        <div class="modal-action">
+          <form method="dialog">
+            <p>Haz clic en “aceptar” para iniciar sesión de nuevo.</p>
+            <button href="#" class="as__button small">
+              <span>Aceptar</span>
+              <i role="presentation" class="fa-light fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- MODAL TOAST -->
+    <div id="toast_session" class="toast toast-end toast_sesion">
+      <div role="alert" class="alert">
+        <i class="ico-warn fa-duotone fa-triangle-exclamation"></i>
+        <div class="alert-int">
+          <h4>¿Sigues ahí?</h4>
+          <p class="s_info">
+            ¡Llevas 10 minutos de inactividad! Por temas de seguridad,
+            cerraremos tu sesión automáticamente si en los próximos 2 minutos no
+            muestras actividad nuevamente.
+          </p>
+          <div class="alert-action">
+            <p class="s_info2">
+              Haz clic en cualquier lugar de la pantalla para mostrarnos que
+              sigues ahí.
+            </p>
+            <button id="close_session">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <include src="PORTAL/p_ayuda.html"></include>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

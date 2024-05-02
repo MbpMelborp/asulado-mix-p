@@ -521,3 +521,60 @@ if (document.getElementById("close_session")) {
     document.removeEventListener("click", () => {});
   });
 }
+
+if (document.getElementById("timer_session")) {
+  var inactivityTime = function () {
+    console.log("inactivityTime");
+    var time, time2;
+
+    // DOM Events
+
+    document
+      .getElementById("close_toast_session")
+      .addEventListener("click", () => {
+        resetTimer();
+        document.getElementById("toast_session").classList.add("hidden");
+      });
+
+    document
+      .getElementById("close_timer_session")
+      .addEventListener("click", () => {
+        resetTimer2();
+      });
+
+    function showToast() {
+      console.log("showToast");
+      document.getElementById("toast_session").classList.remove("hidden");
+      //location.href = 'logout.html'
+    }
+    function showDialog() {
+      console.log("showDialog");
+      document.getElementById("toast_session").classList.add("hidden");
+      document.getElementById("timer_session").setAttribute("open", true);
+      //location.href = 'logout.html'
+    }
+
+    function resetTimer(e) {
+      clearTimeout(time);
+      time = setTimeout(showToast, 1000 * 60 * 5);
+    }
+    function resetTimer2(e) {
+      clearTimeout(time2);
+      time2 = setTimeout(showDialog, 1000 * 60 * 10);
+    }
+    resetTimer();
+    resetTimer2();
+    document.addEventListener("mousemove", resetTimer);
+    document.addEventListener("keydown", resetTimer);
+    document.addEventListener("mousemove", resetTimer2);
+    document.addEventListener("keydown", resetTimer2);
+  };
+  window.onload = function () {
+    inactivityTime();
+  };
+
+  // document.addEventListener("click", () => {
+  //   document.getElementById("toast_session").classList.add("hidden");
+  //   document.removeEventListener("click", () => {});
+  // });
+}

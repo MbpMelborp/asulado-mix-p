@@ -578,3 +578,20 @@ if (document.getElementById("timer_session")) {
   //   document.removeEventListener("click", () => {});
   // });
 }
+if (document.getElementsByClassName("pa_co_form")) {
+  const pbBottomButtons = plainHtml(
+    `<tableborder="0"cellpadding="0"cellspacing="0"><tbody><tr><tdclass="pbTitle">&nbsp;</td><td>&nbsp;</td></tr></tbody></table>`
+  );
+  document.querySelectorAll(".pbBottomButtons").forEach((pb) => {
+    if (plainHtml(pb.innerHTML) == pbBottomButtons) {
+      pb.remove();
+    }
+  });
+}
+if (document.getElementsByClassName("secondaryPalette")) {
+  const ('<div class="pbFooter secondaryPalette"><div class="bg"></div></div>');
+}
+
+function plainHtml(html) {
+  return html.replace(/\t|\n|\r|:|\s/g, "");
+}

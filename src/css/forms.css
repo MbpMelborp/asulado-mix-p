@@ -139,6 +139,7 @@
         }
       }
     }
+
     p.palert {
       @apply alert bg-alpha-10 text-azul-bold;
       &:before {
@@ -157,7 +158,23 @@
         }
       }
     }
+    div[id="pg:fm:pb:enProgreso"] {
+      table {
+        tr {
+          @apply w-full;
+          td.empty {
+            @apply hidden;
+          }
+        }
+      }
+      .palert {
+        a {
+          @apply btn btn-primary;
+        }
+      }
+    }
   }
+
   .pbBottomButtons {
     @apply mb-2;
     .pbTitle {
@@ -165,6 +182,9 @@
     }
     table {
       @apply w-full;
+      td:empty {
+        @apply bg-red-300;
+      }
     }
     .pbButtonb {
       input[type="submit"] {

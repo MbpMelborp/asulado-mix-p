@@ -90,7 +90,8 @@
             &[name="pg:fm:pb:preview:btnVaciar"],
             &[name="pg:fm:pb:send:btnVaciar"],
             &[name="pg:fm:pb:colillas:btnVaciar"],
-            &[name="pg:fm:pb:nocolillas:btnVaciar"] {
+            &[name="pg:fm:pb:nocolillas:btnVaciar"],
+            &[name="j_id0:fm:pb:preview:btnVaciar"] {
               @apply btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
             }
             &[name="pg:fm:pb:colillas:btnSend"] {
@@ -139,7 +140,29 @@
         }
       }
     }
-
+    div[id="j_id0:fm:pb:preview"] {
+      table {
+        @apply block;
+        tbody {
+          @apply flex flex-wrap items-center;
+          tr {
+            @apply block w-1/2;
+            &:nth-child(2) {
+              @apply text-right;
+              input[type="submit"] {
+                @apply btn-sm;
+              }
+            }
+          }
+          tr:last-child {
+            @apply w-full;
+          }
+          td {
+            @apply block w-full;
+          }
+        }
+      }
+    }
     p.palert {
       @apply alert bg-alpha-10 text-azul-bold;
       &:before {

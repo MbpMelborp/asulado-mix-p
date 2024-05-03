@@ -588,9 +588,9 @@ if (document.getElementsByClassName("pa_co_form")) {
     }
   });
 }
-if (document.getElementsByClassName("secondaryPalette")) {
-  const ('<div class="pbFooter secondaryPalette"><div class="bg"></div></div>');
-}
+// if (document.getElementsByClassName("pa_co_form")) {
+//   ('<div class="pbFooter secondaryPalette"><div class="bg"></div></div>');
+// }
 
 function plainHtml(html) {
   return html.replace(/\t|\n|\r|:|\s/g, "");

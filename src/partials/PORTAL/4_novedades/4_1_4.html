@@ -1,0 +1,833 @@
+<form
+  id="pg:fm"
+  name="pg:fm"
+  method="post"
+  action="https://proteccion--stage--c.sandbox.vf.force.com/apex/NomiVoluntaria"
+  enctype="application/x-www-form-urlencoded"
+  onsubmit="return validateForm();"
+>
+  <input type="hidden" name="pg:fm" value="pg:fm" />
+  <script>
+    if (!window.sfdcPage) {
+      window.sfdcPage = new ApexPage();
+    }
+    UserContext.initialize({
+      ampm: ["AM", "PM"],
+      isAccessibleMode: false,
+      salesforceURL: "https://proteccion--stage.sandbox.my.salesforce.com",
+      dateFormat: "d/MM/yyyy",
+      language: "en_US",
+      locale: "es_CO",
+      dateTimeFormat: "d/MM/yyyy, h:mm a",
+      labelLastModified: "1714875221000",
+      today: "6/05/2024, 2:44 PM",
+      userPreferences: [
+        { index: 112, name: "HideInlineEditSplash", value: false },
+        { index: 114, name: "OverrideTaskSendNotification", value: false },
+        { index: 115, name: "DefaultTaskSendNotification", value: false },
+        { index: 119, name: "HideUserLayoutStdFieldInfo", value: false },
+        { index: 116, name: "HideRPPWarning", value: false },
+        { index: 87, name: "HideInlineSchedulingSplash", value: false },
+        { index: 88, name: "HideCRUCNotification", value: false },
+        { index: 89, name: "HideNewPLESplash", value: false },
+        { index: 90, name: "HideNewPLEWarnIE6", value: false },
+        { index: 122, name: "HideOverrideSharingMessage", value: false },
+        { index: 91, name: "HideProfileILEWarn", value: false },
+        { index: 93, name: "HideProfileElvVideo", value: false },
+        { index: 97, name: "ShowPicklistEditSplash", value: false },
+        { index: 92, name: "HideDataCategorySplash", value: false },
+        { index: 128, name: "ShowDealView", value: false },
+        { index: 129, name: "HideDealViewGuidedTour", value: false },
+        { index: 132, name: "HideKnowledgeFirstTimeSetupMsg", value: false },
+        { index: 104, name: "DefaultOffEntityPermsMsg", value: false },
+        { index: 135, name: "HideNewCsnSplash", value: false },
+        { index: 101, name: "HideBrowserWarning", value: false },
+        { index: 139, name: "HideDashboardBuilderGuidedTour", value: false },
+        { index: 140, name: "HideSchedulingGuidedTour", value: false },
+        { index: 180, name: "HideReportBuilderGuidedTour", value: false },
+        { index: 183, name: "HideAssociationQueueCallout", value: false },
+        { index: 194, name: "HideQTEBanner", value: false },
+        { index: 270, name: "HideIDEGuidedTour", value: false },
+        { index: 282, name: "HideQueryToolGuidedTour", value: false },
+        { index: 196, name: "HideCSIGuidedTour", value: false },
+        { index: 271, name: "HideFewmetGuidedTour", value: false },
+        { index: 272, name: "HideEditorGuidedTour", value: false },
+        { index: 205, name: "HideApexTestGuidedTour", value: false },
+        { index: 206, name: "HideSetupProfileHeaderTour", value: false },
+        {
+          index: 207,
+          name: "HideSetupProfileObjectsAndTabsTour",
+          value: false,
+        },
+        {
+          index: 213,
+          name: "DefaultOffArticleTypeEntityPermMsg",
+          value: false,
+        },
+        { index: 214, name: "HideSelfInfluenceGetStarted", value: false },
+        { index: 215, name: "HideOtherInfluenceGetStarted", value: false },
+        { index: 216, name: "HideFeedToggleGuidedTour", value: false },
+        { index: 268, name: "ShowChatterTab178GuidedTour", value: false },
+        { index: 275, name: "HidePeopleTabDeprecationMsg", value: false },
+        { index: 276, name: "HideGroupTabDeprecationMsg", value: false },
+        { index: 224, name: "HideUnifiedSearchGuidedTour", value: false },
+        { index: 226, name: "ShowDevContextMenu", value: true },
+        {
+          index: 227,
+          name: "HideWhatRecommenderForActivityQueues",
+          value: false,
+        },
+        { index: 228, name: "HideLiveAgentFirstTimeSetupMsg", value: false },
+        {
+          index: 232,
+          name: "HideGroupAllowsGuestsMsgOnMemberWidget",
+          value: false,
+        },
+        { index: 233, name: "HideGroupAllowsGuestsMsg", value: false },
+        { index: 234, name: "HideWhatAreGuestsMsg", value: false },
+        { index: 235, name: "HideNowAllowGuestsMsg", value: false },
+        {
+          index: 236,
+          name: "HideSocialAccountsAndContactsGuidedTour",
+          value: false,
+        },
+        { index: 237, name: "HideAnalyticsHomeGuidedTour", value: false },
+        { index: 238, name: "ShowQuickCreateGuidedTour", value: false },
+        { index: 245, name: "HideFilePageGuidedTour", value: false },
+        { index: 250, name: "HideForecastingGuidedTour", value: false },
+        { index: 251, name: "HideBucketFieldGuide", value: false },
+        { index: 263, name: "HideSmartSearchCallOut", value: false },
+        { index: 273, name: "ShowForecastingQuotaAttainment", value: false },
+        { index: 280, name: "HideForecastingQuotaColumn", value: false },
+        { index: 301, name: "HideManyWhoGuidedTour", value: false },
+        { index: 298, name: "HideFileSyncBannerMsg", value: false },
+        { index: 299, name: "HideTestConsoleGuidedTour", value: false },
+        { index: 302, name: "HideManyWhoInlineEditTip", value: false },
+        { index: 303, name: "HideSetupV2WelcomeMessage", value: false },
+        { index: 312, name: "ForecastingShowQuantity", value: false },
+        { index: 313, name: "HideDataImporterIntroMsg", value: false },
+        { index: 314, name: "HideEnvironmentHubLightbox", value: false },
+        { index: 316, name: "HideSetupV2GuidedTour", value: false },
+        { index: 317, name: "HideFileSyncMobileDownloadDialog", value: false },
+        { index: 322, name: "HideEnhancedProfileHelpBubble", value: false },
+        { index: 328, name: "ForecastingHideZeroRows", value: false },
+        {
+          index: 330,
+          name: "HideEmbeddedComponentsFeatureCallout",
+          value: false,
+        },
+        { index: 341, name: "HideDedupeMatchResultCallout", value: false },
+        { index: 340, name: "HideS1BrowserUI", value: true },
+        { index: 346, name: "HideS1Banner", value: false },
+        { index: 358, name: "HideEmailVerificationAlert", value: false },
+        { index: 354, name: "HideLearningPathModal", value: false },
+        { index: 359, name: "HideAtMentionsHelpBubble", value: false },
+        { index: 368, name: "LightningExperiencePreferred", value: true },
+        { index: 373, name: "PreviewLightning", value: false },
+        { index: 281, name: "HideMSPPopup", value: false },
+      ],
+      networkId: "",
+      uiTheme: "Theme3",
+      uiSkin: "Theme3",
+      userName: "juanosorio@melborp.co.stage",
+      userId: "005O8000002QLUJ",
+      isCurrentlySysAdminSU: false,
+      renderMode: "RETRO",
+      startOfWeek: "1",
+      vfDomainPattern: "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
+      auraDomain: "proteccion--stage.sandbox.lightning.force.com",
+      useNativeAlertConfirmPrompt: false,
+      orgPreferences: [
+        { index: 257, name: "TabOrganizer", value: true },
+        { index: 113, name: "GroupTasks", value: true },
+      ],
+      siteUrlPrefix: "",
+      isDefaultNetwork: true,
+      timeFormat: "h:mm a",
+    });
+  </script>
+  <div class="apexp">
+    <div
+      id="pg:fm:pb"
+      class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
+    >
+      <script>
+        function twistSection(elem, sectionId) {
+          var parentDiv = elem;
+          var twisty = elem;
+          while (parentDiv.tagName != "DIV") {
+            parentDiv = parentDiv.parentNode;
+          }
+          if (
+            elem.tagName === "DIV" &&
+            elem.attributes["data-twistyimgid"] !== undefined
+          ) {
+            twisty = document.getElementById(
+              elem.attributes["data-twistyimgid"].value
+            );
+          }
+          var div = parentDiv.nextSibling;
+          var elemWasOn = false;
+          if (div.style.display != "none") {
+            div.style.display = "none";
+            twisty.className = "showListButton";
+            twisty.alt = "Show Section - " + twisty.name;
+            elem.title = twisty.alt;
+            elemWasOn = true;
+          } else {
+            div.style.display = "block";
+            twisty.className = "hideListButton";
+            twisty.alt = "Hide Section - " + twisty.name;
+            elem.title = twisty.alt;
+          }
+          return !elemWasOn;
+        }
+        var registeredSections = new Array();
+        function registerTwistableSection(headerId, mainTableId) {
+          var obj = new Object();
+          obj.headerId = headerId;
+          obj.mainTableId = mainTableId;
+          registeredSections[registeredSections.length] = obj;
+        }
+        function twistAllSections(on) {
+          for (var i = 0; i < registeredSections.length; i++) {
+            var obj = registeredSections[i];
+            var img;
+            img = document.getElementById("img_" + obj.headerId);
+            if (on && "showListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            } else if (!on && "hideListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            }
+          }
+        }
+        function toggleSection(headerId, on) {
+          var sectionHead = document.getElementById(
+            "head_" + headerId + "_pg_fm_pb"
+          );
+          var body = sectionHead.nextSibling;
+          var disp = on ? "block" : "none";
+          sectionHead.style.display = disp;
+          body.style.display = disp;
+        }
+        function registerTwistableSections_pg_fm_pb() {
+          registerTwistableSection("pg_fm_pb_notpreview", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_notcapacity", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_enProgreso", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_j_id7", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_j_id14", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_j_id32", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_j_id36", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_j_id46", "pg_fm_pb");
+        }
+        registerTwistableSections_pg_fm_pb();
+      </script>
+      <div class="pbBody">
+        <div id="pg:fm:pb:j_id7">
+          <div class="pbSubsection">
+            <table
+              class="detailList"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+            >
+              <tbody>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap first" scope="row">
+                    <label for="pg:fm:pb:j_id7:j_id8:name">
+                      Nombre entidad</label
+                    >
+                  </th>
+                  <td class="data2Col first">
+                    <input
+                      id="pg:fm:pb:j_id7:j_id8:name"
+                      type="text"
+                      name="pg:fm:pb:j_id7:j_id8:name"
+                      value="FONDO DE PENSIONES VOLUNTARIAS PROTECCION"
+                      disabled="disabled"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:j_id7:j_id10:tipo">
+                      Valor del aporte</label
+                    >
+                  </th>
+                  <td class="data2Col">
+                    <input
+                      id="pg:fm:pb:j_id7:j_id10:tipo"
+                      type="text"
+                      name="pg:fm:pb:j_id7:j_id10:tipo"
+                      value="$100.000"
+                      disabled="disabled"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap last" scope="row">
+                    <label for="pg:fm:pb:j_id7:j_id12:medio">
+                      Meses de ahorro extraordinario</label
+                    >
+                  </th>
+                  <td class="data2Col last">
+                    <input
+                      id="pg:fm:pb:j_id7:j_id12:medio"
+                      type="text"
+                      name="pg:fm:pb:j_id7:j_id12:medio"
+                      value="Noviembre"
+                      disabled="disabled"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="pbBottomButtons">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="pbTitle">&nbsp;</td>
+              <td id="pg:fm:pb:p:bottom" class="pbButtonb">
+                <input
+                  id="pg:fm:pb:p:btnTraslado"
+                  type="submit"
+                  name="pg:fm:pb:p:btnTraslado"
+                  value="Actualización"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pbBottomButtons">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="pbTitle">&nbsp;</td>
+              <td id="pg:fm:pb:extx:bottom" class="pbButtonb">
+                <input
+                  id="pg:fm:pb:extx:btnRetiro"
+                  type="submit"
+                  name="pg:fm:pb:extx:btnRetiro"
+                  value="Retiro"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
+    </div>
+  </div>
+  <div id="pg:fm:j_id58"></div>
+</form>
+<span id="ajax-view-state-page-container" style="display: none"
+  ><span id="ajax-view-state" style="display: none"
+    ><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewState"
+      name="com.salesforce.visualforce.ViewState"
+      value="i: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" /><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewStateVersion"
+      name="com.salesforce.visualforce.ViewStateVersion"
+      value="202405050050560899" /><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewStateMAC"
+      name="com.salesforce.visualforce.ViewStateMAC"
+      value="AGV5SnViMjVqWlNJNklqbHJRamgxV0RSa1IxUjJORFZEYkRobVkxcHlNa2h4WmxwQmNsQnhTa1pPZDJzMFkyeElTV0p0WTNOY2RUQXdNMlFpTENKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUlzSW10cFpDSTZJbnRjSW5SY0lqcGNJakF3UkRBMU1EQXdNREF3T0hKRmExd2lMRndpZGx3aU9sd2lNREpIT0dFd01EQXdNREJJUjJSV1hDSXNYQ0poWENJNlhDSjJabk5wWjI1cGJtZHJaWGxjSWl4Y0luVmNJanBjSWpBd05VODRNREF3TURBeVVVeFZTbHdpZlNJc0ltTnlhWFFpT2xzaWFXRjBJbDBzSW1saGRDSTZNVGN4TlRBeU5EWTJOakE0Tnl3aVpYaHdJam93ZlE9PS4uZFVvbDVXMFJ2dE1CLVRrdEhFZFNSZnJ6MDRlQk1BRkM5MDVUNHJiWmxCdz0=" /><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewStateCSRF"
+      name="com.salesforce.visualforce.ViewStateCSRF"
+      value="VmpFPSxNakF5TkMwd05TMHdPVlF4T1RvME5Eb3lOaTR3T0RoYSxkVkRCSkszQ2dlZGQ5MlBXU203MnNCWkgtdmNyTVQ4OVhaWG1IcU9tWEh3PSxZV1JqTnpSbQ==" /></span
+></span>
+
+<hr class="my-8" />
+
+<form
+  id="pg:fm"
+  name="pg:fm"
+  method="post"
+  action="https://proteccion--stage--c.sandbox.vf.force.com/apex/NomiVoluntaria"
+  enctype="multipart/form-data"
+  onsubmit="return validateForm();"
+>
+  <input type="hidden" name="pg:fm" value="pg:fm" />
+  <script>
+    if (!window.sfdcPage) {
+      window.sfdcPage = new ApexPage();
+    }
+    UserContext.initialize({
+      ampm: ["AM", "PM"],
+      isAccessibleMode: false,
+      salesforceURL: "https://proteccion--stage.sandbox.my.salesforce.com",
+      dateFormat: "d/MM/yyyy",
+      language: "en_US",
+      locale: "es_CO",
+      dateTimeFormat: "d/MM/yyyy, h:mm a",
+      labelLastModified: "1714875221000",
+      today: "6/05/2024, 2:45 PM",
+      userPreferences: [
+        { index: 112, name: "HideInlineEditSplash", value: false },
+        { index: 114, name: "OverrideTaskSendNotification", value: false },
+        { index: 115, name: "DefaultTaskSendNotification", value: false },
+        { index: 119, name: "HideUserLayoutStdFieldInfo", value: false },
+        { index: 116, name: "HideRPPWarning", value: false },
+        { index: 87, name: "HideInlineSchedulingSplash", value: false },
+        { index: 88, name: "HideCRUCNotification", value: false },
+        { index: 89, name: "HideNewPLESplash", value: false },
+        { index: 90, name: "HideNewPLEWarnIE6", value: false },
+        { index: 122, name: "HideOverrideSharingMessage", value: false },
+        { index: 91, name: "HideProfileILEWarn", value: false },
+        { index: 93, name: "HideProfileElvVideo", value: false },
+        { index: 97, name: "ShowPicklistEditSplash", value: false },
+        { index: 92, name: "HideDataCategorySplash", value: false },
+        { index: 128, name: "ShowDealView", value: false },
+        { index: 129, name: "HideDealViewGuidedTour", value: false },
+        { index: 132, name: "HideKnowledgeFirstTimeSetupMsg", value: false },
+        { index: 104, name: "DefaultOffEntityPermsMsg", value: false },
+        { index: 135, name: "HideNewCsnSplash", value: false },
+        { index: 101, name: "HideBrowserWarning", value: false },
+        { index: 139, name: "HideDashboardBuilderGuidedTour", value: false },
+        { index: 140, name: "HideSchedulingGuidedTour", value: false },
+        { index: 180, name: "HideReportBuilderGuidedTour", value: false },
+        { index: 183, name: "HideAssociationQueueCallout", value: false },
+        { index: 194, name: "HideQTEBanner", value: false },
+        { index: 270, name: "HideIDEGuidedTour", value: false },
+        { index: 282, name: "HideQueryToolGuidedTour", value: false },
+        { index: 196, name: "HideCSIGuidedTour", value: false },
+        { index: 271, name: "HideFewmetGuidedTour", value: false },
+        { index: 272, name: "HideEditorGuidedTour", value: false },
+        { index: 205, name: "HideApexTestGuidedTour", value: false },
+        { index: 206, name: "HideSetupProfileHeaderTour", value: false },
+        {
+          index: 207,
+          name: "HideSetupProfileObjectsAndTabsTour",
+          value: false,
+        },
+        {
+          index: 213,
+          name: "DefaultOffArticleTypeEntityPermMsg",
+          value: false,
+        },
+        { index: 214, name: "HideSelfInfluenceGetStarted", value: false },
+        { index: 215, name: "HideOtherInfluenceGetStarted", value: false },
+        { index: 216, name: "HideFeedToggleGuidedTour", value: false },
+        { index: 268, name: "ShowChatterTab178GuidedTour", value: false },
+        { index: 275, name: "HidePeopleTabDeprecationMsg", value: false },
+        { index: 276, name: "HideGroupTabDeprecationMsg", value: false },
+        { index: 224, name: "HideUnifiedSearchGuidedTour", value: false },
+        { index: 226, name: "ShowDevContextMenu", value: true },
+        {
+          index: 227,
+          name: "HideWhatRecommenderForActivityQueues",
+          value: false,
+        },
+        { index: 228, name: "HideLiveAgentFirstTimeSetupMsg", value: false },
+        {
+          index: 232,
+          name: "HideGroupAllowsGuestsMsgOnMemberWidget",
+          value: false,
+        },
+        { index: 233, name: "HideGroupAllowsGuestsMsg", value: false },
+        { index: 234, name: "HideWhatAreGuestsMsg", value: false },
+        { index: 235, name: "HideNowAllowGuestsMsg", value: false },
+        {
+          index: 236,
+          name: "HideSocialAccountsAndContactsGuidedTour",
+          value: false,
+        },
+        { index: 237, name: "HideAnalyticsHomeGuidedTour", value: false },
+        { index: 238, name: "ShowQuickCreateGuidedTour", value: false },
+        { index: 245, name: "HideFilePageGuidedTour", value: false },
+        { index: 250, name: "HideForecastingGuidedTour", value: false },
+        { index: 251, name: "HideBucketFieldGuide", value: false },
+        { index: 263, name: "HideSmartSearchCallOut", value: false },
+        { index: 273, name: "ShowForecastingQuotaAttainment", value: false },
+        { index: 280, name: "HideForecastingQuotaColumn", value: false },
+        { index: 301, name: "HideManyWhoGuidedTour", value: false },
+        { index: 298, name: "HideFileSyncBannerMsg", value: false },
+        { index: 299, name: "HideTestConsoleGuidedTour", value: false },
+        { index: 302, name: "HideManyWhoInlineEditTip", value: false },
+        { index: 303, name: "HideSetupV2WelcomeMessage", value: false },
+        { index: 312, name: "ForecastingShowQuantity", value: false },
+        { index: 313, name: "HideDataImporterIntroMsg", value: false },
+        { index: 314, name: "HideEnvironmentHubLightbox", value: false },
+        { index: 316, name: "HideSetupV2GuidedTour", value: false },
+        { index: 317, name: "HideFileSyncMobileDownloadDialog", value: false },
+        { index: 322, name: "HideEnhancedProfileHelpBubble", value: false },
+        { index: 328, name: "ForecastingHideZeroRows", value: false },
+        {
+          index: 330,
+          name: "HideEmbeddedComponentsFeatureCallout",
+          value: false,
+        },
+        { index: 341, name: "HideDedupeMatchResultCallout", value: false },
+        { index: 340, name: "HideS1BrowserUI", value: true },
+        { index: 346, name: "HideS1Banner", value: false },
+        { index: 358, name: "HideEmailVerificationAlert", value: false },
+        { index: 354, name: "HideLearningPathModal", value: false },
+        { index: 359, name: "HideAtMentionsHelpBubble", value: false },
+        { index: 368, name: "LightningExperiencePreferred", value: true },
+        { index: 373, name: "PreviewLightning", value: false },
+        { index: 281, name: "HideMSPPopup", value: false },
+      ],
+      networkId: "",
+      uiTheme: "Theme3",
+      uiSkin: "Theme3",
+      userName: "juanosorio@melborp.co.stage",
+      userId: "005O8000002QLUJ",
+      isCurrentlySysAdminSU: false,
+      renderMode: "RETRO",
+      startOfWeek: "1",
+      vfDomainPattern: "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
+      auraDomain: "proteccion--stage.sandbox.lightning.force.com",
+      useNativeAlertConfirmPrompt: false,
+      orgPreferences: [
+        { index: 257, name: "TabOrganizer", value: true },
+        { index: 113, name: "GroupTasks", value: true },
+      ],
+      siteUrlPrefix: "",
+      isDefaultNetwork: true,
+      timeFormat: "h:mm a",
+    });
+  </script>
+  <div class="apexp">
+    <div
+      id="pg:fm:pb"
+      class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
+    >
+      <script>
+        function twistSection(elem, sectionId) {
+          var parentDiv = elem;
+          var twisty = elem;
+          while (parentDiv.tagName != "DIV") {
+            parentDiv = parentDiv.parentNode;
+          }
+          if (
+            elem.tagName === "DIV" &&
+            elem.attributes["data-twistyimgid"] !== undefined
+          ) {
+            twisty = document.getElementById(
+              elem.attributes["data-twistyimgid"].value
+            );
+          }
+          var div = parentDiv.nextSibling;
+          var elemWasOn = false;
+          if (div.style.display != "none") {
+            div.style.display = "none";
+            twisty.className = "showListButton";
+            twisty.alt = "Show Section - " + twisty.name;
+            elem.title = twisty.alt;
+            elemWasOn = true;
+          } else {
+            div.style.display = "block";
+            twisty.className = "hideListButton";
+            twisty.alt = "Hide Section - " + twisty.name;
+            elem.title = twisty.alt;
+          }
+          return !elemWasOn;
+        }
+        var registeredSections = new Array();
+        function registerTwistableSection(headerId, mainTableId) {
+          var obj = new Object();
+          obj.headerId = headerId;
+          obj.mainTableId = mainTableId;
+          registeredSections[registeredSections.length] = obj;
+        }
+        function twistAllSections(on) {
+          for (var i = 0; i < registeredSections.length; i++) {
+            var obj = registeredSections[i];
+            var img;
+            img = document.getElementById("img_" + obj.headerId);
+            if (on && "showListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            } else if (!on && "hideListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            }
+          }
+        }
+        function toggleSection(headerId, on) {
+          var sectionHead = document.getElementById(
+            "head_" + headerId + "_pg_fm_pb"
+          );
+          var body = sectionHead.nextSibling;
+          var disp = on ? "block" : "none";
+          sectionHead.style.display = disp;
+          body.style.display = disp;
+        }
+        function registerTwistableSections_pg_fm_pb() {
+          registerTwistableSection("pg_fm_pb_notpreview", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_notcapacity", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_enProgreso", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_j_id7", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_j_id14", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_j_id32", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_j_id36", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_j_id46", "pg_fm_pb");
+        }
+        registerTwistableSections_pg_fm_pb();
+      </script>
+      <div class="pbBody">
+        <div id="pg:fm:pb:j_id14">
+          <div class="pbSubsection">
+            <table
+              class="detailList"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+            >
+              <tbody>
+                <tr>
+                  <td class="data2Col first" colspan="2">
+                    <p class="text-lg">
+                      Diligencia los campos para actualizar de tu aporte
+                      voluntario
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2">
+                    <input type="hidden" />
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:j_id14:j_id18:name">
+                      Nombre entidad</label
+                    >
+                  </th>
+                  <td class="data2Col">
+                    <input
+                      id="pg:fm:pb:j_id14:j_id18:name"
+                      type="text"
+                      name="pg:fm:pb:j_id14:j_id18:name"
+                      value="FONDO DE PENSIONES VOLUNTARIAS PROTECCION"
+                      disabled="disabled"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:j_id14:j_id20:tipoDescuento">
+                      Tipo de descuento</label
+                    >
+                  </th>
+                  <td class="data2Col">
+                    <select
+                      id="pg:fm:pb:j_id14:j_id20:tipoDescuento"
+                      name="pg:fm:pb:j_id14:j_id20:tipoDescuento"
+                      size="1"
+                      onchange="toggleCampos()"
+                    >
+                      <option value="">Selecciona</option>
+                      <option value="Valor">Valor</option>
+                      <option value="Porcentaje">Porcentaje</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:j_id14:j_id25:porcentajeAporte">
+                      Porcentaje del aporte</label
+                    >
+                  </th>
+                  <td class="data2Col">
+                    <input
+                      id="pg:fm:pb:j_id14:j_id25:porcentajeAporte"
+                      type="text"
+                      name="pg:fm:pb:j_id14:j_id25:porcentajeAporte"
+                      onkeypress="return soloNumeros(event);"
+                      disabled="disabled"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:j_id14:j_id27:valorAporte">
+                      Valor del aporte</label
+                    >
+                  </th>
+                  <td class="data2Col">
+                    <input
+                      id="pg:fm:pb:j_id14:j_id27:valorAporte"
+                      type="text"
+                      name="pg:fm:pb:j_id14:j_id27:valorAporte"
+                      value="100000.0"
+                      onkeypress="return soloNumeros(event);"
+                      disabled="disabled"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap last" scope="row">
+                    <label class="label"
+                      ><span class="label-text"
+                        >Meses de ahorro extraordinario</span
+                      ></label
+                    >
+                  </th>
+                  <td class="data2Col last form-control as_select">
+                    <select
+                      id="pg:fm:pb:j_id14:j_id29:ahorroExtra"
+                      name="pg:fm:pb:j_id14:j_id29:ahorroExtra"
+                      size="1"
+                    >
+                      <option value="Ninguno">Ninguno</option>
+                      <option value="Noviembre">Noviembre</option>
+                      <option value="Junio">Junio</option>
+                      <option value="Noviembre y Junio">
+                        Noviembre y Junio
+                      </option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="pg:fm:pb:j_id36">
+          <div class="pbSubsection">
+            <table
+              class="detailList"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+            >
+              <tbody>
+                <tr>
+                  <td class="data2Col first" colspan="2">
+                    <h6>
+                      Tenga en cuenta las siguientes consideraciones al momento
+                      de subir archivos:
+                    </h6>
+                    <ul class="items">
+                      <li>
+                        <p>
+                          Una carta comunicado la necesidad de actualizar los
+                          valores del aporte o confirmando el retiro del mismo.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          El peso maximo por archivo no debe superar el peso de
+                          5MB.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Los unicos formatos permitidos son pdf, png, jpg,
+                          jpeg.
+                        </p>
+                      </li>
+                      <li>
+                        <p>Unicamente se pueden adjuntar maximo 1 documento.</p>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2"><input type="hidden" /></td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap last" scope="row">
+                    <input
+                      accept="image/png,image/jpg,image/jpeg,application/pdf"
+                      accesskey=""
+                      alt=""
+                      class=""
+                      dir=""
+                      id="pg:fm:pb:j_id36:j_id40:files"
+                      lang=""
+                      name="pg:fm:pb:j_id36:j_id40:files:inputFile:file"
+                      onblur=""
+                      onchange=""
+                      onclick=""
+                      ondblclick=""
+                      onfocus=""
+                      onkeydown=""
+                      onkeypress=""
+                      onkeyup=""
+                      onmousedown=""
+                      onmousemove=""
+                      onmouseout=""
+                      onmouseover=""
+                      size=""
+                      style=""
+                      tabindex=""
+                      title=""
+                      type="file"
+                    />
+                  </th>
+                  <td class="data2Col last form-control fc-file">
+                    <span class="error-message" id="error-message"></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="pbBottomButtons">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="pbTitle">&nbsp;</td>
+              <td id="pg:fm:pb:ps2:bottom" class="pbButtonb">
+                <input
+                  id="pg:fm:pb:ps2:btnVerify"
+                  type="submit"
+                  name="pg:fm:pb:ps2:btnVerify"
+                  value="Enviar"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pbBottomButtons">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="pbTitle">&nbsp;</td>
+              <td id="pg:fm:pb:ps:bottom" class="pbButtonb">
+                <input
+                  id="pg:fm:pb:ps:btnvolver"
+                  type="submit"
+                  name="pg:fm:pb:ps:btnvolver"
+                  value="Cancelar"
+                  onclick="window.location.href = window.location.href;"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
+    </div>
+  </div>
+  <div id="pg:fm:j_id58"></div>
+</form>
+<span id="ajax-view-state-page-container" style="display: none"
+  ><span id="ajax-view-state" style="display: none"
+    ><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewState"
+      name="com.salesforce.visualforce.ViewState"
+      value="i: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" /><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewStateVersion"
+      name="com.salesforce.visualforce.ViewStateVersion"
+      value="202405050050560899" /><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewStateMAC"
+      name="com.salesforce.visualforce.ViewStateMAC"
+      value="AGV5SnViMjVqWlNJNklrOXhiMlF6UkRWSVZUZG9kV2RaUkZaUlJsZHpSbDlWY0VGSWJscElRMEZpYmtWaVpqa3dNME5NVGtGY2RUQXdNMlFpTENKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUlzSW10cFpDSTZJbnRjSW5SY0lqcGNJakF3UkRBMU1EQXdNREF3T0hKRmExd2lMRndpZGx3aU9sd2lNREpIT0dFd01EQXdNREJJUjJSV1hDSXNYQ0poWENJNlhDSjJabk5wWjI1cGJtZHJaWGxjSWl4Y0luVmNJanBjSWpBd05VODRNREF3TURBeVVVeFZTbHdpZlNJc0ltTnlhWFFpT2xzaWFXRjBJbDBzSW1saGRDSTZNVGN4TlRBeU5EYzFPRFU1TXl3aVpYaHdJam93ZlE9PS4uRnlWdUY4bTgwYUtzaDAwaFpSMFlueGxld3U4QldiYm0wbjJuajdZeDloUT0=" /><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewStateCSRF"
+      name="com.salesforce.visualforce.ViewStateCSRF"
+      value="VmpFPSxNakF5TkMwd05TMHdPVlF4T1RvME5UbzFPQzQxT1RSYSxPeUFNSVBoekFpYXEzOWdsY2ZNMldNWEdFdk52RkRNVWFSVjlJbU9ZSzVvPSxZV1JqTnpSbQ==" /></span
+></span>

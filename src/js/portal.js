@@ -595,3 +595,25 @@ if (document.getElementsByClassName("pa_co_form")) {
 function plainHtml(html) {
   return html.replace(/\t|\n|\r|:|\s/g, "");
 }
+
+document.querySelectorAll('form[name="pg:fm"]').forEach((fm) => {
+  console.log("fm", fm);
+  if (fm.attributes.action.value.includes("NomiEps")) console.log("fm", fm);
+});
+
+// const intro = introJs().setOptions({
+//   nextLabel: "Siguiente",
+//   prevLabel: "Anterior",
+//   doneLabel: "Finalizar",
+//   steps: [
+//     {
+//       intro: "Bienvenido a Asulado, tu aliado en beneficios garantizados",
+//     },
+//     {
+//       element: document.querySelector("#as__header"),
+//       intro:
+//         "Acá encontrarás las opciones de navegación del sitio y podrás acceder a los dierentes servicios que ofrece Asulado.",
+//     },
+//   ],
+// });
+// intro.start();

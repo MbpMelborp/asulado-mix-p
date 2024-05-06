@@ -675,3 +675,5 @@ export function setHomeBlog(gsap, ScrollTrigger) {
     });
   }
 }
+
+// .start();

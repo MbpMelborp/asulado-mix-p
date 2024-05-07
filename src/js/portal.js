@@ -597,8 +597,14 @@ function plainHtml(html) {
 }
 
 document.querySelectorAll('form[name="pg:fm"]').forEach((fm) => {
-  console.log("fm", fm);
-  if (fm.attributes.action.value.includes("NomiEps")) console.log("fm", fm);
+  // console.log("fm", fm);
+  if (fm.attributes.action.value.includes("NomiCompensacion")) {
+    if (
+      document.querySelector('input[name="pg:fm:pb:actualiza:btnTraslado"]')
+    ) {
+      document.querySelector(".bPageBlock").classList.add("caja");
+    }
+  }
 });
 
 // const intro = introJs().setOptions({

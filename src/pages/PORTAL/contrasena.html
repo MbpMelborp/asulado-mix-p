@@ -29,27 +29,36 @@
   </block>
   <!-- CONTENIDO DEL HOME -->
   <block name="content">
-    <include
+    <!-- <include
       src="PORTAL/p_top_no_img.html"
       locals='{ "cls":"inl small", "ico": "lock-keyhole", "title":"Cambio de contraseña", "image":"tmp_header.png", "content":""}'
+    ></include> -->
+    <include
+      src="PORTAL/p_top.html"
+      locals='{
+      "cls":"",
+      "ico":"lock-keyhole",
+      "title":"Cambio de contraseña",
+      "image":"INTERNA_CONTRASENA.webp",
+      "content":"¡Mantén tus datos seguros en todo momento! Sigue estos simples pasos para actualizar o cambiar tu contraseña exitosamente."
+   }'
     ></include>
-
     <div id="content" class="as__section pa__inter">
       <div class="as__section_wrapper">
         <div class="as__section_content_full pa__inter_content">
           <div class="pa__forms">
-            <div role="alert" class="alert">
+            <div class="alert" role="alert">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
+                class="stroke-info shrink-0 w-6 h-6"
                 fill="none"
                 viewBox="0 0 24 24"
-                class="stroke-info shrink-0 w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 ></path>
               </svg>
               <span
@@ -58,25 +67,405 @@
               </span>
             </div>
             <p class="pa__forms_msg">
-              <b>Fecha y hora de la última actualización:</b> 2/28/2024 14:26:46
+              <b>Fecha y hora de la última actualización:</b> 2024-02-12
+              16:23:45
             </p>
-            </div>
             <form
-              id="j_id0:j_id2"
-              name="j_id0:j_id2"
+              id="pg:fm"
+              name="pg:fm"
               method="post"
-              action="/AsuladoTransaccional/LoginTransaccional"
+              action="https://proteccion--stage--c.sandbox.vf.force.com/apex/PasswordChange"
               enctype="application/x-www-form-urlencoded"
-              class="pa__hlf"
             >
-              <input type="hidden" name="j_id0:j_id2" value="j_id0:j_id2" />
+              <input type="hidden" name="pg:fm" value="pg:fm" />
+              <script>
+                if (!window.sfdcPage) {
+                  window.sfdcPage = new ApexPage();
+                }
+                UserContext.initialize({
+                  ampm: ["AM", "PM"],
+                  isAccessibleMode: false,
+                  salesforceURL:
+                    "https://proteccion--stage.sandbox.my.salesforce.com",
+                  dateFormat: "d/MM/yyyy",
+                  language: "en_US",
+                  locale: "es_CO",
+                  dateTimeFormat: "d/MM/yyyy, h:mm a",
+                  labelLastModified: "1715029182000",
+                  today: "7/05/2024, 1:42 PM",
+                  userPreferences: [
+                    { index: 112, name: "HideInlineEditSplash", value: false },
+                    {
+                      index: 114,
+                      name: "OverrideTaskSendNotification",
+                      value: false,
+                    },
+                    {
+                      index: 115,
+                      name: "DefaultTaskSendNotification",
+                      value: false,
+                    },
+                    {
+                      index: 119,
+                      name: "HideUserLayoutStdFieldInfo",
+                      value: false,
+                    },
+                    { index: 116, name: "HideRPPWarning", value: false },
+                    {
+                      index: 87,
+                      name: "HideInlineSchedulingSplash",
+                      value: false,
+                    },
+                    { index: 88, name: "HideCRUCNotification", value: false },
+                    { index: 89, name: "HideNewPLESplash", value: false },
+                    { index: 90, name: "HideNewPLEWarnIE6", value: false },
+                    {
+                      index: 122,
+                      name: "HideOverrideSharingMessage",
+                      value: false,
+                    },
+                    { index: 91, name: "HideProfileILEWarn", value: false },
+                    { index: 93, name: "HideProfileElvVideo", value: false },
+                    { index: 97, name: "ShowPicklistEditSplash", value: false },
+                    { index: 92, name: "HideDataCategorySplash", value: false },
+                    { index: 128, name: "ShowDealView", value: false },
+                    {
+                      index: 129,
+                      name: "HideDealViewGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 132,
+                      name: "HideKnowledgeFirstTimeSetupMsg",
+                      value: false,
+                    },
+                    {
+                      index: 104,
+                      name: "DefaultOffEntityPermsMsg",
+                      value: false,
+                    },
+                    { index: 135, name: "HideNewCsnSplash", value: false },
+                    { index: 101, name: "HideBrowserWarning", value: false },
+                    {
+                      index: 139,
+                      name: "HideDashboardBuilderGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 140,
+                      name: "HideSchedulingGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 180,
+                      name: "HideReportBuilderGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 183,
+                      name: "HideAssociationQueueCallout",
+                      value: false,
+                    },
+                    { index: 194, name: "HideQTEBanner", value: false },
+                    { index: 270, name: "HideIDEGuidedTour", value: false },
+                    {
+                      index: 282,
+                      name: "HideQueryToolGuidedTour",
+                      value: false,
+                    },
+                    { index: 196, name: "HideCSIGuidedTour", value: false },
+                    { index: 271, name: "HideFewmetGuidedTour", value: false },
+                    { index: 272, name: "HideEditorGuidedTour", value: false },
+                    {
+                      index: 205,
+                      name: "HideApexTestGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 206,
+                      name: "HideSetupProfileHeaderTour",
+                      value: false,
+                    },
+                    {
+                      index: 207,
+                      name: "HideSetupProfileObjectsAndTabsTour",
+                      value: false,
+                    },
+                    {
+                      index: 213,
+                      name: "DefaultOffArticleTypeEntityPermMsg",
+                      value: false,
+                    },
+                    {
+                      index: 214,
+                      name: "HideSelfInfluenceGetStarted",
+                      value: false,
+                    },
+                    {
+                      index: 215,
+                      name: "HideOtherInfluenceGetStarted",
+                      value: false,
+                    },
+                    {
+                      index: 216,
+                      name: "HideFeedToggleGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 268,
+                      name: "ShowChatterTab178GuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 275,
+                      name: "HidePeopleTabDeprecationMsg",
+                      value: false,
+                    },
+                    {
+                      index: 276,
+                      name: "HideGroupTabDeprecationMsg",
+                      value: false,
+                    },
+                    {
+                      index: 224,
+                      name: "HideUnifiedSearchGuidedTour",
+                      value: false,
+                    },
+                    { index: 226, name: "ShowDevContextMenu", value: true },
+                    {
+                      index: 227,
+                      name: "HideWhatRecommenderForActivityQueues",
+                      value: false,
+                    },
+                    {
+                      index: 228,
+                      name: "HideLiveAgentFirstTimeSetupMsg",
+                      value: false,
+                    },
+                    {
+                      index: 232,
+                      name: "HideGroupAllowsGuestsMsgOnMemberWidget",
+                      value: false,
+                    },
+                    {
+                      index: 233,
+                      name: "HideGroupAllowsGuestsMsg",
+                      value: false,
+                    },
+                    { index: 234, name: "HideWhatAreGuestsMsg", value: false },
+                    { index: 235, name: "HideNowAllowGuestsMsg", value: false },
+                    {
+                      index: 236,
+                      name: "HideSocialAccountsAndContactsGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 237,
+                      name: "HideAnalyticsHomeGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 238,
+                      name: "ShowQuickCreateGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 245,
+                      name: "HideFilePageGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 250,
+                      name: "HideForecastingGuidedTour",
+                      value: false,
+                    },
+                    { index: 251, name: "HideBucketFieldGuide", value: false },
+                    {
+                      index: 263,
+                      name: "HideSmartSearchCallOut",
+                      value: false,
+                    },
+                    {
+                      index: 273,
+                      name: "ShowForecastingQuotaAttainment",
+                      value: false,
+                    },
+                    {
+                      index: 280,
+                      name: "HideForecastingQuotaColumn",
+                      value: false,
+                    },
+                    { index: 301, name: "HideManyWhoGuidedTour", value: false },
+                    { index: 298, name: "HideFileSyncBannerMsg", value: false },
+                    {
+                      index: 299,
+                      name: "HideTestConsoleGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 302,
+                      name: "HideManyWhoInlineEditTip",
+                      value: false,
+                    },
+                    {
+                      index: 303,
+                      name: "HideSetupV2WelcomeMessage",
+                      value: false,
+                    },
+                    {
+                      index: 312,
+                      name: "ForecastingShowQuantity",
+                      value: false,
+                    },
+                    {
+                      index: 313,
+                      name: "HideDataImporterIntroMsg",
+                      value: false,
+                    },
+                    {
+                      index: 314,
+                      name: "HideEnvironmentHubLightbox",
+                      value: false,
+                    },
+                    { index: 316, name: "HideSetupV2GuidedTour", value: false },
+                    {
+                      index: 317,
+                      name: "HideFileSyncMobileDownloadDialog",
+                      value: false,
+                    },
+                    {
+                      index: 322,
+                      name: "HideEnhancedProfileHelpBubble",
+                      value: false,
+                    },
+                    {
+                      index: 328,
+                      name: "ForecastingHideZeroRows",
+                      value: false,
+                    },
+                    {
+                      index: 330,
+                      name: "HideEmbeddedComponentsFeatureCallout",
+                      value: false,
+                    },
+                    {
+                      index: 341,
+                      name: "HideDedupeMatchResultCallout",
+                      value: false,
+                    },
+                    { index: 340, name: "HideS1BrowserUI", value: true },
+                    { index: 346, name: "HideS1Banner", value: false },
+                    {
+                      index: 358,
+                      name: "HideEmailVerificationAlert",
+                      value: false,
+                    },
+                    { index: 354, name: "HideLearningPathModal", value: false },
+                    {
+                      index: 359,
+                      name: "HideAtMentionsHelpBubble",
+                      value: false,
+                    },
+                    {
+                      index: 368,
+                      name: "LightningExperiencePreferred",
+                      value: true,
+                    },
+                    { index: 373, name: "PreviewLightning", value: false },
+                    { index: 281, name: "HideMSPPopup", value: false },
+                  ],
+                  networkId: "",
+                  uiTheme: "Theme3",
+                  uiSkin: "Theme3",
+                  userName: "juanosorio@melborp.co.stage",
+                  userId: "005O8000002QLUJ",
+                  isCurrentlySysAdminSU: false,
+                  renderMode: "RETRO",
+                  startOfWeek: "1",
+                  vfDomainPattern:
+                    "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
+                  auraDomain: "proteccion--stage.sandbox.lightning.force.com",
+                  useNativeAlertConfirmPrompt: false,
+                  orgPreferences: [
+                    { index: 257, name: "TabOrganizer", value: true },
+                    { index: 113, name: "GroupTasks", value: true },
+                  ],
+                  siteUrlPrefix: "",
+                  isDefaultNetwork: true,
+                  timeFormat: "h:mm a",
+                });
+              </script>
               <div class="apexp">
                 <div
-                  id="j_id0:j_id2:pb"
+                  id="pg:fm:pb"
                   class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
                 >
+                  <script>
+                    function twistSection(elem, sectionId) {
+                      var parentDiv = elem;
+                      var twisty = elem;
+                      while (parentDiv.tagName != "DIV") {
+                        parentDiv = parentDiv.parentNode;
+                      }
+                      if (
+                        elem.tagName === "DIV" &&
+                        elem.attributes["data-twistyimgid"] !== undefined
+                      ) {
+                        twisty = document.getElementById(
+                          elem.attributes["data-twistyimgid"].value
+                        );
+                      }
+                      var div = parentDiv.nextSibling;
+                      var elemWasOn = false;
+                      if (div.style.display != "none") {
+                        div.style.display = "none";
+                        twisty.className = "showListButton";
+                        twisty.alt = "Show Section - " + twisty.name;
+                        elem.title = twisty.alt;
+                        elemWasOn = true;
+                      } else {
+                        div.style.display = "block";
+                        twisty.className = "hideListButton";
+                        twisty.alt = "Hide Section - " + twisty.name;
+                        elem.title = twisty.alt;
+                      }
+                      return !elemWasOn;
+                    }
+                    var registeredSections = new Array();
+                    function registerTwistableSection(headerId, mainTableId) {
+                      var obj = new Object();
+                      obj.headerId = headerId;
+                      obj.mainTableId = mainTableId;
+                      registeredSections[registeredSections.length] = obj;
+                    }
+                    function twistAllSections(on) {
+                      for (var i = 0; i < registeredSections.length; i++) {
+                        var obj = registeredSections[i];
+                        var img;
+                        img = document.getElementById("img_" + obj.headerId);
+                        if (on && "showListButton" == img.className) {
+                          twistSection(img, obj.headerId, obj.mainTableId);
+                        } else if (!on && "hideListButton" == img.className) {
+                          twistSection(img, obj.headerId, obj.mainTableId);
+                        }
+                      }
+                    }
+                    function toggleSection(headerId, on) {
+                      var sectionHead = document.getElementById(
+                        "head_" + headerId + "_pg_fm_pb"
+                      );
+                      var body = sectionHead.nextSibling;
+                      var disp = on ? "block" : "none";
+                      sectionHead.style.display = disp;
+                      body.style.display = disp;
+                    }
+                    function registerTwistableSections_pg_fm_pb() {
+                      registerTwistableSection("pg_fm_pb_pbs", "pg_fm_pb");
+                    }
+                    registerTwistableSections_pg_fm_pb();
+                  </script>
                   <div class="pbBody">
-                    <div id="j_id0:j_id2:pb:pbs">
+                    <div id="pg:fm:pb:pbs">
                       <div class="pbSubsection">
                         <table
                           class="detailList"
@@ -87,7 +476,7 @@
                           <tbody>
                             <tr>
                               <td
-                                class="dataCol first form-control"
+                                class="dataCol first dataCol first form-control"
                                 colspan="2"
                               >
                                 <label class="label">
@@ -97,94 +486,64 @@
                                 </label>
                                 <input
                                   class="w-full input input-bordered input-primary"
-                                  name="Usuario"
-                                  placeholder=""
+                                  name="password1"
+                                  placeholder="Contraseña anterior"
                                   required="true"
                                   type="password"
                                 />
                               </td>
                               <td
-                                class="dataCol first form-control"
+                                class="dataCol first dataCol first form-control"
                                 colspan="2"
                               >
                                 <label class="label">
                                   <span class="label-text"
                                     >Nueva contraseña</span
-                                  ></label
-                                >
+                                  >
+                                </label>
                                 <input
                                   class="w-full input input-bordered input-primary"
-                                  id="id_password"
-                                  name="Contrasena"
-                                  placeholder=""
+                                  name="password2"
+                                  placeholder="Nueva contraseña"
                                   required="true"
                                   type="password"
                                 />
                               </td>
+                            </tr>
+                            <tr>
                               <td
-                                class="dataCol first form-control"
+                                class="dataCol dataCol first form-control"
                                 colspan="2"
                               >
                                 <label class="label">
                                   <span class="label-text"
-                                    >Repetir contraseña</span
+                                    >Confirmar contraseña</span
                                   ></label
                                 >
                                 <input
                                   class="w-full input input-bordered input-primary"
-                                  id="id_password2"
-                                  name="Contrasena"
-                                  placeholder=""
+                                  name="password3"
+                                  placeholder="Contraseña"
                                   required="true"
                                   type="password"
                                 />
-
-                                <ul class="validates">
-                                  <ul>
-                                    <li><b>Incluye:</b></li>
-                                    <li>1 mayúscula</li>
-                                    <li>1 minúscula</li>
-                                    <li>1 número</li>
-                                    <li>1 carácter especial</li>
-                                    <li>8 caracteres de longitud</li>
-                                  </ul>
-                                </ul>
+                                <label id="mensajeError"></label>
+                              </td>
+                              <td class="dataCol" colspan="2">
+                                <input type="hidden" />
                               </td>
                             </tr>
                             <tr>
                               <td
-                                class="dataCol first form-control"
+                                class="dataCol last dataCol last form-action"
                                 colspan="2"
                               >
-                                <div class="form-control">
-                                  <label
-                                    class="label cursor-pointer justify-start gap-2"
-                                  >
-                                    <input
-                                      type="checkbox"
-                                      checked="checked"
-                                      class="checkbox"
-                                    />
-                                    <span class="label-text">
-                                      Acepto los términos y condiciones y
-                                      <a
-                                        href="#"
-                                        class="text-azul-bright2 underline underline-offset-2"
-                                        >politicas de privacidad
-                                      </a>
-                                    </span>
-                                  </label>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td class="dataCol last form-action" colspan="2">
                                 <input
-                                  id="j_id0:j_id2:pb:pbs:j_id7:Login"
+                                  id="pg:fm:pb:pbs:j_id14:Login"
                                   type="submit"
-                                  name="j_id0:j_id2:pb:pbs:j_id7:Login"
-                                  value="CAMBIAR CONTRASEÑA"
-                                  class="btn btn-primary"
+                                  name="pg:fm:pb:pbs:j_id14:Login"
+                                  value=" "
+                                  class="hideButton"
                                 />
                               </td>
                               <td class="labelCol empty">&nbsp;</td>
@@ -200,8 +559,82 @@
                   </div>
                 </div>
               </div>
-              <div id="j_id0:j_id2:j_id35"></div>
+              <div id="pg:fm:j_id52"></div>
             </form>
+            <span id="ajax-view-state-page-container" style="display: none"
+              ><span id="ajax-view-state" style="display: none"
+                ><input
+                  type="hidden"
+                  id="com.salesforce.visualforce.ViewState"
+                  name="com.salesforce.visualforce.ViewState"
+                  value="i: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" /><input
+                  type="hidden"
+                  id="com.salesforce.visualforce.ViewStateVersion"
+                  name="com.salesforce.visualforce.ViewStateVersion"
+                  value="202405061936380344" /><input
+                  type="hidden"
+                  id="com.salesforce.visualforce.ViewStateMAC"
+                  name="com.salesforce.visualforce.ViewStateMAC"
+                  value="AGV5SnViMjVqWlNJNklubzVjVjkwTTJOM2RGOTVVV0Z1VnpGTFJXVjFSazB5YTFwcmJXOVFRamhaZUhZM2RFUjBTVkJMVEZWY2RUQXdNMlFpTENKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUlzSW10cFpDSTZJbnRjSW5SY0lqcGNJakF3UkRBMU1EQXdNREF3T0hKRmExd2lMRndpZGx3aU9sd2lNREpIT0dFd01EQXdNREJJUjJSV1hDSXNYQ0poWENJNlhDSjJabk5wWjI1cGJtZHJaWGxjSWl4Y0luVmNJanBjSWpBd05VODRNREF3TURBeVVVeFZTbHdpZlNJc0ltTnlhWFFpT2xzaWFXRjBJbDBzSW1saGRDSTZNVGN4TlRFd056TTFNRGczTlN3aVpYaHdJam93ZlE9PS4udU1HNlMwVGRLUG13QW1aRXJIZnFISFhJMmlBOW80Q2NGb293U0QzLVNpdz0=" /><input
+                  type="hidden"
+                  id="com.salesforce.visualforce.ViewStateCSRF"
+                  name="com.salesforce.visualforce.ViewStateCSRF"
+                  value="VmpFPSxNakF5TkMwd05TMHhNRlF4T0RvME1qb3pNQzQ0TnpWYSwwYzNvUXdNMThxMkFVSXdkNGdYeFBBRTJWUVBlWEtxWkktdTRMaFlVTWdNPSxZVFUwTmprMg==" /></span
+            ></span>
+            <ul class="validates">
+              <li><b>Incluye:</b></li>
+              <li id="mayuscula">
+                <span id="password1Validationmayuscula" style="display: none"
+                  ><i
+                    class="fas fa-check-circle"
+                    style="color: green"
+                    aria-hidden="true"
+                  ></i
+                ></span>
+                1 mayúscula
+              </li>
+              <li id="minuscula">
+                <span id="password1Validationminuscula" style="display: none"
+                  ><i
+                    class="fas fa-check-circle"
+                    style="color: green"
+                    aria-hidden="true"
+                  ></i
+                ></span>
+                1 minúscula
+              </li>
+              <li id="numero">
+                <span id="password1Validationnumero" style="display: none"
+                  ><i
+                    class="fas fa-check-circle"
+                    style="color: green"
+                    aria-hidden="true"
+                  ></i
+                ></span>
+                1 número
+              </li>
+              <li id="especial">
+                <span id="password1Validationespecial" style="display: none"
+                  ><i
+                    class="fas fa-check-circle"
+                    style="color: green"
+                    aria-hidden="true"
+                  ></i
+                ></span>
+                1 carácter especial (/*[@#$%()_+/)
+              </li>
+              <li id="longitud">
+                <span id="password1Validationlongitud" style="display: none"
+                  ><i
+                    class="fas fa-check-circle"
+                    style="color: green"
+                    aria-hidden="true"
+                  ></i
+                ></span>
+                8 caracteres de longitud
+              </li>
+            </ul>
+            <span id="pg:msg"></span>
           </div>
         </div>
       </div>

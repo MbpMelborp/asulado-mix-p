@@ -250,6 +250,18 @@
       @apply text-xl animate-pulse;
     }
   }
+  .caja {
+    @apply flex flex-row flex-wrap w-full;
+    .pbBody {
+      @apply w-full flex-auto;
+    }
+    .pbBottomButtons {
+      @apply md:w-1/4 px-2;
+      input{
+        @apply w-full;
+      }
+    }
+  }
 }
 .formpp {
   .pbBottomButtons {

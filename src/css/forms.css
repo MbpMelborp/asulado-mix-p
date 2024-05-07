@@ -191,8 +191,9 @@
         }
       }
       .palert {
+        @apply flex gap-3;
         a {
-          @apply btn btn-primary;
+          @apply text-azul-dark font-bold;
         }
       }
     }
@@ -257,8 +258,16 @@
     }
     .pbBottomButtons {
       @apply md:w-1/4 px-2;
-      input{
+      input {
         @apply w-full;
+      }
+    }
+  }
+  .btnnse {
+    @apply w-1/2 float-left;
+    &.secondary {
+      input {
+        @apply ml-auto bg-red-500;
       }
     }
   }

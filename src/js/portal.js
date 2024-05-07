@@ -605,7 +605,24 @@ document.querySelectorAll('form[name="pg:fm"]').forEach((fm) => {
       document.querySelector(".bPageBlock").classList.add("caja");
     }
   }
+  if (fm.attributes.action.value.includes("NomiEps")) {
+    if (document.querySelector('input[name="pg:fm:pb:p:btnTraslado"]')) {
+      document.querySelector(".bPageBlock").classList.add("caja");
+    }
+  }
+  if (fm.attributes.action.value.includes("NomiVoluntaria")) {
+    if (document.querySelector('input[name="pg:fm:pb:p:btnTraslado"]')) {
+      document.querySelector(".bPageBlock").classList.add("caja");
+    }
+  }
 });
+
+if (document.querySelector('input[name="pg:fm:pb:ps2:btnVerify"]')) {
+  document.querySelectorAll(".pbBottomButtons").forEach((pb, index) => {
+    pb.classList.add("btnnse");
+    pb.classList.add("btn_" + (index % 2 == 0 ? "primary" : "secondary"));
+  });
+}
 
 // const intro = introJs().setOptions({
 //   nextLabel: "Siguiente",

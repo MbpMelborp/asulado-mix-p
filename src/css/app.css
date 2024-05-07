@@ -890,14 +890,7 @@ body {
             @apply inline-block text-center md:text-right col-end-auto relative z-0 w-auto rounded-full bg-azul-light px-4 pb-1 pt-1 font-bold text-azul-bold leading-[1em];
           }
         }
-        .cl-1 {
-        }
-        .cl-2 {
-        }
-        .cl-3 {
-        }
-        .cl-4 {
-        }
+
         .single {
           @apply text-center mx-auto leading-none flex px-4 py-1 items-center justify-center rounded-full bg-azul-light text-azul-dark w-auto;
         }
@@ -908,6 +901,42 @@ body {
     .as__top_int h2 {
       @apply md:-mt-1;
     }
+  }
+  span.cl-1 {
+    @apply md:!pr-2.5;
+  }
+  span.cl-2 {
+    @apply md:!pr-2;
+  }
+  span.cl-3 {
+    @apply md:!pr-0.5;
+  }
+  span.cl-4 {
+    @apply md:!pr-0;
+  }
+  b.cl-1 {
+    @apply md:!pl-0.5;
+  }
+  b.cl-2 {
+    @apply md:!pl-1;
+  }
+  b.cl-3 {
+    @apply md:!pl-1.5;
+  }
+  b.cl-4 {
+    @apply md:!pl-2;
+  }
+  b.cl--1 {
+    @apply md:!pr-0.5;
+  }
+  b.cl--2 {
+    @apply md:!pr-1;
+  }
+  b.cl--3 {
+    @apply md:!pr-1.5;
+  }
+  b.cl--4 {
+    @apply md:!pr-2;
   }
 }
 

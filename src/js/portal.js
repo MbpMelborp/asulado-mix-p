@@ -566,8 +566,10 @@ if (document.getElementById("timer_session")) {
     resetTimer2();
     document.addEventListener("mousemove", resetTimer);
     document.addEventListener("keydown", resetTimer);
+    document.addEventListener("scroll", resetTimer);
     document.addEventListener("mousemove", resetTimer2);
     document.addEventListener("keydown", resetTimer2);
+    document.addEventListener("scroll", resetTimer2);
   };
   window.onload = function () {
     inactivityTime();
@@ -598,6 +600,11 @@ function plainHtml(html) {
 
 document.querySelectorAll('form[name="pg:fm"]').forEach((fm) => {
   // console.log("fm", fm);
+  if (document.querySelectorAll('form[name="pg:fm"] h6').length > 0) {
+    document.querySelectorAll(".secondaryPalette").forEach((tb) => {
+      tb.classList.add("gfull");
+    });
+  }
   if (fm.attributes.action.value.includes("NomiCompensacion")) {
     if (
       document.querySelector('input[name="pg:fm:pb:actualiza:btnTraslado"]')

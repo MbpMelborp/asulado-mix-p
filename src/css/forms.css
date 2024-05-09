@@ -24,6 +24,9 @@
     .pbSubsection {
       @apply pb-4 mb-4;
     }
+    input[type="file"] {
+      @apply !px-0 file-input file-input-secondary file-input-bordered w-full file-input-sm;
+    }
     table.detailList {
       @apply w-full;
       tr {
@@ -60,6 +63,7 @@
               }
             }
           }
+
           .label.cursor-pointer {
             @apply flex justify-start gap-4;
             .label-text {
@@ -286,7 +290,7 @@
           input {
             @apply px-10 block grow-0;
             &[id="pg:fm:pb:ps:btnvolver"] {
-              @apply btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
+              @apply btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark ml-auto;
             }
           }
         }
@@ -300,12 +304,19 @@
       }
     }
   }
+  .gfull {
+    tr {
+      @apply !w-full;
+    }
+  }
   .detailList {
     @apply flex flex-col w-full;
+
     tbody {
       @apply w-full flex items-start flex-wrap;
       tr {
         @apply w-full lg:w-1/2 flex flex-col flex-wrap px-0 items-center;
+
         &:last-child {
           .multiSelectPicklistTable {
             @apply table;

@@ -566,8 +566,10 @@ if (document.getElementById("timer_session")) {
     resetTimer2();
     document.addEventListener("mousemove", resetTimer);
     document.addEventListener("keydown", resetTimer);
+    document.addEventListener("scroll", resetTimer);
     document.addEventListener("mousemove", resetTimer2);
     document.addEventListener("keydown", resetTimer2);
+    document.addEventListener("scroll", resetTimer2);
   };
   window.onload = function () {
     inactivityTime();
@@ -577,6 +579,12 @@ if (document.getElementById("timer_session")) {
   //   document.getElementById("toast_session").classList.add("hidden");
   //   document.removeEventListener("click", () => {});
   // });
+}
+if (document.getElementById("tabs_nov")) {
+  const el = document.querySelector("#tabs_nov span");
+  const a = document.querySelector("#tabs_nov span a");
+  document.getElementById("tabs_nov").appendChild(a);
+  el.remove();
 }
 if (document.getElementsByClassName("pa_co_form")) {
   const pbBottomButtons = plainHtml(
@@ -598,6 +606,11 @@ function plainHtml(html) {
 
 document.querySelectorAll('form[name="pg:fm"]').forEach((fm) => {
   // console.log("fm", fm);
+  if (document.querySelectorAll('form[name="pg:fm"] h6').length > 0) {
+    document.querySelectorAll(".secondaryPalette").forEach((tb) => {
+      tb.classList.add("gfull");
+    });
+  }
   if (fm.attributes.action.value.includes("NomiCompensacion")) {
     if (
       document.querySelector('input[name="pg:fm:pb:actualiza:btnTraslado"]')

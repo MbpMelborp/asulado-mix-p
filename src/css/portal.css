@@ -1494,6 +1494,9 @@ body {
   .tab-active {
     @apply bg-transparent bg-gradient-to-b from-white to-transparent;
   }
+  span{
+    @apply inline;
+  }
 }
 #tabs_nov_int {
   ul {

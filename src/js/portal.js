@@ -580,6 +580,12 @@ if (document.getElementById("timer_session")) {
   //   document.removeEventListener("click", () => {});
   // });
 }
+if (document.getElementById("tabs_nov")) {
+  const el = document.querySelector("#tabs_nov span");
+  const a = document.querySelector("#tabs_nov span a");
+  document.getElementById("tabs_nov").appendChild(a);
+  el.remove();
+}
 if (document.getElementsByClassName("pa_co_form")) {
   const pbBottomButtons = plainHtml(
     `<tableborder="0"cellpadding="0"cellspacing="0"><tbody><tr><tdclass="pbTitle">&nbsp;</td><td>&nbsp;</td></tr></tbody></table>`

@@ -172,6 +172,13 @@
       &:before {
         content: "\f05a";
         font-family: "Font Awesome 5 Pro";
+        @apply float-left clear-none;
+        span {
+          @apply block;
+        }
+      }
+      &.pestado {
+        @apply flex-row gap-3;
       }
     }
     div[id="pg:fm:pb:nocolillas"] {
@@ -290,7 +297,7 @@
           input {
             @apply px-10 block grow-0;
             &[id="pg:fm:pb:ps:btnvolver"] {
-              @apply btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark ml-auto;
+              @apply btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
             }
           }
         }
@@ -437,4 +444,15 @@
       }
     }
   }
+}
+.divider {
+  opacity: 0.8;
+  background: repeating-linear-gradient(
+    45deg,
+    #5db8d7,
+    #5db8d7 5px,
+    #d3ebf1 5px,
+    #d3ebf1 25px
+  );
+  @apply my-8 bg-azul-50 rounded-lg h-auto py-1 w-full text-center leading-tight font-bold;
 }

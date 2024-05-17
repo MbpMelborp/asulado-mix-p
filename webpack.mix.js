@@ -55,6 +55,11 @@ try {
       })
       .replaceInFile({
         files: ["final/*.html", "final/**/*.html"],
+        from: /\(\/assets/g,
+        to: cdn_final,
+      })
+      .replaceInFile({
+        files: ["final/*.html", "final/**/*.html"],
         from: /class=\"debug-screens\"/g,
         to: "",
       })

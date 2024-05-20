@@ -581,10 +581,12 @@ if (document.getElementById("timer_session")) {
   // });
 }
 if (document.getElementById("tabs_nov")) {
-  const el = document.querySelector("#tabs_nov span");
-  const a = document.querySelector("#tabs_nov span a");
-  document.getElementById("tabs_nov").appendChild(a);
-  el.remove();
+  if (document.getElementById("tabs_nov").querySelector("span")) {
+    const el = document.querySelector("#tabs_nov span");
+    const a = document.querySelector("#tabs_nov span a");
+    document.getElementById("tabs_nov").appendChild(a);
+    el.remove();
+  }
 }
 if (document.getElementsByClassName("pa_co_form")) {
   const pbBottomButtons = plainHtml(
@@ -630,10 +632,32 @@ document.querySelectorAll('form[name="pg:fm"]').forEach((fm) => {
   }
 });
 
-if (document.querySelector('input[name="pg:fm:pb:ps2:btnVerify"]')) {
-  document.querySelectorAll(".pbBottomButtons").forEach((pb, index) => {
-    pb.classList.add("btnnse");
-    pb.classList.add("btn_" + (index % 2 == 0 ? "primary" : "secondary"));
+if (
+  document.querySelector('input[name="pg:fm:pb:ps2:btnVerify"]') ||
+  document.querySelector('input[name="pg:fm:pb:ps:btnVerify"]')
+) {
+  document.querySelectorAll(".bPageBlock").forEach((pbi) => {
+    if (!pbi.querySelector("input[value='Retiro']")) {
+      console.log("pbi", pbi);
+      pbi.querySelectorAll(".pbBottomButtons").forEach((pb, index) => {
+        pb.classList.add("btnnse");
+        pb.classList.add("btn_" + (index % 2 == 0 ? "primary" : "secondary"));
+      });
+    }
+  });
+}
+
+if (document.querySelectorAll(".palert")) {
+  document.querySelectorAll(".palert").forEach((pa) => {
+    // check if element not contain span
+    if (!pa.querySelector("span")) {
+      const org_html = pa.innerHTML;
+      const span = document.createElement("span");
+      span.classList.add("palerts");
+      span.innerHTML = org_html;
+      pa.innerHTML = "";
+      pa.appendChild(span);
+    }
   });
 }
 

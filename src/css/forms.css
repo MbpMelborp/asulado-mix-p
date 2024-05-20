@@ -94,7 +94,9 @@
             &[name="pg:fm:pb:preview:btnVaciar"],
             &[name="pg:fm:pb:send:btnVaciar"],
             &[name="pg:fm:pb:colillas:btnVaciar"],
-            &[name="pg:fm:pb:nocolillas:btnVaciar"],
+            &[name="pg:fm:pb:nocolillas:btnVaciar"] {
+              @apply btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
+            }
             &[name="j_id0:fm:pb:preview:btnVaciar"] {
               @apply btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
             }
@@ -294,12 +296,12 @@
         @apply max-w-xl;
         &[id="pg:fm:pb:ps:bottom"] {
           @apply !w-full !max-w-full flex gap-3 items-center justify-between;
-          input {
+          /* input {
             @apply px-10 block grow-0;
             &[id="pg:fm:pb:ps:btnvolver"] {
               @apply btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
             }
-          }
+          } */
         }
       }
       &:has(.pbButtonb[id="pg:fm:pb:ps:bottom"]) {
@@ -308,6 +310,28 @@
 
       tr td:first-child {
         @apply hidden;
+      }
+    }
+    &.btn_primary {
+      table {
+        @apply !w-full max-w-none;
+        .pbButtonb {
+          @apply w-full text-left;
+          input[type="submit"] {
+            @apply inline-block mr-auto grow-0 btn btn-primary !px-10;
+          }
+        }
+      }
+    }
+    &.btn_secondary {
+      table {
+        @apply !w-full max-w-none;
+        .pbButtonb {
+          @apply w-full text-right;
+          input[type="submit"] {
+            @apply ml-auto grow-0 btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
+          }
+        }
       }
     }
   }

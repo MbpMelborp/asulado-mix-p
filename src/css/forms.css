@@ -116,7 +116,7 @@
             }
           }
           iframe[title="Content"] {
-            @apply w-full h-96 rounded-lg border border-azul-light;
+            @apply w-full h-auto min-h-svh rounded-lg border border-azul-light;
           }
           .as__form_wrapper {
             br {

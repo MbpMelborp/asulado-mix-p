@@ -634,11 +634,12 @@ document.querySelectorAll('form[name="pg:fm"]').forEach((fm) => {
 
 if (
   document.querySelector('input[name="pg:fm:pb:ps2:btnVerify"]') ||
-  document.querySelector('input[name="pg:fm:pb:ps:btnVerify"]')
+  document.querySelector('input[name="pg:fm:pb:ps:btnVerify"]') ||
+  document.querySelector('input[name="pg:fm:pb:confirmacion:btnVerifys"]')
 ) {
   document.querySelectorAll(".bPageBlock").forEach((pbi) => {
     if (!pbi.querySelector("input[value='Retiro']")) {
-      console.log("pbi", pbi);
+      pbi.classList.add("gfull");
       pbi.querySelectorAll(".pbBottomButtons").forEach((pb, index) => {
         pb.classList.add("btnnse");
         pb.classList.add("btn_" + (index % 2 == 0 ? "primary" : "secondary"));

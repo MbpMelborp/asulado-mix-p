@@ -556,11 +556,11 @@ if (document.getElementById("timer_session")) {
 
     function resetTimer(e) {
       clearTimeout(time);
-      time = setTimeout(showToast, 1000 * 60 * 5);
+      time = setTimeout(showToast, 1000 * 60 * 7);
     }
     function resetTimer2(e) {
       clearTimeout(time2);
-      time2 = setTimeout(showDialog, 1000 * 60 * 10);
+      time2 = setTimeout(showDialog, 1000 * 60 * 15);
     }
     resetTimer();
     resetTimer2();
@@ -635,7 +635,8 @@ document.querySelectorAll('form[name="pg:fm"]').forEach((fm) => {
 if (
   document.querySelector('input[name="pg:fm:pb:ps2:btnVerify"]') ||
   document.querySelector('input[name="pg:fm:pb:ps:btnVerify"]') ||
-  document.querySelector('input[name="pg:fm:pb:confirmacion:btnVerifys"]')
+  document.querySelector('input[name="pg:fm:pb:confirmacion:btnVerifys"]') ||
+  document.querySelector('input[name="pg:fm:pb:preview:btnvolver"]')
 ) {
   document.querySelectorAll(".bPageBlock").forEach((pbi) => {
     if (!pbi.querySelector("input[value='Retiro']")) {

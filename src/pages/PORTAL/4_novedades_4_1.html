@@ -49,12 +49,10 @@
         <div class="as__section_content_full pa__option">
           <div id="tabs_nov" role="tablist" class="tabs tabs-lifted tabs-lg">
             <a role="tab" class="tab" data-tab="0">Deducción nomina</a>
-            <a role="tab" class="tab tab-active" data-tab="1"
-              >Certificación nomina</a
-            >
+            <a role="tab" class="tab" data-tab="1">Certificación nomina</a>
             <a role="tab" class="tab" data-tab="2">Consultar novedades</a>
             <span id="pg:j_id7">
-              <a class="tab" data-tab="3" role="tab"
+              <a class="tab tab-active" data-tab="3" role="tab"
                 >Distribución de mesada</a
               ></span
             >
@@ -107,7 +105,7 @@
             }'
               ></include>
             </ul>
-            <ul data-tab="1" class="tab-active">
+            <ul data-tab="1">
               <include
                 src="PORTAL/p_link_servicio.html"
                 locals='{ 
@@ -133,7 +131,7 @@
               <include
                 src="PORTAL/p_link_servicio.html"
                 locals='{ 
-                  "cls":"active",
+                  "cls":"",
                   "link":"/PORTAL/4_novedades_2_3.html",
                   "ico": "file-lines",
                     "title":"Novedades de cuenta financiera",
@@ -155,11 +153,11 @@
                 }'
               ></include>
             </ul>
-            <ul data-tab="3">
+            <ul data-tab="3" class="tab-active">
               <include
                 src="PORTAL/p_link_servicio.html"
                 locals='{ 
-                  "cls":"",
+                  "cls":"active",
                   "link":"/PORTAL/4_novedades_4_1.html",
                   "ico": "file-lines",
                   "title":"Distribución de mesada",
@@ -172,19 +170,30 @@
         </div>
       </div>
     </div>
-
     <div id="content" class="as__section pa__inter">
       <div class="as__section_wrapper">
         <div class="as__section_content_full pa__inter_content">
           <div class="pa_co_header">
-            <h3>Novedades de cuenta financiera:</h3>
+            <h3>Redistribuciones de mesada:</h3>
+            <p class="text-lg"></p>
             <p class="text-lg">
-              Diligencia los datos a continuación para confirmar las novedades
-              de tu cuenta financiera.
+              Adjunta a continuación tu formato de redistribución de mesada,
+              puedes encontrarlo en el siguiente
+              <a
+                href="https://dw2fbj22ajabu.cloudfront.net/assets/documentos/FORMATO%20REDISTRIBUCION%20DE%20MESADAS%20V4.pdf"
+                style="text-decoration: underline"
+                target="_blank"
+                >enlace</a
+              >.
+            </p>
+            <p class="text-lg">
+              Te recomendamos nombrar el documento según su contenido, sin
+              caracteres especiales ni nombres muy largos. Procura que sea en
+              formato PDF.
             </p>
           </div>
           <div class="pa_co_form formpp">
-            <include src="PORTAL/4_novedades/4_2_3.html"></include>
+            <include src="PORTAL/4_novedades/4_4_1.html"></include>
           </div>
           <div class="pa_co_footer prose"></div>
         </div>

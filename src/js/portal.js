@@ -636,7 +636,8 @@ if (
   document.querySelector('input[name="pg:fm:pb:ps2:btnVerify"]') ||
   document.querySelector('input[name="pg:fm:pb:ps:btnVerify"]') ||
   document.querySelector('input[name="pg:fm:pb:confirmacion:btnVerifys"]') ||
-  document.querySelector('input[name="pg:fm:pb:preview:btnvolver"]')
+  document.querySelector('input[name="pg:fm:pb:preview:btnvolver"]') ||
+  document.getElementById("pg:fm:pb:motorFallido")
 ) {
   document.querySelectorAll(".bPageBlock").forEach((pbi) => {
     if (!pbi.querySelector("input[value='Retiro']")) {

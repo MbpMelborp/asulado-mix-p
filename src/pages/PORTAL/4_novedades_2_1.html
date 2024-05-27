@@ -53,6 +53,11 @@
               >Certificación nomina</a
             >
             <a role="tab" class="tab" data-tab="2">Consultar novedades</a>
+            <span id="pg:j_id7">
+              <a class="tab" data-tab="3" role="tab"
+                >Distribución de mesada</a
+              ></span
+            >
           </div>
           <div id="tabs_nov_int" class="py-2">
             <ul data-tab="0">
@@ -150,6 +155,19 @@
                 }'
               ></include>
             </ul>
+            <ul data-tab="3">
+              <include
+                src="PORTAL/p_link_servicio.html"
+                locals='{ 
+                  "cls":"",
+                  "link":"/PORTAL/4_novedades_4_1.html",
+                  "ico": "file-lines",
+                  "title":"Distribución de mesada",
+                  "image":"tmp_servicio.png",
+                  "content":"Si recientemente has tenido cambios en la distribución de tu mesada, como ajustes en los montos o beneficiarios, ¡cuéntanos! Esto nos ayuda a que tus beneficios se administren de la mejor forma."
+                }'
+              ></include>
+            </ul>
           </div>
         </div>
       </div>
@@ -165,7 +183,7 @@
               A continuación, adjunta tu certificado de estudio e indica la
               fecha en que este fue expedido.
             </p>
-            
+
             <p class="text-lg">
               Te recomendamos nombrar el documento según su contenido, sin
               caracteres especiales ni nombres muy largos. Procura que sea en

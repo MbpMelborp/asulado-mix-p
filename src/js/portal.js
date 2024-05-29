@@ -637,16 +637,17 @@ if (
   document.querySelector('input[name="pg:fm:pb:ps:btnVerify"]') ||
   document.querySelector('input[name="pg:fm:pb:confirmacion:btnVerifys"]') ||
   document.querySelector('input[name="pg:fm:pb:preview:btnvolver"]') ||
+  document.querySelector('input[name="pg:fm:pb:ext:btnIngreso"]') ||
   document.getElementById("pg:fm:pb:motorFallido")
 ) {
   document.querySelectorAll(".bPageBlock").forEach((pbi) => {
-    if (!pbi.querySelector("input[value='Retiro']")) {
+    // if (!pbi.querySelector("input[value='Retiro']")) {
       pbi.classList.add("gfull");
       pbi.querySelectorAll(".pbBottomButtons").forEach((pb, index) => {
         pb.classList.add("btnnse");
         pb.classList.add("btn_" + (index % 2 == 0 ? "primary" : "secondary"));
       });
-    }
+    // }
   });
 }
 
@@ -661,6 +662,13 @@ if (document.querySelectorAll(".palert")) {
       pa.innerHTML = "";
       pa.appendChild(span);
     }
+  });
+}
+if (document.querySelectorAll(".empty")) {
+  document.querySelectorAll(".empty").forEach((el) => {
+    console.log("el", el.innerHTML);
+    if (el.innerHTML == "" || el.innerHTML == " " || el.innerHTML == "&nbsp;")
+      el.remove();
   });
 }
 

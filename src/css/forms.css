@@ -128,6 +128,9 @@
               @apply pb-2 inline-block;
             }
             #periodosContainer {
+              .palert{
+                @apply alert alert-warning leading-none mb-4;
+              }
               @apply ml-7 pl-5 border-l border-azul-light;
               label {
                 @apply w-16;

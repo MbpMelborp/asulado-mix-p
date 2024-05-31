@@ -2086,6 +2086,23 @@ body {
     }
   }
 }
+.as__comunicados {
+  .as__comunicados_info {
+    @apply flex flex-col gap-y-1 pb-8 prose-lg max-w-none;
+    h1 {
+      @apply text-azul-norm !text-5xl font-je mt-1 mb-4;
+    }
+    h2 {
+      @apply text-azul-bold !text-4xl font-je mt-1 mb-4;
+    }
+    h3 {
+      @apply text-azul-dark !text-3xl font-je mt-1 mb-4;
+    }
+    p {
+      @apply mt-0;
+    }
+  }
+}
 
 .embeddedServiceHelpButton .helpButton .uiButton {
   position: fixed;

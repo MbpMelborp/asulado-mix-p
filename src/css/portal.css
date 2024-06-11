@@ -1494,7 +1494,7 @@ body {
   .tab-active {
     @apply bg-transparent bg-gradient-to-b from-white to-transparent;
   }
-  span{
+  span {
     @apply inline;
   }
 }
@@ -1504,6 +1504,19 @@ body {
   }
   ul.tab-active {
     @apply flex;
+  }
+}
+
+.pa-loading-info {
+  @apply flex-col gap-8 p-8 flex w-full justify-center items-center bg-alpha-10 border-alpha-30 rounded-lg;
+  i {
+    @apply text-6xl;
+  }
+  .loading {
+    @apply text-azul-bright2 w-24;
+  }
+  p {
+    @apply text-xl animate-pulse;
   }
 }
 

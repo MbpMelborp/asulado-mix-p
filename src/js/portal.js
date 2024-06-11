@@ -638,15 +638,16 @@ if (
   document.querySelector('input[name="pg:fm:pb:confirmacion:btnVerifys"]') ||
   document.querySelector('input[name="pg:fm:pb:preview:btnvolver"]') ||
   document.querySelector('input[name="pg:fm:pb:ext:btnIngreso"]') ||
-  document.getElementById("pg:fm:pb:motorFallido")
+  document.getElementById("pg:fm:pb:motorFallido") ||
+  document.querySelector('input[name="consultaTipo"]')
 ) {
   document.querySelectorAll(".bPageBlock").forEach((pbi) => {
     // if (!pbi.querySelector("input[value='Retiro']")) {
-      pbi.classList.add("gfull");
-      pbi.querySelectorAll(".pbBottomButtons").forEach((pb, index) => {
-        pb.classList.add("btnnse");
-        pb.classList.add("btn_" + (index % 2 == 0 ? "primary" : "secondary"));
-      });
+    pbi.classList.add("gfull");
+    pbi.querySelectorAll(".pbBottomButtons").forEach((pb, index) => {
+      pb.classList.add("btnnse");
+      pb.classList.add("btn_" + (index % 2 == 0 ? "primary" : "secondary"));
+    });
     // }
   });
 }
@@ -658,7 +659,7 @@ if (document.querySelectorAll(".palert")) {
       const org_html = pa.innerHTML;
       const span = document.createElement("span");
       span.classList.add("palerts");
-      span.innerHTML = org_html;
+      span.innerHTML = org_html;npm run 
       pa.innerHTML = "";
       pa.appendChild(span);
     }

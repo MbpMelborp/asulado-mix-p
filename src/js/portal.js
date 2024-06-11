@@ -659,7 +659,7 @@ if (document.querySelectorAll(".palert")) {
       const org_html = pa.innerHTML;
       const span = document.createElement("span");
       span.classList.add("palerts");
-      span.innerHTML = org_html;npm run 
+      span.innerHTML = org_html;
       pa.innerHTML = "";
       pa.appendChild(span);
     }

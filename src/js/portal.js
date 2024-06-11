@@ -648,7 +648,13 @@ if (
       pb.classList.add("btnnse");
       pb.classList.add("btn_" + (index % 2 == 0 ? "primary" : "secondary"));
     });
+
     // }
+  });
+}
+if (document.querySelector('input[name="pg:fm:pb:preview:btnSend"]')) {
+  document.querySelectorAll(".detailList tbody").forEach((dl) => {
+    dl.classList.add("tflex");
   });
 }
 

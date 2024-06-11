@@ -510,3 +510,25 @@
     @apply text-xl animate-pulse;
   }
 }
+.tflex {
+  @apply flex flex-wrap gap-0;
+  tr{
+    @apply !block;
+  }
+  tr:first-child {
+    @apply w-1/2;
+    
+  }
+  tr:nth-child(2) {
+    @apply w-1/2;
+    td {
+      @apply w-full text-right;
+    }
+  }
+  tr:last-child {
+    @apply w-full;
+  }
+  td {
+    @apply !w-full !block;
+  }
+}

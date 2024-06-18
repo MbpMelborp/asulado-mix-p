@@ -25,7 +25,7 @@
         id="pg:fm"
         name="pg:fm"
         method="post"
-        action="https://proteccion--stage--c.sandbox.vf.force.com/apex/Solicitudes"
+        action="/Solicitudes?sfdcIFrameOrigin=null"
         enctype="multipart/form-data"
       >
         <input type="hidden" name="pg:fm" value="pg:fm" />
@@ -34,16 +34,16 @@
             window.sfdcPage = new ApexPage();
           }
           UserContext.initialize({
-            ampm: ["AM", "PM"],
+            ampm: ["a.&nbsp;m.", "p.&nbsp;m."],
             isAccessibleMode: false,
             salesforceURL:
-              "https://proteccion--stage.sandbox.my.salesforce.com",
-            dateFormat: "d/MM/yyyy",
-            language: "en_US",
-            locale: "es_CO",
-            dateTimeFormat: "d/MM/yyyy, h:mm a",
-            labelLastModified: "1700259688000",
-            today: "20/11/2023, 2:54 PM",
+              "https://www.asulado.com?refURL=https%3A%2F%2Fwww.asulado.com%2FGestionDocumental",
+            dateFormat: "d/M/yyyy",
+            language: "es",
+            locale: "es",
+            dateTimeFormat: "d/M/yyyy, H:mm",
+            labelLastModified: "1718663788000",
+            today: "18/6/2024, 18:01",
             userPreferences: [
               { index: 112, name: "HideInlineEditSplash", value: false },
               {
@@ -110,7 +110,7 @@
               { index: 275, name: "HidePeopleTabDeprecationMsg", value: false },
               { index: 276, name: "HideGroupTabDeprecationMsg", value: false },
               { index: 224, name: "HideUnifiedSearchGuidedTour", value: false },
-              { index: 226, name: "ShowDevContextMenu", value: true },
+              { index: 226, name: "ShowDevContextMenu", value: false },
               {
                 index: 227,
                 name: "HideWhatRecommenderForActivityQueues",
@@ -134,12 +134,12 @@
                 name: "HideSocialAccountsAndContactsGuidedTour",
                 value: false,
               },
-              { index: 237, name: "HideAnalyticsHomeGuidedTour", value: true },
+              { index: 237, name: "HideAnalyticsHomeGuidedTour", value: false },
               { index: 238, name: "ShowQuickCreateGuidedTour", value: false },
               { index: 245, name: "HideFilePageGuidedTour", value: false },
               { index: 250, name: "HideForecastingGuidedTour", value: false },
               { index: 251, name: "HideBucketFieldGuide", value: false },
-              { index: 263, name: "HideSmartSearchCallOut", value: true },
+              { index: 263, name: "HideSmartSearchCallOut", value: false },
               {
                 index: 273,
                 name: "ShowForecastingQuotaAttainment",
@@ -176,7 +176,7 @@
                 name: "HideDedupeMatchResultCallout",
                 value: false,
               },
-              { index: 340, name: "HideS1BrowserUI", value: true },
+              { index: 340, name: "HideS1BrowserUI", value: false },
               { index: 346, name: "HideS1Banner", value: false },
               { index: 358, name: "HideEmailVerificationAlert", value: false },
               { index: 354, name: "HideLearningPathModal", value: false },
@@ -186,24 +186,22 @@
               { index: 281, name: "HideMSPPopup", value: false },
             ],
             networkId: "",
-            uiTheme: "Theme3",
+            uiTheme: "Theme4t",
             uiSkin: "Theme3",
-            userName: "dvelez@asulado.com.co.proteccion.stage",
-            userId: "00505000000bPnm",
+            userName: "asulado@asulado.force.com",
+            userId: "0058a00000M3XF2",
             isCurrentlySysAdminSU: false,
             renderMode: "RETRO",
-            startOfWeek: "1",
-            vfDomainPattern:
-              "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
-            auraDomain: "proteccion--stage.sandbox.lightning.force.com",
+            startOfWeek: "2",
+            vfDomainPattern: "asulado--(?:[^.]+).vf.force.com",
+            auraDomain: "asulado.lightning.force.com",
             useNativeAlertConfirmPrompt: false,
             orgPreferences: [
               { index: 257, name: "TabOrganizer", value: true },
               { index: 113, name: "GroupTasks", value: true },
             ],
-            siteUrlPrefix: "",
             isDefaultNetwork: true,
-            timeFormat: "h:mm a",
+            timeFormat: "H:mm",
           });
         </script>
         <div class="apexp">
@@ -233,13 +231,13 @@
                     if (div.style.display != "none") {
                       div.style.display = "none";
                       twisty.className = "showListButton";
-                      twisty.alt = "Show Section - " + twisty.name;
+                      twisty.alt = "Mostrar sección - " + twisty.name;
                       elem.title = twisty.alt;
                       elemWasOn = true;
                     } else {
                       div.style.display = "block";
                       twisty.className = "hideListButton";
-                      twisty.alt = "Hide Section - " + twisty.name;
+                      twisty.alt = "Ocultar sección - " + twisty.name;
                       elem.title = twisty.alt;
                     }
                     return !elemWasOn;
@@ -274,7 +272,7 @@
                   }
                   function registerTwistableSections_pg_fm_pb() {
                     registerTwistableSection("pg_fm_pb_j_id8", "pg_fm_pb");
-                    registerTwistableSection("pg_fm_pb_j_id17", "pg_fm_pb");
+                    registerTwistableSection("pg_fm_pb_j_id15", "pg_fm_pb");
                     registerTwistableSection("pg_fm_pb_pbs", "pg_fm_pb");
                   }
                   registerTwistableSections_pg_fm_pb();
@@ -296,6 +294,7 @@
                                   <i
                                     class="fa-solid fa-check"
                                     role="presentation"
+                                    aria-hidden="true"
                                   ></i>
                                   Tipo de solicitud
                                 </legend>
@@ -375,6 +374,7 @@
                                   <i
                                     class="fa-solid fa-rectangle-list"
                                     role="presentation"
+                                    aria-hidden="true"
                                   ></i>
                                   Información personal
                                 </legend>
@@ -619,6 +619,7 @@
                                   <i
                                     class="fa-solid fa-user"
                                     role="presentation"
+                                    aria-hidden="true"
                                   ></i>
                                   Información de la solicitud
                                 </legend>
@@ -695,9 +696,9 @@
                             </td>
                           </tr>
                           <tr>
-                            <td
-                              class="data2Col form-control fc-file"
-                              colspan="2"
+                            <th
+                              class="labelCol vfLabelColTextWrap file"
+                              scope="row"
                             >
                               <input
                                 accept="image/png,image/jpg,image/jpeg,application/pdf"
@@ -705,9 +706,9 @@
                                 alt=""
                                 class=""
                                 dir=""
-                                id="pg:fm:pb:pbs:j_id55:j_id56"
+                                id="pg:fm:pb:pbs:file:files"
                                 lang=""
-                                name="pg:fm:pb:pbs:j_id55:j_id56:inputFile:file"
+                                name="pg:fm:pb:pbs:file:files:inputFile:file"
                                 onblur=""
                                 onchange=""
                                 onclick=""
@@ -726,162 +727,12 @@
                                 title=""
                                 type="file"
                               />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="data2Col" colspan="2">
-                              <input type="hidden" />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td
-                              class="data2Col form-control fc-file"
-                              colspan="2"
-                            >
-                              <input
-                                accept="image/png,image/jpg,image/jpeg,application/pdf"
-                                accesskey=""
-                                alt=""
-                                class=""
-                                dir=""
-                                id="pg:fm:pb:pbs:j_id63:j_id64"
-                                lang=""
-                                name="pg:fm:pb:pbs:j_id63:j_id64:inputFile:file"
-                                onblur=""
-                                onchange=""
-                                onclick=""
-                                ondblclick=""
-                                onfocus=""
-                                onkeydown=""
-                                onkeypress=""
-                                onkeyup=""
-                                onmousedown=""
-                                onmousemove=""
-                                onmouseout=""
-                                onmouseover=""
-                                size=""
-                                style=""
-                                tabindex=""
-                                title=""
-                                type="file"
-                              />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="data2Col" colspan="2">
-                              <input type="hidden" />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td
-                              class="data2Col form-control fc-file"
-                              colspan="2"
-                            >
-                              <input
-                                accept="image/png,image/jpg,image/jpeg,application/pdf"
-                                accesskey=""
-                                alt=""
-                                class=""
-                                dir=""
-                                id="pg:fm:pb:pbs:j_id71:j_id72"
-                                lang=""
-                                name="pg:fm:pb:pbs:j_id71:j_id72:inputFile:file"
-                                onblur=""
-                                onchange=""
-                                onclick=""
-                                ondblclick=""
-                                onfocus=""
-                                onkeydown=""
-                                onkeypress=""
-                                onkeyup=""
-                                onmousedown=""
-                                onmousemove=""
-                                onmouseout=""
-                                onmouseover=""
-                                size=""
-                                style=""
-                                tabindex=""
-                                title=""
-                                type="file"
-                              />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="data2Col" colspan="2">
-                              <input type="hidden" />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td
-                              class="data2Col form-control fc-file"
-                              colspan="2"
-                            >
-                              <input
-                                accept="image/png,image/jpg,image/jpeg,application/pdf"
-                                accesskey=""
-                                alt=""
-                                class=""
-                                dir=""
-                                id="pg:fm:pb:pbs:j_id79:j_id80"
-                                lang=""
-                                name="pg:fm:pb:pbs:j_id79:j_id80:inputFile:file"
-                                onblur=""
-                                onchange=""
-                                onclick=""
-                                ondblclick=""
-                                onfocus=""
-                                onkeydown=""
-                                onkeypress=""
-                                onkeyup=""
-                                onmousedown=""
-                                onmousemove=""
-                                onmouseout=""
-                                onmouseover=""
-                                size=""
-                                style=""
-                                tabindex=""
-                                title=""
-                                type="file"
-                              />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="data2Col" colspan="2">
-                              <input type="hidden" />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td
-                              class="data2Col form-control fc-file"
-                              colspan="2"
-                            >
-                              <input
-                                accept="image/png,image/jpg,image/jpeg,application/pdf"
-                                accesskey=""
-                                alt=""
-                                class=""
-                                dir=""
-                                id="pg:fm:pb:pbs:j_id87:j_id88"
-                                lang=""
-                                name="pg:fm:pb:pbs:j_id87:j_id88:inputFile:file"
-                                onblur=""
-                                onchange=""
-                                onclick=""
-                                ondblclick=""
-                                onfocus=""
-                                onkeydown=""
-                                onkeypress=""
-                                onkeyup=""
-                                onmousedown=""
-                                onmousemove=""
-                                onmouseout=""
-                                onmouseover=""
-                                size=""
-                                style=""
-                                tabindex=""
-                                title=""
-                                type="file"
-                              />
+                            </th>
+                            <td class="data2Col form-control fc-file">
+                              <span
+                                class="error-message"
+                                id="error-message"
+                              ></span>
                             </td>
                           </tr>
                           <tr>
@@ -926,12 +777,29 @@
                           </tr>
                           <tr>
                             <td class="data2Col" colspan="2">
+                              <div class="sol_info">
+                                <div>
+                                  *En el caso de la Superintendencia Financiera
+                                  de Colombia en relación con las entidades
+                                  vigiladas, se proyecta habilitar la radicación
+                                  de Quejas y/o Reclamos a través de la página
+                                  web de esta entidad.
+                                  <br />En caso de no poder resolverla, el
+                                  asesor de servicio escalará tu caso al Equipo
+                                  de Atención a Clientes quien evaluará dicha
+                                  solicitud. <br />La Aseguradora responderá las
+                                  peticiones y solicitudes de los consumidores
+                                  financieros, de conformidad al artículo 14 de
+                                  la Ley 1755 de 2015, dentro de los quince (15)
+                                  días siguientes a su recepción. Sin embargo,
+                                  si se tratara de peticiones de documentos o
+                                  información, esta se resolverá dentro de los
+                                  diez (10) días siguientes a su recepción.
+                                  <br />
+                                  <br />
+                                </div>
+                              </div>
                               <div></div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="data2Col" colspan="2">
-                              <input type="hidden" />
                             </td>
                           </tr>
                           <tr>
@@ -949,11 +817,11 @@
                                       width="304"
                                       height="78"
                                       role="presentation"
-                                      name="a-ryxxv4xxpmo4"
+                                      name="a-9vfzfmhopv2p"
                                       frameborder="0"
                                       scrolling="no"
                                       sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
-                                      src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdX4x4lAAAAAED0JcNz9gquNwSF_kbnI2TNRiUC&amp;co=aHR0cHM6Ly9wcm90ZWNjaW9uLS1zdGFnZS0tYy5zYW5kYm94LnZmLmZvcmNlLmNvbTo0NDM.&amp;hl=es&amp;type=image&amp;v=-QbJqHfGOUB8nuVRLvzFLVed&amp;size=normal&amp;cb=qhkvguvoo65x"
+                                      src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdX4x4lAAAAAED0JcNz9gquNwSF_kbnI2TNRiUC&amp;co=aHR0cHM6Ly93d3cuYXN1bGFkby5jb206NDQz&amp;hl=en&amp;type=image&amp;v=TqxSU0dsOd2Q9IbI7CpFnJLD&amp;size=normal&amp;cb=hzq7kws0wbj1"
                                     ></iframe>
                                   </div>
                                   <textarea
@@ -1008,7 +876,7 @@
             </div>
           </div>
         </div>
-        <div id="pg:fm:j_id115"></div>
+        <div id="pg:fm:j_id78"></div>
       </form>
     </div>
   </div>

@@ -1864,6 +1864,10 @@ body {
               @apply file-input file-input-primary file-input-bordered w-full file-input-sm;
             }
           }
+          
+        }
+        input[id="pg:fm:pb:pbs:file:files"] {
+          @apply file-input file-input-primary file-input-bordered w-full file-input-sm;
         }
         .brandSecondaryBrd {
           table {

@@ -431,7 +431,7 @@
   iframe#j_id17,
   iframe#j_id18,
   iframe#j_id19 {
-    @apply h-[860px] w-full;
+    @apply h-[850px] w-full min-h-[850px];
   }
 }
 .form-wrap {

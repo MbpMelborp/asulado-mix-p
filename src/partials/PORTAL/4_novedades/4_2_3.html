@@ -641,3 +641,559 @@
   </div>
   <div id="pg:fm:j_id32"></div>
 </form>
+<div class="divider">02</div>
+<form
+  xmlns="http://www.w3.org/1999/xhtml"
+  id="pg:fm"
+  name="pg:fm"
+  method="post"
+  action="https://proteccion--stage--c.sandbox.vf.force.com/apex/CertiBancario"
+  enctype="application/x-www-form-urlencoded"
+  onsubmit="return validateForm();"
+>
+  <input type="hidden" name="pg:fm" value="pg:fm" />
+  <script type="text/javascript">
+    //<![CDATA[
+    if (!window.sfdcPage) {
+      window.sfdcPage = new ApexPage();
+    }
+    UserContext.initialize({
+      ampm: ["AM", "PM"],
+      isAccessibleMode: false,
+      salesforceURL: "https://proteccion--stage.sandbox.my.salesforce.com",
+      dateFormat: "d/MM/yyyy",
+      language: "en_US",
+      locale: "es_CO",
+      dateTimeFormat: "d/MM/yyyy, h:mm a",
+      labelLastModified: "1718803742000",
+      today: "19/06/2024, 1:49 PM",
+      userPreferences: [
+        { index: 112, name: "HideInlineEditSplash", value: false },
+        { index: 114, name: "OverrideTaskSendNotification", value: false },
+        { index: 115, name: "DefaultTaskSendNotification", value: false },
+        { index: 119, name: "HideUserLayoutStdFieldInfo", value: false },
+        { index: 116, name: "HideRPPWarning", value: false },
+        { index: 87, name: "HideInlineSchedulingSplash", value: false },
+        { index: 88, name: "HideCRUCNotification", value: false },
+        { index: 89, name: "HideNewPLESplash", value: false },
+        { index: 90, name: "HideNewPLEWarnIE6", value: false },
+        { index: 122, name: "HideOverrideSharingMessage", value: false },
+        { index: 91, name: "HideProfileILEWarn", value: false },
+        { index: 93, name: "HideProfileElvVideo", value: false },
+        { index: 97, name: "ShowPicklistEditSplash", value: false },
+        { index: 92, name: "HideDataCategorySplash", value: false },
+        { index: 128, name: "ShowDealView", value: false },
+        { index: 129, name: "HideDealViewGuidedTour", value: false },
+        { index: 132, name: "HideKnowledgeFirstTimeSetupMsg", value: false },
+        { index: 104, name: "DefaultOffEntityPermsMsg", value: false },
+        { index: 135, name: "HideNewCsnSplash", value: false },
+        { index: 101, name: "HideBrowserWarning", value: false },
+        { index: 139, name: "HideDashboardBuilderGuidedTour", value: false },
+        { index: 140, name: "HideSchedulingGuidedTour", value: false },
+        { index: 180, name: "HideReportBuilderGuidedTour", value: false },
+        { index: 183, name: "HideAssociationQueueCallout", value: false },
+        { index: 194, name: "HideQTEBanner", value: false },
+        { index: 270, name: "HideIDEGuidedTour", value: false },
+        { index: 282, name: "HideQueryToolGuidedTour", value: false },
+        { index: 196, name: "HideCSIGuidedTour", value: false },
+        { index: 271, name: "HideFewmetGuidedTour", value: false },
+        { index: 272, name: "HideEditorGuidedTour", value: false },
+        { index: 205, name: "HideApexTestGuidedTour", value: false },
+        { index: 206, name: "HideSetupProfileHeaderTour", value: false },
+        {
+          index: 207,
+          name: "HideSetupProfileObjectsAndTabsTour",
+          value: false,
+        },
+        {
+          index: 213,
+          name: "DefaultOffArticleTypeEntityPermMsg",
+          value: false,
+        },
+        { index: 214, name: "HideSelfInfluenceGetStarted", value: false },
+        { index: 215, name: "HideOtherInfluenceGetStarted", value: false },
+        { index: 216, name: "HideFeedToggleGuidedTour", value: false },
+        { index: 268, name: "ShowChatterTab178GuidedTour", value: false },
+        { index: 275, name: "HidePeopleTabDeprecationMsg", value: false },
+        { index: 276, name: "HideGroupTabDeprecationMsg", value: false },
+        { index: 224, name: "HideUnifiedSearchGuidedTour", value: false },
+        { index: 226, name: "ShowDevContextMenu", value: true },
+        {
+          index: 227,
+          name: "HideWhatRecommenderForActivityQueues",
+          value: false,
+        },
+        { index: 228, name: "HideLiveAgentFirstTimeSetupMsg", value: false },
+        {
+          index: 232,
+          name: "HideGroupAllowsGuestsMsgOnMemberWidget",
+          value: false,
+        },
+        { index: 233, name: "HideGroupAllowsGuestsMsg", value: false },
+        { index: 234, name: "HideWhatAreGuestsMsg", value: false },
+        { index: 235, name: "HideNowAllowGuestsMsg", value: false },
+        {
+          index: 236,
+          name: "HideSocialAccountsAndContactsGuidedTour",
+          value: false,
+        },
+        { index: 237, name: "HideAnalyticsHomeGuidedTour", value: false },
+        { index: 238, name: "ShowQuickCreateGuidedTour", value: false },
+        { index: 245, name: "HideFilePageGuidedTour", value: false },
+        { index: 250, name: "HideForecastingGuidedTour", value: false },
+        { index: 251, name: "HideBucketFieldGuide", value: false },
+        { index: 263, name: "HideSmartSearchCallOut", value: false },
+        { index: 273, name: "ShowForecastingQuotaAttainment", value: false },
+        { index: 280, name: "HideForecastingQuotaColumn", value: false },
+        { index: 301, name: "HideManyWhoGuidedTour", value: false },
+        { index: 298, name: "HideFileSyncBannerMsg", value: false },
+        { index: 299, name: "HideTestConsoleGuidedTour", value: false },
+        { index: 302, name: "HideManyWhoInlineEditTip", value: false },
+        { index: 303, name: "HideSetupV2WelcomeMessage", value: false },
+        { index: 312, name: "ForecastingShowQuantity", value: false },
+        { index: 313, name: "HideDataImporterIntroMsg", value: false },
+        { index: 314, name: "HideEnvironmentHubLightbox", value: false },
+        { index: 316, name: "HideSetupV2GuidedTour", value: false },
+        { index: 317, name: "HideFileSyncMobileDownloadDialog", value: false },
+        { index: 322, name: "HideEnhancedProfileHelpBubble", value: false },
+        { index: 328, name: "ForecastingHideZeroRows", value: false },
+        {
+          index: 330,
+          name: "HideEmbeddedComponentsFeatureCallout",
+          value: false,
+        },
+        { index: 341, name: "HideDedupeMatchResultCallout", value: false },
+        { index: 340, name: "HideS1BrowserUI", value: true },
+        { index: 346, name: "HideS1Banner", value: false },
+        { index: 358, name: "HideEmailVerificationAlert", value: false },
+        { index: 354, name: "HideLearningPathModal", value: false },
+        { index: 359, name: "HideAtMentionsHelpBubble", value: false },
+        { index: 368, name: "LightningExperiencePreferred", value: true },
+        { index: 373, name: "PreviewLightning", value: false },
+        { index: 281, name: "HideMSPPopup", value: false },
+      ],
+      networkId: "",
+      uiTheme: "Theme3",
+      uiSkin: "Theme3",
+      userName: "juanosorio@melborp.co.stage",
+      userId: "005O8000002QLUJ",
+      isCurrentlySysAdminSU: false,
+      renderMode: "RETRO",
+      startOfWeek: "1",
+      vfDomainPattern: "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
+      auraDomain: "proteccion--stage.sandbox.lightning.force.com",
+      useNativeAlertConfirmPrompt: false,
+      orgPreferences: [
+        { index: 257, name: "TabOrganizer", value: true },
+        { index: 113, name: "GroupTasks", value: true },
+      ],
+      siteUrlPrefix: "",
+      isDefaultNetwork: true,
+      timeFormat: "h:mm a",
+    });
+    //]]>
+  </script>
+  <div class="apexp">
+    <div
+      id="pg:fm:pb"
+      class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
+    >
+      <script type="text/javascript">
+        //<![CDATA[
+        function twistSection(elem, sectionId) {
+          var parentDiv = elem;
+          var twisty = elem;
+          while (parentDiv.tagName != "DIV") {
+            parentDiv = parentDiv.parentNode;
+          }
+          if (
+            elem.tagName === "DIV" &&
+            elem.attributes["data-twistyimgid"] !== undefined
+          ) {
+            twisty = document.getElementById(
+              elem.attributes["data-twistyimgid"].value
+            );
+          }
+          var div = parentDiv.nextSibling;
+          var elemWasOn = false;
+          if (div.style.display != "none") {
+            div.style.display = "none";
+            twisty.className = "showListButton";
+            twisty.alt = "Show Section - " + twisty.name;
+            elem.title = twisty.alt;
+            elemWasOn = true;
+          } else {
+            div.style.display = "block";
+            twisty.className = "hideListButton";
+            twisty.alt = "Hide Section - " + twisty.name;
+            elem.title = twisty.alt;
+          }
+          return !elemWasOn;
+        }
+        var registeredSections = new Array();
+        function registerTwistableSection(headerId, mainTableId) {
+          var obj = new Object();
+          obj.headerId = headerId;
+          obj.mainTableId = mainTableId;
+          registeredSections[registeredSections.length] = obj;
+        }
+        function twistAllSections(on) {
+          for (var i = 0; i < registeredSections.length; i++) {
+            var obj = registeredSections[i];
+            var img;
+            img = document.getElementById("img_" + obj.headerId);
+            if (on && "showListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            } else if (!on && "hideListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            }
+          }
+        }
+        function toggleSection(headerId, on) {
+          var sectionHead = document.getElementById(
+            "head_" + headerId + "_pg_fm_pb"
+          );
+          var body = sectionHead.nextSibling;
+          var disp = on ? "block" : "none";
+          sectionHead.style.display = disp;
+          body.style.display = disp;
+        }
+        function registerTwistableSections_pg_fm_pb() {
+          registerTwistableSection("pg_fm_pb_notpreview", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_motorFallido", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_preview", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_enProgreso", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_j_id18", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_archivos", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_j_id45", "pg_fm_pb");
+        }
+        registerTwistableSections_pg_fm_pb();
+        //]]>
+      </script>
+      <div class="pbBody">
+        <div id="pg:fm:pb:archivos">
+          <div class="pbSubsection">
+            <table
+              class="detailList"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+            >
+              <tbody>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap first" scope="row">
+                    <label for="pg:fm:pb:archivos:medio:medioPago"
+                      >Medio de pago</label
+                    >
+                  </th>
+                  <td class="data2Col first">
+                    <select
+                      id="pg:fm:pb:archivos:medio:medioPago"
+                      name="pg:fm:pb:archivos:medio:medioPago"
+                      size="1"
+                      onchange="toggleCampos()"
+                      onselect="toggleCampos()"
+                    >
+                      <option value="">Selecciona</option>
+                      <option value="Transferencia">Transferencia</option>
+                      <option value="Pago por ventanilla">
+                        Pago por ventanilla
+                      </option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2">
+                    <span
+                      id="pg:fm:pb:archivos:banco:bancoPanel"
+                      style="display: block"
+                      ><label for="pg:fm:pb:archivos:banco:nuevoBanco"
+                        >Nombre entidad</label
+                      ><select
+                        id="pg:fm:pb:archivos:banco:nuevoBanco"
+                        name="pg:fm:pb:archivos:banco:nuevoBanco"
+                        size="1"
+                      >
+                        <option value="">Selecciona</option>
+                        <option value="BBVA Colombia">BBVA Colombia</option>
+                        <option value="Bancóldex S.A.">Bancóldex S.A.</option>
+                        <option value="Banco AV Villas">Banco AV Villas</option>
+                        <option value="Banco Agrario">Banco Agrario</option>
+                        <option value="Banco Caja Social BCSC SA">
+                          Banco Caja Social BCSC SA
+                        </option>
+                        <option value="Banco Cooperativo Coopcentral">
+                          Banco Cooperativo Coopcentral
+                        </option>
+                        <option value="Banco Credifinanciera S.A">
+                          Banco Credifinanciera S.A
+                        </option>
+                        <option value="Banco Davivienda SA">
+                          Banco Davivienda SA
+                        </option>
+                        <option
+                          value="Banco De Las Microfinanzas - Bancamia S."
+                        >
+                          Banco De Las Microfinanzas - Bancamia S.
+                        </option>
+                        <option value="Banco Falabella S.A">
+                          Banco Falabella S.A
+                        </option>
+                        <option value="Banco Finandina S.A">
+                          Banco Finandina S.A
+                        </option>
+                        <option value="Banco GNB Sudameris">
+                          Banco GNB Sudameris
+                        </option>
+                        <option value="Banco Pichincha">Banco Pichincha</option>
+                        <option value="Banco Popular">Banco Popular</option>
+                        <option
+                          value="Banco Santander de Negocios Colombia S.A"
+                        >
+                          Banco Santander de Negocios Colombia S.A
+                        </option>
+                        <option value="Banco Serfinanza">
+                          Banco Serfinanza
+                        </option>
+                        <option value="Banco W S.A">Banco W S.A</option>
+                        <option value="Banco de Bogotá">Banco de Bogotá</option>
+                        <option value="Banco de Occidente">
+                          Banco de Occidente
+                        </option>
+                        <option value="Bancolombia">Bancolombia</option>
+                        <option value="Bancoomeva">Bancoomeva</option>
+                        <option value="Citibank">Citibank</option>
+                        <option value="Cofinep Cooperativa Financiera">
+                          Cofinep Cooperativa Financiera
+                        </option>
+                        <option value="Coltefinanciera S.A">
+                          Coltefinanciera S.A
+                        </option>
+                        <option value="Confiar Cooperativa Financiera">
+                          Confiar Cooperativa Financiera
+                        </option>
+                        <option value="Cooperativa Financiera de Antioquia">
+                          Cooperativa Financiera de Antioquia
+                        </option>
+                        <option value="Cootrafa Cooperativa Financiera">
+                          Cootrafa Cooperativa Financiera
+                        </option>
+                        <option
+                          value="Financiara Juriscoop S.A. Compañía de Fi"
+                        >
+                          Financiara Juriscoop S.A. Compañía de Fi
+                        </option>
+                        <option value="Giros y Finanzas CF">
+                          Giros y Finanzas CF
+                        </option>
+                        <option value="Itaú">Itaú</option>
+                        <option value="Mibanco S.A.">Mibanco S.A.</option>
+                        <option value="Nequi">Nequi</option>
+                        <option value="SCOTIABANK COLPATRIA S.A">
+                          SCOTIABANK COLPATRIA S.A
+                        </option>
+                      </select></span
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2">
+                    <span
+                      id="pg:fm:pb:archivos:tipoCuenta:tipoCuentaPanel"
+                      style="display: block"
+                      ><label for="pg:fm:pb:archivos:tipoCuenta:tipCuenta"
+                        >Tipo de cuenta</label
+                      ><select
+                        id="pg:fm:pb:archivos:tipoCuenta:tipCuenta"
+                        name="pg:fm:pb:archivos:tipoCuenta:tipCuenta"
+                        size="1"
+                      >
+                        <option value="">Selecciona</option>
+                        <option value="Ahorros">Ahorros</option>
+                        <option value="Corriente">Corriente</option>
+                      </select></span
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2">
+                    <span
+                      id="pg:fm:pb:archivos:numCuenta:numCuentaPanel"
+                      style="display: block"
+                      ><label for="pg:fm:pb:archivos:numCuenta:nuevaCuenta"
+                        >Número de cuenta</label
+                      ><input
+                        id="pg:fm:pb:archivos:numCuenta:nuevaCuenta"
+                        type="text"
+                        name="pg:fm:pb:archivos:numCuenta:nuevaCuenta"
+                        onkeypress="return soloNumeros(event);"
+                    /></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2">
+                    <span
+                      id="pg:fm:pb:archivos:numCuentaval:numCuentaPanel"
+                      style="display: block"
+                      ><label
+                        for="pg:fm:pb:archivos:numCuentaval:nuevaCuentaval"
+                        >Digita nuevamente el número de cuenta</label
+                      ><input
+                        id="pg:fm:pb:archivos:numCuentaval:nuevaCuentaval"
+                        type="text"
+                        name="pg:fm:pb:archivos:numCuentaval:nuevaCuentaval"
+                        onkeypress="return soloNumeros(event);"
+                    /></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2"><input type="hidden" /></td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2">
+                    <h6>
+                      Tenga en cuenta las siguientes consideraciones al momento
+                      de subir archivos:
+                    </h6>
+                    <ul class="items">
+                      <li>
+                        <p>
+                          Se debe de adjuntar el certificado bancario de la
+                          cuenta que quieres vincular.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          El peso maximo por archivo no debe superar el peso de
+                          5MB.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Los unicos formatos permitidos son pdf, png, jpg,
+                          jpeg.
+                        </p>
+                      </li>
+                      <li>
+                        <p>Unicamente se pueden adjuntar maximo 1 documento.</p>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2"><input type="hidden" /></td>
+                </tr>
+                <tr>
+                  <td class="data2Col last form-control fc-file" colspan="2">
+                    <input
+                      accept="image/png,image/jpg,image/jpeg,application/pdf"
+                      id="files"
+                      required="true"
+                      type="file"
+                    />
+                    <span class="error-message" id="error-message"></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <span id="pg:fm:pb:poller" style="display: none"
+          ><span id="pg:fm:pb:j_id47"
+            ><div id="pg:fm:pb:j_id48">
+              <div class="pbSubsection">
+                <table
+                  class="detailList"
+                  border="0"
+                  cellpadding="0"
+                  cellspacing="0"
+                >
+                  <tbody>
+                    <tr>
+                      <td class="dataCol first last" colspan="2">
+                        <span style="display: none" id="pg:fm:pb:j_id48:j_id49"
+                          ><script type="text/javascript">
+                            //<![CDATA[
+                            A4J.AJAX.StopPoll("pg:fm:pb:j_id48:j_id49");
+                            //]]>
+                          </script></span
+                        >
+                      </td>
+                      <td class="labelCol empty">&nbsp;</td>
+                      <td class="dataCol empty">&nbsp;</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div></span
+          ></span
+        >
+      </div>
+      <div class="pbBottomButtons">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="pbTitle">&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pbBottomButtons">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="pbTitle">&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pbBottomButtons">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="pbTitle">&nbsp;</td>
+              <td id="pg:fm:pb:ps2:bottom" class="pbButtonb">
+                <input
+                  id="pg:fm:pb:ps2:btnVerify"
+                  type="submit"
+                  name="pg:fm:pb:ps2:btnVerify"
+                  value="Enviar"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pbBottomButtons">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="pbTitle">&nbsp;</td>
+              <td id="pg:fm:pb:ps:bottom" class="pbButtonb">
+                <input
+                  id="pg:fm:pb:ps:btnvolver"
+                  type="submit"
+                  name="pg:fm:pb:ps:btnvolver"
+                  value="Cancelar"
+                  onclick="window.location.href = window.location.href;"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
+    </div>
+  </div>
+  <div id="pg:fm:j_id60"></div>
+  <script type="text/javascript">
+    //<![CDATA[
+    SfdcApp &&
+      SfdcApp.Visualforce &&
+      SfdcApp.Visualforce.VSManager &&
+      SfdcApp.Visualforce.VSManager.vfPrepareForms(["pg:fm"]);
+    //]]>
+  </script>
+</form>

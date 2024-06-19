@@ -633,6 +633,7 @@ document.querySelectorAll('form[name="pg:fm"]').forEach((fm) => {
 });
 
 if (
+  document.querySelector('input[name="pg:fm:pb:ps:btnvolver"]') ||
   document.querySelector('input[name="pg:fm:pb:ps2:btnVerify"]') ||
   document.querySelector('input[name="pg:fm:pb:ps:btnVerify"]') ||
   document.querySelector('input[name="pg:fm:pb:confirmacion:btnVerifys"]') ||

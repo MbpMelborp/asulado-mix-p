@@ -664,6 +664,7 @@ function checkForms() {
     document.querySelector('input[name="pg:fm:pb:confirmacion:btnVerifys"]') ||
     document.querySelector('input[name="pg:fm:pb:preview:btnvolver"]') ||
     document.querySelector('input[name="pg:fm:pb:ext:btnIngreso"]') ||
+    document.querySelector('input[name="pg:fm:pb:actualiza:btnTraslado"]') ||
     document.getElementById("pg:fm:pb:motorFallido") ||
     document.querySelector('input[name="consultaTipo"]')
   ) {
@@ -675,10 +676,14 @@ checkForms();
 function addStyles() {
   document.querySelectorAll(".bPageBlock").forEach((pbi) => {
     pbi.classList.add("gfull");
-    pbi.querySelectorAll(".pbBottomButtons").forEach((pb, index) => {
-      pb.classList.add("btnnse");
-      pb.classList.add("btn_" + (index % 2 == 0 ? "primary" : "secondary"));
-    });
+    if (
+      !document.querySelector('input[name="pg:fm:pb:actualiza:btnTraslado"]') &&
+      !document.querySelector('input[name="pg:fm:pb:extx:btnRetiro"]')
+    )
+      pbi.querySelectorAll(".pbBottomButtons").forEach((pb, index) => {
+        pb.classList.add("btnnse");
+        pb.classList.add("btn_" + (index % 2 == 0 ? "primary" : "secondary"));
+      });
   });
 }
 function checkAsyncForm() {

@@ -632,27 +632,6 @@ document.querySelectorAll('form[name="pg:fm"]').forEach((fm) => {
   }
 });
 
-if (
-  document.querySelector('input[name="pg:fm:pb:ps:btnvolver"]') ||
-  document.querySelector('input[name="pg:fm:pb:ps2:btnVerify"]') ||
-  document.querySelector('input[name="pg:fm:pb:ps:btnVerify"]') ||
-  document.querySelector('input[name="pg:fm:pb:confirmacion:btnVerifys"]') ||
-  document.querySelector('input[name="pg:fm:pb:preview:btnvolver"]') ||
-  document.querySelector('input[name="pg:fm:pb:ext:btnIngreso"]') ||
-  document.getElementById("pg:fm:pb:motorFallido") ||
-  document.querySelector('input[name="consultaTipo"]')
-) {
-  document.querySelectorAll(".bPageBlock").forEach((pbi) => {
-    // if (!pbi.querySelector("input[value='Retiro']")) {
-    pbi.classList.add("gfull");
-    pbi.querySelectorAll(".pbBottomButtons").forEach((pb, index) => {
-      pb.classList.add("btnnse");
-      pb.classList.add("btn_" + (index % 2 == 0 ? "primary" : "secondary"));
-    });
-
-    // }
-  });
-}
 if (document.querySelector('input[name="pg:fm:pb:preview:btnSend"]')) {
   document.querySelectorAll(".detailList tbody").forEach((dl) => {
     dl.classList.add("tflex");
@@ -679,7 +658,42 @@ if (document.querySelectorAll(".empty")) {
       el.remove();
   });
 }
+function checkForms() {
+  if (
+    document.querySelector('input[name="pg:fm:pb:ps:btnVerify"]') ||
+    document.querySelector('input[name="pg:fm:pb:confirmacion:btnVerifys"]') ||
+    document.querySelector('input[name="pg:fm:pb:preview:btnvolver"]') ||
+    document.querySelector('input[name="pg:fm:pb:ext:btnIngreso"]') ||
+    document.getElementById("pg:fm:pb:motorFallido") ||
+    document.querySelector('input[name="consultaTipo"]')
+  ) {
+    addStyles();
+  }
+}
+checkForms();
 
+function addStyles() {
+  document.querySelectorAll(".bPageBlock").forEach((pbi) => {
+    pbi.classList.add("gfull");
+    pbi.querySelectorAll(".pbBottomButtons").forEach((pb, index) => {
+      pb.classList.add("btnnse");
+      pb.classList.add("btn_" + (index % 2 == 0 ? "primary" : "secondary"));
+    });
+  });
+}
+function checkAsyncForm() {
+  if (
+    document.querySelector('input[name="pg:fm:pb:ps:btnvolver"]') ||
+    document.querySelector('input[name="pg:fm:pb:ps2:btnVerify"]')
+  ) {
+    addStyles();
+    clearInterval(interP);
+  }
+}
+const interP = setInterval(() => {
+  checkAsyncForm();
+}, 1000);
+checkAsyncForm();
 // const intro = introJs().setOptions({
 //   nextLabel: "Siguiente",
 //   prevLabel: "Anterior",

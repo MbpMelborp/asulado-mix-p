@@ -673,16 +673,27 @@ function checkForms() {
 }
 checkForms();
 
-function addStyles() {
+function addStyles(type = 1) {
   document.querySelectorAll(".bPageBlock").forEach((pbi) => {
     pbi.classList.add("gfull");
     if (
       !document.querySelector('input[name="pg:fm:pb:actualiza:btnTraslado"]') &&
-      !document.querySelector('input[name="pg:fm:pb:extx:btnRetiro"]')
+      !document.querySelector('input[name="pg:fm:pb:extx:btnRetiro"]') &&
+      !document.querySelector('input[name="pg:fm:pb:p:btnTraslado"]')
     )
       pbi.querySelectorAll(".pbBottomButtons").forEach((pb, index) => {
         pb.classList.add("btnnse");
-        pb.classList.add("btn_" + (index % 2 == 0 ? "primary" : "secondary"));
+        if (
+          plainHtml(pb.innerHTML) ==
+          `<tableborder="0"cellpadding="0"cellspacing="0"><tbody><tr><tdclass="pbTitle">&nbsp;</td><td>&nbsp;</td></tr></tbody></table>`
+        )
+          pb.remove();
+        if (type == 1)
+          pb.classList.add("btn_" + (index % 2 == 0 ? "primary" : "secondary"));
+        else
+          pb.classList.add(
+            "btn_" + (index % 2 == 0 ? "secondary1" : "primary1")
+          );
       });
   });
 }
@@ -692,6 +703,11 @@ function checkAsyncForm() {
     document.querySelector('input[name="pg:fm:pb:ps2:btnVerify"]')
   ) {
     addStyles();
+
+    clearInterval(interP);
+  }
+  if (document.querySelector('input[name="pg:fm2:pb2:ps2:btnVerify"]')) {
+    addStyles(2);
     clearInterval(interP);
   }
 }

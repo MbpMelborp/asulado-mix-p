@@ -2129,6 +2129,9 @@ body {
 
 .as__gov_int {
   @apply w-full flex flex-col gap-y-4 text-azul-dark !px-4 bg-white pt-8;
+  &.light{
+    @apply text-current;
+  }
   &.as__g_documentos_tcon_list_int {
     @apply hidden;
     &.active {

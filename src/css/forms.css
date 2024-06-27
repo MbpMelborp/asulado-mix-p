@@ -32,6 +32,7 @@
       tr {
         td {
           @apply py-1.5;
+
           fieldset.form_info_tema {
             legend {
               @apply flex gap-4 text-azul-bold text-xl font-je mb-4;
@@ -456,6 +457,60 @@
   iframe#j_id18,
   iframe#j_id19 {
     @apply h-[850px] w-full min-h-[850px];
+  }
+  &.user_form {
+    .gfull {
+      tr {
+        @apply w-full lg:!w-1/2;
+      }
+      .btnnse {
+        @apply w-full;
+        .pbButtonb {
+          @apply flex justify-between;
+          input:first-child {
+            @apply inline-block grow-0 btn btn-primary !px-10 !mx-0;
+          }
+          input:last-child {
+            @apply !mx-0 grow-0 btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
+          }
+        }
+      }
+    }
+    div.pbBody {
+      tr {
+        &:has(td:empty) {
+          @apply hidden;
+        }
+        &:has(input[type="hidden"]) {
+          @apply hidden;
+        }
+        &:has(legend) {
+          @apply w-8/12 !mt-8 border-t-alpha-30 border-t pt-2;
+        }
+        &:has(input[type="submit"]) {
+          @apply w-4/12 !mt-8 border-t-alpha-30 border-t pt-2;
+        }
+        &:has(.palert) {
+          @apply !w-full;
+        }
+      }
+      td {
+        @apply border-red-500;
+
+        input[type="submit"] {
+          @apply !btn-sm !py-2 !ml-auto !w-auto;
+        }
+        legend {
+          @apply text-azul-bold text-xl font-semibold;
+        }
+        &:has(legend) {
+          
+        }
+      }
+      .pbSubsection:has(table:empty) {
+        @apply hidden;
+      }
+    }
   }
 }
 div[id="pg:fm:pb:voluntarias"] {

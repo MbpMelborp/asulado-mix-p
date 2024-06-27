@@ -608,6 +608,7 @@ function plainHtml(html) {
 
 document.querySelectorAll('form[name="pg:fm"]').forEach((fm) => {
   // console.log("fm", fm);
+
   if (document.querySelectorAll('form[name="pg:fm"] h6').length > 0) {
     document.querySelectorAll(".secondaryPalette").forEach((tb) => {
       tb.classList.add("gfull");

@@ -286,6 +286,9 @@ body {
     &.full {
       @apply px-2 md:px-8;
     }
+    &.small{
+      @apply lg:max-w-4xl mx-auto px-8 lg:px-0 ;
+    }
     .as__section_content {
       @apply xl:mx-auto xl:w-10/12;
     }

@@ -1,4 +1,4 @@
-<form
+<!-- <form
   id="pg:fm"
   name="pg:fm"
   method="post"
@@ -18,8 +18,8 @@
       language: "en_US",
       locale: "es_CO",
       dateTimeFormat: "d/MM/yyyy, h:mm a",
-      labelLastModified: "1712661847000",
-      today: "10/04/2024, 1:33 PM",
+      labelLastModified: "1719953903000",
+      today: "3/07/2024, 4:41 PM",
       userPreferences: [
         { index: 112, name: "HideInlineEditSplash", value: false },
         { index: 114, name: "OverrideTaskSendNotification", value: false },
@@ -148,7 +148,7 @@
   <div class="apexp">
     <div
       id="pg:fm:pb"
-      class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
+      class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette gfull"
     >
       <script>
         function twistSection(elem, sectionId) {
@@ -211,6 +211,10 @@
         }
         function registerTwistableSections_pg_fm_pb() {
           registerTwistableSection("pg_fm_pb_pbs", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_send", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_notpreview", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_preview", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_waitpreview", "pg_fm_pb");
         }
         registerTwistableSections_pg_fm_pb();
       </script>
@@ -253,7 +257,7 @@
           </div>
         </div>
       </div>
-      <div class="pbBottomButtons">
+      <div class="pbBottomButtons btnnse btn_primary">
         <table border="0" cellpadding="0" cellspacing="0">
           <tbody>
             <tr>
@@ -263,8 +267,8 @@
                   id="pg:fm:pb:pbb:btnVerify"
                   type="submit"
                   name="pg:fm:pb:pbb:btnVerify"
-                  value="Generar certificado"
-                  class=""
+                  value="Generar"
+                  class="hideButton"
                 />
               </td>
             </tr>
@@ -274,11 +278,10 @@
       <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
     </div>
   </div>
-  <div id="pg:fm:j_id15"></div>
+  <div id="pg:fm:j_id23"></div>
 </form>
-<hr class="my-5" />
+<div class="divider">2</div> -->
 
-<div class="divider">Certificado</div>
 <form
   xmlns="http://www.w3.org/1999/xhtml"
   id="pg:fm"
@@ -301,8 +304,8 @@
       language: "en_US",
       locale: "es_CO",
       dateTimeFormat: "d/MM/yyyy, h:mm a",
-      labelLastModified: "1718054991000",
-      today: "11/06/2024, 4:51 PM",
+      labelLastModified: "1719953903000",
+      today: "3/07/2024, 4:40 PM",
       userPreferences: [
         { index: 112, name: "HideInlineEditSplash", value: false },
         { index: 114, name: "OverrideTaskSendNotification", value: false },
@@ -530,7 +533,7 @@
                       id="pg:fm:pb:preview:btnSend"
                       type="submit"
                       name="pg:fm:pb:preview:btnSend"
-                      value="Enviar al correo electronico"
+                      value="Enviar al correo electrónico"
                     />
                   </td>
                 </tr>
@@ -543,7 +546,7 @@
                       id="j_id10"
                       name="j_id10"
                       scrolling="no"
-                      src="https://proteccion--stage.sandbox.my.salesforce.com/sfc/p/050000008rEk/a/O8000000QigY/VcY8aothZF44KVrIYcBMxc54gkrxn3to_V1fcfmRf84"
+                      src="https://proteccion--stage.sandbox.my.salesforce.com/sfc/p/050000008rEk/a/O8000000T5fR/YXHCmN8.5QMyEPN_Qq9D7zjK1Jd2MG7OtY7WPO6a.Rk"
                       title="Content"
                       width="100%"
                     ></iframe>
@@ -564,7 +567,7 @@
                   id="pg:fm:pb:pbb:btnVerify"
                   type="submit"
                   name="pg:fm:pb:pbb:btnVerify"
-                  value="Generar certificado"
+                  value="Generar"
                   class="hideButton"
                 />
               </td>

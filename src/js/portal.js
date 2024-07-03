@@ -1,6 +1,26 @@
 import { gsap } from "gsap";
 import { setCalendar } from "./calendar";
 // import { Grid } from "gridjs";
+function waitForElm(selector) {
+  return new Promise((resolve) => {
+    if (document.querySelector(selector)) {
+      return resolve(document.querySelector(selector));
+    }
+
+    const observer = new MutationObserver((mutations) => {
+      if (document.querySelector(selector)) {
+        observer.disconnect();
+        resolve(document.querySelector(selector));
+      }
+    });
+
+    // If you get "parameter 1 is not of type 'Node'" error, see https://stackoverflow.com/a/77855838/492336
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  });
+}
 
 const id_login = "pa__login";
 const pa__login = document.getElementById(id_login);
@@ -633,13 +653,12 @@ document.querySelectorAll('form[name="pg:fm"]').forEach((fm) => {
   }
 });
 
-if (document.querySelector('input[name="pg:fm:pb:preview:btnSend"]')) {
+waitForElm('input[name="pg:fm:pb:preview:btnSend"]').then((elm) => {
   document.querySelectorAll(".detailList tbody").forEach((dl) => {
     dl.classList.add("tflex");
   });
-}
-
-if (document.querySelectorAll(".palert")) {
+});
+waitForElm(".palert").then((elm) => {
   document.querySelectorAll(".palert").forEach((pa) => {
     // check if element not contain span
     if (!pa.querySelector("span")) {
@@ -651,28 +670,46 @@ if (document.querySelectorAll(".palert")) {
       pa.appendChild(span);
     }
   });
-}
-if (document.querySelectorAll(".empty")) {
+});
+waitForElm(".empty").then((elm) => {
   document.querySelectorAll(".empty").forEach((el) => {
     console.log("el", el.innerHTML);
     if (el.innerHTML == "" || el.innerHTML == " " || el.innerHTML == "&nbsp;")
       el.remove();
   });
-}
-function checkForms() {
-  if (
-    document.querySelector('input[name="pg:fm:pb:ps:btnVerify"]') ||
-    document.querySelector('input[name="pg:fm:pb:confirmacion:btnVerifys"]') ||
-    document.querySelector('input[name="pg:fm:pb:preview:btnvolver"]') ||
-    document.querySelector('input[name="pg:fm:pb:ext:btnIngreso"]') ||
-    document.querySelector('input[name="pg:fm:pb:actualiza:btnTraslado"]') ||
-    document.getElementById("pg:fm:pb:motorFallido") ||
-    document.querySelector('input[name="consultaTipo"]')
-  ) {
+});
+
+const btns = [
+  'input[name="pg:fm:pb:ps:btnVerify"]',
+  'input[name="pg:fm:pb:confirmacion:btnVerifys"]',
+  'input[name="pg:fm:pb:preview:btnvolver"]',
+  'input[name="pg:fm:pb:ext:btnIngreso"]',
+  'input[name="pg:fm:pb:actualiza:btnTraslado"]',
+  "#pg:fm:pb:motorFallido",
+  'input[name="consultaTipo"]',
+  'input[name="pg:fm:pb:ps:btnvolver"]',
+  'input[name="pg:fm:pb:ps2:btnVerify"]',
+];
+btns.forEach((btn) => {
+  waitForElm(".empty").then((elm) => {
     addStyles();
-  }
-}
-checkForms();
+  });
+});
+
+// function checkForms() {
+//   if (
+//     document.querySelector('input[name="pg:fm:pb:ps:btnVerify"]') ||
+//     document.querySelector('input[name="pg:fm:pb:confirmacion:btnVerifys"]') ||
+//     document.querySelector('input[name="pg:fm:pb:preview:btnvolver"]') ||
+//     document.querySelector('input[name="pg:fm:pb:ext:btnIngreso"]') ||
+//     document.querySelector('input[name="pg:fm:pb:actualiza:btnTraslado"]') ||
+//     document.getElementById("pg:fm:pb:motorFallido") ||
+//     document.querySelector('input[name="consultaTipo"]')
+//   ) {
+//     addStyles();
+//   }
+// }
+// checkForms();
 
 function addStyles(type = 1) {
   document.querySelectorAll(".bPageBlock").forEach((pbi) => {
@@ -698,24 +735,25 @@ function addStyles(type = 1) {
       });
   });
 }
-function checkAsyncForm() {
-  if (
-    document.querySelector('input[name="pg:fm:pb:ps:btnvolver"]') ||
-    document.querySelector('input[name="pg:fm:pb:ps2:btnVerify"]')
-  ) {
-    addStyles();
 
-    clearInterval(interP);
-  }
-  if (document.querySelector('input[name="pg:fm2:pb2:ps2:btnVerify"]')) {
-    addStyles(2);
-    clearInterval(interP);
-  }
-}
-const interP = setInterval(() => {
-  checkAsyncForm();
-}, 1000);
-checkAsyncForm();
+// function checkAsyncForm() {
+//   if (
+//     document.querySelector('input[name="pg:fm:pb:ps:btnvolver"]') ||
+//     document.querySelector('input[name="pg:fm:pb:ps2:btnVerify"]')
+//   ) {
+//     addStyles();
+
+//     clearInterval(interP);
+//   }
+//   if (document.querySelector('input[name="pg:fm2:pb2:ps2:btnVerify"]')) {
+//     addStyles(2);
+//     clearInterval(interP);
+//   }
+// }
+// const interP = setInterval(() => {
+//   checkAsyncForm();
+// }, 1000);
+// checkAsyncForm();
 // const intro = introJs().setOptions({
 //   nextLabel: "Siguiente",
 //   prevLabel: "Anterior",

@@ -1108,7 +1108,8 @@ body {
       &:focus-within {
         @apply border-azul-bright2 bg-alpha-10;
       }
-      .seacrh_result {
+      .seacrh_result,
+      .search_result {
         @apply flex flex-col gap-2 w-full;
         table {
           &.detailList {
@@ -1135,7 +1136,8 @@ body {
                 td {
                   @apply py-2 px-1;
                   &.dataCol {
-                    &:has(.seacrh_result:empty) {
+                    &:has(.seacrh_result:empty),
+                    &:has(.search_result:empty) {
                       @apply hidden;
                     }
                     span {

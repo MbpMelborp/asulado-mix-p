@@ -1109,7 +1109,50 @@ body {
         @apply border-azul-bright2 bg-alpha-10;
       }
       .seacrh_result {
-        @apply flex flex-col gap-2;
+        @apply flex flex-col gap-2 w-full;
+        table {
+          &.detailList {
+            @apply w-full;
+            thead {
+              @apply text-base text-azul-dark uppercase bg-gray-50;
+              tr {
+                th {
+                  @apply px-1 py-2 text-left;
+                }
+              }
+            }
+            tbody {
+              tr {
+                @apply border-b border-slate-300;
+
+                &:nth-child(2n) {
+                  @apply bg-alpha-20;
+                }
+
+                &:has(td:empty) {
+                  @apply hidden;
+                }
+                td {
+                  @apply py-2 px-1;
+                  &.dataCol {
+                    &:has(.seacrh_result:empty) {
+                      @apply hidden;
+                    }
+                    span {
+                      @apply flex flex-col gap-1 w-full;
+                      .palert {
+                        @apply alert w-full alert-warning leading-none mb-4 !flex flex-row gap-2;
+                        .palerts {
+                          @apply flex gap-4 flex-row;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
         h3 {
           @apply text-azul-bold text-2xl font-je;
         }

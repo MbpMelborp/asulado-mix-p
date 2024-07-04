@@ -1133,7 +1133,7 @@ body {
                     @apply alert w-full alert-warning leading-none mb-4 !flex flex-row gap-2;
                     .palerts {
                       @apply flex gap-4 flex-row items-center;
-                      b{
+                      b {
                         @apply text-xl;
                       }
                     }
@@ -1157,6 +1157,14 @@ body {
                       &:has(.seacrh_result:empty),
                       &:has(.search_result:empty) {
                         @apply hidden;
+                      }
+                    }
+                    &:last-child {
+                      @apply text-azul-bold font-bold flex gap-2 items-center justify-end;
+                      &::after {
+                        content: "\f061";
+                        font-family: "Font Awesome 5 Pro";
+                        @apply pl-1;
                       }
                     }
                   }

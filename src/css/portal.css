@@ -1118,7 +1118,7 @@ body {
               @apply text-base text-azul-dark uppercase bg-gray-50;
               tr {
                 th {
-                  @apply px-1 py-2 text-left;
+                  @apply border-b border-azul-bright2 text-azul-bold text-base font-normal text-left;
                 }
               }
             }

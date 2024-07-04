@@ -1,11 +1,32 @@
+.btn-as-primary {
+  @apply grow-0 btn btn-primary font-bold !px-10 text-white hover:bg-azul-bright2;
+}
+.btn-as-secondary {
+  @apply grow-0 btn btn-secondary border-azul-dark bg-azul-light !px-10 text-azul-dark hover:bg-azul-20;
+  &[value="Regresar"] {
+  }
+}
+.hideButton {
+  @apply !hidden;
+}
 .pa_co_form,
 .pa_co_content {
-  @apply pt-8;
+  @apply pt-2;
   .pa_co_header {
     @apply mb-8;
   }
   form {
     @apply mb-4;
+    .pa_co_header {
+      h4 {
+        @apply text-azul-bold text-2xl font-je flex gap-3;
+        &::before {
+          content: "\f061";
+          font-family: "Font Awesome 5 Pro";
+          @apply text-azul-bright2;
+        }
+      }
+    }
   }
   .pbBody {
     .hideListButton {
@@ -75,7 +96,7 @@
             }
           }
           h6 {
-            @apply py-2 border-t border-azul-light text-base text-azul-bold font-je font-normal py-4;
+            @apply border-t border-azul-light text-base text-azul-bold font-je font-normal py-4;
           }
           .items {
             @apply flex flex-col gap-1 ml-4 list-disc list-outside;
@@ -91,18 +112,18 @@
           &.first {
           }
           input[type="submit"] {
-            @apply btn btn-primary !px-10;
+            @apply btn-as-primary;
+            &[value="Cancelar"],
+            &[value="Regresar"],
             &[name="pg:fm:pb:preview:btnVaciar"],
             &[name="pg:fm:pb:send:btnVaciar"],
             &[name="pg:fm:pb:colillas:btnVaciar"],
-            &[name="pg:fm:pb:nocolillas:btnVaciar"] {
-              @apply btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
-            }
+            &[name="pg:fm:pb:nocolillas:btnVaciar"],
             &[name="j_id0:fm:pb:preview:btnVaciar"] {
-              @apply btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
+              @apply btn-as-secondary;
             }
             &[name="pg:fm:pb:colillas:btnSend"] {
-              @apply btn-sm;
+              @apply btn-as-primary;
             }
           }
           table {
@@ -114,7 +135,7 @@
             }
             .dataCell {
               a {
-                @apply btn btn-secondary btn-sm bg-alpha-20 text-azul-60 hover:bg-alpha-30;
+                @apply btn-as-secondary;
               }
             }
           }
@@ -140,7 +161,7 @@
                 @apply my-1 block;
               }
               input[type="date"] {
-                @apply input-primary input py-1 h-auto;
+                @apply input-primary input py-1 h-auto mb-4;
               }
             }
           }
@@ -160,7 +181,6 @@
             &:nth-child(2) {
               @apply text-right;
               input[type="submit"] {
-                @apply btn-sm;
               }
             }
           }
@@ -229,7 +249,11 @@
     }
     .pbButtonb {
       input[type="submit"] {
-        @apply btn btn-primary px-10;
+        @apply btn-as-primary;
+        &[value="Cancelar"],
+        &[value="Regresar"] {
+          @apply btn-as-secondary;
+        }
         &.hideButton {
           @apply btn-disabled;
         }
@@ -289,12 +313,6 @@
         @apply max-w-xl;
         &[id="pg:fm:pb:ps:bottom"] {
           @apply !w-full !max-w-full flex gap-3 items-center justify-between;
-          /* input {
-            @apply px-10 block grow-0;
-            &[id="pg:fm:pb:ps:btnvolver"] {
-              @apply btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
-            }
-          } */
         }
       }
       &:has(.pbButtonb[id="pg:fm:pb:ps:bottom"]) {
@@ -305,13 +323,36 @@
         @apply hidden;
       }
     }
-    &.btn_primary {
+    &.btnnse {
+      @apply w-1/2;
+      &:has(input[value="Cancelar"]),
+      &:has(input[value="Regresar"]) {
+        @apply order-1;
+        td {
+          @apply text-left;
+          input {
+            @apply !mr-auto !ml-0;
+          }
+        }
+      }
+      &:has(input[value="Enviar"]),
+      &:has(input[value="Confirmar"]) {
+        @apply order-2;
+        td {
+          @apply text-right;
+          input {
+            @apply !ml-auto !mr-0;
+          }
+        }
+      }
+    }
+    /* &.btn_primary {
       table {
         @apply !w-full max-w-none;
         .pbButtonb {
           @apply w-full text-left;
           input[type="submit"] {
-            @apply inline-block mr-auto grow-0 btn btn-primary !px-10;
+            @apply inline-block mr-auto;
           }
         }
       }
@@ -322,7 +363,7 @@
         .pbButtonb {
           @apply w-full text-right;
           input[type="submit"] {
-            @apply inline-block mr-auto grow-0 btn btn-primary !px-10;
+            @apply inline-block mr-auto;
           }
         }
       }
@@ -334,7 +375,7 @@
         .pbButtonb {
           @apply w-full text-right;
           input[type="submit"] {
-            @apply ml-auto grow-0 btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
+            @apply ml-auto inline-block;
           }
         }
       }
@@ -345,15 +386,66 @@
         .pbButtonb {
           @apply w-full text-left;
           input[type="submit"] {
-            @apply ml-auto grow-0 btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
+            @apply ml-auto inline-block;
           }
         }
       }
+    }*/
+  }
+  .pbFooter {
+    &:has(div:empty) {
+      @apply hidden;
     }
   }
-  .gfull {
-    tr {
+  /* .gfull {
+    table {
+      @apply !w-full max-w-none;
+      tr {
+        @apply !w-full;
+        td {
+          @apply !w-full !max-w-none;
+        }
+      }
+    }
+  } */
+  .gperp, .gfull {
+    @apply flex flex-wrap;
+    .pbBody {
       @apply !w-full;
+    }
+
+    table {
+      @apply !w-full max-w-none;
+      tr {
+        @apply !w-full;
+        td {
+          @apply !w-full !max-w-none;
+        }
+      }
+    }
+
+    .pbBottomButtons {
+      @apply w-1/2;
+      &:has(input[value="Cancelar"]),
+      &:has(input[value="Regresar"]) {
+        @apply order-1;
+        td {
+          @apply text-left;
+          input {
+            @apply !mr-auto !ml-0;
+          }
+        }
+      }
+      &:has(input[value="Enviar"]),
+      &:has(input[value="Confirmar"]) {
+        @apply order-2;
+        td {
+          @apply text-right;
+          input {
+            @apply !ml-auto !mr-0;
+          }
+        }
+      }
     }
   }
   .detailList {
@@ -361,9 +453,22 @@
 
     tbody {
       @apply w-full flex items-start flex-wrap;
+      &:has(input[value="Cancelar"]) {
+        tr {
+          @apply lg:!w-full;
+        }
+      }
       tr {
         @apply w-full lg:w-1/2 flex flex-col flex-wrap px-0 items-center;
-
+        &:has(td:empty) {
+          @apply hidden;
+        }
+        &:has(input[type="hidden"]) {
+          @apply hidden;
+        }
+        &:has(span[style="display: none"]) {
+          @apply hidden;
+        }
         &:last-child {
           .multiSelectPicklistTable {
             @apply table;
@@ -437,7 +542,7 @@
     .data2Col.first {
       @apply w-full !block;
       input[type="radio"] {
-        @apply w-[1.2em] inline-block pt-2;
+        @apply !w-[24px] inline-block pt-2 h-[24px];
       }
       label {
         @apply !w-auto !inline-block pb-2 leading-4 mb-1;
@@ -468,10 +573,10 @@
         .pbButtonb {
           @apply flex justify-between;
           input:first-child {
-            @apply inline-block grow-0 btn btn-primary !px-10 !mx-0;
+            @apply inline-block btn-as-primary !mx-0;
           }
           input:last-child {
-            @apply !mx-0 grow-0 btn-secondary bg-alpha-20 btn-outline btn-sm inline-block hover:bg-azul-dark;
+            @apply !mx-0 btn-as-secondary inline-block;
           }
         }
       }
@@ -498,13 +603,12 @@
         @apply border-red-500;
 
         input[type="submit"] {
-          @apply !btn-sm !py-2 !ml-auto !w-auto;
+          @apply !py-2 !ml-auto !w-auto;
         }
         legend {
           @apply text-azul-bold text-xl font-semibold;
         }
         &:has(legend) {
-          
         }
       }
       .pbSubsection:has(table:empty) {
@@ -614,6 +718,9 @@ div[id="pg:fm:pb:voluntarias"] {
   }
   tr:last-child {
     @apply w-full;
+  }
+  tr:has(td:empty) {
+    @apply !hidden;
   }
   td {
     @apply !w-full !block;

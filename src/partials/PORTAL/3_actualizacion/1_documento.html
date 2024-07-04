@@ -1,727 +1,336 @@
-<article
-  c-proinformacionclienteenglish_proinformacionclienteenglish=""
-  data-content-position="top"
-  tabindex="-1"
-  class="omniscript-article slds-card slds-grid slds-wrap slds-grid_vertical-stretch"
+<form
+  id="pg:fm"
+  name="pg:fm"
+  method="post"
+  action="https://proteccion--stage--c.sandbox.vf.force.com/apex/UpdateDocument"
+  enctype="multipart/form-data"
+  onsubmit="return validateForm();"
 >
-  <div c-proinformacionclienteenglish_proinformacionclienteenglish=""></div>
-  <div
-    c-proinformacionclienteenglish_proinformacionclienteenglish=""
-    class="omniscript-body slds-card__body slds-card__body_inner slds-m-top_medium slds-p-right_medium slds-col slds-grid slds-grid_vertical slds-size_1-of-1"
-    data-stepborder="top"
-  >
-    <vlocity_ins-omniscript-ip-action
-      c-proinformacionclienteenglish_proinformacionclienteenglish=""
-      data-omni-key="ExtractUserCaseInfo"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-ip-action
-      c-proinformacionclienteenglish_proinformacionclienteenglish=""
-      data-omni-key="ExtractUserContactInfo"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-ip-action
-      c-proinformacionclienteenglish_proinformacionclienteenglish=""
-      data-omni-key="ExtraeInfoPoliza"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-set-errors
-      c-proinformacionclienteenglish_proinformacionclienteenglish=""
-      data-omni-key="SetErrors1"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-set-errors
-    ><vlocity_ins-omniscript-step
-      c-proinformacionclienteenglish_proinformacionclienteenglish=""
-      data-omni-key="Actualizaciondedocumento"
-      vlocity_ins-omniscriptstep_omniscriptstep-host=""
-      ><div vlocity_ins-omniscriptstep_omniscriptstep=""></div>
-      <h1
-        vlocity_ins-omniscriptstep_omniscriptstep=""
-        class="slds-page-header__title slds-p-horizontal_medium slds-text-heading--medium slds-m-top_medium os-step-label"
-      >
-        Actualización de documento
-      </h1>
-      <div
-        class="vlc-separator slds-border_top slds-m-top_x-small slds-m-bottom_xx-small slds-m-horizontal_medium"
-        vlocity_ins-omniscriptstep_omniscriptstep=""
-      ></div>
-      <div
-        vlocity_ins-omniscriptstep_omniscriptstep=""
-        class="slds-grid slds-wrap slds-p-vertical_small omniscript-step__body"
-      >
-        <slot
-          vlocity_ins-omniscriptstep_omniscriptstep=""
-          class="slds-grid slds-wrap slds-size_1-of-1 slds-p-left_medium"
-          ><vlocity_ins-omniscript-text
-            c-proinformacionclienteenglish_proinformacionclienteenglish=""
-            data-omni-key="TipoDocumento"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12 omni-read-only"
-            aria-disabled="true"
-            ><slot
-              ><c-input
-                class="slds-container_fluid"
-                data-omni-input=""
-                vlocity_ins-input_input_slds-host=""
-                ><div
-                  vlocity_ins-input_input_slds=""
-                  class="slds-form-element slds-form-container"
-                >
-                  <div
-                    vlocity_ins-input_input_slds=""
-                    class="slds-grid"
-                    data-label="true"
-                  >
-                    <label
-                      vlocity_ins-input_input_slds=""
-                      class="slds-form-element__label slds-show--inline"
-                      for="input65-595"
-                      style="width: auto"
-                      ><span vlocity_ins-input_input_slds=""
-                        >Tipo de documento</span
-                      ></label
-                    ><span vlocity_ins-input_input_slds="" class="slds-grid"
-                      ><slot vlocity_ins-input_input_slds="" name="label"></slot
-                    ></span>
-                  </div>
-                  <div
-                    vlocity_ins-input_input_slds=""
-                    class="slds-form-element__control slds-form-element__control-animated-label"
-                  >
-                    <input
-                      vlocity_ins-input_input_slds=""
-                      class="vlocity-input slds-input"
-                      id="input65-595"
-                      maxlength="255"
-                      minlength="0"
-                      type="text"
-                      data-isnumber="false"
-                      aria-invalid="false"
-                      placeholder=""
-                      tabindex="-1"
-                      autocomplete="new-password"
-                      name="search"
-                    />
-                  </div>
-                  <div
-                    vlocity_ins-input_input_slds=""
-                    class="slds-grid"
-                  ></div></div></c-input></slot></vlocity_ins-omniscript-text
-          ><vlocity_ins-omniscript-text
-            c-proinformacionclienteenglish_proinformacionclienteenglish=""
-            data-omni-key="NumeroIdentificacion"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12 omni-read-only"
-            aria-disabled="true"
-            ><slot
-              ><c-input
-                class="slds-container_fluid"
-                data-omni-input=""
-                vlocity_ins-input_input_slds-host=""
-                ><div
-                  vlocity_ins-input_input_slds=""
-                  class="slds-form-element slds-form-container"
-                >
-                  <div
-                    vlocity_ins-input_input_slds=""
-                    class="slds-grid"
-                    data-label="true"
-                  >
-                    <label
-                      vlocity_ins-input_input_slds=""
-                      class="slds-form-element__label slds-show--inline"
-                      for="input67-597"
-                      style="width: auto"
-                      ><span vlocity_ins-input_input_slds=""
-                        >Número de documento</span
-                      ></label
-                    ><span vlocity_ins-input_input_slds="" class="slds-grid"
-                      ><slot vlocity_ins-input_input_slds="" name="label"></slot
-                    ></span>
-                  </div>
-                  <div
-                    vlocity_ins-input_input_slds=""
-                    class="slds-form-element__control slds-form-element__control-animated-label"
-                  >
-                    <input
-                      vlocity_ins-input_input_slds=""
-                      class="vlocity-input slds-input"
-                      id="input67-597"
-                      maxlength="255"
-                      minlength="0"
-                      type="text"
-                      data-isnumber="false"
-                      aria-invalid="false"
-                      placeholder=""
-                      tabindex="-1"
-                      autocomplete="new-password"
-                      name="search"
-                    />
-                  </div>
-                  <div
-                    vlocity_ins-input_input_slds=""
-                    class="slds-grid"
-                  ></div></div></c-input></slot></vlocity_ins-omniscript-text
-          ><vlocity_ins-omniscript-select
-            c-proinformacionclienteenglish_proinformacionclienteenglish=""
-            data-omni-key="NewTipoDocumento"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12"
-            ><slot
-              ><c-combobox
-                class="slds-container_fluid"
-                data-refresh="false"
-                data-show-lookup="true"
-                data-omni-input=""
-                vlocity_ins-combobox_combobox_slds-host=""
-                ><div
-                  vlocity_ins-combobox_combobox_slds=""
-                  class="slds-form-element"
-                >
-                  <div
-                    vlocity_ins-combobox_combobox_slds=""
-                    class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click"
-                  >
-                    <div
-                      vlocity_ins-combobox_combobox_slds=""
-                      class="slds-grid"
-                      data-label="true"
-                    >
-                      <label
-                        vlocity_ins-combobox_combobox_slds=""
-                        class="slds-form-element__label slds-show_inline"
-                        for="comboboxId-599"
-                        style="width: auto"
-                        ><abbr
-                          vlocity_ins-combobox_combobox_slds=""
-                          class="slds-required"
-                          title="Required"
-                          >*</abbr
-                        ><span vlocity_ins-combobox_combobox_slds=""
-                          >Tipo de documento</span
-                        ></label
-                      ><slot
-                        vlocity_ins-combobox_combobox_slds=""
-                        name="label"
-                      ></slot>
-                    </div>
-                    <div
-                      vlocity_ins-combobox_combobox_slds=""
-                      class="slds-form-element__control"
-                    >
-                      <div
-                        vlocity_ins-combobox_combobox_slds=""
-                        class="slds-combobox_container"
-                      >
-                        <div
-                          vlocity_ins-combobox_combobox_slds=""
-                          class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
-                          role="none"
-                        >
-                          <input
-                            vlocity_ins-combobox_combobox_slds=""
-                            class="slds-input slds-listbox__option-text_entity"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            role="combobox"
-                            data-value=""
-                            required=""
-                            readonly=""
-                            autocomplete="new-password"
-                            id="comboboxId-599"
-                          /><span
-                            vlocity_ins-combobox_combobox_slds=""
-                            class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right"
-                            ><c-icon vlocity_ins-combobox_combobox_slds=""
-                              ><svg
-                                class="slds-icon slds-icon-text-default slds-icon_x-small"
-                                aria-hidden="true"
-                              >
-                                <use
-                                  xlink:href="#httpsproteccionstagesandboxmysitecomasuladosldsiconsutilityspritesvgsymbolssvg_down"
-                                ></use></svg
-                              ><span class="slds-assistive-text"></span></c-icon
-                          ></span>
-                        </div>
-                      </div>
-                      <div
-                        vlocity_ins-combobox_combobox_slds=""
-                        class="slds-form-element"
-                      >
-                        <div
-                          vlocity_ins-combobox_combobox_slds=""
-                          class="slds-dropdown slds-dropdown_fluid slds-p-bottom_none"
-                          role="listbox"
-                        >
-                          <ul
-                            vlocity_ins-combobox_combobox_slds=""
-                            class="dropdown-container listbox slds-listbox slds-listbox_vertical"
-                            role="presentation"
-                          >
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="none"
-                                data-label="-- Clear --"
-                                data-option-id="0"
-                                role="option"
-                                id="0-599"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >-- Clear --</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="CC"
-                                data-label="CC"
-                                data-option-id="1"
-                                role="option"
-                                id="1-599"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >CC</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="CE"
-                                data-label="CE"
-                                data-option-id="2"
-                                role="option"
-                                id="2-599"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >CE</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="Pasaporte"
-                                data-label="Pasaporte"
-                                data-option-id="3"
-                                role="option"
-                                id="3-599"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >Pasaporte</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                            <li
-                              vlocity_ins-combobox_combobox_slds=""
-                              class="slds-listbox__item"
-                            >
-                              <div
-                                vlocity_ins-combobox_combobox_slds=""
-                                class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
-                                data-value="NIT"
-                                data-label="NIT"
-                                data-option-id="4"
-                                role="option"
-                                id="4-599"
-                              >
-                                <span
-                                  vlocity_ins-combobox_combobox_slds=""
-                                  class="slds-media__body"
-                                  ><span
-                                    vlocity_ins-combobox_combobox_slds=""
-                                    class="slds-listbox__option-text slds-listbox__option-text_entity"
-                                    >NIT</span
-                                  ></span
-                                >
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div></c-combobox
-              ></slot
-            ></vlocity_ins-omniscript-select
-          ><vlocity_ins-omniscript-text
-            c-proinformacionclienteenglish_proinformacionclienteenglish=""
-            data-omni-key="NewNumeroIdentificacion"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12"
-            ><slot
-              ><c-input
-                class="slds-container_fluid"
-                data-omni-input=""
-                vlocity_ins-input_input_slds-host=""
-                ><div
-                  vlocity_ins-input_input_slds=""
-                  class="slds-form-element slds-form-container"
-                >
-                  <div
-                    vlocity_ins-input_input_slds=""
-                    class="slds-grid"
-                    data-label="true"
-                  >
-                    <label
-                      vlocity_ins-input_input_slds=""
-                      class="slds-form-element__label slds-show--inline"
-                      for="input69-602"
-                      style="width: auto"
-                      ><abbr
-                        vlocity_ins-input_input_slds=""
-                        class="slds-required"
-                        title="Required"
-                        >*</abbr
-                      ><span vlocity_ins-input_input_slds=""
-                        >Número de documento (sin puntos, comas o
-                        espacios)</span
-                      ></label
-                    ><span vlocity_ins-input_input_slds="" class="slds-grid"
-                      ><slot vlocity_ins-input_input_slds="" name="label"></slot
-                    ></span>
-                  </div>
-                  <div
-                    vlocity_ins-input_input_slds=""
-                    class="slds-form-element__control slds-form-element__control-animated-label"
-                  >
-                    <input
-                      vlocity_ins-input_input_slds=""
-                      class="vlocity-input slds-input"
-                      id="input69-602"
-                      pattern="^\d{8,10}$"
-                      maxlength="10"
-                      minlength="8"
-                      type="text"
-                      data-isnumber="false"
-                      required=""
-                      aria-invalid="false"
-                      placeholder=""
-                    />
-                  </div>
-                  <div
-                    vlocity_ins-input_input_slds=""
-                    class="slds-grid"
-                  ></div></div></c-input></slot></vlocity_ins-omniscript-text
-          ><vlocity_ins-omniscript-messaging
-            c-proinformacionclienteenglish_proinformacionclienteenglish=""
-            data-omni-key="Messaging1"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12"
-            vlocity_ins-omniscriptmessaging_omniscriptmessaging-host=""
-            ><div
-              vlocity_ins-omniscriptmessaging_omniscriptmessaging=""
-            ></div></vlocity_ins-omniscript-messaging
-          ><vlocity_ins-omniscript-file
-            c-proinformacionclienteenglish_proinformacionclienteenglish=""
-            data-omni-key="AdjuntarCopiaDocumento"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_12-of-12"
-            vlocity_ins-omniscriptfile_omniscriptfile-host=""
-            ><slot vlocity_ins-omniscriptfile_omniscriptfile=""
-              ><div
-                vlocity_ins-omniscriptfile_omniscriptfile=""
-                aria-labelledby="fileUpload-604"
-                tabindex="0"
-              >
-                <div vlocity_ins-omniscriptfile_omniscriptfile="">
-                  <label
-                    vlocity_ins-omniscriptfile_omniscriptfile=""
-                    class="slds-form-element__label"
-                    ><span
-                      vlocity_ins-omniscriptfile_omniscriptfile=""
-                      id="fileUpload-604"
-                      >Adjuntar Copia del Documento</span
-                    ></label
-                  >
-                </div>
-                <div
-                  vlocity_ins-omniscriptfile_omniscriptfile=""
-                  class="slds-grid omni-file-input"
-                >
-                  <lightning-file-upload
-                    vlocity_ins-omniscriptfile_omniscriptfile=""
-                    class="slds-has-dividers_around-space omni-file slds-m-bottom_xx-small slds-size_12-of-12 slds-medium-size_12-of-12"
-                    data-omni-input=""
-                    ><lightning-input
-                      class="slds-form-element"
-                      lwc-66unc5l95ad-host=""
-                      ><lightning-primitive-input-file lwc-66unc5l95ad=""
-                        ><span
-                          class="slds-form-element__label"
-                          id="form-label-607"
-                          data-form-label=""
-                        >
-                        </span>
-                        <div class="slds-form-element__control">
-                          <div
-                            class="slds-file-selector slds-file-selector_files"
-                            part="file-selector"
-                          >
-                            <lightning-primitive-file-droppable-zone
-                              class="slds-file-selector__dropzone"
-                              lwc-7gt6355bheb-host=""
-                              ><slot lwc-7gt6355bheb=""
-                                ><input
-                                  class="slds-file-selector__input slds-assistive-text"
-                                  type="file"
-                                  id="input-file-607"
-                                  multiple=""
-                                  name="lwc45-0"
-                                  part="input"
-                                  aria-labelledby="form-label-607 file-selector-label-607"
-                                /><label
-                                  class="slds-file-selector__body"
-                                  id="file-selector-label-607"
-                                  data-file-selector-label=""
-                                  for="input-file-607"
-                                  aria-hidden="true"
-                                  ><span
-                                    class="slds-file-selector__button slds-button slds-button_neutral"
-                                    part="button"
-                                    ><lightning-primitive-icon variant="bare"
-                                      ><svg
-                                        class="slds-button__icon slds-button__icon_left"
-                                        focusable="false"
-                                        data-key="upload"
-                                        aria-hidden="true"
-                                        viewBox="0 0 520 520"
-                                        part="icon"
-                                      >
-                                        <g>
-                                          <path
-                                            d="M485 310h-30c-8 0-15 8-15 15v100c0 8-7 15-15 15H95c-8 0-15-7-15-15V325c0-7-7-15-15-15H35c-8 0-15 8-15 15v135a40 40 0 0040 40h400a40 40 0 0040-40V325c0-7-7-15-15-15zM270 24c-6-6-15-6-21 0L114 159c-6 6-6 15 0 21l21 21c6 6 15 6 21 0l56-56c6-6 18-2 18 7v212c0 8 6 15 14 15h30c8 0 16-8 16-15V153c0-9 10-13 17-7l56 56c6 6 15 6 21 0l21-21c6-6 6-15 0-21z"
-                                          ></path>
-                                        </g></svg></lightning-primitive-icon
-                                    >Upload Files</span
-                                  ><span
-                                    class="slds-file-selector__text slds-medium-show"
-                                    >Or drop files</span
-                                  ></label
-                                ></slot
-                              ></lightning-primitive-file-droppable-zone
-                            >
-                          </div>
-                        </div></lightning-primitive-input-file
-                      ></lightning-input
-                    ></lightning-file-upload
-                  >
-                </div>
-              </div></slot
-            ><slot vlocity_ins-omniscriptfile_omniscriptfile="" name="files"
-              ><span
-                vlocity_ins-omniscriptfile_omniscriptfile=""
-                class="slds-assistive-text"
-                id="upload-status-604"
-              ></span>
-              <div
-                vlocity_ins-omniscriptfile_omniscriptfile=""
-                aria-labelledby="upload-status-604"
-              ></div>
-              <div
-                vlocity_ins-omniscriptfile_omniscriptfile=""
-                class="slds-grid"
-              >
-                <ul
-                  vlocity_ins-omniscriptfile_omniscriptfile=""
-                  class="slds-has-dividers_around-space omni-file slds-m-bottom_xx-small slds-size_12-of-12 slds-medium-size_12-of-12"
-                ></ul></div></slot></vlocity_ins-omniscript-file
-          ><vlocity_ins-omniscript-formula
-            c-proinformacionclienteenglish_proinformacionclienteenglish=""
-            data-omni-key="validateDocument"
-            class="slds-p-right_small slds-m-bottom_xx-small slds-show_inline-block slds-size_12-of-12 slds-medium-size_1-of-12 slds-hide"
-            ><slot
-              ><c-masked-input
-                data-omni-input=""
-                vlocity_ins-maskedinput_maskedinput_slds-host=""
-                ><div
-                  vlocity_ins-maskedinput_maskedinput_slds=""
-                  class="slds-form-element slds-form-container"
-                >
-                  <div
-                    vlocity_ins-maskedinput_maskedinput_slds=""
-                    class="slds-grid"
-                  >
-                    <slot
-                      vlocity_ins-maskedinput_maskedinput_slds=""
-                      name="label"
-                    ></slot>
-                  </div>
-                  <div vlocity_ins-maskedinput_maskedinput_slds="">
-                    <div
-                      vlocity_ins-maskedinput_maskedinput_slds=""
-                      class="slds-grid"
-                    >
-                      <label
-                        vlocity_ins-maskedinput_maskedinput_slds=""
-                        class="slds-form-element__label slds-show--inline"
-                        for="input71-611"
-                        style="width: auto"
-                        >validateDocument</label
-                      >
-                    </div>
-                    <input
-                      vlocity_ins-maskedinput_maskedinput_slds=""
-                      class="slds-input"
-                      type="text"
-                      readonly=""
-                      disabled=""
-                      id="input71-611"
-                    />
-                  </div>
-                  <div
-                    vlocity_ins-maskedinput_maskedinput_slds=""
-                    class="slds-form-element__control slds-form-element__control-animated-label"
-                  ></div>
-                  <div
-                    vlocity_ins-maskedinput_maskedinput_slds=""
-                    class="slds-grid"
-                  ></div></div></c-masked-input></slot></vlocity_ins-omniscript-formula
-        ></slot></div></vlocity_ins-omniscript-step
-    ><vlocity_ins-omniscript-ip-action
-      c-proinformacionclienteenglish_proinformacionclienteenglish=""
-      data-omni-key="UpdateDocumentosIdentidad"
-      vlocity_ins-omniscriptbaseaction_omniscriptbaseaction-host=""
-      ><slot
-        vlocity_ins-omniscriptbaseaction_omniscriptbaseaction=""
-      ></slot></vlocity_ins-omniscript-ip-action
-    ><vlocity_ins-omniscript-step
-      c-proinformacionclienteenglish_proinformacionclienteenglish=""
-      data-omni-key="confirmacionActualizacion"
-      vlocity_ins-omniscriptstep_omniscriptstep-host=""
-    ></vlocity_ins-omniscript-step
-    ><vlocity_ins-omniscript-navigate-action
-      c-proinformacionclienteenglish_proinformacionclienteenglish=""
-      data-omni-key="NavigateAction1"
-      ><slot
-        ><c-navigate-action data-navigate-action=""
-          ><slot></slot></c-navigate-action></slot
-    ></vlocity_ins-omniscript-navigate-action>
+  <input type="hidden" name="pg:fm" value="pg:fm" />
+  <script>
+    if (!window.sfdcPage) {
+      window.sfdcPage = new ApexPage();
+    }
+    UserContext.initialize({
+      ampm: ["AM", "PM"],
+      isAccessibleMode: false,
+      salesforceURL: "https://proteccion--stage.sandbox.my.salesforce.com",
+      dateFormat: "d/MM/yyyy",
+      language: "en_US",
+      locale: "es_CO",
+      dateTimeFormat: "d/MM/yyyy, h:mm a",
+      labelLastModified: "1719953903000",
+      today: "4/07/2024, 2:24 PM",
+      userPreferences: [
+        { index: 112, name: "HideInlineEditSplash", value: false },
+        { index: 114, name: "OverrideTaskSendNotification", value: false },
+        { index: 115, name: "DefaultTaskSendNotification", value: false },
+        { index: 119, name: "HideUserLayoutStdFieldInfo", value: false },
+        { index: 116, name: "HideRPPWarning", value: false },
+        { index: 87, name: "HideInlineSchedulingSplash", value: false },
+        { index: 88, name: "HideCRUCNotification", value: false },
+        { index: 89, name: "HideNewPLESplash", value: false },
+        { index: 90, name: "HideNewPLEWarnIE6", value: false },
+        { index: 122, name: "HideOverrideSharingMessage", value: false },
+        { index: 91, name: "HideProfileILEWarn", value: false },
+        { index: 93, name: "HideProfileElvVideo", value: false },
+        { index: 97, name: "ShowPicklistEditSplash", value: false },
+        { index: 92, name: "HideDataCategorySplash", value: false },
+        { index: 128, name: "ShowDealView", value: false },
+        { index: 129, name: "HideDealViewGuidedTour", value: false },
+        { index: 132, name: "HideKnowledgeFirstTimeSetupMsg", value: false },
+        { index: 104, name: "DefaultOffEntityPermsMsg", value: false },
+        { index: 135, name: "HideNewCsnSplash", value: false },
+        { index: 101, name: "HideBrowserWarning", value: false },
+        { index: 139, name: "HideDashboardBuilderGuidedTour", value: false },
+        { index: 140, name: "HideSchedulingGuidedTour", value: false },
+        { index: 180, name: "HideReportBuilderGuidedTour", value: false },
+        { index: 183, name: "HideAssociationQueueCallout", value: false },
+        { index: 194, name: "HideQTEBanner", value: false },
+        { index: 270, name: "HideIDEGuidedTour", value: false },
+        { index: 282, name: "HideQueryToolGuidedTour", value: false },
+        { index: 196, name: "HideCSIGuidedTour", value: false },
+        { index: 271, name: "HideFewmetGuidedTour", value: false },
+        { index: 272, name: "HideEditorGuidedTour", value: false },
+        { index: 205, name: "HideApexTestGuidedTour", value: false },
+        { index: 206, name: "HideSetupProfileHeaderTour", value: false },
+        {
+          index: 207,
+          name: "HideSetupProfileObjectsAndTabsTour",
+          value: false,
+        },
+        {
+          index: 213,
+          name: "DefaultOffArticleTypeEntityPermMsg",
+          value: false,
+        },
+        { index: 214, name: "HideSelfInfluenceGetStarted", value: false },
+        { index: 215, name: "HideOtherInfluenceGetStarted", value: false },
+        { index: 216, name: "HideFeedToggleGuidedTour", value: false },
+        { index: 268, name: "ShowChatterTab178GuidedTour", value: false },
+        { index: 275, name: "HidePeopleTabDeprecationMsg", value: false },
+        { index: 276, name: "HideGroupTabDeprecationMsg", value: false },
+        { index: 224, name: "HideUnifiedSearchGuidedTour", value: false },
+        { index: 226, name: "ShowDevContextMenu", value: true },
+        {
+          index: 227,
+          name: "HideWhatRecommenderForActivityQueues",
+          value: false,
+        },
+        { index: 228, name: "HideLiveAgentFirstTimeSetupMsg", value: false },
+        {
+          index: 232,
+          name: "HideGroupAllowsGuestsMsgOnMemberWidget",
+          value: false,
+        },
+        { index: 233, name: "HideGroupAllowsGuestsMsg", value: false },
+        { index: 234, name: "HideWhatAreGuestsMsg", value: false },
+        { index: 235, name: "HideNowAllowGuestsMsg", value: false },
+        {
+          index: 236,
+          name: "HideSocialAccountsAndContactsGuidedTour",
+          value: false,
+        },
+        { index: 237, name: "HideAnalyticsHomeGuidedTour", value: false },
+        { index: 238, name: "ShowQuickCreateGuidedTour", value: false },
+        { index: 245, name: "HideFilePageGuidedTour", value: false },
+        { index: 250, name: "HideForecastingGuidedTour", value: false },
+        { index: 251, name: "HideBucketFieldGuide", value: false },
+        { index: 263, name: "HideSmartSearchCallOut", value: false },
+        { index: 273, name: "ShowForecastingQuotaAttainment", value: false },
+        { index: 280, name: "HideForecastingQuotaColumn", value: false },
+        { index: 301, name: "HideManyWhoGuidedTour", value: false },
+        { index: 298, name: "HideFileSyncBannerMsg", value: false },
+        { index: 299, name: "HideTestConsoleGuidedTour", value: false },
+        { index: 302, name: "HideManyWhoInlineEditTip", value: false },
+        { index: 303, name: "HideSetupV2WelcomeMessage", value: false },
+        { index: 312, name: "ForecastingShowQuantity", value: false },
+        { index: 313, name: "HideDataImporterIntroMsg", value: false },
+        { index: 314, name: "HideEnvironmentHubLightbox", value: false },
+        { index: 316, name: "HideSetupV2GuidedTour", value: false },
+        { index: 317, name: "HideFileSyncMobileDownloadDialog", value: false },
+        { index: 322, name: "HideEnhancedProfileHelpBubble", value: false },
+        { index: 328, name: "ForecastingHideZeroRows", value: false },
+        {
+          index: 330,
+          name: "HideEmbeddedComponentsFeatureCallout",
+          value: false,
+        },
+        { index: 341, name: "HideDedupeMatchResultCallout", value: false },
+        { index: 340, name: "HideS1BrowserUI", value: true },
+        { index: 346, name: "HideS1Banner", value: false },
+        { index: 358, name: "HideEmailVerificationAlert", value: false },
+        { index: 354, name: "HideLearningPathModal", value: false },
+        { index: 359, name: "HideAtMentionsHelpBubble", value: false },
+        { index: 368, name: "LightningExperiencePreferred", value: true },
+        { index: 373, name: "PreviewLightning", value: false },
+        { index: 281, name: "HideMSPPopup", value: false },
+      ],
+      networkId: "",
+      uiTheme: "Theme3",
+      uiSkin: "Theme3",
+      userName: "juanosorio@melborp.co.stage",
+      userId: "005O8000002QLUJ",
+      isCurrentlySysAdminSU: false,
+      renderMode: "RETRO",
+      startOfWeek: "1",
+      vfDomainPattern: "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
+      auraDomain: "proteccion--stage.sandbox.lightning.force.com",
+      useNativeAlertConfirmPrompt: false,
+      orgPreferences: [
+        { index: 257, name: "TabOrganizer", value: true },
+        { index: 113, name: "GroupTasks", value: true },
+      ],
+      siteUrlPrefix: "",
+      isDefaultNetwork: true,
+      timeFormat: "h:mm a",
+    });
+  </script>
+  <div class="apexp">
     <div
-      c-proinformacionclienteenglish_proinformacionclienteenglish=""
-      class="slds-grid slds-wrap slds-gutters slds-p-horizontal_medium slds-show_medium"
+      id="pg:fm:pb"
+      class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette gfull"
     >
-      <div
-        c-proinformacionclienteenglish_proinformacionclienteenglish=""
-        class="slds-col slds-order_2 slds-medium-order_1 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-proinformacionclienteenglish_proinformacionclienteenglish=""
-          class="omniscript-sfl-actions"
-        >
-          <vlocity_ins-navigate-action
-            c-proinformacionclienteenglish_proinformacionclienteenglish=""
-            data-omni-key="DEFAULT-CANCEL"
-            ><slot></slot
-          ></vlocity_ins-navigate-action>
-        </div>
-      </div>
-      <div
-        c-proinformacionclienteenglish_proinformacionclienteenglish=""
-        class="slds-col slds-order_1 slds-medium-order_2 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-proinformacionclienteenglish_proinformacionclienteenglish=""
-          class="slds-grid slds-wrap slds-grid_align-end omniscript-button-position"
-        >
-          <vlocity_ins-button
-            c-proinformacionclienteenglish_proinformacionclienteenglish=""
-            class="omniscript-btn-next slds-size_12-of-12 slds-m-bottom_x-small slds-medium-size_3-of-12"
-            ><button
-              class="vlocity-btn slds-button slds-button_brand slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center"
-              type="button"
-              aria-label="Continuar"
+      <script>
+        function twistSection(elem, sectionId) {
+          var parentDiv = elem;
+          var twisty = elem;
+          while (parentDiv.tagName != "DIV") {
+            parentDiv = parentDiv.parentNode;
+          }
+          if (
+            elem.tagName === "DIV" &&
+            elem.attributes["data-twistyimgid"] !== undefined
+          ) {
+            twisty = document.getElementById(
+              elem.attributes["data-twistyimgid"].value
+            );
+          }
+          var div = parentDiv.nextSibling;
+          var elemWasOn = false;
+          if (div.style.display != "none") {
+            div.style.display = "none";
+            twisty.className = "showListButton";
+            twisty.alt = "Show Section - " + twisty.name;
+            elem.title = twisty.alt;
+            elemWasOn = true;
+          } else {
+            div.style.display = "block";
+            twisty.className = "hideListButton";
+            twisty.alt = "Hide Section - " + twisty.name;
+            elem.title = twisty.alt;
+          }
+          return !elemWasOn;
+        }
+        var registeredSections = new Array();
+        function registerTwistableSection(headerId, mainTableId) {
+          var obj = new Object();
+          obj.headerId = headerId;
+          obj.mainTableId = mainTableId;
+          registeredSections[registeredSections.length] = obj;
+        }
+        function twistAllSections(on) {
+          for (var i = 0; i < registeredSections.length; i++) {
+            var obj = registeredSections[i];
+            var img;
+            img = document.getElementById("img_" + obj.headerId);
+            if (on && "showListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            } else if (!on && "hideListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            }
+          }
+        }
+        function toggleSection(headerId, on) {
+          var sectionHead = document.getElementById(
+            "head_" + headerId + "_pg_fm_pb"
+          );
+          var body = sectionHead.nextSibling;
+          var disp = on ? "block" : "none";
+          sectionHead.style.display = disp;
+          body.style.display = disp;
+        }
+        function registerTwistableSections_pg_fm_pb() {
+          registerTwistableSection("pg_fm_pb_enProgreso", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_j_id8", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_archivos", "pg_fm_pb");
+        }
+        registerTwistableSections_pg_fm_pb();
+      </script>
+      <div class="pbBody">
+        <div id="pg:fm:pb:archivos">
+          <div class="pbSubsection">
+            <table
+              class="detailList"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
             >
-              <span class="btnLabel">Continuar</span>
-            </button></vlocity_ins-button
-          >
+              <tbody>
+                <tr>
+                  <td class="data2Col first" colspan="2">
+                    <h6>
+                      Ten en cuenta las siguientes consideraciones al momento de
+                      subir archivos:
+                    </h6>
+                    <ul class="items">
+                      <li>
+                        <p>El peso máximo por archivo no debe superar 5MB.</p>
+                      </li>
+                      <li>
+                        <p>
+                          Los únicos formatos permitidos son pdf, png, jpg,
+                          jpeg.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Se puede adjuntar máximo 1 documento el cual contenga
+                          ambas caras de la cédula.
+                        </p>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2"><input type="hidden" /></td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap last" scope="row">
+                    <input
+                      accept="image/png,image/jpg,image/jpeg,application/pdf"
+                      accesskey=""
+                      alt=""
+                      class=""
+                      dir=""
+                      id="pg:fm:pb:archivos:file:files"
+                      lang=""
+                      name="pg:fm:pb:archivos:file:files:inputFile:file"
+                      onblur=""
+                      onchange=""
+                      onclick=""
+                      ondblclick=""
+                      onfocus=""
+                      onkeydown=""
+                      onkeypress=""
+                      onkeyup=""
+                      onmousedown=""
+                      onmousemove=""
+                      onmouseout=""
+                      onmouseover=""
+                      size=""
+                      style=""
+                      tabindex=""
+                      title=""
+                      type="file"
+                    />
+                  </th>
+                  <td class="data2Col last form-control fc-file">
+                    <span class="error-message" id="error-message"></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      c-proinformacionclienteenglish_proinformacionclienteenglish=""
-      class="slds-grid slds-wrap slds-gutters slds-p-horizontal_medium slds-hide_medium"
-    >
-      <div
-        c-proinformacionclienteenglish_proinformacionclienteenglish=""
-        class="slds-col slds-order_1 slds-medium-order_2 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-proinformacionclienteenglish_proinformacionclienteenglish=""
-          class="slds-grid slds-wrap slds-grid_align-end"
-        >
-          <vlocity_ins-button
-            c-proinformacionclienteenglish_proinformacionclienteenglish=""
-            class="omniscript-btn-next slds-size_12-of-12 slds-m-bottom_x-small slds-medium-size_3-of-12"
-            ><button
-              class="vlocity-btn slds-button slds-button_brand slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center"
-              type="button"
-              aria-label="Continuar"
-            >
-              <span class="btnLabel">Continuar</span>
-            </button></vlocity_ins-button
-          >
-        </div>
+      <div class="pbBottomButtons">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="pbTitle">&nbsp;</td>
+              <td id="pg:fm:pb:ps2:bottom" class="pbButtonb">
+                <input
+                  id="pg:fm:pb:ps2:btnVerify"
+                  type="submit"
+                  name="pg:fm:pb:ps2:btnVerify"
+                  value="Enviar"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div
-        c-proinformacionclienteenglish_proinformacionclienteenglish=""
-        class="slds-col slds-order_2 slds-medium-order_1 slds-size_12-of-12 slds-medium-size_6-of-12"
-      >
-        <div
-          c-proinformacionclienteenglish_proinformacionclienteenglish=""
-          class="omniscript-sfl-actions"
-        >
-          <vlocity_ins-navigate-action
-            c-proinformacionclienteenglish_proinformacionclienteenglish=""
-            data-omni-key="DEFAULT-CANCEL"
-            ><slot></slot
-          ></vlocity_ins-navigate-action>
-        </div>
+      <div class="pbBottomButtons">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="pbTitle">&nbsp;</td>
+              <td id="pg:fm:pb:ps:bottom" class="pbButtonb">
+                <input
+                  id="pg:fm:pb:ps:btnvolver"
+                  type="submit"
+                  name="pg:fm:pb:ps:btnvolver"
+                  value="Cancelar"
+                  onclick="window.location.href = window.location.href;"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      <div class="pbFooter secondaryPalette gfull"><div class="bg"></div></div>
     </div>
   </div>
-</article>
+  <div id="pg:fm:j_id30"></div>
+</form>

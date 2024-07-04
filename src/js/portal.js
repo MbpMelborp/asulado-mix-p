@@ -626,33 +626,47 @@ function plainHtml(html) {
   return html.replace(/\t|\n|\r|:|\s/g, "");
 }
 
-document.querySelectorAll('form[name="pg:fm"]').forEach((fm) => {
-  // console.log("fm", fm);
+waitForElm('form[name="pg:fm"]').then((fm) => {
+  document.querySelectorAll('form[name="pg:fm"]').forEach((fm) => {
+    // console.log("fm", fm);
 
-  if (document.querySelectorAll('form[name="pg:fm"] h6').length > 0) {
-    document.querySelectorAll(".secondaryPalette").forEach((tb) => {
-      tb.classList.add("gfull");
-    });
-  }
-  if (fm.attributes.action.value.includes("NomiCompensacion")) {
+    if (document.querySelectorAll('form[name="pg:fm"] h6').length > 0) {
+      document.querySelectorAll(".secondaryPalette").forEach((tb) => {
+        tb.classList.add("gfull");
+      });
+    }
+    if (fm.attributes.action.value.includes("NomiCompensacion")) {
+      if (
+        document.querySelector('input[name="pg:fm:pb:actualiza:btnTraslado"]')
+      ) {
+        document.querySelector(".bPageBlock").classList.add("caja");
+      }
+    }
+    if (fm.attributes.action.value.includes("NomiEps")) {
+      if (document.querySelector('input[name="pg:fm:pb:p:btnTraslado"]')) {
+        document.querySelector(".bPageBlock").classList.add("caja");
+      }
+    }
     if (
-      document.querySelector('input[name="pg:fm:pb:actualiza:btnTraslado"]')
+      fm.attributes.action.value.includes("NomiEps") ||
+      fm.attributes.action.value.includes("UpdateDocument") ||
+      fm.attributes.action.value.includes("CertiEstudio") 
     ) {
-      document.querySelector(".bPageBlock").classList.add("caja");
+      if (
+        fm.querySelector('input[value="Confirmar"]') ||
+        (fm.querySelector('input[value="Enviar"]') &&
+          fm.querySelector('input[value="Cancelar"]'))
+      ) {
+        fm.querySelector(".bPageBlock").classList.add("gperp");
+      }
     }
-  }
-  if (fm.attributes.action.value.includes("NomiEps")) {
-    if (document.querySelector('input[name="pg:fm:pb:p:btnTraslado"]')) {
-      document.querySelector(".bPageBlock").classList.add("caja");
+    if (fm.attributes.action.value.includes("NomiVoluntaria")) {
+      if (document.querySelector('input[name="pg:fm:pb:p:btnTraslado"]')) {
+        document.querySelector(".bPageBlock").classList.add("caja");
+      }
     }
-  }
-  if (fm.attributes.action.value.includes("NomiVoluntaria")) {
-    if (document.querySelector('input[name="pg:fm:pb:p:btnTraslado"]')) {
-      document.querySelector(".bPageBlock").classList.add("caja");
-    }
-  }
+  });
 });
-
 waitForElm('input[name="pg:fm:pb:preview:btnSend"]').then((elm) => {
   document.querySelectorAll(".detailList tbody").forEach((dl) => {
     dl.classList.add("tflex");
@@ -726,12 +740,6 @@ function addStyles(type = 1) {
           `<tableborder="0"cellpadding="0"cellspacing="0"><tbody><tr><tdclass="pbTitle">&nbsp;</td><td>&nbsp;</td></tr></tbody></table>`
         )
           pb.remove();
-        if (type == 1)
-          pb.classList.add("btn_" + (index % 2 == 0 ? "primary" : "secondary"));
-        else
-          pb.classList.add(
-            "btn_" + (index % 2 == 0 ? "secondary1" : "primary1")
-          );
       });
   });
 }

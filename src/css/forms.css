@@ -57,12 +57,18 @@
             @apply flex !w-1/2;
             td {
               @apply w-full flex flex-col;
-              input {
-                @apply ml-0 mr-auto;
-                &[name="pg:fm:pb:preview:btnSend"] {
-                  @apply w-auto ml-auto mr-0;
-                }
-              }
+            }
+          }
+          tr:first-child {
+            @apply text-left;
+            input {
+              @apply ml-0 mr-auto;
+            }
+          }
+          tr:nth-child(2) {
+            @apply text-right;
+            input {
+              @apply ml-auto mr-0;
             }
           }
           tr:last-child {
@@ -306,7 +312,7 @@
     @apply w-1/2 float-left;
     &.secondary {
       input {
-        @apply ml-auto bg-red-500;
+        @apply ml-auto;
       }
     }
   }

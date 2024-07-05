@@ -2,7 +2,7 @@
   @apply grow-0 btn btn-primary font-bold !px-10 text-white hover:bg-azul-bright2;
 }
 .btn-as-secondary {
-  @apply grow-0 btn btn-secondary border-azul-dark bg-azul-light !px-10 text-azul-dark hover:bg-azul-20;
+  @apply grow-0 btn btn-secondary border-azul-dark !bg-azul-light !px-10 text-azul-dark hover:!bg-azul-20;
   &[value="Regresar"] {
   }
 }
@@ -50,6 +50,26 @@
     }
     table.detailList {
       @apply w-full;
+      tbody:has(tr + tr + tr) {
+        &:has(iframe) {
+          @apply flex flex-wrap;
+          tr {
+            @apply flex !w-1/2;
+            td {
+              @apply w-full flex flex-col;
+              input {
+                @apply ml-0 mr-auto;
+                &[name="pg:fm:pb:preview:btnSend"] {
+                  @apply w-auto ml-auto mr-0;
+                }
+              }
+            }
+          }
+          tr:last-child {
+            @apply !w-full;
+          }
+        }
+      }
       tr {
         td {
           @apply py-1.5;
@@ -113,6 +133,7 @@
           }
           input[type="submit"] {
             @apply btn-as-primary;
+            &[value="Editar"],
             &[value="Cancelar"],
             &[value="Regresar"],
             &[name="pg:fm:pb:preview:btnVaciar"],
@@ -281,18 +302,6 @@
     }
   }
 
-  .caja {
-    @apply flex flex-row flex-wrap w-full;
-    .pbBody {
-      @apply w-full flex-auto;
-    }
-    .pbBottomButtons {
-      @apply md:w-1/4 px-2;
-      input {
-        @apply w-full;
-      }
-    }
-  }
   .btnnse {
     @apply w-1/2 float-left;
     &.secondary {
@@ -302,261 +311,239 @@
     }
   }
 }
+
+/* OTRO FORM */
+
 .formpp {
-  .pbBottomButtons {
-    table {
-      @apply max-w-sm;
-      input {
-        @apply w-auto mx-0 flex-1 px-24;
-      }
-      td.pbButtonb {
-        @apply max-w-xl;
-        &[id="pg:fm:pb:ps:bottom"] {
-          @apply !w-full !max-w-full flex gap-3 items-center justify-between;
-        }
-      }
-      &:has(.pbButtonb[id="pg:fm:pb:ps:bottom"]) {
-        @apply !w-full !max-w-full;
-      }
-
-      tr td:first-child {
-        @apply hidden;
-      }
-    }
-    &.btnnse {
-      @apply w-1/2;
-      &:has(input[value="Cancelar"]),
-      &:has(input[value="Regresar"]) {
-        @apply order-1;
-        td {
-          @apply text-left;
-          input {
-            @apply !mr-auto !ml-0;
-          }
-        }
-      }
-      &:has(input[value="Enviar"]),
-      &:has(input[value="Confirmar"]) {
-        @apply order-2;
-        td {
-          @apply text-right;
-          input {
-            @apply !ml-auto !mr-0;
-          }
-        }
-      }
-    }
-    /* &.btn_primary {
-      table {
-        @apply !w-full max-w-none;
-        .pbButtonb {
-          @apply w-full text-left;
-          input[type="submit"] {
-            @apply inline-block mr-auto;
-          }
-        }
-      }
-    }
-    &.btn_primary1 {
-      table {
-        @apply !w-full max-w-none;
-        .pbButtonb {
-          @apply w-full text-right;
-          input[type="submit"] {
-            @apply inline-block mr-auto;
-          }
-        }
-      }
-    }
-
-    &.btn_secondary {
-      table {
-        @apply !w-full max-w-none;
-        .pbButtonb {
-          @apply w-full text-right;
-          input[type="submit"] {
-            @apply ml-auto inline-block;
-          }
-        }
-      }
-    }
-    &.btn_secondary1 {
-      table {
-        @apply !w-full max-w-none;
-        .pbButtonb {
-          @apply w-full text-left;
-          input[type="submit"] {
-            @apply ml-auto inline-block;
-          }
-        }
-      }
-    }*/
-  }
-  .pbFooter {
-    &:has(div:empty) {
-      @apply hidden;
-    }
-  }
-  /* .gfull {
-    table {
-      @apply !w-full max-w-none;
-      tr {
-        @apply !w-full;
-        td {
-          @apply !w-full !max-w-none;
-        }
-      }
-    }
-  } */
-  .gperp, .gfull {
-    @apply flex flex-wrap;
+  .bPageBlock {
     .pbBody {
-      @apply !w-full;
-    }
-
-    table {
-      @apply !w-full max-w-none;
-      tr {
-        @apply !w-full;
-        td {
-          @apply !w-full !max-w-none;
-        }
-      }
-    }
-
-    .pbBottomButtons {
-      @apply w-1/2;
-      &:has(input[value="Cancelar"]),
-      &:has(input[value="Regresar"]) {
-        @apply order-1;
-        td {
-          @apply text-left;
-          input {
-            @apply !mr-auto !ml-0;
+      .pbSubsection {
+        &:has(tr:only-child) {
+          &:has(td:only-child) {
+            @apply !pb-0;
           }
         }
-      }
-      &:has(input[value="Enviar"]),
-      &:has(input[value="Confirmar"]) {
-        @apply order-2;
-        td {
-          @apply text-right;
-          input {
-            @apply !ml-auto !mr-0;
-          }
-        }
-      }
-    }
-  }
-  .detailList {
-    @apply flex flex-col w-full;
 
-    tbody {
-      @apply w-full flex items-start flex-wrap;
-      &:has(input[value="Cancelar"]) {
-        tr {
-          @apply lg:!w-full;
-        }
-      }
-      tr {
-        @apply w-full lg:w-1/2 flex flex-col flex-wrap px-0 items-center;
-        &:has(td:empty) {
-          @apply hidden;
-        }
-        &:has(input[type="hidden"]) {
-          @apply hidden;
-        }
-        &:has(span[style="display: none"]) {
-          @apply hidden;
-        }
-        &:last-child {
-          .multiSelectPicklistTable {
-            @apply table;
-            tbody {
-              @apply table-row-group;
-              td:nth-child(1) {
-                @apply w-5/12 px-0;
-                select {
-                  @apply select select-bordered w-full !h-full;
-                }
+        div[id="pg:fm:pb:archivos"],
+        div[id="pg:fm2:pb2:archivos"] {
+          .data2Col.first {
+            @apply w-full !block;
+            input[type="radio"] {
+              @apply !w-[24px] inline-block pt-2 h-[24px];
+            }
+            label {
+              @apply !w-auto !inline-block pb-2 leading-4 mb-1;
+            }
+            br {
+              @apply w-full block;
+            }
+            #periodosContainer {
+              label {
+                @apply mt-2;
               }
-              td.multiSelectPicklistCell {
-                @apply w-1/12 text-center p-0;
-                a {
-                  @apply block mx-auto;
-                  img {
-                    @apply block w-4 mx-auto;
+            }
+          }
+        }
+        .detailList {
+          @apply flex flex-col w-full;
+          tbody {
+            @apply w-full flex items-start flex-wrap;
+
+            &:has(> tr:only-child) {
+              tr {
+                &:has(> td:only-child) {
+                  @apply !w-full mb-0 pb-0;
+                  td {
+                    @apply mb-0 pb-0;
                   }
                 }
               }
-              td:nth-child(3) {
-                @apply w-5/12 px-0;
-                select {
-                  @apply select select-bordered w-full !h-full;
-                }
-              }
+            }
+            &:has(input[value="Cancelar"]) {
               tr {
-                @apply table-row;
-                th {
-                  @apply table-cell;
+                @apply lg:!w-full;
+              }
+            }
+            tr {
+              @apply w-full lg:w-1/2 flex flex-col flex-wrap px-0 items-center;
+              &:has(td:empty) {
+                @apply hidden;
+              }
+              &:has(input[type="hidden"]) {
+                @apply hidden;
+              }
+              &:has(span[style="display: none"]) {
+                @apply hidden;
+              }
+              &:last-child {
+                .multiSelectPicklistTable {
+                  @apply table;
+                  tbody {
+                    @apply table-row-group;
+                    td:nth-child(1) {
+                      @apply w-5/12 px-0;
+                      select {
+                        @apply select select-bordered w-full !h-full;
+                      }
+                    }
+                    td.multiSelectPicklistCell {
+                      @apply w-1/12 text-center p-0;
+                      a {
+                        @apply block mx-auto;
+                        img {
+                          @apply block w-4 mx-auto;
+                        }
+                      }
+                    }
+                    td:nth-child(3) {
+                      @apply w-5/12 px-0;
+                      select {
+                        @apply select select-bordered w-full !h-full;
+                      }
+                    }
+                    tr {
+                      @apply table-row;
+                      th {
+                        @apply table-cell;
+                      }
+                      td {
+                        @apply table-cell;
+                      }
+                    }
+                  }
                 }
-                td {
-                  @apply table-cell;
+              }
+              th {
+                @apply w-full md:w-full px-2 text-left font-normal flex flex-col;
+              }
+              td {
+                @apply w-full md:w-full px-2 text-left flex flex-col mb-4 md:mb-4;
+                &:has(br) {
+                  br {
+                    @apply hidden;
+                  }
+                  div {
+                    @apply ml-4;
+                  }
+                  label {
+                    @apply mb-2 block;
+                  }
+                  input {
+                    @apply mb-4;
+                  }
+                }
+                select {
+                  @apply select select-bordered w-full;
+                }
+                input {
+                  @apply input input-bordered input-md w-full;
+                  &[name="pg:fm:pb:j_id4:j_id17:birthdate"] {
+                    @apply w-auto;
+                  }
+                }
+                textarea {
+                  @apply textarea textarea-bordered h-24 w-full;
+                }
+                span.dateOnlyInput {
+                  @apply flex gap-2 justify-between w-full items-center;
+                  input {
+                    @apply flex-1;
+                  }
+                  .dateFormat {
+                    @apply text-azul-bright2 text-sm;
+                  }
                 }
               }
             }
           }
         }
-        th {
-          @apply w-full md:w-full px-2 text-left font-normal flex flex-col;
+      }
+    }
+    &:has(input[value="Retiro"]),
+    &:has(input[value="Translado"]),
+    &:has(input[value="Actualización"]) {
+      @apply flex flex-row flex-wrap w-full;
+      .pbBody {
+        @apply w-full flex-auto;
+      }
+      .pbBottomButtons {
+        @apply flex-1 px-2;
+        input {
+          @apply w-full;
         }
-        td {
-          @apply w-full md:w-full px-2 text-left flex flex-col mb-4 md:mb-4;
-          select {
-            @apply select select-bordered w-full;
+      }
+    }
+    &:has(.pbBottomButtons + .pbBottomButtons) {
+      @apply flex flex-wrap;
+      .pbBody {
+        @apply !w-full;
+      }
+
+      table {
+        @apply !w-full max-w-none;
+        tr {
+          @apply !w-full;
+          td {
+            @apply !w-full !max-w-none;
           }
-          input {
-            @apply input input-bordered input-md w-full;
-            &[name="pg:fm:pb:j_id4:j_id17:birthdate"] {
-              @apply w-auto;
-            }
-          }
-          textarea {
-            @apply textarea textarea-bordered h-24 w-full;
-          }
-          span.dateOnlyInput {
-            @apply flex gap-2 justify-between w-full items-center;
+        }
+      }
+
+      .pbBottomButtons {
+        @apply w-1/2;
+        &:has(input[value="Cancelar"]),
+        &:has(input[value="Regresar"]) {
+          @apply order-1;
+          td {
+            @apply text-left;
             input {
-              @apply flex-1;
+              @apply !mr-auto !ml-0;
             }
-            .dateFormat {
-              @apply text-azul-bright2 text-sm;
+          }
+        }
+        &:has(input[value="Enviar"]),
+        &:has(input[value="Confirmar"]),
+        &:has(input[value="Editar"]) {
+          @apply order-2;
+          td {
+            @apply text-right;
+            input {
+              @apply !ml-auto !mr-0;
             }
           }
         }
       }
     }
-  }
-  div[id="pg:fm:pb:archivos"],
-  div[id="pg:fm2:pb2:archivos"] {
-    .data2Col.first {
-      @apply w-full !block;
-      input[type="radio"] {
-        @apply !w-[24px] inline-block pt-2 h-[24px];
-      }
-      label {
-        @apply !w-auto !inline-block pb-2 leading-4 mb-1;
-      }
-      br {
-        @apply w-full block;
-      }
-      #periodosContainer {
-        label {
-          @apply mt-2;
+
+    /* .pbBottomButtons {
+      table {
+        @apply max-w-sm;
+        input {
+          @apply w-auto mx-0 flex-1 px-24;
         }
+        td.pbButtonb {
+          @apply max-w-xl;
+          &[id="pg:fm:pb:ps:bottom"] {
+            @apply !w-full !max-w-full flex gap-3 items-center justify-between;
+          }
+        }
+        &:has(.pbButtonb[id="pg:fm:pb:ps:bottom"]) {
+          @apply !w-full !max-w-full;
+        }
+
+        tr td:first-child {
+          @apply hidden;
+        }
+      }
+    } */
+
+    .pbFooter {
+      &:has(div:empty) {
+        @apply hidden;
       }
     }
   }
+
   iframe#j_id16,
   iframe#j_id17,
   iframe#j_id18,
@@ -700,29 +687,5 @@ div[id="pg:fm:pb:voluntarias"] {
   }
   p {
     @apply text-xl animate-pulse;
-  }
-}
-.tflex {
-  @apply flex flex-wrap gap-0;
-  tr {
-    @apply !block;
-  }
-  tr:first-child {
-    @apply w-1/2;
-  }
-  tr:nth-child(2) {
-    @apply w-1/2;
-    td {
-      @apply w-full text-right;
-    }
-  }
-  tr:last-child {
-    @apply w-full;
-  }
-  tr:has(td:empty) {
-    @apply !hidden;
-  }
-  td {
-    @apply !w-full !block;
   }
 }

@@ -1,4 +1,4 @@
-<form
+<!-- <form
   id="pg:fm"
   name="pg:fm"
   method="post"
@@ -584,4 +584,66 @@
     </div>
   </div>
   <div id="pg:fm:j_id31"></div>
-</form>
+</form> -->
+
+<form id="pg:fm" name="pg:fm" method="post" action="https://proteccion--stage--c.sandbox.vf.force.com/apex/CertiSupervivencia" enctype="multipart/form-data" onsubmit="return validateForm();">
+  <input type="hidden" name="pg:fm" value="pg:fm">
+  <script> if(!window.sfdcPage) { window.sfdcPage = new ApexPage(); }UserContext.initialize({"ampm":["AM","PM"],"isAccessibleMode":false,"salesforceURL":"https://proteccion--stage.sandbox.my.salesforce.com","dateFormat":"d/MM/yyyy","language":"en_US","locale":"es_CO","dateTimeFormat":"d/MM/yyyy, h:mm a","labelLastModified":"1719953903000","today":"5/07/2024, 8:22 AM","userPreferences":[{"index":112,"name":"HideInlineEditSplash","value":false},{"index":114,"name":"OverrideTaskSendNotification","value":false},{"index":115,"name":"DefaultTaskSendNotification","value":false},{"index":119,"name":"HideUserLayoutStdFieldInfo","value":false},{"index":116,"name":"HideRPPWarning","value":false},{"index":87,"name":"HideInlineSchedulingSplash","value":false},{"index":88,"name":"HideCRUCNotification","value":false},{"index":89,"name":"HideNewPLESplash","value":false},{"index":90,"name":"HideNewPLEWarnIE6","value":false},{"index":122,"name":"HideOverrideSharingMessage","value":false},{"index":91,"name":"HideProfileILEWarn","value":false},{"index":93,"name":"HideProfileElvVideo","value":false},{"index":97,"name":"ShowPicklistEditSplash","value":false},{"index":92,"name":"HideDataCategorySplash","value":false},{"index":128,"name":"ShowDealView","value":false},{"index":129,"name":"HideDealViewGuidedTour","value":false},{"index":132,"name":"HideKnowledgeFirstTimeSetupMsg","value":false},{"index":104,"name":"DefaultOffEntityPermsMsg","value":false},{"index":135,"name":"HideNewCsnSplash","value":false},{"index":101,"name":"HideBrowserWarning","value":false},{"index":139,"name":"HideDashboardBuilderGuidedTour","value":false},{"index":140,"name":"HideSchedulingGuidedTour","value":false},{"index":180,"name":"HideReportBuilderGuidedTour","value":false},{"index":183,"name":"HideAssociationQueueCallout","value":false},{"index":194,"name":"HideQTEBanner","value":false},{"index":270,"name":"HideIDEGuidedTour","value":false},{"index":282,"name":"HideQueryToolGuidedTour","value":false},{"index":196,"name":"HideCSIGuidedTour","value":false},{"index":271,"name":"HideFewmetGuidedTour","value":false},{"index":272,"name":"HideEditorGuidedTour","value":false},{"index":205,"name":"HideApexTestGuidedTour","value":false},{"index":206,"name":"HideSetupProfileHeaderTour","value":false},{"index":207,"name":"HideSetupProfileObjectsAndTabsTour","value":false},{"index":213,"name":"DefaultOffArticleTypeEntityPermMsg","value":false},{"index":214,"name":"HideSelfInfluenceGetStarted","value":false},{"index":215,"name":"HideOtherInfluenceGetStarted","value":false},{"index":216,"name":"HideFeedToggleGuidedTour","value":false},{"index":268,"name":"ShowChatterTab178GuidedTour","value":false},{"index":275,"name":"HidePeopleTabDeprecationMsg","value":false},{"index":276,"name":"HideGroupTabDeprecationMsg","value":false},{"index":224,"name":"HideUnifiedSearchGuidedTour","value":false},{"index":226,"name":"ShowDevContextMenu","value":true},{"index":227,"name":"HideWhatRecommenderForActivityQueues","value":false},{"index":228,"name":"HideLiveAgentFirstTimeSetupMsg","value":false},{"index":232,"name":"HideGroupAllowsGuestsMsgOnMemberWidget","value":false},{"index":233,"name":"HideGroupAllowsGuestsMsg","value":false},{"index":234,"name":"HideWhatAreGuestsMsg","value":false},{"index":235,"name":"HideNowAllowGuestsMsg","value":false},{"index":236,"name":"HideSocialAccountsAndContactsGuidedTour","value":false},{"index":237,"name":"HideAnalyticsHomeGuidedTour","value":false},{"index":238,"name":"ShowQuickCreateGuidedTour","value":false},{"index":245,"name":"HideFilePageGuidedTour","value":false},{"index":250,"name":"HideForecastingGuidedTour","value":false},{"index":251,"name":"HideBucketFieldGuide","value":false},{"index":263,"name":"HideSmartSearchCallOut","value":false},{"index":273,"name":"ShowForecastingQuotaAttainment","value":false},{"index":280,"name":"HideForecastingQuotaColumn","value":false},{"index":301,"name":"HideManyWhoGuidedTour","value":false},{"index":298,"name":"HideFileSyncBannerMsg","value":false},{"index":299,"name":"HideTestConsoleGuidedTour","value":false},{"index":302,"name":"HideManyWhoInlineEditTip","value":false},{"index":303,"name":"HideSetupV2WelcomeMessage","value":false},{"index":312,"name":"ForecastingShowQuantity","value":false},{"index":313,"name":"HideDataImporterIntroMsg","value":false},{"index":314,"name":"HideEnvironmentHubLightbox","value":false},{"index":316,"name":"HideSetupV2GuidedTour","value":false},{"index":317,"name":"HideFileSyncMobileDownloadDialog","value":false},{"index":322,"name":"HideEnhancedProfileHelpBubble","value":false},{"index":328,"name":"ForecastingHideZeroRows","value":false},{"index":330,"name":"HideEmbeddedComponentsFeatureCallout","value":false},{"index":341,"name":"HideDedupeMatchResultCallout","value":false},{"index":340,"name":"HideS1BrowserUI","value":true},{"index":346,"name":"HideS1Banner","value":false},{"index":358,"name":"HideEmailVerificationAlert","value":false},{"index":354,"name":"HideLearningPathModal","value":false},{"index":359,"name":"HideAtMentionsHelpBubble","value":false},{"index":368,"name":"LightningExperiencePreferred","value":true},{"index":373,"name":"PreviewLightning","value":false},{"index":281,"name":"HideMSPPopup","value":false}],"networkId":"","uiTheme":"Theme3","uiSkin":"Theme3","userName":"juanosorio@melborp.co.stage","userId":"005O8000002QLUJ","isCurrentlySysAdminSU":false,"renderMode":"RETRO","startOfWeek":"1","vfDomainPattern":"proteccion--stage--(?:[^.]+).sandbox.vf.force.com","auraDomain":"proteccion--stage.sandbox.lightning.force.com","useNativeAlertConfirmPrompt":false,"orgPreferences":[{"index":257,"name":"TabOrganizer","value":true},{"index":113,"name":"GroupTasks","value":true}],"siteUrlPrefix":"","isDefaultNetwork":true,"timeFormat":"h:mm a"});
+  </script><div class="apexp"><div id="pg:fm:pb" class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"><script>function twistSection(elem, sectionId) {
+     var parentDiv = elem;
+     var twisty = elem;
+     while (parentDiv.tagName != 'DIV') { parentDiv = parentDiv.parentNode; }
+     if (elem.tagName === 'DIV' && elem.attributes['data-twistyimgid'] !== undefined) {
+        twisty = document.getElementById(elem.attributes['data-twistyimgid'].value);
+     }
+     var div = parentDiv.nextSibling; 
+     var elemWasOn = false; 
+     if (div.style.display != 'none') { 
+         div.style.display = 'none'; 
+         twisty.className ='showListButton';
+         twisty.alt = 'Show Section - '+twisty.name;
+        elem.title = twisty.alt;
+         elemWasOn = true; 
+     } else {
+         div.style.display = 'block'; 
+         twisty.className = 'hideListButton';
+         twisty.alt = 'Hide Section - '+twisty.name;
+        elem.title = twisty.alt;
+     } 
+    return !elemWasOn;
+  }
+  var registeredSections = new Array();
+  function registerTwistableSection(headerId, mainTableId) {
+     var obj = new Object();
+     obj.headerId = headerId;
+     obj.mainTableId = mainTableId;
+     registeredSections[registeredSections.length] = obj;
+  }
+  function twistAllSections(on) {
+     for (var i = 0; i < registeredSections.length; i++) {
+        var obj = registeredSections[i];
+        var img;
+        img = document.getElementById('img_' + obj.headerId);
+      if (on && 'showListButton' == img.className) {
+           twistSection(img, obj.headerId, obj.mainTableId);
+       } else if (!on && 'hideListButton' == img.className) {
+           twistSection(img, obj.headerId, obj.mainTableId);
+         }
+     }
+  }
+  function toggleSection(headerId, on){
+      var sectionHead = document.getElementById('head_'+headerId+'_pg_fm_pb');
+      var body = sectionHead.nextSibling;
+      var disp = on ? 'block' : 'none';
+      sectionHead.style.display = disp;
+      body.style.display = disp;
+  }
+  function registerTwistableSections_pg_fm_pb() {
+  registerTwistableSection('pg_fm_pb_enProgreso', 'pg_fm_pb');
+  registerTwistableSection('pg_fm_pb_archivos', 'pg_fm_pb');
+  registerTwistableSection('pg_fm_pb_j_id17', 'pg_fm_pb');
+  }
+  registerTwistableSections_pg_fm_pb();
+  </script><div class="pbBody"><div id="pg:fm:pb:j_id17"><div class="pbSubsection"><table class="detailList" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="data2Col  first  last " colspan="2">  
+                                          <p class="palert"><span class="palerts">¿Esta seguro que desea enviar el certificado de supervivencia con fecha 2024-07-04?</span></p></td></tr></tbody></table></div></div></div><div class="pbBottomButtons"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="pbTitle">&nbsp;</td><td id="pg:fm:pb:confirmacion:bottom" class="pbButtonb "><input id="pg:fm:pb:confirmacion:btnVerifys" type="submit" name="pg:fm:pb:confirmacion:btnVerifys" value="Confirmar"></td></tr></tbody></table></div><div class="pbBottomButtons"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="pbTitle">&nbsp;</td><td id="pg:fm:pb:pss:bottom" class="pbButtonb "><input id="pg:fm:pb:pss:btnvolver" type="submit" name="pg:fm:pb:pss:btnvolver" value="Cancelar" onclick="window.location.href = window.location.href;"></td></tr></tbody></table></div><div class="pbFooter secondaryPalette"><div class="bg"></div></div></div></div><div id="pg:fm:j_id29"></div>
+  </form>

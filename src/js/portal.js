@@ -594,11 +594,6 @@ if (document.getElementById("timer_session")) {
   window.onload = function () {
     inactivityTime();
   };
-
-  // document.addEventListener("click", () => {
-  //   document.getElementById("toast_session").classList.add("hidden");
-  //   document.removeEventListener("click", () => {});
-  // });
 }
 if (document.getElementById("tabs_nov")) {
   if (document.getElementById("tabs_nov").querySelector("span")) {
@@ -626,52 +621,6 @@ function plainHtml(html) {
   return html.replace(/\t|\n|\r|:|\s/g, "");
 }
 
-waitForElm('form[name="pg:fm"]').then((fm) => {
-  document.querySelectorAll('form[name="pg:fm"]').forEach((fm) => {
-    // console.log("fm", fm);
-
-    if (document.querySelectorAll('form[name="pg:fm"] h6').length > 0) {
-      document.querySelectorAll(".secondaryPalette").forEach((tb) => {
-        tb.classList.add("gfull");
-      });
-    }
-    if (fm.attributes.action.value.includes("NomiCompensacion")) {
-      if (
-        document.querySelector('input[name="pg:fm:pb:actualiza:btnTraslado"]')
-      ) {
-        document.querySelector(".bPageBlock").classList.add("caja");
-      }
-    }
-    if (fm.attributes.action.value.includes("NomiEps")) {
-      if (document.querySelector('input[name="pg:fm:pb:p:btnTraslado"]')) {
-        document.querySelector(".bPageBlock").classList.add("caja");
-      }
-    }
-    if (
-      fm.attributes.action.value.includes("NomiEps") ||
-      fm.attributes.action.value.includes("UpdateDocument") ||
-      fm.attributes.action.value.includes("CertiEstudio") 
-    ) {
-      if (
-        fm.querySelector('input[value="Confirmar"]') ||
-        (fm.querySelector('input[value="Enviar"]') &&
-          fm.querySelector('input[value="Cancelar"]'))
-      ) {
-        fm.querySelector(".bPageBlock").classList.add("gperp");
-      }
-    }
-    if (fm.attributes.action.value.includes("NomiVoluntaria")) {
-      if (document.querySelector('input[name="pg:fm:pb:p:btnTraslado"]')) {
-        document.querySelector(".bPageBlock").classList.add("caja");
-      }
-    }
-  });
-});
-waitForElm('input[name="pg:fm:pb:preview:btnSend"]').then((elm) => {
-  document.querySelectorAll(".detailList tbody").forEach((dl) => {
-    dl.classList.add("tflex");
-  });
-});
 waitForElm(".palert").then((elm) => {
   document.querySelectorAll(".palert").forEach((pa) => {
     // check if element not contain span
@@ -687,94 +636,19 @@ waitForElm(".palert").then((elm) => {
 });
 waitForElm(".empty").then((elm) => {
   document.querySelectorAll(".empty").forEach((el) => {
-    console.log("el", el.innerHTML);
     if (el.innerHTML == "" || el.innerHTML == " " || el.innerHTML == "&nbsp;")
       el.remove();
   });
 });
 
-const btns = [
-  'input[name="pg:fm:pb:ps:btnVerify"]',
-  'input[name="pg:fm:pb:confirmacion:btnVerifys"]',
-  'input[name="pg:fm:pb:preview:btnvolver"]',
-  'input[name="pg:fm:pb:ext:btnIngreso"]',
-  'input[name="pg:fm:pb:actualiza:btnTraslado"]',
-  "#pg:fm:pb:motorFallido",
-  'input[name="consultaTipo"]',
-  'input[name="pg:fm:pb:ps:btnvolver"]',
-  'input[name="pg:fm:pb:ps2:btnVerify"]',
-];
-btns.forEach((btn) => {
-  waitForElm(".empty").then((elm) => {
-    addStyles();
-  });
-});
-
-// function checkForms() {
-//   if (
-//     document.querySelector('input[name="pg:fm:pb:ps:btnVerify"]') ||
-//     document.querySelector('input[name="pg:fm:pb:confirmacion:btnVerifys"]') ||
-//     document.querySelector('input[name="pg:fm:pb:preview:btnvolver"]') ||
-//     document.querySelector('input[name="pg:fm:pb:ext:btnIngreso"]') ||
-//     document.querySelector('input[name="pg:fm:pb:actualiza:btnTraslado"]') ||
-//     document.getElementById("pg:fm:pb:motorFallido") ||
-//     document.querySelector('input[name="consultaTipo"]')
-//   ) {
-//     addStyles();
-//   }
-// }
-// checkForms();
-
 function addStyles(type = 1) {
   document.querySelectorAll(".bPageBlock").forEach((pbi) => {
-    pbi.classList.add("gfull");
-    if (
-      !document.querySelector('input[name="pg:fm:pb:actualiza:btnTraslado"]') &&
-      !document.querySelector('input[name="pg:fm:pb:extx:btnRetiro"]') &&
-      !document.querySelector('input[name="pg:fm:pb:p:btnTraslado"]')
-    )
-      pbi.querySelectorAll(".pbBottomButtons").forEach((pb, index) => {
-        pb.classList.add("btnnse");
-        if (
-          plainHtml(pb.innerHTML) ==
-          `<tableborder="0"cellpadding="0"cellspacing="0"><tbody><tr><tdclass="pbTitle">&nbsp;</td><td>&nbsp;</td></tr></tbody></table>`
-        )
-          pb.remove();
-      });
+    pbi.querySelectorAll(".pbBottomButtons").forEach((pb, index) => {
+      if (
+        plainHtml(pb.innerHTML) ==
+        `<tableborder="0"cellpadding="0"cellspacing="0"><tbody><tr><tdclass="pbTitle">&nbsp;</td><td>&nbsp;</td></tr></tbody></table>`
+      )
+        pb.remove();
+    });
   });
 }
-
-// function checkAsyncForm() {
-//   if (
-//     document.querySelector('input[name="pg:fm:pb:ps:btnvolver"]') ||
-//     document.querySelector('input[name="pg:fm:pb:ps2:btnVerify"]')
-//   ) {
-//     addStyles();
-
-//     clearInterval(interP);
-//   }
-//   if (document.querySelector('input[name="pg:fm2:pb2:ps2:btnVerify"]')) {
-//     addStyles(2);
-//     clearInterval(interP);
-//   }
-// }
-// const interP = setInterval(() => {
-//   checkAsyncForm();
-// }, 1000);
-// checkAsyncForm();
-// const intro = introJs().setOptions({
-//   nextLabel: "Siguiente",
-//   prevLabel: "Anterior",
-//   doneLabel: "Finalizar",
-//   steps: [
-//     {
-//       intro: "Bienvenido a Asulado, tu aliado en beneficios garantizados",
-//     },
-//     {
-//       element: document.querySelector("#as__header"),
-//       intro:
-//         "Acá encontrarás las opciones de navegación del sitio y podrás acceder a los dierentes servicios que ofrece Asulado.",
-//     },
-//   ],
-// });
-// intro.start();

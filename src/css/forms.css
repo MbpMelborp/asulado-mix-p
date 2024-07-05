@@ -28,6 +28,15 @@
       }
     }
   }
+  .pbSubsection {
+    @apply pb-4 mb-4;
+    &:has(.as_select) {
+      @apply !mb-0 !pb-0;
+      .as_select {
+        @apply !mb-2 !pb-2;
+      }
+    }
+  }
   .pbBody {
     .hideListButton {
       @apply hidden;
@@ -42,9 +51,7 @@
         }
       }
     }
-    .pbSubsection {
-      @apply pb-4 mb-4;
-    }
+
     input[type="file"] {
       @apply !px-0 file-input file-input-secondary file-input-bordered w-full file-input-sm;
     }
@@ -591,6 +598,9 @@
         &:has(.palert) {
           @apply !w-full;
         }
+        &:has(input[name="pg:fm:pb:j_id32:j_id59:cellphone"]) {
+          @apply !w-full;
+        }
       }
       td {
         @apply border-red-500;
@@ -606,6 +616,11 @@
       }
       .pbSubsection:has(table:empty) {
         @apply hidden;
+      }
+    }
+    .pbButtonb {
+      &:has(input[type="submit"] + input[type="submit"]) {
+        @apply flex justify-between;
       }
     }
   }

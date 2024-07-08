@@ -1221,7 +1221,8 @@ body {
       .seacrh_result,
       .search_result {
         @apply flex flex-col gap-2 w-full;
-        &:has([id="header:fm:pb:detalleCase"]) {
+        &:has([id="header:fm:pb:detalleCase"]),
+        &:has([id="header:fm:pb:detalleNov"]) {
           table {
             @apply w-full;
             tr {

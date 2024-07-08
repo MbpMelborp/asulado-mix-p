@@ -1212,6 +1212,11 @@ body {
             }
           }
         }
+        tr {
+          input[type="submit"] {
+            @apply grow-0 btn btn-secondary border-azul-dark !bg-azul-light !px-10 text-azul-dark hover:!bg-azul-20;
+          }
+        }
       }
       .seacrh_result,
       .search_result {

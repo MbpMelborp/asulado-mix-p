@@ -1111,6 +1111,23 @@ body {
       .seacrh_result,
       .search_result {
         @apply flex flex-col gap-2 w-full;
+        &:has([id="header:fm:pb:detalleCase"]) {
+          table {
+            @apply w-full;
+            tr {
+              @apply !table-row;
+              th {
+                @apply text-left w-auto p-4 border-b border-b-alpha-20;
+              }
+              td {
+                @apply text-left w-auto p-4 border-b border-b-alpha-20;
+                input[type="submit"] {
+                  @apply grow-0 btn btn-secondary border-azul-dark !bg-azul-light !px-10 text-azul-dark hover:!bg-azul-20;
+                }
+              }
+            }
+          }
+        }
         table {
           &.detailList {
             @apply w-full;

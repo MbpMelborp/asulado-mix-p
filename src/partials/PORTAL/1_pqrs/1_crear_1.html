@@ -2,560 +2,8 @@
   id="pg:fm"
   name="pg:fm"
   method="post"
-  action="https://proteccion--stage--c.sandbox.vf.force.com/apex/Pqrs_solicitud?core.apexpages.request.devconsole=1"
-  enctype="application/x-www-form-urlencoded"
->
-  <input type="hidden" name="pg:fm" value="pg:fm" />
-  <script>
-    if (!window.sfdcPage) {
-      window.sfdcPage = new ApexPage();
-    }
-    UserContext.initialize({
-      ampm: ["AM", "PM"],
-      isAccessibleMode: false,
-      salesforceURL: "https://proteccion--stage.sandbox.my.salesforce.com",
-      dateFormat: "d/MM/yyyy",
-      language: "en_US",
-      locale: "es_CO",
-      dateTimeFormat: "d/MM/yyyy, h:mm a",
-      labelLastModified: "1712073946000",
-      today: "3/04/2024, 10:13 AM",
-      userPreferences: [
-        { index: 112, name: "HideInlineEditSplash", value: false },
-        { index: 114, name: "OverrideTaskSendNotification", value: false },
-        { index: 115, name: "DefaultTaskSendNotification", value: false },
-        { index: 119, name: "HideUserLayoutStdFieldInfo", value: false },
-        { index: 116, name: "HideRPPWarning", value: false },
-        { index: 87, name: "HideInlineSchedulingSplash", value: false },
-        { index: 88, name: "HideCRUCNotification", value: false },
-        { index: 89, name: "HideNewPLESplash", value: false },
-        { index: 90, name: "HideNewPLEWarnIE6", value: false },
-        { index: 122, name: "HideOverrideSharingMessage", value: false },
-        { index: 91, name: "HideProfileILEWarn", value: false },
-        { index: 93, name: "HideProfileElvVideo", value: false },
-        { index: 97, name: "ShowPicklistEditSplash", value: false },
-        { index: 92, name: "HideDataCategorySplash", value: false },
-        { index: 128, name: "ShowDealView", value: false },
-        { index: 129, name: "HideDealViewGuidedTour", value: false },
-        { index: 132, name: "HideKnowledgeFirstTimeSetupMsg", value: false },
-        { index: 104, name: "DefaultOffEntityPermsMsg", value: false },
-        { index: 135, name: "HideNewCsnSplash", value: false },
-        { index: 101, name: "HideBrowserWarning", value: false },
-        { index: 139, name: "HideDashboardBuilderGuidedTour", value: false },
-        { index: 140, name: "HideSchedulingGuidedTour", value: false },
-        { index: 180, name: "HideReportBuilderGuidedTour", value: false },
-        { index: 183, name: "HideAssociationQueueCallout", value: false },
-        { index: 194, name: "HideQTEBanner", value: false },
-        { index: 270, name: "HideIDEGuidedTour", value: false },
-        { index: 282, name: "HideQueryToolGuidedTour", value: false },
-        { index: 196, name: "HideCSIGuidedTour", value: false },
-        { index: 271, name: "HideFewmetGuidedTour", value: false },
-        { index: 272, name: "HideEditorGuidedTour", value: false },
-        { index: 205, name: "HideApexTestGuidedTour", value: false },
-        { index: 206, name: "HideSetupProfileHeaderTour", value: false },
-        {
-          index: 207,
-          name: "HideSetupProfileObjectsAndTabsTour",
-          value: false,
-        },
-        {
-          index: 213,
-          name: "DefaultOffArticleTypeEntityPermMsg",
-          value: false,
-        },
-        { index: 214, name: "HideSelfInfluenceGetStarted", value: false },
-        { index: 215, name: "HideOtherInfluenceGetStarted", value: false },
-        { index: 216, name: "HideFeedToggleGuidedTour", value: false },
-        { index: 268, name: "ShowChatterTab178GuidedTour", value: false },
-        { index: 275, name: "HidePeopleTabDeprecationMsg", value: false },
-        { index: 276, name: "HideGroupTabDeprecationMsg", value: false },
-        { index: 224, name: "HideUnifiedSearchGuidedTour", value: false },
-        { index: 226, name: "ShowDevContextMenu", value: true },
-        {
-          index: 227,
-          name: "HideWhatRecommenderForActivityQueues",
-          value: false,
-        },
-        { index: 228, name: "HideLiveAgentFirstTimeSetupMsg", value: false },
-        {
-          index: 232,
-          name: "HideGroupAllowsGuestsMsgOnMemberWidget",
-          value: false,
-        },
-        { index: 233, name: "HideGroupAllowsGuestsMsg", value: false },
-        { index: 234, name: "HideWhatAreGuestsMsg", value: false },
-        { index: 235, name: "HideNowAllowGuestsMsg", value: false },
-        {
-          index: 236,
-          name: "HideSocialAccountsAndContactsGuidedTour",
-          value: false,
-        },
-        { index: 237, name: "HideAnalyticsHomeGuidedTour", value: false },
-        { index: 238, name: "ShowQuickCreateGuidedTour", value: false },
-        { index: 245, name: "HideFilePageGuidedTour", value: false },
-        { index: 250, name: "HideForecastingGuidedTour", value: false },
-        { index: 251, name: "HideBucketFieldGuide", value: false },
-        { index: 263, name: "HideSmartSearchCallOut", value: false },
-        { index: 273, name: "ShowForecastingQuotaAttainment", value: false },
-        { index: 280, name: "HideForecastingQuotaColumn", value: false },
-        { index: 301, name: "HideManyWhoGuidedTour", value: false },
-        { index: 298, name: "HideFileSyncBannerMsg", value: false },
-        { index: 299, name: "HideTestConsoleGuidedTour", value: false },
-        { index: 302, name: "HideManyWhoInlineEditTip", value: false },
-        { index: 303, name: "HideSetupV2WelcomeMessage", value: false },
-        { index: 312, name: "ForecastingShowQuantity", value: false },
-        { index: 313, name: "HideDataImporterIntroMsg", value: false },
-        { index: 314, name: "HideEnvironmentHubLightbox", value: false },
-        { index: 316, name: "HideSetupV2GuidedTour", value: false },
-        {
-          index: 317,
-          name: "HideFileSyncMobileDownloadDialog",
-          value: false,
-        },
-        { index: 322, name: "HideEnhancedProfileHelpBubble", value: false },
-        { index: 328, name: "ForecastingHideZeroRows", value: false },
-        {
-          index: 330,
-          name: "HideEmbeddedComponentsFeatureCallout",
-          value: false,
-        },
-        { index: 341, name: "HideDedupeMatchResultCallout", value: false },
-        { index: 340, name: "HideS1BrowserUI", value: true },
-        { index: 346, name: "HideS1Banner", value: false },
-        { index: 358, name: "HideEmailVerificationAlert", value: false },
-        { index: 354, name: "HideLearningPathModal", value: false },
-        { index: 359, name: "HideAtMentionsHelpBubble", value: false },
-        { index: 368, name: "LightningExperiencePreferred", value: true },
-        { index: 373, name: "PreviewLightning", value: false },
-        { index: 281, name: "HideMSPPopup", value: false },
-      ],
-      networkId: "",
-      uiTheme: "Theme3",
-      uiSkin: "Theme3",
-      userName: "juanosorio@melborp.co.stage",
-      userId: "005O8000002QLUJ",
-      isCurrentlySysAdminSU: false,
-      renderMode: "RETRO",
-      startOfWeek: "1",
-      vfDomainPattern: "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
-      auraDomain: "proteccion--stage.sandbox.lightning.force.com",
-      useNativeAlertConfirmPrompt: false,
-      orgPreferences: [
-        { index: 257, name: "TabOrganizer", value: true },
-        { index: 113, name: "GroupTasks", value: true },
-      ],
-      siteUrlPrefix: "",
-      isDefaultNetwork: true,
-      timeFormat: "h:mm a",
-    });
-  </script>
-  <div class="apexp">
-    <div class="individualPalette">
-      <div class="contactBlock">
-        <div
-          id="pg:fm:pb"
-          class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
-        >
-          <script>
-            function twistSection(elem, sectionId) {
-              var parentDiv = elem;
-              var twisty = elem;
-              while (parentDiv.tagName != "DIV") {
-                parentDiv = parentDiv.parentNode;
-              }
-              if (
-                elem.tagName === "DIV" &&
-                elem.attributes["data-twistyimgid"] !== undefined
-              ) {
-                twisty = document.getElementById(
-                  elem.attributes["data-twistyimgid"].value
-                );
-              }
-              var div = parentDiv.nextSibling;
-              var elemWasOn = false;
-              if (div.style.display != "none") {
-                div.style.display = "none";
-                twisty.className = "showListButton";
-                twisty.alt = "Show Section - " + twisty.name;
-                elem.title = twisty.alt;
-                elemWasOn = true;
-              } else {
-                div.style.display = "block";
-                twisty.className = "hideListButton";
-                twisty.alt = "Hide Section - " + twisty.name;
-                elem.title = twisty.alt;
-              }
-              return !elemWasOn;
-            }
-            var registeredSections = new Array();
-            function registerTwistableSection(headerId, mainTableId) {
-              var obj = new Object();
-              obj.headerId = headerId;
-              obj.mainTableId = mainTableId;
-              registeredSections[registeredSections.length] = obj;
-            }
-            function twistAllSections(on) {
-              for (var i = 0; i < registeredSections.length; i++) {
-                var obj = registeredSections[i];
-                var img;
-                img = document.getElementById("img_" + obj.headerId);
-                if (on && "showListButton" == img.className) {
-                  twistSection(img, obj.headerId, obj.mainTableId);
-                } else if (!on && "hideListButton" == img.className) {
-                  twistSection(img, obj.headerId, obj.mainTableId);
-                }
-              }
-            }
-            function toggleSection(headerId, on) {
-              var sectionHead = document.getElementById(
-                "head_" + headerId + "_pg_fm_pb"
-              );
-              var body = sectionHead.nextSibling;
-              var disp = on ? "block" : "none";
-              sectionHead.style.display = disp;
-              body.style.display = disp;
-            }
-            function registerTwistableSections_pg_fm_pb() {
-              registerTwistableSection("pg_fm_pb_j_id4", "pg_fm_pb");
-              registerTwistableSection("pg_fm_pb_j_id6", "pg_fm_pb");
-              registerTwistableSection("pg_fm_pb_j_id27", "pg_fm_pb");
-              registerTwistableSection("pg_fm_pb_pbs", "pg_fm_pb");
-            }
-            registerTwistableSections_pg_fm_pb();
-          </script>
-          <div class="pbBody">
-            <div id="pg:fm:pb:pbs">
-              <div class="pbSubsection">
-                <table
-                  class="detailList"
-                  border="0"
-                  cellpadding="0"
-                  cellspacing="0"
-                >
-                  <tbody>
-                    <tr>
-                      <td class="data2Col first" colspan="2">
-                        <fieldset class="form_info_tema">
-                          <legend>
-                            <i
-                              class="fa-solid fa-user"
-                              role="presentation"
-                              aria-hidden="true"
-                            ></i>
-                            Información de la solicitud
-                          </legend>
-                          <div class="as__form_wrapper"></div>
-                        </fieldset>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="data2Col form-control as_select" colspan="2">
-                        <label class="label"
-                          ><span class="label-text"
-                            >Tipo de solicitud</span
-                          ></label
-                        >
-                        <select
-                          id="recordType"
-                          name="recordType"
-                          onchange="actualizarTema()"
-                          required="true"
-                          size="1"
-                        >
-                          <option hidden="hidden" selected="selected">
-                            -- Seleccione una opción --
-                          </option>
-                          <option value="01205000000L5igAAC">Petición</option>
-                          <option value="01205000000L5ihAAC">Quejas</option>
-                          <option value="01205000000L5iiAAC">Reclamos</option>
-                          <option value="01205000000L5ijAAC">Servicios</option>
-                        </select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="data2Col form-control as_select" colspan="2">
-                        <label class="label"
-                          ><span class="label-text">Tema</span></label
-                        >
-                        <select
-                          id="Tema"
-                          name="Tema"
-                          onchange="actualizarDetalle()"
-                          required="true"
-                        ></select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="data2Col form-control as_select" colspan="2">
-                        <label class="label"
-                          ><span class="label-text">Detalle</span></label
-                        >
-                        <select
-                          id="Detalle"
-                          name="Detalle"
-                          required="true"
-                        ></select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td
-                        class="data2Col form-control fc-full as_textarea"
-                        colspan="2"
-                      >
-                        <label class="label"
-                          ><span class="label-text"
-                            >Descripción de la solicitud</span
-                          ></label
-                        >
-                        <textarea
-                          id="Descripcion"
-                          name="Descripcion"
-                          required="true"
-                        ></textarea>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="data2Col" colspan="2">
-                        <p>
-                          Podrás elegir si deseas recibir tu respuesta por
-                          correo electrónico, teléfono o carta física. Si
-                          necesitas subir algún documento, sigue las
-                          consideraciones para subir archivos a continuación.
-                          Recuerda aceptar los términos y condiciones e indicar
-                          que no eres un robot para diligenciar con éxito tu
-                          solicitud.
-                        </p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="data2Col form-control as_select" colspan="2">
-                        <label class="label"
-                          ><span class="label-text"
-                            >¿Por cuál medio deseas que te demos
-                            respuesta?</span
-                          ></label
-                        >
-                        <select
-                          id="MedioRta"
-                          name="MedioRta"
-                          onchange="actualizarMedio()"
-                          required="true"
-                        >
-                          <option value="Correo electrónico">
-                            Correo electrónico
-                          </option>
-                          <option value="Teléfono">Teléfono</option>
-                          <option value="Carta física">Carta física</option>
-                        </select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="data2Col" colspan="2">
-                        <label class="label cursor-pointer">
-                          <input
-                            class="checkbox"
-                            id="Pro_Acepta_Tratamiento_datos_personales__c"
-                            name="TratamientoDatos"
-                            type="checkbox"
-                          />
-                          <span class="label-text"
-                            >Autorizo el tratamiento de mis datos personales, de
-                            conformidad con la
-                            <a
-                              rel="noopener noreferrer"
-                              aria-current="page"
-                              class="dest"
-                              href="https://dw2fbj22ajabu.cloudfront.net/assets/documentos/Politica-de-tratamiento-de-datos-personales-Asulado.pdf"
-                              target="_blank"
-                              >política de tratamiento de datos.</a
-                            ></span
-                          ></label
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="data2Col" colspan="2">
-                        <h6>
-                          Ten en cuenta las siguientes consideraciones al
-                          momento de subir archivos:
-                        </h6>
-                        <ul class="items">
-                          <li>
-                            <p>
-                              El peso máximo por archivo no debe superar el peso
-                              de 5MB.
-                            </p>
-                          </li>
-                          <li>
-                            <p>
-                              Los únicos formatos permitidos son pdf, png, jpg,
-                              jpeg.
-                            </p>
-                          </li>
-                          <li>
-                            <p>
-                              Únicamente se pueden adjuntar máximo 5 documentos
-                            </p>
-                          </li>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="data2Col" colspan="2">
-                        <input type="hidden" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="data2Col form-control fc-file" colspan="2">
-                        <input
-                          accept="image/png,image/jpg,image/jpeg,application/pdf"
-                          id="files"
-                          multiple="multiple"
-                          type="file"
-                        />
-                        <span class="error-message" id="error-message"></span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="data2Col" colspan="2">
-                        <input type="hidden" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td
-                        class="data2Col form-control as_select hidden"
-                        colspan="2"
-                      >
-                        <select hidden="true" id="Tipo" name="Tipo">
-                          <option
-                            selected="selected"
-                            value="Atención a clientes"
-                          >
-                            Atención a clientes
-                          </option>
-                        </select>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="data2Col" colspan="2">
-                        <div class="sol_info">
-                          <div>
-                            *La Aseguradora responderá las peticiones y
-                            solicitudes de los consumidores financieros, de
-                            conformidad al artículo 14 de la Ley 1755 de 2015,
-                            dentro de los quince (15) días siguientes a su
-                            recepción. Sin embargo, si se tratara de peticiones
-                            de documentos o información, esta se resolverá
-                            dentro de los diez (10) días siguientes a su
-                            recepción.
-                            <br />
-                            <br />
-                          </div>
-                        </div>
-                        <div></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="data2Col" colspan="2">
-                        <div
-                          class="g-recaptcha"
-                          data-callback="recaptchaCallback"
-                          data-sitekey="6LdX4x4lAAAAAED0JcNz9gquNwSF_kbnI2TNRiUC"
-                          data-type="image"
-                        >
-                          <div style="width: 304px; height: 78px">
-                            <div>
-                              <iframe
-                                title="reCAPTCHA"
-                                width="304"
-                                height="78"
-                                role="presentation"
-                                name="a-mboewoqg05rg"
-                                frameborder="0"
-                                scrolling="no"
-                                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
-                                src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdX4x4lAAAAAED0JcNz9gquNwSF_kbnI2TNRiUC&amp;co=aHR0cHM6Ly9wcm90ZWNjaW9uLS1zdGFnZS0tYy5zYW5kYm94LnZmLmZvcmNlLmNvbTo0NDM.&amp;hl=en&amp;type=image&amp;v=moV1mTgQ6S91nuTnmll4Y9yf&amp;size=normal&amp;cb=l7fvaomanhrh"
-                              ></iframe>
-                            </div>
-                            <textarea
-                              id="g-recaptcha-response"
-                              name="g-recaptcha-response"
-                              class="g-recaptcha-response"
-                              style="
-                                width: 250px;
-                                height: 40px;
-                                border: 1px solid rgb(193, 193, 193);
-                                margin: 10px 25px;
-                                padding: 0px;
-                                resize: none;
-                                display: none;
-                              "
-                            ></textarea>
-                          </div>
-                          <iframe style="display: none"></iframe>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="data2Col last" colspan="2"></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div class="pbBottomButtons">
-            <table border="0" cellpadding="0" cellspacing="0">
-              <tbody>
-                <tr>
-                  <td class="pbTitle">&nbsp;</td>
-                  <td id="pg:fm:pb:pbb:bottom" class="pbButtonb">
-                    <input
-                      id="pg:fm:pb:pbb:btnVerify"
-                      type="submit"
-                      name="pg:fm:pb:pbb:btnVerify"
-                      value="Enviar solicitud"
-                      class="hideButton"
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="pg:fm:j_id66"></div>
-</form>
-<span id="ajax-view-state-page-container" style="display: none"
-  ><span id="ajax-view-state" style="display: none"
-    ><input
-      type="hidden"
-      id="com.salesforce.visualforce.ViewState"
-      name="com.salesforce.visualforce.ViewState"
-      value="i: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" /><input
-      type="hidden"
-      id="com.salesforce.visualforce.ViewStateVersion"
-      name="com.salesforce.visualforce.ViewStateVersion"
-      value="202404021326070429" /><input
-      type="hidden"
-      id="com.salesforce.visualforce.ViewStateMAC"
-      name="com.salesforce.visualforce.ViewStateMAC"
-      value="AGV5SnViMjVqWlNJNkltUldWVzlHUVc4M05sUnBhRTR3VXpsSVJXaElkMjkzV2twWFFtbHdPV0pSVTFCc1pHcFRWMUZLU0VWY2RUQXdNMlFpTENKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUlzSW10cFpDSTZJbnRjSW5SY0lqcGNJakF3UkRBMU1EQXdNREF3T0hKRmExd2lMRndpZGx3aU9sd2lNREpIT0dFd01EQXdNREJJUjJSV1hDSXNYQ0poWENJNlhDSjJabk5wWjI1cGJtZHJaWGxjSWl4Y0luVmNJanBjSWpBd05VODRNREF3TURBeVVVeFZTbHdpZlNJc0ltTnlhWFFpT2xzaWFXRjBJbDBzSW1saGRDSTZNVGN4TWpFMU56RTRPVGMxTlN3aVpYaHdJam93ZlE9PS4uemtPNndkb1MteGpaYXBsMHQwLWFScW91UUgyWlJrSmI0Zm5oQWE5NVY4UT0=" /><input
-      type="hidden"
-      id="com.salesforce.visualforce.ViewStateCSRF"
-      name="com.salesforce.visualforce.ViewStateCSRF"
-      value="VmpFPSxNakF5TkMwd05DMHdObFF4TlRveE16b3dPUzQzTlRaYSxDamVFWm5XSU41QkEyZ19DZVRzY091bE1fMkxBTVZUcW9YWnhYMWhGZ3FZPSxaVFJoWW1NeQ==" /></span
-></span>
-
-<form
-  id="pg:fm"
-  name="pg:fm"
-  method="post"
   action="https://proteccion--stage--c.sandbox.vf.force.com/apex/Pqrs_solicitud"
-  enctype="application/x-www-form-urlencoded"
+  enctype="multipart/form-data"
 >
   <input type="hidden" name="pg:fm" value="pg:fm" />
   <script>
@@ -570,8 +18,8 @@
       language: "en_US",
       locale: "es_CO",
       dateTimeFormat: "d/MM/yyyy, h:mm a",
-      labelLastModified: "1712073946000",
-      today: "3/04/2024, 10:59 AM",
+      labelLastModified: "1720235482000",
+      today: "8/07/2024, 10:31 AM",
       userPreferences: [
         { index: 112, name: "HideInlineEditSplash", value: false },
         { index: 114, name: "OverrideTaskSendNotification", value: false },
@@ -698,271 +146,362 @@
     });
   </script>
   <div class="apexp">
-    <div class="individualPalette">
-      <div class="contactBlock">
-        <div
-          id="pg:fm:pb"
-          class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
-        >
-          <script>
-            function twistSection(elem, sectionId) {
-              var parentDiv = elem;
-              var twisty = elem;
-              while (parentDiv.tagName != "DIV") {
-                parentDiv = parentDiv.parentNode;
-              }
-              if (
-                elem.tagName === "DIV" &&
-                elem.attributes["data-twistyimgid"] !== undefined
-              ) {
-                twisty = document.getElementById(
-                  elem.attributes["data-twistyimgid"].value
-                );
-              }
-              var div = parentDiv.nextSibling;
-              var elemWasOn = false;
-              if (div.style.display != "none") {
-                div.style.display = "none";
-                twisty.className = "showListButton";
-                twisty.alt = "Show Section - " + twisty.name;
-                elem.title = twisty.alt;
-                elemWasOn = true;
-              } else {
-                div.style.display = "block";
-                twisty.className = "hideListButton";
-                twisty.alt = "Hide Section - " + twisty.name;
-                elem.title = twisty.alt;
-              }
-              return !elemWasOn;
+    <div
+      id="pg:fm:pb"
+      class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
+    >
+      <script>
+        function twistSection(elem, sectionId) {
+          var parentDiv = elem;
+          var twisty = elem;
+          while (parentDiv.tagName != "DIV") {
+            parentDiv = parentDiv.parentNode;
+          }
+          if (
+            elem.tagName === "DIV" &&
+            elem.attributes["data-twistyimgid"] !== undefined
+          ) {
+            twisty = document.getElementById(
+              elem.attributes["data-twistyimgid"].value
+            );
+          }
+          var div = parentDiv.nextSibling;
+          var elemWasOn = false;
+          if (div.style.display != "none") {
+            div.style.display = "none";
+            twisty.className = "showListButton";
+            twisty.alt = "Show Section - " + twisty.name;
+            elem.title = twisty.alt;
+            elemWasOn = true;
+          } else {
+            div.style.display = "block";
+            twisty.className = "hideListButton";
+            twisty.alt = "Hide Section - " + twisty.name;
+            elem.title = twisty.alt;
+          }
+          return !elemWasOn;
+        }
+        var registeredSections = new Array();
+        function registerTwistableSection(headerId, mainTableId) {
+          var obj = new Object();
+          obj.headerId = headerId;
+          obj.mainTableId = mainTableId;
+          registeredSections[registeredSections.length] = obj;
+        }
+        function twistAllSections(on) {
+          for (var i = 0; i < registeredSections.length; i++) {
+            var obj = registeredSections[i];
+            var img;
+            img = document.getElementById("img_" + obj.headerId);
+            if (on && "showListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            } else if (!on && "hideListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
             }
-            var registeredSections = new Array();
-            function registerTwistableSection(headerId, mainTableId) {
-              var obj = new Object();
-              obj.headerId = headerId;
-              obj.mainTableId = mainTableId;
-              registeredSections[registeredSections.length] = obj;
-            }
-            function twistAllSections(on) {
-              for (var i = 0; i < registeredSections.length; i++) {
-                var obj = registeredSections[i];
-                var img;
-                img = document.getElementById("img_" + obj.headerId);
-                if (on && "showListButton" == img.className) {
-                  twistSection(img, obj.headerId, obj.mainTableId);
-                } else if (!on && "hideListButton" == img.className) {
-                  twistSection(img, obj.headerId, obj.mainTableId);
-                }
-              }
-            }
-            function toggleSection(headerId, on) {
-              var sectionHead = document.getElementById(
-                "head_" + headerId + "_pg_fm_pb"
-              );
-              var body = sectionHead.nextSibling;
-              var disp = on ? "block" : "none";
-              sectionHead.style.display = disp;
-              body.style.display = disp;
-            }
-            function registerTwistableSections_pg_fm_pb() {
-              registerTwistableSection("pg_fm_pb_j_id4", "pg_fm_pb");
-              registerTwistableSection("pg_fm_pb_j_id6", "pg_fm_pb");
-              registerTwistableSection("pg_fm_pb_pbs", "pg_fm_pb");
-            }
-            registerTwistableSections_pg_fm_pb();
-          </script>
-          <div class="pbBody">
-            <div id="pg:fm:pb:j_id4">
-              <div class="pbSubheader brandTertiaryBgr first tertiaryPalette">
-                <img
-                  src="/img/s.gif"
-                  alt="Hide Section - No se ha podido generar la solicitud"
-                  class="hideListButton"
-                  id="img_pg:fm:pb:j_id4"
-                  name="No se ha podido generar la solicitud"
-                  onclick="twistSection(this);"
-                  onkeypress="if (event.keyCode=='13')twistSection(this);"
-                  role="button"
-                  style="cursor: pointer"
-                  tabindex="0"
-                  title="Hide Section - No se ha podido generar la solicitud"
-                />
-                <h3>No se ha podido generar la solicitud</h3>
-              </div>
-              <div class="pbSubsection">
-                <table
-                  class="detailList"
-                  border="0"
-                  cellpadding="0"
-                  cellspacing="0"
-                >
-                  <tbody>
-                    <tr>
-                      <td class="dataCol first last" colspan="2">
+          }
+        }
+        function toggleSection(headerId, on) {
+          var sectionHead = document.getElementById(
+            "head_" + headerId + "_pg_fm_pb"
+          );
+          var body = sectionHead.nextSibling;
+          var disp = on ? "block" : "none";
+          sectionHead.style.display = disp;
+          body.style.display = disp;
+        }
+        function registerTwistableSections_pg_fm_pb() {
+          registerTwistableSection("pg_fm_pb_j_id7", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_j_id9", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_pbs", "pg_fm_pb");
+        }
+        registerTwistableSections_pg_fm_pb();
+      </script>
+      <div class="pbBody">
+        <div id="pg:fm:pb:pbs">
+          <div class="pbSubsection">
+            <table
+              class="detailList"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+            >
+              <tbody>
+                <tr>
+                  <td class="data2Col first" colspan="2">
+                    <p class="palert">
+                      <span class="palerts"
+                        >Indica el tema y detalle de tu solicitud, y descríbela
+                        detalladamente.</span
+                      >
+                    </p>
+                    <br />
+                    <fieldset class="form_info_tema">
+                      <legend>
+                        <i
+                          class="fa-solid fa-user"
+                          role="presentation"
+                          aria-hidden="true"
+                        ></i>
+                        Información de la solicitud
+                      </legend>
+                      <div class="as__form_wrapper"></div>
+                    </fieldset>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col form-control as_select" colspan="2">
+                    <label class="label"
+                      ><span class="label-text">Tipo de solicitud</span></label
+                    >
+                    <select
+                      id="recordType"
+                      name="recordType"
+                      onchange="actualizarTema()"
+                      required="true"
+                      size="1"
+                    >
+                      <option hidden="hidden" selected="selected">
+                        -- Seleccione una opción --
+                      </option>
+                      <option value="01205000000L5igAAC">Petición</option>
+                      <option value="01205000000L5ihAAC">Quejas</option>
+                      <option value="01205000000L5iiAAC">Reclamos</option>
+                      <option value="01205000000L5ijAAC">Servicios</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col form-control as_select" colspan="2">
+                    <label class="label"
+                      ><span class="label-text">Tema</span></label
+                    >
+                    <select
+                      id="Tema"
+                      name="Tema"
+                      onchange="actualizarDetalle()"
+                      required="true"
+                    ></select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col form-control as_select" colspan="2">
+                    <label class="label"
+                      ><span class="label-text">Detalle</span></label
+                    >
+                    <select
+                      id="Detalle"
+                      name="Detalle"
+                      required="true"
+                    ></select>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="data2Col form-control fc-full as_textarea"
+                    colspan="2"
+                  >
+                    <label class="label"
+                      ><span class="label-text"
+                        >Descripción de la solicitud</span
+                      ></label
+                    >
+                    <textarea
+                      id="Descripcion"
+                      name="Descripcion"
+                      required="true"
+                    ></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2">
+                    <div class="form-control fc-full">
+                      <p>
+                        Podrás elegir si deseas recibir tu respuesta por correo
+                        electrónico, teléfono o carta física. Si necesitas subir
+                        algún documento, sigue las consideraciones para subir
+                        archivos a continuación. Indica que no eres un robot
+                        para diligenciar con éxito tu solicitud.
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col form-control as_select" colspan="2">
+                    <label class="label"
+                      ><span class="label-text"
+                        >¿Por cuál medio deseas que te demos respuesta?</span
+                      ></label
+                    >
+                    <select id="MedioRta" name="MedioRta" required="true">
+                      <option value="Correo electrónico">
+                        Correo electrónico
+                      </option>
+                      <option value="Teléfono">Teléfono</option>
+                      <option value="Carta física">Carta física</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2">
+                    <h6>
+                      Ten en cuenta las siguientes consideraciones al momento de
+                      subir archivos:
+                    </h6>
+                    <ul class="items">
+                      <li>
+                        <p>El peso máximo por archivo no debe superar 5MB.</p>
+                      </li>
+                      <li>
                         <p>
-                          Actualmente ya existe una solicitud bajo el número de
-                          radicado
+                          Los únicos formatos permitidos son pdf, png, jpg,
+                          jpeg.
                         </p>
-                      </td>
-                      <td class="labelCol empty">&nbsp;</td>
-                      <td class="dataCol empty">&nbsp;</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div id="pg:fm:pb:j_id6">
-              <div class="pbSubheader brandTertiaryBgr tertiaryPalette">
-                <img
-                  src="/img/s.gif"
-                  alt="Hide Section - Caso creado exitosamente"
-                  class="hideListButton"
-                  id="img_pg:fm:pb:j_id6"
-                  name="Caso creado exitosamente"
-                  onclick="twistSection(this);"
-                  onkeypress="if (event.keyCode=='13')twistSection(this);"
-                  role="button"
-                  style="cursor: pointer"
-                  tabindex="0"
-                  title="Hide Section - Caso creado exitosamente"
-                />
-                <h3>Caso creado exitosamente</h3>
-              </div>
-              <div class="pbSubsection">
-                <table
-                  class="detailList"
-                  border="0"
-                  cellpadding="0"
-                  cellspacing="0"
-                >
-                  <tbody>
-                    <tr>
-                      <td class="dataCol first last" colspan="2">
-                        <table
-                          class="tableClass"
-                          id="pg:fm:pb:j_id6:j_id7"
-                          border="0"
-                          cellpadding="0"
-                          cellspacing="0"
-                        >
-                          <colgroup span="6"></colgroup>
-                          <thead class="">
-                            <tr>
-                              <th
-                                scope="col"
-                                colspan="1"
-                                id="pg:fm:pb:j_id6:j_id7:j_id8header"
-                              >
-                                <div
-                                  id="pg:fm:pb:j_id6:j_id7:j_id8header:sortDiv"
-                                >
-                                  Número de Caso
-                                </div>
-                              </th>
-                              <th
-                                scope="col"
-                                colspan="1"
-                                id="pg:fm:pb:j_id6:j_id7:j_id11header"
-                              >
-                                <div
-                                  id="pg:fm:pb:j_id6:j_id7:j_id11header:sortDiv"
-                                >
-                                  Fecha de creación
-                                </div>
-                              </th>
-                              <th
-                                scope="col"
-                                colspan="1"
-                                id="pg:fm:pb:j_id6:j_id7:j_id15header"
-                              >
-                                <div
-                                  id="pg:fm:pb:j_id6:j_id7:j_id15header:sortDiv"
-                                >
-                                  Tema del caso
-                                </div>
-                              </th>
-                              <th
-                                scope="col"
-                                colspan="1"
-                                id="pg:fm:pb:j_id6:j_id7:j_id18header"
-                              >
-                                <div
-                                  id="pg:fm:pb:j_id6:j_id7:j_id18header:sortDiv"
-                                >
-                                  Asunto del caso
-                                </div>
-                              </th>
-                              <th
-                                scope="col"
-                                colspan="1"
-                                id="pg:fm:pb:j_id6:j_id7:j_id21header"
-                              >
-                                <div
-                                  id="pg:fm:pb:j_id6:j_id7:j_id21header:sortDiv"
-                                >
-                                  Observaciones del caso
-                                </div>
-                              </th>
-                              <th
-                                scope="col"
-                                colspan="1"
-                                id="pg:fm:pb:j_id6:j_id7:j_id24header"
-                              >
-                                <div
-                                  id="pg:fm:pb:j_id6:j_id7:j_id24header:sortDiv"
-                                >
-                                  Estado
-                                </div>
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody id="pg:fm:pb:j_id6:j_id7:tb">
-                            <tr>
-                              <td id="pg:fm:pb:j_id6:j_id7:0:j_id8" colspan="1">
-                                NOV000746
-                              </td>
-                              <td
-                                id="pg:fm:pb:j_id6:j_id7:0:j_id11"
-                                colspan="1"
-                              >
-                                04/03/24
-                              </td>
-                              <td
-                                id="pg:fm:pb:j_id6:j_id7:0:j_id15"
-                                colspan="1"
-                              >
-                                Actualización de datos
-                              </td>
-                              <td
-                                id="pg:fm:pb:j_id6:j_id7:0:j_id18"
-                                colspan="1"
-                              >
-                                Queja por protección de datos personales
-                              </td>
-                              <td
-                                id="pg:fm:pb:j_id6:j_id7:0:j_id21"
-                                colspan="1"
-                              ></td>
-                              <td
-                                id="pg:fm:pb:j_id6:j_id7:0:j_id24"
-                                colspan="1"
-                              >
-                                Abierto
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                      <td class="labelCol empty">&nbsp;</td>
-                      <td class="dataCol empty">&nbsp;</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+                      </li>
+                      <li>
+                        <p>Se puede adjuntar máximo 1 documento.</p>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2"><input type="hidden" /></td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <input
+                      accept="image/png,image/jpg,image/jpeg,application/pdf"
+                      accesskey=""
+                      alt=""
+                      class=""
+                      dir=""
+                      id="pg:fm:pb:pbs:file:files"
+                      lang=""
+                      name="pg:fm:pb:pbs:file:files:inputFile:file"
+                      onblur=""
+                      onchange=""
+                      onclick=""
+                      ondblclick=""
+                      onfocus=""
+                      onkeydown=""
+                      onkeypress=""
+                      onkeyup=""
+                      onmousedown=""
+                      onmousemove=""
+                      onmouseout=""
+                      onmouseover=""
+                      size=""
+                      style=""
+                      tabindex=""
+                      title=""
+                      type="file"
+                    />
+                  </th>
+                  <td class="data2Col form-control fc-file">
+                    <span class="error-message" id="error-message"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2"><input type="hidden" /></td>
+                </tr>
+                <tr>
+                  <td
+                    class="data2Col form-control as_select hidden"
+                    colspan="2"
+                  >
+                    <select hidden="true" id="Tipo" name="Tipo">
+                      <option selected="selected" value="Atención a clientes">
+                        Atención a clientes
+                      </option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2">
+                    <div class="as__section_content_full">
+                      <div class="pa__inter_footer prose">
+                        <p>
+                          *La Aseguradora responderá las peticiones y
+                          solicitudes de los consumidores financieros de
+                          conformidad al artículo 14 de la Ley 1755 de 2015,
+                          dentro de los quince (15) días siguientes a su
+                          recepción. Sin embargo, si se tratara de peticiones de
+                          documentos o información, esta se resolverá dentro de
+                          los diez (10) días siguientes a su recepción.
+                        </p>
+                      </div>
+                    </div>
+                    <div></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2">
+                    <div
+                      class="g-recaptcha"
+                      data-callback="recaptchaCallback"
+                      data-sitekey="6LdX4x4lAAAAAED0JcNz9gquNwSF_kbnI2TNRiUC"
+                      data-type="image"
+                    >
+                      <div style="width: 304px; height: 78px">
+                        <div>
+                          <iframe
+                            title="reCAPTCHA"
+                            width="304"
+                            height="78"
+                            role="presentation"
+                            name="a-bekl5ur1n5q5"
+                            frameborder="0"
+                            scrolling="no"
+                            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
+                            src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdX4x4lAAAAAED0JcNz9gquNwSF_kbnI2TNRiUC&amp;co=aHR0cHM6Ly9wcm90ZWNjaW9uLS1zdGFnZS0tYy5zYW5kYm94LnZmLmZvcmNlLmNvbTo0NDM.&amp;hl=en&amp;type=image&amp;v=rKbTvxTxwcw5VqzrtN-ICwWt&amp;size=normal&amp;cb=t4p9y3608lra"
+                          ></iframe>
+                        </div>
+                        <textarea
+                          id="g-recaptcha-response"
+                          name="g-recaptcha-response"
+                          class="g-recaptcha-response"
+                          style="
+                            width: 250px;
+                            height: 40px;
+                            border: 1px solid rgb(193, 193, 193);
+                            margin: 10px 25px;
+                            padding: 0px;
+                            resize: none;
+                            display: none;
+                          "
+                        ></textarea>
+                      </div>
+                      <iframe style="display: none"></iframe>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col last" colspan="2"></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
+      <div class="pbBottomButtons">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="pbTitle">&nbsp;</td>
+              <td id="pg:fm:pb:pbb2:bottom" class="pbButtonb">
+                <input
+                  id="pg:fm:pb:pbb2:btnVerify2"
+                  type="submit"
+                  name="pg:fm:pb:pbb2:btnVerify2"
+                  value="Enviar solicitud"
+                  class="hideButton2"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
     </div>
   </div>
-  <div id="pg:fm:j_id64"></div>
+  <div id="pg:fm:j_id68"></div>
 </form>

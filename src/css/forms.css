@@ -83,6 +83,20 @@
           }
         }
       }
+      &:has(.form_info_tema) {
+        tbody {
+          @apply flex-col w-full;
+          tr {
+            @apply !w-full;
+            td {
+              @apply !w-full;
+              .palert {
+                @apply mb-4;
+              }
+            }
+          }
+        }
+      }
       tr {
         td {
           @apply py-1.5;

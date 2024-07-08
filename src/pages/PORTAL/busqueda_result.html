@@ -1,0 +1,680 @@
+<extends src="portal.html" locals='{ "id": "as__home", "top":"" }'>
+  <block name="head">
+    <title>ASULADO Seguros de Vida</title>
+    <meta name="title" content="ASULADO Seguros de Vida" />
+    <meta
+      name="keywords"
+      content="Asulado seguros de vida, renta vitalicia, seguro previsional, pension anticipada"
+    />
+    <meta
+      name="description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta property="og:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="og:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:image" content="/assets/fb.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta property="twitter:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="twitter:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="twitter:image" content="/assets/fb.png" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="PORTAL/p_top_no_img.html"
+      locals='{ "cls":"inl small", "ico": "magnifying-glass", "title":"Resultado de la búsqueda", "image":"tmp_header.png", "content":""}'
+    ></include>
+
+    <div id="content" class="as__section pa__inter">
+      <div class="as__section_wrapper">
+        <div class="as__section_content_full pa__inter_content">
+          <div role="alert" class="alert">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="stroke-info shrink-0 w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <span
+              >Hemos encontrado <b>(#)</b> resultados para <b>(búsqueda)</b>
+            </span>
+          </div>
+          <div class="seacrh_result">
+            <form
+              xmlns="http://www.w3.org/1999/xhtml"
+              id="header:fm"
+              name="header:fm"
+              method="post"
+              action="https://proteccion--stage--c.sandbox.vf.force.com/apex/Search"
+              enctype="application/x-www-form-urlencoded"
+            >
+              <input type="hidden" name="header:fm" value="header:fm" />
+              <script type="text/javascript">
+                //<![CDATA[
+                if (!window.sfdcPage) {
+                  window.sfdcPage = new ApexDetailPage();
+                }
+                UserContext.initialize({
+                  ampm: ["AM", "PM"],
+                  isAccessibleMode: false,
+                  salesforceURL:
+                    "https://proteccion--stage.sandbox.my.salesforce.com",
+                  dateFormat: "d/MM/yyyy",
+                  language: "en_US",
+                  locale: "es_CO",
+                  dateTimeFormat: "d/MM/yyyy, h:mm a",
+                  labelLastModified: "1720235482000",
+                  today: "8/07/2024, 10:54 AM",
+                  userPreferences: [
+                    { index: 112, name: "HideInlineEditSplash", value: false },
+                    {
+                      index: 114,
+                      name: "OverrideTaskSendNotification",
+                      value: false,
+                    },
+                    {
+                      index: 115,
+                      name: "DefaultTaskSendNotification",
+                      value: false,
+                    },
+                    {
+                      index: 119,
+                      name: "HideUserLayoutStdFieldInfo",
+                      value: false,
+                    },
+                    { index: 116, name: "HideRPPWarning", value: false },
+                    {
+                      index: 87,
+                      name: "HideInlineSchedulingSplash",
+                      value: false,
+                    },
+                    { index: 88, name: "HideCRUCNotification", value: false },
+                    { index: 89, name: "HideNewPLESplash", value: false },
+                    { index: 90, name: "HideNewPLEWarnIE6", value: false },
+                    {
+                      index: 122,
+                      name: "HideOverrideSharingMessage",
+                      value: false,
+                    },
+                    { index: 91, name: "HideProfileILEWarn", value: false },
+                    { index: 93, name: "HideProfileElvVideo", value: false },
+                    { index: 97, name: "ShowPicklistEditSplash", value: false },
+                    { index: 92, name: "HideDataCategorySplash", value: false },
+                    { index: 128, name: "ShowDealView", value: false },
+                    {
+                      index: 129,
+                      name: "HideDealViewGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 132,
+                      name: "HideKnowledgeFirstTimeSetupMsg",
+                      value: false,
+                    },
+                    {
+                      index: 104,
+                      name: "DefaultOffEntityPermsMsg",
+                      value: false,
+                    },
+                    { index: 135, name: "HideNewCsnSplash", value: false },
+                    { index: 101, name: "HideBrowserWarning", value: false },
+                    {
+                      index: 139,
+                      name: "HideDashboardBuilderGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 140,
+                      name: "HideSchedulingGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 180,
+                      name: "HideReportBuilderGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 183,
+                      name: "HideAssociationQueueCallout",
+                      value: false,
+                    },
+                    { index: 194, name: "HideQTEBanner", value: false },
+                    { index: 270, name: "HideIDEGuidedTour", value: false },
+                    {
+                      index: 282,
+                      name: "HideQueryToolGuidedTour",
+                      value: false,
+                    },
+                    { index: 196, name: "HideCSIGuidedTour", value: false },
+                    { index: 271, name: "HideFewmetGuidedTour", value: false },
+                    { index: 272, name: "HideEditorGuidedTour", value: false },
+                    {
+                      index: 205,
+                      name: "HideApexTestGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 206,
+                      name: "HideSetupProfileHeaderTour",
+                      value: false,
+                    },
+                    {
+                      index: 207,
+                      name: "HideSetupProfileObjectsAndTabsTour",
+                      value: false,
+                    },
+                    {
+                      index: 213,
+                      name: "DefaultOffArticleTypeEntityPermMsg",
+                      value: false,
+                    },
+                    {
+                      index: 214,
+                      name: "HideSelfInfluenceGetStarted",
+                      value: false,
+                    },
+                    {
+                      index: 215,
+                      name: "HideOtherInfluenceGetStarted",
+                      value: false,
+                    },
+                    {
+                      index: 216,
+                      name: "HideFeedToggleGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 268,
+                      name: "ShowChatterTab178GuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 275,
+                      name: "HidePeopleTabDeprecationMsg",
+                      value: false,
+                    },
+                    {
+                      index: 276,
+                      name: "HideGroupTabDeprecationMsg",
+                      value: false,
+                    },
+                    {
+                      index: 224,
+                      name: "HideUnifiedSearchGuidedTour",
+                      value: false,
+                    },
+                    { index: 226, name: "ShowDevContextMenu", value: true },
+                    {
+                      index: 227,
+                      name: "HideWhatRecommenderForActivityQueues",
+                      value: false,
+                    },
+                    {
+                      index: 228,
+                      name: "HideLiveAgentFirstTimeSetupMsg",
+                      value: false,
+                    },
+                    {
+                      index: 232,
+                      name: "HideGroupAllowsGuestsMsgOnMemberWidget",
+                      value: false,
+                    },
+                    {
+                      index: 233,
+                      name: "HideGroupAllowsGuestsMsg",
+                      value: false,
+                    },
+                    { index: 234, name: "HideWhatAreGuestsMsg", value: false },
+                    { index: 235, name: "HideNowAllowGuestsMsg", value: false },
+                    {
+                      index: 236,
+                      name: "HideSocialAccountsAndContactsGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 237,
+                      name: "HideAnalyticsHomeGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 238,
+                      name: "ShowQuickCreateGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 245,
+                      name: "HideFilePageGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 250,
+                      name: "HideForecastingGuidedTour",
+                      value: false,
+                    },
+                    { index: 251, name: "HideBucketFieldGuide", value: false },
+                    {
+                      index: 263,
+                      name: "HideSmartSearchCallOut",
+                      value: false,
+                    },
+                    {
+                      index: 273,
+                      name: "ShowForecastingQuotaAttainment",
+                      value: false,
+                    },
+                    {
+                      index: 280,
+                      name: "HideForecastingQuotaColumn",
+                      value: false,
+                    },
+                    { index: 301, name: "HideManyWhoGuidedTour", value: false },
+                    { index: 298, name: "HideFileSyncBannerMsg", value: false },
+                    {
+                      index: 299,
+                      name: "HideTestConsoleGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 302,
+                      name: "HideManyWhoInlineEditTip",
+                      value: false,
+                    },
+                    {
+                      index: 303,
+                      name: "HideSetupV2WelcomeMessage",
+                      value: false,
+                    },
+                    {
+                      index: 312,
+                      name: "ForecastingShowQuantity",
+                      value: false,
+                    },
+                    {
+                      index: 313,
+                      name: "HideDataImporterIntroMsg",
+                      value: false,
+                    },
+                    {
+                      index: 314,
+                      name: "HideEnvironmentHubLightbox",
+                      value: false,
+                    },
+                    { index: 316, name: "HideSetupV2GuidedTour", value: false },
+                    {
+                      index: 317,
+                      name: "HideFileSyncMobileDownloadDialog",
+                      value: false,
+                    },
+                    {
+                      index: 322,
+                      name: "HideEnhancedProfileHelpBubble",
+                      value: false,
+                    },
+                    {
+                      index: 328,
+                      name: "ForecastingHideZeroRows",
+                      value: false,
+                    },
+                    {
+                      index: 330,
+                      name: "HideEmbeddedComponentsFeatureCallout",
+                      value: false,
+                    },
+                    {
+                      index: 341,
+                      name: "HideDedupeMatchResultCallout",
+                      value: false,
+                    },
+                    { index: 340, name: "HideS1BrowserUI", value: true },
+                    { index: 346, name: "HideS1Banner", value: false },
+                    {
+                      index: 358,
+                      name: "HideEmailVerificationAlert",
+                      value: false,
+                    },
+                    { index: 354, name: "HideLearningPathModal", value: false },
+                    {
+                      index: 359,
+                      name: "HideAtMentionsHelpBubble",
+                      value: false,
+                    },
+                    {
+                      index: 368,
+                      name: "LightningExperiencePreferred",
+                      value: true,
+                    },
+                    { index: 373, name: "PreviewLightning", value: false },
+                    { index: 281, name: "HideMSPPopup", value: false },
+                  ],
+                  networkId: "",
+                  uiTheme: "Theme3",
+                  uiSkin: "Theme3",
+                  userName: "juanosorio@melborp.co.stage",
+                  userId: "005O8000002QLUJ",
+                  isCurrentlySysAdminSU: false,
+                  renderMode: "RETRO",
+                  startOfWeek: "1",
+                  vfDomainPattern:
+                    "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
+                  auraDomain: "proteccion--stage.sandbox.lightning.force.com",
+                  useNativeAlertConfirmPrompt: false,
+                  orgPreferences: [
+                    { index: 257, name: "TabOrganizer", value: true },
+                    { index: 113, name: "GroupTasks", value: true },
+                  ],
+                  siteUrlPrefix: "",
+                  isDefaultNetwork: true,
+                  timeFormat: "h:mm a",
+                });
+                //]]>
+              </script>
+              <div class="apexp">
+                <div
+                  id="header:fm:pb"
+                  class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
+                >
+                  <script type="text/javascript">
+                    //<![CDATA[
+                    function twistSection(elem, sectionId) {
+                      var parentDiv = elem;
+                      var twisty = elem;
+                      while (parentDiv.tagName != "DIV") {
+                        parentDiv = parentDiv.parentNode;
+                      }
+                      if (
+                        elem.tagName === "DIV" &&
+                        elem.attributes["data-twistyimgid"] !== undefined
+                      ) {
+                        twisty = document.getElementById(
+                          elem.attributes["data-twistyimgid"].value
+                        );
+                      }
+                      var div = parentDiv.nextSibling;
+                      var elemWasOn = false;
+                      if (div.style.display != "none") {
+                        div.style.display = "none";
+                        twisty.className = "showListButton";
+                        twisty.alt = "Show Section - " + twisty.name;
+                        elem.title = twisty.alt;
+                        elemWasOn = true;
+                      } else {
+                        div.style.display = "block";
+                        twisty.className = "hideListButton";
+                        twisty.alt = "Hide Section - " + twisty.name;
+                        elem.title = twisty.alt;
+                      }
+                      return !elemWasOn;
+                    }
+                    var registeredSections = new Array();
+                    function registerTwistableSection(headerId, mainTableId) {
+                      var obj = new Object();
+                      obj.headerId = headerId;
+                      obj.mainTableId = mainTableId;
+                      registeredSections[registeredSections.length] = obj;
+                    }
+                    function twistAllSections(on) {
+                      for (var i = 0; i < registeredSections.length; i++) {
+                        var obj = registeredSections[i];
+                        var img;
+                        img = document.getElementById("img_" + obj.headerId);
+                        if (on && "showListButton" == img.className) {
+                          twistSection(img, obj.headerId, obj.mainTableId);
+                        } else if (!on && "hideListButton" == img.className) {
+                          twistSection(img, obj.headerId, obj.mainTableId);
+                        }
+                      }
+                    }
+                    function toggleSection(headerId, on) {
+                      var sectionHead = document.getElementById(
+                        "head_" + headerId + "_header_fm_pb"
+                      );
+                      var body = sectionHead.nextSibling;
+                      var disp = on ? "block" : "none";
+                      sectionHead.style.display = disp;
+                      body.style.display = disp;
+                    }
+                    function registerTwistableSections_header_fm_pb() {
+                      registerTwistableSection(
+                        "header_fm_pb_detalleCase",
+                        "header_fm_pb"
+                      );
+                      registerTwistableSection(
+                        "header_fm_pb_detalleNov",
+                        "header_fm_pb"
+                      );
+                      registerTwistableSection(
+                        "header_fm_pb_detalleArt",
+                        "header_fm_pb"
+                      );
+                      registerTwistableSection(
+                        "header_fm_pb_hay",
+                        "header_fm_pb"
+                      );
+                      registerTwistableSection(
+                        "header_fm_pb_noHay",
+                        "header_fm_pb"
+                      );
+                    }
+                    registerTwistableSections_header_fm_pb();
+                    //]]>
+                  </script>
+                  <div class="pbBody">
+                    <div id="header:fm:pb:detalleCase">
+                      <div class="pbSubsection">
+                        <table
+                          class="detailList"
+                          border="0"
+                          cellpadding="0"
+                          cellspacing="0"
+                        >
+                          <tbody>
+                            <tr>
+                              <th
+                                class="labelCol vfLabelColTextWrap first"
+                                scope="row"
+                              >
+                                <label
+                                  for="header:fm:pb:detalleCase:j_id7:number"
+                                  >Número de caso</label
+                                >
+                              </th>
+                              <td class="dataCol first">
+                                <span id="header:fm:pb:detalleCase:j_id7:number"
+                                  >NOV000322</span
+                                >
+                              </td>
+                              <th
+                                class="labelCol vfLabelColTextWrap first"
+                                scope="row"
+                              >
+                                <label for="header:fm:pb:detalleCase:j_id9:cas"
+                                  >Tipo de caso</label
+                                >
+                              </th>
+                              <td class="dataCol first">
+                                <span
+                                  id="header:fm:pb:detalleCase:j_id9:cas"
+                                ></span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th
+                                class="labelCol vfLabelColTextWrap"
+                                scope="row"
+                              >
+                                <label
+                                  for="header:fm:pb:detalleCase:j_id11:tema"
+                                  >Tema</label
+                                >
+                              </th>
+                              <td class="dataCol">
+                                <span
+                                  id="header:fm:pb:detalleCase:j_id11:tema"
+                                ></span>
+                              </td>
+                              <th
+                                class="labelCol vfLabelColTextWrap"
+                                scope="row"
+                              >
+                                <label
+                                  for="header:fm:pb:detalleCase:j_id13:detalle"
+                                  >Detalle</label
+                                >
+                              </th>
+                              <td class="dataCol">
+                                <span
+                                  id="header:fm:pb:detalleCase:j_id13:detalle"
+                                ></span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th
+                                class="labelCol vfLabelColTextWrap"
+                                scope="row"
+                              >
+                                <label
+                                  for="header:fm:pb:detalleCase:j_id15:medio"
+                                  >Medio de respuesta</label
+                                >
+                              </th>
+                              <td class="dataCol">
+                                <span id="header:fm:pb:detalleCase:j_id15:medio"
+                                  >Correo electrónico</span
+                                >
+                              </td>
+                              <th
+                                class="labelCol vfLabelColTextWrap"
+                                scope="row"
+                              >
+                                <label
+                                  for="header:fm:pb:detalleCase:j_id17:origen"
+                                  >Origen del caso</label
+                                >
+                              </th>
+                              <td class="dataCol">
+                                <span
+                                  id="header:fm:pb:detalleCase:j_id17:origen"
+                                  >Telefónico</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <th
+                                class="labelCol vfLabelColTextWrap"
+                                scope="row"
+                              >
+                                <label
+                                  for="header:fm:pb:detalleCase:j_id19:tipo"
+                                  >Tipo de Solicitud</label
+                                >
+                              </th>
+                              <td class="dataCol">
+                                <span id="header:fm:pb:detalleCase:j_id19:tipo"
+                                  >Novedad Valorable</span
+                                >
+                              </td>
+                              <th
+                                class="labelCol vfLabelColTextWrap"
+                                scope="row"
+                              >
+                                <label
+                                  for="header:fm:pb:detalleCase:j_id21:estado"
+                                  >Estado</label
+                                >
+                              </th>
+                              <td class="dataCol">
+                                <span
+                                  id="header:fm:pb:detalleCase:j_id21:estado"
+                                  >Aprobado</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <th
+                                class="labelCol vfLabelColTextWrap"
+                                scope="row"
+                              >
+                                <label
+                                  for="header:fm:pb:detalleCase:j_id23:creacion"
+                                  >Fecha de creación</label
+                                >
+                              </th>
+                              <td class="dataCol">
+                                <span
+                                  id="header:fm:pb:detalleCase:j_id23:creacion"
+                                  >Tue May 02 19:24:38 GMT 2023</span
+                                >
+                              </td>
+                              <th
+                                class="labelCol vfLabelColTextWrap"
+                                scope="row"
+                              >
+                                <label
+                                  for="header:fm:pb:detalleCase:j_id25:cierre"
+                                  >Fecha de cierre</label
+                                >
+                              </th>
+                              <td class="dataCol">
+                                <span
+                                  id="header:fm:pb:detalleCase:j_id25:cierre"
+                                  >Tue May 02 19:48:43 GMT 2023</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="dataCol last" colspan="2">
+                                <input
+                                  id="header:fm:pb:detalleCase:btnvolver"
+                                  type="submit"
+                                  name="header:fm:pb:detalleCase:btnvolver"
+                                  value="Regresar"
+                                />
+                              </td>
+                              <td class="labelCol empty">&nbsp;</td>
+                              <td class="dataCol empty">&nbsp;</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pbFooter secondaryPalette">
+                    <div class="bg"></div>
+                  </div>
+                </div>
+              </div>
+              <div id="header:fm:j_id403"></div>
+              <script type="text/javascript">
+                //<![CDATA[
+                SfdcApp &&
+                  SfdcApp.Visualforce &&
+                  SfdcApp.Visualforce.VSManager &&
+                  SfdcApp.Visualforce.VSManager.vfPrepareForms(["header:fm"]);
+                //]]>
+              </script>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <include src="PORTAL/p_ayuda.html"></include>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

@@ -1,0 +1,100 @@
+<extends
+  src="portal.html"
+  locals='{ "id": "as__home",
+"top":"" }'
+>
+  <block name="head">
+    <title>ASULADO Seguros de Vida</title>
+    <meta name="title" content="ASULADO Seguros de Vida" />
+    <meta
+      name="keywords"
+      content="Asulado seguros de vida, renta vitalicia, seguro previsional, pension anticipada"
+    />
+    <meta
+      name="description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta property="og:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="og:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:image" content="/assets/fb.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta property="twitter:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="twitter:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="twitter:image" content="/assets/fb.png" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="PORTAL/p_top.html"
+      locals='{
+        "cls":"",
+        "ico":"user-pen",
+        "title":"Actualización de datos",
+        "image":"INTERNA_ACTUALIZACION.webp",
+        "content":"¡Para nosotros es muy importante estar al día con tu información! Aquí puedes actualizar los datos más relevantes."
+     }'
+    ></include>
+
+    <div id="servicios" class="as__section pa__options">
+      <div class="as__section_wrapper">
+        <div class="as__section_content_full pa__option">
+          <ul>
+            <include
+              src="PORTAL/p_link_servicio.html"
+              locals='{ "cls":"",
+              "link":"/PORTAL/3_actualizacion_documentos.html",
+              "ico": "file-invoice",  "title":"Actualización de documentos de identidad",
+              "image":"tmp_servicio.png",
+              "content":"¡Mantén tu información al día! Tener tus documentos de identidad nos ayuda a protegerte y a garantizar un excelente servicio"}'
+            ></include>
+
+            <include
+              src="PORTAL/p_link_servicio.html"
+              locals='{ "cls":"active",
+              "link":"/PORTAL/3_actualizacion_contacto.html",
+              "ico": "user-pen",  "title":"Actualización de datos de contacto",
+              "image":"tmp_servicio.png",
+              "content":"¡Aseguremos una buena comunicación! Tener actualizada tu información nos ayuda a ofrecerte la mejor atención"
+            }'
+            ></include>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="content" class="as__section pa__inter">
+      <div class="as__section_wrapper">
+        <div class="as__section_content_full pa__inter_content">
+          <div class="pa_co_header">
+            <h3>Actualización de datos de contacto</h3>
+            <p>
+              Procura actualizar paulatinamente todos los datos a continuación.
+              Una vez termines, haz clic en “confirmar”. Si deseas modificar
+              algún dato, haz clic en “editar datos”. ¡Recuerda que para
+              nosotros es vital contar con toda tu información al día!
+            </p>
+          </div>
+          <div class="pa_co_form formpp user_form">
+            <include src="PORTAL/3_actualizacion/2_contacto_2.html"></include>
+          </div>
+          <div class="pa_co_footer prose"></div>
+        </div>
+        <div class="as__section_content_full">
+          <div class="pa__inter_footer prose"></div>
+        </div>
+      </div>
+    </div>
+
+    <include src="PORTAL/p_ayuda.html"></include>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

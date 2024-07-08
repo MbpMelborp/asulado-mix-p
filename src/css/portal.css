@@ -1108,6 +1108,111 @@ body {
       &:focus-within {
         @apply border-azul-bright2 bg-alpha-10;
       }
+      &:has(.news),
+      .news {
+        @apply prose-lg;
+        h1 {
+          @apply text-azul-bold text-4xl font-je flex gap-3;
+          &::before {
+            content: "\f061";
+            font-family: "Font Awesome 5 Pro";
+            @apply text-azul-bright2;
+          }
+          & + img {
+            /* @apply !max-w-none; */
+          }
+        }
+        h2 {
+          @apply mt-0 text-3xl !text-azul-mid font-je mb-4;
+        }
+        h4 {
+          @apply mt-0 text-azul-bold !text-2xl font-je mb-4;
+        }
+        h3 {
+          @apply mt-0 text-azul-bold text-xl font-je mb-4;
+        }
+        p {
+          @apply text-azul-dark text-lg leading-tight;
+        }
+        img {
+          @apply max-w-4xl w-full my-4 mx-auto rounded-xl border border-alpha-30;
+        }
+
+        li {
+          @apply list-inside py-2 list-image-star-xs;
+          a {
+            @apply inline-block pb-1 text-base text-azul-bold underline underline-offset-2 hover:text-azul-dark;
+          }
+        }
+        ul.link {
+          @apply pl-0;
+          li {
+            @apply !list-none !list-image-none !my-0;
+          }
+        }
+        table {
+          &.detailList {
+            @apply w-full;
+            thead {
+              @apply text-base text-azul-dark uppercase bg-gray-50;
+              tr {
+                th {
+                  @apply border-b border-azul-bright2 text-azul-bold text-base font-normal text-left;
+                }
+              }
+            }
+            tbody {
+              tr {
+                @apply flex flex-col gap-2;
+                td {
+                  span {
+                    @apply flex flex-col gap-1 w-full;
+                  }
+                  .palert {
+                    @apply alert w-full alert-warning leading-none mb-4 !flex flex-row gap-2;
+                    .palerts {
+                      @apply flex gap-4 flex-row items-center;
+                      b {
+                        @apply text-xl;
+                      }
+                    }
+                  }
+                }
+              }
+              table.list {
+                tr {
+                  @apply border-b border-slate-300 table-row;
+
+                  &:nth-child(2n) {
+                    @apply bg-alpha-20;
+                  }
+
+                  &:has(td:empty) {
+                    @apply hidden;
+                  }
+                  td {
+                    @apply py-2 px-1;
+                    &.dataCol {
+                      &:has(.seacrh_result:empty),
+                      &:has(.search_result:empty) {
+                        @apply hidden;
+                      }
+                    }
+                    &:last-child {
+                      @apply text-azul-bold font-bold flex gap-2 items-center justify-end;
+                      &::after {
+                        content: "\f061";
+                        font-family: "Font Awesome 5 Pro";
+                        @apply pl-1;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
       .seacrh_result,
       .search_result {
         @apply flex flex-col gap-2 w-full;
@@ -1231,110 +1336,6 @@ body {
               @apply lg:grid-cols-1;
               img {
                 @apply lg:hidden 2xl:block;
-              }
-            }
-          }
-        }
-      }
-      .news {
-        @apply prose-lg;
-        h1 {
-          @apply text-azul-bold text-4xl font-je flex gap-3;
-          &::before {
-            content: "\f061";
-            font-family: "Font Awesome 5 Pro";
-            @apply text-azul-bright2;
-          }
-          & + img {
-            /* @apply !max-w-none; */
-          }
-        }
-        h2 {
-          @apply mt-0 text-3xl !text-azul-mid font-je mb-4;
-        }
-        h4 {
-          @apply mt-0 text-azul-bold !text-2xl font-je mb-4;
-        }
-        h3 {
-          @apply mt-0 text-azul-bold text-xl font-je mb-4;
-        }
-        p {
-          @apply text-azul-dark text-lg leading-tight;
-        }
-        img {
-          @apply max-w-4xl w-full my-4 mx-auto rounded-xl border border-alpha-30;
-        }
-
-        li {
-          @apply list-inside py-2 list-image-star-xs;
-          a {
-            @apply inline-block pb-1 text-base text-azul-bold underline underline-offset-2 hover:text-azul-dark;
-          }
-        }
-        ul.link {
-          @apply pl-0;
-          li {
-            @apply !list-none !list-image-none !my-0;
-          }
-        }
-        table {
-          &.detailList {
-            @apply w-full;
-            thead {
-              @apply text-base text-azul-dark uppercase bg-gray-50;
-              tr {
-                th {
-                  @apply border-b border-azul-bright2 text-azul-bold text-base font-normal text-left;
-                }
-              }
-            }
-            tbody {
-              tr {
-                @apply flex flex-col gap-2;
-                td {
-                  span {
-                    @apply flex flex-col gap-1 w-full;
-                  }
-                  .palert {
-                    @apply alert w-full alert-warning leading-none mb-4 !flex flex-row gap-2;
-                    .palerts {
-                      @apply flex gap-4 flex-row items-center;
-                      b {
-                        @apply text-xl;
-                      }
-                    }
-                  }
-                }
-              }
-              table.list {
-                tr {
-                  @apply border-b border-slate-300 table-row;
-
-                  &:nth-child(2n) {
-                    @apply bg-alpha-20;
-                  }
-
-                  &:has(td:empty) {
-                    @apply hidden;
-                  }
-                  td {
-                    @apply py-2 px-1;
-                    &.dataCol {
-                      &:has(.seacrh_result:empty),
-                      &:has(.search_result:empty) {
-                        @apply hidden;
-                      }
-                    }
-                    &:last-child {
-                      @apply text-azul-bold font-bold flex gap-2 items-center justify-end;
-                      &::after {
-                        content: "\f061";
-                        font-family: "Font Awesome 5 Pro";
-                        @apply pl-1;
-                      }
-                    }
-                  }
-                }
               }
             }
           }

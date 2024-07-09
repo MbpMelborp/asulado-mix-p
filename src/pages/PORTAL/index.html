@@ -325,7 +325,7 @@
               <h2>Artículos de interés</h2>
             </div>
           </div>
-          <ul class="servicios_articulos_item">
+          <!-- <ul class="servicios_articulos_item">
             <include
               src="PORTAL/p_home_articulo.html"
               locals='{ "title":" ¿Cómo ahorrar al mercar? Tips para aprovechar tu mesada pensional ",
@@ -350,7 +350,65 @@
               "content":"Llevar un control de tus finanzas personales es fundamental para aumentar tu bienestar financiero."
             }'
             ></include>
-          </ul>
+            <include
+              src="PORTAL/p_home_articulo.html"
+              locals='{ "title":" Tips para calcular tus gastos mensuales: crea presupuestos para manejar mejor tu dinero.",
+            "image":"blog/p_3_1.webp",
+            "num": 3,
+            "content":"Llevar un control de tus finanzas personales es fundamental para aumentar tu bienestar financiero."
+          }'
+            ></include>
+          </ul> -->
+          <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <li class="glide__slide">
+                  <include
+                    src="PORTAL/p_home_articulo.html"
+                    locals='{ "title":" ¿Cómo ahorrar al mercar? Tips para aprovechar tu mesada pensional ",
+                  "image":"blog/p_1_1.webp",
+                  "num": 1,
+                  "content":" Cuando encuentras estrategias para ahorrar al mercar consigues disminuir tus gastos, mejorar tu calidad de vida y tener un dinero extra para otros objetivos, como un gustico o un ahorro para emergencias. "
+                }'
+                  ></include>
+                </li>
+                <li class="glide__slide">
+                  <include
+                    src="PORTAL/p_home_articulo.html"
+                    locals='{ "title":"5 consejos para aprovechar el seguro previsional",
+                  "image":"blog/p_2_1.webp",
+                  "num": 2,
+                  "content":"Laboris in officia irure duis irure aliqua do magna aliqua consectetur. Adipisicing occaecat qui ut voluptate ut Lorem in culpa est."
+                }'
+                  ></include>
+                </li>
+                <li class="glide__slide">
+                  <include
+                    src="PORTAL/p_home_articulo.html"
+                    locals='{ "title":" Tips para calcular tus gastos mensuales: crea presupuestos para manejar mejor tu dinero.",
+                "image":"blog/p_3_1.webp",
+                "num": 3,
+                "content":"Llevar un control de tus finanzas personales es fundamental para aumentar tu bienestar financiero."
+              }'
+                  ></include>
+                </li>
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <button
+                class="glide__arrow glide__arrow--left"
+                data-glide-dir="<"
+              >
+                <i class="fa-regular fa-arrow-left"></i>
+              </button>
+              <button
+                class="glide__arrow glide__arrow--right"
+                data-glide-dir=">"
+              >
+                <i class="fa-regular fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

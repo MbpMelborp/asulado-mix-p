@@ -30,6 +30,7 @@
   "dependencies": {
     "@egjs/flicking": "^4.11.0",
     "@egjs/flicking-plugins": "^4.7.1",
+    "@glidejs/glide": "^3.6.2",
     "@studio-freight/lenis": "^1.0.27",
     "dayjs-business-days2": "^1.2.2",
     "del": "^7.1.0",

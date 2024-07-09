@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { setCalendar } from "./calendar";
+import Glide from "@glidejs/glide";
 // import { Grid } from "gridjs";
 function waitForElm(selector) {
   return new Promise((resolve) => {
@@ -21,7 +22,21 @@ function waitForElm(selector) {
     });
   });
 }
-
+if (document.getElementsByClassName("glide")) {
+  new Glide(".glide", {
+    type: "carousel",
+    focusAt: "center",
+    perView: 3,
+    breakpoints: {
+      1024: {
+        perView: 2,
+      },
+      600: {
+        perView: 1,
+      },
+    },
+  }).mount();
+}
 const id_login = "pa__login";
 const pa__login = document.getElementById(id_login);
 

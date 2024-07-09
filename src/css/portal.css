@@ -1232,6 +1232,9 @@ body {
               }
               td {
                 @apply text-left w-auto p-4 border-b border-b-alpha-20;
+                &:has(input[type="submit"]) {
+                  @apply !w-full table-row;
+                }
                 input[type="submit"] {
                   @apply grow-0 btn btn-secondary border-azul-dark !bg-azul-light !px-10 text-azul-dark hover:!bg-azul-20;
                 }

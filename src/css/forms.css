@@ -286,6 +286,9 @@
 
   .pbBottomButtons {
     @apply mb-2;
+    &:has(td:not([id]):not([class])) {
+      @apply hidden;
+    }
     .pbTitle {
       @apply hidden;
     }

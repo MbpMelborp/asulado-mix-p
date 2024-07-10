@@ -902,7 +902,7 @@ body {
 .glide__slides {
   @apply !items-stretch;
   .glide__slide {
-    @apply h-full flex-1;
+    @apply h-full;
   }
 }
 .service_link {

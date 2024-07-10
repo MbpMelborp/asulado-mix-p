@@ -22,21 +22,7 @@ function waitForElm(selector) {
     });
   });
 }
-if (document.getElementsByClassName("glide")) {
-  new Glide(".glide", {
-    type: "carousel",
-    focusAt: "center",
-    perView: 3,
-    breakpoints: {
-      1024: {
-        perView: 2,
-      },
-      600: {
-        perView: 1,
-      },
-    },
-  }).mount();
-}
+
 const id_login = "pa__login";
 const pa__login = document.getElementById(id_login);
 
@@ -666,4 +652,20 @@ function addStyles(type = 1) {
         pb.remove();
     });
   });
+}
+
+if (document.querySelectorAll(".glide").length > 0) {
+  new Glide(".glide", {
+    type: "carousel",
+    focusAt: "center",
+    perView: 3,
+    breakpoints: {
+      1024: {
+        perView: 2,
+      },
+      600: {
+        perView: 1,
+      },
+    },
+  }).mount();
 }

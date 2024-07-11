@@ -318,7 +318,7 @@ body {
         }
 
         input {
-          @apply flex-1 w-auto bg-[#47D1FF] placeholder:text-white text-white text-sm font-light p-0 xl:border-none border-b border-b-white outline-none py-2 focus:bg-azul-bold transition-colors;
+          @apply flex-1 w-auto bg-[#47D1FF] placeholder:text-white text-white text-sm font-light p-0 xl:border-none border-b border-b-white outline-none py-2 focus:bg-azul-bold transition-colors !rounded-full active:bg-azul-bold;
         }
         button {
           @apply outline-none flex h-8 w-8 items-center justify-center rounded-full xl:bg-[#08C1FE] text-sm text-white bg-azul-dark;
@@ -1152,13 +1152,16 @@ body {
         li {
           @apply list-inside py-2 list-image-star-xs;
           a {
-            @apply inline-block pb-1 text-base text-azul-bold underline underline-offset-2 hover:text-azul-dark;
+            @apply hyphens-auto inline-block pb-1 text-base text-azul-bold underline underline-offset-2 hover:text-azul-dark;
           }
         }
         ul.link {
           @apply pl-0;
           li {
             @apply !list-none !list-image-none !my-0;
+            a {
+              @apply hyphens-auto;
+            }
           }
         }
         table {

@@ -5,7 +5,6 @@ const { rimraf, rimrafSync, native, nativeSync } = require("rimraf");
 const cdn = '"https://asulado-cdn-mbp.s3.amazonaws.com/assets';
 const cdn_final = '"{!$Label.CdnAsulado}/assets'; //'"https://d2d3tju83rs4vu.cloudfront.net/assets';
 const cdn_qa = '"https://dw2fbj22ajabu.cloudfront.net/assets';
-
 const config_html = {
   partialRoot: "./src/partials",
   layoutRoot: "./src/layouts",

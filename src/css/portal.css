@@ -1148,13 +1148,23 @@ body {
         img {
           @apply max-w-4xl w-full my-4 mx-auto rounded-xl border border-alpha-30;
         }
-
-        li {
-          @apply list-inside py-2 list-image-star-xs;
-          a {
-            @apply hyphens-auto inline-block pb-1 text-base text-azul-bold underline underline-offset-2 hover:text-azul-dark;
+        ul {
+          li {
+            @apply list-inside py-2 list-image-star-xs;
+            a {
+              @apply hyphens-auto inline-block pb-1 text-base text-azul-bold underline underline-offset-2 hover:text-azul-dark;
+            }
           }
         }
+        ol {
+          li {
+            @apply list-inside py-2 list-decimal;
+            a {
+              @apply hyphens-auto inline-block pb-1 text-base text-azul-bold underline underline-offset-2 hover:text-azul-dark;
+            }
+          }
+        }
+
         ul.link {
           @apply pl-0;
           li {
@@ -1164,60 +1174,83 @@ body {
             }
           }
         }
-        table {
-          &.detailList {
-            @apply w-full;
-            thead {
-              @apply text-base text-azul-dark uppercase bg-gray-50;
-              tr {
-                th {
-                  @apply border-b border-azul-bright2 text-azul-bold text-base font-normal text-left;
-                }
+        table.info {
+          @apply table table-zebra mx-auto w-full max-w-lg text-center;
+          thead {
+            tr {
+              td {
+                @apply text-azul-dark text-base font-je font-semibold;
+              }
+              th {
+                @apply text-azul-dark text-base font-je font-semibold;
               }
             }
-            tbody {
-              tr {
-                @apply flex flex-col gap-2;
-                td {
-                  span {
-                    @apply flex flex-col gap-1 w-full;
+          }
+          td {
+          }
+          th {
+            @apply text-azul-dark text-base font-je font-semibold;
+          }
+          tr:nth-child(2n) {
+            @apply !bg-alpha-20;
+          }
+        }
+        table {
+          &:has(.detailList) {
+            &.detailList {
+              @apply w-full;
+              thead {
+                @apply text-base text-azul-dark uppercase bg-gray-50;
+                tr {
+                  th {
+                    @apply border-b border-azul-bright2 text-azul-bold text-base font-normal text-left;
                   }
-                  .palert {
-                    @apply alert w-full alert-warning leading-none mb-4 !flex flex-row gap-2;
-                    .palerts {
-                      @apply flex gap-4 flex-row items-center;
-                      b {
-                        @apply text-xl;
+                }
+              }
+              tbody {
+                tr {
+                  @apply flex flex-col gap-2;
+                  td {
+                    span {
+                      @apply flex flex-col gap-1 w-full;
+                    }
+                    .palert {
+                      @apply alert w-full alert-warning leading-none mb-4 !flex flex-row gap-2;
+                      .palerts {
+                        @apply flex gap-4 flex-row items-center;
+                        b {
+                          @apply text-xl;
+                        }
                       }
                     }
                   }
                 }
-              }
-              table.list {
-                tr {
-                  @apply border-b border-slate-300 table-row;
+                table.list {
+                  tr {
+                    @apply border-b border-slate-300 table-row;
 
-                  &:nth-child(2n) {
-                    @apply bg-alpha-20;
-                  }
-
-                  &:has(td:empty) {
-                    @apply hidden;
-                  }
-                  td {
-                    @apply py-2 px-1;
-                    &.dataCol {
-                      &:has(.seacrh_result:empty),
-                      &:has(.search_result:empty) {
-                        @apply hidden;
-                      }
+                    &:nth-child(2n) {
+                      @apply bg-alpha-20;
                     }
-                    &:last-child {
-                      @apply text-azul-bold font-bold flex gap-2 items-center justify-end;
-                      &::after {
-                        content: "\f061";
-                        font-family: "Font Awesome 5 Pro";
-                        @apply pl-1;
+
+                    &:has(td:empty) {
+                      @apply hidden;
+                    }
+                    td {
+                      @apply py-2 px-1;
+                      &.dataCol {
+                        &:has(.seacrh_result:empty),
+                        &:has(.search_result:empty) {
+                          @apply hidden;
+                        }
+                      }
+                      &:last-child {
+                        @apply text-azul-bold font-bold flex gap-2 items-center justify-end;
+                        &::after {
+                          content: "\f061";
+                          font-family: "Font Awesome 5 Pro";
+                          @apply pl-1;
+                        }
                       }
                     }
                   }

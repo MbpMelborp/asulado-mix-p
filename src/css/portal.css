@@ -169,19 +169,19 @@ body {
       }
     }
     nav {
-      @apply flex-col h-[100svh] py-12;
+      @apply flex-col h-[100svh] py-0;
       .as__nav_wrap {
         @apply w-full flex-col items-center justify-between gap-4 lg:gap-x-0;
         &.h_menu {
-          @apply h-[70svh];
+          @apply h-[100svh];
         }
         .as__logo {
           @apply hidden;
         }
         .as__nav_links {
-          @apply h-[80%];
+          @apply h-[100%] my-0 py-0;
           .as__nav_links_ppal_li {
-            @apply my-auto;
+            @apply my-0;
             a {
               @apply text-xl;
             }
@@ -900,9 +900,12 @@ body {
   }
 }
 .glide__slides {
-  @apply !items-stretch;
+  @apply !items-stretch justify-stretch;
   .glide__slide {
-    @apply h-full;
+    @apply h-full xl:min-h-[32rem] md:min-h-[24rem] lg:min-h-[28rem];
+    .service_link {
+      @apply h-full xl:min-h-[32rem] md:min-h-[24rem] lg:min-h-[28rem];
+    }
   }
 }
 .service_link {
@@ -1058,7 +1061,7 @@ body {
     @apply w-full flex flex-wrap gap-4 items-stretch justify-center;
     .service_link {
       /* md:max-w-[50%] lg:max-w-[calc(33%-12px)] xl:max-w-[calc(25%-12px)] */
-      @apply flex-1 flex-shrink-0 w-full min-w-80 bg-white border-alpha-30 transition-colors ease-in-out min-h-32 border;
+      @apply flex-1 flex-shrink-0 w-full min-w-80 bg-white border-alpha-30 transition-colors ease-in-out min-h-60 border h-full self-stretch flex flex-col;
       h3 {
         @apply bg-transparent;
       }

@@ -658,6 +658,7 @@ if (document.querySelectorAll(".glide").length > 0) {
   new Glide(".glide", {
     type: "carousel",
     focusAt: "center",
+    autoheight: true,
     perView: 3,
     breakpoints: {
       1024: {

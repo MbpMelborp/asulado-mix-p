@@ -1406,9 +1406,9 @@ body {
 .alert {
   @apply bg-alpha-18;
   &.alert-success {
-    @apply !bg-green-200 border-green-500 text-green-700 text-lg;
+    @apply !bg-alpha-20 border-azul-50 text-azul-dark text-lg;
     i {
-      @apply text-green-800 text-2xl;
+      @apply text-azul-40 text-2xl;
     }
   }
 }

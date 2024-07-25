@@ -1405,6 +1405,12 @@ body {
 }
 .alert {
   @apply bg-alpha-18;
+  &.alert-success {
+    @apply !bg-green-200 border-green-500 text-green-700 text-lg;
+    i {
+      @apply text-green-800 text-2xl;
+    }
+  }
 }
 
 .pa__forms {

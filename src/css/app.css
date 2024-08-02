@@ -2512,7 +2512,7 @@ body {
     @apply flex h-7 w-7 items-center justify-center rounded-full bg-azul-bright2 text-lg text-white;
   }
   p {
-    @apply text-azul-bold leading-tight max-w-4xl text-lg;
+    @apply text-azul-bold leading-tight text-lg;
   }
 }
 .as__educa {

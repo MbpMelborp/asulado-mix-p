@@ -81,11 +81,9 @@
 .__className_bd9979 {
   font-family: "__jeko_bd9979";
 }
-
 :root {
   --font-avenir: "__avenir_d0bd6f";
   --font-je: "__jeko_bd9979";
-
   --bg-piso-1: radial-gradient(
     54.57% 100% at 54.57% 0%,
     #d5e8f6 0%,

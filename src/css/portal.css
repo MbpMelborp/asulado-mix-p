@@ -142,7 +142,7 @@ body {
 .as__section {
   @apply w-full;
   .as__section_wrapper {
-    @apply w-full px-6  2xl:container 2xl:mx-auto;
+    @apply w-full px-3 md:px-6  2xl:container 2xl:mx-auto;
     &.full {
       @apply px-2 md:px-8;
     }
@@ -1116,7 +1116,7 @@ body {
       }
     }
     .pa__inter_content {
-      @apply flex flex-col gap-2 bg-white border border-alpha-15 rounded-3xl px-8 py-8 text-azul-dark transition-colors ease-in-out duration-300;
+      @apply flex flex-col gap-2 bg-white border border-alpha-15 rounded-3xl px-2 md:px-8 py-8 text-azul-dark transition-colors ease-in-out duration-300;
       &:focus-within {
         @apply border-azul-bright2 bg-alpha-10;
       }

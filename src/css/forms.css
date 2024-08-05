@@ -103,7 +103,9 @@
       tr {
         td {
           @apply py-1.5;
-
+          input {
+            @apply md:w-auto w-full;
+          }
           fieldset.form_info_tema {
             legend {
               @apply flex gap-4 text-azul-bold text-xl font-je mb-4;
@@ -625,10 +627,10 @@
           @apply hidden;
         }
         &:has(legend) {
-          @apply w-8/12 !mt-8 border-t-alpha-30 border-t pt-2;
+          @apply w-full md:w-8/12 md:!mt-8 md:border-t-alpha-30 md:border-t pt-2;
         }
         &:has(input[type="submit"]) {
-          @apply w-4/12 !mt-8 border-t-alpha-30 border-t pt-2;
+          @apply w-full md:w-4/12 md:!mt-8 md:border-t-alpha-30 md:border-t pt-2;
         }
         &:has(.palert) {
           @apply !w-full;
@@ -641,7 +643,7 @@
         @apply border-red-500;
 
         input[type="submit"] {
-          @apply !py-2 !ml-auto !w-auto;
+          @apply !py-2 !ml-auto w-full md:!w-auto;
         }
         legend {
           @apply text-azul-bold text-xl font-semibold;

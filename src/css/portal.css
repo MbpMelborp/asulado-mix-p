@@ -1759,8 +1759,12 @@ body {
 }
 
 #tabs_nov {
+  @apply md:grid flex flex-col;
+  .tab {
+    @apply w-full md:w-auto;
+  }
   .tab-active {
-    @apply bg-transparent bg-gradient-to-b from-white to-transparent;
+    @apply bg-azul-20 md:bg-transparent md:bg-gradient-to-b md:from-white md:to-transparent;
   }
   span {
     @apply inline;

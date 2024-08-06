@@ -299,7 +299,7 @@
   }
 
   .pbBottomButtons {
-    @apply mb-2;
+    @apply mb-2 md:!w-1/2 !w-full;
     &:has(td:not([id]):not([class])) {
       @apply hidden;
     }
@@ -313,8 +313,9 @@
       }
     }
     .pbButtonb {
+      @apply flex flex-col md:flex-row md:justify-between w-full md:w-auto;
       input[type="submit"] {
-        @apply btn-as-primary;
+        @apply btn-as-primary !w-full md:!w-auto;
         &[value="Cancelar"],
         &[value="Regresar"] {
           @apply btn-as-secondary;
@@ -517,9 +518,9 @@
         @apply w-full flex-auto;
       }
       .pbBottomButtons {
-        @apply flex-1 px-2;
+        @apply md:flex-1 px-2;
         input {
-          @apply w-full;
+          @apply !w-full;
         }
       }
     }

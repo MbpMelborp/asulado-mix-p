@@ -670,3 +670,20 @@ if (document.querySelectorAll(".glide").length > 0) {
     },
   }).mount();
 }
+
+for (let alert of document.querySelectorAll(".alert")) {
+  if (isEmpty(alert)) {
+    console.log("alert", alert.parentElement.nextSibling.innerHTML);
+    const firstTd = alert.closest("td"); // Get the parent <td> of the alert
+    const secondTd = firstTd.nextElementSibling; // Get the next <td> (the second <td>)
+    // Remove the second <td>
+    // Get the content of the second <td>
+    const content = secondTd.innerHTML; // or use .textContent for plain text
+    secondTd.remove();
+    alert.innerHTML = content;
+  }
+}
+
+function isEmpty(node) {
+  return node.textContent.trim() === "";
+}

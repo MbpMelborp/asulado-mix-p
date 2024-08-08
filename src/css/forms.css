@@ -423,6 +423,21 @@
               &:has(td.first.last) {
                 @apply !w-full;
               }
+              &:has(input[type="checkbox"]) {
+                @apply !w-full flex md:flex-row items-center border-none;
+                th {
+                  @apply py-2  m-0 border-none flex gap-4;
+                }
+                td {
+                  @apply w-auto  flex flex-col md:flex-row gap-4 justify-between py-0 border-none;
+                  tr {
+                    @apply flex gap-8;
+                  }
+                  td {
+                    @apply py-2 m-0 border-none flex gap-4;
+                  }
+                }
+              }
               &:last-child {
                 .multiSelectPicklistTable {
                   @apply table;
@@ -486,11 +501,14 @@
                 select {
                   @apply select select-bordered w-full;
                 }
-                input {
+                input:not([type="checkbox"]) {
                   @apply input input-bordered input-md w-full;
                   &[name="pg:fm:pb:j_id4:j_id17:birthdate"] {
                     @apply w-auto;
                   }
+                }
+                input[type="checkbox"] {
+                  @apply checkbox;
                 }
                 textarea {
                   @apply textarea textarea-bordered h-24 w-full;
@@ -617,6 +635,11 @@
             @apply !mx-0 btn-as-secondary inline-block;
           }
         }
+      }
+    }
+    .pbBottomButtons {
+      &:has(input[value="Cancelar"]) {
+        @apply !w-full;
       }
     }
     div.pbBody {

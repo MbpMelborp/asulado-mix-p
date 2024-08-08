@@ -1,0 +1,635 @@
+<form
+  id="pg:fm"
+  name="pg:fm"
+  method="post"
+  action="https://proteccion--stage--c.sandbox.vf.force.com/apex/UpdateContact"
+  enctype="application/x-www-form-urlencoded"
+>
+  <input type="hidden" name="pg:fm" value="pg:fm" />
+  <script>
+    if (!window.sfdcPage) {
+      window.sfdcPage = new ApexPage();
+    }
+    UserContext.initialize({
+      ampm: ["AM", "PM"],
+      isAccessibleMode: false,
+      salesforceURL: "https://proteccion--stage.sandbox.my.salesforce.com",
+      dateFormat: "d/MM/yyyy",
+      language: "en_US",
+      locale: "es_CO",
+      dateTimeFormat: "d/MM/yyyy, h:mm a",
+      labelLastModified: "1723069208000",
+      today: "8/08/2024, 11:52 AM",
+      userPreferences: [
+        { index: 112, name: "HideInlineEditSplash", value: false },
+        { index: 114, name: "OverrideTaskSendNotification", value: false },
+        { index: 115, name: "DefaultTaskSendNotification", value: false },
+        { index: 119, name: "HideUserLayoutStdFieldInfo", value: false },
+        { index: 116, name: "HideRPPWarning", value: false },
+        { index: 87, name: "HideInlineSchedulingSplash", value: false },
+        { index: 88, name: "HideCRUCNotification", value: false },
+        { index: 89, name: "HideNewPLESplash", value: false },
+        { index: 90, name: "HideNewPLEWarnIE6", value: false },
+        { index: 122, name: "HideOverrideSharingMessage", value: false },
+        { index: 91, name: "HideProfileILEWarn", value: false },
+        { index: 93, name: "HideProfileElvVideo", value: false },
+        { index: 97, name: "ShowPicklistEditSplash", value: false },
+        { index: 92, name: "HideDataCategorySplash", value: false },
+        { index: 128, name: "ShowDealView", value: false },
+        { index: 129, name: "HideDealViewGuidedTour", value: false },
+        { index: 132, name: "HideKnowledgeFirstTimeSetupMsg", value: false },
+        { index: 104, name: "DefaultOffEntityPermsMsg", value: false },
+        { index: 135, name: "HideNewCsnSplash", value: false },
+        { index: 101, name: "HideBrowserWarning", value: false },
+        { index: 139, name: "HideDashboardBuilderGuidedTour", value: false },
+        { index: 140, name: "HideSchedulingGuidedTour", value: false },
+        { index: 180, name: "HideReportBuilderGuidedTour", value: false },
+        { index: 183, name: "HideAssociationQueueCallout", value: false },
+        { index: 194, name: "HideQTEBanner", value: false },
+        { index: 270, name: "HideIDEGuidedTour", value: false },
+        { index: 282, name: "HideQueryToolGuidedTour", value: false },
+        { index: 196, name: "HideCSIGuidedTour", value: false },
+        { index: 271, name: "HideFewmetGuidedTour", value: false },
+        { index: 272, name: "HideEditorGuidedTour", value: false },
+        { index: 205, name: "HideApexTestGuidedTour", value: false },
+        { index: 206, name: "HideSetupProfileHeaderTour", value: false },
+        {
+          index: 207,
+          name: "HideSetupProfileObjectsAndTabsTour",
+          value: false,
+        },
+        {
+          index: 213,
+          name: "DefaultOffArticleTypeEntityPermMsg",
+          value: false,
+        },
+        { index: 214, name: "HideSelfInfluenceGetStarted", value: false },
+        { index: 215, name: "HideOtherInfluenceGetStarted", value: false },
+        { index: 216, name: "HideFeedToggleGuidedTour", value: false },
+        { index: 268, name: "ShowChatterTab178GuidedTour", value: false },
+        { index: 275, name: "HidePeopleTabDeprecationMsg", value: false },
+        { index: 276, name: "HideGroupTabDeprecationMsg", value: false },
+        { index: 224, name: "HideUnifiedSearchGuidedTour", value: false },
+        { index: 226, name: "ShowDevContextMenu", value: true },
+        {
+          index: 227,
+          name: "HideWhatRecommenderForActivityQueues",
+          value: false,
+        },
+        { index: 228, name: "HideLiveAgentFirstTimeSetupMsg", value: false },
+        {
+          index: 232,
+          name: "HideGroupAllowsGuestsMsgOnMemberWidget",
+          value: false,
+        },
+        { index: 233, name: "HideGroupAllowsGuestsMsg", value: false },
+        { index: 234, name: "HideWhatAreGuestsMsg", value: false },
+        { index: 235, name: "HideNowAllowGuestsMsg", value: false },
+        {
+          index: 236,
+          name: "HideSocialAccountsAndContactsGuidedTour",
+          value: false,
+        },
+        { index: 237, name: "HideAnalyticsHomeGuidedTour", value: false },
+        { index: 238, name: "ShowQuickCreateGuidedTour", value: false },
+        { index: 245, name: "HideFilePageGuidedTour", value: false },
+        { index: 250, name: "HideForecastingGuidedTour", value: false },
+        { index: 251, name: "HideBucketFieldGuide", value: false },
+        { index: 263, name: "HideSmartSearchCallOut", value: false },
+        { index: 273, name: "ShowForecastingQuotaAttainment", value: false },
+        { index: 280, name: "HideForecastingQuotaColumn", value: false },
+        { index: 301, name: "HideManyWhoGuidedTour", value: false },
+        { index: 298, name: "HideFileSyncBannerMsg", value: false },
+        { index: 299, name: "HideTestConsoleGuidedTour", value: false },
+        { index: 302, name: "HideManyWhoInlineEditTip", value: false },
+        { index: 303, name: "HideSetupV2WelcomeMessage", value: false },
+        { index: 312, name: "ForecastingShowQuantity", value: false },
+        { index: 313, name: "HideDataImporterIntroMsg", value: false },
+        { index: 314, name: "HideEnvironmentHubLightbox", value: false },
+        { index: 316, name: "HideSetupV2GuidedTour", value: false },
+        { index: 317, name: "HideFileSyncMobileDownloadDialog", value: false },
+        { index: 322, name: "HideEnhancedProfileHelpBubble", value: false },
+        { index: 328, name: "ForecastingHideZeroRows", value: false },
+        {
+          index: 330,
+          name: "HideEmbeddedComponentsFeatureCallout",
+          value: false,
+        },
+        { index: 341, name: "HideDedupeMatchResultCallout", value: false },
+        { index: 340, name: "HideS1BrowserUI", value: true },
+        { index: 346, name: "HideS1Banner", value: false },
+        { index: 358, name: "HideEmailVerificationAlert", value: false },
+        { index: 354, name: "HideLearningPathModal", value: false },
+        { index: 359, name: "HideAtMentionsHelpBubble", value: false },
+        { index: 368, name: "LightningExperiencePreferred", value: true },
+        { index: 373, name: "PreviewLightning", value: false },
+        { index: 281, name: "HideMSPPopup", value: false },
+      ],
+      networkId: "",
+      uiTheme: "Theme3",
+      uiSkin: "Theme3",
+      userName: "juanosorio@melborp.co.stage",
+      userId: "005O8000002QLUJ",
+      isCurrentlySysAdminSU: false,
+      renderMode: "RETRO",
+      startOfWeek: "1",
+      vfDomainPattern: "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
+      auraDomain: "proteccion--stage.sandbox.lightning.force.com",
+      useNativeAlertConfirmPrompt: false,
+      orgPreferences: [
+        { index: 257, name: "TabOrganizer", value: true },
+        { index: 113, name: "GroupTasks", value: true },
+      ],
+      siteUrlPrefix: "",
+      isDefaultNetwork: true,
+      timeFormat: "h:mm a",
+    });
+  </script>
+  <div class="apexp">
+    <div
+      id="pg:fm:pb"
+      class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
+    >
+      <script>
+        function twistSection(elem, sectionId) {
+          var parentDiv = elem;
+          var twisty = elem;
+          while (parentDiv.tagName != "DIV") {
+            parentDiv = parentDiv.parentNode;
+          }
+          if (
+            elem.tagName === "DIV" &&
+            elem.attributes["data-twistyimgid"] !== undefined
+          ) {
+            twisty = document.getElementById(
+              elem.attributes["data-twistyimgid"].value
+            );
+          }
+          var div = parentDiv.nextSibling;
+          var elemWasOn = false;
+          if (div.style.display != "none") {
+            div.style.display = "none";
+            twisty.className = "showListButton";
+            twisty.alt = "Show Section - " + twisty.name;
+            elem.title = twisty.alt;
+            elemWasOn = true;
+          } else {
+            div.style.display = "block";
+            twisty.className = "hideListButton";
+            twisty.alt = "Hide Section - " + twisty.name;
+            elem.title = twisty.alt;
+          }
+          return !elemWasOn;
+        }
+        var registeredSections = new Array();
+        function registerTwistableSection(headerId, mainTableId) {
+          var obj = new Object();
+          obj.headerId = headerId;
+          obj.mainTableId = mainTableId;
+          registeredSections[registeredSections.length] = obj;
+        }
+        function twistAllSections(on) {
+          for (var i = 0; i < registeredSections.length; i++) {
+            var obj = registeredSections[i];
+            var img;
+            img = document.getElementById("img_" + obj.headerId);
+            if (on && "showListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            } else if (!on && "hideListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            }
+          }
+        }
+        function toggleSection(headerId, on) {
+          var sectionHead = document.getElementById(
+            "head_" + headerId + "_pg_fm_pb"
+          );
+          var body = sectionHead.nextSibling;
+          var disp = on ? "block" : "none";
+          sectionHead.style.display = disp;
+          body.style.display = disp;
+        }
+        function registerTwistableSections_pg_fm_pb() {
+          registerTwistableSection("pg_fm_pb_motorFallido", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_preview", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_datosContacto", "pg_fm_pb");
+          registerTwistableSection("pg_fm_pb_j_id40", "pg_fm_pb");
+        }
+        registerTwistableSections_pg_fm_pb();
+      </script>
+      <div class="pbBody">
+        <div id="pg:fm:pb:datosContacto">
+          <div class="pbSubsection">
+            <table
+              class="detailList"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+            >
+              <tbody>
+                <tr>
+                  <td class="data2Col first" colspan="2">
+                    <p class="palert">
+                      <span class="palerts"
+                        >Si deseas modificar alguno de los campos que se
+                        encuentran bloqueados debes de comunicarte con nustras
+                        lineas de atención</span
+                      >
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:datosContacto:j_id14:name">
+                      Nombres</label
+                    >
+                  </th>
+                  <td class="data2Col">
+                    <input
+                      id="pg:fm:pb:datosContacto:j_id14:name"
+                      type="text"
+                      name="pg:fm:pb:datosContacto:j_id14:name"
+                      value="JUAN"
+                      disabled="disabled"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:datosContacto:j_id16:lastname">
+                      Apellidos</label
+                    >
+                  </th>
+                  <td class="data2Col">
+                    <input
+                      id="pg:fm:pb:datosContacto:j_id16:lastname"
+                      type="text"
+                      name="pg:fm:pb:datosContacto:j_id16:lastname"
+                      value="ARANGO ARAQUE"
+                      disabled="disabled"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:datosContacto:j_id18:gender">
+                      Género</label
+                    >
+                  </th>
+                  <td class="data2Col">
+                    <input
+                      id="pg:fm:pb:datosContacto:j_id18:gender"
+                      type="text"
+                      name="pg:fm:pb:datosContacto:j_id18:gender"
+                      value="Masculino"
+                      disabled="disabled"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:datosContacto:j_id20:typeId">
+                      Tipo de documento identidad</label
+                    >
+                  </th>
+                  <td class="data2Col">
+                    <input
+                      id="pg:fm:pb:datosContacto:j_id20:typeId"
+                      type="text"
+                      name="pg:fm:pb:datosContacto:j_id20:typeId"
+                      value="CC"
+                      disabled="disabled"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:datosContacto:j_id22:numberId">
+                      Número de documento identidad</label
+                    >
+                  </th>
+                  <td class="data2Col">
+                    <input
+                      id="pg:fm:pb:datosContacto:j_id22:numberId"
+                      type="text"
+                      name="pg:fm:pb:datosContacto:j_id22:numberId"
+                      value="1037650699"
+                      disabled="disabled"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:datosContacto:j_id24:birthdate">
+                      Fecha de nacimiento</label
+                    >
+                  </th>
+                  <td class="data2Col">
+                    <input
+                      id="pg:fm:pb:datosContacto:j_id24:birthdate"
+                      type="text"
+                      name="pg:fm:pb:datosContacto:j_id24:birthdate"
+                      value="5/03/1969"
+                      disabled="disabled"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:datosContacto:j_id26:maritalStatus">
+                      Estado civil</label
+                    >
+                  </th>
+                  <td class="data2Col">
+                    <select
+                      id="pg:fm:pb:datosContacto:j_id26:maritalStatus"
+                      name="pg:fm:pb:datosContacto:j_id26:maritalStatus"
+                      size="1"
+                    >
+                      <option value="Casado">Casado</option>
+                      <option value="Unión libre">Unión libre</option>
+                      <option value="Soltero">Soltero</option>
+                      <option value="Viudo">Viudo</option>
+                      <option value="Separado" selected="selected">
+                        Separado
+                      </option>
+                      <option value="Divorciado">Divorciado</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label for="pg:fm:pb:datosContacto:j_id29:genderIdentity">
+                      Identidad de género</label
+                    >
+                  </th>
+                  <td class="data2Col">
+                    <select
+                      id="pg:fm:pb:datosContacto:j_id29:genderIdentity"
+                      name="pg:fm:pb:datosContacto:j_id29:genderIdentity"
+                      size="1"
+                    >
+                      <option value="Femenino">Femenino</option>
+                      <option value="Masculino" selected="selected">
+                        Masculino
+                      </option>
+                      <option value="No Binario">No Binario</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2">
+                    <input
+                      id="pg:fm:pb:datosContacto:hiddenSuscripciones"
+                      type="hidden"
+                      name="pg:fm:pb:datosContacto:hiddenSuscripciones"
+                      value="Articulos;Colilla;Certificado;Poliza"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2">
+                    <label for="selSuscripciones"
+                      >Seleccionar suscripciones</label
+                    >
+                    <select
+                      id="selSuscripciones"
+                      onchange="adicionarSuscripcion()"
+                    >
+                      <option value="Articulos">Articulos</option>
+                      <option value="Certificado">Certificado</option>
+                      <option value="Colilla">Colilla</option>
+                      <option value="Poliza">Poliza</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="data2Col" colspan="2">
+                    <div class="textarea-container">
+                      <label for="suscripcionesSel"
+                        >Suscripciones seleccionadas</label
+                      >
+                      <textarea
+                        disabled="true"
+                        id="suscripcionesSel"
+                        name="textarea"
+                        rows="10"
+                      ></textarea>
+                      <i
+                        class="fa fa-trash-o icon"
+                        onclick="limpiarSeleccionSuscripciones()"
+                        aria-hidden="true"
+                      ></i>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="labelCol vfLabelColTextWrap" scope="row">
+                    <label
+                      for="pg:fm:pb:datosContacto:susSelectedBlock:suscripciones"
+                    >
+                      Suscripciones</label
+                    >
+                  </th>
+                  <td class="data2Col">
+                    <fieldset style="border: none">
+                      <table role="presentation">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <input
+                                name="pg:fm:pb:datosContacto:susSelectedBlock:j_id37"
+                                id="pg:fm:pb:datosContacto:susSelectedBlock:j_id37:0"
+                                value="Articulos"
+                                type="checkbox"
+                              /><label
+                                for="pg:fm:pb:datosContacto:susSelectedBlock:j_id37:0"
+                              >
+                                Articulos</label
+                              >
+                            </td>
+                            <td>
+                              <input
+                                name="pg:fm:pb:datosContacto:susSelectedBlock:j_id37"
+                                id="pg:fm:pb:datosContacto:susSelectedBlock:j_id37:1"
+                                value="Certificado"
+                                type="checkbox"
+                              /><label
+                                for="pg:fm:pb:datosContacto:susSelectedBlock:j_id37:1"
+                              >
+                                Certificado</label
+                              >
+                            </td>
+                            <td>
+                              <input
+                                name="pg:fm:pb:datosContacto:susSelectedBlock:j_id37"
+                                id="pg:fm:pb:datosContacto:susSelectedBlock:j_id37:2"
+                                value="Colilla"
+                                type="checkbox"
+                              /><label
+                                for="pg:fm:pb:datosContacto:susSelectedBlock:j_id37:2"
+                              >
+                                Colilla</label
+                              >
+                            </td>
+                            <td>
+                              <input
+                                name="pg:fm:pb:datosContacto:susSelectedBlock:j_id37"
+                                id="pg:fm:pb:datosContacto:susSelectedBlock:j_id37:3"
+                                value="Poliza"
+                                type="checkbox"
+                              /><label
+                                for="pg:fm:pb:datosContacto:susSelectedBlock:j_id37:3"
+                              >
+                                Poliza</label
+                              >
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </fieldset>
+                  </td>
+                </tr>
+                <tr></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <input
+          id="pg:fm:pb:disabledValue"
+          type="hidden"
+          name="pg:fm:pb:disabledValue"
+          value="true"
+        /><span id="pg:fm:pb:poller" style="display: none"></span>
+      </div>
+      <div class="pbBottomButtons">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="pbTitle">&nbsp;</td>
+              <td id="pg:fm:pb:ps:bottom" class="pbButtonb">
+                <input
+                  id="pg:fm:pb:ps:btnVerify"
+                  type="submit"
+                  name="pg:fm:pb:ps:btnVerify"
+                  value="Guardar"
+                /><input
+                  type="submit"
+                  name="pg:fm:pb:ps:j_id83"
+                  value="Cancelar"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
+    </div>
+  </div>
+  <div id="pg:fm:j_id118"></div>
+</form>
+<span id="ajax-view-state-page-container" style="display: none"
+  ><span id="ajax-view-state" style="display: none"
+    ><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewState"
+      name="com.salesforce.visualforce.ViewState"
+      value="i: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" /><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewStateVersion"
+      name="com.salesforce.visualforce.ViewStateVersion"
+      value="202408072053520098" /><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewStateMAC"
+      name="com.salesforce.visualforce.ViewStateMAC"
+      value="AGV5SnViMjVqWlNJNkltSkdTWGMwYm05c1pXMDBSaTB6VmpCb1pYTjNkVVJGV214b1RrTnFhVzAwV0ROUmFIbDVZV2RxU0RSY2RUQXdNMlFpTENKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUlzSW10cFpDSTZJbnRjSW5SY0lqcGNJakF3UkRBMU1EQXdNREF3T0hKRmExd2lMRndpZGx3aU9sd2lNREpIT0dFd01EQXdNREJJUjJSV1hDSXNYQ0poWENJNlhDSjJabk5wWjI1cGJtZHJaWGxjSWl4Y0luVmNJanBjSWpBd05VODRNREF3TURBeVVVeFZTbHdpZlNJc0ltTnlhWFFpT2xzaWFXRjBJbDBzSW1saGRDSTZNVGN5TXpFek5UazFOekl3T1N3aVpYaHdJam93ZlE9PS4uVkFZT3RaLXZEZ2VjSDVZMHhZRGdHZ1ZEd1JYWW81c29VSkROMDRDWV9KQT0=" /><input
+      type="hidden"
+      id="com.salesforce.visualforce.ViewStateCSRF"
+      name="com.salesforce.visualforce.ViewStateCSRF"
+      value="VmpFPSxNakF5TkMwd09DMHhNVlF4TmpvMU1qb3pOeTR5TVRCYSxyZE5PSW1SM3RWd0NPSkM2Q2JLSnktWHFfcU9rRXNzTm5Ed0RDZEZZdHFZPSxZVFE0WXpVMw==" /></span
+></span>
+<form
+  id="pg:fm2"
+  name="pg:fm2"
+  method="post"
+  action="https://proteccion--stage--c.sandbox.vf.force.com/apex/UpdateContact"
+  enctype="application/x-www-form-urlencoded"
+  onsubmit="return validateForm();"
+>
+  <input type="hidden" name="pg:fm2" value="pg:fm2" />
+  <div class="apexp">
+    <div
+      id="pg:fm2:pb2"
+      class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
+    >
+      <script>
+        function twistSection(elem, sectionId) {
+          var parentDiv = elem;
+          var twisty = elem;
+          while (parentDiv.tagName != "DIV") {
+            parentDiv = parentDiv.parentNode;
+          }
+          if (
+            elem.tagName === "DIV" &&
+            elem.attributes["data-twistyimgid"] !== undefined
+          ) {
+            twisty = document.getElementById(
+              elem.attributes["data-twistyimgid"].value
+            );
+          }
+          var div = parentDiv.nextSibling;
+          var elemWasOn = false;
+          if (div.style.display != "none") {
+            div.style.display = "none";
+            twisty.className = "showListButton";
+            twisty.alt = "Show Section - " + twisty.name;
+            elem.title = twisty.alt;
+            elemWasOn = true;
+          } else {
+            div.style.display = "block";
+            twisty.className = "hideListButton";
+            twisty.alt = "Hide Section - " + twisty.name;
+            elem.title = twisty.alt;
+          }
+          return !elemWasOn;
+        }
+        var registeredSections = new Array();
+        function registerTwistableSection(headerId, mainTableId) {
+          var obj = new Object();
+          obj.headerId = headerId;
+          obj.mainTableId = mainTableId;
+          registeredSections[registeredSections.length] = obj;
+        }
+        function twistAllSections(on) {
+          for (var i = 0; i < registeredSections.length; i++) {
+            var obj = registeredSections[i];
+            var img;
+            img = document.getElementById("img_" + obj.headerId);
+            if (on && "showListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            } else if (!on && "hideListButton" == img.className) {
+              twistSection(img, obj.headerId, obj.mainTableId);
+            }
+          }
+        }
+        function toggleSection(headerId, on) {
+          var sectionHead = document.getElementById(
+            "head_" + headerId + "_pg_fm2_pb2"
+          );
+          var body = sectionHead.nextSibling;
+          var disp = on ? "block" : "none";
+          sectionHead.style.display = disp;
+          body.style.display = disp;
+        }
+        function registerTwistableSections_pg_fm2_pb2() {
+          registerTwistableSection("pg_fm2_pb2_j_id87", "pg_fm2_pb2");
+          registerTwistableSection("pg_fm2_pb2_datosUbicacion", "pg_fm2_pb2");
+        }
+        registerTwistableSections_pg_fm2_pb2();
+      </script>
+      <div class="pbBody"></div>
+      <div class="pbFooter secondaryPalette"><div class="bg"></div></div>
+    </div>
+  </div>
+  <div id="pg:fm2:j_id119"></div>
+</form>

@@ -2422,7 +2422,7 @@ tr.introjs-showElement > th {
     .faq_link {
       @apply h-full  flex flex-col gap-2.5 rounded-t-xl bg-gradient-to-b from-[#EFF8FC] via-[#EFF8FC] via-20% to-[#f2f7f9] text-azul-dark py-4 px-3 border border-[#FAFEFE];
       a {
-        h3 {+
+        h3 {
           @apply flex items-center gap-2 font-je text-azul-dark text-2xl font-normal leading-tight min-h-14 transition-colors ease-in-out;
           i {
             @apply flex-none flex h-12 w-12 items-center justify-center rounded-full bg-alpha-20 text-2xl text-azul-bright2 transition-colors ease-in-out;

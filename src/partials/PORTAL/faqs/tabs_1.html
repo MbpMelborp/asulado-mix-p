@@ -1,0 +1,75 @@
+<section id="documentos" class="as__section as__g_documentos_tabs {{cls}}">
+  <div id="faqs">
+    <div class="as__section_wrapper">
+      <div class="as__section_content_full as__g_documentos_tabs_int">
+        <div class="as__doc_tabs_small">
+          <label for="tabs">Selecciona el tema</label>
+          <select id="docs_tabs">
+            <option value="0">Sobre Asulado</option>
+            <option value="1">Pensión por Invalidez o Supervivencia</option>
+            <option value="2">Mesada Pensional</option>
+            <option value="3">EPS y cajas de compensación</option>
+            <option value="4">Sobre temas financieros</option>
+          </select>
+        </div>
+        <ul id="por__tabs" class="as__doc_tabs">
+          <include
+            src="PORTAL/faqs/item.html"
+            locals='{ 
+              "link": "#documentos",
+              "tab": "0",
+              "icon":"info",
+              "title":"Sobre Asulado",
+              "hash": "sobre_asulado",
+              "anchor":"documentos"
+          }'
+          ></include>
+          <include
+            src="PORTAL/faqs/item.html"
+            locals='{ 
+              "link": "#documentos",
+              "tab": "1",
+              "icon":"person",
+              "title":"Pensión por Invalidez o Supervivencia",
+              "hash": "pension",
+              "anchor":"documentos"
+          }'
+          ></include>
+          <include
+            src="PORTAL/faqs/item.html"
+            locals='{ 
+              "link": "#documentos",
+              "tab": "2",
+              "icon":"money-check-pen",
+              "title":"Mesada Pensional",
+              "hash": "mesada",
+              "anchor":"documentos"
+          }'
+          ></include>
+          <include
+            src="PORTAL/faqs/item.html"
+            locals='{ 
+              "link": "#documentos",
+              "tab": "3",
+              "icon":"hospital",
+              "title":"EPS y cajas de compensación",
+              "hash": "eps_y_caja",
+              "anchor":"documentos"
+          }'
+          ></include>
+          <include
+            src="PORTAL/faqs/item.html"
+            locals='{ 
+              "link": "#documentos",
+              "tab": "3",
+              "icon":"money-bill-wave",
+              "title":"Sobre temas financieros",
+              "hash": "financiero",
+              "anchor":"documentos"
+          }'
+          ></include>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

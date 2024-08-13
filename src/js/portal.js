@@ -247,9 +247,7 @@ if (
       url = url.split("#")[0];
       url = url + "#" + hash;
       history.replaceState({}, document.title, url);
-
       changeTab(tab);
-      // location.href = "#";
     });
   });
   if (window.location.hash) {
@@ -262,11 +260,23 @@ if (
     history.replaceState(null, null, url);
     if (elTag) elTag.click();
   } else {
+    if (document.getElementById("por__tabs")) {
+      const tabse = document.querySelector(
+        ".as__nav_links_ppal_link[data-tab='0']"
+      );
+      tabse.click();
+    }
   }
 }
 
 function changeTab(tab, scroll = true) {
   document.getElementById("docs_tabs").selectedIndex = parseInt(tab);
+  if (document.getElementById("por__tabs")) {
+    const tabse = document.querySelector(
+      ".as__g_faqs_ls[data-tab='" + parseInt(tab) + "']"
+    );
+    tabse.classList.add("active");
+  }
   document.querySelectorAll(".tabs_link").forEach((tabe) => {
     if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
     else {

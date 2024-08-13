@@ -1052,6 +1052,9 @@ body {
       @apply leading-none text-base md:text-lg;
     }
   }
+  &.pa__faqs {
+    @apply !pb-0;
+  }
 }
 
 .pa__option {
@@ -1592,7 +1595,64 @@ body {
     }
   }
 }
-
+.as__doc_tabs {
+  .active {
+    @apply bg-[#E9F5F8] rounded-t-lg;
+    i {
+      @apply bg-transparent text-azul-dark;
+    }
+  }
+  &.act_1 {
+    li:nth-child(1) {
+      a {
+        @apply bg-[#E9F5F8] rounded-t-lg;
+        i {
+          @apply bg-transparent text-azul-dark;
+        }
+      }
+    }
+  }
+  &.act_2 {
+    li:nth-child(2) {
+      a {
+        @apply bg-[#E9F5F8] rounded-t-lg;
+        i {
+          @apply bg-transparent text-azul-dark;
+        }
+      }
+    }
+  }
+  &.act_3 {
+    li:nth-child(3) {
+      a {
+        @apply bg-[#E9F5F8] rounded-t-lg;
+        i {
+          @apply bg-transparent text-azul-dark;
+        }
+      }
+    }
+  }
+  &.act_4 {
+    li:nth-child(4) {
+      a {
+        @apply bg-[#E9F5F8] rounded-t-lg;
+        i {
+          @apply bg-transparent text-azul-dark;
+        }
+      }
+    }
+  }
+  &.act_5 {
+    li:nth-child(5) {
+      a {
+        @apply bg-[#E9F5F8] rounded-t-lg;
+        i {
+          @apply bg-transparent text-azul-dark;
+        }
+      }
+    }
+  }
+}
 .as__g_documentos_tabs {
   @apply bg-alpha-15;
   &.plain {
@@ -1600,7 +1660,7 @@ body {
   }
   .as__section_wrapper {
     .as__g_documentos_tabs_int {
-      @apply bg-white z-0 overflow-hidden rounded-lg pt-4 px-4 pb-0;
+      @apply bg-white z-0 overflow-hidden rounded-t-none pt-4 px-4 pb-0;
       &.pb {
         @apply pb-4;
       }
@@ -1630,12 +1690,6 @@ body {
             }
             small {
               @apply text-sm leading-none;
-            }
-            &.active {
-              @apply bg-[#E9F5F8] rounded-t-lg;
-              i {
-                @apply bg-transparent text-azul-dark;
-              }
             }
             &:hover {
               @apply bg-[#E9F5F8];
@@ -2361,4 +2415,36 @@ tr.introjs-showElement > th {
 .introjs-arrow.right-bottom {
   right: -20px;
   border-color: transparent transparent transparent rgba(39, 62, 130, 0.8);
+}
+.pa__option {
+  ul {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-2;
+    .faq_link {
+      @apply h-full  flex flex-col gap-2.5 rounded-t-xl bg-gradient-to-b from-[#EFF8FC] via-[#EFF8FC] via-20% to-[#f2f7f9] text-azul-dark py-4 px-3 border border-[#FAFEFE];
+      a {
+        h3 {+
+          @apply flex items-center gap-2 font-je text-azul-dark text-2xl font-normal leading-tight min-h-14 transition-colors ease-in-out;
+          i {
+            @apply flex-none flex h-12 w-12 items-center justify-center rounded-full bg-alpha-20 text-2xl text-azul-bright2 transition-colors ease-in-out;
+          }
+        }
+        &:hover {
+          h3 {
+            @apply text-azul-bold;
+          }
+          i {
+            @apply bg-azul-bright2 text-white;
+          }
+        }
+      }
+    }
+    &.act_1 {
+      li:nth-child(1) {
+        @apply from-white via-[#FAFDFE] via-20% to-[#FAFDFE];
+        i {
+          @apply bg-azul-bright2 text-white;
+        }
+      }
+    }
+  }
 }

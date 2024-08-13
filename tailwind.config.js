@@ -29,7 +29,9 @@ module.exports = {
           bright2: "#08C1FE",
           mid: "#2E52FA",
           light: "#E9F5F8",
+
           20: "#afecff",
+          30: "#6dc0fc",
           40: "#3bc3ed",
           60: "#5782e0",
           50: "#17A4C1",

@@ -39,59 +39,59 @@
       "content":"Encuentra respuestas claras a tus dudas más comunes. Simplificamos la información para que obtengas ayuda de manera fácil y eficiente."
    }'
     ></include>
-    <include src="faqs/tabs.html" locals='{"cls":"pt-4"}'></include>
+    <div id="servicios" class="as__section pa__options pa__faqs">
+      <div class="as__section_wrapper">
+        <div class="as__section_content_full pa__option">
+          <ul class="act_1">
+            <include
+              src="PORTAL/p_link_faq.html"
+              locals='{ 
+                "title": "Información sobre Asulado Seguros de Vida",
+                "link":"/PORTAL/faq_1.html",
+                "ico": "person"  
+              }'
+            ></include>
+            <include
+              src="PORTAL/p_link_faq.html"
+              locals='{ 
+                "title": "Información del Portal Transaccional",
+                "link":"/PORTAL/faq_2.html",
+                "ico": "laptop"  
+              }'
+            ></include>
+            <include
+              src="PORTAL/p_link_faq.html"
+              locals='{ 
+                "title": "Gestión de documentos",
+                "link":"/PORTAL/faq_3.html",
+                "ico": "files"  
+              }'
+            ></include>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <include
+      src="PORTAL/faqs/tabs_1.html"
+      locals='{"cls":"", "act": 1}'
+    ></include>
     <section id="faqs_contenido" class="as__section as__g_faqs_tcon">
-      <div class="as__section_wrapper full">
+      <div class="as__section_wrapper">
         <div class="as__section_content_full">
           <ul class="as__g_faqs_tcon_list">
             <include
-              src="faqs/faq_1.html"
+              src="PORTAL/faqs/faq_1_1.html"
               locals='{
-                "cls": "active",
+                "cls": "",
                 "data": "0"
               }'
             ></include>
             <include
-              src="faqs/faq_2.html"
+              src="PORTAL/faqs/faq_1_2.html"
               locals='{
               "cls": "",
               "data": "1"
             }'
-            ></include>
-            <include
-              src="faqs/faq_3.html"
-              locals='{
-              "cls": "",
-              "data": "2"
-            }'
-            ></include>
-            <include
-              src="faqs/faq_4.html"
-              locals='{
-              "cls": "",
-              "data": "3"
-            }'
-            ></include>
-            <include
-              src="faqs/faq_5.html"
-              locals='{
-            "cls": "",
-            "data": "4"
-          }'
-            ></include>
-            <include
-              src="faqs/faq_6.html"
-              locals='{
-            "cls": "",
-            "data": "5"
-          }'
-            ></include>
-            <include
-              src="faqs/faq_7.html"
-              locals='{
-          "cls": "",
-          "data": "6"
-        }'
             ></include>
           </ul>
         </div>

@@ -26,7 +26,10 @@
         <i class="i-close fa-solid fa-times text-xl"></i>
       </button>
       <ul id="as__nav_links" class="as__nav_links">
-        <li class="as__nav_links_ppal_li lg:dropdown dropdown-hover">
+        <li
+          id="nav-certificados"
+          class="as__nav_links_ppal_li lg:dropdown dropdown-hover"
+        >
           <a
             class="as__nav_links_ppal_link"
             aria-current="page"
@@ -37,6 +40,7 @@
             role="button"
             >Certificados</a
           >
+          <span class="help_int hidden"></span>
           <ul tabindex="0" class="dropdown-content">
             <li>
               <a href="/PORTAL/2_certificados_colilla.html">Colilla de pagos</a>
@@ -56,7 +60,10 @@
             </li>
           </ul>
         </li>
-        <li class="as__nav_links_ppal_li lg:dropdown dropdown-hover">
+        <li
+          id="nav-novedades"
+          class="as__nav_links_ppal_li lg:dropdown dropdown-hover"
+        >
           <a
             class="as__nav_links_ppal_link"
             aria-current="page"
@@ -67,6 +74,7 @@
             role="button"
             >Novedades</a
           >
+          <span class="help_int hidden"></span>
           <ul tabindex="0" class="dropdown-content">
             <li class="dropdown-group">
               <h2 class="menu-title">Deducción de nomina</h2>
@@ -121,7 +129,10 @@
             </li>
           </ul>
         </li>
-        <li class="as__nav_links_ppal_li lg:dropdown dropdown-hover">
+        <li
+          id="nav-solicitudes"
+          class="as__nav_links_ppal_li lg:dropdown dropdown-hover"
+        >
           <a
             class="as__nav_links_ppal_link"
             aria-current="page"
@@ -131,6 +142,7 @@
             role="button"
             >Solicitudes</a
           >
+          <span class="help_int hidden"></span>
           <ul tabindex="0" class="dropdown-content">
             <li>
               <a href="/PORTAL/pqrs_1_crear.html">Crear una solicitud </a>
@@ -162,7 +174,7 @@
             <li><a href="#"> Consulta novedades</a></li>
           </ul>
         </li> -->
-        <li class="as__nav_links_ppal_li">
+        <li id="nav-preguntas" class="as__nav_links_ppal_li">
           <a
             class="as__nav_links_ppal_link"
             aria-current="page"
@@ -199,7 +211,7 @@
           ></a>
         </div> -->
 
-        <div class="as__nav_item dropdown dropdown-end flex-1">
+        <div id="nav-user" class="as__nav_item dropdown dropdown-end flex-1">
           <img
             class="avat"
             src="http://i.pravatar.cc/300"
@@ -207,6 +219,7 @@
             tabindex="0"
             role="button"
           />
+          <span class="help hidden"></span>
           <ul class="dropdown-content" tabindex="0">
             <li class="conex">Último ingreso: 28/02/2024 2:36 PM</li>
             <li class="conex">IP privada: 127.0.0.1</li>

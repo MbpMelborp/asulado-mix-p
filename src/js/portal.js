@@ -1,6 +1,10 @@
 import { gsap } from "gsap";
 import { setCalendar } from "./calendar";
 import Glide from "@glidejs/glide";
+import { TourGuideClient } from "@sjmc11/tourguidejs/dist/tour"; // JS
+
+// import Tourguide from "tourguidejs";
+
 // import { Grid } from "gridjs";
 function waitForElm(selector) {
   return new Promise((resolve) => {
@@ -184,20 +188,23 @@ menu_button.addEventListener("click", handleMenu);
 function handleMenu() {
   // lenis.scroll = window.scrollY;
   // console.log(document.querySelector("body").classList);
-  if (!open_menu) {
-    document.querySelector("body").classList.add("overflow-hidden");
-    menu_nav.classList.add("nav_open");
-    menu_wrap.classList.add("open");
-    menu_button.classList.add("open");
-    menu_nav.classList.remove("nav_close");
-  } else {
-    document.querySelector("body").classList.remove("overflow-hidden");
-    menu_nav.classList.add("nav_close");
-    menu_button.classList.remove("open");
-    menu_nav.classList.remove("nav_open");
-    menu_wrap.classList.remove("open");
+  const mobile = window.innerWidth < 1024;
+  if (mobile) {
+    if (!open_menu) {
+      document.querySelector("body").classList.add("overflow-hidden");
+      menu_nav.classList.add("nav_open");
+      menu_wrap.classList.add("open");
+      menu_button.classList.add("open");
+      menu_nav.classList.remove("nav_close");
+    } else {
+      document.querySelector("body").classList.remove("overflow-hidden");
+      menu_nav.classList.add("nav_close");
+      menu_button.classList.remove("open");
+      menu_nav.classList.remove("nav_open");
+      menu_wrap.classList.remove("open");
+    }
+    open_menu = !open_menu;
   }
-  open_menu = !open_menu;
 }
 const serviceLinks = document.querySelectorAll(".service_link a[href='#']");
 serviceLinks.forEach((link) => {
@@ -526,6 +533,7 @@ if (document.getElementById("modal_per")) {
         setCookie("modal_data", true, 30);
         setTimeout(() => {
           document.getElementById("modal_data").checked = false;
+          window.location.reload();
         }, 500);
       });
 
@@ -546,6 +554,7 @@ if (document.getElementById("modal_per")) {
       });
   }
 }
+
 if (document.getElementById("close_session")) {
   document.addEventListener("click", () => {
     document.getElementById("toast_session").classList.add("hidden");
@@ -697,3 +706,280 @@ for (let alert of document.querySelectorAll(".alert")) {
 function isEmpty(node) {
   return node.textContent.trim() === "";
 }
+
+function initIntro() {
+  if (
+    document.getElementById("as__home") &&
+    getCookieValue("modal_data") == "true"
+  ) {
+    const steps = [
+      {
+        content:
+          "<img src='/assets/images/PORTAL/bienvenida.jpg' /><p>Aquí podrás gestionar documentos, novedades y solicitudes.</p><p> <b> ¡Te haremos un rápido recorrido! </p>",
+        title: "¡Bienvenido al Portal Transaccional de ASULADO!",
+        // target: "",
+        order: 0,
+        group: "init",
+      },
+      {
+        content:
+          "Aquí podrás configurar toda la información general de tu cuenta.",
+        title: "Esta es tu foto de perfil.",
+        target: "#nav-user .help",
+        order: 1,
+        group: "init",
+        fixed: true,
+        beforeEnter: function (currentStep, nextStep) {
+          const nav = document.querySelector("#nav-user");
+          const ul = document.querySelector("#nav-user ul");
+          const help = document.querySelector("#nav-user .help");
+          const w = ul.offsetWidth;
+          const h = ul.offsetHeight + 20;
+          help.style.width = w + "px";
+          help.style.height = h + "px";
+          help.classList.remove("hidden");
+          ul.classList.add("openp");
+          nav.classList.add("dest");
+        },
+        beforeLeave: function (currentStep, nextStep) {
+          const nav = document.querySelector("#nav-user");
+          const ul = document.querySelector("#nav-user ul");
+          const help = document.querySelector("#nav-user .help");
+          help.style.width = "0px";
+          help.style.height = "0px";
+          help.classList.add("hidden");
+          ul.classList.remove("openp");
+          nav.classList.remove("dest");
+        },
+      },
+      {
+        content:
+          "En esta sección podrás gestionar y descargar de forma autónoma tus documentos.",
+        title: "Sección de certificados",
+        target: "#nav-certificados .help_int",
+        order: 2,
+        group: "init",
+        fixed: true,
+        beforeEnter: function (currentStep, nextStep) {
+          handleMenu();
+          const nav = document.querySelector("#nav-certificados");
+          const ul = document.querySelector("#nav-certificados ul");
+          const help = document.querySelector("#nav-certificados .help_int");
+          const w = ul.offsetWidth;
+          const h = ul.offsetHeight + 20;
+          help.style.width = w + "px";
+          help.style.height = h + "px";
+          help.classList.remove("hidden");
+          ul.classList.add("openp");
+          nav.classList.add("dest");
+        },
+        beforeLeave: function (currentStep, nextStep) {
+          handleMenu();
+          const nav = document.querySelector("#nav-certificados");
+          const ul = document.querySelector("#nav-certificados ul");
+          const help = document.querySelector("#nav-certificados .help_int");
+          help.style.width = "0px";
+          help.style.height = "0px";
+          help.classList.add("hidden");
+          ul.classList.remove("openp");
+          nav.classList.remove("dest");
+        },
+      },
+      {
+        content:
+          "Aquí podrás crear y consultar novedades de deducción o certificación de nómina.",
+        title: "Sección de novedades",
+        target: "#nav-novedades .help_int",
+        order: 3,
+        group: "init",
+        fixed: true,
+        beforeEnter: function (currentStep, nextStep) {
+          handleMenu();
+          const nav = document.querySelector("#nav-novedades");
+          const ul = document.querySelector("#nav-novedades ul");
+          const help = document.querySelector("#nav-novedades .help_int");
+          const w = ul.offsetWidth;
+          const h = ul.offsetHeight + 20;
+          help.style.width = w + "px";
+          help.style.height = h + "px";
+          help.classList.remove("hidden");
+          ul.classList.add("openp");
+          nav.classList.add("dest");
+        },
+        beforeLeave: function (currentStep, nextStep) {
+          handleMenu();
+          const nav = document.querySelector("#nav-novedades");
+          const ul = document.querySelector("#nav-novedades ul");
+          const help = document.querySelector("#nav-novedades .help_int");
+          help.style.width = "0px";
+          help.style.height = "0px";
+          help.classList.add("hidden");
+          ul.classList.remove("openp");
+          nav.classList.remove("dest");
+        },
+      },
+      {
+        content:
+          "En esta sección puedes crear y consultar tus peticiones, quejas, reclamos o servicios.",
+        title: "Sección de solicitudes",
+        target: "#nav-solicitudes .help_int",
+        order: 4,
+        group: "init",
+        fixed: true,
+        beforeEnter: function (currentStep, nextStep) {
+          handleMenu();
+          const nav = document.querySelector("#nav-solicitudes");
+          const ul = document.querySelector("#nav-solicitudes ul");
+          const help = document.querySelector("#nav-solicitudes .help_int");
+          const w = ul.offsetWidth;
+          const h = ul.offsetHeight + 20;
+          help.style.width = w + "px";
+          help.style.height = h + "px";
+          help.classList.remove("hidden");
+          ul.classList.add("openp");
+          nav.classList.add("dest");
+        },
+        beforeLeave: function (currentStep, nextStep) {
+          handleMenu();
+          const nav = document.querySelector("#nav-solicitudes");
+          const ul = document.querySelector("#nav-solicitudes ul");
+          const help = document.querySelector("#nav-solicitudes .help_int");
+          help.style.width = "0px";
+          help.style.height = "0px";
+          help.classList.add("hidden");
+          ul.classList.remove("openp");
+          nav.classList.remove("dest");
+        },
+      },
+      {
+        content:
+          "Consulta aquí las preguntas que tengas sobre el Portal y sus servicios.",
+        title: "Sección de preguntas frecuentes",
+        target: "#nav-preguntas",
+        order: 5,
+        group: "init",
+        fixed: true,
+        beforeEnter: function (currentStep, nextStep) {
+          handleMenu();
+          const nav = document.querySelector("#nav-preguntas");
+          nav.classList.add("dest");
+        },
+        beforeLeave: function (currentStep, nextStep) {
+          handleMenu();
+          const nav = document.querySelector("#nav-preguntas");
+          nav.classList.remove("dest");
+        },
+      },
+      {
+        content:
+          "Aquí encuentras todos los servicios del Portal en un mismo lugar.",
+        title: "Servicios a un clic",
+        target: "#servicios .pa__inner",
+        order: 6,
+        group: "init",
+        fixed: false,
+        beforeEnter: function (currentStep, nextStep) {},
+        beforeLeave: function (currentStep, nextStep) {},
+      },
+      {
+        content:
+          "Encuentra aquí artículos que te enseñarán todo para fomentar tu bienestar financiero.",
+        title: "Artículos de interés",
+        target: ".as__articulos .pa__inner_articulos",
+        order: 7,
+        group: "init",
+        fixed: false,
+        beforeEnter: function (currentStep, nextStep) {},
+        beforeLeave: function (currentStep, nextStep) {},
+      },
+      {
+        content:
+          "Si no encuentras alguna información que necesitas en el Portal, aquí puedes buscarla.",
+        title: "Buscador del Portal",
+        target: "#nav_search",
+        order: 8,
+        group: "init",
+        fixed: true,
+        beforeEnter: function (currentStep, nextStep) {},
+        beforeLeave: function (currentStep, nextStep) {},
+      },
+    ];
+    const options = {
+      autoScroll: true, // auto scroll to elements
+      autoScrollSmooth: true, // auto scroll smooth
+      autoScrollOffset: 20, // Offset from edge for smooth scroll
+      // backdropClass: "", // additional css class for tour backdrop
+      backdropColor: "rgba(69, 125 ,149, 0.5)", // RGBA support only
+      // targetPadding: 30, // space around highlighted target in px
+      // backdropAnimate: true, // animate backdrop position & size
+      // dialogClass: "", // additional css class for tour dialog
+      // dialogZ: 999, // z-index of dialog
+      // dialogWidth: 0, // width style property for dialog - recommended if loading images into content
+      dialogMaxWidth: "28rem", // max-width style property for dialog
+      dialogAnimate: true, // Animate dialog position & size
+      // closeButton: true, // show close button
+      nextLabel: "Siguiente", // text for next button
+      prevLabel: "Anterior", // text for prev button
+      finishLabel: "¡Estoy listo!", // text for finish button
+      // hidePrev: false, // hide prev button
+      // hideNext: false, // hide next button
+      completeOnFinish: true, // Set tour as finished in localStorage on finish
+      // showStepDots: true, // show the dots tour progress
+      // stepDotsPlacement: "footer", // show dots in dialog body/footer
+      // showButtons: true, // show next/prev buttons
+      showStepProgress: true, // show `1/5` human-readable step progress
+      progressBar: "#3bc3ed", // show progress bar under dialog header - pass a colour to enable
+      // keyboardControls: false, // show next & prev arrows keys + esc key
+      exitOnEscape: true, // Close the tour on escape key
+      exitOnClickOutside: false, // Close the tour on backdrop click
+      // rememberStep: true, // open tour on last active step
+      // debug: false, // show console logging
+      steps: steps, // pre-define the tour steps
+    };
+    const tg = new TourGuideClient(options);
+    if (getCookieValue("intro") == null || getCookieValue("intro") != "true")
+      tg.start();
+    tg.onAfterStepChange(() => {
+      // console.info("step change complete " + tg.activeStep);
+    });
+
+    tg.onFinish(() => {
+      document.getElementById("modal_intro").showModal();
+      setBtnsClose();
+      // setCookie("intro", true, 9000);
+      // document.getElementById("modal_intro").classList;
+    });
+    tg.onAfterExit(() => {
+      document.getElementById("modal_intro").showModal();
+      setBtnsClose();
+      // setCookie("intro", true, 5);
+    });
+
+    // tg.onBeforeExit(() => {
+    //   return new Promise((resolve, reject) => {
+    //     if (confirm("Are you sure you want to close the tour?")) {
+    //       return resolve(true);
+    //     } else {
+    //       return reject();
+    //     }
+    //   });
+    // });
+  }
+}
+function setCookieIntro() {
+  setCookie("intro", true, 9000);
+}
+function setBtnsClose() {
+  console.log(document.querySelectorAll("#modal_intro button"));
+  document.querySelectorAll("#modal_intro button").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (btn.classList.contains("btn_x")) {
+        setCookieIntro();
+      }
+      // setCookieIntro();
+      document.getElementById("modal_intro").close();
+    });
+  });
+}
+initIntro();

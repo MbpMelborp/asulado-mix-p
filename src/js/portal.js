@@ -709,7 +709,7 @@ function isEmpty(node) {
 
 function initIntro() {
   if (
-    document.getElementById("as__home") &&
+    document.getElementById("servicios") &&
     getCookieValue("modal_data") == "true"
   ) {
     const steps = [

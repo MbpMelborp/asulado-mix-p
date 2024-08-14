@@ -874,7 +874,7 @@ function initIntro() {
         content:
           "Aquí encuentras todos los servicios del Portal en un mismo lugar.",
         title: "Servicios a un clic",
-        target: "#servicios .pa__inner",
+        target: "#servicios .pa__inner_title",
         order: 6,
         group: "init",
         fixed: false,
@@ -885,7 +885,7 @@ function initIntro() {
         content:
           "Encuentra aquí artículos que te enseñarán todo para fomentar tu bienestar financiero.",
         title: "Artículos de interés",
-        target: ".as__articulos .pa__inner_articulos",
+        target: ".as__articulos .pa__inner_title",
         order: 7,
         group: "init",
         fixed: false,

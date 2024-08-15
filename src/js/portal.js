@@ -715,7 +715,7 @@ function initIntro() {
     const steps = [
       {
         content:
-          "<img src='/assets/images/PORTAL/bienvenida.jpg' /><p>Aquí podrás gestionar documentos, novedades y solicitudes.</p><p> <b> ¡Te haremos un rápido recorrido! </p>",
+          "<img src='/assets/images/PORTAL/bienvenida.jpg' /><p>Aquí podrás gestionar documentos, novedades y solicitudes.</p><p> <b> ¡Te haremos un rápido recorrido! </b></p>",
         title: "¡Bienvenido al Portal Transaccional de ASULADO!",
         // target: "",
         order: 0,
@@ -724,7 +724,7 @@ function initIntro() {
       {
         content:
           "Aquí podrás configurar toda la información general de tu cuenta.",
-        title: "Esta es tu foto de perfil.",
+        title: "Esta es tu foto de perfil",
         target: "#nav-user .help",
         order: 1,
         group: "init",
@@ -883,7 +883,7 @@ function initIntro() {
       },
       {
         content:
-          "Encuentra aquí artículos que te enseñarán todo para fomentar tu bienestar financiero.",
+          "Encuentra artículos que te darán recomendaciones para lograr tener bienestar financiero.",
         title: "Artículos de interés",
         target: ".as__articulos .pa__inner_title",
         order: 7,

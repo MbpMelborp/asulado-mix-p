@@ -945,13 +945,13 @@ function initIntro() {
 
     tg.onFinish(() => {
       document.getElementById("modal_intro").showModal();
-      setBtnsClose();
+      setBtnsClose(tg);
       // setCookie("intro", true, 9000);
       // document.getElementById("modal_intro").classList;
     });
     tg.onAfterExit(() => {
       document.getElementById("modal_intro").showModal();
-      setBtnsClose();
+      setBtnsClose(tg);
       // setCookie("intro", true, 5);
     });
 
@@ -969,13 +969,16 @@ function initIntro() {
 function setCookieIntro() {
   setCookie("intro", true, 9000);
 }
-function setBtnsClose() {
+function setBtnsClose(tg) {
   console.log(document.querySelectorAll("#modal_intro button"));
   document.querySelectorAll("#modal_intro button").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       if (btn.classList.contains("btn_x")) {
         setCookieIntro();
+      }
+      if (btn.classList.contains("btn_ok")) {
+        tg.start();
       }
       // setCookieIntro();
       document.getElementById("modal_intro").close();

@@ -1761,6 +1761,54 @@ body {
   }
 }
 
+.fqs_step {
+  @apply flex flex-col gap-4;
+  .tcon {
+    @apply rounded-lg p-4 flex flex-col gap-y-4;
+    i.tcon_icon {
+      @apply h-8 w-8 rounded-full text-white bg-azul-bright2 flex justify-center items-center;
+    }
+    h5 {
+      @apply text-azul-norm font-je font-bold text-xl;
+    }
+    p {
+      @apply text-azul-dark font-light text-lg leading-tight;
+      b {
+        @apply font-bold;
+      }
+    }
+  }
+  .tcon_gest {
+    ul {
+      @apply pl-10 flex-col space-y-4;
+      li {
+        @apply pl-3 list-image-star-xs text-azul-dark font-light text-[1rem] leading-loose;
+        .bt {
+          @apply mx-0.5 font-light inline-block rounded px-2 pt-1 pb-0.5 leading-none;
+          &.v_azul {
+            @apply bg-azul-norm !text-white !no-underline uppercase;
+          }
+          &.v_azulb {
+            @apply bg-azul-bright2 text-azul-dark;
+          }
+          &.v_amarillo {
+            @apply bg-amarillo-mid text-azul-dark;
+          }
+          &.v_trans {
+            @apply bg-white border-azul-bright border;
+          }
+          &.v_icon {
+            @apply text-lg;
+            i {
+              @apply text-azul-bright;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .as__g_faqs_tcon {
   @apply bg-gradient-to-b to-alpha-18 from-alpha-15 pb-8;
   .as__section_wrapper {
@@ -1806,8 +1854,14 @@ body {
                   font-family: "Font Awesome 6 Pro";
                 }
               }
+              h5 {
+                @apply text-azul-dark font-semibold text-base;
+              }
               ul {
                 @apply list-disc list-outside pl-8 flex flex-col gap-y-2 text-base;
+              }
+              a {
+                @apply text-azul-norm underline underline-offset-2 font-bold;
               }
               table {
                 @apply w-full text-base text-left;
@@ -1998,6 +2052,22 @@ body {
     }
     &.act_1 {
       li:nth-child(1) {
+        @apply from-white via-[#FAFDFE] via-20% to-[#FAFDFE];
+        i {
+          @apply bg-azul-bright2 text-white;
+        }
+      }
+    }
+    &.act_2 {
+      li:nth-child(2) {
+        @apply from-white via-[#FAFDFE] via-20% to-[#FAFDFE];
+        i {
+          @apply bg-azul-bright2 text-white;
+        }
+      }
+    }
+    &.act_3 {
+      li:nth-child(3) {
         @apply from-white via-[#FAFDFE] via-20% to-[#FAFDFE];
         i {
           @apply bg-azul-bright2 text-white;

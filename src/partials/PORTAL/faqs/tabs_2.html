@@ -5,11 +5,12 @@
         <div class="as__doc_tabs_small">
           <label for="tabs">Selecciona el tema</label>
           <select id="docs_tabs">
-            <option value="0">Sobre Asulado</option>
-            <option value="1">Pensión por Invalidez o Supervivencia</option>
-            <option value="2">Mesada Pensional</option>
-            <option value="3">EPS y cajas de compensación</option>
-            <option value="4">Sobre temas financieros</option>
+            <option value="0">Contraseña y datos personales</option>
+            <option value="1">Servicios Portal Transaccional</option>
+            <option value="2">Solicitar y gestionar PQRS</option>
+            <option value="3">Beneficiarios</option>
+            <option value="4">Novedades</option>
+            <option value="5">Canales de atención</option>
           </select>
         </div>
         <ul id="por__tabs" class="as__doc_tabs">
@@ -18,9 +19,9 @@
             locals='{ 
               "link": "#documentos",
               "tab": "0",
-              "icon":"info",
-              "title":"Sobre Asulado",
-              "hash": "sobre_asulado",
+              "icon":"lock",
+              "title":"Contraseña y datos personales",
+              "hash": "contrasena",
               "anchor":"documentos"
           }'
           ></include>
@@ -29,9 +30,9 @@
             locals='{ 
               "link": "#documentos",
               "tab": "1",
-              "icon":"person",
-              "title":"Pensión por Invalidez o Supervivencia",
-              "hash": "pension",
+              "icon":"unlock-keyhole",
+              "title":"Servicios Portal Transaccional",
+              "hash": "servicios",
               "anchor":"documentos"
           }'
           ></include>
@@ -40,9 +41,9 @@
             locals='{ 
               "link": "#documentos",
               "tab": "2",
-              "icon":"money-check-pen",
-              "title":"Mesada Pensional",
-              "hash": "mesada",
+              "icon":"question",
+              "title":"Solicitar y gestionar PQRS",
+              "hash": "pqrs",
               "anchor":"documentos"
           }'
           ></include>
@@ -51,22 +52,33 @@
             locals='{ 
               "link": "#documentos",
               "tab": "3",
-              "icon":"hospital",
-              "title":"EPS y cajas de compensación",
-              "hash": "eps_y_caja",
+              "icon":"question",
+              "title":"Beneficiarios",
+              "hash": "beneficiarios",
               "anchor":"documentos"
           }'
           ></include>
           <include
             src="PORTAL/faqs/item.html"
             locals='{ 
-              "link": "#documentos",
-              "tab": "4",
-              "icon":"money-bill-wave",
-              "title":"Sobre temas financieros",
-              "hash": "financiero",
-              "anchor":"documentos"
-          }'
+            "link": "#documentos",
+            "tab": "4",
+            "icon":"question",
+            "title":"Novedades",
+            "hash": "novedades",
+            "anchor":"documentos"
+        }'
+          ></include>
+          <include
+            src="PORTAL/faqs/item.html"
+            locals='{ 
+            "link": "#documentos",
+            "tab": "5",
+            "icon":"question",
+            "title":"Canales de atención",
+            "hash": "canaless",
+            "anchor":"documentos"
+        }'
           ></include>
         </ul>
       </div>

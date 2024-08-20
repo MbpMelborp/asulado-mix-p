@@ -1,0 +1,39 @@
+<section id="documentos" class="as__section as__g_documentos_tabs {{cls}}">
+  <div id="faqs">
+    <div class="as__section_wrapper">
+      <div class="as__section_content_full as__g_documentos_tabs_int">
+        <div class="as__doc_tabs_small">
+          <label for="tabs">Selecciona el tema</label>
+          <select id="docs_tabs">
+            <option value="0">Certificados y otros documentos</option>
+            <option value="1">Novedades</option>
+          </select>
+        </div>
+        <ul id="por__tabs" class="as__doc_tabs">
+          <include
+            src="PORTAL/faqs/item.html"
+            locals='{ 
+              "link": "#documentos",
+              "tab": "0",
+              "icon":"lock",
+              "title":"Certificados y otros documentos",
+              "hash": "certificados",
+              "anchor":"documentos"
+          }'
+          ></include>
+          <include
+            src="PORTAL/faqs/item.html"
+            locals='{ 
+              "link": "#documentos",
+              "tab": "1",
+              "icon":"unlock-keyhole",
+              "title":"Novedades",
+              "hash": "novedades",
+              "anchor":"documentos"
+          }'
+          ></include>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

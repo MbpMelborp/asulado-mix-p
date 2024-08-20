@@ -235,7 +235,8 @@ if (
       tabe.addEventListener("click", (e) => {
         e.preventDefault();
         const tab = e.target.dataset.tab;
-        changeTab(tab, true);
+        if (window.location.hash == "") changeTab(tab, false);
+        else changeTab(tab);
       });
     });
 
@@ -244,7 +245,6 @@ if (
       e.preventDefault();
       const tab = e.target.dataset.tab;
       const hash = e.target.dataset.hash;
-
       history.replaceState(
         {},
         document.title,
@@ -288,6 +288,7 @@ function changeTab(tab, scroll = true) {
     if (tab !== tabe.dataset.tab) tabe.classList.remove("active");
     else {
       tabe.classList.add("active");
+
       window.location.hash = tabe.dataset.hash; // Change the page hash
       if (scroll) {
         var url = location.href;

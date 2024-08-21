@@ -2045,32 +2045,32 @@ body {
             @apply text-azul-bold;
           }
           i {
-            @apply bg-azul-bright2 text-white;
+            @apply bg-azul-bold text-white;
           }
         }
       }
     }
     &.act_1 {
       li:nth-child(1) {
-        @apply from-white via-[#FAFDFE] via-20% to-[#FAFDFE];
+        @apply from-alpha-20 via-alpha-15 via-20% to-[#FAFDFE] border-t-azul-30;
         i {
-          @apply bg-azul-bright2 text-white;
+          @apply bg-azul-mid text-white;
         }
       }
     }
     &.act_2 {
       li:nth-child(2) {
-        @apply from-white via-[#FAFDFE] via-20% to-[#FAFDFE];
+        @apply from-alpha-20 via-alpha-15 via-20% to-[#FAFDFE] border-t-azul-30;
         i {
-          @apply bg-azul-bright2 text-white;
+          @apply bg-azul-mid text-white;
         }
       }
     }
     &.act_3 {
       li:nth-child(3) {
-        @apply from-white via-[#FAFDFE] via-20% to-[#FAFDFE];
+        @apply from-alpha-20 via-alpha-15 via-20% to-[#FAFDFE] border-t-azul-30;
         i {
-          @apply bg-azul-bright2 text-white;
+          @apply bg-azul-mid text-white;
         }
       }
     }

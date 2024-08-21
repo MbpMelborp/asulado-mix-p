@@ -309,7 +309,7 @@
     table {
       @apply w-full;
       td:empty {
-        @apply bg-red-300;
+        @apply hidden;
       }
     }
     .pbButtonb {
@@ -322,6 +322,11 @@
         }
         &.hideButton {
           @apply btn-disabled;
+        }
+      }
+      &:has(input[type="submit"] + input[type="submit"]) {
+        input[value="Cancelar"] {
+          @apply order-first;
         }
       }
     }
@@ -404,9 +409,35 @@
                 }
               }
             }
+            tr:has(
+                td span[style="display: none"],
+                td span[style="display: none;"]
+              ) {
+              @apply hidden;
+            }
+
             &:has(input[value="Cancelar"]) {
               tr {
                 @apply lg:!w-full;
+              }
+            }
+            &:has(.palert, input[value="Confirmar"], input[value="Cancelar"]) {
+              tr {
+                @apply lg:!w-full;
+              }
+              tr:has(input[value="Confirmar"], input[value="Cancelar"]) {
+                @apply lg:!w-1/2;
+                &:has(input[value="Cancelar"]) {
+                }
+                &:has(input[value="Confirmar"]) {
+                  @apply order-last;
+                }
+                input[value="Confirmar"] {
+                  @apply btn-as-primary ml-auto w-auto;
+                }
+                input[value="Cancelar"] {
+                  @apply btn-as-secondary mr-auto w-auto;
+                }
               }
             }
             tr {
@@ -537,11 +568,14 @@
       }
       .pbBottomButtons {
         @apply md:flex-1 px-2;
-        input {
-          @apply !w-full;
+        td:has(input):not(:has(input:nth-child(2))) {
+          input {
+            @apply !w-full;
+          }
         }
       }
     }
+
     &:has(.pbBottomButtons + .pbBottomButtons) {
       @apply flex flex-wrap;
       .pbBody {
@@ -572,7 +606,8 @@
         }
         &:has(input[value="Enviar"]),
         &:has(input[value="Confirmar"]),
-        &:has(input[value="Editar"]) {
+        &:has(input[value="Editar"]),
+        &:has(input[value="Vincular cuenta bancaria"]) {
           @apply order-2;
           td {
             @apply text-right;
@@ -583,28 +618,6 @@
         }
       }
     }
-
-    /* .pbBottomButtons {
-      table {
-        @apply max-w-sm;
-        input {
-          @apply w-auto mx-0 flex-1 px-24;
-        }
-        td.pbButtonb {
-          @apply max-w-xl;
-          &[id="pg:fm:pb:ps:bottom"] {
-            @apply !w-full !max-w-full flex gap-3 items-center justify-between;
-          }
-        }
-        &:has(.pbButtonb[id="pg:fm:pb:ps:bottom"]) {
-          @apply !w-full !max-w-full;
-        }
-
-        tr td:first-child {
-          @apply hidden;
-        }
-      }
-    } */
 
     .pbFooter {
       &:has(div:empty) {

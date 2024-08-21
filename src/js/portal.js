@@ -708,10 +708,21 @@ function isEmpty(node) {
   return node.textContent.trim() === "";
 }
 
+function checkRequestParameter(parameterName) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.has(parameterName);
+}
+
+function removeParameter(parameterName) {
+  const url = new URL(window.location.href);
+  url.searchParams.delete(parameterName);
+  window.history.replaceState({}, document.title, url.toString());
+}
 function initIntro() {
   if (
-    document.getElementById("servicios") &&
-    getCookieValue("modal_data") == "true"
+    document.querySelector(".pa__banner") &&
+    getCookieValue("modal_data") == "true" &&
+    getCookieValue("intro") == null
   ) {
     const steps = [
       {
@@ -938,8 +949,8 @@ function initIntro() {
       steps: steps, // pre-define the tour steps
     };
     const tg = new TourGuideClient(options);
-    if (getCookieValue("intro") == null || getCookieValue("intro") != "true")
-      tg.start();
+
+    tg.start();
     tg.onAfterStepChange(() => {
       // console.info("step change complete " + tg.activeStep);
     });
@@ -986,4 +997,11 @@ function setBtnsClose(tg) {
     });
   });
 }
-initIntro();
+
+if (document.querySelector(".pa__banner")) {
+  if (checkRequestParameter("ayuda")) {
+    deleteCookie("intro");
+    removeParameter("ayuda");
+  }
+  initIntro();
+}

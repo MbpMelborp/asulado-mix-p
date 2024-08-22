@@ -721,13 +721,12 @@ function removeParameter(parameterName) {
 function initIntro() {
   const isModal = getCookieValue("modal_data")
     ? getCookieValue("modal_data")
-    : false;
+    : true;
   if (
     document.querySelector(".pa__banner") &&
     isModal &&
     getCookieValue("intro") == null
   ) {
-    console.log("init Intro");
     const steps = [
       {
         content:

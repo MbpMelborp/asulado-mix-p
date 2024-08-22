@@ -719,11 +719,15 @@ function removeParameter(parameterName) {
   window.history.replaceState({}, document.title, url.toString());
 }
 function initIntro() {
+  const isModal = getCookieValue("modal_data")
+    ? getCookieValue("modal_data")
+    : false;
   if (
     document.querySelector(".pa__banner") &&
-    getCookieValue("modal_data") == "true" &&
+    isModal &&
     getCookieValue("intro") == null
   ) {
+    console.log("init Intro");
     const steps = [
       {
         content:

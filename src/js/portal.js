@@ -718,15 +718,19 @@ function removeParameter(parameterName) {
   url.searchParams.delete(parameterName);
   window.history.replaceState({}, document.title, url.toString());
 }
+let startIntro = false;
 function initIntro() {
+  console.log("initIntro");
   if (
     document.querySelector(".pa__banner") &&
-    getCookieValue("intro") == null
+    getCookieValue("intro") == null &&
+    startIntro == false
   ) {
+    startIntro = true;
     const steps = [
       {
         content:
-          "<img src='/assets/images/PORTAL/bienvenida.jpg' /><p>Aquí podrás gestionar documentos, novedades y solicitudes.</p><p> <b> ¡Te haremos un rápido recorrido! </b></p>",
+          "<img src='https://asulado-cdn-mbp.s3.amazonaws.com/assets/images/PORTAL/bienvenida.jpg' /><p>Aquí podrás gestionar documentos, novedades y solicitudes.</p><p> <b> ¡Te haremos un rápido recorrido! </b></p>",
         title: "¡Bienvenido al Portal Transaccional de ASULADO!",
         // target: "",
         order: 0,

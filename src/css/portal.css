@@ -2026,7 +2026,7 @@ body {
       @apply text-6xl mx-auto block text-center mb-2;
     }
     .alert-int {
-      @apply flex flex-col gap-y-2 flex-1;
+      @apply flex flex-col gap-y-2 flex-1 text-left;
       h4 {
         @apply font-je text-base text-azul-bold font-bold;
       }

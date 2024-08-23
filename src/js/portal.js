@@ -191,13 +191,13 @@ function handleMenu() {
   const mobile = window.innerWidth < 1024;
   if (mobile) {
     if (!open_menu) {
-      document.querySelector("body").classList.add("overflow-hidden");
+      document.querySelector("body").classList.add("overnone");
       menu_nav.classList.add("nav_open");
       menu_wrap.classList.add("open");
       menu_button.classList.add("open");
       menu_nav.classList.remove("nav_close");
     } else {
-      document.querySelector("body").classList.remove("overflow-hidden");
+      document.querySelector("body").classList.remove("overnone");
       menu_nav.classList.add("nav_close");
       menu_button.classList.remove("open");
       menu_nav.classList.remove("nav_open");

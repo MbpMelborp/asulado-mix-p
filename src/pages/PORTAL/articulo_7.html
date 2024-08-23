@@ -1,0 +1,705 @@
+<extends src="portal.html" locals='{ "id": "as__home", "top":"" }'>
+  <block name="head">
+    <title>ASULADO Seguros de Vida</title>
+    <meta name="title" content="ASULADO Seguros de Vida" />
+    <meta
+      name="keywords"
+      content="Asulado seguros de vida, renta vitalicia, seguro previsional, pension anticipada"
+    />
+    <meta
+      name="description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.asulado.com/" />
+    <meta property="og:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="og:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="og:image" content="/assets/fb.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.asulado.com/" />
+    <meta property="twitter:title" content="ASULADO Seguros de Vida" />
+    <meta
+      property="twitter:description"
+      content="Descubre la seguridad financiera con ASULADO Seguros de Vida. Encuentra consejos, bienestar financiero, tips y más información."
+    />
+    <meta property="twitter:image" content="/assets/fb.png" />
+  </block>
+  <!-- CONTENIDO DEL HOME -->
+  <block name="content">
+    <include
+      src="PORTAL/p_top_no_img.html"
+      locals='{ "cls":"inl small", "ico": "newspaper", "title":"Artículos de interés", "image":"tmp_header.png", "content":""}'
+    ></include>
+
+    <div id="content" class="as__section pa__inter">
+      <div class="as__section_wrapper">
+        <div class="as__section_content_full pa__inter_content news_cont">
+          <div class="news">
+            <form
+              id="header:j_id7"
+              name="header:j_id7"
+              method="post"
+              action="/AsuladoTransaccional/articles"
+              enctype="application/x-www-form-urlencoded"
+            >
+              <input type="hidden" name="header:j_id7" value="header:j_id7" />
+              <script>
+                if (!window.sfdcPage) {
+                  window.sfdcPage = new ApexPage();
+                }
+                UserContext.initialize({
+                  ampm: ["a.&nbsp;m.", "p.&nbsp;m."],
+                  isAccessibleMode: false,
+                  salesforceURL:
+                    "https://proteccion--stage.sandbox.my.site.com?refURL=https%3A%2F%2Fproteccion--stage.sandbox.my.site.com%2FAsuladoTransaccional%2Fapex%2FHome",
+                  dateFormat: "d/MM/yyyy",
+                  language: "es",
+                  locale: "es_CO",
+                  dateTimeFormat: "d/MM/yyyy, h:mm a",
+                  labelLastModified: "1724375887000",
+                  today: "23/08/2024, 10:46 a.&nbsp;m.",
+                  userPreferences: [
+                    { index: 112, name: "HideInlineEditSplash", value: false },
+                    {
+                      index: 114,
+                      name: "OverrideTaskSendNotification",
+                      value: false,
+                    },
+                    {
+                      index: 115,
+                      name: "DefaultTaskSendNotification",
+                      value: false,
+                    },
+                    {
+                      index: 119,
+                      name: "HideUserLayoutStdFieldInfo",
+                      value: false,
+                    },
+                    { index: 116, name: "HideRPPWarning", value: false },
+                    {
+                      index: 87,
+                      name: "HideInlineSchedulingSplash",
+                      value: false,
+                    },
+                    { index: 88, name: "HideCRUCNotification", value: false },
+                    { index: 89, name: "HideNewPLESplash", value: false },
+                    { index: 90, name: "HideNewPLEWarnIE6", value: false },
+                    {
+                      index: 122,
+                      name: "HideOverrideSharingMessage",
+                      value: false,
+                    },
+                    { index: 91, name: "HideProfileILEWarn", value: false },
+                    { index: 93, name: "HideProfileElvVideo", value: false },
+                    { index: 97, name: "ShowPicklistEditSplash", value: false },
+                    { index: 92, name: "HideDataCategorySplash", value: false },
+                    { index: 128, name: "ShowDealView", value: false },
+                    {
+                      index: 129,
+                      name: "HideDealViewGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 132,
+                      name: "HideKnowledgeFirstTimeSetupMsg",
+                      value: false,
+                    },
+                    {
+                      index: 104,
+                      name: "DefaultOffEntityPermsMsg",
+                      value: false,
+                    },
+                    { index: 135, name: "HideNewCsnSplash", value: false },
+                    { index: 101, name: "HideBrowserWarning", value: false },
+                    {
+                      index: 139,
+                      name: "HideDashboardBuilderGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 140,
+                      name: "HideSchedulingGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 180,
+                      name: "HideReportBuilderGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 183,
+                      name: "HideAssociationQueueCallout",
+                      value: false,
+                    },
+                    { index: 194, name: "HideQTEBanner", value: false },
+                    { index: 270, name: "HideIDEGuidedTour", value: false },
+                    {
+                      index: 282,
+                      name: "HideQueryToolGuidedTour",
+                      value: false,
+                    },
+                    { index: 196, name: "HideCSIGuidedTour", value: false },
+                    { index: 271, name: "HideFewmetGuidedTour", value: false },
+                    { index: 272, name: "HideEditorGuidedTour", value: false },
+                    {
+                      index: 205,
+                      name: "HideApexTestGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 206,
+                      name: "HideSetupProfileHeaderTour",
+                      value: false,
+                    },
+                    {
+                      index: 207,
+                      name: "HideSetupProfileObjectsAndTabsTour",
+                      value: false,
+                    },
+                    {
+                      index: 213,
+                      name: "DefaultOffArticleTypeEntityPermMsg",
+                      value: false,
+                    },
+                    {
+                      index: 214,
+                      name: "HideSelfInfluenceGetStarted",
+                      value: false,
+                    },
+                    {
+                      index: 215,
+                      name: "HideOtherInfluenceGetStarted",
+                      value: false,
+                    },
+                    {
+                      index: 216,
+                      name: "HideFeedToggleGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 268,
+                      name: "ShowChatterTab178GuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 275,
+                      name: "HidePeopleTabDeprecationMsg",
+                      value: false,
+                    },
+                    {
+                      index: 276,
+                      name: "HideGroupTabDeprecationMsg",
+                      value: false,
+                    },
+                    {
+                      index: 224,
+                      name: "HideUnifiedSearchGuidedTour",
+                      value: false,
+                    },
+                    { index: 226, name: "ShowDevContextMenu", value: true },
+                    {
+                      index: 227,
+                      name: "HideWhatRecommenderForActivityQueues",
+                      value: false,
+                    },
+                    {
+                      index: 228,
+                      name: "HideLiveAgentFirstTimeSetupMsg",
+                      value: false,
+                    },
+                    {
+                      index: 232,
+                      name: "HideGroupAllowsGuestsMsgOnMemberWidget",
+                      value: false,
+                    },
+                    {
+                      index: 233,
+                      name: "HideGroupAllowsGuestsMsg",
+                      value: false,
+                    },
+                    { index: 234, name: "HideWhatAreGuestsMsg", value: false },
+                    { index: 235, name: "HideNowAllowGuestsMsg", value: false },
+                    {
+                      index: 236,
+                      name: "HideSocialAccountsAndContactsGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 237,
+                      name: "HideAnalyticsHomeGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 238,
+                      name: "ShowQuickCreateGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 245,
+                      name: "HideFilePageGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 250,
+                      name: "HideForecastingGuidedTour",
+                      value: false,
+                    },
+                    { index: 251, name: "HideBucketFieldGuide", value: false },
+                    {
+                      index: 263,
+                      name: "HideSmartSearchCallOut",
+                      value: false,
+                    },
+                    {
+                      index: 273,
+                      name: "ShowForecastingQuotaAttainment",
+                      value: false,
+                    },
+                    {
+                      index: 280,
+                      name: "HideForecastingQuotaColumn",
+                      value: false,
+                    },
+                    { index: 301, name: "HideManyWhoGuidedTour", value: false },
+                    { index: 298, name: "HideFileSyncBannerMsg", value: false },
+                    {
+                      index: 299,
+                      name: "HideTestConsoleGuidedTour",
+                      value: false,
+                    },
+                    {
+                      index: 302,
+                      name: "HideManyWhoInlineEditTip",
+                      value: false,
+                    },
+                    {
+                      index: 303,
+                      name: "HideSetupV2WelcomeMessage",
+                      value: false,
+                    },
+                    {
+                      index: 312,
+                      name: "ForecastingShowQuantity",
+                      value: false,
+                    },
+                    {
+                      index: 313,
+                      name: "HideDataImporterIntroMsg",
+                      value: false,
+                    },
+                    {
+                      index: 314,
+                      name: "HideEnvironmentHubLightbox",
+                      value: false,
+                    },
+                    { index: 316, name: "HideSetupV2GuidedTour", value: false },
+                    {
+                      index: 317,
+                      name: "HideFileSyncMobileDownloadDialog",
+                      value: false,
+                    },
+                    {
+                      index: 322,
+                      name: "HideEnhancedProfileHelpBubble",
+                      value: false,
+                    },
+                    {
+                      index: 328,
+                      name: "ForecastingHideZeroRows",
+                      value: false,
+                    },
+                    {
+                      index: 330,
+                      name: "HideEmbeddedComponentsFeatureCallout",
+                      value: false,
+                    },
+                    {
+                      index: 341,
+                      name: "HideDedupeMatchResultCallout",
+                      value: false,
+                    },
+                    { index: 340, name: "HideS1BrowserUI", value: true },
+                    { index: 346, name: "HideS1Banner", value: false },
+                    {
+                      index: 358,
+                      name: "HideEmailVerificationAlert",
+                      value: false,
+                    },
+                    { index: 354, name: "HideLearningPathModal", value: false },
+                    {
+                      index: 359,
+                      name: "HideAtMentionsHelpBubble",
+                      value: false,
+                    },
+                    {
+                      index: 368,
+                      name: "LightningExperiencePreferred",
+                      value: true,
+                    },
+                    { index: 373, name: "PreviewLightning", value: false },
+                    { index: 281, name: "HideMSPPopup", value: false },
+                  ],
+                  networkId: "0DBO80000000eVJ",
+                  uiTheme: "Theme3",
+                  uiSkin: "Theme3",
+                  userName: "1037650699@asulado.com.co",
+                  userId: "005O8000003F1QH",
+                  isCurrentlySysAdminSU: false,
+                  renderMode: "RETRO",
+                  startOfWeek: "1",
+                  vfDomainPattern:
+                    "proteccion--stage--(?:[^.]+).sandbox.vf.force.com",
+                  auraDomain: "proteccion--stage.sandbox.lightning.force.com",
+                  useNativeAlertConfirmPrompt: false,
+                  orgPreferences: [
+                    { index: 257, name: "TabOrganizer", value: true },
+                    { index: 113, name: "GroupTasks", value: true },
+                  ],
+                  siteUrlPrefix: "/AsuladoTransaccional",
+                  isDefaultNetwork: false,
+                  timeFormat: "h:mm a",
+                });
+              </script>
+              <div class="apexp">
+                <div
+                  id="header:j_id7:j_id8"
+                  class="bPageBlock brandSecondaryBrd apexDefaultPageBlock secondaryPalette"
+                >
+                  <script>
+                    function twistSection(elem, sectionId) {
+                      var parentDiv = elem;
+                      var twisty = elem;
+                      while (parentDiv.tagName != "DIV") {
+                        parentDiv = parentDiv.parentNode;
+                      }
+                      if (
+                        elem.tagName === "DIV" &&
+                        elem.attributes["data-twistyimgid"] !== undefined
+                      ) {
+                        twisty = document.getElementById(
+                          elem.attributes["data-twistyimgid"].value
+                        );
+                      }
+                      var div = parentDiv.nextSibling;
+                      var elemWasOn = false;
+                      if (div.style.display != "none") {
+                        div.style.display = "none";
+                        twisty.className = "showListButton";
+                        twisty.alt = "Mostrar sección - " + twisty.name;
+                        elem.title = twisty.alt;
+                        elemWasOn = true;
+                      } else {
+                        div.style.display = "block";
+                        twisty.className = "hideListButton";
+                        twisty.alt = "Ocultar sección - " + twisty.name;
+                        elem.title = twisty.alt;
+                      }
+                      return !elemWasOn;
+                    }
+                    var registeredSections = new Array();
+                    function registerTwistableSection(headerId, mainTableId) {
+                      var obj = new Object();
+                      obj.headerId = headerId;
+                      obj.mainTableId = mainTableId;
+                      registeredSections[registeredSections.length] = obj;
+                    }
+                    function twistAllSections(on) {
+                      for (var i = 0; i < registeredSections.length; i++) {
+                        var obj = registeredSections[i];
+                        var img;
+                        img = document.getElementById("img_" + obj.headerId);
+                        if (on && "showListButton" == img.className) {
+                          twistSection(img, obj.headerId, obj.mainTableId);
+                        } else if (!on && "hideListButton" == img.className) {
+                          twistSection(img, obj.headerId, obj.mainTableId);
+                        }
+                      }
+                    }
+                    function toggleSection(headerId, on) {
+                      var sectionHead = document.getElementById(
+                        "head_" + headerId + "_header_j_id7_j_id8"
+                      );
+                      var body = sectionHead.nextSibling;
+                      var disp = on ? "block" : "none";
+                      sectionHead.style.display = disp;
+                      body.style.display = disp;
+                    }
+                    function registerTwistableSections_header_j_id7_j_id8() {
+                      registerTwistableSection(
+                        "header_j_id7_j_id8_j_id9",
+                        "header_j_id7_j_id8"
+                      );
+                    }
+                    registerTwistableSections_header_j_id7_j_id8();
+                  </script>
+                  <div class="pbBody">
+                    <div id="header:j_id7:j_id8:j_id9">
+                      <div class="pbSubsection">
+                        <table
+                          class="detailList"
+                          border="0"
+                          cellpadding="0"
+                          cellspacing="0"
+                        >
+                          <tbody>
+                            <tr>
+                              <td class="dataCol first last" colspan="2">
+                                <h1>
+                                  ¡Evita caer en estafas financieras! Sigue
+                                  estos consejos y cuida tu dinero.
+                                </h1>
+
+                                <p>
+                                  Hoy en día, las estafas financieras se han
+                                  vuelto muy comunes y difíciles de identificar.
+                                  Los estafadores adoptan cada vez más técnicas
+                                  para engañar a las personas y robar su dinero,
+                                  lo que hace que sea más difícil reconocer
+                                  cuándo estamos siendo posibles víctimas de
+                                  fraudes. En ASULADO, nos preocupamos por tu
+                                  bienestar financiero, por lo que te contamos
+                                  un poco más sobre estos diferentes tipos de
+                                  estafas y qué medidas puedes tomar para
+                                  protegerte.
+                                </p>
+                                <img
+                                  alt="Evitar estafas en internet"
+                                  src="https://dw2fbj22ajabu.cloudfront.net/assets/images/blog/p_2_2.webp"
+                                />
+                                <h2>
+                                  ¿Cómo funcionan las estafas financieras?
+                                </h2>
+
+                                <p>
+                                  Para evitarlas, es importante entender qué
+                                  tipo de estafas financieras son las más
+                                  comunes hoy. Aunque funcionan de diferentes
+                                  formas, las técnicas más comunes incluyen:
+                                </p>
+
+                                <ul>
+                                  <li>
+                                    <strong>Ciberfraude:</strong> Esto puede
+                                    ocurrir por medio de correos electrónicos,
+                                    mensajes de texto o llamadas telefónicas. En
+                                    estos casos, los usuarios reciben mensajes
+                                    de un estafador que puede estar haciéndose
+                                    pasar por alguien conocido (como un familiar
+                                    o amigo) o incluso una entidad financiera
+                                    (como un banco). Por ejemplo, cuando los
+                                    usuarios reciben mensajes extraños
+                                    informándoles que fueron ganadores de un
+                                    gran premio, y que deben redimirlo entrando
+                                    a algún enlace. Casi siempre se trata de
+                                    fraudes, en los que a través de estos
+                                    enlaces los estafadores pueden obtener
+                                    información financiera del usuario con el
+                                    fin de robarle dinero.
+                                  </li>
+                                  <li>
+                                    <strong>Redes sociales:</strong> En este
+                                    último caso, los estafadores utilizan las
+                                    redes sociales para crear perfiles falsos o
+                                    para publicar anuncios que parecen provenir
+                                    de una persona, una institución financiera u
+                                    otra organización confiable. Suelen pedirles
+                                    a diferentes usuarios que ingresen a enlaces
+                                    maliciosos, que compartan información
+                                    bancaria o que realicen transferencias de
+                                    dinero.
+                                  </li>
+                                </ul>
+                                <img
+                                  alt="¡Evita caer en estafas financieras! Sigue estos consejos y cuida             tu dinero."
+                                  src="https://dw2fbj22ajabu.cloudfront.net/assets/images/blog/p_2_3.webp"
+                                />
+                                <h2>
+                                  Consejos para evitar caer en estafas
+                                  financieras
+                                </h2>
+
+                                <p>
+                                  Una vez hayas identificado las diferentes
+                                  metodologías que suelen utilizar los
+                                  estafadores, será más fácil reconocer los
+                                  momentos en que podrías correr el riesgo de
+                                  ser una víctima de ello. Sigue estos consejos
+                                  para cuidarte de una posible estafa.
+                                </p>
+
+                                <ol>
+                                  <li>
+                                    <strong>Sé desconfiado:</strong> Si de
+                                    manera no solicitada recibes un correo
+                                    electrónico, mensaje de texto o llamada
+                                    telefónica donde se te pide tu información
+                                    personal o financiera (como tu número de
+                                    cédula o los números de cuentas bancarias o
+                                    tarjeta de crédito), ten cuidado. Antes de
+                                    responder a estos mensajes o hacer clic en
+                                    algún enlace, verifica la fuente y asegúrate
+                                    de que sea legítima. (Si tienes alguna duda,
+                                    contáctate con los canales oficiales de tus
+                                    entidades financieras).
+                                  </li>
+                                  <li>
+                                    <strong
+                                      >Ten cuidado con lo que instales en tus
+                                      dispositivos:</strong
+                                    >
+                                    Descarga tus aplicaciones o archivos
+                                    exclusivamente de páginas o plataformas que
+                                    sean 100% confiables. Esto te ayudará a
+                                    proteger tus dispositivos contra posibles
+                                    virus informáticos. Te recomendamos utilizar
+                                    y mantener actualizado tu antivirus, el cual
+                                    es recomendable que cuente con una buena
+                                    recomendación o calificación, para que sea
+                                    efectivo en la protección de tus
+                                    dispositivos.
+                                  </li>
+                                  <li>
+                                    <strong
+                                      >No confíes en las ofertas que parecen
+                                      demasiado buenas para ser verdad:</strong
+                                    >
+                                    Recuerda el dicho: "de eso tan bueno no dan
+                                    tanto". Evita invertir o gastar tu dinero en
+                                    oportunidades que te prometan el cielo en
+                                    ganancias con poco riesgo. Procura ignorar
+                                    mensajes o llamadas que ofrezcan premios o
+                                    bonos inesperados.
+                                  </li>
+                                  <li>
+                                    <strong
+                                      >Desconfía de la presión de
+                                      tiempo:</strong
+                                    >
+                                    Los estafadores a menudo tratarán de
+                                    presionarte para que tomes una decisión
+                                    rápida. Tómate tu tiempo para pensar y
+                                    consultar con alguien de confianza.
+                                  </li>
+                                  <li>
+                                    <strong
+                                      >Compra solo en sitios seguros:</strong
+                                    >
+                                    En redes sociales aparecen todo tipo de
+                                    productos que se ofrecen a un menor precio
+                                    para atraer víctimas. Al intentar comprar
+                                    dicho producto, los enlaces llevan a páginas
+                                    inseguras que robarán tu información de
+                                    pago.
+                                  </li>
+                                </ol>
+
+                                <p>
+                                  Como resultado, además de no recibir el
+                                  producto, harán cargos a tus tarjetas.
+                                </p>
+
+                                <p>
+                                  Verifica que la dirección del sitio en el que
+                                  planeas comprar comience con "https://" y
+                                  busca el ícono de candado a un lado de la
+                                  dirección, esto quiere decir que la página es
+                                  segura.
+                                </p>
+
+                                <ol start="6">
+                                  <li>
+                                    <strong>Denuncia las estafas:</strong> Si
+                                    crees que has sido víctima de una estafa,
+                                    denúnciala a las entidades bancarias
+                                    involucradas y a la Policía Nacional de
+                                    Colombia (<a
+                                      href="https://www.policia.gov.co/denuncia-virtual/delitos-informaticos"
+                                      target="_blank"
+                                      >https://www.policia.gov.co/denuncia-virtual/delitos-informaticos</a
+                                    >).
+                                  </li>
+                                </ol>
+
+                                <p>
+                                  Informándote sobre las metodologías de estafas
+                                  financieras y tomando todas las medidas para
+                                  protegerte, puedes reducir considerablemente
+                                  tu riesgo de ser víctima de un fraude. En
+                                  ASULADO, tu bienestar financiero es nuestra
+                                  prioridad. ¡Sigue estos consejos para cuidar
+                                  tu dinero!
+                                </p>
+
+                                <h3>Fuentes:</h3>
+
+                                <ul class="link">
+                                  <li>
+                                    <a
+                                      href="https://www.bbva.mx/educacion-financiera/banca-digital/prevencion-de-fraudes-digitales.html#:~:text=Aseg%C3%BArate%20de%20ingresar%20los%20datos,mensaje%20cuyo%20remitente%20es%20desconocido."
+                                      target="_blank"
+                                      >https://www.bbva.mx/educacion-financiera/banca-digital/prevencion-de-fraudes-digitales.html#:~:text=Aseg%C3%BArate%20de%20ingresar%20los%20datos,mensaje%20cuyo%20remitente%20es%20desconocido.
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="https://www.larepublica.co/finanzas/recomendaciones-para-evitar-caer-en-fraude-financiero-el-cual-aumento-45-en-2021-3335208"
+                                      target="_blank"
+                                      >https://www.larepublica.co/finanzas/recomendaciones-para-evitar-caer-en-fraude-financiero-el-cual-aumento-45-en-2021-3335208</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="https://www.forbes.com.mx/como-evitar-ser-victima-de-fraudes-duida-tu-dinero/"
+                                      target="_blank"
+                                      >https://www.forbes.com.mx/como-evitar-ser-victima-de-fraudes-duida-tu-dinero/
+                                    </a>
+                                  </li>
+                                </ul>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pbFooter secondaryPalette">
+                    <div class="bg"></div>
+                  </div>
+                </div>
+              </div>
+              <div id="header:j_id7:j_id24"></div>
+            </form>
+            <span id="ajax-view-state-page-container" style="display: none"
+              ><span id="ajax-view-state" style="display: none"
+                ><input
+                  type="hidden"
+                  id="com.salesforce.visualforce.ViewState"
+                  name="com.salesforce.visualforce.ViewState"
+                  value="i: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" /><input
+                  type="hidden"
+                  id="com.salesforce.visualforce.ViewStateVersion"
+                  name="com.salesforce.visualforce.ViewStateVersion"
+                  value="202408222357120846" /><input
+                  type="hidden"
+                  id="com.salesforce.visualforce.ViewStateMAC"
+                  name="com.salesforce.visualforce.ViewStateMAC"
+                  value="AGV5SnViMjVqWlNJNkluUmxORjl4U0hCeVdHTmFTalZ1VmxoMFRGODNkRWR5YTJkMmVYQjNTRkp6Wmtrd1gxOURka1ZGWWtGY2RUQXdNMlFpTENKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUlzSW10cFpDSTZJbnRjSW5SY0lqcGNJakF3UkRBMU1EQXdNREF3T0hKRmExd2lMRndpZGx3aU9sd2lNREpIT0dFd01EQXdNREJJUjJSV1hDSXNYQ0poWENJNlhDSjJabk5wWjI1cGJtZHJaWGxjSWl4Y0luVmNJanBjSWpBd05VODRNREF3TURBelJqRlJTRndpZlNJc0ltTnlhWFFpT2xzaWFXRjBJbDBzSW1saGRDSTZNVGN5TkRReU56azJNRGsxT0N3aVpYaHdJam93ZlE9PS4uME8xelNsdkZodzRDWlVRN3NwallHN2Y0S2ljWmlsQTBPWFdRVDlDeDk5MD0=" /><input
+                  type="hidden"
+                  id="com.salesforce.visualforce.ViewStateCSRF"
+                  name="com.salesforce.visualforce.ViewStateCSRF"
+                  value="VmpFPSxNakF5TkMwd09DMHlObFF4TlRvME5qb3dNQzQ1TlRoYSxCd2JvaFphMU5aVm95dTU4NUNJTTAzcHBIQmxaSVlWSlFieHdvSDhqSFZ3PSxPVFV6T0RJMg==" /></span
+            ></span>
+          </div>
+
+          <include src="PORTAL/p_news_aside.html"></include>
+        </div>
+      </div>
+    </div>
+
+    <include src="PORTAL/p_ayuda.html"></include>
+  </block>
+  <!-- FIN CONTENIDO DEL HOME -->
+</extends>

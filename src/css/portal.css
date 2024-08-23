@@ -138,7 +138,9 @@ html {
 body {
   @apply font-sans;
 }
-
+.overnone {
+  @apply !overflow-hidden;
+}
 .as__section {
   @apply w-full;
   .as__section_wrapper {
@@ -167,17 +169,17 @@ body {
       }
     }
     nav {
-      @apply flex-col h-[100svh] py-0;
+      @apply flex-col h-[100svh] py-0 overflow-auto pb-12;
       .as__nav_wrap {
         @apply w-full flex-col items-center justify-between gap-4 lg:gap-x-0;
         &.h_menu {
-          @apply h-[100svh];
+          /* @apply h-full; */
         }
         .as__logo {
           @apply hidden;
         }
         .as__nav_links {
-          @apply h-[100%] my-0 py-0;
+          @apply h-full my-0 py-0;
           .as__nav_links_ppal_li {
             @apply my-0 relative;
             a {
@@ -1149,6 +1151,22 @@ body {
       &:has(.news),
       .news {
         @apply prose-lg;
+        .pbSubsection {
+          table.detailList {
+            @apply flex flex-col gap-2;
+            tbody,
+            thead {
+              @apply flex flex-col gap-2;
+              tr:has(.dataCol) {
+                @apply flex flex-col gap-2;
+                td.dataCol,
+                th.dataCol {
+                  @apply flex flex-col gap-1;
+                }
+              }
+            }
+          }
+        }
         h1 {
           @apply text-azul-bold text-4xl font-je flex gap-3;
           &::before {

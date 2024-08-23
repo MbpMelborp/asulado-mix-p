@@ -1197,7 +1197,7 @@ body {
           li {
             @apply list-inside py-2 list-image-star-xs;
             a {
-              @apply hyphens-auto inline-block pb-1 text-base text-azul-bold underline underline-offset-2 hover:text-azul-dark;
+              @apply hyphens-auto inline-block pb-1 text-base text-azul-bold underline underline-offset-2 hover:text-azul-dark break-all;
             }
           }
         }
@@ -1205,7 +1205,7 @@ body {
           li {
             @apply list-inside py-2 list-decimal;
             a {
-              @apply hyphens-auto inline-block pb-1 text-base text-azul-bold underline underline-offset-2 hover:text-azul-dark;
+              @apply hyphens-auto inline-block pb-1 text-base text-azul-bold underline underline-offset-2 hover:text-azul-dark break-all;
             }
           }
         }
@@ -1215,7 +1215,7 @@ body {
           li {
             @apply !list-none !list-image-none !my-0;
             a {
-              @apply hyphens-auto;
+              @apply hyphens-auto break-all;
             }
           }
         }

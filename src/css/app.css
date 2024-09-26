@@ -286,8 +286,8 @@ body {
     &.full {
       @apply px-2 md:px-8;
     }
-    &.small{
-      @apply lg:max-w-4xl mx-auto px-8 lg:px-0 ;
+    &.small {
+      @apply lg:max-w-4xl mx-auto px-8 lg:px-0;
     }
     .as__section_content {
       @apply xl:mx-auto xl:w-10/12;
@@ -590,7 +590,17 @@ body {
         }
         &.banner_1 {
           @apply relative grid-cols-8 grid-rows-6 overflow-hidden 2xl:container 2xl:mx-auto;
-
+          &.b_revese {
+            .as__banner_content {
+              @apply md:col-start-2 md:col-end-7;
+            }
+            .as__banner_images {
+              @apply md:col-start-4 md:col-end-8;
+              img{
+                @apply md:max-h-[90vh];
+              }
+            }
+          }
           .as__banner_content {
             @apply z-20 col-start-2 col-span-6 row-start-4 row-span-3 md:col-start-5 md:col-end-8 md:row-start-2 md:row-end-6 self-center flex flex-col gap-8;
             &.full {
@@ -1867,7 +1877,6 @@ body {
               @apply file-input file-input-primary file-input-bordered w-full file-input-sm;
             }
           }
-          
         }
         input[id="pg:fm:pb:pbs:file:files"] {
           @apply file-input file-input-primary file-input-bordered w-full file-input-sm;
@@ -2132,7 +2141,7 @@ body {
 
 .as__gov_int {
   @apply w-full flex flex-col gap-y-4 text-azul-dark !px-4 bg-white pt-8;
-  &.light{
+  &.light {
     @apply text-current;
   }
   &.as__g_documentos_tcon_list_int {

@@ -1848,6 +1848,9 @@ body {
             @apply flex gap-x-4 w-full pb-8 border-b border-gray-200;
             .fqs_info {
               @apply hidden;
+              video {
+                @apply md:w-4/5 mx-auto w-full;
+              }
             }
             &.active {
               .fqs_info {
@@ -2273,4 +2276,22 @@ body {
 }
 
 #modal_intro {
+}
+.videos_list {
+  @apply flex gap-4;
+  ul {
+    @apply grid md:grid-cols-4 grid-cols-1 sm:grid-cols-2 gap-4 !p-0 !m-0;
+    li {
+      @apply !p-0 !list-none !list-image-none h-full;
+      a {
+        @apply bg-alpha-20 pb-2 pt-3 px-4 rounded-lg !no-underline h-full !flex !flex-col items-stretch gap-2 transition-colors ease-in-out hover:bg-alpha-15;
+        h5 {
+          @apply !text-lg text-azul-bold font-je !mt-0 !mb-auto !p-0;
+        }
+        img {
+          @apply !mt-auto block aspect-video !p-0;
+        }
+      }
+    }
+  }
 }

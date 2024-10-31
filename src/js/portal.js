@@ -1008,3 +1008,20 @@ if (document.querySelector(".pa__banner")) {
   }
   initIntro();
 }
+
+// Select all video elements
+const videos = document.querySelectorAll("video");
+
+// Function to pause all other videos
+function pauseOtherVideos(currentVideo) {
+  videos.forEach((video) => {
+    if (video !== currentVideo) {
+      video.pause();
+    }
+  });
+}
+
+// Add event listeners to each video
+videos.forEach((video) => {
+  video.addEventListener("play", () => pauseOtherVideos(video));
+});

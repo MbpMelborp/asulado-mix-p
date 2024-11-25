@@ -41,7 +41,7 @@ const novedades = [
   "2024-09-17",
   "2024-10-17",
   "2024-11-17",
-  "2024-12-16",
+  "2024-12-13",
 ];
 
 dayjs.extend(dayjsBusinessDays, options);

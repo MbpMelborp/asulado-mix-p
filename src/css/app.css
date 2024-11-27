@@ -596,7 +596,7 @@ body {
             }
             .as__banner_images {
               @apply md:col-start-4 md:col-end-8;
-              img{
+              img {
                 @apply md:max-h-[90vh];
               }
             }
@@ -2892,6 +2892,17 @@ ul.start-li {
           @apply !w-[220px] mx-auto;
         }
       }
+    }
+  }
+}
+#tabs_vids {
+  a.active {
+    @apply bg-azul-norm text-white;
+  }
+  .tab_vid {
+    @apply hidden;
+    &.active {
+      @apply flex flex-col gap-4;
     }
   }
 }

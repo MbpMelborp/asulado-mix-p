@@ -394,3 +394,20 @@ if (document.getElementById("tabs-ciber")) {
     });
   });
 }
+
+if (document.getElementById("tabs_vids")) {
+  const tabs = document.querySelectorAll("#tabs_vids aside a");
+  const tabContents = document.querySelectorAll("#tabs_vids > div");
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      tabs.forEach((tab) => tab.classList.remove("active"));
+      tabContents.forEach((content) => content.classList.remove("active"));
+
+      tab.classList.add("active");
+      tabContents[index].classList.add("active");
+    });
+  });
+}

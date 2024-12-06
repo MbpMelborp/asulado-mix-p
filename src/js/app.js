@@ -210,6 +210,7 @@ function handleMenu() {
 }
 
 //HOME
+/*
 if (document.getElementById("modal_sus")) {
   function setCookie(cname, cvalue, exdays) {
     const d = new Date();
@@ -248,7 +249,7 @@ if (document.getElementById("modal_sus")) {
       // setCookie("modal_sus", "false", 1);
     }
   });
-}
+}*/
 
 if (document.getElementById("as__home")) {
   setHomeBanners(gsap);

@@ -730,7 +730,7 @@ function initIntro() {
     const steps = [
       {
         content:
-          "<img src='https://asulado-cdn-mbp.s3.amazonaws.com/assets/images/PORTAL/bienvenida.jpg' /><p>Aquí podrás gestionar documentos, novedades y solicitudes.</p><p> <b> ¡Te haremos un rápido recorrido! </b></p>",
+          "<img src='https://d2d3tju83rs4vu.cloudfront.net/assets/images/PORTAL/bienvenida.jpg' /><p>Aquí podrás gestionar documentos, novedades y solicitudes.</p><p> <b> ¡Te haremos un rápido recorrido! </b></p>",
         title: "¡Bienvenido al Portal Transaccional de ASULADO!",
         // target: "",
         order: 0,

@@ -1151,6 +1151,11 @@ body {
       &:has(.news),
       .news {
         @apply prose-lg;
+        &.videos {
+          video {
+            @apply w-full md:w-8/12 mx-auto;
+          }
+        }
         .pbSubsection {
           table.detailList {
             @apply flex flex-col gap-2;
@@ -1849,7 +1854,7 @@ body {
             .fqs_info {
               @apply hidden;
               video {
-                @apply md:w-4/5 mx-auto w-full;
+                @apply md:w-7/12 mx-auto w-full;
               }
             }
             &.active {

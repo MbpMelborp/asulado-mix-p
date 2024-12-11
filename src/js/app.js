@@ -335,9 +335,7 @@ if (!window.embedded_svc) {
   initESW("https://service.force.com");
 }
 
-document.getElementById("start_chat").addEventListener("click", startChat);
-
-
+// document.getElementById("start_chat").addEventListener("click", startChat);
 
 if (document.getElementById("as__ciber_t1_slider")) {
   // window.addEventListener("load", () => {

@@ -337,22 +337,7 @@ if (!window.embedded_svc) {
 
 document.getElementById("start_chat").addEventListener("click", startChat);
 
-function startChat() {
-  console.log("Iniciando chat");
-  embedded_svc.liveAgentAPI.startChat({
-    directToAgentRouting: {
-      buttonId: "5738a000000Tn5E",
-      fallback: true,
-    },
-    extraPrechatInfo: [
-      {
-        entityName: "Contact",
-        saveToTranscript: "",
-      },
-    ],
-    extraPrechatFormDetails: [],
-  });
-}
+
 
 if (document.getElementById("as__ciber_t1_slider")) {
   // window.addEventListener("load", () => {

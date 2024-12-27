@@ -616,15 +616,16 @@ body {
               }
             }
             h1.t2 {
-              @apply relative mx-auto pr-12 font-je text-4xl leading-none md:mx-0 md:pr-0;
+              @apply relative mx-auto pr-12 font-je text-4xl leading-none md:mx-0 md:pr-0 md:mr-7;
               span {
-                @apply relative z-10 block text-azul-dark;
+                /* @apply relative z-10 block text-azul-dark; */
+                @apply inline-block;
               }
               b {
                 @apply inline bg-none font-bold text-azul-bold;
               }
-              strong{
-                @apply text-azul-bold;
+              strong {
+                @apply relative mx-0 z-0 inline-block rounded-full bg-[#D3EBF1] px-6 pb-1 pt-2 font-normal text-azul-bold;
               }
             }
             div.innerp {

@@ -616,12 +616,15 @@ body {
               }
             }
             h1.t2 {
-              @apply relative mx-auto pr-12 font-je text-5xl leading-none md:mx-0 md:pr-0;
+              @apply relative mx-auto pr-12 font-je text-4xl leading-none md:mx-0 md:pr-0;
               span {
                 @apply relative z-10 block text-azul-dark;
               }
               b {
-                @apply relative z-0 ml-8 inline-block rounded-full bg-[#D3EBF1] px-6 pb-1 pt-2 font-normal text-azul-bold;
+                @apply inline bg-none font-bold text-azul-bold;
+              }
+              strong{
+                @apply text-azul-bold;
               }
             }
             div.innerp {

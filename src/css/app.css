@@ -624,8 +624,8 @@ body {
                 @apply relative z-0 ml-8 inline-block rounded-full bg-[#D3EBF1] px-6 pb-1 pt-2 font-normal text-azul-bold;
               }
             }
-            div {
-              @apply flex flex-col gap-4 md:ml-9;
+            div.innerp {
+              @apply flex flex-col gap-4 md:ml-12 md:mr-24;
               p {
                 @apply text-azul-dark text-lg leading-tight text-center md:text-left;
                 &.dest {

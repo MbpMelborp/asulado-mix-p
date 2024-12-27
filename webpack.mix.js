@@ -25,6 +25,7 @@ try {
     .postCss("src/css/app.css", "dist/assets/css/")
     .postCss("src/css/portal.css", "dist/assets/css/")
     .postCss("src/css/forms.css", "dist/assets/css/")
+    // .postCss("src/css/banner.css", "dist/assets/css/")
     .postCss(
       "node_modules/@glidejs/glide/dist/css/glide.core.min.css",
       "dist/assets/css/"

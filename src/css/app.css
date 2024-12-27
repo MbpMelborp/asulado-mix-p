@@ -615,10 +615,37 @@ body {
                 @apply relative z-0 ml-8 inline-block rounded-full bg-[#D3EBF1] px-6 pb-1 pt-2 font-normal text-azul-bold;
               }
             }
+            h1.t2 {
+              @apply relative mx-auto pr-12 font-je text-5xl leading-none md:mx-0 md:pr-0;
+              span {
+                @apply relative z-10 block text-azul-dark;
+              }
+              b {
+                @apply relative z-0 ml-8 inline-block rounded-full bg-[#D3EBF1] px-6 pb-1 pt-2 font-normal text-azul-bold;
+              }
+            }
             div {
               @apply flex flex-col gap-4 md:ml-9;
               p {
                 @apply text-azul-dark text-lg leading-tight text-center md:text-left;
+                &.dest {
+                  @apply text-azul-bold text-lg;
+                }
+              }
+              p.t1 {
+                @apply text-azul-dark text-2xl leading-tight text-center md:text-left md:mr-4;
+                &.dest {
+                  @apply text-azul-bold text-lg;
+                }
+              }
+              p.t2 {
+                @apply text-azul-mid font-bold text-lg leading-tight text-center md:text-left;
+                &.dest {
+                  @apply text-azul-bold text-lg;
+                }
+              }
+              p.t3 {
+                @apply text-azul-dark text-base leading-tight text-center md:text-left;
                 &.dest {
                   @apply text-azul-bold text-lg;
                 }

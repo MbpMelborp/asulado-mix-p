@@ -616,7 +616,7 @@ body {
               }
             }
             h1.t2 {
-              @apply relative mx-auto pr-12 font-je text-4xl leading-none md:mx-0 md:pr-0 md:mr-7;
+              @apply relative text-center md:text-left mx-auto !pr-0 font-je text-3xl md:text-4xl leading-none md:mx-0 md:pr-0 md:mr-7;
               span {
                 /* @apply relative z-10 block text-azul-dark; */
                 @apply inline-block;
@@ -637,21 +637,21 @@ body {
                 }
               }
               p.t1 {
-                @apply text-azul-dark text-2xl leading-tight text-center md:text-left md:mr-4;
+                @apply text-azul-dark text-xl md:text-2xl leading-tight text-center md:text-left md:mr-4;
                 &.dest {
                   @apply text-azul-bold text-lg;
                 }
               }
               p.t2 {
-                @apply text-azul-mid font-bold text-lg leading-tight text-center md:text-left;
+                @apply text-azul-mid font-bold md:text-lg leading-tight text-center md:text-left;
                 &.dest {
-                  @apply text-azul-bold text-lg;
+                  @apply text-azul-bold md:text-lg;
                 }
               }
               p.t3 {
-                @apply text-azul-dark text-base leading-tight text-center md:text-left;
+                @apply text-azul-dark text-xs md:text-base leading-tight text-center md:text-left;
                 &.dest {
-                  @apply text-azul-bold text-lg;
+                  @apply text-azul-bold md:text-lg;
                 }
               }
               a {

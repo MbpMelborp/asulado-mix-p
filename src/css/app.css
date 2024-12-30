@@ -629,7 +629,7 @@ body {
               }
             }
             div.innerp {
-              @apply flex flex-col gap-4 md:ml-12 md:mr-24;
+              @apply flex flex-col gap-1 md:gap-4 md:ml-12 md:mr-24;
               p {
                 @apply text-azul-dark text-lg leading-tight text-center md:text-left;
                 &.dest {

@@ -2394,6 +2394,10 @@ body {
     .next {
       @apply hidden;
     }
+    .year-neighbor2,
+    .year-neighbor {
+      @apply hidden;
+    }
   }
   .months-container {
     @apply bg-azul-light rounded-b-xl p-8 gap-y-4;

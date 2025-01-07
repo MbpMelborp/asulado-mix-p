@@ -60,8 +60,20 @@ const novedades = [
   "2025-11-17",
   "2025-12-12",
 ];
-
-
+const pagos = [
+  "2025-01-29",
+  "2025-02-26",
+  "2025-03-27",
+  "2025-04-28",
+  "2025-05-28",
+  "2025-06-25",
+  "2025-07-29",
+  "2025-08-27",
+  "2025-09-26",
+  "2025-10-28",
+  "2025-11-26",
+  "2025-12-23",
+];
 
 dayjs.extend(dayjsBusinessDays, options);
 
@@ -108,6 +120,9 @@ export function setCalendar(gsap) {
           dayjs(date).lastBusinessDayOfMonth().format(`DD/MM/YYYY`) ==
           dayjs(date).format(`DD/MM/YYYY`)
         ) {
+          // element.classList.add("last_day");
+        }
+        if (pagos.includes(fdate)) {
           element.classList.add("last_day");
         }
         if (

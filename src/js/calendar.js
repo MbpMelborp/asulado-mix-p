@@ -93,7 +93,9 @@ export function setCalendar(gsap) {
   }
 
   if (document.getElementById("as__calendario")) {
-    document.getElementById("proximo_pago").innerHTML = lastday;
+    const nextPago = pagos.find((date) => dayjs(date).isAfter(today));
+    const formattedNextPago = nextPago.split("-").reverse().join("/");
+    document.getElementById("proximo_pago").innerHTML = formattedNextPago;
 
     const calendar = new Calendar(".calendar", {
       language: "es",
